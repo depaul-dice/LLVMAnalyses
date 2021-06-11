@@ -2,12 +2,12 @@
 python3 main.py directory 
 
 ## Environment
-Ubuntu 16.04
-Python 3.7.8
-pydotplus 2.0.2
+- Ubuntu 16.04
+- Python 3.7.8
+- pydotplus 2.0.2
 
 ## Input specification
-The directory can only have the dotfiles inside
+The directory can only have the dotfiles inside, 
 
 ## Each Files' Main Functionalities
 
