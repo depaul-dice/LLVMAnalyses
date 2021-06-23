@@ -21,7 +21,9 @@ A directory with a set of dotfiles inside
 ## Output ##
 A directory with a set of files with information of CFGs, and each line represents a node.  
 The lines are in the following format:  
+```
 id, type, (function name/ system call number,) number of oEdges, number of iEdges, number of bEdges, id of oEdge dests, id of iEdge srcs, id of bEdge dests  
+```
 For example, 
 `0x970360,funccall,read,0,1,1,na,0x970310,0x970310`  
 means  
