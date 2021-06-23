@@ -14,4 +14,32 @@ The system call alignment is composed of 3 steps:
 3. Path-finding using a system call trace of an execution and simplified CFGs  
 4. Alignment comparing two paths found in step 3  
 
+This repository has a program that does the step 2 in the system call alignment.
 
+## Input ##
+A directory with a set of dotfiles inside  
+## Output ##
+A directory with a set of files with information of CFGs, and each line represents a node.  
+The lines are in the following format:  
+id, type, (function name/ system call number,) number of oEdges, number of iEdges, number of bEdges, id of oEdge dests, id of iEdge srcs, id of bEdge dests  
+For example, 
+`0x970360,funccall,read,0,1,1,na,0x970310,0x970310`  
+means  
+```
+id = 0x970360  
+type = function call  
+function name (because this is a function call node) = read  
+number of outgoing edges = 0  
+number of incoming edges = 1  
+number of back edges = 1  
+id of outgoing edge destinations = not applicable (because there isn't any)  
+id of incoming edge sources = 0x970310  
+id of back edge destinations = 0x970310  
+```
+
+## Procedure (At A High Level) ##  
+1. Takes in the dotfiles with the function pydotplus\.graph\_from\_dot\_file  
+2. Omits all the irrelevant instructions in the CFGs (i.e. instructions that are not system calls, function calls that leads to system calls, return calls)  
+3. Omits all the vertices-LLVM basic blocks- that does not have instructions in them  
+4. Makes the CFGs into one instructions per vertex  
+5. Spits out the set of files (one file/function, one CFG is one function), in a specified format  
