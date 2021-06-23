@@ -39,7 +39,7 @@ id of incoming edge sources = 0x970310
 id of back edge destinations = 0x970310  
 ```
 
-## Procedure (At A High Level) ##  
+## Procedure (At A High Level)   
 1. Takes in the dotfiles with the function pydotplus\.graph\_from\_dot\_file  
 2. Omits all the irrelevant instructions in the CFGs (i.e. instructions that are not system calls, function calls that leads to system calls, return calls)  
 3. Omits all the vertices-LLVM basic blocks- that does not have instructions in them  
