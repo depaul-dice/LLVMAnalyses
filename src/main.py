@@ -60,14 +60,12 @@ unnec = {
         '__stdin_FILE': 1,
         }
 
-
-syscall_patterns = list()
-
-def set_syscall_patterns():
-    syscall_patterns.append(r'%\d+\s=\stail\scall\si64\s@__syscall_cp\(i64\s(\d+),')
-    syscall_patterns.append(r"%\d+\s=\scall\si64\s@__syscall_cp\(i64\s(\d+),")
-    syscall_patterns.append(r'syscall,\s=\\\{ax\\\},\\\{ax\\\},[^\(]*\}\s?[\s\(]\s?i64\s(\d+)')
-    syscall_patterns.append(r'syscall,\s=\\\{ax\\\},\\\{ax\\\},\\\{di\\\},\\\{si\\\},~\\\{rcx\\\},~\\\{r11\\\},~\\\{memory\\\},~\\\{dirflag\\\},~\\\{fpsr\\\},~\\\{flags\\\}\(i64\s(\d+)')
+syscall_patterns = [ 
+        r'%\d+\s=\stail\scall\si64\s@__syscall_cp\(i64\s(\d+),',
+        r"%\d+\s=\scall\si64\s@__syscall_cp\(i64\s(\d+),",
+        r'syscall,\s=\\\{ax\\\},\\\{ax\\\},[^\(]*\}\s?[\s\(]\s?i64\s(\d+)',
+        r'syscall,\s=\\\{ax\\\},\\\{ax\\\},\\\{di\\\},\\\{si\\\},~\\\{rcx\\\},~\\\{r11\\\},~\\\{memory\\\},~\\\{dirflag\\\},~\\\{fpsr\\\},~\\\{flags\\\}\(i64\s(\d+)'
+        ]
 
 def find_syscalls(inst: str) -> (list, int):
     if inst.find('syscall') == -1:
@@ -131,7 +129,6 @@ def not_line(inst: str) -> bool:
 
 def parse_block(block, directory: str, infos: dict) -> None:
     old_insts = block.get_insts()
-    # print(len(old_insts))
     infos["allInsts"] += len(old_insts)
     new_insts = list()
     concat_flag = False
@@ -157,7 +154,7 @@ def parse_block(block, directory: str, infos: dict) -> None:
             for func in funcs: 
                 if func != 'syscall' and func != 'ret':
                     func_flag = False 
-                    filename = 'cfg.' + func + '.dot' 
+                    filename = func + '.dot' 
                     if debug:
                         print('parsing ' + filename + ': ' + inst)
                     if func == '__syscall_ret' or parsed == '__syscall_cp':
@@ -165,7 +162,7 @@ def parse_block(block, directory: str, infos: dict) -> None:
                     if not os.path.exists(os.path.join(directory, filename)):
                         if func in func_dict:
                             tmpfunc = func_dict[func]
-                            filename = 'cfg.' + tmpfunc + '.dot'
+                            filename = tmpfunc + '.dot'
                             # print('translating: ' + filename)
                         else:
                             if func not in notFound_dict:
@@ -183,37 +180,8 @@ def parse_block(block, directory: str, infos: dict) -> None:
 
 def parse_func_topdown(cfg_, directory: str, infos: dict) -> None:
     vertices = cfg_.get_vertices()
-    root = cfg_.get_root()
-    if root == None:
-        print(cfg_.get_name())
-        raise Exception("root not found")
-
     for vName, vertex in vertices.items():
         parse_block(vertex, directory, infos)
-    '''
-    cfg_.clear_visit()
-    root = cfg_.get_root()
-    if root == None:
-        print(cfg_.get_name())
-        raise Exception("root not found")
-    stack = list()
-    stack.append(root)
-
-    while len(stack) > 0:
-        curr = stack.pop()
-        if curr.is_visited():
-            continue
-        if debug:
-            print("parsing: " + curr.get_name())
-
-        parse_block(curr, directory, infos)
-        curr.visit()
-        children = curr.get_children()
-        for name, child in children.items():
-            if not child.is_visited():
-                stack.append(child)
-    cfg_.clear_visit()
-    '''
 
 def find_specSyscall(cfg, specSyscallDict, tmpCFG_dict) -> dict:
     name = cfg.get_name()
@@ -353,14 +321,13 @@ def parse_cfg(directory: str, filename: str, infos: dict):
         return _cfg
     
     parse_func_topdown(_cfg, directory, infos)
-    if debug:
-        print('starting destroying unnecessary blocks for ' + filename)
     
     # I want to count the number of vertices and edges here (before simplification)
 
-    #further_simplify(_cfg)
+    '''
     outfile = 'tmp/' + filename + '.out'
     _cfg.out_result(outfile)
+    '''
     
     if _cfg.get_name() in cfg_dict and cfg_dict[_cfg.get_name()] != None:
         raise Exception('this should be new cfg')
@@ -495,18 +462,14 @@ if __name__ == "__main__":
     assert len(sys.argv) == 2 or len(sys.argv) == 3
     directory = sys.argv[1]
     if len(sys.argv) == 3:
-        filename = "cfg." + sys.argv[2] + ".dot" 
+        filename = sys.argv[2] + ".dot" 
     else:
-        filename = "cfg.main.dot"
+        filename = "main.dot"
     try:
         os.mkdir("tmp")
     except (FileExistsError):
         pass
         
-    tools.silent_remove('result.txt')
-    tools.silent_remove('inst.txt')
-    set_syscall_patterns()
-    
     _cfg = parse_cfg(directory, filename, data)
     
     old_names = list()

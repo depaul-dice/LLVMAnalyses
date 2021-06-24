@@ -11,18 +11,14 @@ class edge:
         self.__dst = dst
 '''
 class vertex:
-    def __init__(self, name, insts, type = 'normal', color = 'white', typeset = False):
+    def __init__(self, name, insts, type = 'normal', color = 'white'):
         self.__name = name
         self.__insts = insts
-        self.__num_oedges = 0
-        self.__num_iedges = 0 
-        self.__num_bedges = 0
         self.__oedges = dict() # only the out-edges are kept
         self.__iedges = dict() # only incoming edges are kept
         self.__bedges = dict()
-        if not typeset:
-            self.__figure_type()
         self.__color = color 
+        self.__type = None
 
     def get_name(self):
         return self.__name
@@ -36,8 +32,8 @@ class vertex:
     def get_type(self):
         return self.__type
 
+
     def append_oedge(self, dst):
-        self.__num_oedges += 1
         if dst.get_name() in self.__oedges:
             if debug:
                 print("appended the same child twice for oedges: " + dst.get_name())
@@ -52,7 +48,6 @@ class vertex:
             return 
 
         del self.__oedges[oedge.get_name()]
-        self.__num_oedges -= 1
     
     def set_oedges(self, new_oedges: dict):
         self.__oedges = new_oedges
@@ -61,7 +56,6 @@ class vertex:
         self.__bedges = new_bedges
 
     def append_iedge(self, src):
-        self.__num_iedges += 1
         if src.get_name() in self.__iedges:
             if debug: 
                 print("appended the same parent twice for iedges: " + src.get_name())
@@ -75,10 +69,8 @@ class vertex:
             # raise Exception('the iedge not found: ' + iedge.get_name())
             return
         del self.__iedges[iedge.get_name()]
-        self.__num_iedges -= 1
 
     def append_bedge(self, bedge):
-        self.__num_bedges += 1
         if bedge.get_name in self.__bedges:
             raise Exception("appended the same bedge twice")
         self.__bedges[bedge.get_name()] = bedge
@@ -106,13 +98,13 @@ class vertex:
     def get_bedges(self):
         return self.__bedges
 
-    def set_type(self, type_: str):
-        if type_ != 'normal' and type_ != 'end' and type_ != 'root':
+    def set_type(self, _type: str):
+        if _type != 'normal' and _type != 'end' and _type != 'root':
             raise Exception('wrong input in type!')
-        self.__type = type_
+        self.__type = _type
 
     def has_mult_parent(self):
-        return self.__num_iedges > 1
+        return len(self.__iedges) > 1
 
     def get_parents(self):
         return self.__iedges
@@ -139,10 +131,8 @@ class vertex:
         if not fnd:
             raise Exception("edge not found: " + oe)
         
-        self.__num_oedges -= 1
         assert self.__num_oedges >= 0
         self.__bedges[oe.get_name()] = oe
-        self.__num_bedges += 1
         assert len(self.__bedges) == self.__num_bedges
         assert len(self.__oedges) == self.__num_oedges
 
@@ -254,7 +244,7 @@ class vertex:
         if len(oedges) == 0:
             fp.write('na')
         fp.write('\n')
-
+    '''
     def __figure_type(self):
         if len(self.__insts) == 0:
             self.__type = 'normal'
@@ -264,6 +254,7 @@ class vertex:
             self.__type = 'root'
         else:
             self.__type = 'normal'
+    '''
        
 class cfg:
     def __init__(self, name):
@@ -342,6 +333,19 @@ class cfg:
 
     def set_root(self, new_root):
         self.__root = new_root
+
+    def find_root(self):
+        cand = list()
+        for vName, v in self.__vertices.items():
+            if len(v.get_parents()) == 0:
+                cand.append(v)
+            else:
+                v.set_type('normal')
+        if len(cand) != 1:
+            raise Exception("multiple root found, there is something wrong with the cfg dotfile")
+        self.__root = cand[0]
+        cand[0].set_type('root')
+
 
     def get_node(self, name: str):
         return self.__vertices[name] 
@@ -505,6 +509,8 @@ def parse_dot(filename: str, cfg_dict: dict, infos: dict) -> (cfg, bool):
 
     for e in edgeList:
         rv.append_edge(e)
+    
+    rv.find_root()
 
     return rv, False
 
