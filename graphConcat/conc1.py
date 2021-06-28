@@ -1,9 +1,11 @@
 import sys
 import os
 import os.path
+
 from os import path
-sys.setrecursionlimit(500000)
-f = open("main.txt", "r")
+sys.setrecursionlimit(5000000)
+crrDir = sys.argv[1]
+f = open( crrDir + "/main.txt", "r")
 affectedAddress = {}
 
 class graph:
@@ -40,7 +42,7 @@ def getNodeElements(node):
 # Creating a graph
 
 def createGraph(fileName):
-	f = open(fileName + ".txt", "r")
+	f = open(crrDir + fileName + ".txt", "r")
 	lines = f.readlines()
 	graph_elements = {}
 	for vertex in lines:
@@ -292,8 +294,8 @@ def eleminateChangedAddress(affectedAddress, result):
 
 
 def writeOutput(result):
-	if(path.exists("result.txt")):
-		os.remove("result.txt")
+	if(path.exists(crrDir + "/result.txt")):
+		os.remove(crrDir + "/result.txt")
 	original_stdout = sys.stdout
 	for adjList in result:
 		val = result[adjList]
@@ -323,7 +325,7 @@ def writeOutput(result):
 				backEdge = ':'.join(result[adjList][3])
 				leng3 = len(result[adjList][3])
 				
-			with open('result.txt', 'a+') as f:
+			with open(crrDir + 'result.txt', 'a+') as f:
 
 			    sys.stdout = f # Change the standard output to the file we created.
 			    print(adjList+','+ result[adjList][0]+ ',' + str(leng1) + ',' + str(leng2) + ',' + str(leng3) + ',' + dstEdge + ',' + srcEdge + ',' + backEdge )
@@ -350,7 +352,7 @@ def writeOutput(result):
 				backEdge = ':'.join(result[adjList][4])
 				leng3 = len(result[adjList][4])
 
-			with open('result.txt', 'a+') as f:
+			with open(crrDir + 'result.txt', 'a+') as f:
 			    sys.stdout = f # Change the standard output to the file we created.
 			    print(adjList+','+ result[adjList][0]+ ',' + str(result[adjList][1]) + ',' + str(leng1) + ',' + str(leng2) + ',' + str(leng3) + ',' + dstEdge + ',' + srcEdge + ',' + backEdge)
 			    sys.stdout = original_stdout # Reset the standard output to its original value
