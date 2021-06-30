@@ -68,14 +68,9 @@ class oneInstG_t:
         for name, oEdge in curr.get_oEdges().items():
             if name in history:
                 # back edge is found
-                # curr.delete_oEdge(name)
-                # print("back edge is found at %s to %s"%(curr.id, name))
                 outDelete.append(name)
                 curr.append_bEdge(name, oEdge)
                 oEdge.append_iEdge(curr.id, curr)
-                # oEdge.append_iBEdge(curr.id, curr)
-                # inDelete[curr.id] = oEdge
-                oEdge.delete_iEdge(curr.id)
             else:
                 histCopy = history.copy()
                 histCopy[name] = oEdge
@@ -240,12 +235,10 @@ class oneInstV:
     def __init__(self, __id: str, __type: str, numOutEdges: int, sysNum = -1) -> None:
         self.id = __id
         self.typeNode = self.__convertType(__type)
-        # self.__numOutEdges = numOutEdges
         self.__sysNum = sysNum
         self.__outEdges = dict() 
         self.__inEdges = dict()
         self.__backEdges = dict()
-        # self.__inBackEdges = dict()
         self.color = 0
 
     def __convertType(self, __type:str) -> typeNode:
@@ -260,21 +253,6 @@ class oneInstV:
         else: 
             self.funcname = __type
             return typeNode.FUNCCALL
-
-    '''
-    def get_iBEdges(self) -> dict:
-        return self.__inBackEdges
-
-    def append_iBEdge(self, __id: str, __iBEdge)-> None:
-        if __id in self.__inBackEdges and __iBEdge != self.__inBackEdges[__id]:
-            raise Exception("inBackEdge not matching")
-        self.__inBackEdges[__id] = __iBEdge
-
-    def delete_iBEdge(self, __id: str) -> None:
-        if __id not in self.__inBackEdges:
-            return
-        del self.__inBackEdges[__id] 
-    '''
 
     def get_bEdges(self) -> dict:
         return self.__backEdges
@@ -330,8 +308,6 @@ class oneInstV:
         f.write(str(len(self.__outEdges)) + ',')
         f.write(str(len(self.__inEdges)) + ',')
         f.write(str(len(self.__backEdges)) + ',')
-        # f.write(str(len(self.__outEdges) + len(self.__backEdges))) + ',')
-        # f.write(str(len(self.__inBackEdges)) + ',')
         newbie = True 
         if len(self.__outEdges) == 0:
             f.write('na')
@@ -364,66 +340,8 @@ class oneInstV:
                 f.write(':')
             f.write(edgeName)
 
-        '''
-        f.write(',')
-
-        newbie = True
-        if len(self.__inBackEdges) == 0:
-            f.write('na')
-        for edgeName in self.__inBackEdges:
-            if newbie:
-                newbie = False
-            else:
-                f.write(':')
-            f.write(edgeName)
-        '''
         f.write('\n')
-
-    def outResult2(self, f):
-        f.write(self.id + ': {')
-        f.write('\'id\':' + self.id + ',')
-        f.write('\'type\':')
-        if self.typeNode == typeNode.EPOINT:
-            f.write('3,')
-        elif self.typeNode == typeNode.SYSCALL:
-            f.write('1,')
-        elif self.typeNode == typeNode.FUNCCALL:
-            f.write('2,')
-        elif self.typeNode == typeNode.EMPTY:
-            f.write('0,')
-        elif self.typeNode == typeNode.RET:
-            f.write('4,')
-        else:
-            raise Exception("type unknown")
-
-        f.write('\'val\':')
-        if self.typeNode == typeNode.SYSCALL:
-            f.write(str(self.__sysNum) + ',')
-        else:
-            f.write('-1,')
-
-        f.write('\'findex\':')
-        if self.typeNode == typeNode.FUNCCALL:
-            f.write('\'' + self.funcname + '\',')
-        else:
-            f.write('\'na\',')
-
-        f.write('\'od\':[')
-        first = True
-        for od in self.__outEdges: 
-            if first:
-                first = False
-                f.write(od)
-            else:
-                f.write(',' + od)
-        for od in self.__backEdges:
-            if first:
-                first = False
-                f.write(od)
-            else:
-                f.write(',' + od)
-        f.write(']},\n')
-
+        
     # member
     # __typenode = typenode.null;  
     # __numoutedges = -1;

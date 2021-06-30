@@ -466,10 +466,12 @@ if __name__ == "__main__":
     else:
         filename = "main.dot"
 
+    '''
     try:
         os.mkdir("tmp")
     except (FileExistsError):
         pass
+    '''
     try:
         os.mkdir('outs')
     except FileExistsError:
@@ -500,13 +502,11 @@ if __name__ == "__main__":
 
     specSyscallDict = dict()
     find_specSyscall(tmpCFG_dict['main'], specSyscallDict, tmpCFG_dict)
-    print(specSyscallDict)
     
     
     for funcName, necessary in syscall_dict.items():
         if not necessary:
            del tmpCFG_dict[funcName] 
-    # print(tmpCFG_dict)
 
     unnec_insts = 0
     for name, _cfg in tmpCFG_dict.items():
@@ -518,8 +518,8 @@ if __name__ == "__main__":
  
     for name, _cfg in tmpCFG_dict.items():
         tmpBlockNum, tmpEdgeNum = further_simplify(_cfg)
-        outfile = 'tmp/' + _cfg.name + '.out'
-        _cfg.out_result(outfile)
+        #outfile = 'tmp/' + _cfg.name + '.out'
+        #_cfg.out_result(outfile)
  
         blockNum += tmpBlockNum
         edgeNum += tmpEdgeNum
@@ -554,13 +554,6 @@ if __name__ == "__main__":
     for name, currOIG in oneInstGDict.items():
         currOIG.outResult("outs/" + name + ".txt")
 
-    '''
-    with open('out.txt', 'w') as f:
-        for name, currOIG in oneInstGDict.items():
-            f.write(name + '= {')
-            currOIG.outResult2(f)
-            f.write('}\n')
-    '''
     
 
 

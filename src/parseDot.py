@@ -454,7 +454,6 @@ def parse_dot(filename: str, cfg_dict: dict, infos: dict) -> (cfg, bool):
 
     edgeList = graph.get_edge_list()
     infos["edges"] += len(edgeList)
-    #print("%s %d %d"%(cfg_name, len(nodeList), len(edgeList)))
 
     for e in edgeList:
         rv.append_edge(e)

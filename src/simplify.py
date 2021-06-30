@@ -120,11 +120,13 @@ def check_noRedundance(cfg):
         srcs = curr.get_parents()
         dsts = curr.get_children()
         if (not curr.has_insts()) and curr.get_type() == 'normal' and len(srcs) <= 1 and len(dsts) <= 1:
-            curr.vprint()
             raise Exception("redundant node is not deleted yet: " + curr.get_name() + ', ' + cfg.name)
         elif len(srcs) <= 1 and len(dsts) <= 1:
+            '''
             print(curr.get_name() + ':', end = '')
             print(curr.get_insts())
+            '''
+            pass
             
         for dst_name, dst in dsts.items():
             stack.append(dst)
@@ -145,7 +147,6 @@ def further_simplify(cfg):
     empty_vertices = list_vertices(cfg)
     delete_redundantNodes(empty_vertices, cfg.get_vertices())
     check_noRedundance(cfg)
-    printEV(empty_vertices)
     vcount, ecount = count_vertices(cfg)
     return vcount, ecount
 
