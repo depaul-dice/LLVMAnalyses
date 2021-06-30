@@ -18,7 +18,7 @@ This file also deletes the irrelevant instructions in the basic blocks in LLVM d
 ### parseDot.py ###
 This file contains the definition of the CFGs and vertices in the dotfiles. The parse\_dot function in the file parses the dotfile inputs into the CFGs and vertices that fit the definition in the file.
 
-### simplify.py ### 
+### simplify.py ###
 This file has an implementation of further\_simplify which omits the redundant node.
 
 ### tools.py ###
