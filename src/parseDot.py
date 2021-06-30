@@ -16,7 +16,6 @@ class vertex:
         self.__insts = insts
         self.__oedges = dict() # only the out-edges are kept
         self.__iedges = dict() # only incoming edges are kept
-        self.__bedges = dict()
         self.__color = color 
         self.__type = None
 
@@ -52,9 +51,6 @@ class vertex:
     def set_oedges(self, new_oedges: dict):
         self.__oedges = new_oedges
 
-    def set_bedges(self, new_bedges: dict):
-        self.__bedges = new_bedges
-
     def append_iedge(self, src):
         if src.get_name() in self.__iedges:
             if debug: 
@@ -70,16 +66,6 @@ class vertex:
             return
         del self.__iedges[iedge.get_name()]
 
-    def append_bedge(self, bedge):
-        if bedge.get_name in self.__bedges:
-            raise Exception("appended the same bedge twice")
-        self.__bedges[bedge.get_name()] = bedge
-
-    def del_bedge(self, bedge):
-        if not bedge.get_name() in self.__bedges:
-            raise Exception('the bedge not found: ' + bedge.get_name())
-        del self.__bedges[bedge.get_name()]
-        
     def visit(self):
         self.__color = 'black'
 
@@ -89,14 +75,8 @@ class vertex:
     def clear_visit(self):
         self.__color = 'white' 
 
-    def get_visit(self):
-        return self.__color 
-
     def get_children(self):
         return self.__oedges
-
-    def get_bedges(self):
-        return self.__bedges
 
     def set_type(self, _type: str):
         if _type != 'normal' and _type != 'end' and _type != 'root':
@@ -149,8 +129,8 @@ class vertex:
         print('name: ' + self.__name);
         print('insts:'); print(self.__insts)
         print('type: ' + self.__type)
-        print('num_oedges: ', end = ''); print(self.__num_oedges)
-        print('num_iedges: ', end = ''); print(self.__num_iedges)
+        print('num_oedges: ', end = ''); print(len(self.__oedges))
+        print('num_iedges: ', end = ''); print(len(self.__iedges))
         
         print('oedges: ', end = ''); # print(self.__oedges)
         for oedge in self.__oedges:
@@ -173,19 +153,9 @@ class vertex:
             fp.write(str(self.__insts[i][1]))
             if i < len(self.__insts) - 1:
                 fp.write(':')
-        '''
-        try:
-            for inst in self.__insts:
-                fp.write(inst), fp.write(',')
-        except:
-            print(self.__insts)
-            sys.exit(1)
-        '''
         fp.write('\n')
-        # fp.write('type: ' + self.__type); fp.write('\n')
         fp.write('num_oedges: '); fp.write(str(self.__num_oedges)); fp.write('\n')
         fp.write('num_iedges: '); fp.write(str(self.__num_iedges)); fp.write('\n')
-        fp.write('num_bedges: '); fp.write(str(self.__num_bedges)); fp.write('\n')
         
         fp.write('oedges: '); 
         for oedge in self.__oedges:
@@ -195,11 +165,6 @@ class vertex:
         fp.write('iedges: '); 
         for iedge in self.__iedges:
             fp.write(iedge); fp.write(',')
-        fp.write('\n')
-
-        fp.write('bedges: ');
-        for bedge in self.__bedges:
-            fp.write(bedge); fp.write(',')
         fp.write('\n')
 
         fp.write('color: ' + self.__color); fp.write('\n')
@@ -216,14 +181,19 @@ class vertex:
         if len(self.__insts) == 0:
             fp.write('na')
         fp.write(',')
-        # fp.write(self.__type + ',')
         # this is the part that is being added
-        # fp.write(str(len(self.__iedges))); fp.write(',')
-        oedges = dict()
-        oedges.update(self.__oedges)
-        oedges.update(self.__bedges)
+        fp.write(str(len(self.__iedges))); fp.write(',')
+
+        oedges = self.__oedges 
         fp.write(str(len(oedges))); fp.write(',')
-        '''
+        if len(self.__iedges) <= 1 and len(oedges) <= 1 and len(self.__insts) == 0 and self.__type == 'normal':
+            print(self.__name)
+            print('iedge: ', end = '')
+            print(self.__iedges)
+            print('oedge: ', end = '')
+            print(self.__oedges)
+            raise Exception("this node should not be here")
+
         cnt = 0
         for iedge in self.__iedges:
             fp.write(iedge)
@@ -233,7 +203,6 @@ class vertex:
         if len(self.__iedges) == 0:
             fp.write('na')
         fp.write(',')
-        '''
 
         cnt = 0
         for oedge in oedges:
@@ -244,21 +213,10 @@ class vertex:
         if len(oedges) == 0:
             fp.write('na')
         fp.write('\n')
-    '''
-    def __figure_type(self):
-        if len(self.__insts) == 0:
-            self.__type = 'normal'
-            return 
-        inst = self.__insts[0]
-        if inst == '%0:':
-            self.__type = 'root'
-        else:
-            self.__type = 'normal'
-    '''
        
 class cfg:
     def __init__(self, name):
-        self.__name = name
+        self.name = name
         self.__vertices = dict() 
         self.__root = None
         self.__ends = list()
@@ -290,16 +248,13 @@ class cfg:
         dst_vx = self.__vertices[dst]
 
         if src not in self.__vertices:
-            #print(self.__vertices)
             raise Exception('src not found: ' + src)
         else: 
-            #(self.__vertices[src]).append_oedge(dst)
             src_vx.append_oedge(dst_vx)
 
         if dst not in self.__vertices:
             raise Exception('dst not found: ' + dst)
         else:
-            #(self.__vertices[dst]).append_iedge(src)
             dst_vx.append_iedge(src_vx)
 
     def get_root(self):
@@ -349,12 +304,6 @@ class cfg:
 
     def get_node(self, name: str):
         return self.__vertices[name] 
-
-    def get_name(self):
-        return self.__name
-
-    def set_name(self, name :str) -> None:
-        self.__name = name
 
     def clear_visit(self):
         for v in self.__vertices:

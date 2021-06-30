@@ -11,7 +11,6 @@ debug = False
 cfg_dict = dict()
 notFound_dict = dict()
 
-
 func_dict = {
        '__libc_exit_fini' :'libc_exit_fini',
         'fdopen': '__fdopen',
@@ -62,7 +61,9 @@ unnec = {
 
 syscall_patterns = [ 
         r'%\d+\s=\stail\scall\si64\s@__syscall_cp\(i64\s(\d+),',
+        r'%\d+\s=\stail\scall\sfastcc\si64\s@__syscall_cp\(i64\s(\d+),',
         r"%\d+\s=\scall\si64\s@__syscall_cp\(i64\s(\d+),",
+        r"%\d+\s=\scall\sfastcc\si64\s@__syscall_cp\(i64\s(\d+),",
         r'syscall,\s=\\\{ax\\\},\\\{ax\\\},[^\(]*\}\s?[\s\(]\s?i64\s(\d+)',
         r'syscall,\s=\\\{ax\\\},\\\{ax\\\},\\\{di\\\},\\\{si\\\},~\\\{rcx\\\},~\\\{r11\\\},~\\\{memory\\\},~\\\{dirflag\\\},~\\\{fpsr\\\},~\\\{flags\\\}\(i64\s(\d+)'
         ]
@@ -184,7 +185,7 @@ def parse_func_topdown(cfg_, directory: str, infos: dict) -> None:
         parse_block(vertex, directory, infos)
 
 def find_specSyscall(cfg, specSyscallDict, tmpCFG_dict) -> dict:
-    name = cfg.get_name()
+    name = cfg.name
     if name in func_dict:
         name = func_dict[name] 
         cfg.set_name(name)
@@ -222,7 +223,7 @@ def find_specSyscall(cfg, specSyscallDict, tmpCFG_dict) -> dict:
     return rv
 
 def find_syscall(cfg, syscall_dict, tmpCFG_dict) -> dict:
-    name = cfg.get_name()
+    name = cfg.name
     if name in func_dict:
         name = func_dict[name]
         cfg.set_name(name)
@@ -323,18 +324,17 @@ def parse_cfg(directory: str, filename: str, infos: dict):
     parse_func_topdown(_cfg, directory, infos)
     
     # I want to count the number of vertices and edges here (before simplification)
-
     '''
     outfile = 'tmp/' + filename + '.out'
     _cfg.out_result(outfile)
     '''
     
-    if _cfg.get_name() in cfg_dict and cfg_dict[_cfg.get_name()] != None:
+    if _cfg.name in cfg_dict and cfg_dict[_cfg.name] != None:
         raise Exception('this should be new cfg')
-    elif not _cfg.get_name() in cfg_dict:
-        raise Exception(_cfg.get_name() + ' should be in the dict')
+    elif not _cfg.name in cfg_dict:
+        raise Exception(_cfg.name + ' should be in the dict')
     else:
-        cfg_dict[_cfg.get_name()] = _cfg
+        cfg_dict[_cfg.name] = _cfg
     infos["funcs"] += 1
     return _cfg
 
@@ -465,9 +465,14 @@ if __name__ == "__main__":
         filename = sys.argv[2] + ".dot" 
     else:
         filename = "main.dot"
+
     try:
         os.mkdir("tmp")
     except (FileExistsError):
+        pass
+    try:
+        os.mkdir('outs')
+    except FileExistsError:
         pass
         
     _cfg = parse_cfg(directory, filename, data)
@@ -479,7 +484,7 @@ if __name__ == "__main__":
         name = parseCFGName(name) 
         # go through cfg and find if there's a syscall in them
         tmpCFG_dict[name] = _cfg
-        _cfg.set_name(name)
+        _cfg.name = name
 
     for name, _cfg in cfg_dict.items():
         tmpBranch, tmpMerge = countBranchMerge(_cfg)
@@ -510,8 +515,12 @@ if __name__ == "__main__":
     
     blockNum = 0
     edgeNum = 0
+ 
     for name, _cfg in tmpCFG_dict.items():
         tmpBlockNum, tmpEdgeNum = further_simplify(_cfg)
+        outfile = 'tmp/' + _cfg.name + '.out'
+        _cfg.out_result(outfile)
+ 
         blockNum += tmpBlockNum
         edgeNum += tmpEdgeNum
 
@@ -533,8 +542,10 @@ if __name__ == "__main__":
 
     #emptyFuncDict = emptyFuncDetection.findEmptyFunc(oneInstGDict)
     
+    '''
     emptyFuncDict = dict()
     oneInstGDict = emptyFuncDetection.deleteEmptyFuncCall(oneInstGDict, emptyFuncDict)
+    '''
 
     for name, currOIG in oneInstGDict.items():
         data["finalNodes"] += currOIG.countNodes()

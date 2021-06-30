@@ -20,7 +20,7 @@ class oneInstG_t:
         iEdgeSupply = dict()
         iEdgeDemand = dict()
         oEdgeDemand = dict() # (vertex in demand in str, client vertices)
-        self.name = graph.get_name()
+        self.name = graph.name
         ePoint = graph.get_root()
         self.__nodes = dict()
         self.__parseEntryPoint(ePoint, oEdgeDemand, iEdgeSupply)

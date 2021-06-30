@@ -54,6 +54,44 @@ def create_bipartite_graph(curr) -> None:
             src.append_oedge(dest)
             dest.append_iedge(src)
 
+def delete_redundantNodes(emptyVertices: dict, Vs: dict):
+    flag = True
+    cnt = 0
+    while flag:
+        flag = False
+        cnt += 1
+        currVertices = emptyVertices.copy()
+        for eName, eV in currVertices.items():
+            # if it has a self loop, delete
+            
+            if eV.get_type() == 'root':
+                continue
+            srcs = eV.get_parents()
+            dsts = eV.get_children()
+            if eName in srcs:
+                del srcs[eName]
+                assert eName in dsts
+                del dsts[eName]
+                flag = True
+
+            srcs = eV.get_parents()
+            dsts = eV.get_children()
+            if len(srcs) <= 1 and len(dsts) <= 1:
+                # delete the eName from src and dst 
+                for sName, src in srcs.items():
+                    for dName, dst in dsts.items():
+                        srcC = src.get_children()
+                        dstP = dst.get_parents()
+                        del srcC[eName]
+                        del dstP[eName] 
+                        srcC[dName] = dst
+                        dstP[sName] = src
+                del emptyVertices[eName]
+                del Vs[eName] 
+                flag = True
+    return
+                    
+
 def __count_nodes(curr):
     if curr.is_visited():
         return 0, 0
@@ -70,33 +108,33 @@ def count_vertices(cfg):
     cfg.clear_visit()
     return rv
 
-def traverse_check(name:str, curr) -> bool:
-    if curr.is_visited():
-        return True
-    curr.visit()
-    #print('now I am at %s'%(curr.get_name()))
-    if curr.get_name() == name:
-        return False
-    for parent_name, parent in curr.get_parents().items():
-        if parent_name == name:
-            print('in curr name: %s, parent name: %s turned out to be the same'%(curr.get_name(), parent_name)) 
-            return False
-    for child_name, child in curr.get_children().items():
-        if not traverse_check(name, child):
-            return False
-    return True
-
-def check_integrity(name: str, cfg, target) -> bool:
-    # checks if any of the vertex in the cfg has the name
-    # if it does return false
-    # else return true
-    if target.get_type() == 'root':
-        return True
-        
-    rv = traverse_check(name, cfg.get_root())
+def check_noRedundance(cfg):
+    root = cfg.get_root()
     cfg.clear_visit()
+    stack = [root] 
+    while len(stack) > 0:
+        curr = stack.pop()
+        if curr.is_visited(): 
+            continue
+        curr.visit()
+        srcs = curr.get_parents()
+        dsts = curr.get_children()
+        if (not curr.has_insts()) and curr.get_type() == 'normal' and len(srcs) <= 1 and len(dsts) <= 1:
+            curr.vprint()
+            raise Exception("redundant node is not deleted yet: " + curr.get_name() + ', ' + cfg.name)
+        elif len(srcs) <= 1 and len(dsts) <= 1:
+            print(curr.get_name() + ':', end = '')
+            print(curr.get_insts())
+            
+        for dst_name, dst in dsts.items():
+            stack.append(dst)
 
-    return rv 
+def printEV(empty_vertices):
+    for empty_name, empty_v in empty_vertices.items():
+        print(empty_name, end = ',')
+        print(len(empty_v.get_parents()), end = ',')
+        print(len(empty_v.get_children()), end = ':')
+    print()
 
 def further_simplify(cfg):
     '''
@@ -105,48 +143,9 @@ def further_simplify(cfg):
     2. create a bipartite graph for all of the edges that are empty
     '''
     empty_vertices = list_vertices(cfg)
-    # print("printing empty %d"%len(empty_vertices))
-    flag = True
-    currVertices = empty_vertices.copy()
-    oldVertices = dict() 
-    first = True
-    cfg_name = cfg.get_name()
-    
-    while flag == True:
-        flag = False
-        if not first:
-            currVertices = oldVertices.copy()
-        first = False
-        oldVertices.clear()
-        assert len(oldVertices) == 0
-        for name, eVertex in currVertices.items():
-            if eVertex.get_type() == "root":
-                continue
-            srcs = eVertex.get_parents()
-            dsts = eVertex.get_children()
-            if name in srcs:  
-                del srcs[name]
-                assert name in dsts
-                del dsts[name]
-                flag = True
-            
-            if len(srcs) <= 1 and len(dsts) <= 1: 
-                for src_name, src in srcs.items():
-                    src.del_oedge(eVertex)
-                for dst_name, dst in dsts.items():
-                    dst.del_iedge(eVertex)
-
-                for src_name, src in srcs.items():
-                    for dst_name, dst in dsts.items():
-                        src.append_oedge(dst)
-                        dst.append_iedge(src)
-                
-                # create_bipartite_graph(eVertex)
-                cfg.remove_vertex(name)
-                flag = True
-            else:
-                oldVertices[name] = eVertex
-        
+    delete_redundantNodes(empty_vertices, cfg.get_vertices())
+    check_noRedundance(cfg)
+    printEV(empty_vertices)
     vcount, ecount = count_vertices(cfg)
     return vcount, ecount
 
