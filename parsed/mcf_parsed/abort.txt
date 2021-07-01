@@ -1,0 +1,9 @@
+0x28b4b60,epoint,1,0,0,0x28b4b60_0,na,na
+0x28b4b60_0,funccall,raise,1,1,0,0x28b4b60_1,0x28b4b60,na
+0x28b4b60_1,funccall,__block_all_sigs,1,1,0,0x28b4b60_2,0x28b4b60_0,na
+0x28b4b60_2,funccall,__lock,1,1,0,0x28b4b60_3,0x28b4b60_1,na
+0x28b4b60_3,syscall,13,1,1,0,0x28b4b60_4,0x28b4b60_2,na
+0x28b4b60_4,syscall,200,1,1,0,0x28b4b60_5,0x28b4b60_3,na
+0x28b4b60_5,syscall,14,1,1,0,0x28b4b60_6,0x28b4b60_4,na
+0x28b4b60_6,funccall,raise,1,1,0,0x28b4b60_7,0x28b4b60_5,na
+0x28b4b60_7,funccall,_Exit,0,1,0,na,0x28b4b60_6,na

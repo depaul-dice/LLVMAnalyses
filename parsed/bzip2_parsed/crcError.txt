@@ -1,0 +1,5 @@
+0x1c7cfb0,epoint,1,0,0,0x1c7cfb0_0,na,na
+0x1c7cfb0_0,funccall,fprintf,1,1,0,0x1c7cfb0_1,0x1c7cfb0,na
+0x1c7cfb0_1,funccall,showFileNames,1,1,0,0x1c7cfb0_2,0x1c7cfb0_0,na
+0x1c7cfb0_2,funccall,cadvise,1,1,0,0x1c7cfb0_3,0x1c7cfb0_1,na
+0x1c7cfb0_3,funccall,cleanUpAndFail,0,1,0,na,0x1c7cfb0_2,na

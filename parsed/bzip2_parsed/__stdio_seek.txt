@@ -1,0 +1,3 @@
+0x1f0da40,epoint,1,0,0,0x1f0da40_0,na,na
+0x1f0da40_0,syscall,8,1,1,0,0x1f0da40_1,0x1f0da40,na
+0x1f0da40_1,ret,0,1,0,na,0x1f0da40_0,na
