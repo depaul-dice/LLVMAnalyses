@@ -1,0 +1,5 @@
+digraph "CFG for 'suicide_eval' function" {
+	label="CFG for 'suicide_eval' function";
+
+	Node0x2527cb0 [shape=record,label="{%0:\l  %1 = call fastcc i32 @suicide_mid_eval()\l  ret i32 %1\l}"];
+}

@@ -1,0 +1,12 @@
+digraph "CFG for 'mapSuffix' function" {
+	label="CFG for 'mapSuffix' function";
+
+	Node0x1c079b0 [shape=record,label="{%3:\l  %4 = alloca i8, align 1\l  %5 = alloca i8*, align 8\l  %6 = alloca i8*, align 8\l  %7 = alloca i8*, align 8\l  store i8* %0, i8** %5, align 8\l  store i8* %1, i8** %6, align 8\l  store i8* %2, i8** %7, align 8\l  %8 = load i8*, i8** %5, align 8\l  %9 = load i8*, i8** %6, align 8\l  %10 = call fastcc zeroext i8 @hasSuffix(i8* %8, i8* %9)\l  %11 = icmp ne i8 %10, 0\l  br i1 %11, label %13, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1c079b0:s0 -> Node0x1c0abd0;
+	Node0x1c079b0:s1 -> Node0x1c0ab80;
+	Node0x1c0ab80 [shape=record,label="{%12:\l12:                                               \l  store i8 0, i8* %4, align 1\l  br label %24\l}"];
+	Node0x1c0ab80 -> Node0x1c0ac20;
+	Node0x1c0abd0 [shape=record,label="{%13:\l13:                                               \l  %14 = load i8*, i8** %5, align 8\l  %15 = load i8*, i8** %5, align 8\l  %16 = call fastcc i64 @strlen(i8* %15) #19\l  %17 = load i8*, i8** %6, align 8\l  %18 = call fastcc i64 @strlen(i8* %17) #19\l  %19 = sub i64 %16, %18\l  %20 = getelementptr inbounds i8, i8* %14, i64 %19\l  store i8 0, i8* %20, align 1\l  %21 = load i8*, i8** %5, align 8\l  %22 = load i8*, i8** %7, align 8\l  %23 = call fastcc i8* @strcat(i8* %21, i8* %22) #7\l  store i8 1, i8* %4, align 1\l  br label %24\l}"];
+	Node0x1c0abd0 -> Node0x1c0ac20;
+	Node0x1c0ac20 [shape=record,label="{%24:\l24:                                               \l  %25 = load i8, i8* %4, align 1\l  ret i8 %25\l}"];
+}

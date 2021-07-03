@@ -1,0 +1,12 @@
+digraph "CFG for '__sigaction' function" {
+	label="CFG for '__sigaction' function";
+
+	Node0x28aba20 [shape=record,label="{%3:\l  %4 = add i32 %0, -32\l  %5 = icmp ult i32 %4, 3\l  %6 = add i32 %0, -1\l  %7 = icmp ugt i32 %6, 63\l  %8 = or i1 %5, %7\l  br i1 %8, label %9, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x28aba20:s0 -> Node0x23aaf40;
+	Node0x28aba20:s1 -> Node0x2904ff0;
+	Node0x23aaf40 [shape=record,label="{%9:\l9:                                                \l  %10 = tail call fastcc i32* @__errno_location() #21\l  store i32 22, i32* %10, align 4, !tbaa !2\l  br label %13\l}"];
+	Node0x23aaf40 -> Node0x2905040;
+	Node0x2904ff0 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call fastcc i32 @__libc_sigaction(i32 %0, %struct.sigaction* %1,\l... %struct.sigaction* %2) #22\l  br label %13\l}"];
+	Node0x2904ff0 -> Node0x2905040;
+	Node0x2905040 [shape=record,label="{%13:\l13:                                               \l  %14 = phi i32 [ -1, %9 ], [ %12, %11 ]\l  ret i32 %14\l}"];
+}

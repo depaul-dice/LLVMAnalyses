@@ -1,0 +1,13 @@
+digraph "CFG for 'checkECache' function" {
+	label="CFG for 'checkECache' function";
+
+	Node0x2591830 [shape=record,label="{%2:\l  %3 = alloca i32*, align 8\l  %4 = alloca i32*, align 8\l  %5 = alloca i32, align 4\l  store i32* %0, i32** %3, align 8\l  store i32* %1, i32** %4, align 8\l  %6 = load i32, i32* @ECacheProbes, align 4\l  %7 = add i32 %6, 1\l  store i32 %7, i32* @ECacheProbes, align 4\l  %8 = load i32, i32* @hash, align 4\l  %.b = load i1, i1* @ECacheSize, align 1\l  %9 = select i1 %.b, i32 1000000, i32 0\l  %10 = urem i32 %8, %9\l  store i32 %10, i32* %5, align 4\l  %11 = load %struct.ECacheType*, %struct.ECacheType** @ECache, align 8\l  %12 = load i32, i32* %5, align 4\l  %13 = sext i32 %12 to i64\l  %14 = getelementptr inbounds %struct.ECacheType, %struct.ECacheType* %11,\l... i64 %13\l  %15 = getelementptr inbounds %struct.ECacheType, %struct.ECacheType* %14,\l... i32 0, i32 0\l  %16 = load i32, i32* %15, align 4\l  %17 = load i32, i32* @hash, align 4\l  %18 = icmp eq i32 %16, %17\l  br i1 %18, label %19, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x2591830:s0 -> Node0x2592740;
+	Node0x2591830:s1 -> Node0x25927e0;
+	Node0x2592740 [shape=record,label="{%19:\l19:                                               \l  %20 = load %struct.ECacheType*, %struct.ECacheType** @ECache, align 8\l  %21 = load i32, i32* %5, align 4\l  %22 = sext i32 %21 to i64\l  %23 = getelementptr inbounds %struct.ECacheType, %struct.ECacheType* %20,\l... i64 %22\l  %24 = getelementptr inbounds %struct.ECacheType, %struct.ECacheType* %23,\l... i32 0, i32 1\l  %25 = load i32, i32* %24, align 4\l  %26 = load i32, i32* @hold_hash, align 4\l  %27 = icmp eq i32 %25, %26\l  br i1 %27, label %28, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x2592740:s0 -> Node0x2592790;
+	Node0x2592740:s1 -> Node0x25927e0;
+	Node0x2592790 [shape=record,label="{%28:\l28:                                               \l  %29 = load i32, i32* @ECacheHits, align 4\l  %30 = add i32 %29, 1\l  store i32 %30, i32* @ECacheHits, align 4\l  %31 = load i32*, i32** %4, align 8\l  store i32 1, i32* %31, align 4\l  %32 = load %struct.ECacheType*, %struct.ECacheType** @ECache, align 8\l  %33 = load i32, i32* %5, align 4\l  %34 = sext i32 %33 to i64\l  %35 = getelementptr inbounds %struct.ECacheType, %struct.ECacheType* %32,\l... i64 %34\l  %36 = getelementptr inbounds %struct.ECacheType, %struct.ECacheType* %35,\l... i32 0, i32 2\l  %37 = load i32, i32* %36, align 4\l  %38 = load i32*, i32** %3, align 8\l  store i32 %37, i32* %38, align 4\l  br label %39\l}"];
+	Node0x2592790 -> Node0x25927e0;
+	Node0x25927e0 [shape=record,label="{%39:\l39:                                               \l  ret void\l}"];
+}

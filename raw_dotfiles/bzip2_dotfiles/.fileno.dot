@@ -1,0 +1,20 @@
+digraph "CFG for 'fileno' function" {
+	label="CFG for 'fileno' function";
+
+	Node0x1f1b360 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.79, %struct._IO_FILE.79* %0,\l... i64 0, i32 19\l  %3 = load volatile i32, i32* %2, align 4, !tbaa !2\l  %4 = icmp sgt i32 %3, -1\l  br i1 %4, label %8, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1f1b360:s0 -> Node0x1f1de00;
+	Node0x1f1b360:s1 -> Node0x1f1dd80;
+	Node0x1f1dd80 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds %struct._IO_FILE.79, %struct._IO_FILE.79* %0,\l... i64 0, i32 15\l  %7 = load i32, i32* %6, align 8, !tbaa !9\l  br label %15\l}"];
+	Node0x1f1dd80 -> Node0x1f1dea0;
+	Node0x1f1de00 [shape=record,label="{%8:\l8:                                                \l  %9 = bitcast %struct._IO_FILE.79* %0 to %struct._IO_FILE.136*\l  %10 = tail call i32 @__lockfile(%struct._IO_FILE.136* nonnull %9) #19\l  %11 = icmp eq i32 %10, 0\l  %12 = getelementptr inbounds %struct._IO_FILE.79, %struct._IO_FILE.79* %0,\l... i64 0, i32 15\l  %13 = load i32, i32* %12, align 8, !tbaa !9\l  br i1 %11, label %15, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1f1de00:s0 -> Node0x1f1dea0;
+	Node0x1f1de00:s1 -> Node0x1f1de50;
+	Node0x1f1de50 [shape=record,label="{%14:\l14:                                               \l  tail call void @__unlockfile(%struct._IO_FILE.136* nonnull %9) #19\l  br label %15\l}"];
+	Node0x1f1de50 -> Node0x1f1dea0;
+	Node0x1f1dea0 [shape=record,label="{%15:\l15:                                               \l  %16 = phi i32 [ %7, %5 ], [ %13, %14 ], [ %13, %8 ]\l  %17 = icmp slt i32 %16, 0\l  br i1 %17, label %18, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1f1dea0:s0 -> Node0x1f1def0;
+	Node0x1f1dea0:s1 -> Node0x1f1df40;
+	Node0x1f1def0 [shape=record,label="{%18:\l18:                                               \l  %19 = tail call fastcc i32* @__errno_location() #19\l  store i32 9, i32* %19, align 4, !tbaa !10\l  br label %20\l}"];
+	Node0x1f1def0 -> Node0x1f1df40;
+	Node0x1f1df40 [shape=record,label="{%20:\l20:                                               \l  %21 = phi i32 [ -1, %18 ], [ %16, %15 ]\l  ret i32 %21\l}"];
+}

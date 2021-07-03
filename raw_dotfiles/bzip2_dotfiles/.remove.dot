@@ -1,0 +1,10 @@
+digraph "CFG for 'remove' function" {
+	label="CFG for 'remove' function";
+
+	Node0x1f28270 [shape=record,label="{%1:\l  %2 = ptrtoint i8* %0 to i64\l  %3 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 87,\l... i64 %2) #19, !srcloc !2\l  %4 = trunc i64 %3 to i32\l  %5 = icmp eq i32 %4, -21\l  br i1 %5, label %6, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1f28270:s0 -> Node0x1f2a8d0;
+	Node0x1f28270:s1 -> Node0x1f2a950;
+	Node0x1f2a8d0 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 84,\l... i64 %2) #19, !srcloc !2\l  br label %8\l}"];
+	Node0x1f2a8d0 -> Node0x1f2a950;
+	Node0x1f2a950 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i64 [ %7, %6 ], [ %3, %1 ]\l  %10 = shl i64 %9, 32\l  %11 = ashr exact i64 %10, 32\l  %12 = tail call fastcc i64 @__syscall_ret(i64 %11) #20\l  %13 = trunc i64 %12 to i32\l  ret i32 %13\l}"];
+}

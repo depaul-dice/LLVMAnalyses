@@ -1,0 +1,5 @@
+digraph "CFG for 'rtime' function" {
+	label="CFG for 'rtime' function";
+
+	Node0x27ed260 [shape=record,label="{%0:\l  ret i64 0\l}"];
+}

@@ -1,0 +1,29 @@
+digraph "CFG for 'Queen' function" {
+	label="CFG for 'Queen' function";
+
+	Node0x25b9510 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = alloca i32, align 4\l  %5 = alloca i32, align 4\l  %6 = alloca i32, align 4\l  %7 = alloca i32, align 4\l  store i32 %0, i32* %3, align 4\l  store i32 %1, i32* %4, align 4\l  store i32 0, i32* %5, align 4\l  %8 = load i32, i32* %4, align 4\l  %9 = xor i32 %8, 1\l  store i32 %9, i32* %7, align 4\l  %10 = load i32, i32* %5, align 4\l  %11 = add nsw i32 %10, 900\l  store i32 %11, i32* %5, align 4\l  %12 = load i32, i32* %3, align 4\l  %13 = sext i32 %12 to i64\l  %14 = getelementptr inbounds [144 x [144 x i32]], [144 x [144 x i32]]*\l... @distance, i64 0, i64 %13\l  %15 = load i32, i32* %7, align 4\l  %16 = sext i32 %15 to i64\l  %17 = getelementptr inbounds [2 x i32], [2 x i32]* @king_locs, i64 0, i64 %16\l  %18 = load i32, i32* %17, align 4\l  %19 = sext i32 %18 to i64\l  %20 = getelementptr inbounds [144 x i32], [144 x i32]* %14, i64 0, i64 %19\l  %21 = load i32, i32* %20, align 4\l  %22 = sext i32 %21 to i64\l  %23 = getelementptr inbounds [8 x i32], [8 x i32]* @std_q_tropism, i64 0,\l... i64 %22\l  %24 = load i32, i32* %23, align 4\l  %25 = load i32, i32* %5, align 4\l  %26 = add nsw i32 %25, %24\l  store i32 %26, i32* %5, align 4\l  %27 = load i32, i32* %3, align 4\l  %28 = call fastcc i32 @rook_mobility(i32 %27)\l  %29 = shl i32 %28, 1\l  store i32 %29, i32* %6, align 4\l  %30 = load i32, i32* %3, align 4\l  %31 = call fastcc i32 @bishop_mobility(i32 %30)\l  %32 = shl i32 %31, 1\l  %33 = load i32, i32* %6, align 4\l  %34 = add nsw i32 %33, %32\l  store i32 %34, i32* %6, align 4\l  %35 = load i32, i32* %6, align 4\l  %36 = icmp sle i32 %35, 4\l  br i1 %36, label %37, label %54\l|{<s0>T|<s1>F}}"];
+	Node0x25b9510:s0 -> Node0x25bb6d0;
+	Node0x25b9510:s1 -> Node0x25bb900;
+	Node0x25bb6d0 [shape=record,label="{%37:\l37:                                               \l  %38 = load i32, i32* %6, align 4\l  %39 = icmp eq i32 %38, 0\l  br i1 %39, label %40, label %43\l|{<s0>T|<s1>F}}"];
+	Node0x25bb6d0:s0 -> Node0x25bb720;
+	Node0x25bb6d0:s1 -> Node0x25bb770;
+	Node0x25bb720 [shape=record,label="{%40:\l40:                                               \l  %41 = load i32, i32* %6, align 4\l  %42 = sub nsw i32 %41, 15\l  store i32 %42, i32* %6, align 4\l  br label %53\l}"];
+	Node0x25bb720 -> Node0x25bb8b0;
+	Node0x25bb770 [shape=record,label="{%43:\l43:                                               \l  %44 = load i32, i32* %6, align 4\l  %45 = icmp eq i32 %44, 2\l  br i1 %45, label %46, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x25bb770:s0 -> Node0x25bb7c0;
+	Node0x25bb770:s1 -> Node0x25bb810;
+	Node0x25bb7c0 [shape=record,label="{%46:\l46:                                               \l  %47 = load i32, i32* %6, align 4\l  %48 = sub nsw i32 %47, 10\l  store i32 %48, i32* %6, align 4\l  br label %52\l}"];
+	Node0x25bb7c0 -> Node0x25bb860;
+	Node0x25bb810 [shape=record,label="{%49:\l49:                                               \l  %50 = load i32, i32* %6, align 4\l  %51 = sub nsw i32 %50, 5\l  store i32 %51, i32* %6, align 4\l  br label %52\l}"];
+	Node0x25bb810 -> Node0x25bb860;
+	Node0x25bb860 [shape=record,label="{%52:\l52:                                               \l  br label %53\l}"];
+	Node0x25bb860 -> Node0x25bb8b0;
+	Node0x25bb8b0 [shape=record,label="{%53:\l53:                                               \l  br label %54\l}"];
+	Node0x25bb8b0 -> Node0x25bb900;
+	Node0x25bb900 [shape=record,label="{%54:\l54:                                               \l  %55 = load i32, i32* %6, align 4\l  %56 = load i32, i32* %5, align 4\l  %57 = add nsw i32 %56, %55\l  store i32 %57, i32* %5, align 4\l  %58 = load i32, i32* %4, align 4\l  %59 = icmp eq i32 %58, 1\l  br i1 %59, label %60, label %63\l|{<s0>T|<s1>F}}"];
+	Node0x25bb900:s0 -> Node0x25bb950;
+	Node0x25bb900:s1 -> Node0x25bb9a0;
+	Node0x25bb950 [shape=record,label="{%60:\l60:                                               \l  %61 = load i32, i32* %5, align 4\l  %62 = sub nsw i32 0, %61\l  store i32 %62, i32* %5, align 4\l  br label %63\l}"];
+	Node0x25bb950 -> Node0x25bb9a0;
+	Node0x25bb9a0 [shape=record,label="{%63:\l63:                                               \l  %64 = load i32, i32* %5, align 4\l  ret i32 %64\l}"];
+}

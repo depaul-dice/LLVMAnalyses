@@ -1,0 +1,10 @@
+digraph "CFG for 'showFileNames' function" {
+	label="CFG for 'showFileNames' function";
+
+	Node0x1c06b90 [shape=record,label="{%0:\l  %.b = load i1, i1* @noisy, align 1\l  %1 = zext i1 %.b to i8\l  %2 = icmp ne i8 %1, 0\l  br i1 %2, label %3, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1c06b90:s0 -> Node0x1c06be0;
+	Node0x1c06b90:s1 -> Node0x1c06c30;
+	Node0x1c06be0 [shape=record,label="{%3:\l3:                                                \l  %4 = bitcast %struct._IO_FILE.58** @stderr to %struct._IO_FILE**\l  %5 = load %struct._IO_FILE*, %struct._IO_FILE** %4, align 8\l  %6 = getelementptr inbounds [36 x i8], [36 x i8]* @.str.38, i64 0, i64 0\l  %7 = getelementptr inbounds [1034 x i8], [1034 x i8]* @inName, i64 0, i64 0\l  %8 = getelementptr inbounds [1034 x i8], [1034 x i8]* @outName, i64 0, i64 0\l  %9 = call i32 (%struct._IO_FILE*, i8*, ...) @fprintf(%struct._IO_FILE* %5,\l... i8* %6, i8* %7, i8* %8)\l  br label %10\l}"];
+	Node0x1c06be0 -> Node0x1c06c30;
+	Node0x1c06c30 [shape=record,label="{%10:\l10:                                               \l  ret void\l}"];
+}

@@ -1,0 +1,32 @@
+digraph "CFG for 'King' function" {
+	label="CFG for 'King' function";
+
+	Node0x25b6af0 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = alloca i32, align 4\l  %5 = alloca i32, align 4\l  store i32 %0, i32* %3, align 4\l  store i32 %1, i32* %4, align 4\l  store i32 0, i32* %5, align 4\l  %6 = load i32, i32* %3, align 4\l  %7 = sext i32 %6 to i64\l  %8 = bitcast \<\{ [118 x i32], [26 x i32] \}\>* @Xfile to [144 x i32]*\l  %9 = getelementptr inbounds [144 x i32], [144 x i32]* %8, i64 0, i64 %7\l  %10 = load i32, i32* %9, align 4\l  %11 = icmp sge i32 %10, 6\l  br i1 %11, label %12, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x25b6af0:s0 -> Node0x25b91f0;
+	Node0x25b6af0:s1 -> Node0x25b92e0;
+	Node0x25b91f0 [shape=record,label="{%12:\l12:                                               \l  %13 = load i32, i32* %3, align 4\l  %14 = sub nsw i32 %13, 1\l  %15 = sext i32 %14 to i64\l  %16 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %15\l  %17 = load i32, i32* %16, align 4\l  %18 = add nsw i32 %17, 1\l  %19 = ashr i32 %18, 1\l  %20 = icmp eq i32 %19, 4\l  br i1 %20, label %21, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x25b91f0:s0 -> Node0x25b9240;
+	Node0x25b91f0:s1 -> Node0x25b92e0;
+	Node0x25b9240 [shape=record,label="{%21:\l21:                                               \l  %22 = load i32, i32* %3, align 4\l  %23 = sub nsw i32 %22, 1\l  %24 = sext i32 %23 to i64\l  %25 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %24\l  %26 = load i32, i32* %25, align 4\l  %27 = add nsw i32 %26, 1\l  %28 = and i32 %27, 1\l  %29 = load i32, i32* %4, align 4\l  %30 = icmp eq i32 %28, %29\l  br i1 %30, label %31, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x25b9240:s0 -> Node0x25b9290;
+	Node0x25b9240:s1 -> Node0x25b92e0;
+	Node0x25b9290 [shape=record,label="{%31:\l31:                                               \l  %32 = load i32, i32* %5, align 4\l  %33 = add nsw i32 %32, 2\l  store i32 %33, i32* %5, align 4\l  br label %34\l}"];
+	Node0x25b9290 -> Node0x25b92e0;
+	Node0x25b92e0 [shape=record,label="{%34:\l34:                                               \l  %35 = load i32, i32* %3, align 4\l  %36 = sext i32 %35 to i64\l  %37 = bitcast \<\{ [118 x i32], [26 x i32] \}\>* @Xfile to [144 x i32]*\l  %38 = getelementptr inbounds [144 x i32], [144 x i32]* %37, i64 0, i64 %36\l  %39 = load i32, i32* %38, align 4\l  %40 = icmp sge i32 %39, 6\l  br i1 %40, label %41, label %63\l|{<s0>T|<s1>F}}"];
+	Node0x25b92e0:s0 -> Node0x25b9330;
+	Node0x25b92e0:s1 -> Node0x25b9420;
+	Node0x25b9330 [shape=record,label="{%41:\l41:                                               \l  %42 = load i32, i32* %3, align 4\l  %43 = add nsw i32 %42, 1\l  %44 = sext i32 %43 to i64\l  %45 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %44\l  %46 = load i32, i32* %45, align 4\l  %47 = add nsw i32 %46, 1\l  %48 = ashr i32 %47, 1\l  %49 = icmp eq i32 %48, 4\l  br i1 %49, label %50, label %63\l|{<s0>T|<s1>F}}"];
+	Node0x25b9330:s0 -> Node0x25b9380;
+	Node0x25b9330:s1 -> Node0x25b9420;
+	Node0x25b9380 [shape=record,label="{%50:\l50:                                               \l  %51 = load i32, i32* %3, align 4\l  %52 = add nsw i32 %51, 1\l  %53 = sext i32 %52 to i64\l  %54 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %53\l  %55 = load i32, i32* %54, align 4\l  %56 = add nsw i32 %55, 1\l  %57 = and i32 %56, 1\l  %58 = load i32, i32* %4, align 4\l  %59 = icmp eq i32 %57, %58\l  br i1 %59, label %60, label %63\l|{<s0>T|<s1>F}}"];
+	Node0x25b9380:s0 -> Node0x25b93d0;
+	Node0x25b9380:s1 -> Node0x25b9420;
+	Node0x25b93d0 [shape=record,label="{%60:\l60:                                               \l  %61 = load i32, i32* %5, align 4\l  %62 = add nsw i32 %61, 2\l  store i32 %62, i32* %5, align 4\l  br label %63\l}"];
+	Node0x25b93d0 -> Node0x25b9420;
+	Node0x25b9420 [shape=record,label="{%63:\l63:                                               \l  %64 = load i32, i32* %4, align 4\l  %65 = icmp eq i32 %64, 1\l  br i1 %65, label %66, label %69\l|{<s0>T|<s1>F}}"];
+	Node0x25b9420:s0 -> Node0x25b9470;
+	Node0x25b9420:s1 -> Node0x25b94c0;
+	Node0x25b9470 [shape=record,label="{%66:\l66:                                               \l  %67 = load i32, i32* %5, align 4\l  %68 = sub nsw i32 0, %67\l  store i32 %68, i32* %5, align 4\l  br label %69\l}"];
+	Node0x25b9470 -> Node0x25b94c0;
+	Node0x25b94c0 [shape=record,label="{%69:\l69:                                               \l  %70 = load i32, i32* %5, align 4\l  ret i32 %70\l}"];
+}

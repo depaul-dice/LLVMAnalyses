@@ -1,0 +1,5 @@
+digraph "CFG for 'clear_tt' function" {
+	label="CFG for 'clear_tt' function";
+
+	Node0x255b5a0 [shape=record,label="{%0:\l  %1 = load %struct.TType*, %struct.TType** @DP_TTable, align 8\l  %2 = bitcast %struct.TType* %1 to i8*\l  %.b = load i1, i1* @TTSize, align 1\l  %3 = select i1 %.b, i32 3000000, i32 0\l  %4 = sext i32 %3 to i64\l  %5 = mul i64 20, %4\l  call void @llvm.memset.p0i8.i64(i8* align 4 %2, i8 0, i64 %5, i1 false)\l  %6 = load %struct.TType*, %struct.TType** @AS_TTable, align 8\l  %7 = bitcast %struct.TType* %6 to i8*\l  %.b1 = load i1, i1* @TTSize, align 1\l  %8 = select i1 %.b1, i32 3000000, i32 0\l  %9 = sext i32 %8 to i64\l  %10 = mul i64 20, %9\l  call void @llvm.memset.p0i8.i64(i8* align 4 %7, i8 0, i64 %10, i1 false)\l  %11 = load %struct.QTType*, %struct.QTType** @QS_TTable, align 8\l  %12 = bitcast %struct.QTType* %11 to i8*\l  %.b2 = load i1, i1* @TTSize, align 1\l  %13 = select i1 %.b2, i32 3000000, i32 0\l  %14 = sext i32 %13 to i64\l  %15 = mul i64 16, %14\l  call void @llvm.memset.p0i8.i64(i8* align 4 %12, i8 0, i64 %15, i1 false)\l  ret void\l}"];
+}

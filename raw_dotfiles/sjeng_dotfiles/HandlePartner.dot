@@ -1,0 +1,17 @@
+digraph "CFG for 'HandlePartner' function" {
+	label="CFG for 'HandlePartner' function";
+
+	Node0x262b2e0 [shape=record,label="{%1:\l  %2 = alloca i8*, align 8\l  store i8* %0, i8** %2, align 8\l  %3 = load i8*, i8** %2, align 8\l  %4 = getelementptr inbounds i8, i8* %3, i64 0\l  %5 = load i8, i8* %4, align 1\l  %6 = sext i8 %5 to i32\l  %7 = icmp eq i32 %6, 32\l  br i1 %7, label %8, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x262b2e0:s0 -> Node0x262b330;
+	Node0x262b2e0:s1 -> Node0x262b420;
+	Node0x262b330 [shape=record,label="{%8:\l8:                                                \l  %.b = load i1, i1* @have_partner, align 1\l  %9 = zext i1 %.b to i32\l  %10 = icmp ne i32 %9, 0\l  br i1 %10, label %21, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x262b330:s0 -> Node0x262b3d0;
+	Node0x262b330:s1 -> Node0x262b380;
+	Node0x262b380 [shape=record,label="{%11:\l11:                                               \l  %12 = load i8*, i8** %2, align 8\l  %13 = getelementptr inbounds i8, i8* %12, i64 1\l  %14 = getelementptr inbounds [3 x i8], [3 x i8]* @.str.2.65, i64 0, i64 0\l  %15 = getelementptr inbounds [256 x i8], [256 x i8]* @my_partner, i64 0, i64\l... 0\l  %16 = call i32 (i8*, i8*, ...) @sscanf(i8* %13, i8* %14, i8* %15) #8\l  store i1 true, i1* @have_partner, align 1\l  call fastcc void @GreetPartner()\l  %17 = getelementptr inbounds [25 x i8], [25 x i8]* @.str.3.66, i64 0, i64 0\l  %18 = call i32 (i8*, ...) @printf(i8* %17)\l  %19 = getelementptr inbounds [16 x i8], [16 x i8]* @.str.4.67, i64 0, i64 0\l  %20 = call i32 (i8*, ...) @printf(i8* %19)\l  br label %21\l}"];
+	Node0x262b380 -> Node0x262b3d0;
+	Node0x262b3d0 [shape=record,label="{%21:\l21:                                               \l  br label %26\l}"];
+	Node0x262b3d0 -> Node0x262b470;
+	Node0x262b420 [shape=record,label="{%22:\l22:                                               \l  %23 = getelementptr inbounds [256 x i8], [256 x i8]* @my_partner, i64 0, i64\l... 0\l  call void @llvm.memset.p0i8.i64(i8* align 16 %23, i8 0, i64 256, i1 false)\l  store i1 false, i1* @have_partner, align 1\l  call fastcc void @BegForPartner()\l  %24 = getelementptr inbounds [20 x i8], [20 x i8]* @.str.5.68, i64 0, i64 0\l  %25 = call i32 (i8*, ...) @printf(i8* %24)\l  br label %26\l}"];
+	Node0x262b420 -> Node0x262b470;
+	Node0x262b470 [shape=record,label="{%26:\l26:                                               \l  ret void\l}"];
+}

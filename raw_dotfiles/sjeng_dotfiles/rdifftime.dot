@@ -1,0 +1,5 @@
+digraph "CFG for 'rdifftime' function" {
+	label="CFG for 'rdifftime' function";
+
+	Node0x27f1880 [shape=record,label="{%2:\l  %3 = alloca i64, align 8\l  %4 = alloca i64, align 8\l  store i64 %0, i64* %3, align 8\l  store i64 %1, i64* %4, align 8\l  %5 = load i64, i64* %3, align 8\l  %6 = load i64, i64* %4, align 8\l  %7 = call fastcc double @difftime(i64 %5, i64 %6) #21\l  %8 = fptosi double %7 to i32\l  %9 = mul nsw i32 100, %8\l  ret i32 %9\l}"];
+}

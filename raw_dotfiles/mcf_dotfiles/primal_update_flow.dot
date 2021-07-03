@@ -1,0 +1,37 @@
+digraph "CFG for 'primal_update_flow' function" {
+	label="CFG for 'primal_update_flow' function";
+
+	Node0x27a5540 [shape=record,label="{%3:\l  %4 = alloca %struct.node*, align 8\l  %5 = alloca %struct.node*, align 8\l  %6 = alloca %struct.node*, align 8\l  store %struct.node* %0, %struct.node** %4, align 8\l  store %struct.node* %1, %struct.node** %5, align 8\l  store %struct.node* %2, %struct.node** %6, align 8\l  br label %7\l}"];
+	Node0x27a5540 -> Node0x27ab640;
+	Node0x27ab640 [shape=record,label="{%7:\l7:                                                \l  %8 = load %struct.node*, %struct.node** %4, align 8\l  %9 = load %struct.node*, %struct.node** %6, align 8\l  %10 = icmp ne %struct.node* %8, %9\l  br i1 %10, label %11, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x27ab640:s0 -> Node0x27ab690;
+	Node0x27ab640:s1 -> Node0x27ab820;
+	Node0x27ab690 [shape=record,label="{%11:\l11:                                               \l  %12 = load %struct.node*, %struct.node** %4, align 8\l  %13 = getelementptr inbounds %struct.node, %struct.node* %12, i32 0, i32 1\l  %14 = load i32, i32* %13, align 8\l  %15 = icmp ne i32 %14, 0\l  br i1 %15, label %16, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x27ab690:s0 -> Node0x27ab6e0;
+	Node0x27ab690:s1 -> Node0x27ab730;
+	Node0x27ab6e0 [shape=record,label="{%16:\l16:                                               \l  %17 = load %struct.node*, %struct.node** %4, align 8\l  %18 = getelementptr inbounds %struct.node, %struct.node* %17, i32 0, i32 10\l  store i64 0, i64* %18, align 8\l  br label %22\l}"];
+	Node0x27ab6e0 -> Node0x27ab780;
+	Node0x27ab730 [shape=record,label="{%19:\l19:                                               \l  %20 = load %struct.node*, %struct.node** %4, align 8\l  %21 = getelementptr inbounds %struct.node, %struct.node* %20, i32 0, i32 10\l  store i64 1, i64* %21, align 8\l  br label %22\l}"];
+	Node0x27ab730 -> Node0x27ab780;
+	Node0x27ab780 [shape=record,label="{%22:\l22:                                               \l  br label %23\l}"];
+	Node0x27ab780 -> Node0x27ab7d0;
+	Node0x27ab7d0 [shape=record,label="{%23:\l23:                                               \l  %24 = load %struct.node*, %struct.node** %4, align 8\l  %25 = getelementptr inbounds %struct.node, %struct.node* %24, i32 0, i32 3\l  %26 = load %struct.node*, %struct.node** %25, align 8\l  store %struct.node* %26, %struct.node** %4, align 8\l  br label %7\l}"];
+	Node0x27ab7d0 -> Node0x27ab640;
+	Node0x27ab820 [shape=record,label="{%27:\l27:                                               \l  br label %28\l}"];
+	Node0x27ab820 -> Node0x27ab870;
+	Node0x27ab870 [shape=record,label="{%28:\l28:                                               \l  %29 = load %struct.node*, %struct.node** %5, align 8\l  %30 = load %struct.node*, %struct.node** %6, align 8\l  %31 = icmp ne %struct.node* %29, %30\l  br i1 %31, label %32, label %48\l|{<s0>T|<s1>F}}"];
+	Node0x27ab870:s0 -> Node0x27ab8c0;
+	Node0x27ab870:s1 -> Node0x27aba50;
+	Node0x27ab8c0 [shape=record,label="{%32:\l32:                                               \l  %33 = load %struct.node*, %struct.node** %5, align 8\l  %34 = getelementptr inbounds %struct.node, %struct.node* %33, i32 0, i32 1\l  %35 = load i32, i32* %34, align 8\l  %36 = icmp ne i32 %35, 0\l  br i1 %36, label %37, label %40\l|{<s0>T|<s1>F}}"];
+	Node0x27ab8c0:s0 -> Node0x27ab910;
+	Node0x27ab8c0:s1 -> Node0x27ab960;
+	Node0x27ab910 [shape=record,label="{%37:\l37:                                               \l  %38 = load %struct.node*, %struct.node** %5, align 8\l  %39 = getelementptr inbounds %struct.node, %struct.node* %38, i32 0, i32 10\l  store i64 1, i64* %39, align 8\l  br label %43\l}"];
+	Node0x27ab910 -> Node0x27ab9b0;
+	Node0x27ab960 [shape=record,label="{%40:\l40:                                               \l  %41 = load %struct.node*, %struct.node** %5, align 8\l  %42 = getelementptr inbounds %struct.node, %struct.node* %41, i32 0, i32 10\l  store i64 0, i64* %42, align 8\l  br label %43\l}"];
+	Node0x27ab960 -> Node0x27ab9b0;
+	Node0x27ab9b0 [shape=record,label="{%43:\l43:                                               \l  br label %44\l}"];
+	Node0x27ab9b0 -> Node0x27aba00;
+	Node0x27aba00 [shape=record,label="{%44:\l44:                                               \l  %45 = load %struct.node*, %struct.node** %5, align 8\l  %46 = getelementptr inbounds %struct.node, %struct.node* %45, i32 0, i32 3\l  %47 = load %struct.node*, %struct.node** %46, align 8\l  store %struct.node* %47, %struct.node** %5, align 8\l  br label %28\l}"];
+	Node0x27aba00 -> Node0x27ab870;
+	Node0x27aba50 [shape=record,label="{%48:\l48:                                               \l  ret void\l}"];
+}

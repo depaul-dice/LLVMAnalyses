@@ -1,0 +1,5 @@
+digraph "CFG for 'exit' function" {
+	label="CFG for 'exit' function";
+
+	Node0x1df8930 [shape=record,label="{%1:\l  tail call fastcc void @libc_exit_fini() #19\l  tail call void @__stdio_exit() #19\l  tail call fastcc void @_Exit(i32 %0) #20\l  unreachable\l}"];
+}

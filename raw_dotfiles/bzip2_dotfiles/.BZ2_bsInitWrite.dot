@@ -1,0 +1,5 @@
+digraph "CFG for 'BZ2_bsInitWrite' function" {
+	label="CFG for 'BZ2_bsInitWrite' function";
+
+	Node0x1d63830 [shape=record,label="{%1:\l  %2 = alloca %struct.EState*, align 8\l  store %struct.EState* %0, %struct.EState** %2, align 8\l  %3 = load %struct.EState*, %struct.EState** %2, align 8\l  %4 = getelementptr inbounds %struct.EState, %struct.EState* %3, i32 0, i32 25\l  store i32 0, i32* %4, align 4\l  %5 = load %struct.EState*, %struct.EState** %2, align 8\l  %6 = getelementptr inbounds %struct.EState, %struct.EState* %5, i32 0, i32 24\l  store i32 0, i32* %6, align 8\l  ret void\l}"];
+}

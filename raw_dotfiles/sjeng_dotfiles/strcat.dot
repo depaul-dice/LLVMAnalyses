@@ -1,0 +1,5 @@
+digraph "CFG for 'strcat' function" {
+	label="CFG for 'strcat' function";
+
+	Node0x28d2450 [shape=record,label="{%2:\l  %3 = tail call fastcc i64 @strlen(i8* %0) #21\l  %4 = getelementptr inbounds i8, i8* %0, i64 %3\l  %5 = tail call fastcc i8* @strcpy(i8* %4, i8* %1) #21\l  ret i8* %0\l}"];
+}

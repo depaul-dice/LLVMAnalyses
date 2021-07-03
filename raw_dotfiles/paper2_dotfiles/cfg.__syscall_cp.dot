@@ -1,0 +1,5 @@
+digraph "CFG for '__syscall_cp' function" {
+	label="CFG for '__syscall_cp' function";
+
+	Node0x98b1f0 [shape=record,label="{%0:\l  %1 = tail call i64 @__syscall_cp_c(i64 %nr, i64 %u, i64 %v, i64 %w, i64 %x,\l... i64 %y, i64 %z) #12\l  ret i64 %1\l}"];
+}

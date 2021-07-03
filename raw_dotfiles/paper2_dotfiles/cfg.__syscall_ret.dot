@@ -1,0 +1,10 @@
+digraph "CFG for '__syscall_ret' function" {
+	label="CFG for '__syscall_ret' function";
+
+	Node0x9701d0 [shape=record,label="{%0:\l  %1 = icmp ugt i64 %r, -4096\l  br i1 %1, label %2, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x9701d0:s0 -> Node0x980100;
+	Node0x9701d0:s1 -> Node0x980150;
+	Node0x980100 [shape=record,label="{%2:\l\l  %3 = sub i64 0, %r\l  %4 = trunc i64 %3 to i32\l  %5 = tail call i32* @___errno_location() #12\l  store i32 %4, i32* %5, align 4, !tbaa !1\l  br label %6\l}"];
+	Node0x980100 -> Node0x980150;
+	Node0x980150 [shape=record,label="{%6:\l\l  %.0 = phi i64 [ -1, %2 ], [ %r, %0 ]\l  ret i64 %.0\l}"];
+}

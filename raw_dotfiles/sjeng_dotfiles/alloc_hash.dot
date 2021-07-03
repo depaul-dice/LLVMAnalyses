@@ -1,0 +1,15 @@
+digraph "CFG for 'alloc_hash' function" {
+	label="CFG for 'alloc_hash' function";
+
+	Node0x2575ec0 [shape=record,label="{%0:\l  %.b = load i1, i1* @TTSize, align 1\l  %1 = select i1 %.b, i32 3000000, i32 0\l  %2 = sext i32 %1 to i64\l  %3 = mul i64 20, %2\l  %4 = call fastcc noalias i8* @malloc(i64 %3) #8\l  %5 = bitcast i8* %4 to %struct.TType*\l  store %struct.TType* %5, %struct.TType** @AS_TTable, align 8\l  %.b1 = load i1, i1* @TTSize, align 1\l  %6 = select i1 %.b1, i32 3000000, i32 0\l  %7 = sext i32 %6 to i64\l  %8 = mul i64 20, %7\l  %9 = call fastcc noalias i8* @malloc(i64 %8) #8\l  %10 = bitcast i8* %9 to %struct.TType*\l  store %struct.TType* %10, %struct.TType** @DP_TTable, align 8\l  %.b2 = load i1, i1* @TTSize, align 1\l  %11 = select i1 %.b2, i32 3000000, i32 0\l  %12 = sext i32 %11 to i64\l  %13 = mul i64 16, %12\l  %14 = call fastcc noalias i8* @malloc(i64 %13) #8\l  %15 = bitcast i8* %14 to %struct.QTType*\l  store %struct.QTType* %15, %struct.QTType** @QS_TTable, align 8\l  %16 = load %struct.TType*, %struct.TType** @AS_TTable, align 8\l  %17 = icmp eq %struct.TType* %16, null\l  br i1 %17, label %24, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x2575ec0:s0 -> Node0x25783a0;
+	Node0x2575ec0:s1 -> Node0x2578300;
+	Node0x2578300 [shape=record,label="{%18:\l18:                                               \l  %19 = load %struct.TType*, %struct.TType** @DP_TTable, align 8\l  %20 = icmp eq %struct.TType* %19, null\l  br i1 %20, label %24, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x2578300:s0 -> Node0x25783a0;
+	Node0x2578300:s1 -> Node0x2578350;
+	Node0x2578350 [shape=record,label="{%21:\l21:                                               \l  %22 = load %struct.QTType*, %struct.QTType** @QS_TTable, align 8\l  %23 = icmp eq %struct.QTType* %22, null\l  br i1 %23, label %24, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x2578350:s0 -> Node0x25783a0;
+	Node0x2578350:s1 -> Node0x25783f0;
+	Node0x25783a0 [shape=record,label="{%24:\l24:                                               \l  %25 = getelementptr inbounds [38 x i8], [38 x i8]* @.str.13, i64 0, i64 0\l  %26 = call i32 (i8*, ...) @printf(i8* %25)\l  call fastcc void @exit(i32 1) #21\l  unreachable\l}"];
+	Node0x25783f0 [shape=record,label="{%27:\l27:                                               \l  ret void\l}"];
+}

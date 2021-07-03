@@ -1,0 +1,19 @@
+digraph "CFG for 'pn_eval' function" {
+	label="CFG for 'pn_eval' function";
+
+	Node0x26696a0 [shape=record,label="{%1:\l  %2 = alloca %struct.node*, align 8\l  store %struct.node* %0, %struct.node** %2, align 8\l  %3 = load i32, i32* @Variant, align 4\l  %4 = icmp eq i32 %3, 3\l  br i1 %4, label %5, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x26696a0:s0 -> Node0x26696f0;
+	Node0x26696a0:s1 -> Node0x2669740;
+	Node0x26696f0 [shape=record,label="{%5:\l5:                                                \l  %6 = load %struct.node*, %struct.node** %2, align 8\l  call fastcc void @suicide_pn_eval(%struct.node* %6)\l  br label %15\l}"];
+	Node0x26696f0 -> Node0x2669880;
+	Node0x2669740 [shape=record,label="{%7:\l7:                                                \l  %8 = load i32, i32* @Variant, align 4\l  %9 = icmp eq i32 %8, 4\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x2669740:s0 -> Node0x2669790;
+	Node0x2669740:s1 -> Node0x26697e0;
+	Node0x2669790 [shape=record,label="{%10:\l10:                                               \l  %11 = load %struct.node*, %struct.node** %2, align 8\l  call fastcc void @losers_pn_eval(%struct.node* %11)\l  br label %14\l}"];
+	Node0x2669790 -> Node0x2669830;
+	Node0x26697e0 [shape=record,label="{%12:\l12:                                               \l  %13 = load %struct.node*, %struct.node** %2, align 8\l  call fastcc void @std_pn_eval(%struct.node* %13)\l  br label %14\l}"];
+	Node0x26697e0 -> Node0x2669830;
+	Node0x2669830 [shape=record,label="{%14:\l14:                                               \l  br label %15\l}"];
+	Node0x2669830 -> Node0x2669880;
+	Node0x2669880 [shape=record,label="{%15:\l15:                                               \l  ret void\l}"];
+}

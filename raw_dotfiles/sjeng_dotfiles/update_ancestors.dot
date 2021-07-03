@@ -1,0 +1,22 @@
+digraph "CFG for 'update_ancestors' function" {
+	label="CFG for 'update_ancestors' function";
+
+	Node0x26965a0 [shape=record,label="{%1:\l  %2 = alloca %struct.node*, align 8\l  %3 = alloca %struct.node*, align 8\l  %4 = alloca %struct.node*, align 8\l  store %struct.node* %0, %struct.node** %2, align 8\l  %5 = load %struct.node*, %struct.node** %2, align 8\l  store %struct.node* %5, %struct.node** %3, align 8\l  %6 = load %struct.node*, %struct.node** %2, align 8\l  store %struct.node* %6, %struct.node** %4, align 8\l  br label %7\l}"];
+	Node0x26965a0 -> Node0x26965f0;
+	Node0x26965f0 [shape=record,label="{%7:\l7:                                                \l  %8 = load %struct.node*, %struct.node** %3, align 8\l  %9 = icmp ne %struct.node* %8, null\l  br i1 %9, label %10, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x26965f0:s0 -> Node0x2696640;
+	Node0x26965f0:s1 -> Node0x2696730;
+	Node0x2696640 [shape=record,label="{%10:\l10:                                               \l  %11 = load %struct.node*, %struct.node** %3, align 8\l  call fastcc void @set_proof_and_disproof_numbers(%struct.node* %11)\l  %12 = load %struct.node*, %struct.node** %3, align 8\l  store %struct.node* %12, %struct.node** %4, align 8\l  %13 = load %struct.node*, %struct.node** %3, align 8\l  %14 = getelementptr inbounds %struct.node, %struct.node* %13, i32 0, i32 8\l  %15 = getelementptr inbounds %struct.move_s, %struct.move_s* %14, i32 0, i32\l... 1\l  %16 = load i32, i32* %15, align 4\l  %17 = icmp ne i32 %16, 0\l  br i1 %17, label %18, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x2696640:s0 -> Node0x2696690;
+	Node0x2696640:s1 -> Node0x26966e0;
+	Node0x2696690 [shape=record,label="{%18:\l18:                                               \l  %19 = load %struct.node*, %struct.node** %3, align 8\l  %20 = getelementptr inbounds %struct.node, %struct.node* %19, i32 0, i32 8\l  call fastcc void @unmake(%struct.move_s* %20, i32 0)\l  br label %21\l}"];
+	Node0x2696690 -> Node0x26966e0;
+	Node0x26966e0 [shape=record,label="{%21:\l21:                                               \l  %22 = load %struct.node*, %struct.node** %3, align 8\l  %23 = getelementptr inbounds %struct.node, %struct.node* %22, i32 0, i32 7\l  %24 = load %struct.node*, %struct.node** %23, align 8\l  store %struct.node* %24, %struct.node** %3, align 8\l  br label %7\l}"];
+	Node0x26966e0 -> Node0x26965f0;
+	Node0x2696730 [shape=record,label="{%25:\l25:                                               \l  %26 = load %struct.node*, %struct.node** %4, align 8\l  %27 = getelementptr inbounds %struct.node, %struct.node* %26, i32 0, i32 8\l  %28 = getelementptr inbounds %struct.move_s, %struct.move_s* %27, i32 0, i32\l... 1\l  %29 = load i32, i32* %28, align 4\l  %30 = icmp ne i32 %29, 0\l  br i1 %30, label %31, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x2696730:s0 -> Node0x2696780;
+	Node0x2696730:s1 -> Node0x26967d0;
+	Node0x2696780 [shape=record,label="{%31:\l31:                                               \l  %32 = load %struct.node*, %struct.node** %4, align 8\l  %33 = getelementptr inbounds %struct.node, %struct.node* %32, i32 0, i32 8\l  call fastcc void @make(%struct.move_s* %33, i32 0)\l  br label %34\l}"];
+	Node0x2696780 -> Node0x26967d0;
+	Node0x26967d0 [shape=record,label="{%34:\l34:                                               \l  ret void\l}"];
+}

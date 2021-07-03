@@ -1,0 +1,10 @@
+digraph "CFG for '__ofl_add' function" {
+	label="CFG for '__ofl_add' function";
+
+	Node0x1f28180 [shape=record,label="{%1:\l  %2 = tail call %struct._IO_FILE.67** @__ofl_lock() #19\l  %3 = bitcast %struct._IO_FILE.67** %2 to %struct._IO_FILE.56**\l  %4 = bitcast %struct._IO_FILE.67** %2 to i64*\l  %5 = load i64, i64* %4, align 8, !tbaa !2\l  %6 = getelementptr inbounds %struct._IO_FILE.56, %struct._IO_FILE.56* %0,\l... i64 0, i32 14\l  %7 = bitcast %struct._IO_FILE.56** %6 to i64*\l  store i64 %5, i64* %7, align 8, !tbaa !6\l  %8 = load %struct._IO_FILE.56*, %struct._IO_FILE.56** %3, align 8, !tbaa !2\l  %9 = icmp eq %struct._IO_FILE.56* %8, null\l  br i1 %9, label %12, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1f28180:s0 -> Node0x1f28220;
+	Node0x1f28180:s1 -> Node0x1f281d0;
+	Node0x1f281d0 [shape=record,label="{%10:\l10:                                               \l  %11 = getelementptr inbounds %struct._IO_FILE.56, %struct._IO_FILE.56* %8,\l... i64 0, i32 13\l  store %struct._IO_FILE.56* %0, %struct._IO_FILE.56** %11, align 8, !tbaa !10\l  br label %12\l}"];
+	Node0x1f281d0 -> Node0x1f28220;
+	Node0x1f28220 [shape=record,label="{%12:\l12:                                               \l  store %struct._IO_FILE.56* %0, %struct._IO_FILE.56** %3, align 8, !tbaa !2\l  tail call fastcc void @__ofl_unlock() #19\l  ret %struct._IO_FILE.56* %0\l}"];
+}

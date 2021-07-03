@@ -1,0 +1,12 @@
+digraph "CFG for 'countHardLinks' function" {
+	label="CFG for 'countHardLinks' function";
+
+	Node0x1c0bac0 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  %3 = alloca i8*, align 8\l  %4 = alloca i32, align 4\l  %5 = alloca %struct.stat, align 8\l  store i8* %0, i8** %3, align 8\l  %6 = load i8*, i8** %3, align 8\l  %7 = call fastcc i32 @lstat(i8* %6, %struct.stat* %5) #7\l  store i32 %7, i32* %4, align 4\l  %8 = load i32, i32* %4, align 4\l  %9 = icmp ne i32 %8, 0\l  br i1 %9, label %10, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1c0bac0:s0 -> Node0x1c0c620;
+	Node0x1c0bac0:s1 -> Node0x1c0c670;
+	Node0x1c0c620 [shape=record,label="{%10:\l10:                                               \l  store i32 0, i32* %2, align 4\l  br label %16\l}"];
+	Node0x1c0c620 -> Node0x1c0c6c0;
+	Node0x1c0c670 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct.stat, %struct.stat* %5, i32 0, i32 2\l  %13 = load i64, i64* %12, align 8\l  %14 = sub i64 %13, 1\l  %15 = trunc i64 %14 to i32\l  store i32 %15, i32* %2, align 4\l  br label %16\l}"];
+	Node0x1c0c670 -> Node0x1c0c6c0;
+	Node0x1c0c6c0 [shape=record,label="{%16:\l16:                                               \l  %17 = load i32, i32* %2, align 4\l  ret i32 %17\l}"];
+}

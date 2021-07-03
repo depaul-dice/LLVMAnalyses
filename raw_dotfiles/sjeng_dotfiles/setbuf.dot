@@ -1,0 +1,5 @@
+digraph "CFG for 'setbuf' function" {
+	label="CFG for 'setbuf' function";
+
+	Node0x284fc00 [shape=record,label="{%2:\l  %3 = icmp eq i8* %1, null\l  %4 = select i1 %3, i32 2, i32 0\l  %5 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.60*\l  %6 = tail call i32 @setvbuf(%struct._IO_FILE.60* %5, i8* %1, i32 %4, i64\l... 1024) #21\l  ret void\l}"];
+}

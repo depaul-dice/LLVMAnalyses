@@ -1,0 +1,24 @@
+digraph "CFG for 'perft' function" {
+	label="CFG for 'perft' function";
+
+	Node0x2714fe0 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  %3 = alloca [512 x %struct.move_s], align 16\l  %4 = alloca i32, align 4\l  %5 = alloca i32, align 4\l  %6 = alloca i32, align 4\l  store i32 %0, i32* %2, align 4\l  store i32 0, i32* %4, align 4\l  %7 = load i32, i32* %2, align 4\l  %8 = icmp ne i32 %7, 0\l  br i1 %8, label %12, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x2714fe0:s0 -> Node0x2715080;
+	Node0x2714fe0:s1 -> Node0x2715030;
+	Node0x2715030 [shape=record,label="{%9:\l9:                                                \l  %10 = load i32, i32* @raw_nodes, align 4\l  %11 = add nsw i32 %10, 1\l  store i32 %11, i32* @raw_nodes, align 4\l  br label %37\l}"];
+	Node0x2715030 -> Node0x2715260;
+	Node0x2715080 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds [512 x %struct.move_s], [512 x %struct.move_s]*\l... %3, i64 0, i64 0\l  call fastcc void @gen(%struct.move_s* %13)\l  %14 = load i32, i32* @numb_moves, align 4\l  store i32 %14, i32* %4, align 4\l  %15 = call fastcc i32 @in_check()\l  store i32 %15, i32* %6, align 4\l  store i32 0, i32* %5, align 4\l  br label %16\l}"];
+	Node0x2715080 -> Node0x27150d0;
+	Node0x27150d0 [shape=record,label="{%16:\l16:                                               \l  %17 = load i32, i32* %5, align 4\l  %18 = load i32, i32* %4, align 4\l  %19 = icmp slt i32 %17, %18\l  br i1 %19, label %20, label %37\l|{<s0>T|<s1>F}}"];
+	Node0x27150d0:s0 -> Node0x2715120;
+	Node0x27150d0:s1 -> Node0x2715260;
+	Node0x2715120 [shape=record,label="{%20:\l20:                                               \l  %21 = getelementptr inbounds [512 x %struct.move_s], [512 x %struct.move_s]*\l... %3, i64 0, i64 0\l  %22 = load i32, i32* %5, align 4\l  call fastcc void @make(%struct.move_s* %21, i32 %22)\l  %23 = getelementptr inbounds [512 x %struct.move_s], [512 x %struct.move_s]*\l... %3, i64 0, i64 0\l  %24 = load i32, i32* %5, align 4\l  %25 = load i32, i32* %6, align 4\l  %26 = call fastcc i32 @check_legal(%struct.move_s* %23, i32 %24, i32 %25)\l  %27 = icmp ne i32 %26, 0\l  br i1 %27, label %28, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x2715120:s0 -> Node0x2715170;
+	Node0x2715120:s1 -> Node0x27151c0;
+	Node0x2715170 [shape=record,label="{%28:\l28:                                               \l  %29 = load i32, i32* %2, align 4\l  %30 = sub nsw i32 %29, 1\l  call fastcc void @perft(i32 %30)\l  br label %31\l}"];
+	Node0x2715170 -> Node0x27151c0;
+	Node0x27151c0 [shape=record,label="{%31:\l31:                                               \l  %32 = getelementptr inbounds [512 x %struct.move_s], [512 x %struct.move_s]*\l... %3, i64 0, i64 0\l  %33 = load i32, i32* %5, align 4\l  call fastcc void @unmake(%struct.move_s* %32, i32 %33)\l  br label %34\l}"];
+	Node0x27151c0 -> Node0x2715210;
+	Node0x2715210 [shape=record,label="{%34:\l34:                                               \l  %35 = load i32, i32* %5, align 4\l  %36 = add nsw i32 %35, 1\l  store i32 %36, i32* %5, align 4\l  br label %16\l}"];
+	Node0x2715210 -> Node0x27150d0;
+	Node0x2715260 [shape=record,label="{%37:\l37:                                               \l  ret void\l}"];
+}

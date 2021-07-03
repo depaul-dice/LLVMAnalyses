@@ -1,0 +1,36 @@
+digraph "CFG for 'global_opt' function" {
+	label="CFG for 'global_opt' function";
+
+	Node0x275f410 [shape=record,label="{%0:\l  %1 = alloca i64, align 8\l  %2 = alloca i64, align 8\l  store i64 -1, i64* %1, align 8\l  %3 = getelementptr inbounds %struct.network, %struct.network* @net, i32 0,\l... i32 3\l  %4 = load i64, i64* %3, align 8\l  %5 = icmp sle i64 %4, 15000\l  %6 = zext i1 %5 to i64\l  %7 = select i1 %5, i32 5, i32 5\l  %8 = sext i32 %7 to i64\l  store i64 %8, i64* %2, align 8\l  br label %9\l}"];
+	Node0x275f410 -> Node0x275f5e0;
+	Node0x275f5e0 [shape=record,label="{%9:\l9:                                                \l  %10 = load i64, i64* %1, align 8\l  %11 = icmp ne i64 %10, 0\l  br i1 %11, label %12, label %58\l|{<s0>T|<s1>F}}"];
+	Node0x275f5e0:s0 -> Node0x275f630;
+	Node0x275f5e0:s1 -> Node0x275f9a0;
+	Node0x275f630 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds %struct.network, %struct.network* @net, i32 0,\l... i32 5\l  %14 = load i64, i64* %13, align 8\l  %15 = getelementptr inbounds [34 x i8], [34 x i8]* @.str, i64 0, i64 0\l  %16 = call i32 (i8*, ...) @printf(i8* %15, i64 %14)\l  %17 = call fastcc i64 @primal_net_simplex(%struct.network* @net)\l  %18 = getelementptr inbounds %struct.network, %struct.network* @net, i32 0,\l... i32 27\l  %19 = load i64, i64* %18, align 8\l  %20 = getelementptr inbounds [34 x i8], [34 x i8]* @.str.1, i64 0, i64 0\l  %21 = call i32 (i8*, ...) @printf(i8* %20, i64 %19)\l  %22 = call fastcc double @flow_cost(%struct.network* @net)\l  %23 = getelementptr inbounds [36 x i8], [36 x i8]* @.str.2, i64 0, i64 0\l  %24 = call i32 (i8*, ...) @printf(i8* %23, double %22)\l  %25 = load i64, i64* %2, align 8\l  %26 = icmp ne i64 %25, 0\l  br i1 %26, label %28, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x275f630:s0 -> Node0x275f6d0;
+	Node0x275f630:s1 -> Node0x275f680;
+	Node0x275f680 [shape=record,label="{%27:\l27:                                               \l  br label %58\l}"];
+	Node0x275f680 -> Node0x275f9a0;
+	Node0x275f6d0 [shape=record,label="{%28:\l28:                                               \l  %29 = getelementptr inbounds %struct.network, %struct.network* @net, i32 0,\l... i32 7\l  %30 = load i64, i64* %29, align 8\l  %31 = icmp ne i64 %30, 0\l  br i1 %31, label %32, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x275f6d0:s0 -> Node0x275f720;
+	Node0x275f6d0:s1 -> Node0x275f810;
+	Node0x275f720 [shape=record,label="{%32:\l32:                                               \l  %33 = call fastcc i64 @suspend_impl(%struct.network* @net, i64 -1, i64 0)\l  store i64 %33, i64* %1, align 8\l  %34 = load i64, i64* %1, align 8\l  %35 = icmp ne i64 %34, 0\l  br i1 %35, label %36, label %40\l|{<s0>T|<s1>F}}"];
+	Node0x275f720:s0 -> Node0x275f770;
+	Node0x275f720:s1 -> Node0x275f7c0;
+	Node0x275f770 [shape=record,label="{%36:\l36:                                               \l  %37 = load i64, i64* %1, align 8\l  %38 = getelementptr inbounds [34 x i8], [34 x i8]* @.str.3, i64 0, i64 0\l  %39 = call i32 (i8*, ...) @printf(i8* %38, i64 %37)\l  br label %40\l}"];
+	Node0x275f770 -> Node0x275f7c0;
+	Node0x275f7c0 [shape=record,label="{%40:\l40:                                               \l  br label %41\l}"];
+	Node0x275f7c0 -> Node0x275f810;
+	Node0x275f810 [shape=record,label="{%41:\l41:                                               \l  %42 = call fastcc i64 @price_out_impl(%struct.network* @net)\l  store i64 %42, i64* %1, align 8\l  %43 = load i64, i64* %1, align 8\l  %44 = icmp ne i64 %43, 0\l  br i1 %44, label %45, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x275f810:s0 -> Node0x275f860;
+	Node0x275f810:s1 -> Node0x275f8b0;
+	Node0x275f860 [shape=record,label="{%45:\l45:                                               \l  %46 = load i64, i64* %1, align 8\l  %47 = getelementptr inbounds [34 x i8], [34 x i8]* @.str.4, i64 0, i64 0\l  %48 = call i32 (i8*, ...) @printf(i8* %47, i64 %46)\l  br label %49\l}"];
+	Node0x275f860 -> Node0x275f8b0;
+	Node0x275f8b0 [shape=record,label="{%49:\l49:                                               \l  %50 = load i64, i64* %1, align 8\l  %51 = icmp slt i64 %50, 0\l  br i1 %51, label %52, label %55\l|{<s0>T|<s1>F}}"];
+	Node0x275f8b0:s0 -> Node0x275f900;
+	Node0x275f8b0:s1 -> Node0x275f950;
+	Node0x275f900 [shape=record,label="{%52:\l52:                                               \l  %53 = getelementptr inbounds [29 x i8], [29 x i8]* @.str.5, i64 0, i64 0\l  %54 = call i32 (i8*, ...) @printf(i8* %53)\l  call fastcc void @exit(i32 -1) #19\l  unreachable\l}"];
+	Node0x275f950 [shape=record,label="{%55:\l55:                                               \l  %56 = load i64, i64* %2, align 8\l  %57 = add nsw i64 %56, -1\l  store i64 %57, i64* %2, align 8\l  br label %9\l}"];
+	Node0x275f950 -> Node0x275f5e0;
+	Node0x275f9a0 [shape=record,label="{%58:\l58:                                               \l  %59 = getelementptr inbounds %struct.network, %struct.network* @net, i32 0,\l... i32 29\l  %60 = load i64, i64* %59, align 8\l  %61 = getelementptr inbounds [34 x i8], [34 x i8]* @.str.6, i64 0, i64 0\l  %62 = call i32 (i8*, ...) @printf(i8* %61, i64 %60)\l  ret i64 0\l}"];
+}

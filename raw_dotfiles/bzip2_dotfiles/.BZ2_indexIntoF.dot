@@ -1,0 +1,19 @@
+digraph "CFG for 'BZ2_indexIntoF' function" {
+	label="CFG for 'BZ2_indexIntoF' function";
+
+	Node0x1cc5670 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = alloca i32*, align 8\l  %5 = alloca i32, align 4\l  %6 = alloca i32, align 4\l  %7 = alloca i32, align 4\l  store i32 %0, i32* %3, align 4\l  store i32* %1, i32** %4, align 8\l  store i32 0, i32* %5, align 4\l  store i32 256, i32* %6, align 4\l  br label %8\l}"];
+	Node0x1cc5670 -> Node0x1cc9530;
+	Node0x1cc9530 [shape=record,label="{%8:\l8:                                                \l  %9 = load i32, i32* %5, align 4\l  %10 = load i32, i32* %6, align 4\l  %11 = add nsw i32 %9, %10\l  %12 = ashr i32 %11, 1\l  store i32 %12, i32* %7, align 4\l  %13 = load i32, i32* %3, align 4\l  %14 = load i32*, i32** %4, align 8\l  %15 = load i32, i32* %7, align 4\l  %16 = sext i32 %15 to i64\l  %17 = getelementptr inbounds i32, i32* %14, i64 %16\l  %18 = load i32, i32* %17, align 4\l  %19 = icmp sge i32 %13, %18\l  br i1 %19, label %20, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1cc9530:s0 -> Node0x1cc9580;
+	Node0x1cc9530:s1 -> Node0x1cc95d0;
+	Node0x1cc9580 [shape=record,label="{%20:\l20:                                               \l  %21 = load i32, i32* %7, align 4\l  store i32 %21, i32* %5, align 4\l  br label %24\l}"];
+	Node0x1cc9580 -> Node0x1cc9620;
+	Node0x1cc95d0 [shape=record,label="{%22:\l22:                                               \l  %23 = load i32, i32* %7, align 4\l  store i32 %23, i32* %6, align 4\l  br label %24\l}"];
+	Node0x1cc95d0 -> Node0x1cc9620;
+	Node0x1cc9620 [shape=record,label="{%24:\l24:                                               \l  br label %25\l}"];
+	Node0x1cc9620 -> Node0x1cc9670;
+	Node0x1cc9670 [shape=record,label="{%25:\l25:                                               \l  %26 = load i32, i32* %6, align 4\l  %27 = load i32, i32* %5, align 4\l  %28 = sub nsw i32 %26, %27\l  %29 = icmp ne i32 %28, 1\l  br i1 %29, label %8, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1cc9670:s0 -> Node0x1cc9530;
+	Node0x1cc9670:s1 -> Node0x1cc96c0;
+	Node0x1cc96c0 [shape=record,label="{%30:\l30:                                               \l  %31 = load i32, i32* %5, align 4\l  ret i32 %31\l}"];
+}

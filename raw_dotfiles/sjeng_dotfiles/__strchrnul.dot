@@ -1,0 +1,35 @@
+digraph "CFG for '__strchrnul' function" {
+	label="CFG for '__strchrnul' function";
+
+	Node0x28d2b60 [shape=record,label="{%2:\l  %3 = and i32 %1, 255\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %11, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x28d2b60:s0 -> Node0x28d2d20;
+	Node0x28d2b60:s1 -> Node0x28d2c80;
+	Node0x28d2c80 [shape=record,label="{%5:\l5:                                                \l  %6 = ptrtoint i8* %0 to i64\l  %7 = and i64 %6, 7\l  %8 = icmp eq i64 %7, 0\l  br i1 %8, label %25, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x28d2c80:s0 -> Node0x28d2e10;
+	Node0x28d2c80:s1 -> Node0x28d2cd0;
+	Node0x28d2cd0 [shape=record,label="{%9:\l9:                                                \l  %10 = trunc i32 %1 to i8\l  br label %14\l}"];
+	Node0x28d2cd0 -> Node0x28d2d70;
+	Node0x28d2d20 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call fastcc i64 @strlen(i8* %0) #21\l  %13 = getelementptr inbounds i8, i8* %0, i64 %12\l  br label %64\l}"];
+	Node0x28d2d20 -> Node0x28d2fa0;
+	Node0x28d2d70 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i8* [ %0, %9 ], [ %21, %20 ]\l  %16 = load i8, i8* %15, align 1, !tbaa !2\l  %17 = icmp eq i8 %16, 0\l  %18 = icmp eq i8 %16, %10\l  %19 = or i1 %17, %18\l  br i1 %19, label %64, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x28d2d70:s0 -> Node0x28d2fa0;
+	Node0x28d2d70:s1 -> Node0x28d2dc0;
+	Node0x28d2dc0 [shape=record,label="{%20:\l20:                                               \l  %21 = getelementptr inbounds i8, i8* %15, i64 1\l  %22 = ptrtoint i8* %21 to i64\l  %23 = and i64 %22, 7\l  %24 = icmp eq i64 %23, 0\l  br i1 %24, label %25, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x28d2dc0:s0 -> Node0x28d2e10;
+	Node0x28d2dc0:s1 -> Node0x28d2d70;
+	Node0x28d2e10 [shape=record,label="{%25:\l25:                                               \l  %26 = phi i8* [ %0, %5 ], [ %21, %20 ]\l  %27 = zext i32 %3 to i64\l  %28 = mul nuw i64 %27, 72340172838076673\l  %29 = bitcast i8* %26 to i64*\l  %30 = load i64, i64* %29, align 8, !tbaa !2\l  %31 = add i64 %30, -72340172838076673\l  %32 = and i64 %30, -9187201950435737472\l  %33 = xor i64 %32, -9187201950435737472\l  %34 = and i64 %33, %31\l  %35 = icmp eq i64 %34, 0\l  br i1 %35, label %36, label %53\l|{<s0>T|<s1>F}}"];
+	Node0x28d2e10:s0 -> Node0x28d2e60;
+	Node0x28d2e10:s1 -> Node0x28d2f00;
+	Node0x28d2e60 [shape=record,label="{%36:\l36:                                               \l  %37 = phi i64 [ %47, %45 ], [ %30, %25 ]\l  %38 = phi i64* [ %46, %45 ], [ %29, %25 ]\l  %39 = xor i64 %37, %28\l  %40 = add i64 %39, -72340172838076673\l  %41 = and i64 %39, -9187201950435737472\l  %42 = xor i64 %41, -9187201950435737472\l  %43 = and i64 %42, %40\l  %44 = icmp eq i64 %43, 0\l  br i1 %44, label %45, label %53\l|{<s0>T|<s1>F}}"];
+	Node0x28d2e60:s0 -> Node0x28d2eb0;
+	Node0x28d2e60:s1 -> Node0x28d2f00;
+	Node0x28d2eb0 [shape=record,label="{%45:\l45:                                               \l  %46 = getelementptr inbounds i64, i64* %38, i64 1\l  %47 = load i64, i64* %46, align 8, !tbaa !2\l  %48 = add i64 %47, -72340172838076673\l  %49 = and i64 %47, -9187201950435737472\l  %50 = xor i64 %49, -9187201950435737472\l  %51 = and i64 %50, %48\l  %52 = icmp eq i64 %51, 0\l  br i1 %52, label %36, label %53\l|{<s0>T|<s1>F}}"];
+	Node0x28d2eb0:s0 -> Node0x28d2e60;
+	Node0x28d2eb0:s1 -> Node0x28d2f00;
+	Node0x28d2f00 [shape=record,label="{%53:\l53:                                               \l  %54 = phi i64* [ %29, %25 ], [ %46, %45 ], [ %38, %36 ]\l  %55 = bitcast i64* %54 to i8*\l  %56 = trunc i32 %1 to i8\l  br label %57\l}"];
+	Node0x28d2f00 -> Node0x28d2f50;
+	Node0x28d2f50 [shape=record,label="{%57:\l57:                                               \l  %58 = phi i8* [ %55, %53 ], [ %63, %57 ]\l  %59 = load i8, i8* %58, align 1, !tbaa !2\l  %60 = icmp eq i8 %59, 0\l  %61 = icmp eq i8 %59, %56\l  %62 = or i1 %60, %61\l  %63 = getelementptr inbounds i8, i8* %58, i64 1\l  br i1 %62, label %64, label %57\l|{<s0>T|<s1>F}}"];
+	Node0x28d2f50:s0 -> Node0x28d2fa0;
+	Node0x28d2f50:s1 -> Node0x28d2f50;
+	Node0x28d2fa0 [shape=record,label="{%64:\l64:                                               \l  %65 = phi i8* [ %13, %11 ], [ %58, %57 ], [ %15, %14 ]\l  ret i8* %65\l}"];
+}

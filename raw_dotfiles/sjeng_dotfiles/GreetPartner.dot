@@ -1,0 +1,5 @@
+digraph "CFG for 'GreetPartner' function" {
+	label="CFG for 'GreetPartner' function";
+
+	Node0x262afa0 [shape=record,label="{%0:\l  %1 = getelementptr inbounds [69 x i8], [69 x i8]* @.str.63, i64 0, i64 0\l  %2 = call i32 (i8*, ...) @printf(i8* %1)\l  %3 = getelementptr inbounds [76 x i8], [76 x i8]* @.str.1.64, i64 0, i64 0\l  %4 = call i32 (i8*, ...) @printf(i8* %3)\l  ret void\l}"];
+}

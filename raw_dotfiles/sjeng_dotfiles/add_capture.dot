@@ -1,0 +1,25 @@
+digraph "CFG for 'add_capture' function" {
+	label="CFG for 'add_capture' function";
+
+	Node0x248ff40 [shape=record,label="{%4:\l  %5 = alloca i32, align 4\l  %6 = alloca i32, align 4\l  %7 = alloca i32, align 4\l  %8 = alloca i32, align 4\l  store i32 %0, i32* %5, align 4\l  store i32 %1, i32* %6, align 4\l  store i32 %2, i32* %7, align 4\l  store i32 %3, i32* %8, align 4\l  %9 = load i32, i32* @Variant, align 4\l  %10 = icmp ne i32 %9, 3\l  br i1 %10, label %11, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x248ff40:s0 -> Node0x248ff90;
+	Node0x248ff40:s1 -> Node0x2490080;
+	Node0x248ff90 [shape=record,label="{%11:\l11:                                               \l  %12 = load i32, i32* %6, align 4\l  %13 = icmp eq i32 %12, 5\l  br i1 %13, label %17, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x248ff90:s0 -> Node0x2490030;
+	Node0x248ff90:s1 -> Node0x248ffe0;
+	Node0x248ffe0 [shape=record,label="{%14:\l14:                                               \l  %15 = load i32, i32* %6, align 4\l  %16 = icmp eq i32 %15, 6\l  br i1 %16, label %17, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x248ffe0:s0 -> Node0x2490030;
+	Node0x248ffe0:s1 -> Node0x2490080;
+	Node0x2490030 [shape=record,label="{%17:\l17:                                               \l  store i1 true, i1* @kingcap, align 1\l  br label %61\l}"];
+	Node0x2490030 -> Node0x24901c0;
+	Node0x2490080 [shape=record,label="{%18:\l18:                                               \l  %19 = load i32, i32* %6, align 4\l  %20 = icmp ne i32 %19, 13\l  br i1 %20, label %21, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x2490080:s0 -> Node0x24900d0;
+	Node0x2490080:s1 -> Node0x2490120;
+	Node0x24900d0 [shape=record,label="{%21:\l21:                                               \l  store i1 true, i1* @fcaptures, align 1\l  br label %22\l}"];
+	Node0x24900d0 -> Node0x2490120;
+	Node0x2490120 [shape=record,label="{%22:\l22:                                               \l  br label %23\l}"];
+	Node0x2490120 -> Node0x2490170;
+	Node0x2490170 [shape=record,label="{%23:\l23:                                               \l  %24 = load i32, i32* @gfrom, align 4\l  %25 = load %struct.move_s*, %struct.move_s** @genfor, align 8\l  %26 = load i32, i32* @numb_moves, align 4\l  %27 = sext i32 %26 to i64\l  %28 = getelementptr inbounds %struct.move_s, %struct.move_s* %25, i64 %27\l  %29 = getelementptr inbounds %struct.move_s, %struct.move_s* %28, i32 0, i32\l... 0\l  store i32 %24, i32* %29, align 4\l  %30 = load i32, i32* %5, align 4\l  %31 = load %struct.move_s*, %struct.move_s** @genfor, align 8\l  %32 = load i32, i32* @numb_moves, align 4\l  %33 = sext i32 %32 to i64\l  %34 = getelementptr inbounds %struct.move_s, %struct.move_s* %31, i64 %33\l  %35 = getelementptr inbounds %struct.move_s, %struct.move_s* %34, i32 0, i32\l... 1\l  store i32 %30, i32* %35, align 4\l  %36 = load i32, i32* %6, align 4\l  %37 = load %struct.move_s*, %struct.move_s** @genfor, align 8\l  %38 = load i32, i32* @numb_moves, align 4\l  %39 = sext i32 %38 to i64\l  %40 = getelementptr inbounds %struct.move_s, %struct.move_s* %37, i64 %39\l  %41 = getelementptr inbounds %struct.move_s, %struct.move_s* %40, i32 0, i32\l... 2\l  store i32 %36, i32* %41, align 4\l  %42 = load %struct.move_s*, %struct.move_s** @genfor, align 8\l  %43 = load i32, i32* @numb_moves, align 4\l  %44 = sext i32 %43 to i64\l  %45 = getelementptr inbounds %struct.move_s, %struct.move_s* %42, i64 %44\l  %46 = getelementptr inbounds %struct.move_s, %struct.move_s* %45, i32 0, i32\l... 4\l  store i32 0, i32* %46, align 4\l  %47 = load i32, i32* %7, align 4\l  %48 = load %struct.move_s*, %struct.move_s** @genfor, align 8\l  %49 = load i32, i32* @numb_moves, align 4\l  %50 = sext i32 %49 to i64\l  %51 = getelementptr inbounds %struct.move_s, %struct.move_s* %48, i64 %50\l  %52 = getelementptr inbounds %struct.move_s, %struct.move_s* %51, i32 0, i32\l... 3\l  store i32 %47, i32* %52, align 4\l  %53 = load i32, i32* %8, align 4\l  %54 = load %struct.move_s*, %struct.move_s** @genfor, align 8\l  %55 = load i32, i32* @numb_moves, align 4\l  %56 = sext i32 %55 to i64\l  %57 = getelementptr inbounds %struct.move_s, %struct.move_s* %54, i64 %56\l  %58 = getelementptr inbounds %struct.move_s, %struct.move_s* %57, i32 0, i32\l... 5\l  store i32 %53, i32* %58, align 4\l  %59 = load i32, i32* @numb_moves, align 4\l  %60 = add nsw i32 %59, 1\l  store i32 %60, i32* @numb_moves, align 4\l  br label %61\l}"];
+	Node0x2490170 -> Node0x24901c0;
+	Node0x24901c0 [shape=record,label="{%61:\l61:                                               \l  ret void\l}"];
+}

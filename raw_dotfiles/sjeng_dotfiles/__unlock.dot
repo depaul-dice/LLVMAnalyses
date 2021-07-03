@@ -1,0 +1,16 @@
+digraph "CFG for '__unlock' function" {
+	label="CFG for '__unlock' function";
+
+	Node0x28e6440 [shape=record,label="{%1:\l  %2 = load volatile i32, i32* %0, align 4, !tbaa !2\l  %3 = icmp slt i32 %2, 0\l  br i1 %3, label %4, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x28e6440:s0 -> Node0x28e6490;
+	Node0x28e6440:s1 -> Node0x28e6580;
+	Node0x28e6490 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i32 asm sideeffect \"lock \l  %6 = icmp eq i32 %5, -2147483647\l  br i1 %6, label %13, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x28e6490:s0 -> Node0x28e6580;
+	Node0x28e6490:s1 -> Node0x28e64e0;
+	Node0x28e64e0 [shape=record,label="{%7:\l7:                                                \l  %8 = ptrtoint i32* %0 to i64\l  %9 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %8, i64 129, i64 1) #21, !srcloc !7\l  %10 = icmp eq i64 %9, -38\l  br i1 %10, label %11, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x28e64e0:s0 -> Node0x28e6530;
+	Node0x28e64e0:s1 -> Node0x28e6580;
+	Node0x28e6530 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %8, i64 1, i64 1) #21, !srcloc !7\l  br label %13\l}"];
+	Node0x28e6530 -> Node0x28e6580;
+	Node0x28e6580 [shape=record,label="{%13:\l13:                                               \l  ret void\l}"];
+}

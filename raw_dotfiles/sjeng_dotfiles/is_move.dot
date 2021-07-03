@@ -1,0 +1,35 @@
+digraph "CFG for 'is_move' function" {
+	label="CFG for 'is_move' function";
+
+	Node0x27ddcf0 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  %3 = alloca i8*, align 8\l  store i8* %0, i8** %3, align 8\l  %4 = call fastcc i16** @__ctype_b_loc() #21\l  %5 = load i16*, i16** %4, align 8\l  %6 = load i8*, i8** %3, align 8\l  %7 = getelementptr inbounds i8, i8* %6, i64 0\l  %8 = load i8, i8* %7, align 1\l  %9 = sext i8 %8 to i32\l  %10 = sext i32 %9 to i64\l  %11 = getelementptr inbounds i16, i16* %5, i64 %10\l  %12 = load i16, i16* %11, align 2\l  %13 = zext i16 %12 to i32\l  %14 = and i32 %13, 1024\l  %15 = icmp ne i32 %14, 0\l  br i1 %15, label %16, label %56\l|{<s0>T|<s1>F}}"];
+	Node0x27ddcf0:s0 -> Node0x27e0bf0;
+	Node0x27ddcf0:s1 -> Node0x27e0d30;
+	Node0x27e0bf0 [shape=record,label="{%16:\l16:                                               \l  %17 = call fastcc i16** @__ctype_b_loc() #21\l  %18 = load i16*, i16** %17, align 8\l  %19 = load i8*, i8** %3, align 8\l  %20 = getelementptr inbounds i8, i8* %19, i64 1\l  %21 = load i8, i8* %20, align 1\l  %22 = sext i8 %21 to i32\l  %23 = sext i32 %22 to i64\l  %24 = getelementptr inbounds i16, i16* %18, i64 %23\l  %25 = load i16, i16* %24, align 2\l  %26 = zext i16 %25 to i32\l  %27 = and i32 %26, 2048\l  %28 = icmp ne i32 %27, 0\l  br i1 %28, label %29, label %56\l|{<s0>T|<s1>F}}"];
+	Node0x27e0bf0:s0 -> Node0x27e0c40;
+	Node0x27e0bf0:s1 -> Node0x27e0d30;
+	Node0x27e0c40 [shape=record,label="{%29:\l29:                                               \l  %30 = call fastcc i16** @__ctype_b_loc() #21\l  %31 = load i16*, i16** %30, align 8\l  %32 = load i8*, i8** %3, align 8\l  %33 = getelementptr inbounds i8, i8* %32, i64 2\l  %34 = load i8, i8* %33, align 1\l  %35 = sext i8 %34 to i32\l  %36 = sext i32 %35 to i64\l  %37 = getelementptr inbounds i16, i16* %31, i64 %36\l  %38 = load i16, i16* %37, align 2\l  %39 = zext i16 %38 to i32\l  %40 = and i32 %39, 1024\l  %41 = icmp ne i32 %40, 0\l  br i1 %41, label %42, label %56\l|{<s0>T|<s1>F}}"];
+	Node0x27e0c40:s0 -> Node0x27e0c90;
+	Node0x27e0c40:s1 -> Node0x27e0d30;
+	Node0x27e0c90 [shape=record,label="{%42:\l42:                                               \l  %43 = call fastcc i16** @__ctype_b_loc() #21\l  %44 = load i16*, i16** %43, align 8\l  %45 = load i8*, i8** %3, align 8\l  %46 = getelementptr inbounds i8, i8* %45, i64 3\l  %47 = load i8, i8* %46, align 1\l  %48 = sext i8 %47 to i32\l  %49 = sext i32 %48 to i64\l  %50 = getelementptr inbounds i16, i16* %44, i64 %49\l  %51 = load i16, i16* %50, align 2\l  %52 = zext i16 %51 to i32\l  %53 = and i32 %52, 2048\l  %54 = icmp ne i32 %53, 0\l  br i1 %54, label %55, label %56\l|{<s0>T|<s1>F}}"];
+	Node0x27e0c90:s0 -> Node0x27e0ce0;
+	Node0x27e0c90:s1 -> Node0x27e0d30;
+	Node0x27e0ce0 [shape=record,label="{%55:\l55:                                               \l  store i32 1, i32* %2, align 4\l  br label %103\l}"];
+	Node0x27e0ce0 -> Node0x27e0f10;
+	Node0x27e0d30 [shape=record,label="{%56:\l56:                                               \l  %57 = call fastcc i16** @__ctype_b_loc() #21\l  %58 = load i16*, i16** %57, align 8\l  %59 = load i8*, i8** %3, align 8\l  %60 = getelementptr inbounds i8, i8* %59, i64 0\l  %61 = load i8, i8* %60, align 1\l  %62 = sext i8 %61 to i32\l  %63 = sext i32 %62 to i64\l  %64 = getelementptr inbounds i16, i16* %58, i64 %63\l  %65 = load i16, i16* %64, align 2\l  %66 = zext i16 %65 to i32\l  %67 = and i32 %66, 1024\l  %68 = icmp ne i32 %67, 0\l  br i1 %68, label %69, label %102\l|{<s0>T|<s1>F}}"];
+	Node0x27e0d30:s0 -> Node0x27e0d80;
+	Node0x27e0d30:s1 -> Node0x27e0ec0;
+	Node0x27e0d80 [shape=record,label="{%69:\l69:                                               \l  %70 = load i8*, i8** %3, align 8\l  %71 = getelementptr inbounds i8, i8* %70, i64 1\l  %72 = load i8, i8* %71, align 1\l  %73 = sext i8 %72 to i32\l  %74 = icmp eq i32 %73, 64\l  br i1 %74, label %75, label %102\l|{<s0>T|<s1>F}}"];
+	Node0x27e0d80:s0 -> Node0x27e0dd0;
+	Node0x27e0d80:s1 -> Node0x27e0ec0;
+	Node0x27e0dd0 [shape=record,label="{%75:\l75:                                               \l  %76 = call fastcc i16** @__ctype_b_loc() #21\l  %77 = load i16*, i16** %76, align 8\l  %78 = load i8*, i8** %3, align 8\l  %79 = getelementptr inbounds i8, i8* %78, i64 2\l  %80 = load i8, i8* %79, align 1\l  %81 = sext i8 %80 to i32\l  %82 = sext i32 %81 to i64\l  %83 = getelementptr inbounds i16, i16* %77, i64 %82\l  %84 = load i16, i16* %83, align 2\l  %85 = zext i16 %84 to i32\l  %86 = and i32 %85, 1024\l  %87 = icmp ne i32 %86, 0\l  br i1 %87, label %88, label %102\l|{<s0>T|<s1>F}}"];
+	Node0x27e0dd0:s0 -> Node0x27e0e20;
+	Node0x27e0dd0:s1 -> Node0x27e0ec0;
+	Node0x27e0e20 [shape=record,label="{%88:\l88:                                               \l  %89 = call fastcc i16** @__ctype_b_loc() #21\l  %90 = load i16*, i16** %89, align 8\l  %91 = load i8*, i8** %3, align 8\l  %92 = getelementptr inbounds i8, i8* %91, i64 3\l  %93 = load i8, i8* %92, align 1\l  %94 = sext i8 %93 to i32\l  %95 = sext i32 %94 to i64\l  %96 = getelementptr inbounds i16, i16* %90, i64 %95\l  %97 = load i16, i16* %96, align 2\l  %98 = zext i16 %97 to i32\l  %99 = and i32 %98, 2048\l  %100 = icmp ne i32 %99, 0\l  br i1 %100, label %101, label %102\l|{<s0>T|<s1>F}}"];
+	Node0x27e0e20:s0 -> Node0x27e0e70;
+	Node0x27e0e20:s1 -> Node0x27e0ec0;
+	Node0x27e0e70 [shape=record,label="{%101:\l101:                                              \l  store i32 1, i32* %2, align 4\l  br label %103\l}"];
+	Node0x27e0e70 -> Node0x27e0f10;
+	Node0x27e0ec0 [shape=record,label="{%102:\l102:                                              \l  store i32 0, i32* %2, align 4\l  br label %103\l}"];
+	Node0x27e0ec0 -> Node0x27e0f10;
+	Node0x27e0f10 [shape=record,label="{%103:\l103:                                              \l  %104 = load i32, i32* %2, align 4\l  ret i32 %104\l}"];
+}

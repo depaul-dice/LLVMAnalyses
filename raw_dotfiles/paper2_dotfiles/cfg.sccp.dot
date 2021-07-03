@@ -1,0 +1,5 @@
+digraph "CFG for 'sccp' function" {
+	label="CFG for 'sccp' function";
+
+	Node0x97be20 [shape=record,label="{%0:\l  %1 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},\{r8\},\{r9\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},\l...~\{fpsr\},~\{flags\}\"(i64 %nr, i64 %u, i64 %v, i64 %w, i64 %x, i64 %y, i64 %z) #6,\l... !srcloc !1\l  ret i64 %1\l}"];
+}

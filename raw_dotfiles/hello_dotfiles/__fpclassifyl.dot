@@ -1,0 +1,20 @@
+digraph "CFG for '__fpclassifyl' function" {
+	label="CFG for '__fpclassifyl' function";
+
+	Node0x16a50e0 [shape=record,label="{%1:\l  %2 = bitcast x86_fp80 %0 to i80\l  %3 = lshr i80 %2, 64\l  %4 = trunc i80 %3 to i32\l  %5 = and i32 %4, 32767\l  %6 = trunc i80 %2 to i64\l  %7 = icmp ne i32 %5, 0\l  %8 = icmp slt i64 %6, 0\l  %9 = or i1 %8, %7\l  br i1 %9, label %13, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x16a50e0:s0 -> Node0x16a5180;
+	Node0x16a50e0:s1 -> Node0x16a5130;
+	Node0x16a5130 [shape=record,label="{%10:\l10:                                               \l  %11 = icmp eq i64 %6, 0\l  %12 = select i1 %11, i32 2, i32 3\l  br label %24\l}"];
+	Node0x16a5130 -> Node0x16a52c0;
+	Node0x16a5180 [shape=record,label="{%13:\l13:                                               \l  %14 = icmp eq i32 %5, 32767\l  br i1 %14, label %15, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x16a5180:s0 -> Node0x16a51d0;
+	Node0x16a5180:s1 -> Node0x16a5270;
+	Node0x16a51d0 [shape=record,label="{%15:\l15:                                               \l  br i1 %8, label %16, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x16a51d0:s0 -> Node0x16a5220;
+	Node0x16a51d0:s1 -> Node0x16a52c0;
+	Node0x16a5220 [shape=record,label="{%16:\l16:                                               \l  %17 = and i64 %6, 9223372036854775807\l  %18 = icmp eq i64 %17, 0\l  %19 = zext i1 %18 to i32\l  br label %24\l}"];
+	Node0x16a5220 -> Node0x16a52c0;
+	Node0x16a5270 [shape=record,label="{%20:\l20:                                               \l  %21 = lshr i80 %2, 61\l  %22 = trunc i80 %21 to i32\l  %23 = and i32 %22, 4\l  br label %24\l}"];
+	Node0x16a5270 -> Node0x16a52c0;
+	Node0x16a52c0 [shape=record,label="{%24:\l24:                                               \l  %25 = phi i32 [ %19, %16 ], [ %12, %10 ], [ 0, %15 ], [ %23, %20 ]\l  ret i32 %25\l}"];
+}

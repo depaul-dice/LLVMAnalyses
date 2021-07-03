@@ -1,0 +1,24 @@
+digraph "CFG for 'atoi' function" {
+	label="CFG for 'atoi' function";
+
+	Node0x980840 [shape=record,label="{%0:\l  br label %1\l}"];
+	Node0x980840 -> Node0x980890;
+	Node0x980890 [shape=record,label="{%1:\l\l  %.0 = phi i8* [ %s, %0 ], [ %7, %1 ]\l  %2 = load i8, i8* %.0, align 1, !tbaa !1\l  %3 = sext i8 %2 to i32\l  %4 = icmp eq i8 %2, 32\l  %5 = add nsw i32 %3, -9\l  %6 = icmp ult i32 %5, 5\l  %.demorgan = or i1 %4, %6\l  %7 = getelementptr inbounds i8, i8* %.0, i64 1\l  br i1 %.demorgan, label %1, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x980890:s0 -> Node0x980890;
+	Node0x980890:s1 -> Node0x9808e0;
+	Node0x9808e0 [shape=record,label="{%8:\l\l  switch i32 %3, label %.preheader [\l    i32 45, label %9\l    i32 43, label %10\l  ]\l|{<s0>def|<s1>45|<s2>43}}"];
+	Node0x9808e0:s0 -> Node0x9809d0;
+	Node0x9808e0:s1 -> Node0x980930;
+	Node0x9808e0:s2 -> Node0x980980;
+	Node0x980930 [shape=record,label="{%9:\l\l  br label %10\l}"];
+	Node0x980930 -> Node0x980980;
+	Node0x980980 [shape=record,label="{%10:\l\l  %neg.0 = phi i32 [ 0, %8 ], [ 1, %9 ]\l  %.pre = load i8, i8* %7, align 1, !tbaa !1\l  br label %.preheader\l}"];
+	Node0x980980 -> Node0x9809d0;
+	Node0x9809d0 [shape=record,label="{.preheader:                                       \l  %11 = phi i8 [ %.pre, %10 ], [ %2, %8 ]\l  %.1.ph = phi i8* [ %7, %10 ], [ %.0, %8 ]\l  %neg.1.ph = phi i32 [ %neg.0, %10 ], [ 0, %8 ]\l  %12 = sext i8 %11 to i32\l  %13 = add nsw i32 %12, -48\l  %14 = icmp ult i32 %13, 10\l  br i1 %14, label %.lr.ph, label %._crit_edge\l|{<s0>T|<s1>F}}"];
+	Node0x9809d0:s0 -> Node0x980a20;
+	Node0x9809d0:s1 -> Node0x980a70;
+	Node0x980a20 [shape=record,label="{.lr.ph:                                           \l  %15 = phi i32 [ %21, %.lr.ph ], [ %13, %.preheader ]\l  %n.02 = phi i32 [ %18, %.lr.ph ], [ 0, %.preheader ]\l  %.11 = phi i8* [ %17, %.lr.ph ], [ %.1.ph, %.preheader ]\l  %16 = mul nsw i32 %n.02, 10\l  %17 = getelementptr inbounds i8, i8* %.11, i64 1\l  %18 = sub nsw i32 %16, %15\l  %19 = load i8, i8* %17, align 1, !tbaa !1\l  %20 = sext i8 %19 to i32\l  %21 = add nsw i32 %20, -48\l  %22 = icmp ult i32 %21, 10\l  br i1 %22, label %.lr.ph, label %._crit_edge\l|{<s0>T|<s1>F}}"];
+	Node0x980a20:s0 -> Node0x980a20;
+	Node0x980a20:s1 -> Node0x980a70;
+	Node0x980a70 [shape=record,label="{._crit_edge:                                      \l  %n.0.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]\l  %23 = icmp ne i32 %neg.1.ph, 0\l  %24 = sub nsw i32 0, %n.0.lcssa\l  %25 = select i1 %23, i32 %n.0.lcssa, i32 %24\l  ret i32 %25\l}"];
+}

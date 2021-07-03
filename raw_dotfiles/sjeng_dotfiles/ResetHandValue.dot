@@ -1,0 +1,5 @@
+digraph "CFG for 'ResetHandValue' function" {
+	label="CFG for 'ResetHandValue' function";
+
+	Node0x2623190 [shape=record,label="{%0:\l  %1 = bitcast [13 x i32]* @hand_value to i8*\l  %2 = bitcast [13 x i32]* @std_hand_value to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 16 %1, i8* align 16 %2, i64\l... 52, i1 false)\l  ret void\l}"];
+}

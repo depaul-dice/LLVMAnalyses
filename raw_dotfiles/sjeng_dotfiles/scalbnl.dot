@@ -1,0 +1,21 @@
+digraph "CFG for 'scalbnl' function" {
+	label="CFG for 'scalbnl' function";
+
+	Node0x29a3af0 [shape=record,label="{%2:\l  %3 = icmp sgt i32 %1, 16383\l  br i1 %3, label %4, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x29a3af0:s0 -> Node0x29a3b40;
+	Node0x29a3af0:s1 -> Node0x29a3be0;
+	Node0x29a3b40 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80 %0,\l... x86_fp80 0xK7FFE8000000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #21\l  %6 = add nsw i32 %1, -16383\l  %7 = icmp sgt i32 %1, 32766\l  br i1 %7, label %8, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x29a3b40:s0 -> Node0x29a3b90;
+	Node0x29a3b40:s1 -> Node0x29a3cd0;
+	Node0x29a3b90 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80 %5,\l... x86_fp80 0xK7FFE8000000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #21\l  %10 = icmp slt i32 %1, 49149\l  %11 = select i1 %10, i32 %1, i32 49149\l  %12 = add nsw i32 %11, -32766\l  br label %26\l}"];
+	Node0x29a3b90 -> Node0x29a3cd0;
+	Node0x29a3be0 [shape=record,label="{%13:\l13:                                               \l  %14 = icmp slt i32 %1, -16382\l  br i1 %14, label %15, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x29a3be0:s0 -> Node0x29a3c30;
+	Node0x29a3be0:s1 -> Node0x29a3cd0;
+	Node0x29a3c30 [shape=record,label="{%15:\l15:                                               \l  %16 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80\l... 0xK00018000000000000000, x86_fp80 0xK40708000000000000000, metadata\l... !\"round.dynamic\", metadata !\"fpexcept.ignore\") #21\l  %17 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80\l... %0, x86_fp80 %16, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #21\l  %18 = add nuw nsw i32 %1, 16269\l  %19 = icmp slt i32 %1, -32651\l  br i1 %19, label %20, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x29a3c30:s0 -> Node0x29a3c80;
+	Node0x29a3c30:s1 -> Node0x29a3cd0;
+	Node0x29a3c80 [shape=record,label="{%20:\l20:                                               \l  %21 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80\l... 0xK00018000000000000000, x86_fp80 0xK40708000000000000000, metadata\l... !\"round.dynamic\", metadata !\"fpexcept.ignore\") #21\l  %22 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80\l... %17, x86_fp80 %21, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #21\l  %23 = icmp sgt i32 %1, -48920\l  %24 = select i1 %23, i32 %1, i32 -48920\l  %25 = add nuw nsw i32 %24, 32538\l  br label %26\l}"];
+	Node0x29a3c80 -> Node0x29a3cd0;
+	Node0x29a3cd0 [shape=record,label="{%26:\l26:                                               \l  %27 = phi i32 [ %12, %8 ], [ %6, %4 ], [ %25, %20 ], [ %18, %15 ], [ %1, %13\l... ]\l  %28 = phi x86_fp80 [ %9, %8 ], [ %5, %4 ], [ %22, %20 ], [ %17, %15 ], [ %0,\l... %13 ]\l  %29 = tail call x86_fp80 @llvm.experimental.constrained.fpext.f80.f64(double\l... 1.000000e+00, metadata !\"fpexcept.ignore\") #21\l  %30 = trunc i32 %27 to i16\l  %31 = add i16 %30, 16383\l  %32 = bitcast x86_fp80 %29 to i80\l  %33 = zext i16 %31 to i80\l  %34 = shl nuw i80 %33, 64\l  %35 = and i80 %32, 18446744073709551615\l  %36 = or i80 %35, %34\l  %37 = bitcast i80 %36 to x86_fp80\l  %38 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80\l... %28, x86_fp80 %37, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #21\l  ret x86_fp80 %38\l}"];
+}

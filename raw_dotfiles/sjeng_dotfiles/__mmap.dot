@@ -1,0 +1,17 @@
+digraph "CFG for '__mmap' function" {
+	label="CFG for '__mmap' function";
+
+	Node0x283ba80 [shape=record,label="{%6:\l  %7 = and i64 %5, 4095\l  %8 = icmp eq i64 %7, 0\l  br i1 %8, label %12, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x283ba80:s0 -> Node0x283cb80;
+	Node0x283ba80:s1 -> Node0x283c6d0;
+	Node0x283c6d0 [shape=record,label="{%9:\l9:                                                \l  %10 = tail call fastcc i32* @__errno_location() #21\l  store i32 22, i32* %10, align 4, !tbaa !2\l  %11 = inttoptr i64 -1 to i8*\l  br label %32\l}"];
+	Node0x283c6d0 -> Node0x283cc70;
+	Node0x283cb80 [shape=record,label="{%12:\l12:                                               \l  %13 = icmp ugt i64 %1, 9223372036854775806\l  br i1 %13, label %14, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x283cb80:s0 -> Node0x283cbd0;
+	Node0x283cb80:s1 -> Node0x283cc20;
+	Node0x283cbd0 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call fastcc i32* @__errno_location() #21\l  store i32 12, i32* %15, align 4, !tbaa !2\l  %16 = inttoptr i64 -1 to i8*\l  br label %32\l}"];
+	Node0x283cbd0 -> Node0x283cc70;
+	Node0x283cc20 [shape=record,label="{%17:\l17:                                               \l  %18 = ptrtoint i8* %0 to i64\l  %19 = sext i32 %2 to i64\l  %20 = sext i32 %3 to i64\l  %21 = sext i32 %4 to i64\l  %22 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},\{r8\},\{r9\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},\l...~\{fpsr\},~\{flags\}\"(i64 9, i64 %18, i64 %1, i64 %19, i64 %20, i64 %21, i64 %5)\l... #22, !srcloc !6\l  %23 = icmp ne i64 %22, -1\l  %24 = icmp ne i8* %0, null\l  %25 = or i1 %24, %23\l  %26 = and i32 %3, 48\l  %27 = icmp eq i32 %26, 32\l  %28 = select i1 %27, i64 -12, i64 -1\l  %29 = select i1 %25, i64 %22, i64 %28\l  %30 = tail call fastcc i64 @__syscall_ret(i64 %29) #21\l  %31 = inttoptr i64 %30 to i8*\l  br label %32\l}"];
+	Node0x283cc20 -> Node0x283cc70;
+	Node0x283cc70 [shape=record,label="{%32:\l32:                                               \l  %33 = phi i8* [ %11, %9 ], [ %16, %14 ], [ %31, %17 ]\l  ret i8* %33\l}"];
+}

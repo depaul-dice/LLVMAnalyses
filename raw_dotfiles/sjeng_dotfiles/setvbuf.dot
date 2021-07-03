@@ -1,0 +1,28 @@
+digraph "CFG for 'setvbuf' function" {
+	label="CFG for 'setvbuf' function";
+
+	Node0x284ffd0 [shape=record,label="{%4:\l  %5 = getelementptr inbounds %struct._IO_FILE.60, %struct._IO_FILE.60* %0,\l... i64 0, i32 20\l  store i32 -1, i32* %5, align 8, !tbaa !2\l  %6 = icmp eq i32 %2, 2\l  br i1 %6, label %7, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x284ffd0:s0 -> Node0x2850020;
+	Node0x284ffd0:s1 -> Node0x2850070;
+	Node0x2850020 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct._IO_FILE.60, %struct._IO_FILE.60* %0,\l... i64 0, i32 12\l  store i64 0, i64* %8, align 8, !tbaa !9\l  br label %27\l}"];
+	Node0x2850020 -> Node0x2850250;
+	Node0x2850070 [shape=record,label="{%9:\l9:                                                \l  %10 = icmp eq i32 %2, 1\l  %11 = icmp ult i32 %2, 2\l  br i1 %11, label %12, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x2850070:s0 -> Node0x28500c0;
+	Node0x2850070:s1 -> Node0x28502a0;
+	Node0x28500c0 [shape=record,label="{%12:\l12:                                               \l  %13 = icmp ne i8* %1, null\l  %14 = icmp ugt i64 %3, 7\l  %15 = and i1 %13, %14\l  br i1 %15, label %16, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x28500c0:s0 -> Node0x2850110;
+	Node0x28500c0:s1 -> Node0x2850160;
+	Node0x2850110 [shape=record,label="{%16:\l16:                                               \l  %17 = getelementptr inbounds i8, i8* %1, i64 8\l  %18 = getelementptr inbounds %struct._IO_FILE.60, %struct._IO_FILE.60* %0,\l... i64 0, i32 11\l  store i8* %17, i8** %18, align 8, !tbaa !10\l  %19 = add i64 %3, -8\l  %20 = getelementptr inbounds %struct._IO_FILE.60, %struct._IO_FILE.60* %0,\l... i64 0, i32 12\l  store i64 %19, i64* %20, align 8, !tbaa !9\l  br label %21\l}"];
+	Node0x2850110 -> Node0x2850160;
+	Node0x2850160 [shape=record,label="{%21:\l21:                                               \l  br i1 %10, label %22, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x2850160:s0 -> Node0x28501b0;
+	Node0x2850160:s1 -> Node0x2850250;
+	Node0x28501b0 [shape=record,label="{%22:\l22:                                               \l  %23 = getelementptr inbounds %struct._IO_FILE.60, %struct._IO_FILE.60* %0,\l... i64 0, i32 12\l  %24 = load i64, i64* %23, align 8, !tbaa !9\l  %25 = icmp eq i64 %24, 0\l  br i1 %25, label %27, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x28501b0:s0 -> Node0x2850250;
+	Node0x28501b0:s1 -> Node0x2850200;
+	Node0x2850200 [shape=record,label="{%26:\l26:                                               \l  store i32 10, i32* %5, align 8, !tbaa !2\l  br label %27\l}"];
+	Node0x2850200 -> Node0x2850250;
+	Node0x2850250 [shape=record,label="{%27:\l27:                                               \l  %28 = getelementptr inbounds %struct._IO_FILE.60, %struct._IO_FILE.60* %0,\l... i64 0, i32 0\l  %29 = load i32, i32* %28, align 8, !tbaa !11\l  %30 = or i32 %29, 64\l  store i32 %30, i32* %28, align 8, !tbaa !11\l  br label %31\l}"];
+	Node0x2850250 -> Node0x28502a0;
+	Node0x28502a0 [shape=record,label="{%31:\l31:                                               \l  %32 = phi i32 [ 0, %27 ], [ -1, %9 ]\l  ret i32 %32\l}"];
+}

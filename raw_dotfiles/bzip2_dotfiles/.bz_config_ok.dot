@@ -1,0 +1,5 @@
+digraph "CFG for 'bz_config_ok' function" {
+	label="CFG for 'bz_config_ok' function";
+
+	Node0x1c91f00 [shape=record,label="{%0:\l  ret i32 1\l}"];
+}

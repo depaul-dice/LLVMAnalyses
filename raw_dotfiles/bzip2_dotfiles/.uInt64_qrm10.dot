@@ -1,0 +1,14 @@
+digraph "CFG for 'uInt64_qrm10' function" {
+	label="CFG for 'uInt64_qrm10' function";
+
+	Node0x1c8a670 [shape=record,label="{%1:\l  %2 = alloca %struct.UInt64*, align 8\l  %3 = alloca i32, align 4\l  %4 = alloca i32, align 4\l  %5 = alloca i32, align 4\l  store %struct.UInt64* %0, %struct.UInt64** %2, align 8\l  store i32 0, i32* %3, align 4\l  store i32 7, i32* %5, align 4\l  br label %6\l}"];
+	Node0x1c8a670 -> Node0x1c8b8c0;
+	Node0x1c8b8c0 [shape=record,label="{%6:\l6:                                                \l  %7 = load i32, i32* %5, align 4\l  %8 = icmp sge i32 %7, 0\l  br i1 %8, label %9, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x1c8b8c0:s0 -> Node0x1c8d3c0;
+	Node0x1c8b8c0:s1 -> Node0x1c8d460;
+	Node0x1c8d3c0 [shape=record,label="{%9:\l9:                                                \l  %10 = load i32, i32* %3, align 4\l  %11 = mul i32 %10, 256\l  %12 = load %struct.UInt64*, %struct.UInt64** %2, align 8\l  %13 = getelementptr inbounds %struct.UInt64, %struct.UInt64* %12, i32 0, i32\l... 0\l  %14 = load i32, i32* %5, align 4\l  %15 = sext i32 %14 to i64\l  %16 = getelementptr inbounds [8 x i8], [8 x i8]* %13, i64 0, i64 %15\l  %17 = load i8, i8* %16, align 1\l  %18 = zext i8 %17 to i32\l  %19 = add i32 %11, %18\l  store i32 %19, i32* %4, align 4\l  %20 = load i32, i32* %4, align 4\l  %21 = udiv i32 %20, 10\l  %22 = trunc i32 %21 to i8\l  %23 = load %struct.UInt64*, %struct.UInt64** %2, align 8\l  %24 = getelementptr inbounds %struct.UInt64, %struct.UInt64* %23, i32 0, i32\l... 0\l  %25 = load i32, i32* %5, align 4\l  %26 = sext i32 %25 to i64\l  %27 = getelementptr inbounds [8 x i8], [8 x i8]* %24, i64 0, i64 %26\l  store i8 %22, i8* %27, align 1\l  %28 = load i32, i32* %4, align 4\l  %29 = urem i32 %28, 10\l  store i32 %29, i32* %3, align 4\l  br label %30\l}"];
+	Node0x1c8d3c0 -> Node0x1c8d410;
+	Node0x1c8d410 [shape=record,label="{%30:\l30:                                               \l  %31 = load i32, i32* %5, align 4\l  %32 = add nsw i32 %31, -1\l  store i32 %32, i32* %5, align 4\l  br label %6\l}"];
+	Node0x1c8d410 -> Node0x1c8b8c0;
+	Node0x1c8d460 [shape=record,label="{%33:\l33:                                               \l  %34 = load i32, i32* %3, align 4\l  ret i32 %34\l}"];
+}

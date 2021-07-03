@@ -1,0 +1,14 @@
+digraph "CFG for 'SwitchColor' function" {
+	label="CFG for 'SwitchColor' function";
+
+	Node0x2599800 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  %3 = alloca [13 x i32], align 16\l  store i32 %0, i32* %2, align 4\l  %4 = bitcast [13 x i32]* %3 to i8*\l  %5 = bitcast [13 x i32]* @__const.SwitchColor.t to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 16 %4, i8* align 16 %5, i64\l... 52, i1 false)\l  %6 = load i32, i32* %2, align 4\l  %7 = icmp sgt i32 %6, 0\l  br i1 %7, label %8, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x2599800:s0 -> Node0x2506150;
+	Node0x2599800:s1 -> Node0x25061f0;
+	Node0x2506150 [shape=record,label="{%8:\l8:                                                \l  %9 = load i32, i32* %2, align 4\l  %10 = icmp slt i32 %9, 13\l  br i1 %10, label %11, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x2506150:s0 -> Node0x25061a0;
+	Node0x2506150:s1 -> Node0x25061f0;
+	Node0x25061a0 [shape=record,label="{%11:\l11:                                               \l  br label %16\l}"];
+	Node0x25061a0 -> Node0x2506240;
+	Node0x25061f0 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds [32 x i8], [32 x i8]* @.str.29, i64 0, i64 0\l  %14 = getelementptr inbounds [8 x i8], [8 x i8]* @.str.1.30, i64 0, i64 0\l  %15 = getelementptr inbounds [21 x i8], [21 x i8]*\l... @__PRETTY_FUNCTION__.SwitchColor, i64 0, i64 0\l  call fastcc void @__assert_fail(i8* %13, i8* %14, i32 200, i8* %15) #21\l  unreachable\l}"];
+	Node0x2506240 [shape=record,label="{%16:\l16:                                               \l  %17 = load i32, i32* %2, align 4\l  %18 = sext i32 %17 to i64\l  %19 = getelementptr inbounds [13 x i32], [13 x i32]* %3, i64 0, i64 %18\l  %20 = load i32, i32* %19, align 4\l  ret i32 %20\l}"];
+}

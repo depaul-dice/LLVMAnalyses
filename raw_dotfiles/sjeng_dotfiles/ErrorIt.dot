@@ -1,0 +1,5 @@
+digraph "CFG for 'ErrorIt' function" {
+	label="CFG for 'ErrorIt' function";
+
+	Node0x25c8c30 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = alloca i32, align 4\l  store i32 %0, i32* %3, align 4\l  store i32 %1, i32* %4, align 4\l  %5 = load i32, i32* %3, align 4\l  %6 = load i32, i32* %4, align 4\l  %7 = getelementptr inbounds [35 x i8], [35 x i8]* @.str.47, i64 0, i64 0\l  %8 = call i32 (i8*, ...) @printf(i8* %7, i32 %5, i32 %6)\l  ret i32 0\l}"];
+}

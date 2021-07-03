@@ -1,0 +1,5 @@
+digraph "CFG for 'vsprintf' function" {
+	label="CFG for 'vsprintf' function";
+
+	Node0x28b3da0 [shape=record,label="{%3:\l  %4 = tail call fastcc i32 @vsnprintf(i8* %0, i64 2147483647, i8* %1,\l... %struct.__va_list_tag* %2) #21\l  ret i32 %4\l}"];
+}

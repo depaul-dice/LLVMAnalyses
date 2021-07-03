@@ -1,0 +1,35 @@
+digraph "CFG for 'fclose' function" {
+	label="CFG for 'fclose' function";
+
+	Node0x1f10430 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %0,\l... i64 0, i32 19\l  %3 = load volatile i32, i32* %2, align 4, !tbaa !2\l  %4 = icmp sgt i32 %3, -1\l  br i1 %4, label %5, label %if.true.direct_targ\l|{<s0>T|<s1>F}}"];
+	Node0x1f10430:s0 -> Node0x1f13c00;
+	Node0x1f10430:s1 -> Node0x1f13e20;
+	Node0x1f13c00 [shape=record,label="{%5:\l5:                                                \l  %6 = bitcast %struct._IO_FILE.67* %0 to %struct._IO_FILE.136*\l  %7 = tail call i32 @__lockfile(%struct._IO_FILE.136* nonnull %6) #19\l  %8 = icmp ne i32 %7, 0\l  br label %if.true.direct_targ\l}"];
+	Node0x1f13c00 -> Node0x1f13e20;
+	Node0x1f13e20 [shape=record,label="{if.true.direct_targ:                              \l  %9 = phi i1 [ %8, %5 ], [ false, %1 ]\l  %10 = tail call i32 @fflush(%struct._IO_FILE.67* nonnull %0) #19\l  %11 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %0,\l... i64 0, i32 3\l  %12 = load i32 (%struct._IO_FILE.67*)*, i32 (%struct._IO_FILE.67*)** %11,\l... align 8, !tbaa !9\l  %13 = bitcast i32 (%struct._IO_FILE.58*)* @__stdio_close to i32\l... (%struct._IO_FILE.67*)*\l  %14 = icmp eq i32 (%struct._IO_FILE.67*)* %12, %13\l  call void @llvm.assume(i1 %14)\l  %15 = bitcast %struct._IO_FILE.67* %0 to %struct._IO_FILE.58*\l  %16 = tail call i32 @__stdio_close(%struct._IO_FILE.58* nonnull %15) #20\l  br i1 %9, label %17, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1f13e20:s0 -> Node0x1f13e70;
+	Node0x1f13e20:s1 -> Node0x1f13ec0;
+	Node0x1f13e70 [shape=record,label="{%17:\l17:                                               \l  %18 = bitcast %struct._IO_FILE.67* %0 to %struct._IO_FILE.136*\l  tail call void @__unlockfile(%struct._IO_FILE.136* nonnull %18) #19\l  br label %19\l}"];
+	Node0x1f13e70 -> Node0x1f13ec0;
+	Node0x1f13ec0 [shape=record,label="{%19:\l19:                                               \l  %20 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %0,\l... i64 0, i32 0\l  %21 = load i32, i32* %20, align 8, !tbaa !10\l  %22 = and i32 %21, 1\l  %23 = icmp eq i32 %22, 0\l  br i1 %23, label %24, label %53\l|{<s0>T|<s1>F}}"];
+	Node0x1f13ec0:s0 -> Node0x1f13f10;
+	Node0x1f13ec0:s1 -> Node0x1f14140;
+	Node0x1f13f10 [shape=record,label="{%24:\l24:                                               \l  %25 = tail call %struct._IO_FILE.67** @__ofl_lock() #19\l  %26 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %0,\l... i64 0, i32 13\l  %27 = load %struct._IO_FILE.67*, %struct._IO_FILE.67** %26, align 8, !tbaa\l... !11\l  %28 = icmp eq %struct._IO_FILE.67* %27, null\l  %29 = ptrtoint %struct._IO_FILE.67* %27 to i64\l  br i1 %28, label %36, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1f13f10:s0 -> Node0x1f13fb0;
+	Node0x1f13f10:s1 -> Node0x1f13f60;
+	Node0x1f13f60 [shape=record,label="{%30:\l30:                                               \l  %31 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %0,\l... i64 0, i32 14\l  %32 = bitcast %struct._IO_FILE.67** %31 to i64*\l  %33 = load i64, i64* %32, align 8, !tbaa !12\l  %34 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %27,\l... i64 0, i32 14\l  %35 = bitcast %struct._IO_FILE.67** %34 to i64*\l  store i64 %33, i64* %35, align 8, !tbaa !12\l  br label %36\l}"];
+	Node0x1f13f60 -> Node0x1f13fb0;
+	Node0x1f13fb0 [shape=record,label="{%36:\l36:                                               \l  %37 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %0,\l... i64 0, i32 14\l  %38 = load %struct._IO_FILE.67*, %struct._IO_FILE.67** %37, align 8, !tbaa\l... !12\l  %39 = icmp eq %struct._IO_FILE.67* %38, null\l  %40 = ptrtoint %struct._IO_FILE.67* %38 to i64\l  br i1 %39, label %44, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x1f13fb0:s0 -> Node0x1f14050;
+	Node0x1f13fb0:s1 -> Node0x1f14000;
+	Node0x1f14000 [shape=record,label="{%41:\l41:                                               \l  %42 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %38,\l... i64 0, i32 13\l  %43 = bitcast %struct._IO_FILE.67** %42 to i64*\l  store i64 %29, i64* %43, align 8, !tbaa !11\l  br label %44\l}"];
+	Node0x1f14000 -> Node0x1f14050;
+	Node0x1f14050 [shape=record,label="{%44:\l44:                                               \l  %45 = load %struct._IO_FILE.67*, %struct._IO_FILE.67** %25, align 8, !tbaa\l... !13\l  %46 = icmp eq %struct._IO_FILE.67* %45, %0\l  br i1 %46, label %47, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x1f14050:s0 -> Node0x1f140a0;
+	Node0x1f14050:s1 -> Node0x1f140f0;
+	Node0x1f140a0 [shape=record,label="{%47:\l47:                                               \l  %48 = bitcast %struct._IO_FILE.67** %25 to i64*\l  store i64 %40, i64* %48, align 8, !tbaa !13\l  br label %49\l}"];
+	Node0x1f140a0 -> Node0x1f140f0;
+	Node0x1f140f0 [shape=record,label="{%49:\l49:                                               \l  tail call fastcc void @__ofl_unlock() #19\l  %50 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %0,\l... i64 0, i32 23\l  %51 = load i8*, i8** %50, align 8, !tbaa !14\l  tail call fastcc void @free(i8* %51) #19\l  %52 = bitcast %struct._IO_FILE.67* %0 to i8*\l  tail call fastcc void @free(i8* %52) #19\l  br label %53\l}"];
+	Node0x1f140f0 -> Node0x1f14140;
+	Node0x1f14140 [shape=record,label="{%53:\l53:                                               \l  %54 = or i32 %16, %10\l  ret i32 %54\l}"];
+}

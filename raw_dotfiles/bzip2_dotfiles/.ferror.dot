@@ -1,0 +1,15 @@
+digraph "CFG for 'ferror' function" {
+	label="CFG for 'ferror' function";
+
+	Node0x1f15ec0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.69, %struct._IO_FILE.69* %0,\l... i64 0, i32 19\l  %3 = load volatile i32, i32* %2, align 4, !tbaa !2\l  %4 = icmp sgt i32 %3, -1\l  br i1 %4, label %10, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1f15ec0:s0 -> Node0x1f160d0;
+	Node0x1f15ec0:s1 -> Node0x1f16080;
+	Node0x1f16080 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds %struct._IO_FILE.69, %struct._IO_FILE.69* %0,\l... i64 0, i32 0\l  %7 = load i32, i32* %6, align 8, !tbaa !9\l  %8 = lshr i32 %7, 5\l  %9 = and i32 %8, 1\l  br label %19\l}"];
+	Node0x1f16080 -> Node0x1f16170;
+	Node0x1f160d0 [shape=record,label="{%10:\l10:                                               \l  %11 = bitcast %struct._IO_FILE.69* %0 to %struct._IO_FILE.136*\l  %12 = tail call i32 @__lockfile(%struct._IO_FILE.136* nonnull %11) #19\l  %13 = icmp eq i32 %12, 0\l  %14 = getelementptr inbounds %struct._IO_FILE.69, %struct._IO_FILE.69* %0,\l... i64 0, i32 0\l  %15 = load i32, i32* %14, align 8, !tbaa !9\l  %16 = lshr i32 %15, 5\l  %17 = and i32 %16, 1\l  br i1 %13, label %19, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1f160d0:s0 -> Node0x1f16170;
+	Node0x1f160d0:s1 -> Node0x1f16120;
+	Node0x1f16120 [shape=record,label="{%18:\l18:                                               \l  tail call void @__unlockfile(%struct._IO_FILE.136* nonnull %11) #19\l  br label %19\l}"];
+	Node0x1f16120 -> Node0x1f16170;
+	Node0x1f16170 [shape=record,label="{%19:\l19:                                               \l  %20 = phi i32 [ %9, %5 ], [ %17, %18 ], [ %17, %10 ]\l  ret i32 %20\l}"];
+}
