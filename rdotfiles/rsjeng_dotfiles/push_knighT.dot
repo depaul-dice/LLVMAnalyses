@@ -1,0 +1,27 @@
+digraph "CFG for 'push_knighT' function" {
+	label="CFG for 'push_knighT' function";
+
+	Node0x2486f00 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  store i32 %0, i32* %2, align 4\l  %3 = load i32, i32* %2, align 4\l  %4 = sext i32 %3 to i64\l  %5 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %4\l  %6 = load i32, i32* %5, align 4\l  %7 = icmp eq i32 %6, 13\l  br i1 %7, label %8, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x2486f00:s0 -> Node0x2486f50;
+	Node0x2486f00:s1 -> Node0x2486ff0;
+	Node0x2486f50 [shape=record,label="{%8:\l8:                                                \l  %.b = load i1, i1* @captures, align 1\l  %9 = zext i1 %.b to i32\l  %10 = icmp ne i32 %9, 0\l  br i1 %10, label %11, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x2486f50:s0 -> Node0x2486fa0;
+	Node0x2486f50:s1 -> Node0x2486ff0;
+	Node0x2486fa0 [shape=record,label="{%11:\l11:                                               \l  br label %40\l}"];
+	Node0x2486fa0 -> Node0x24871d0;
+	Node0x2486ff0 [shape=record,label="{%12:\l12:                                               \l  %13 = load i32, i32* %2, align 4\l  %14 = sext i32 %13 to i64\l  %15 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %14\l  %16 = load i32, i32* %15, align 4\l  %17 = icmp eq i32 %16, 13\l  br i1 %17, label %18, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x2486ff0:s0 -> Node0x2487040;
+	Node0x2486ff0:s1 -> Node0x2487090;
+	Node0x2487040 [shape=record,label="{%18:\l18:                                               \l  %19 = load i32, i32* %2, align 4\l  call fastcc void @add_move(i32 %19, i32 0)\l  br label %40\l}"];
+	Node0x2487040 -> Node0x24871d0;
+	Node0x2487090 [shape=record,label="{%20:\l20:                                               \l  %21 = load i32, i32* %2, align 4\l  %22 = sext i32 %21 to i64\l  %23 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %22\l  %24 = load i32, i32* %23, align 4\l  %25 = and i32 %24, 1\l  %26 = load i32, i32* @gfrom, align 4\l  %27 = sext i32 %26 to i64\l  %28 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %27\l  %29 = load i32, i32* %28, align 4\l  %30 = and i32 %29, 1\l  %31 = icmp ne i32 %25, %30\l  br i1 %31, label %32, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x2487090:s0 -> Node0x24870e0;
+	Node0x2487090:s1 -> Node0x2487130;
+	Node0x24870e0 [shape=record,label="{%32:\l32:                                               \l  %33 = load i32, i32* %2, align 4\l  %34 = load i32, i32* %2, align 4\l  %35 = sext i32 %34 to i64\l  %36 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %35\l  %37 = load i32, i32* %36, align 4\l  call fastcc void @add_capture(i32 %33, i32 %37, i32 0, i32 0)\l  br label %40\l}"];
+	Node0x24870e0 -> Node0x24871d0;
+	Node0x2487130 [shape=record,label="{%38:\l38:                                               \l  br label %39\l}"];
+	Node0x2487130 -> Node0x2487180;
+	Node0x2487180 [shape=record,label="{%39:\l39:                                               \l  br label %40\l}"];
+	Node0x2487180 -> Node0x24871d0;
+	Node0x24871d0 [shape=record,label="{%40:\l40:                                               \l  ret void\l}"];
+}

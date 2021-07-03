@@ -1,0 +1,12 @@
+digraph "CFG for 'toggle_bool' function" {
+	label="CFG for 'toggle_bool' function";
+
+	Node0x27f89e0 [shape=record,label="{%1:\l  %2 = alloca i32*, align 8\l  store i32* %0, i32** %2, align 8\l  %3 = load i32*, i32** %2, align 8\l  %4 = load i32, i32* %3, align 4\l  %5 = icmp ne i32 %4, 0\l  br i1 %5, label %6, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x27f89e0:s0 -> Node0x27f8a30;
+	Node0x27f89e0:s1 -> Node0x27f8a80;
+	Node0x27f8a30 [shape=record,label="{%6:\l6:                                                \l  %7 = load i32*, i32** %2, align 8\l  store i32 0, i32* %7, align 4\l  br label %10\l}"];
+	Node0x27f8a30 -> Node0x27f8ad0;
+	Node0x27f8a80 [shape=record,label="{%8:\l8:                                                \l  %9 = load i32*, i32** %2, align 8\l  store i32 1, i32* %9, align 4\l  br label %10\l}"];
+	Node0x27f8a80 -> Node0x27f8ad0;
+	Node0x27f8ad0 [shape=record,label="{%10:\l10:                                               \l  ret void\l}"];
+}

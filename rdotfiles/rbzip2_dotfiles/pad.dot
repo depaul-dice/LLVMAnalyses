@@ -1,0 +1,19 @@
+digraph "CFG for 'pad' function" {
+	label="CFG for 'pad' function";
+
+	Node0x1c61480 [shape=record,label="{%1:\l  %2 = alloca i8*, align 8\l  %3 = alloca i32, align 4\l  store i8* %0, i8** %2, align 8\l  %4 = load i8*, i8** %2, align 8\l  %5 = call fastcc i64 @strlen(i8* %4) #19\l  %6 = trunc i64 %5 to i32\l  %7 = load i32, i32* @longestFileName, align 4\l  %8 = icmp sge i32 %6, %7\l  br i1 %8, label %9, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1c61480:s0 -> Node0x1c614d0;
+	Node0x1c61480:s1 -> Node0x1c61520;
+	Node0x1c614d0 [shape=record,label="{%9:\l9:                                                \l  br label %27\l}"];
+	Node0x1c614d0 -> Node0x1c61660;
+	Node0x1c61520 [shape=record,label="{%10:\l10:                                               \l  store i32 1, i32* %3, align 4\l  br label %11\l}"];
+	Node0x1c61520 -> Node0x1c61570;
+	Node0x1c61570 [shape=record,label="{%11:\l11:                                               \l  %12 = load i32, i32* %3, align 4\l  %13 = load i32, i32* @longestFileName, align 4\l  %14 = load i8*, i8** %2, align 8\l  %15 = call fastcc i64 @strlen(i8* %14) #19\l  %16 = trunc i64 %15 to i32\l  %17 = sub nsw i32 %13, %16\l  %18 = icmp sle i32 %12, %17\l  br i1 %18, label %19, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x1c61570:s0 -> Node0x1c615c0;
+	Node0x1c61570:s1 -> Node0x1c61660;
+	Node0x1c615c0 [shape=record,label="{%19:\l19:                                               \l  %20 = bitcast %struct._IO_FILE.58** @stderr to %struct._IO_FILE**\l  %21 = load %struct._IO_FILE*, %struct._IO_FILE** %20, align 8\l  %22 = getelementptr inbounds [2 x i8], [2 x i8]* @.str.72, i64 0, i64 0\l  %23 = call i32 (%struct._IO_FILE*, i8*, ...) @fprintf(%struct._IO_FILE* %21,\l... i8* %22)\l  br label %24\l}"];
+	Node0x1c615c0 -> Node0x1c61610;
+	Node0x1c61610 [shape=record,label="{%24:\l24:                                               \l  %25 = load i32, i32* %3, align 4\l  %26 = add nsw i32 %25, 1\l  store i32 %26, i32* %3, align 4\l  br label %11\l}"];
+	Node0x1c61610 -> Node0x1c61570;
+	Node0x1c61660 [shape=record,label="{%27:\l27:                                               \l  ret void\l}"];
+}

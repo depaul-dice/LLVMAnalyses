@@ -1,0 +1,14 @@
+digraph "CFG for 'seedMT' function" {
+	label="CFG for 'seedMT' function";
+
+	Node0x27ff700 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  %3 = alloca i32, align 4\l  %4 = alloca i32*, align 8\l  %5 = alloca i32, align 4\l  store i32 %0, i32* %2, align 4\l  %6 = load i32, i32* %2, align 4\l  %7 = or i32 %6, 1\l  store i32 %7, i32* %3, align 4\l  %8 = getelementptr inbounds [625 x i32], [625 x i32]* @state, i64 0, i64 0\l  store i32* %8, i32** %4, align 8\l  store i32 0, i32* @left, align 4\l  %9 = load i32, i32* %3, align 4\l  %10 = load i32*, i32** %4, align 8\l  %11 = getelementptr inbounds i32, i32* %10, i32 1\l  store i32* %11, i32** %4, align 8\l  store i32 %9, i32* %10, align 4\l  store i32 624, i32* %5, align 4\l  br label %12\l}"];
+	Node0x27ff700 -> Node0x2800870;
+	Node0x2800870 [shape=record,label="{%12:\l12:                                               \l  %13 = load i32, i32* %5, align 4\l  %14 = add nsw i32 %13, -1\l  store i32 %14, i32* %5, align 4\l  %15 = icmp ne i32 %14, 0\l  br i1 %15, label %16, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x2800870:s0 -> Node0x28008c0;
+	Node0x2800870:s1 -> Node0x2800960;
+	Node0x28008c0 [shape=record,label="{%16:\l16:                                               \l  br label %17\l}"];
+	Node0x28008c0 -> Node0x2800910;
+	Node0x2800910 [shape=record,label="{%17:\l17:                                               \l  %18 = load i32, i32* %3, align 4\l  %19 = mul i32 %18, 69069\l  store i32 %19, i32* %3, align 4\l  %20 = load i32*, i32** %4, align 8\l  %21 = getelementptr inbounds i32, i32* %20, i32 1\l  store i32* %21, i32** %4, align 8\l  store i32 %19, i32* %20, align 4\l  br label %12\l}"];
+	Node0x2800910 -> Node0x2800870;
+	Node0x2800960 [shape=record,label="{%22:\l22:                                               \l  ret void\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'close' function" {
+	label="CFG for 'close' function";
+
+	Node0x97c2b0 [shape=record,label="{%0:\l  %1 = tail call i32 @__aio_close(i32 %fd) #12\l  %2 = sext i32 %1 to i64\l  %3 = tail call i64 @__syscall_cp(i64 3, i64 %2, i64 0, i64 0, i64 0, i64 0,\l... i64 0) #12\l  %4 = trunc i64 %3 to i32\l  %5 = icmp eq i32 %4, -4\l  %sext = shl i64 %3, 32\l  %6 = ashr exact i64 %sext, 32\l  %7 = select i1 %5, i64 0, i64 %6\l  %8 = tail call i64 @__syscall_ret(i64 %7) #12\l  %9 = trunc i64 %8 to i32\l  ret i32 %9\l}"];
+}

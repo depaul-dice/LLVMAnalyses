@@ -1,0 +1,30 @@
+digraph "CFG for '__uflow' function" {
+	label="CFG for '__uflow' function";
+
+	Node0x2887cb0 [shape=record,label="{%1:\l  %2 = alloca i8, align 1\l  call void @llvm.lifetime.start.p0i8(i64 1, i8* nonnull %2) #19\l  %3 = tail call fastcc i32 @__toread(%struct._IO_FILE.138* %0) #20\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %5, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x2887cb0:s0 -> Node0x2887d60;
+	Node0x2887cb0:s1 -> Node0x2888030;
+	Node0x2887d60 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds %struct._IO_FILE.138, %struct._IO_FILE.138* %0,\l... i64 0, i32 8\l  %7 = load i64 (%struct._IO_FILE.138*, i8*, i64)*, i64\l... (%struct._IO_FILE.138*, i8*, i64)** %6, align 8, !tbaa !2\l  %8 = bitcast i64 (%struct._IO_FILE.71*, i8*, i64)* @do_read to i64\l... (%struct._IO_FILE.138*, i8*, i64)*\l  %9 = icmp eq i64 (%struct._IO_FILE.138*, i8*, i64)* %7, %8\l  br i1 %9, label %if.true.direct_targ, label %if.false.orig_indirect\l|{<s0>T|<s1>F}}"];
+	Node0x2887d60:s0 -> Node0x2887db0;
+	Node0x2887d60:s1 -> Node0x2887e00;
+	Node0x2887db0 [shape=record,label="{if.true.direct_targ:                              \l  %10 = bitcast %struct._IO_FILE.138* %0 to %struct._IO_FILE.71*\l  %11 = call i64 @do_read(%struct._IO_FILE.71* %10, i8* nonnull %2, i64 1) #21\l  br label %if.end.icp\l}"];
+	Node0x2887db0 -> Node0x2887f90;
+	Node0x2887e00 [shape=record,label="{if.false.orig_indirect:                           \l  %12 = bitcast i64 (%struct._IO_FILE.124*, i8*, i64)* @__stdio_read to i64\l... (%struct._IO_FILE.138*, i8*, i64)*\l  %13 = icmp eq i64 (%struct._IO_FILE.138*, i8*, i64)* %7, %12\l  br i1 %13, label %if.true.direct_targ1, label %if.false.orig_indirect2\l|{<s0>T|<s1>F}}"];
+	Node0x2887e00:s0 -> Node0x2887e50;
+	Node0x2887e00:s1 -> Node0x2887ea0;
+	Node0x2887e50 [shape=record,label="{if.true.direct_targ1:                             \l  %14 = bitcast %struct._IO_FILE.138* %0 to %struct._IO_FILE.124*\l  %15 = call i64 @__stdio_read(%struct._IO_FILE.124* %14, i8* nonnull %2, i64\l... 1) #21\l  br label %if.end.icp\l}"];
+	Node0x2887e50 -> Node0x2887f90;
+	Node0x2887ea0 [shape=record,label="{if.false.orig_indirect2:                          \l  %16 = bitcast i64 (%struct._IO_FILE.128*, i8*, i64)* @__stdio_write to i64\l... (%struct._IO_FILE.138*, i8*, i64)*\l  %17 = icmp eq i64 (%struct._IO_FILE.138*, i8*, i64)* %7, %16\l  br i1 %17, label %if.true.direct_targ4, label %if.false.orig_indirect5\l|{<s0>T|<s1>F}}"];
+	Node0x2887ea0:s0 -> Node0x2887ef0;
+	Node0x2887ea0:s1 -> Node0x2887f40;
+	Node0x2887ef0 [shape=record,label="{if.true.direct_targ4:                             \l  %18 = bitcast %struct._IO_FILE.138* %0 to %struct._IO_FILE.128*\l  %19 = call i64 @__stdio_write(%struct._IO_FILE.128* %18, i8* nonnull %2, i64\l... 1) #21\l  br label %if.end.icp\l}"];
+	Node0x2887ef0 -> Node0x2887f90;
+	Node0x2887f40 [shape=record,label="{if.false.orig_indirect5:                          \l  %20 = bitcast i64 (%struct._IO_FILE.128*, i8*, i64)* @__stdout_write to i64\l... (%struct._IO_FILE.138*, i8*, i64)*\l  %21 = icmp eq i64 (%struct._IO_FILE.138*, i8*, i64)* %7, %20\l  call void @llvm.assume(i1 %21)\l  %22 = bitcast %struct._IO_FILE.138* %0 to %struct._IO_FILE.128*\l  %23 = call i64 @__stdout_write(%struct._IO_FILE.128* %22, i8* nonnull %2,\l... i64 1) #21\l  br label %if.end.icp\l}"];
+	Node0x2887f40 -> Node0x2887f90;
+	Node0x2887f90 [shape=record,label="{if.end.icp:                                       \l  %24 = phi i64 [ %11, %if.true.direct_targ ], [ %15, %if.true.direct_targ1 ],\l... [ %23, %if.false.orig_indirect5 ], [ %19, %if.true.direct_targ4 ]\l  %25 = icmp eq i64 %24, 1\l  br i1 %25, label %26, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x2887f90:s0 -> Node0x2887fe0;
+	Node0x2887f90:s1 -> Node0x2888030;
+	Node0x2887fe0 [shape=record,label="{%26:\l26:                                               \l  %27 = load i8, i8* %2, align 1, !tbaa !9\l  %28 = zext i8 %27 to i32\l  br label %29\l}"];
+	Node0x2887fe0 -> Node0x2888030;
+	Node0x2888030 [shape=record,label="{%29:\l29:                                               \l  %30 = phi i32 [ %28, %26 ], [ -1, %1 ], [ -1, %if.end.icp ]\l  call void @llvm.lifetime.end.p0i8(i64 1, i8* nonnull %2) #19\l  ret i32 %30\l}"];
+}

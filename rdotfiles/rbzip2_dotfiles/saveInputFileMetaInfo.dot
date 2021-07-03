@@ -1,0 +1,9 @@
+digraph "CFG for 'saveInputFileMetaInfo' function" {
+	label="CFG for 'saveInputFileMetaInfo' function";
+
+	Node0x1c0c710 [shape=record,label="{%1:\l  %2 = alloca i8*, align 8\l  %3 = alloca i32, align 4\l  store i8* %0, i8** %2, align 8\l  %4 = load i8*, i8** %2, align 8\l  %5 = call fastcc i32 @stat(i8* %4, %struct.stat* @fileMetaInfo) #7\l  store i32 %5, i32* %3, align 4\l  %6 = load i32, i32* %3, align 4\l  %7 = icmp ne i32 %6, 0\l  br i1 %7, label %8, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1c0c710:s0 -> Node0x1c0d090;
+	Node0x1c0c710:s1 -> Node0x1c0d0e0;
+	Node0x1c0d090 [shape=record,label="{%8:\l8:                                                \l  call fastcc void @ioError() #19\l  unreachable\l}"];
+	Node0x1c0d0e0 [shape=record,label="{%9:\l9:                                                \l  ret void\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'write' function" {
+	label="CFG for 'write' function";
+
+	Node0x98e490 [shape=record,label="{%0:\l  %1 = sext i32 %fd to i64\l  %2 = ptrtoint i8* %buf to i64\l  %3 = tail call i64 @__syscall_cp(i64 1, i64 %1, i64 %2, i64 %count, i64 0,\l... i64 0, i64 0) #12\l  %4 = tail call i64 @__syscall_ret(i64 %3) #12\l  ret i64 %4\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'strnlen' function" {
+	label="CFG for 'strnlen' function";
+
+	Node0x16b8af0 [shape=record,label="{%2:\l  %3 = tail call fastcc i8* @memchr(i8* %0, i32 0, i64 %1) #14\l  %4 = icmp eq i8* %3, null\l  %5 = ptrtoint i8* %3 to i64\l  %6 = ptrtoint i8* %0 to i64\l  %7 = sub i64 %5, %6\l  %8 = select i1 %4, i64 %1, i64 %7\l  ret i64 %8\l}"];
+}

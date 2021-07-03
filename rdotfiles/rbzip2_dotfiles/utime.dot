@@ -1,0 +1,10 @@
+digraph "CFG for 'utime' function" {
+	label="CFG for 'utime' function";
+
+	Node0x1f30190 [shape=record,label="{%2:\l  %3 = alloca [2 x %struct.timespec], align 8\l  %4 = icmp eq %struct.timespec* %1, null\l  br i1 %4, label %15, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1f30190:s0 -> Node0x1f30290;
+	Node0x1f30190:s1 -> Node0x1f30240;
+	Node0x1f30240 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds [2 x %struct.timespec], [2 x %struct.timespec]*\l... %3, i64 0, i64 0\l  %7 = getelementptr inbounds [2 x %struct.timespec], [2 x %struct.timespec]*\l... %3, i64 0, i64 0, i32 0\l  %8 = getelementptr inbounds %struct.timespec, %struct.timespec* %1, i64 0,\l... i32 0\l  %9 = load i64, i64* %8, align 8, !tbaa !2\l  store i64 %9, i64* %7, align 8, !tbaa !7\l  %10 = getelementptr inbounds [2 x %struct.timespec], [2 x %struct.timespec]*\l... %3, i64 0, i64 0, i32 1\l  store i64 0, i64* %10, align 8, !tbaa !9\l  %11 = getelementptr inbounds [2 x %struct.timespec], [2 x %struct.timespec]*\l... %3, i64 0, i64 1, i32 0\l  %12 = getelementptr inbounds %struct.timespec, %struct.timespec* %1, i64 0,\l... i32 1\l  %13 = load i64, i64* %12, align 8, !tbaa !10\l  store i64 %13, i64* %11, align 8, !tbaa !7\l  %14 = getelementptr inbounds [2 x %struct.timespec], [2 x %struct.timespec]*\l... %3, i64 0, i64 1, i32 1\l  store i64 0, i64* %14, align 8, !tbaa !9\l  br label %15\l}"];
+	Node0x1f30240 -> Node0x1f30290;
+	Node0x1f30290 [shape=record,label="{%15:\l15:                                               \l  %16 = phi %struct.timespec* [ %6, %5 ], [ null, %2 ]\l  %17 = call fastcc i32 @utimensat(i32 -100, i8* %0, %struct.timespec* %16,\l... i32 0) #19\l  ret i32 %17\l}"];
+}

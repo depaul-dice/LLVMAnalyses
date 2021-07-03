@@ -1,0 +1,5 @@
+digraph "CFG for '__ctype_b_loc' function" {
+	label="CFG for '__ctype_b_loc' function";
+
+	Node0x1df46d0 [shape=record,label="{%0:\l  ret i16** @ptable\l}"];
+}

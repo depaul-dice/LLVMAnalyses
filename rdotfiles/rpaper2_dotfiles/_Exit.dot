@@ -1,0 +1,8 @@
+digraph "CFG for '_Exit' function" {
+	label="CFG for '_Exit' function";
+
+	Node0x999800 [shape=record,label="{%0:\l  %1 = sext i32 %ec to i64\l  %2 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 231, i64 %1) #6, !srcloc !1\l  br label %3\l}"];
+	Node0x999800 -> Node0x999850;
+	Node0x999850 [shape=record,label="{%3:\l\l  %4 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64 60,\l... i64 %1) #6, !srcloc !1\l  br label %3\l}"];
+	Node0x999850 -> Node0x999850;
+}

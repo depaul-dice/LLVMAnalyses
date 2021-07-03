@@ -1,0 +1,23 @@
+digraph "CFG for 'initialize_zobrist' function" {
+	label="CFG for 'initialize_zobrist' function";
+
+	Node0x255d030 [shape=record,label="{%0:\l  %1 = alloca i32, align 4\l  %2 = alloca i32, align 4\l  call fastcc void @seedMT(i32 31657)\l  store i32 0, i32* %1, align 4\l  br label %3\l}"];
+	Node0x255d030 -> Node0x255d080;
+	Node0x255d080 [shape=record,label="{%3:\l3:                                                \l  %4 = load i32, i32* %1, align 4\l  %5 = icmp slt i32 %4, 14\l  br i1 %5, label %6, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x255d080:s0 -> Node0x255d0d0;
+	Node0x255d080:s1 -> Node0x255d2b0;
+	Node0x255d0d0 [shape=record,label="{%6:\l6:                                                \l  store i32 0, i32* %2, align 4\l  br label %7\l}"];
+	Node0x255d0d0 -> Node0x255d120;
+	Node0x255d120 [shape=record,label="{%7:\l7:                                                \l  %8 = load i32, i32* %2, align 4\l  %9 = icmp slt i32 %8, 144\l  br i1 %9, label %10, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x255d120:s0 -> Node0x255d170;
+	Node0x255d120:s1 -> Node0x255d210;
+	Node0x255d170 [shape=record,label="{%10:\l10:                                               \l  %11 = call fastcc i32 @randomMT()\l  %12 = load i32, i32* %1, align 4\l  %13 = sext i32 %12 to i64\l  %14 = getelementptr inbounds [14 x [144 x i32]], [14 x [144 x i32]]*\l... @zobrist, i64 0, i64 %13\l  %15 = load i32, i32* %2, align 4\l  %16 = sext i32 %15 to i64\l  %17 = getelementptr inbounds [144 x i32], [144 x i32]* %14, i64 0, i64 %16\l  store i32 %11, i32* %17, align 4\l  br label %18\l}"];
+	Node0x255d170 -> Node0x255d1c0;
+	Node0x255d1c0 [shape=record,label="{%18:\l18:                                               \l  %19 = load i32, i32* %2, align 4\l  %20 = add nsw i32 %19, 1\l  store i32 %20, i32* %2, align 4\l  br label %7\l}"];
+	Node0x255d1c0 -> Node0x255d120;
+	Node0x255d210 [shape=record,label="{%21:\l21:                                               \l  br label %22\l}"];
+	Node0x255d210 -> Node0x255d260;
+	Node0x255d260 [shape=record,label="{%22:\l22:                                               \l  %23 = load i32, i32* %1, align 4\l  %24 = add nsw i32 %23, 1\l  store i32 %24, i32* %1, align 4\l  br label %3\l}"];
+	Node0x255d260 -> Node0x255d080;
+	Node0x255d2b0 [shape=record,label="{%25:\l25:                                               \l  store i32 -559038737, i32* @hash, align 4\l  store i32 -1056969216, i32* @hold_hash, align 4\l  ret void\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'start_up' function" {
+	label="CFG for 'start_up' function";
+
+	Node0x27f6710 [shape=record,label="{%0:\l  %1 = getelementptr inbounds [71 x i8], [71 x i8]* @.str.66.426, i64 0, i64 0\l  %2 = call i32 (i8*, ...) @printf(i8* %1)\l  ret void\l}"];
+}

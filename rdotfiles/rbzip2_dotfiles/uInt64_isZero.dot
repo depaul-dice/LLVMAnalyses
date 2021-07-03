@@ -1,0 +1,21 @@
+digraph "CFG for 'uInt64_isZero' function" {
+	label="CFG for 'uInt64_isZero' function";
+
+	Node0x1c8e6d0 [shape=record,label="{%1:\l  %2 = alloca i8, align 1\l  %3 = alloca %struct.UInt64*, align 8\l  %4 = alloca i32, align 4\l  store %struct.UInt64* %0, %struct.UInt64** %3, align 8\l  store i32 0, i32* %4, align 4\l  br label %5\l}"];
+	Node0x1c8e6d0 -> Node0x1c8e720;
+	Node0x1c8e720 [shape=record,label="{%5:\l5:                                                \l  %6 = load i32, i32* %4, align 4\l  %7 = icmp slt i32 %6, 8\l  br i1 %7, label %8, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1c8e720:s0 -> Node0x1c8e770;
+	Node0x1c8e720:s1 -> Node0x1c8e8b0;
+	Node0x1c8e770 [shape=record,label="{%8:\l8:                                                \l  %9 = load %struct.UInt64*, %struct.UInt64** %3, align 8\l  %10 = getelementptr inbounds %struct.UInt64, %struct.UInt64* %9, i32 0, i32 0\l  %11 = load i32, i32* %4, align 4\l  %12 = sext i32 %11 to i64\l  %13 = getelementptr inbounds [8 x i8], [8 x i8]* %10, i64 0, i64 %12\l  %14 = load i8, i8* %13, align 1\l  %15 = zext i8 %14 to i32\l  %16 = icmp ne i32 %15, 0\l  br i1 %16, label %17, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1c8e770:s0 -> Node0x1c8e7c0;
+	Node0x1c8e770:s1 -> Node0x1c8e810;
+	Node0x1c8e7c0 [shape=record,label="{%17:\l17:                                               \l  store i8 0, i8* %2, align 1\l  br label %23\l}"];
+	Node0x1c8e7c0 -> Node0x1c8e900;
+	Node0x1c8e810 [shape=record,label="{%18:\l18:                                               \l  br label %19\l}"];
+	Node0x1c8e810 -> Node0x1c8e860;
+	Node0x1c8e860 [shape=record,label="{%19:\l19:                                               \l  %20 = load i32, i32* %4, align 4\l  %21 = add nsw i32 %20, 1\l  store i32 %21, i32* %4, align 4\l  br label %5\l}"];
+	Node0x1c8e860 -> Node0x1c8e720;
+	Node0x1c8e8b0 [shape=record,label="{%22:\l22:                                               \l  store i8 1, i8* %2, align 1\l  br label %23\l}"];
+	Node0x1c8e8b0 -> Node0x1c8e900;
+	Node0x1c8e900 [shape=record,label="{%23:\l23:                                               \l  %24 = load i8, i8* %2, align 1\l  ret i8 %24\l}"];
+}

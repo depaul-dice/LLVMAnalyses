@@ -1,0 +1,25 @@
+digraph "CFG for 'locking_getc' function" {
+	label="CFG for 'locking_getc' function";
+
+	Node0x1f1c6d0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.74, %struct._IO_FILE.74* %0,\l... i64 0, i32 19\l  %3 = tail call i32 asm sideeffect lock \l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %8, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1f1c6d0:s0 -> Node0x1f1c7a0;
+	Node0x1f1c6d0:s1 -> Node0x1f1c750;
+	Node0x1f1c750 [shape=record,label="{%5:\l5:                                                \l  %6 = bitcast %struct._IO_FILE.74* %0 to %struct._IO_FILE.136*\l  %7 = tail call i32 @__lockfile(%struct._IO_FILE.136* %6) #20\l  br label %8\l}"];
+	Node0x1f1c750 -> Node0x1f1c7a0;
+	Node0x1f1c7a0 [shape=record,label="{%8:\l8:                                                \l  %9 = getelementptr inbounds %struct._IO_FILE.74, %struct._IO_FILE.74* %0,\l... i64 0, i32 1\l  %10 = load i8*, i8** %9, align 8, !tbaa !3\l  %11 = getelementptr inbounds %struct._IO_FILE.74, %struct._IO_FILE.74* %0,\l... i64 0, i32 2\l  %12 = load i8*, i8** %11, align 8, !tbaa !10\l  %13 = icmp eq i8* %10, %12\l  br i1 %13, label %18, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1f1c7a0:s0 -> Node0x1f1c840;
+	Node0x1f1c7a0:s1 -> Node0x1f1c7f0;
+	Node0x1f1c7f0 [shape=record,label="{%14:\l14:                                               \l  %15 = getelementptr inbounds i8, i8* %10, i64 1\l  store i8* %15, i8** %9, align 8, !tbaa !3\l  %16 = load i8, i8* %10, align 1, !tbaa !11\l  %17 = zext i8 %16 to i32\l  br label %20\l}"];
+	Node0x1f1c7f0 -> Node0x1f1c890;
+	Node0x1f1c840 [shape=record,label="{%18:\l18:                                               \l  %19 = tail call fastcc i32 @__uflow(%struct._IO_FILE.74* nonnull %0) #20\l  br label %20\l}"];
+	Node0x1f1c840 -> Node0x1f1c890;
+	Node0x1f1c890 [shape=record,label="{%20:\l20:                                               \l  %21 = phi i32 [ %17, %14 ], [ %19, %18 ]\l  %22 = tail call i32 asm sideeffect xchg $0, $1,\l... =r,=*m,0,~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i32* nonnull %2, i32 0) #19,\l... !srcloc !12\l  %23 = and i32 %22, 1073741824\l  %24 = icmp eq i32 %23, 0\l  br i1 %24, label %31, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1f1c890:s0 -> Node0x1f1c980;
+	Node0x1f1c890:s1 -> Node0x1f1c8e0;
+	Node0x1f1c8e0 [shape=record,label="{%25:\l25:                                               \l  %26 = ptrtoint i32* %2 to i64\l  %27 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 202, i64 %26, i64 129, i64 1) #19, !srcloc !13\l  %28 = icmp eq i64 %27, -38\l  br i1 %28, label %29, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1f1c8e0:s0 -> Node0x1f1c930;
+	Node0x1f1c8e0:s1 -> Node0x1f1c980;
+	Node0x1f1c930 [shape=record,label="{%29:\l29:                                               \l  %30 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 202, i64 %26, i64 1, i64 1) #19, !srcloc !13\l  br label %31\l}"];
+	Node0x1f1c930 -> Node0x1f1c980;
+	Node0x1f1c980 [shape=record,label="{%31:\l31:                                               \l  ret i32 %21\l}"];
+}

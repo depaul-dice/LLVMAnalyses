@@ -1,0 +1,19 @@
+digraph "CFG for 's_king_mobility' function" {
+	label="CFG for 's_king_mobility' function";
+
+	Node0x255a590 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  %3 = alloca i32, align 4\l  %4 = alloca i32, align 4\l  store i32 %0, i32* %2, align 4\l  store i32 0, i32* %4, align 4\l  store i32 0, i32* %3, align 4\l  br label %5\l}"];
+	Node0x255a590 -> Node0x255b3c0;
+	Node0x255b3c0 [shape=record,label="{%5:\l5:                                                \l  %6 = load i32, i32* %3, align 4\l  %7 = icmp slt i32 %6, 8\l  br i1 %7, label %8, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x255b3c0:s0 -> Node0x255b410;
+	Node0x255b3c0:s1 -> Node0x255b550;
+	Node0x255b410 [shape=record,label="{%8:\l8:                                                \l  %9 = load i32, i32* %2, align 4\l  %10 = load i32, i32* %3, align 4\l  %11 = sext i32 %10 to i64\l  %12 = getelementptr inbounds [8 x i32], [8 x i32]* @king_o, i64 0, i64 %11\l  %13 = load i32, i32* %12, align 4\l  %14 = add nsw i32 %9, %13\l  %15 = sext i32 %14 to i64\l  %16 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %15\l  %17 = load i32, i32* %16, align 4\l  %18 = icmp eq i32 %17, 13\l  br i1 %18, label %19, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x255b410:s0 -> Node0x255b460;
+	Node0x255b410:s1 -> Node0x255b4b0;
+	Node0x255b460 [shape=record,label="{%19:\l19:                                               \l  %20 = load i32, i32* %4, align 4\l  %21 = add nsw i32 %20, 1\l  store i32 %21, i32* %4, align 4\l  br label %22\l}"];
+	Node0x255b460 -> Node0x255b4b0;
+	Node0x255b4b0 [shape=record,label="{%22:\l22:                                               \l  br label %23\l}"];
+	Node0x255b4b0 -> Node0x255b500;
+	Node0x255b500 [shape=record,label="{%23:\l23:                                               \l  %24 = load i32, i32* %3, align 4\l  %25 = add nsw i32 %24, 1\l  store i32 %25, i32* %3, align 4\l  br label %5\l}"];
+	Node0x255b500 -> Node0x255b3c0;
+	Node0x255b550 [shape=record,label="{%26:\l26:                                               \l  %27 = load i32, i32* %4, align 4\l  %28 = shl i32 %27, 2\l  ret i32 %28\l}"];
+}

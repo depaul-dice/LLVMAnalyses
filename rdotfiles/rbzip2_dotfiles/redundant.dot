@@ -1,0 +1,5 @@
+digraph "CFG for 'redundant' function" {
+	label="CFG for 'redundant' function";
+
+	Node0x1c39340 [shape=record,label="{%1:\l  %2 = alloca i8*, align 8\l  store i8* %0, i8** %2, align 8\l  %3 = bitcast %struct._IO_FILE.58** @stderr to %struct._IO_FILE**\l  %4 = load %struct._IO_FILE*, %struct._IO_FILE** %3, align 8\l  %5 = load i8*, i8** @progName, align 8\l  %6 = load i8*, i8** %2, align 8\l  %7 = getelementptr inbounds [49 x i8], [49 x i8]* @.str.51, i64 0, i64 0\l  %8 = call i32 (%struct._IO_FILE*, i8*, ...) @fprintf(%struct._IO_FILE* %4,\l... i8* %7, i8* %5, i8* %6)\l  ret void\l}"];
+}

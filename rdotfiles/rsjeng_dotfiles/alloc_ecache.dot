@@ -1,0 +1,9 @@
+digraph "CFG for 'alloc_ecache' function" {
+	label="CFG for 'alloc_ecache' function";
+
+	Node0x2593d60 [shape=record,label="{%0:\l  %.b = load i1, i1* @ECacheSize, align 1\l  %1 = select i1 %.b, i32 1000000, i32 0\l  %2 = sext i32 %1 to i64\l  %3 = mul i64 12, %2\l  %4 = call fastcc noalias i8* @malloc(i64 %3) #8\l  %5 = bitcast i8* %4 to %struct.ECacheType*\l  store %struct.ECacheType* %5, %struct.ECacheType** @ECache, align 8\l  %6 = load %struct.ECacheType*, %struct.ECacheType** @ECache, align 8\l  %7 = icmp eq %struct.ECacheType* %6, null\l  br i1 %7, label %8, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x2593d60:s0 -> Node0x2594190;
+	Node0x2593d60:s1 -> Node0x25941e0;
+	Node0x2594190 [shape=record,label="{%8:\l8:                                                \l  %9 = getelementptr inbounds [34 x i8], [34 x i8]* @.str.18, i64 0, i64 0\l  %10 = call i32 (i8*, ...) @printf(i8* %9)\l  call fastcc void @exit(i32 1) #21\l  unreachable\l}"];
+	Node0x25941e0 [shape=record,label="{%11:\l11:                                               \l  ret void\l}"];
+}

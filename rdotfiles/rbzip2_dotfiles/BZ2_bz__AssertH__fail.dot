@@ -1,0 +1,10 @@
+digraph "CFG for 'BZ2_bz__AssertH__fail' function" {
+	label="CFG for 'BZ2_bz__AssertH__fail' function";
+
+	Node0x1c90280 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  store i32 %0, i32* %2, align 4\l  %3 = bitcast %struct._IO_FILE.58** @stderr to %struct._IO_FILE**\l  %4 = load %struct._IO_FILE*, %struct._IO_FILE** %3, align 8\l  %5 = load i32, i32* %2, align 4\l  %6 = call fastcc i8* @BZ2_bzlibVersion()\l  %7 = getelementptr inbounds [443 x i8], [443 x i8]* @.str.105, i64 0, i64 0\l  %8 = call i32 (%struct._IO_FILE*, i8*, ...) @fprintf(%struct._IO_FILE* %4,\l... i8* %7, i32 %5, i8* %6)\l  %9 = load i32, i32* %2, align 4\l  %10 = icmp eq i32 %9, 1007\l  br i1 %10, label %11, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1c90280:s0 -> Node0x1c902d0;
+	Node0x1c90280:s1 -> Node0x1c90320;
+	Node0x1c902d0 [shape=record,label="{%11:\l11:                                               \l  %12 = bitcast %struct._IO_FILE.58** @stderr to %struct._IO_FILE**\l  %13 = load %struct._IO_FILE*, %struct._IO_FILE** %12, align 8\l  %14 = getelementptr inbounds [1057 x i8], [1057 x i8]* @.str.1.106, i64 0,\l... i64 0\l  %15 = call i32 (%struct._IO_FILE*, i8*, ...) @fprintf(%struct._IO_FILE* %13,\l... i8* %14)\l  br label %16\l}"];
+	Node0x1c902d0 -> Node0x1c90320;
+	Node0x1c90320 [shape=record,label="{%16:\l16:                                               \l  call fastcc void @exit(i32 3) #19\l  unreachable\l}"];
+}

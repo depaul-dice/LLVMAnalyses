@@ -1,0 +1,15 @@
+digraph "CFG for 'rewind' function" {
+	label="CFG for 'rewind' function";
+
+	Node0x1f2b110 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %0,\l... i64 0, i32 19\l  %3 = load volatile i32, i32* %2, align 4, !tbaa !2\l  %4 = icmp sgt i32 %3, -1\l  br i1 %4, label %5, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1f2b110:s0 -> Node0x1f2b1c0;
+	Node0x1f2b110:s1 -> Node0x1f2b260;
+	Node0x1f2b1c0 [shape=record,label="{%5:\l5:                                                \l  %6 = bitcast %struct._IO_FILE.67* %0 to %struct._IO_FILE.136*\l  %7 = tail call i32 @__lockfile(%struct._IO_FILE.136* nonnull %6) #19\l  %8 = icmp eq i32 %7, 0\l  %9 = tail call fastcc i32 @__fseeko_unlocked(%struct._IO_FILE.67* nonnull\l... %0, i64 0, i32 0) #19\l  %10 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %0,\l... i64 0, i32 0\l  %11 = load i32, i32* %10, align 8, !tbaa !9\l  %12 = and i32 %11, -33\l  store i32 %12, i32* %10, align 8, !tbaa !9\l  br i1 %8, label %19, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1f2b1c0:s0 -> Node0x1f2b2b0;
+	Node0x1f2b1c0:s1 -> Node0x1f2b210;
+	Node0x1f2b210 [shape=record,label="{%13:\l13:                                               \l  tail call void @__unlockfile(%struct._IO_FILE.136* nonnull %6) #19\l  br label %19\l}"];
+	Node0x1f2b210 -> Node0x1f2b2b0;
+	Node0x1f2b260 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call fastcc i32 @__fseeko_unlocked(%struct._IO_FILE.67* nonnull\l... %0, i64 0, i32 0) #19\l  %16 = getelementptr inbounds %struct._IO_FILE.67, %struct._IO_FILE.67* %0,\l... i64 0, i32 0\l  %17 = load i32, i32* %16, align 8, !tbaa !9\l  %18 = and i32 %17, -33\l  store i32 %18, i32* %16, align 8, !tbaa !9\l  br label %19\l}"];
+	Node0x1f2b260 -> Node0x1f2b2b0;
+	Node0x1f2b2b0 [shape=record,label="{%19:\l19:                                               \l  ret void\l}"];
+}

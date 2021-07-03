@@ -1,0 +1,23 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x970220 [shape=record,label="{%0:\l  %1 = alloca i32, align 4\l  %2 = alloca i32, align 4\l  %3 = alloca i8**, align 8\l  %tmp = alloca i32, align 4\l  %i = alloca i32, align 4\l  %j = alloca i32, align 4\l  %n = alloca i32, align 4\l  %m = alloca i32, align 4\l  %fout = alloca i32, align 4\l  %buf = alloca [4 x i8], align 1\l  store i32 0, i32* %1, align 4\l  store i32 %argc, i32* %2, align 4\l  store i8** %argv, i8*** %3, align 8\l  %4 = call i32 (i8*, i32, ...) @open(i8* getelementptr inbounds ([12 x i8],\l... [12 x i8]* @.str, i32 0, i32 0), i32 577, i32 420)\l  store i32 %4, i32* %fout, align 4\l  %5 = bitcast [4 x i8]* %buf to i8*\l  %6 = call i64 @read(i32 0, i8* %5, i64 4)\l  %7 = getelementptr inbounds [4 x i8], [4 x i8]* %buf, i32 0, i32 0\l  %8 = call i32 @atoi(i8* %7) #12\l  store i32 %8, i32* %n, align 4\l  %9 = bitcast [4 x i8]* %buf to i8*\l  %10 = call i64 @read(i32 0, i8* %9, i64 4)\l  %11 = getelementptr inbounds [4 x i8], [4 x i8]* %buf, i32 0, i32 0\l  %12 = call i32 @atoi(i8* %11) #12\l  store i32 %12, i32* %m, align 4\l  store i32 0, i32* %i, align 4\l  br label %13\l}"];
+	Node0x970220 -> Node0x970270;
+	Node0x970270 [shape=record,label="{%13:\l\l  %14 = load i32, i32* %i, align 4\l  %15 = load i32, i32* %n, align 4\l  %16 = icmp slt i32 %14, %15\l  br i1 %16, label %17, label %46\l|{<s0>T|<s1>F}}"];
+	Node0x970270:s0 -> Node0x9702c0;
+	Node0x970270:s1 -> Node0x96fa30;
+	Node0x9702c0 [shape=record,label="{%17:\l\l  store i32 0, i32* %j, align 4\l  br label %18\l}"];
+	Node0x9702c0 -> Node0x970310;
+	Node0x970310 [shape=record,label="{%18:\l\l  %19 = load i32, i32* %j, align 4\l  %20 = load i32, i32* %m, align 4\l  %21 = icmp slt i32 %19, %20\l  br i1 %21, label %22, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x970310:s0 -> Node0x970360;
+	Node0x970310:s1 -> Node0x970400;
+	Node0x970360 [shape=record,label="{%22:\l\l  %23 = bitcast [4 x i8]* %buf to i8*\l  %24 = call i64 @read(i32 0, i8* %23, i64 4)\l  %25 = getelementptr inbounds [4 x i8], [4 x i8]* %buf, i32 0, i32 0\l  %26 = call i32 @atoi(i8* %25) #12\l  %27 = load i32, i32* %tmp, align 4\l  %28 = add nsw i32 %27, %26\l  store i32 %28, i32* %tmp, align 4\l  br label %29\l}"];
+	Node0x970360 -> Node0x9703b0;
+	Node0x9703b0 [shape=record,label="{%29:\l\l  %30 = load i32, i32* %j, align 4\l  %31 = add nsw i32 %30, 1\l  store i32 %31, i32* %j, align 4\l  br label %18\l}"];
+	Node0x9703b0 -> Node0x970310;
+	Node0x970400 [shape=record,label="{%32:\l\l  %33 = load i32, i32* %m, align 4\l  %34 = trunc i32 %33 to i8\l  %35 = sext i8 %34 to i32\l  %36 = load i32, i32* %tmp, align 4\l  %37 = add nsw i32 %35, %36\l  %38 = trunc i32 %37 to i8\l  %39 = getelementptr inbounds [4 x i8], [4 x i8]* %buf, i64 0, i64 0\l  store i8 %38, i8* %39, align 1\l  %40 = load i32, i32* %fout, align 4\l  %41 = bitcast [4 x i8]* %buf to i8*\l  %42 = call i64 @write(i32 %40, i8* %41, i64 4)\l  br label %43\l}"];
+	Node0x970400 -> Node0x970450;
+	Node0x970450 [shape=record,label="{%43:\l\l  %44 = load i32, i32* %i, align 4\l  %45 = add nsw i32 %44, 1\l  store i32 %45, i32* %i, align 4\l  br label %13\l}"];
+	Node0x970450 -> Node0x970270;
+	Node0x96fa30 [shape=record,label="{%46:\l\l  %47 = load i32, i32* %fout, align 4\l  %48 = call i32 @close(i32 %47)\l  ret i32 0\l}"];
+}

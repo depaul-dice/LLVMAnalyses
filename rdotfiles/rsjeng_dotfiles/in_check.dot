@@ -1,0 +1,29 @@
+digraph "CFG for 'in_check' function" {
+	label="CFG for 'in_check' function";
+
+	Node0x248e950 [shape=record,label="{%0:\l  %1 = alloca i32, align 4\l  %2 = load i32, i32* @Variant, align 4\l  %3 = icmp eq i32 %2, 3\l  br i1 %3, label %4, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x248e950:s0 -> Node0x2490210;
+	Node0x248e950:s1 -> Node0x2492230;
+	Node0x2490210 [shape=record,label="{%4:\l4:                                                \l  store i32 0, i32* %1, align 4\l  br label %21\l}"];
+	Node0x2490210 -> Node0x24924b0;
+	Node0x2492230 [shape=record,label="{%5:\l5:                                                \l  %6 = load i32, i32* @white_to_move, align 4\l  %7 = icmp eq i32 %6, 1\l  br i1 %7, label %8, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x2492230:s0 -> Node0x2492280;
+	Node0x2492230:s1 -> Node0x2492370;
+	Node0x2492280 [shape=record,label="{%8:\l8:                                                \l  %9 = load i32, i32* @wking_loc, align 4\l  %10 = call fastcc i32 @is_attacked(i32 %9, i32 0)\l  %11 = icmp ne i32 %10, 0\l  br i1 %11, label %12, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x2492280:s0 -> Node0x24922d0;
+	Node0x2492280:s1 -> Node0x2492320;
+	Node0x24922d0 [shape=record,label="{%12:\l12:                                               \l  store i32 1, i32* %1, align 4\l  br label %21\l}"];
+	Node0x24922d0 -> Node0x24924b0;
+	Node0x2492320 [shape=record,label="{%13:\l13:                                               \l  br label %20\l}"];
+	Node0x2492320 -> Node0x2492460;
+	Node0x2492370 [shape=record,label="{%14:\l14:                                               \l  %15 = load i32, i32* @bking_loc, align 4\l  %16 = call fastcc i32 @is_attacked(i32 %15, i32 1)\l  %17 = icmp ne i32 %16, 0\l  br i1 %17, label %18, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x2492370:s0 -> Node0x24923c0;
+	Node0x2492370:s1 -> Node0x2492410;
+	Node0x24923c0 [shape=record,label="{%18:\l18:                                               \l  store i32 1, i32* %1, align 4\l  br label %21\l}"];
+	Node0x24923c0 -> Node0x24924b0;
+	Node0x2492410 [shape=record,label="{%19:\l19:                                               \l  br label %20\l}"];
+	Node0x2492410 -> Node0x2492460;
+	Node0x2492460 [shape=record,label="{%20:\l20:                                               \l  store i32 0, i32* %1, align 4\l  br label %21\l}"];
+	Node0x2492460 -> Node0x24924b0;
+	Node0x24924b0 [shape=record,label="{%21:\l21:                                               \l  %22 = load i32, i32* %1, align 4\l  ret i32 %22\l}"];
+}

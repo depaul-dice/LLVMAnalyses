@@ -1,0 +1,19 @@
+digraph "CFG for 'snocString' function" {
+	label="CFG for 'snocString' function";
+
+	Node0x1c37100 [shape=record,label="{%2:\l  %3 = alloca %struct.zzzz*, align 8\l  %4 = alloca %struct.zzzz*, align 8\l  %5 = alloca i8*, align 8\l  %6 = alloca %struct.zzzz*, align 8\l  %7 = alloca %struct.zzzz*, align 8\l  store %struct.zzzz* %0, %struct.zzzz** %4, align 8\l  store i8* %1, i8** %5, align 8\l  %8 = load %struct.zzzz*, %struct.zzzz** %4, align 8\l  %9 = icmp eq %struct.zzzz* %8, null\l  br i1 %9, label %10, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1c37100:s0 -> Node0x1c37150;
+	Node0x1c37100:s1 -> Node0x1c371a0;
+	Node0x1c37150 [shape=record,label="{%10:\l10:                                               \l  %11 = call fastcc %struct.zzzz* @mkCell()\l  store %struct.zzzz* %11, %struct.zzzz** %6, align 8\l  %12 = load i8*, i8** %5, align 8\l  %13 = call fastcc i64 @strlen(i8* %12) #19\l  %14 = add i64 5, %13\l  %15 = trunc i64 %14 to i32\l  %16 = call fastcc i8* @myMalloc(i32 %15)\l  %17 = load %struct.zzzz*, %struct.zzzz** %6, align 8\l  %18 = getelementptr inbounds %struct.zzzz, %struct.zzzz* %17, i32 0, i32 0\l  store i8* %16, i8** %18, align 8\l  %19 = load %struct.zzzz*, %struct.zzzz** %6, align 8\l  %20 = getelementptr inbounds %struct.zzzz, %struct.zzzz* %19, i32 0, i32 0\l  %21 = load i8*, i8** %20, align 8\l  %22 = load i8*, i8** %5, align 8\l  %23 = call fastcc i8* @strcpy(i8* %21, i8* %22) #7\l  %24 = load %struct.zzzz*, %struct.zzzz** %6, align 8\l  store %struct.zzzz* %24, %struct.zzzz** %3, align 8\l  br label %45\l}"];
+	Node0x1c37150 -> Node0x1c372e0;
+	Node0x1c371a0 [shape=record,label="{%25:\l25:                                               \l  %26 = load %struct.zzzz*, %struct.zzzz** %4, align 8\l  store %struct.zzzz* %26, %struct.zzzz** %7, align 8\l  br label %27\l}"];
+	Node0x1c371a0 -> Node0x1c371f0;
+	Node0x1c371f0 [shape=record,label="{%27:\l27:                                               \l  %28 = load %struct.zzzz*, %struct.zzzz** %7, align 8\l  %29 = getelementptr inbounds %struct.zzzz, %struct.zzzz* %28, i32 0, i32 1\l  %30 = load %struct.zzzz*, %struct.zzzz** %29, align 8\l  %31 = icmp ne %struct.zzzz* %30, null\l  br i1 %31, label %32, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x1c371f0:s0 -> Node0x1c37240;
+	Node0x1c371f0:s1 -> Node0x1c37290;
+	Node0x1c37240 [shape=record,label="{%32:\l32:                                               \l  %33 = load %struct.zzzz*, %struct.zzzz** %7, align 8\l  %34 = getelementptr inbounds %struct.zzzz, %struct.zzzz* %33, i32 0, i32 1\l  %35 = load %struct.zzzz*, %struct.zzzz** %34, align 8\l  store %struct.zzzz* %35, %struct.zzzz** %7, align 8\l  br label %27\l}"];
+	Node0x1c37240 -> Node0x1c371f0;
+	Node0x1c37290 [shape=record,label="{%36:\l36:                                               \l  %37 = load %struct.zzzz*, %struct.zzzz** %7, align 8\l  %38 = getelementptr inbounds %struct.zzzz, %struct.zzzz* %37, i32 0, i32 1\l  %39 = load %struct.zzzz*, %struct.zzzz** %38, align 8\l  %40 = load i8*, i8** %5, align 8\l  %41 = call fastcc %struct.zzzz* @snocString(%struct.zzzz* %39, i8* %40)\l  %42 = load %struct.zzzz*, %struct.zzzz** %7, align 8\l  %43 = getelementptr inbounds %struct.zzzz, %struct.zzzz* %42, i32 0, i32 1\l  store %struct.zzzz* %41, %struct.zzzz** %43, align 8\l  %44 = load %struct.zzzz*, %struct.zzzz** %4, align 8\l  store %struct.zzzz* %44, %struct.zzzz** %3, align 8\l  br label %45\l}"];
+	Node0x1c37290 -> Node0x1c372e0;
+	Node0x1c372e0 [shape=record,label="{%45:\l45:                                               \l  %46 = load %struct.zzzz*, %struct.zzzz** %3, align 8\l  ret %struct.zzzz* %46\l}"];
+}

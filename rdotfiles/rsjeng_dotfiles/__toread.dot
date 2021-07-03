@@ -1,0 +1,27 @@
+digraph "CFG for '__toread' function" {
+	label="CFG for '__toread' function";
+
+	Node0x29ace00 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.155, %struct._IO_FILE.155* %0,\l... i64 0, i32 18\l  %3 = load i32, i32* %2, align 8, !tbaa !2\l  %4 = add nsw i32 %3, -1\l  %5 = or i32 %4, %3\l  store i32 %5, i32* %2, align 8, !tbaa !2\l  %6 = getelementptr inbounds %struct._IO_FILE.155, %struct._IO_FILE.155* %0,\l... i64 0, i32 5\l  %7 = load i8*, i8** %6, align 8, !tbaa !9\l  %8 = getelementptr inbounds %struct._IO_FILE.155, %struct._IO_FILE.155* %0,\l... i64 0, i32 7\l  %9 = load i8*, i8** %8, align 8, !tbaa !10\l  %10 = icmp eq i8* %7, %9\l  br i1 %10, label %if.end.icp, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x29ace00:s0 -> Node0x29aeb40;
+	Node0x29ace00:s1 -> Node0x29ae9b0;
+	Node0x29ae9b0 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct._IO_FILE.155, %struct._IO_FILE.155* %0,\l... i64 0, i32 9\l  %13 = load i64 (%struct._IO_FILE.155*, i8*, i64)*, i64\l... (%struct._IO_FILE.155*, i8*, i64)** %12, align 8, !tbaa !11\l  %14 = bitcast i64 (%struct._IO_FILE.141*, i8*, i64)* @__stdio_read to i64\l... (%struct._IO_FILE.155*, i8*, i64)*\l  %15 = icmp eq i64 (%struct._IO_FILE.155*, i8*, i64)* %13, %14\l  br i1 %15, label %if.true.direct_targ, label %if.false.orig_indirect\l|{<s0>T|<s1>F}}"];
+	Node0x29ae9b0:s0 -> Node0x29aea00;
+	Node0x29ae9b0:s1 -> Node0x29aea50;
+	Node0x29aea00 [shape=record,label="{if.true.direct_targ:                              \l  %16 = bitcast %struct._IO_FILE.155* %0 to %struct._IO_FILE.141*\l  %17 = tail call i64 @__stdio_read(%struct._IO_FILE.141* nonnull %16, i8*\l... null, i64 0) #21\l  br label %if.end.icp\l}"];
+	Node0x29aea00 -> Node0x29aeb40;
+	Node0x29aea50 [shape=record,label="{if.false.orig_indirect:                           \l  %18 = bitcast i64 (%struct._IO_FILE.145*, i8*, i64)* @__stdio_write to i64\l... (%struct._IO_FILE.155*, i8*, i64)*\l  %19 = icmp eq i64 (%struct._IO_FILE.155*, i8*, i64)* %13, %18\l  br i1 %19, label %if.true.direct_targ1, label %if.false.orig_indirect2\l|{<s0>T|<s1>F}}"];
+	Node0x29aea50:s0 -> Node0x29aeaa0;
+	Node0x29aea50:s1 -> Node0x29aeaf0;
+	Node0x29aeaa0 [shape=record,label="{if.true.direct_targ1:                             \l  %20 = bitcast %struct._IO_FILE.155* %0 to %struct._IO_FILE.145*\l  %21 = tail call i64 @__stdio_write(%struct._IO_FILE.145* nonnull %20, i8*\l... null, i64 0) #21\l  br label %if.end.icp\l}"];
+	Node0x29aeaa0 -> Node0x29aeb40;
+	Node0x29aeaf0 [shape=record,label="{if.false.orig_indirect2:                          \l  %22 = bitcast i64 (%struct._IO_FILE.145*, i8*, i64)* @__stdout_write to i64\l... (%struct._IO_FILE.155*, i8*, i64)*\l  %23 = icmp eq i64 (%struct._IO_FILE.155*, i8*, i64)* %13, %22\l  call void @llvm.assume(i1 %23)\l  %24 = bitcast %struct._IO_FILE.155* %0 to %struct._IO_FILE.145*\l  %25 = tail call i64 @__stdout_write(%struct._IO_FILE.145* nonnull %24, i8*\l... null, i64 0) #21\l  br label %if.end.icp\l}"];
+	Node0x29aeaf0 -> Node0x29aeb40;
+	Node0x29aeb40 [shape=record,label="{if.end.icp:                                       \l  %26 = getelementptr inbounds %struct._IO_FILE.155, %struct._IO_FILE.155* %0,\l... i64 0, i32 4\l  store i8* null, i8** %8, align 8, !tbaa !10\l  %27 = bitcast i8** %26 to \<2 x i8*\>*\l  store \<2 x i8*\> zeroinitializer, \<2 x i8*\>* %27, align 8, !tbaa !12\l  %28 = getelementptr inbounds %struct._IO_FILE.155, %struct._IO_FILE.155* %0,\l... i64 0, i32 0\l  %29 = load i32, i32* %28, align 8, !tbaa !13\l  %30 = and i32 %29, 4\l  %31 = icmp eq i32 %30, 0\l  br i1 %31, label %34, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x29aeb40:s0 -> Node0x29aebe0;
+	Node0x29aeb40:s1 -> Node0x29aeb90;
+	Node0x29aeb90 [shape=record,label="{%32:\l32:                                               \l  %33 = or i32 %29, 32\l  store i32 %33, i32* %28, align 8, !tbaa !13\l  br label %44\l}"];
+	Node0x29aeb90 -> Node0x29aec30;
+	Node0x29aebe0 [shape=record,label="{%34:\l34:                                               \l  %35 = getelementptr inbounds %struct._IO_FILE.155, %struct._IO_FILE.155* %0,\l... i64 0, i32 11\l  %36 = load i8*, i8** %35, align 8, !tbaa !14\l  %37 = getelementptr inbounds %struct._IO_FILE.155, %struct._IO_FILE.155* %0,\l... i64 0, i32 12\l  %38 = load i64, i64* %37, align 8, !tbaa !15\l  %39 = getelementptr inbounds i8, i8* %36, i64 %38\l  %40 = getelementptr inbounds %struct._IO_FILE.155, %struct._IO_FILE.155* %0,\l... i64 0, i32 2\l  store i8* %39, i8** %40, align 8, !tbaa !16\l  %41 = getelementptr inbounds %struct._IO_FILE.155, %struct._IO_FILE.155* %0,\l... i64 0, i32 1\l  store i8* %39, i8** %41, align 8, !tbaa !17\l  %42 = shl i32 %29, 27\l  %43 = ashr i32 %42, 31\l  br label %44\l}"];
+	Node0x29aebe0 -> Node0x29aec30;
+	Node0x29aec30 [shape=record,label="{%44:\l44:                                               \l  %45 = phi i32 [ -1, %32 ], [ %43, %34 ]\l  ret i32 %45\l}"];
+}

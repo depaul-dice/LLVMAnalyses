@@ -1,0 +1,5 @@
+digraph "CFG for 'default_bzalloc' function" {
+	label="CFG for 'default_bzalloc' function";
+
+	Node0x1c9d8f0 [shape=record,label="{%3:\l  %4 = alloca i8*, align 8\l  %5 = alloca i32, align 4\l  %6 = alloca i32, align 4\l  %7 = alloca i8*, align 8\l  store i8* %0, i8** %4, align 8\l  store i32 %1, i32* %5, align 4\l  store i32 %2, i32* %6, align 4\l  %8 = load i32, i32* %5, align 4\l  %9 = load i32, i32* %6, align 4\l  %10 = mul nsw i32 %8, %9\l  %11 = sext i32 %10 to i64\l  %12 = call fastcc noalias i8* @malloc(i64 %11) #7\l  store i8* %12, i8** %7, align 8\l  %13 = load i8*, i8** %7, align 8\l  ret i8* %13\l}"];
+}

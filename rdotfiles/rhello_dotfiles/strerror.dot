@@ -1,0 +1,5 @@
+digraph "CFG for 'strerror' function" {
+	label="CFG for 'strerror' function";
+
+	Node0x164f790 [shape=record,label="{%1:\l  %2 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #14, !srcloc !2\l  %3 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %2, i64 0,\l... i32 24\l  %4 = load %struct.__locale_struct*, %struct.__locale_struct** %3, align 8,\l... !tbaa !3\l  %5 = tail call fastcc i8* @__strerror_l(i32 %0, %struct.__locale_struct* %4)\l... #15\l  ret i8* %5\l}"];
+}

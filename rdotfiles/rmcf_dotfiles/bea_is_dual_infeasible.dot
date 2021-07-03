@@ -1,0 +1,18 @@
+digraph "CFG for 'bea_is_dual_infeasible' function" {
+	label="CFG for 'bea_is_dual_infeasible' function";
+
+	Node0x2730a20 [shape=record,label="{%2:\l  %3 = alloca %struct.arc*, align 8\l  %4 = alloca i64, align 8\l  store %struct.arc* %0, %struct.arc** %3, align 8\l  store i64 %1, i64* %4, align 8\l  %5 = load i64, i64* %4, align 8\l  %6 = icmp slt i64 %5, 0\l  br i1 %6, label %7, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x2730a20:s0 -> Node0x274e080;
+	Node0x2730a20:s1 -> Node0x274e0d0;
+	Node0x274e080 [shape=record,label="{%7:\l7:                                                \l  %8 = load %struct.arc*, %struct.arc** %3, align 8\l  %9 = getelementptr inbounds %struct.arc, %struct.arc* %8, i32 0, i32 3\l  %10 = load i32, i32* %9, align 8\l  %11 = icmp eq i32 %10, 1\l  br i1 %11, label %22, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x274e080:s0 -> Node0x274e500;
+	Node0x274e080:s1 -> Node0x274e0d0;
+	Node0x274e0d0 [shape=record,label="{%12:\l12:                                               \l  %13 = load i64, i64* %4, align 8\l  %14 = icmp sgt i64 %13, 0\l  br i1 %14, label %15, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x274e0d0:s0 -> Node0x274e460;
+	Node0x274e0d0:s1 -> Node0x274e4b0;
+	Node0x274e460 [shape=record,label="{%15:\l15:                                               \l  %16 = load %struct.arc*, %struct.arc** %3, align 8\l  %17 = getelementptr inbounds %struct.arc, %struct.arc* %16, i32 0, i32 3\l  %18 = load i32, i32* %17, align 8\l  %19 = icmp eq i32 %18, 2\l  br label %20\l}"];
+	Node0x274e460 -> Node0x274e4b0;
+	Node0x274e4b0 [shape=record,label="{%20:\l20:                                               \l  %21 = phi i1 [ false, %12 ], [ %19, %15 ]\l  br label %22\l}"];
+	Node0x274e4b0 -> Node0x274e500;
+	Node0x274e500 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i1 [ true, %7 ], [ %21, %20 ]\l  %24 = zext i1 %23 to i32\l  ret i32 %24\l}"];
+}

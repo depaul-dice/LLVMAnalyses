@@ -1,0 +1,23 @@
+digraph "CFG for 'fopen' function" {
+	label="CFG for 'fopen' function";
+
+	Node0x2814460 [shape=record,label="{%2:\l  %3 = load i8, i8* %1, align 1, !tbaa !2\l  %4 = sext i8 %3 to i32\l  %5 = getelementptr inbounds [4 x i8], [4 x i8]* @.str.109, i64 0, i64 0\l  %6 = tail call fastcc i8* @strchr(i8* %5, i32 %4) #19\l  %7 = icmp eq i8* %6, null\l  br i1 %7, label %8, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x2814460:s0 -> Node0x28144b0;
+	Node0x2814460:s1 -> Node0x2814500;
+	Node0x28144b0 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call fastcc i32* @__errno_location() #19\l  store i32 22, i32* %9, align 4, !tbaa !5\l  br label %32\l}"];
+	Node0x28144b0 -> Node0x2814690;
+	Node0x2814500 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call fastcc i32 @__fmodeflags(i8* nonnull %1) #19\l  %12 = ptrtoint i8* %0 to i64\l  %13 = sext i32 %11 to i64\l  %14 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 2, i64 %12, i64 %13, i64 438) #20, !srcloc !7\l  %15 = tail call fastcc i64 @__syscall_ret(i64 %14) #19\l  %16 = trunc i64 %15 to i32\l  %17 = icmp slt i32 %16, 0\l  br i1 %17, label %32, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x2814500:s0 -> Node0x2814690;
+	Node0x2814500:s1 -> Node0x2814550;
+	Node0x2814550 [shape=record,label="{%18:\l18:                                               \l  %19 = and i32 %11, 524288\l  %20 = icmp eq i32 %19, 0\l  br i1 %20, label %25, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x2814550:s0 -> Node0x28145f0;
+	Node0x2814550:s1 -> Node0x28145a0;
+	Node0x28145a0 [shape=record,label="{%21:\l21:                                               \l  %22 = shl i64 %15, 32\l  %23 = ashr exact i64 %22, 32\l  %24 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 72, i64 %23, i64 2, i64 1) #20, !srcloc !7\l  br label %25\l}"];
+	Node0x28145a0 -> Node0x28145f0;
+	Node0x28145f0 [shape=record,label="{%25:\l25:                                               \l  %26 = tail call fastcc %struct._IO_FILE.54* @__fdopen(i32 %16, i8* nonnull\l... %1) #19\l  %27 = icmp eq %struct._IO_FILE.54* %26, null\l  br i1 %27, label %28, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x28145f0:s0 -> Node0x2814640;
+	Node0x28145f0:s1 -> Node0x2814690;
+	Node0x2814640 [shape=record,label="{%28:\l28:                                               \l  %29 = shl i64 %15, 32\l  %30 = ashr exact i64 %29, 32\l  %31 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64 3,\l... i64 %30) #20, !srcloc !8\l  br label %32\l}"];
+	Node0x2814640 -> Node0x2814690;
+	Node0x2814690 [shape=record,label="{%32:\l32:                                               \l  %33 = phi %struct._IO_FILE.54* [ null, %28 ], [ null, %8 ], [ null, %10 ], [\l... %26, %25 ]\l  ret %struct._IO_FILE.54* %33\l}"];
+}

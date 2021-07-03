@@ -1,0 +1,5 @@
+digraph "CFG for 'free_ecache' function" {
+	label="CFG for 'free_ecache' function";
+
+	Node0x2594230 [shape=record,label="{%0:\l  %1 = load %struct.ECacheType*, %struct.ECacheType** @ECache, align 8\l  %2 = bitcast %struct.ECacheType* %1 to i8*\l  call fastcc void @free(i8* %2) #8\l  ret void\l}"];
+}

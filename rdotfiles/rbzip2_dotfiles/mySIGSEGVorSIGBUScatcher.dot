@@ -1,0 +1,16 @@
+digraph "CFG for 'mySIGSEGVorSIGBUScatcher' function" {
+	label="CFG for 'mySIGSEGVorSIGBUScatcher' function";
+
+	Node0x1c175e0 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  store i32 %0, i32* %2, align 4\l  %3 = load i32, i32* @opMode, align 4\l  %4 = icmp eq i32 %3, 1\l  br i1 %4, label %5, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1c175e0:s0 -> Node0x1c12830;
+	Node0x1c175e0:s1 -> Node0x1c12880;
+	Node0x1c12830 [shape=record,label="{%5:\l5:                                                \l  %6 = bitcast %struct._IO_FILE.58** @stderr to %struct._IO_FILE**\l  %7 = load %struct._IO_FILE*, %struct._IO_FILE** %6, align 8\l  %8 = load i8*, i8** @progName, align 8\l  %9 = getelementptr inbounds [869 x i8], [869 x i8]* @.str.36, i64 0, i64 0\l  %10 = call i32 (%struct._IO_FILE*, i8*, ...) @fprintf(%struct._IO_FILE* %7,\l... i8* %9, i8* %8)\l  br label %17\l}"];
+	Node0x1c12830 -> Node0x1c128d0;
+	Node0x1c12880 [shape=record,label="{%11:\l11:                                               \l  %12 = bitcast %struct._IO_FILE.58** @stderr to %struct._IO_FILE**\l  %13 = load %struct._IO_FILE*, %struct._IO_FILE** %12, align 8\l  %14 = load i8*, i8** @progName, align 8\l  %15 = getelementptr inbounds [996 x i8], [996 x i8]* @.str.37, i64 0, i64 0\l  %16 = call i32 (%struct._IO_FILE*, i8*, ...) @fprintf(%struct._IO_FILE* %13,\l... i8* %15, i8* %14)\l  br label %17\l}"];
+	Node0x1c12880 -> Node0x1c128d0;
+	Node0x1c128d0 [shape=record,label="{%17:\l17:                                               \l  call fastcc void @showFileNames()\l  %18 = load i32, i32* @opMode, align 4\l  %19 = icmp eq i32 %18, 1\l  br i1 %19, label %20, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1c128d0:s0 -> Node0x1c12920;
+	Node0x1c128d0:s1 -> Node0x1c12970;
+	Node0x1c12920 [shape=record,label="{%20:\l20:                                               \l  call fastcc void @cleanUpAndFail(i32 3) #19\l  unreachable\l}"];
+	Node0x1c12970 [shape=record,label="{%21:\l21:                                               \l  call fastcc void @cadvise()\l  call fastcc void @cleanUpAndFail(i32 2) #19\l  unreachable\l}"];
+}

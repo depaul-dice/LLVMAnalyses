@@ -1,0 +1,5 @@
+digraph "CFG for 'getenv' function" {
+	label="CFG for 'getenv' function";
+
+	Node0x1df59e0 [shape=record,label="{%1:\l  %2 = tail call fastcc i8* @__strchrnul(i8* %0, i32 61) #19\l  ret i8* null\l}"];
+}

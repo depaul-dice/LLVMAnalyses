@@ -1,0 +1,13 @@
+digraph "CFG for '__stdout_write' function" {
+	label="CFG for '__stdout_write' function";
+
+	Node0x290ec40 [shape=record,label="{%3:\l  %4 = alloca %struct.winsize, align 2\l  %5 = bitcast %struct.winsize* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %5) #21\l  %6 = getelementptr inbounds %struct._IO_FILE.145, %struct._IO_FILE.145* %0,\l... i64 0, i32 9\l  %7 = bitcast \{\}** %6 to i64 (%struct._IO_FILE.145*, i8*, i64)**\l  store i64 (%struct._IO_FILE.145*, i8*, i64)* @__stdio_write, i64\l... (%struct._IO_FILE.145*, i8*, i64)** %7, align 8, !tbaa !2\l  %8 = getelementptr inbounds %struct._IO_FILE.145, %struct._IO_FILE.145* %0,\l... i64 0, i32 0\l  %9 = load i32, i32* %8, align 8, !tbaa !9\l  %10 = and i32 %9, 64\l  %11 = icmp eq i32 %10, 0\l  br i1 %11, label %12, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x290ec40:s0 -> Node0x29123e0;
+	Node0x290ec40:s1 -> Node0x2912640;
+	Node0x29123e0 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds %struct._IO_FILE.145, %struct._IO_FILE.145* %0,\l... i64 0, i32 15\l  %14 = load i32, i32* %13, align 8, !tbaa !10\l  %15 = sext i32 %14 to i64\l  %16 = ptrtoint %struct.winsize* %4 to i64\l  %17 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 16, i64 %15, i64 21523, i64 %16) #21, !srcloc !11\l  %18 = icmp eq i64 %17, 0\l  br i1 %18, label %21, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x29123e0:s0 -> Node0x2912640;
+	Node0x29123e0:s1 -> Node0x29125f0;
+	Node0x29125f0 [shape=record,label="{%19:\l19:                                               \l  %20 = getelementptr inbounds %struct._IO_FILE.145, %struct._IO_FILE.145* %0,\l... i64 0, i32 20\l  store i32 -1, i32* %20, align 8, !tbaa !12\l  br label %21\l}"];
+	Node0x29125f0 -> Node0x2912640;
+	Node0x2912640 [shape=record,label="{%21:\l21:                                               \l  %22 = call i64 @__stdio_write(%struct._IO_FILE.145* nonnull %0, i8* %1, i64\l... %2) #22\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %5) #21\l  ret i64 %22\l}"];
+}

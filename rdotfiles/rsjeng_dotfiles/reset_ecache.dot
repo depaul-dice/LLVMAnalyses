@@ -1,0 +1,5 @@
+digraph "CFG for 'reset_ecache' function" {
+	label="CFG for 'reset_ecache' function";
+
+	Node0x2592830 [shape=record,label="{%0:\l  %1 = load %struct.ECacheType*, %struct.ECacheType** @ECache, align 8\l  %2 = bitcast %struct.ECacheType* %1 to i8*\l  %.b = load i1, i1* @ECacheSize, align 1\l  %3 = select i1 %.b, i32 1000000, i32 0\l  %4 = sext i32 %3 to i64\l  %5 = mul i64 12, %4\l  call void @llvm.memset.p0i8.i64(i8* align 4 %2, i8 0, i64 %5, i1 false)\l  ret void\l}"];
+}

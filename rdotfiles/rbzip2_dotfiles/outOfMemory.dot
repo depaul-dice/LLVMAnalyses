@@ -1,0 +1,5 @@
+digraph "CFG for 'outOfMemory' function" {
+	label="CFG for 'outOfMemory' function";
+
+	Node0x1c067a0 [shape=record,label="{%0:\l  %1 = bitcast %struct._IO_FILE.58** @stderr to %struct._IO_FILE**\l  %2 = load %struct._IO_FILE*, %struct._IO_FILE** %1, align 8\l  %3 = load i8*, i8** @progName, align 8\l  %4 = getelementptr inbounds [38 x i8], [38 x i8]* @.str.48, i64 0, i64 0\l  %5 = call i32 (%struct._IO_FILE*, i8*, ...) @fprintf(%struct._IO_FILE* %2,\l... i8* %4, i8* %3)\l  call fastcc void @showFileNames()\l  call fastcc void @cleanUpAndFail(i32 1) #19\l  unreachable\l}"];
+}

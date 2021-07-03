@@ -1,0 +1,11 @@
+digraph "CFG for '__stdio_exit' function" {
+	label="CFG for '__stdio_exit' function";
+
+	Node0x29ac040 [shape=record,label="{%0:\l  %1 = tail call %struct._IO_FILE.35** @__ofl_lock() #21\l  %2 = load %struct._IO_FILE.35*, %struct._IO_FILE.35** %1, align 8, !tbaa !2\l  %3 = icmp eq %struct._IO_FILE.35* %2, null\l  br i1 %3, label %9, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x29ac040:s0 -> Node0x29ac0e0;
+	Node0x29ac040:s1 -> Node0x29ac090;
+	Node0x29ac090 [shape=record,label="{%4:\l4:                                                \l  %5 = phi %struct._IO_FILE.35* [ %7, %4 ], [ %2, %0 ]\l  tail call fastcc void @close_file(%struct._IO_FILE.35* nonnull %5) #22\l  %6 = getelementptr inbounds %struct._IO_FILE.35, %struct._IO_FILE.35* %5,\l... i64 0, i32 14\l  %7 = load %struct._IO_FILE.35*, %struct._IO_FILE.35** %6, align 8, !tbaa !2\l  %8 = icmp eq %struct._IO_FILE.35* %7, null\l  br i1 %8, label %9, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x29ac090:s0 -> Node0x29ac0e0;
+	Node0x29ac090:s1 -> Node0x29ac090;
+	Node0x29ac0e0 [shape=record,label="{%9:\l9:                                                \l  %10 = bitcast %struct._IO_FILE.64** @__stdin_used to %struct._IO_FILE.35**\l  %11 = load volatile %struct._IO_FILE.35*, %struct._IO_FILE.35** %10, align\l... 8, !tbaa !2\l  tail call fastcc void @close_file(%struct._IO_FILE.35* %11) #22\l  %12 = bitcast %struct._IO_FILE.64** @__stdout_used to %struct._IO_FILE.35**\l  %13 = load volatile %struct._IO_FILE.35*, %struct._IO_FILE.35** %12, align\l... 8, !tbaa !2\l  tail call fastcc void @close_file(%struct._IO_FILE.35* %13) #22\l  %14 = bitcast %struct._IO_FILE.64** @__stderr_used to %struct._IO_FILE.35**\l  %15 = load volatile %struct._IO_FILE.35*, %struct._IO_FILE.35** %14, align\l... 8, !tbaa !2\l  tail call fastcc void @close_file(%struct._IO_FILE.35* %15) #22\l  ret void\l}"];
+}

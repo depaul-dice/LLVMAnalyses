@@ -1,0 +1,21 @@
+digraph "CFG for 'scalbn' function" {
+	label="CFG for 'scalbn' function";
+
+	Node0x29649f0 [shape=record,label="{%2:\l  %3 = icmp sgt i32 %1, 1023\l  br i1 %3, label %4, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x29649f0:s0 -> Node0x2964a40;
+	Node0x29649f0:s1 -> Node0x2964ae0;
+	Node0x2964a40 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call double @llvm.experimental.constrained.fmul.f64(double %0,\l... double 0x7FE0000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #19\l  %6 = add nsw i32 %1, -1023\l  %7 = icmp sgt i32 %1, 2046\l  br i1 %7, label %8, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x2964a40:s0 -> Node0x2964a90;
+	Node0x2964a40:s1 -> Node0x2964bd0;
+	Node0x2964a90 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call double @llvm.experimental.constrained.fmul.f64(double %5,\l... double 0x7FE0000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #19\l  %10 = icmp slt i32 %1, 3069\l  %11 = select i1 %10, i32 %1, i32 3069\l  %12 = add nsw i32 %11, -2046\l  br label %26\l}"];
+	Node0x2964a90 -> Node0x2964bd0;
+	Node0x2964ae0 [shape=record,label="{%13:\l13:                                               \l  %14 = icmp slt i32 %1, -1022\l  br i1 %14, label %15, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x2964ae0:s0 -> Node0x2964b30;
+	Node0x2964ae0:s1 -> Node0x2964bd0;
+	Node0x2964b30 [shape=record,label="{%15:\l15:                                               \l  %16 = tail call double @llvm.experimental.constrained.fmul.f64(double\l... 0x10000000000000, double 0x4340000000000000, metadata !round.dynamic,\l... metadata !fpexcept.ignore) #19\l  %17 = tail call double @llvm.experimental.constrained.fmul.f64(double %0,\l... double %16, metadata !round.dynamic, metadata !fpexcept.ignore) #19\l  %18 = add nuw nsw i32 %1, 969\l  %19 = icmp slt i32 %1, -1991\l  br i1 %19, label %20, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x2964b30:s0 -> Node0x2964b80;
+	Node0x2964b30:s1 -> Node0x2964bd0;
+	Node0x2964b80 [shape=record,label="{%20:\l20:                                               \l  %21 = tail call double @llvm.experimental.constrained.fmul.f64(double\l... 0x10000000000000, double 0x4340000000000000, metadata !round.dynamic,\l... metadata !fpexcept.ignore) #19\l  %22 = tail call double @llvm.experimental.constrained.fmul.f64(double %17,\l... double %21, metadata !round.dynamic, metadata !fpexcept.ignore) #19\l  %23 = icmp sgt i32 %1, -2960\l  %24 = select i1 %23, i32 %1, i32 -2960\l  %25 = add nuw nsw i32 %24, 1938\l  br label %26\l}"];
+	Node0x2964b80 -> Node0x2964bd0;
+	Node0x2964bd0 [shape=record,label="{%26:\l26:                                               \l  %27 = phi i32 [ %12, %8 ], [ %6, %4 ], [ %25, %20 ], [ %18, %15 ], [ %1, %13\l... ]\l  %28 = phi double [ %9, %8 ], [ %5, %4 ], [ %22, %20 ], [ %17, %15 ], [ %0,\l... %13 ]\l  %29 = add nsw i32 %27, 1023\l  %30 = zext i32 %29 to i64\l  %31 = shl i64 %30, 52\l  %32 = bitcast i64 %31 to double\l  %33 = tail call double @llvm.experimental.constrained.fmul.f64(double %28,\l... double %32, metadata !round.dynamic, metadata !fpexcept.ignore) #19\l  ret double %33\l}"];
+}

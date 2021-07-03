@@ -1,0 +1,5 @@
+digraph "CFG for 'Xfree' function" {
+	label="CFG for 'Xfree' function";
+
+	Node0x2669520 [shape=record,label="{%0:\l  store i32 0, i32* @bufftop, align 4\l  ret void\l}"];
+}

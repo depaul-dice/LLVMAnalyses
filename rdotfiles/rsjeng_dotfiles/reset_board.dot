@@ -1,0 +1,14 @@
+digraph "CFG for 'reset_board' function" {
+	label="CFG for 'reset_board' function";
+
+	Node0x27fa040 [shape=record,label="{%0:\l  %1 = alloca i32, align 4\l  %2 = alloca [144 x i32], align 16\l  %3 = bitcast [144 x i32]* %2 to i8*\l  %4 = bitcast \<\{ [118 x i32], [26 x i32] \}\>* @__const.reset_board.init_board\l... to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 16 %3, i8* align 16 %4, i64\l... 576, i1 false)\l  %5 = getelementptr inbounds [144 x i32], [144 x i32]* %2, i64 0, i64 0\l  %6 = bitcast i32* %5 to i8*\l  %7 = bitcast [144 x i32]* @board to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 16 %7, i8* align 16 %6, i64\l... 576, i1 false)\l  store i32 0, i32* %1, align 4\l  br label %8\l}"];
+	Node0x27fa040 -> Node0x27ff5c0;
+	Node0x27ff5c0 [shape=record,label="{%8:\l8:                                                \l  %9 = load i32, i32* %1, align 4\l  %10 = icmp sle i32 %9, 143\l  br i1 %10, label %11, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x27ff5c0:s0 -> Node0x27ff610;
+	Node0x27ff5c0:s1 -> Node0x27ff6b0;
+	Node0x27ff610 [shape=record,label="{%11:\l11:                                               \l  %12 = load i32, i32* %1, align 4\l  %13 = sext i32 %12 to i64\l  %14 = getelementptr inbounds [144 x i32], [144 x i32]* @moved, i64 0, i64 %13\l  store i32 0, i32* %14, align 4\l  br label %15\l}"];
+	Node0x27ff610 -> Node0x27ff660;
+	Node0x27ff660 [shape=record,label="{%15:\l15:                                               \l  %16 = load i32, i32* %1, align 4\l  %17 = add nsw i32 %16, 1\l  store i32 %17, i32* %1, align 4\l  br label %8\l}"];
+	Node0x27ff660 -> Node0x27ff5c0;
+	Node0x27ff6b0 [shape=record,label="{%18:\l18:                                               \l  store i32 0, i32* @ep_square, align 4\l  store i32 0, i32* @piece_count, align 4\l  store i32 0, i32* @Material, align 4\l  %19 = bitcast [62 x i32]* @is_promoted to i8*\l  call void @llvm.memset.p0i8.i64(i8* align 16 %19, i8 0, i64 248, i1 false)\l  %20 = bitcast [2 x [16 x i32]]* @holding to i8*\l  call void @llvm.memset.p0i8.i64(i8* align 16 %20, i8 0, i64 128, i1 false)\l  store i32 0, i32* @white_hand_eval, align 4\l  store i32 0, i32* @black_hand_eval, align 4\l  store i32 0, i32* @fifty, align 4\l  call fastcc void @reset_piece_square()\l  ret void\l}"];
+}

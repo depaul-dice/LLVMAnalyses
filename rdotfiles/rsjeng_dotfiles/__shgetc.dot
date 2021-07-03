@@ -1,0 +1,32 @@
+digraph "CFG for '__shgetc' function" {
+	label="CFG for '__shgetc' function";
+
+	Node0x2999900 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.75, %struct._IO_FILE.75* %0,\l... i64 0, i32 27\l  %3 = load i64, i64* %2, align 8, !tbaa !2\l  %4 = getelementptr inbounds %struct._IO_FILE.75, %struct._IO_FILE.75* %0,\l... i64 0, i32 1\l  %5 = bitcast i8** %4 to i64*\l  %6 = load i64, i64* %5, align 8, !tbaa !9\l  %7 = getelementptr inbounds %struct._IO_FILE.75, %struct._IO_FILE.75* %0,\l... i64 0, i32 11\l  %8 = bitcast i8** %7 to i64*\l  %9 = load i64, i64* %8, align 8, !tbaa !10\l  %10 = sub i64 %6, %9\l  %11 = add nsw i64 %10, %3\l  %12 = getelementptr inbounds %struct._IO_FILE.75, %struct._IO_FILE.75* %0,\l... i64 0, i32 26\l  %13 = load i64, i64* %12, align 8, !tbaa !11\l  %14 = icmp eq i64 %13, 0\l  %15 = icmp slt i64 %11, %13\l  %16 = or i1 %14, %15\l  br i1 %16, label %17, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x2999900:s0 -> Node0x299a760;
+	Node0x2999900:s1 -> Node0x299a800;
+	Node0x299a760 [shape=record,label="{%17:\l17:                                               \l  %18 = bitcast %struct._IO_FILE.75* %0 to %struct._IO_FILE.155*\l  %19 = tail call i32 @__uflow(%struct._IO_FILE.155* nonnull %18) #21\l  %20 = icmp slt i32 %19, 0\l  br i1 %20, label %21, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x299a760:s0 -> Node0x299a7b0;
+	Node0x299a760:s1 -> Node0x299a850;
+	Node0x299a7b0 [shape=record,label="{%21:\l21:                                               \l  %22 = load i64, i64* %8, align 8, !tbaa !10\l  %23 = load i64, i64* %5, align 8, !tbaa !9\l  br label %24\l}"];
+	Node0x299a7b0 -> Node0x299a800;
+	Node0x299a800 [shape=record,label="{%24:\l24:                                               \l  %25 = phi i64 [ %23, %21 ], [ %6, %1 ]\l  %26 = phi i64 [ %22, %21 ], [ %9, %1 ]\l  %27 = add i64 %26, %11\l  %28 = sub i64 %27, %25\l  store i64 %28, i64* %2, align 8, !tbaa !2\l  %29 = getelementptr inbounds %struct._IO_FILE.75, %struct._IO_FILE.75* %0,\l... i64 0, i32 25\l  %30 = bitcast i8** %29 to i64*\l  store i64 %25, i64* %30, align 8, !tbaa !12\l  store i64 -1, i64* %12, align 8, !tbaa !11\l  br label %65\l}"];
+	Node0x299a800 -> Node0x299aa80;
+	Node0x299a850 [shape=record,label="{%31:\l31:                                               \l  %32 = add nsw i64 %11, 1\l  %33 = load i64, i64* %12, align 8, !tbaa !11\l  %34 = icmp eq i64 %33, 0\l  %35 = getelementptr inbounds %struct._IO_FILE.75, %struct._IO_FILE.75* %0,\l... i64 0, i32 2\l  %36 = bitcast i8** %35 to i64*\l  %37 = load i64, i64* %36, align 8, !tbaa !13\l  br i1 %34, label %38, label %40\l|{<s0>T|<s1>F}}"];
+	Node0x299a850:s0 -> Node0x299a8a0;
+	Node0x299a850:s1 -> Node0x299a8f0;
+	Node0x299a8a0 [shape=record,label="{%38:\l38:                                               \l  %39 = load i64, i64* %5, align 8, !tbaa !9\l  br label %49\l}"];
+	Node0x299a8a0 -> Node0x299a990;
+	Node0x299a8f0 [shape=record,label="{%40:\l40:                                               \l  %41 = load i8*, i8** %4, align 8, !tbaa !9\l  %42 = ptrtoint i8* %41 to i64\l  %43 = sub i64 %37, %42\l  %44 = sub nsw i64 %33, %32\l  %45 = icmp sgt i64 %43, %44\l  br i1 %45, label %46, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x299a8f0:s0 -> Node0x299a940;
+	Node0x299a8f0:s1 -> Node0x299a990;
+	Node0x299a940 [shape=record,label="{%46:\l46:                                               \l  %47 = getelementptr inbounds i8, i8* %41, i64 %44\l  %48 = getelementptr inbounds %struct._IO_FILE.75, %struct._IO_FILE.75* %0,\l... i64 0, i32 25\l  store i8* %47, i8** %48, align 8, !tbaa !12\l  br label %53\l}"];
+	Node0x299a940 -> Node0x299a9e0;
+	Node0x299a990 [shape=record,label="{%49:\l49:                                               \l  %50 = phi i64 [ %39, %38 ], [ %42, %40 ]\l  %51 = getelementptr inbounds %struct._IO_FILE.75, %struct._IO_FILE.75* %0,\l... i64 0, i32 25\l  %52 = bitcast i8** %51 to i64*\l  store i64 %37, i64* %52, align 8, !tbaa !12\l  br label %53\l}"];
+	Node0x299a990 -> Node0x299a9e0;
+	Node0x299a9e0 [shape=record,label="{%53:\l53:                                               \l  %54 = phi i64 [ %50, %49 ], [ %42, %46 ]\l  %55 = load i64, i64* %8, align 8, !tbaa !10\l  %56 = add i64 %55, %32\l  %57 = sub i64 %56, %54\l  store i64 %57, i64* %2, align 8, !tbaa !2\l  %58 = inttoptr i64 %54 to i8*\l  %59 = getelementptr inbounds i8, i8* %58, i64 -1\l  %60 = load i8, i8* %59, align 1, !tbaa !14\l  %61 = zext i8 %60 to i32\l  %62 = icmp eq i32 %19, %61\l  br i1 %62, label %65, label %63\l|{<s0>T|<s1>F}}"];
+	Node0x299a9e0:s0 -> Node0x299aa80;
+	Node0x299a9e0:s1 -> Node0x299aa30;
+	Node0x299aa30 [shape=record,label="{%63:\l63:                                               \l  %64 = trunc i32 %19 to i8\l  store i8 %64, i8* %59, align 1, !tbaa !14\l  br label %65\l}"];
+	Node0x299aa30 -> Node0x299aa80;
+	Node0x299aa80 [shape=record,label="{%65:\l65:                                               \l  %66 = phi i32 [ -1, %24 ], [ %19, %53 ], [ %19, %63 ]\l  ret i32 %66\l}"];
+}

@@ -1,0 +1,10 @@
+digraph "CFG for 'BegForPartner' function" {
+	label="CFG for 'BegForPartner' function";
+
+	Node0x2628840 [shape=record,label="{%0:\l  %1 = load i32, i32* @xb_mode, align 4\l  %2 = icmp ne i32 %1, 0\l  br i1 %2, label %3, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x2628840:s0 -> Node0x262ad00;
+	Node0x2628840:s1 -> Node0x262ad50;
+	Node0x262ad00 [shape=record,label="{%3:\l3:                                                \l  br label %4\l}"];
+	Node0x262ad00 -> Node0x262ad50;
+	Node0x262ad50 [shape=record,label="{%4:\l4:                                                \l  ret void\l}"];
+}

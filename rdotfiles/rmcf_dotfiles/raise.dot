@@ -1,0 +1,5 @@
+digraph "CFG for 'raise' function" {
+	label="CFG for 'raise' function";
+
+	Node0x28bbc10 [shape=record,label="{%1:\l  %2 = alloca %struct.__sigset_t, align 8\l  %3 = bitcast %struct.__sigset_t* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %3) #19\l  call fastcc void @__block_app_sigs(i8* nonnull %3) #20\l  %4 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #21, !srcloc !2\l  %5 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %4, i64 0,\l... i32 7\l  %6 = load i32, i32* %5, align 8, !tbaa !3\l  %7 = sext i32 %6 to i64\l  %8 = sext i32 %0 to i64\l  %9 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 200, i64 %7, i64 %8) #19, !srcloc !11\l  %10 = call fastcc i64 @__syscall_ret(i64 %9) #20\l  %11 = trunc i64 %10 to i32\l  call fastcc void @__restore_sigs(i8* nonnull %3) #20\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %3) #19\l  ret i32 %11\l}"];
+}

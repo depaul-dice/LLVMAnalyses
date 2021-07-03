@@ -1,0 +1,10 @@
+digraph "CFG for 'fileExists' function" {
+	label="CFG for 'fileExists' function";
+
+	Node0x1c607c0 [shape=record,label="{%1:\l  %2 = alloca i8*, align 8\l  %3 = alloca %struct._IO_FILE*, align 8\l  %4 = alloca i8, align 1\l  store i8* %0, i8** %2, align 8\l  %5 = load i8*, i8** %2, align 8\l  %6 = getelementptr inbounds [3 x i8], [3 x i8]* @.str.66, i64 0, i64 0\l  %7 = bitcast %struct._IO_FILE.56* (i8*, i8*)* @fopen to %struct._IO_FILE*\l... (i8*, i8*)*\l  %8 = call %struct._IO_FILE* %7(i8* %5, i8* %6)\l  store %struct._IO_FILE* %8, %struct._IO_FILE** %3, align 8\l  %9 = load %struct._IO_FILE*, %struct._IO_FILE** %3, align 8\l  %10 = icmp ne %struct._IO_FILE* %9, null\l  %11 = zext i1 %10 to i32\l  %12 = trunc i32 %11 to i8\l  store i8 %12, i8* %4, align 1\l  %13 = load %struct._IO_FILE*, %struct._IO_FILE** %3, align 8\l  %14 = icmp ne %struct._IO_FILE* %13, null\l  br i1 %14, label %15, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1c607c0:s0 -> Node0x1c60980;
+	Node0x1c607c0:s1 -> Node0x1c609d0;
+	Node0x1c60980 [shape=record,label="{%15:\l15:                                               \l  %16 = load %struct._IO_FILE*, %struct._IO_FILE** %3, align 8\l  %17 = bitcast i32 (%struct._IO_FILE.67*)* @fclose to i32 (%struct._IO_FILE*)*\l  %18 = call i32 %17(%struct._IO_FILE* %16)\l  br label %19\l}"];
+	Node0x1c60980 -> Node0x1c609d0;
+	Node0x1c609d0 [shape=record,label="{%19:\l19:                                               \l  %20 = load i8, i8* %4, align 1\l  ret i8 %20\l}"];
+}

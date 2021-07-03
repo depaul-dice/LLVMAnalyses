@@ -1,0 +1,22 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x2761d00 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = alloca i32, align 4\l  %5 = alloca i8**, align 8\l  store i32 0, i32* %3, align 4\l  store i32 %0, i32* %4, align 4\l  store i8** %1, i8*** %5, align 8\l  %6 = load i32, i32* %4, align 4\l  %7 = icmp slt i32 %6, 2\l  br i1 %7, label %8, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x2761d00:s0 -> Node0x2761d50;
+	Node0x2761d00:s1 -> Node0x2761da0;
+	Node0x2761d50 [shape=record,label="{%8:\l8:                                                \l  store i32 -1, i32* %3, align 4\l  br label %49\l}"];
+	Node0x2761d50 -> Node0x2761f30;
+	Node0x2761da0 [shape=record,label="{%9:\l9:                                                \l  %10 = getelementptr inbounds [32 x i8], [32 x i8]* @.str.7, i64 0, i64 0\l  %11 = call i32 (i8*, ...) @printf(i8* %10)\l  %12 = getelementptr inbounds [52 x i8], [52 x i8]* @.str.8, i64 0, i64 0\l  %13 = call i32 (i8*, ...) @printf(i8* %12)\l  %14 = getelementptr inbounds [46 x i8], [46 x i8]* @.str.9, i64 0, i64 0\l  %15 = call i32 (i8*, ...) @printf(i8* %14)\l  %16 = getelementptr inbounds [40 x i8], [40 x i8]* @.str.10, i64 0, i64 0\l  %17 = call i32 (i8*, ...) @printf(i8* %16)\l  %18 = getelementptr inbounds [2 x i8], [2 x i8]* @.str.11, i64 0, i64 0\l  %19 = call i32 (i8*, ...) @printf(i8* %18)\l  %20 = getelementptr inbounds %struct.network, %struct.network* @net, i32 0,\l... i32 0, i32 0\l  call void @llvm.memset.p0i8.i64(i8* align 8 %20, i8 0, i64 624, i1 false)\l  %21 = getelementptr inbounds %struct.network, %struct.network* @net, i32 0,\l... i32 18\l  store i64 10000000, i64* %21, align 8\l  %22 = load i8**, i8*** %5, align 8\l  %23 = getelementptr inbounds i8*, i8** %22, i64 1\l  %24 = load i8*, i8** %23, align 8\l  %25 = getelementptr inbounds %struct.network, %struct.network* @net, i32 0,\l... i32 0, i64 0\l  %26 = call fastcc i8* @strcpy(i8* %25, i8* %24) #7\l  %27 = call fastcc i64 @read_min(%struct.network* @net)\l  %28 = icmp ne i64 %27, 0\l  br i1 %28, label %29, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x2761da0:s0 -> Node0x2761df0;
+	Node0x2761da0:s1 -> Node0x2761e40;
+	Node0x2761df0 [shape=record,label="{%29:\l29:                                               \l  %30 = getelementptr inbounds [18 x i8], [18 x i8]* @.str.12, i64 0, i64 0\l  %31 = call i32 (i8*, ...) @printf(i8* %30)\l  %32 = call fastcc i64 @getfree(%struct.network* @net)\l  store i32 -1, i32* %3, align 4\l  br label %49\l}"];
+	Node0x2761df0 -> Node0x2761f30;
+	Node0x2761e40 [shape=record,label="{%33:\l33:                                               \l  %34 = getelementptr inbounds %struct.network, %struct.network* @net, i32 0,\l... i32 3\l  %35 = load i64, i64* %34, align 8\l  %36 = getelementptr inbounds [34 x i8], [34 x i8]* @.str.13, i64 0, i64 0\l  %37 = call i32 (i8*, ...) @printf(i8* %36, i64 %35)\l  %38 = call fastcc i64 @primal_start_artificial(%struct.network* @net)\l  %39 = call fastcc i64 @global_opt()\l  %40 = getelementptr inbounds [6 x i8], [6 x i8]* @.str.14, i64 0, i64 0\l  %41 = call i32 (i8*, ...) @printf(i8* %40)\l  %42 = getelementptr inbounds [8 x i8], [8 x i8]* @.str.15, i64 0, i64 0\l  %43 = call fastcc i64 @write_circulations(i8* %42, %struct.network* @net)\l  %44 = icmp ne i64 %43, 0\l  br i1 %44, label %45, label %47\l|{<s0>T|<s1>F}}"];
+	Node0x2761e40:s0 -> Node0x2761e90;
+	Node0x2761e40:s1 -> Node0x2761ee0;
+	Node0x2761e90 [shape=record,label="{%45:\l45:                                               \l  %46 = call fastcc i64 @getfree(%struct.network* @net)\l  store i32 -1, i32* %3, align 4\l  br label %49\l}"];
+	Node0x2761e90 -> Node0x2761f30;
+	Node0x2761ee0 [shape=record,label="{%47:\l47:                                               \l  %48 = call fastcc i64 @getfree(%struct.network* @net)\l  store i32 0, i32* %3, align 4\l  br label %49\l}"];
+	Node0x2761ee0 -> Node0x2761f30;
+	Node0x2761f30 [shape=record,label="{%49:\l49:                                               \l  %50 = load i32, i32* %3, align 4\l  ret i32 %50\l}"];
+}

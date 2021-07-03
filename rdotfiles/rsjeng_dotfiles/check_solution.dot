@@ -1,0 +1,31 @@
+digraph "CFG for 'check_solution' function" {
+	label="CFG for 'check_solution' function";
+
+	Node0x26201a0 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = alloca i8*, align 8\l  %5 = alloca [256 x i8], align 16\l  store i8* %0, i8** %4, align 8\l  %6 = getelementptr inbounds [256 x i8], [256 x i8]* %5, i64 0, i64 0\l  call fastcc void @comp_to_san(%struct.move_s* byval(%struct.move_s) align 8\l... %1, i8* %6)\l  %7 = load i8*, i8** %4, align 8\l  %8 = getelementptr inbounds [3 x i8], [3 x i8]* @.str.52, i64 0, i64 0\l  %9 = call fastcc i8* @strstr(i8* %7, i8* %8) #21\l  %10 = icmp ne i8* %9, null\l  br i1 %10, label %11, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x26201a0:s0 -> Node0x2621600;
+	Node0x26201a0:s1 -> Node0x26216f0;
+	Node0x2621600 [shape=record,label="{%11:\l11:                                               \l  %12 = load i8*, i8** %4, align 8\l  %13 = getelementptr inbounds [256 x i8], [256 x i8]* %5, i64 0, i64 0\l  %14 = call fastcc i8* @strstr(i8* %12, i8* %13) #21\l  %15 = icmp ne i8* %14, null\l  br i1 %15, label %16, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x2621600:s0 -> Node0x2621650;
+	Node0x2621600:s1 -> Node0x26216a0;
+	Node0x2621650 [shape=record,label="{%16:\l16:                                               \l  store i32 1, i32* %3, align 4\l  br label %35\l}"];
+	Node0x2621650 -> Node0x2621920;
+	Node0x26216a0 [shape=record,label="{%17:\l17:                                               \l  store i32 0, i32* %3, align 4\l  br label %35\l}"];
+	Node0x26216a0 -> Node0x2621920;
+	Node0x26216f0 [shape=record,label="{%18:\l18:                                               \l  %19 = load i8*, i8** %4, align 8\l  %20 = getelementptr inbounds [3 x i8], [3 x i8]* @.str.1.53, i64 0, i64 0\l  %21 = call fastcc i8* @strstr(i8* %19, i8* %20) #21\l  %22 = icmp ne i8* %21, null\l  br i1 %22, label %23, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x26216f0:s0 -> Node0x2621740;
+	Node0x26216f0:s1 -> Node0x2621830;
+	Node0x2621740 [shape=record,label="{%23:\l23:                                               \l  %24 = load i8*, i8** %4, align 8\l  %25 = getelementptr inbounds [256 x i8], [256 x i8]* %5, i64 0, i64 0\l  %26 = call fastcc i8* @strstr(i8* %24, i8* %25) #21\l  %27 = icmp ne i8* %26, null\l  br i1 %27, label %28, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x2621740:s0 -> Node0x2621790;
+	Node0x2621740:s1 -> Node0x26217e0;
+	Node0x2621790 [shape=record,label="{%28:\l28:                                               \l  store i32 0, i32* %3, align 4\l  br label %35\l}"];
+	Node0x2621790 -> Node0x2621920;
+	Node0x26217e0 [shape=record,label="{%29:\l29:                                               \l  store i32 1, i32* %3, align 4\l  br label %35\l}"];
+	Node0x26217e0 -> Node0x2621920;
+	Node0x2621830 [shape=record,label="{%30:\l30:                                               \l  %31 = getelementptr inbounds [34 x i8], [34 x i8]* @.str.2.54, i64 0, i64 0\l  %32 = call i32 (i8*, ...) @printf(i8* %31)\l  br label %33\l}"];
+	Node0x2621830 -> Node0x2621880;
+	Node0x2621880 [shape=record,label="{%33:\l33:                                               \l  br label %34\l}"];
+	Node0x2621880 -> Node0x26218d0;
+	Node0x26218d0 [shape=record,label="{%34:\l34:                                               \l  store i32 0, i32* %3, align 4\l  br label %35\l}"];
+	Node0x26218d0 -> Node0x2621920;
+	Node0x2621920 [shape=record,label="{%35:\l35:                                               \l  %36 = load i32, i32* %3, align 4\l  ret i32 %36\l}"];
+}

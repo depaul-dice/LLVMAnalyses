@@ -1,0 +1,11 @@
+digraph "CFG for 'libc_start_init' function" {
+	label="CFG for 'libc_start_init' function";
+
+	Node0x97cb20 [shape=record,label="{%0:\l  tail call void @_init() #12\l  br i1 icmp ult (void ()** @__init_array_start, void ()** @__init_array_end),\l... label %.lr.ph, label %._crit_edge\l|{<s0>T|<s1>F}}"];
+	Node0x97cb20:s0 -> Node0x97cb70;
+	Node0x97cb20:s1 -> Node0x97cbc0;
+	Node0x97cb70 [shape=record,label="{.lr.ph:                                           \l  %a.01 = phi i64 [ %3, %.lr.ph ], [ ptrtoint (void ()** @__init_array_start\l... to i64), %0 ]\l  %1 = inttoptr i64 %a.01 to void ()**\l  %2 = load void ()*, void ()** %1, align 8, !tbaa !1\l  tail call void %2() #12\l  %3 = add i64 %a.01, 8\l  %4 = icmp ult i64 %3, ptrtoint (void ()** @__init_array_end to i64)\l  br i1 %4, label %.lr.ph, label %._crit_edge\l|{<s0>T|<s1>F}}"];
+	Node0x97cb70:s0 -> Node0x97cb70;
+	Node0x97cb70:s1 -> Node0x97cbc0;
+	Node0x97cbc0 [shape=record,label="{._crit_edge:                                      \l  ret void\l}"];
+}

@@ -1,0 +1,28 @@
+digraph "CFG for 'BZ2_hbAssignCodes' function" {
+	label="CFG for 'BZ2_hbAssignCodes' function";
+
+	Node0x1d5b610 [shape=record,label="{%5:\l  %6 = alloca i32*, align 8\l  %7 = alloca i8*, align 8\l  %8 = alloca i32, align 4\l  %9 = alloca i32, align 4\l  %10 = alloca i32, align 4\l  %11 = alloca i32, align 4\l  %12 = alloca i32, align 4\l  %13 = alloca i32, align 4\l  store i32* %0, i32** %6, align 8\l  store i8* %1, i8** %7, align 8\l  store i32 %2, i32* %8, align 4\l  store i32 %3, i32* %9, align 4\l  store i32 %4, i32* %10, align 4\l  store i32 0, i32* %12, align 4\l  %14 = load i32, i32* %8, align 4\l  store i32 %14, i32* %11, align 4\l  br label %15\l}"];
+	Node0x1d5b610 -> Node0x1d5b660;
+	Node0x1d5b660 [shape=record,label="{%15:\l15:                                               \l  %16 = load i32, i32* %11, align 4\l  %17 = load i32, i32* %9, align 4\l  %18 = icmp sle i32 %16, %17\l  br i1 %18, label %19, label %51\l|{<s0>T|<s1>F}}"];
+	Node0x1d5b660:s0 -> Node0x1d5b6b0;
+	Node0x1d5b660:s1 -> Node0x1d5b930;
+	Node0x1d5b6b0 [shape=record,label="{%19:\l19:                                               \l  store i32 0, i32* %13, align 4\l  br label %20\l}"];
+	Node0x1d5b6b0 -> Node0x1d5b700;
+	Node0x1d5b700 [shape=record,label="{%20:\l20:                                               \l  %21 = load i32, i32* %13, align 4\l  %22 = load i32, i32* %10, align 4\l  %23 = icmp slt i32 %21, %22\l  br i1 %23, label %24, label %45\l|{<s0>T|<s1>F}}"];
+	Node0x1d5b700:s0 -> Node0x1d5b750;
+	Node0x1d5b700:s1 -> Node0x1d5b890;
+	Node0x1d5b750 [shape=record,label="{%24:\l24:                                               \l  %25 = load i8*, i8** %7, align 8\l  %26 = load i32, i32* %13, align 4\l  %27 = sext i32 %26 to i64\l  %28 = getelementptr inbounds i8, i8* %25, i64 %27\l  %29 = load i8, i8* %28, align 1\l  %30 = zext i8 %29 to i32\l  %31 = load i32, i32* %11, align 4\l  %32 = icmp eq i32 %30, %31\l  br i1 %32, label %33, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x1d5b750:s0 -> Node0x1d5b7a0;
+	Node0x1d5b750:s1 -> Node0x1d5b7f0;
+	Node0x1d5b7a0 [shape=record,label="{%33:\l33:                                               \l  %34 = load i32, i32* %12, align 4\l  %35 = load i32*, i32** %6, align 8\l  %36 = load i32, i32* %13, align 4\l  %37 = sext i32 %36 to i64\l  %38 = getelementptr inbounds i32, i32* %35, i64 %37\l  store i32 %34, i32* %38, align 4\l  %39 = load i32, i32* %12, align 4\l  %40 = add nsw i32 %39, 1\l  store i32 %40, i32* %12, align 4\l  br label %41\l}"];
+	Node0x1d5b7a0 -> Node0x1d5b7f0;
+	Node0x1d5b7f0 [shape=record,label="{%41:\l41:                                               \l  br label %42\l}"];
+	Node0x1d5b7f0 -> Node0x1d5b840;
+	Node0x1d5b840 [shape=record,label="{%42:\l42:                                               \l  %43 = load i32, i32* %13, align 4\l  %44 = add nsw i32 %43, 1\l  store i32 %44, i32* %13, align 4\l  br label %20\l}"];
+	Node0x1d5b840 -> Node0x1d5b700;
+	Node0x1d5b890 [shape=record,label="{%45:\l45:                                               \l  %46 = load i32, i32* %12, align 4\l  %47 = shl i32 %46, 1\l  store i32 %47, i32* %12, align 4\l  br label %48\l}"];
+	Node0x1d5b890 -> Node0x1d5b8e0;
+	Node0x1d5b8e0 [shape=record,label="{%48:\l48:                                               \l  %49 = load i32, i32* %11, align 4\l  %50 = add nsw i32 %49, 1\l  store i32 %50, i32* %11, align 4\l  br label %15\l}"];
+	Node0x1d5b8e0 -> Node0x1d5b660;
+	Node0x1d5b930 [shape=record,label="{%51:\l51:                                               \l  ret void\l}"];
+}

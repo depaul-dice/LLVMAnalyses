@@ -1,0 +1,22 @@
+digraph "CFG for 'initialize_hash' function" {
+	label="CFG for 'initialize_hash' function";
+
+	Node0x255d300 [shape=record,label="{%0:\l  %1 = alloca i32, align 4\l  store i32 -559038737, i32* @hash, align 4\l  store i32 0, i32* %1, align 4\l  br label %2\l}"];
+	Node0x255d300 -> Node0x255e2b0;
+	Node0x255e2b0 [shape=record,label="{%2:\l2:                                                \l  %3 = load i32, i32* %1, align 4\l  %4 = icmp slt i32 %3, 144\l  br i1 %4, label %5, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x255e2b0:s0 -> Node0x255e300;
+	Node0x255e2b0:s1 -> Node0x255e490;
+	Node0x255e300 [shape=record,label="{%5:\l5:                                                \l  %6 = load i32, i32* %1, align 4\l  %7 = sext i32 %6 to i64\l  %8 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %7\l  %9 = load i32, i32* %8, align 4\l  %10 = icmp ne i32 %9, 13\l  br i1 %10, label %11, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x255e300:s0 -> Node0x255e350;
+	Node0x255e300:s1 -> Node0x255e3f0;
+	Node0x255e350 [shape=record,label="{%11:\l11:                                               \l  %12 = load i32, i32* %1, align 4\l  %13 = sext i32 %12 to i64\l  %14 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %13\l  %15 = load i32, i32* %14, align 4\l  %16 = icmp ne i32 %15, 0\l  br i1 %16, label %17, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x255e350:s0 -> Node0x255e3a0;
+	Node0x255e350:s1 -> Node0x255e3f0;
+	Node0x255e3a0 [shape=record,label="{%17:\l17:                                               \l  %18 = load i32, i32* @hash, align 4\l  %19 = load i32, i32* %1, align 4\l  %20 = sext i32 %19 to i64\l  %21 = getelementptr inbounds [144 x i32], [144 x i32]* @board, i64 0, i64 %20\l  %22 = load i32, i32* %21, align 4\l  %23 = sext i32 %22 to i64\l  %24 = getelementptr inbounds [14 x [144 x i32]], [14 x [144 x i32]]*\l... @zobrist, i64 0, i64 %23\l  %25 = load i32, i32* %1, align 4\l  %26 = sext i32 %25 to i64\l  %27 = getelementptr inbounds [144 x i32], [144 x i32]* %24, i64 0, i64 %26\l  %28 = load i32, i32* %27, align 4\l  %29 = xor i32 %18, %28\l  store i32 %29, i32* @hash, align 4\l  br label %30\l}"];
+	Node0x255e3a0 -> Node0x255e3f0;
+	Node0x255e3f0 [shape=record,label="{%30:\l30:                                               \l  br label %31\l}"];
+	Node0x255e3f0 -> Node0x255e440;
+	Node0x255e440 [shape=record,label="{%31:\l31:                                               \l  %32 = load i32, i32* %1, align 4\l  %33 = add nsw i32 %32, 1\l  store i32 %33, i32* %1, align 4\l  br label %2\l}"];
+	Node0x255e440 -> Node0x255e2b0;
+	Node0x255e490 [shape=record,label="{%34:\l34:                                               \l  store i32 -1056969216, i32* @hold_hash, align 4\l  ret void\l}"];
+}

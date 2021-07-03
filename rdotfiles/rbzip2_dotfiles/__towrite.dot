@@ -1,0 +1,12 @@
+digraph "CFG for '__towrite' function" {
+	label="CFG for '__towrite' function";
+
+	Node0x1fd96b0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.146, %struct._IO_FILE.146* %0,\l... i64 0, i32 18\l  %3 = load i32, i32* %2, align 8, !tbaa !2\l  %4 = add nsw i32 %3, -1\l  %5 = or i32 %4, %3\l  store i32 %5, i32* %2, align 8, !tbaa !2\l  %6 = getelementptr inbounds %struct._IO_FILE.146, %struct._IO_FILE.146* %0,\l... i64 0, i32 0\l  %7 = load i32, i32* %6, align 8, !tbaa !9\l  %8 = and i32 %7, 8\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %12, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1fd96b0:s0 -> Node0x1fd9980;
+	Node0x1fd96b0:s1 -> Node0x1fd9930;
+	Node0x1fd9930 [shape=record,label="{%10:\l10:                                               \l  %11 = or i32 %7, 32\l  store i32 %11, i32* %6, align 8, !tbaa !9\l  br label %27\l}"];
+	Node0x1fd9930 -> Node0x1fd99d0;
+	Node0x1fd9980 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds %struct._IO_FILE.146, %struct._IO_FILE.146* %0,\l... i64 0, i32 1\l  %14 = bitcast i8** %13 to \<2 x i8*\>*\l  store \<2 x i8*\> zeroinitializer, \<2 x i8*\>* %14, align 8, !tbaa !10\l  %15 = getelementptr inbounds %struct._IO_FILE.146, %struct._IO_FILE.146* %0,\l... i64 0, i32 11\l  %16 = bitcast i8** %15 to i64*\l  %17 = load i64, i64* %16, align 8, !tbaa !11\l  %18 = getelementptr inbounds %struct._IO_FILE.146, %struct._IO_FILE.146* %0,\l... i64 0, i32 7\l  %19 = bitcast i8** %18 to i64*\l  store i64 %17, i64* %19, align 8, !tbaa !12\l  %20 = getelementptr inbounds %struct._IO_FILE.146, %struct._IO_FILE.146* %0,\l... i64 0, i32 5\l  %21 = bitcast i8** %20 to i64*\l  store i64 %17, i64* %21, align 8, !tbaa !13\l  %22 = inttoptr i64 %17 to i8*\l  %23 = getelementptr inbounds %struct._IO_FILE.146, %struct._IO_FILE.146* %0,\l... i64 0, i32 12\l  %24 = load i64, i64* %23, align 8, !tbaa !14\l  %25 = getelementptr inbounds i8, i8* %22, i64 %24\l  %26 = getelementptr inbounds %struct._IO_FILE.146, %struct._IO_FILE.146* %0,\l... i64 0, i32 4\l  store i8* %25, i8** %26, align 8, !tbaa !15\l  br label %27\l}"];
+	Node0x1fd9980 -> Node0x1fd99d0;
+	Node0x1fd99d0 [shape=record,label="{%27:\l27:                                               \l  %28 = phi i32 [ -1, %10 ], [ 0, %12 ]\l  ret i32 %28\l}"];
+}

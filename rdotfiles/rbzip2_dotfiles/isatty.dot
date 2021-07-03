@@ -1,0 +1,13 @@
+digraph "CFG for 'isatty' function" {
+	label="CFG for 'isatty' function";
+
+	Node0x1f31160 [shape=record,label="{%1:\l  %2 = alloca %struct.winsize, align 2\l  %3 = bitcast %struct.winsize* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %3) #19\l  %4 = sext i32 %0 to i64\l  %5 = ptrtoint %struct.winsize* %2 to i64\l  %6 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 16, i64 %4, i64 21523, i64 %5) #19, !srcloc !2\l  %7 = call fastcc i64 @__syscall_ret(i64 %6) #20\l  %8 = icmp eq i64 %7, 0\l  br i1 %8, label %14, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1f31160:s0 -> Node0x1f31b90;
+	Node0x1f31160:s1 -> Node0x1f31af0;
+	Node0x1f31af0 [shape=record,label="{%9:\l9:                                                \l  %10 = call fastcc i32* @__errno_location() #20\l  %11 = load i32, i32* %10, align 4, !tbaa !3\l  %12 = icmp eq i32 %11, 9\l  br i1 %12, label %14, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1f31af0:s0 -> Node0x1f31b90;
+	Node0x1f31af0:s1 -> Node0x1f31b40;
+	Node0x1f31b40 [shape=record,label="{%13:\l13:                                               \l  store i32 25, i32* %10, align 4, !tbaa !3\l  br label %14\l}"];
+	Node0x1f31b40 -> Node0x1f31b90;
+	Node0x1f31b90 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32 [ 1, %1 ], [ 0, %9 ], [ 0, %13 ]\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %3) #19\l  ret i32 %15\l}"];
+}

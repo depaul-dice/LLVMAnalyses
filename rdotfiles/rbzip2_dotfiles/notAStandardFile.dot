@@ -1,0 +1,17 @@
+digraph "CFG for 'notAStandardFile' function" {
+	label="CFG for 'notAStandardFile' function";
+
+	Node0x1c0ac70 [shape=record,label="{%1:\l  %2 = alloca i8, align 1\l  %3 = alloca i8*, align 8\l  %4 = alloca i32, align 4\l  %5 = alloca %struct.stat, align 8\l  store i8* %0, i8** %3, align 8\l  %6 = load i8*, i8** %3, align 8\l  %7 = call fastcc i32 @lstat(i8* %6, %struct.stat* %5) #7\l  store i32 %7, i32* %4, align 4\l  %8 = load i32, i32* %4, align 4\l  %9 = icmp ne i32 %8, 0\l  br i1 %9, label %10, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1c0ac70:s0 -> Node0x1c0b930;
+	Node0x1c0ac70:s1 -> Node0x1c0b980;
+	Node0x1c0b930 [shape=record,label="{%10:\l10:                                               \l  store i8 1, i8* %2, align 1\l  br label %18\l}"];
+	Node0x1c0b930 -> Node0x1c0ba70;
+	Node0x1c0b980 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct.stat, %struct.stat* %5, i32 0, i32 3\l  %13 = load i32, i32* %12, align 8\l  %14 = and i32 %13, 61440\l  %15 = icmp eq i32 %14, 32768\l  br i1 %15, label %16, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1c0b980:s0 -> Node0x1c0b9d0;
+	Node0x1c0b980:s1 -> Node0x1c0ba20;
+	Node0x1c0b9d0 [shape=record,label="{%16:\l16:                                               \l  store i8 0, i8* %2, align 1\l  br label %18\l}"];
+	Node0x1c0b9d0 -> Node0x1c0ba70;
+	Node0x1c0ba20 [shape=record,label="{%17:\l17:                                               \l  store i8 1, i8* %2, align 1\l  br label %18\l}"];
+	Node0x1c0ba20 -> Node0x1c0ba70;
+	Node0x1c0ba70 [shape=record,label="{%18:\l18:                                               \l  %19 = load i8, i8* %2, align 1\l  ret i8 %19\l}"];
+}

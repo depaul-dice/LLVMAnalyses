@@ -1,0 +1,46 @@
+digraph "CFG for 'utimensat' function" {
+	label="CFG for 'utimensat' function";
+
+	Node0x1fd06b0 [shape=record,label="{%4:\l  %5 = alloca [2 x %struct.timespec], align 16\l  %6 = sext i32 %0 to i64\l  %7 = ptrtoint i8* %1 to i64\l  %8 = ptrtoint %struct.timespec* %2 to i64\l  %9 = sext i32 %3 to i64\l  %10 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}(i64 280, i64 %6, i64 %7, i64 %8, i64 %9) #19, !srcloc !2\l  %11 = trunc i64 %10 to i32\l  %12 = icmp ne i32 %11, -38\l  %13 = icmp ne i32 %3, 0\l  %14 = or i1 %13, %12\l  br i1 %14, label %15, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1fd06b0:s0 -> Node0x1fd0840;
+	Node0x1fd06b0:s1 -> Node0x1fd0890;
+	Node0x1fd0840 [shape=record,label="{%15:\l15:                                               \l  %16 = shl i64 %10, 32\l  %17 = ashr exact i64 %16, 32\l  %18 = tail call fastcc i64 @__syscall_ret(i64 %17) #20\l  br label %66\l}"];
+	Node0x1fd0840 -> Node0x1fd0cf0;
+	Node0x1fd0890 [shape=record,label="{%19:\l19:                                               \l  %20 = bitcast [2 x %struct.timespec]* %5 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 32, i8* nonnull %20) #19\l  %21 = icmp eq %struct.timespec* %2, null\l  br i1 %21, label %48, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1fd0890:s0 -> Node0x1fd0bb0;
+	Node0x1fd0890:s1 -> Node0x1fd08e0;
+	Node0x1fd08e0 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i1 [ true, %19 ], [ false, %38 ]\l  %24 = phi i64 [ 0, %19 ], [ 1, %38 ]\l  %25 = getelementptr inbounds %struct.timespec, %struct.timespec* %2, i64\l... %24, i32 1\l  %26 = load i64, i64* %25, align 8, !tbaa !3\l  %27 = icmp ugt i64 %26, 999999999\l  br i1 %27, label %NodeBlock, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x1fd08e0:s0 -> Node0x1fd0930;
+	Node0x1fd08e0:s1 -> Node0x1fd0b10;
+	Node0x1fd0930 [shape=record,label="{NodeBlock:                                        \l  %Pivot = icmp slt i64 %26, 1073741823\l  br i1 %Pivot, label %LeafBlock, label %LeafBlock1\l|{<s0>T|<s1>F}}"];
+	Node0x1fd0930:s0 -> Node0x1fd09d0;
+	Node0x1fd0930:s1 -> Node0x1fd0980;
+	Node0x1fd0980 [shape=record,label="{LeafBlock1:                                       \l  %SwitchLeaf2 = icmp eq i64 %26, 1073741823\l  br i1 %SwitchLeaf2, label %28, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x1fd0980:s0 -> Node0x1fd0a20;
+	Node0x1fd0980:s1 -> Node0x1fd0ac0;
+	Node0x1fd09d0 [shape=record,label="{LeafBlock:                                        \l  %SwitchLeaf = icmp eq i64 %26, 1073741822\l  br i1 %SwitchLeaf, label %35, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x1fd09d0:s0 -> Node0x1fd0a70;
+	Node0x1fd09d0:s1 -> Node0x1fd0ac0;
+	Node0x1fd0a20 [shape=record,label="{%28:\l28:                                               \l  %29 = shl nuw nsw i64 %24, 32\l  %30 = sub nuw nsw i64 4294967296, %29\l  %31 = lshr exact i64 %30, 32\l  %32 = getelementptr inbounds %struct.timespec, %struct.timespec* %2, i64\l... %31, i32 1\l  %33 = load i64, i64* %32, align 8, !tbaa !3\l  %34 = icmp eq i64 %33, 1073741823\l  br i1 %34, label %48, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x1fd0a20:s0 -> Node0x1fd0bb0;
+	Node0x1fd0a20:s1 -> Node0x1fd0ac0;
+	Node0x1fd0a70 [shape=record,label="{%35:\l35:                                               \l  %36 = tail call fastcc i64 @__syscall_ret(i64 -38) #20\l  br label %64\l}"];
+	Node0x1fd0a70 -> Node0x1fd0ca0;
+	Node0x1fd0ac0 [shape=record,label="{NewDefault:                                       \l  %37 = tail call fastcc i64 @__syscall_ret(i64 -22) #20\l  br label %64\l}"];
+	Node0x1fd0ac0 -> Node0x1fd0ca0;
+	Node0x1fd0b10 [shape=record,label="{%38:\l38:                                               \l  %39 = getelementptr inbounds %struct.timespec, %struct.timespec* %2, i64\l... %24, i32 0\l  %40 = load i64, i64* %39, align 8, !tbaa !8\l  %41 = getelementptr inbounds [2 x %struct.timespec], [2 x %struct.timespec]*\l... %5, i64 0, i64 %24, i32 0\l  store i64 %40, i64* %41, align 16, !tbaa !9\l  %42 = trunc i64 %26 to i32\l  %43 = udiv i32 %42, 1000\l  %44 = zext i32 %43 to i64\l  %45 = getelementptr inbounds [2 x %struct.timespec], [2 x %struct.timespec]*\l... %5, i64 0, i64 %24, i32 1\l  store i64 %44, i64* %45, align 8, !tbaa !11\l  br i1 %23, label %22, label %46\l|{<s0>T|<s1>F}}"];
+	Node0x1fd0b10:s0 -> Node0x1fd08e0;
+	Node0x1fd0b10:s1 -> Node0x1fd0b60;
+	Node0x1fd0b60 [shape=record,label="{%46:\l46:                                               \l  %47 = ptrtoint [2 x %struct.timespec]* %5 to i64\l  br label %48\l}"];
+	Node0x1fd0b60 -> Node0x1fd0bb0;
+	Node0x1fd0bb0 [shape=record,label="{%48:\l48:                                               \l  %49 = phi i64 [ 0, %19 ], [ 0, %28 ], [ %47, %46 ]\l  %50 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 261, i64 %6, i64 %7, i64 %49) #19, !srcloc !12\l  %51 = trunc i64 %50 to i32\l  %52 = icmp ne i32 %51, -38\l  %53 = icmp ne i32 %0, -100\l  %54 = or i1 %53, %52\l  br i1 %54, label %55, label %59\l|{<s0>T|<s1>F}}"];
+	Node0x1fd0bb0:s0 -> Node0x1fd0c00;
+	Node0x1fd0bb0:s1 -> Node0x1fd0c50;
+	Node0x1fd0c00 [shape=record,label="{%55:\l55:                                               \l  %56 = shl i64 %50, 32\l  %57 = ashr exact i64 %56, 32\l  %58 = call fastcc i64 @__syscall_ret(i64 %57) #20\l  br label %64\l}"];
+	Node0x1fd0c00 -> Node0x1fd0ca0;
+	Node0x1fd0c50 [shape=record,label="{%59:\l59:                                               \l  %60 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 235, i64 %7, i64 %49) #19, !srcloc !13\l  %61 = shl i64 %60, 32\l  %62 = ashr exact i64 %61, 32\l  %63 = call fastcc i64 @__syscall_ret(i64 %62) #20\l  br label %64\l}"];
+	Node0x1fd0c50 -> Node0x1fd0ca0;
+	Node0x1fd0ca0 [shape=record,label="{%64:\l64:                                               \l  %65 = phi i64 [ %58, %55 ], [ %63, %59 ], [ %36, %35 ], [ %37, %NewDefault ]\l  call void @llvm.lifetime.end.p0i8(i64 32, i8* nonnull %20) #19\l  br label %66\l}"];
+	Node0x1fd0ca0 -> Node0x1fd0cf0;
+	Node0x1fd0cf0 [shape=record,label="{%66:\l66:                                               \l  %67 = phi i64 [ %18, %15 ], [ %65, %64 ]\l  %68 = trunc i64 %67 to i32\l  ret i32 %68\l}"];
+}

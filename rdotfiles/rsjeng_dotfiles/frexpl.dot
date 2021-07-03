@@ -1,0 +1,20 @@
+digraph "CFG for 'frexpl' function" {
+	label="CFG for 'frexpl' function";
+
+	Node0x28a86c0 [shape=record,label="{NodeBlock:\l  %2 = bitcast x86_fp80 %0 to i80\l  %3 = lshr i80 %2, 64\l  %4 = trunc i80 %3 to i32\l  %5 = and i32 %4, 32767\l  %Pivot = icmp slt i32 %5, 32767\l  br i1 %Pivot, label %LeafBlock, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x28a86c0:s0 -> Node0x28a8990;
+	Node0x28a86c0:s1 -> Node0x28a8b20;
+	Node0x28a8990 [shape=record,label="{LeafBlock:                                        \l  %SwitchLeaf = icmp eq i32 %5, 0\l  br i1 %SwitchLeaf, label %6, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x28a8990:s0 -> Node0x28a89e0;
+	Node0x28a8990:s1 -> Node0x28a8ad0;
+	Node0x28a89e0 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i1 @llvm.experimental.constrained.fcmp.f80(x86_fp80 %0,\l... x86_fp80 0xK00000000000000000000, metadata !une, metadata\l... !fpexcept.ignore) #21\l  br i1 %7, label %8, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x28a89e0:s0 -> Node0x28a8a30;
+	Node0x28a89e0:s1 -> Node0x28a8a80;
+	Node0x28a8a30 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call x86_fp80 @llvm.experimental.constrained.fpext.f80.f64(double\l... 0x4770000000000000, metadata !fpexcept.ignore) #21\l  %10 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80\l... %0, x86_fp80 %9, metadata !round.dynamic, metadata !fpexcept.ignore) #21\l  %11 = tail call fastcc x86_fp80 @frexpl(x86_fp80 %10, i32* %1) #22\l  %12 = load i32, i32* %1, align 4, !tbaa !2\l  %13 = add nsw i32 %12, -120\l  br label %14\l}"];
+	Node0x28a8a30 -> Node0x28a8a80;
+	Node0x28a8a80 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32 [ %13, %8 ], [ 0, %6 ]\l  %16 = phi x86_fp80 [ %11, %8 ], [ %0, %6 ]\l  store i32 %15, i32* %1, align 4, !tbaa !2\l  br label %26\l}"];
+	Node0x28a8a80 -> Node0x28a8b20;
+	Node0x28a8ad0 [shape=record,label="{NewDefault:                                       \l  %17 = add nsw i32 %5, -16382\l  store i32 %17, i32* %1, align 4, !tbaa !2\l  %18 = trunc i80 %3 to i16\l  %19 = and i16 %18, -32768\l  %20 = or i16 %19, 16382\l  %21 = zext i16 %20 to i80\l  %22 = shl nuw i80 %21, 64\l  %23 = and i80 %2, 18446744073709551615\l  %24 = or i80 %22, %23\l  %25 = bitcast i80 %24 to x86_fp80\l  br label %26\l}"];
+	Node0x28a8ad0 -> Node0x28a8b20;
+	Node0x28a8b20 [shape=record,label="{%26:\l26:                                               \l  %27 = phi x86_fp80 [ %25, %NewDefault ], [ %16, %14 ], [ %0, %NodeBlock ]\l  ret x86_fp80 %27\l}"];
+}

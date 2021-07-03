@@ -1,0 +1,5 @@
+digraph "CFG for 'license' function" {
+	label="CFG for 'license' function";
+
+	Node0x1c37330 [shape=record,label="{%0:\l  %1 = bitcast %struct._IO_FILE.58** @stderr to %struct._IO_FILE**\l  %2 = load %struct._IO_FILE*, %struct._IO_FILE** %1, align 8\l  %3 = call fastcc i8* @BZ2_bzlibVersion()\l  %4 = getelementptr inbounds [529 x i8], [529 x i8]* @.str.49, i64 0, i64 0\l  %5 = call i32 (%struct._IO_FILE*, i8*, ...) @fprintf(%struct._IO_FILE* %2,\l... i8* %4, i8* %3)\l  ret void\l}"];
+}

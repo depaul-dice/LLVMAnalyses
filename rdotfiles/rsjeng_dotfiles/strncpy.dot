@@ -1,0 +1,5 @@
+digraph "CFG for 'strncpy' function" {
+	label="CFG for 'strncpy' function";
+
+	Node0x28d8470 [shape=record,label="{%3:\l  %4 = tail call fastcc i8* @__stpncpy(i8* %0, i8* %1, i64 %2) #21\l  ret i8* %0\l}"];
+}

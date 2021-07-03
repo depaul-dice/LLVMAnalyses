@@ -1,0 +1,5 @@
+digraph "CFG for '__stdio_close' function" {
+	label="CFG for '__stdio_close' function";
+
+	Node0x16c58d0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.5, %struct._IO_FILE.5* %0, i64\l... 0, i32 15\l  %3 = load i32, i32* %2, align 8, !tbaa !2\l  %4 = sext i32 %3 to i64\l  %5 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64 3,\l... i64 %4) #14, !srcloc !9\l  %6 = tail call fastcc i64 @__syscall_ret(i64 %5) #15\l  %7 = trunc i64 %6 to i32\l  ret i32 %7\l}"];
+}
