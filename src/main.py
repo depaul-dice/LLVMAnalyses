@@ -2,7 +2,7 @@ import parseDot
 import tools 
 from simplify import further_simplify
 from oneInstG import oneInstG_t
-import emptyFuncDetection 
+import tests
 import sys
 import re
 import os
@@ -523,6 +523,12 @@ if __name__ == "__main__":
  
         blockNum += tmpBlockNum
         edgeNum += tmpEdgeNum
+        _tests = tests.cfgTests(_cfg)
+        _tests.nodeCorrespondenceTest()
+        _tests.edgeCorrespondenceTest()
+        _tests.redundanceTest()
+
+    
 
     data["necessaryBlocks"] = blockNum
     data["necessaryEdges"] = edgeNum
@@ -536,21 +542,13 @@ if __name__ == "__main__":
     oneInstGDict = dict()
     for name, _cfg in tmpCFG_dict.items():
         currOIG = oneInstG_t(_cfg)
-        #name = parseCFGName(name)
         oneInstGDict[name] = currOIG
-        #currOIG.outResult('outs/' + name + '.txt')
-
-    #emptyFuncDict = emptyFuncDetection.findEmptyFunc(oneInstGDict)
-    
-    '''
-    emptyFuncDict = dict()
-    oneInstGDict = emptyFuncDetection.deleteEmptyFuncCall(oneInstGDict, emptyFuncDict)
-    '''
 
     for name, currOIG in oneInstGDict.items():
         data["finalNodes"] += currOIG.countNodes()
 
     print("blocks: %d, branching %d, merging %d, necessary blocks: %d, necessary branching blocks: %d, necessary merging blocks: %d, edges: %d, back edges: %d, necessary edges: %d, necessary back edges: %d, insts: %d, semi relevant insts: %d, relevant insts: %d, funcs: %d, necessary funcs %d, final nodes %d"%(data["blocks"], data["branchingBlocks"], data["mergingBlocks"], data["necessaryBlocks"], data["necessaryBranchingBlocks"], data["necessaryMergingBlocks"], data["edges"], data["backEdges"], data["necessaryEdges"], data["necessaryBackEdges"], data["allInsts"], data["semiRelevant"], data["relevant"], data["funcs"], data["necessaryFuncs"], data["finalNodes"]))
+
     for name, currOIG in oneInstGDict.items():
         currOIG.outResult("outs/" + name + ".txt")
 

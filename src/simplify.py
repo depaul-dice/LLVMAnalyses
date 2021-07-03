@@ -1,5 +1,5 @@
 import pdb
-from test import cfgTests
+from tests import cfgTests
 debug = False 
 NOSY = False 
 CHECK = True 
@@ -79,14 +79,24 @@ def delete_redundantNodes(emptyVertices: dict, Vs: dict):
             dsts = eV.get_children()
             if len(srcs) <= 1 and len(dsts) <= 1:
                 # delete the eName from src and dst 
-                for sName, src in srcs.items():
-                    for dName, dst in dsts.items():
-                        srcC = src.get_children()
-                        dstP = dst.get_parents()
-                        del srcC[eName]
-                        del dstP[eName] 
+                sName = None
+                src = None
+                srcC = None
+
+                if len(srcs) == 1:
+                    sName, src = srcs.popitem() 
+                    srcC = src.get_children()
+                    del srcC[eName]
+
+                if len(dsts) == 1:
+                    dName, dst = dsts.popitem()
+                    dstP = dst.get_parents()
+                    del dstP[eName]
+
+                    if len(srcs) == 1:
                         srcC[dName] = dst
                         dstP[sName] = src
+                    
                 del emptyVertices[eName]
                 del Vs[eName] 
                 flag = True
@@ -109,30 +119,6 @@ def count_vertices(cfg):
     cfg.clear_visit()
     return rv
 
-def check_noRedundance(cfg):
-    root = cfg.get_root()
-    cfg.clear_visit()
-    stack = [root] 
-    while len(stack) > 0:
-        curr = stack.pop()
-        if curr.is_visited(): 
-            continue
-        curr.visit()
-        srcs = curr.get_parents()
-        dsts = curr.get_children()
-        if (not curr.has_insts()) and curr.get_type() == 'normal' and len(srcs) <= 1 and len(dsts) <= 1:
-            raise Exception("redundant node is not deleted yet: " + curr.get_name() + ', ' + cfg.name)
-
-        elif len(srcs) <= 1 and len(dsts) <= 1:
-            '''
-            print(curr.get_name() + ':', end = '')
-            print(curr.get_insts())
-            '''
-            pass
-            
-        for dst_name, dst in dsts.items():
-            stack.append(dst)
-
 def printEV(empty_vertices):
     for empty_name, empty_v in empty_vertices.items():
         print(empty_name, end = ',')
@@ -148,7 +134,7 @@ def further_simplify(cfg):
     '''
     empty_vertices = list_vertices(cfg)
     delete_redundantNodes(empty_vertices, cfg.get_vertices())
-    check_noRedundance(cfg)
     vcount, ecount = count_vertices(cfg)
+    
     return vcount, ecount
 
