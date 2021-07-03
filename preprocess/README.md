@@ -5,6 +5,8 @@ Before going into the simplifying of the dotfiles, we first need to use LLVM to 
 
 clam-prov is a private repository in SRI, so it is not accessible to everyone yet.
 
+The helloworld example is given in the directory helloworld with a makefile.
+
 ### WARNING ###
 
 Dotfiles can be created without clam, but it doesn't do the devirtualization, meaning if the function calls are called with function ptr, the call is on the function ptr, which makes it enormously harder to see which function it went to in the path finding phase.
