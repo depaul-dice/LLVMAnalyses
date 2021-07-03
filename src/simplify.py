@@ -1,4 +1,5 @@
 import pdb
+from test import cfgTests
 debug = False 
 NOSY = False 
 CHECK = True 
@@ -121,6 +122,7 @@ def check_noRedundance(cfg):
         dsts = curr.get_children()
         if (not curr.has_insts()) and curr.get_type() == 'normal' and len(srcs) <= 1 and len(dsts) <= 1:
             raise Exception("redundant node is not deleted yet: " + curr.get_name() + ', ' + cfg.name)
+
         elif len(srcs) <= 1 and len(dsts) <= 1:
             '''
             print(curr.get_name() + ':', end = '')
