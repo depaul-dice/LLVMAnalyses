@@ -1,0 +1,5 @@
+0x250ea30,epoint,2,0,0,0x250ead0:0x250eb20,na,na
+0x250ead0,funccall,__assert_fail,0,1,0,na,0x250ea30,na
+0x250eb20,empty,2,1,0,0x250ebc0:0x250ed00,0x250ea30,na
+0x250ebc0,funccall,__assert_fail,0,1,0,na,0x250eb20,na
+0x250ed00,ret,0,1,0,na,0x250eb20,na

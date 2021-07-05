@@ -1,0 +1,5 @@
+0x2593d60,epoint,1,0,0,0x2593d60_0,na,na
+0x2593d60_0,funccall,malloc,2,1,0,0x2594190:0x25941e0,0x2593d60,na
+0x2594190,funccall,printf,1,1,0,0x2594190_1,0x2593d60_0,na
+0x2594190_1,funccall,exit,0,1,0,na,0x2594190,na
+0x25941e0,ret,0,1,0,na,0x2593d60_0,na
