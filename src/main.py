@@ -468,10 +468,12 @@ if __name__ == "__main__":
     else:
         filename = "main.dot"
 
+    '''
     try:
         os.mkdir("tmp")
     except (FileExistsError):
         print("tmp already exists")
+    '''
 
     try:
         os.mkdir('outs')
@@ -522,8 +524,10 @@ if __name__ == "__main__":
             _tests.nodeCorrespondenceTest()
 
         tmpBlockNum, tmpEdgeNum = further_simplify(_cfg)
+        '''
         outfile = 'tmp/' + _cfg.name + '.out'
         _cfg.out_result(outfile)
+        '''
  
         blockNum += tmpBlockNum
         edgeNum += tmpEdgeNum
