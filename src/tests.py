@@ -8,7 +8,7 @@ class cfgTests(unittest.TestCase):
 
     def nodeCorrespondenceTest(self):
         numNodes = len(self.cfg.get_vertices())
-        print(self.cfg.name)
+        # print(self.cfg.name)
         stack = [self.cfg.get_root()]
         self.cfg.clear_visit()
         cnt = 0 
@@ -20,9 +20,10 @@ class cfgTests(unittest.TestCase):
             cnt += 1
             curr.visit()
             dsts = curr.get_children() 
-            print(dsts)
+            # print(dsts)
             for dName, dst in dsts.items():
                 stack.append(dst)
+        #print("%d, %d"%(cnt, numNodes))
         self.cfg.clear_visit()
         self.assertEqual(cnt, numNodes)
 

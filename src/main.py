@@ -7,6 +7,8 @@ import sys
 import re
 import os
 
+TEST = True
+
 debug = False 
 cfg_dict = dict()
 notFound_dict = dict()
@@ -466,16 +468,15 @@ if __name__ == "__main__":
     else:
         filename = "main.dot"
 
-    '''
     try:
         os.mkdir("tmp")
     except (FileExistsError):
-        pass
-    '''
+        print("tmp already exists")
+
     try:
         os.mkdir('outs')
     except FileExistsError:
-        pass
+        print("outs already exists")
         
     _cfg = parse_cfg(directory, filename, data)
     
@@ -503,7 +504,6 @@ if __name__ == "__main__":
     specSyscallDict = dict()
     find_specSyscall(tmpCFG_dict['main'], specSyscallDict, tmpCFG_dict)
     
-    
     for funcName, necessary in syscall_dict.items():
         if not necessary:
            del tmpCFG_dict[funcName] 
@@ -517,18 +517,22 @@ if __name__ == "__main__":
     edgeNum = 0
  
     for name, _cfg in tmpCFG_dict.items():
+        if TEST:
+            _tests = tests.cfgTests(_cfg)
+            _tests.nodeCorrespondenceTest()
+
         tmpBlockNum, tmpEdgeNum = further_simplify(_cfg)
-        #outfile = 'tmp/' + _cfg.name + '.out'
-        #_cfg.out_result(outfile)
+        outfile = 'tmp/' + _cfg.name + '.out'
+        _cfg.out_result(outfile)
  
         blockNum += tmpBlockNum
         edgeNum += tmpEdgeNum
-        _tests = tests.cfgTests(_cfg)
-        _tests.nodeCorrespondenceTest()
-        _tests.edgeCorrespondenceTest()
-        _tests.redundanceTest()
 
-    
+        if TEST:
+            _tests = tests.cfgTests(_cfg)
+            _tests.nodeCorrespondenceTest()
+            _tests.edgeCorrespondenceTest()
+            _tests.redundanceTest()
 
     data["necessaryBlocks"] = blockNum
     data["necessaryEdges"] = edgeNum

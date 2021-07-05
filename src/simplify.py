@@ -55,12 +55,16 @@ def create_bipartite_graph(curr) -> None:
             src.append_oedge(dest)
             dest.append_iedge(src)
 
-def delete_redundantNodes(emptyVertices: dict, Vs: dict):
+def delete_redundantNodes(emptyVertices: dict, cfg):
+    # print(cfg.name)
     flag = True
     cnt = 0
+    Vs = cfg.get_vertices()
     while flag:
         flag = False
+
         cnt += 1
+        # print("cnt %d"%cnt)
         currVertices = emptyVertices.copy()
         for eName, eV in currVertices.items():
             # if it has a self loop, delete
@@ -79,17 +83,20 @@ def delete_redundantNodes(emptyVertices: dict, Vs: dict):
             dsts = eV.get_children()
             if len(srcs) <= 1 and len(dsts) <= 1:
                 # delete the eName from src and dst 
+                # print("deleting %s"%eName)
                 sName = None
                 src = None
                 srcC = None
 
                 if len(srcs) == 1:
-                    sName, src = srcs.popitem() 
+                    src = next(iter(srcs.values()))
+                    sName = src.get_name()
                     srcC = src.get_children()
                     del srcC[eName]
 
                 if len(dsts) == 1:
-                    dName, dst = dsts.popitem()
+                    dst = next(iter(dsts.values()))
+                    dName = dst.get_name()
                     dstP = dst.get_parents()
                     del dstP[eName]
 
@@ -133,7 +140,7 @@ def further_simplify(cfg):
     2. create a bipartite graph for all of the edges that are empty
     '''
     empty_vertices = list_vertices(cfg)
-    delete_redundantNodes(empty_vertices, cfg.get_vertices())
+    delete_redundantNodes(empty_vertices, cfg)
     vcount, ecount = count_vertices(cfg)
     
     return vcount, ecount

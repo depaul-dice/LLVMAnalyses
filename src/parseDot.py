@@ -186,6 +186,7 @@ class vertex:
 
         oedges = self.__oedges 
         fp.write(str(len(oedges))); fp.write(',')
+        '''
         if len(self.__iedges) <= 1 and len(oedges) <= 1 and len(self.__insts) == 0 and self.__type == 'normal':
             print(self.__name)
             print('iedge: ', end = '')
@@ -193,6 +194,7 @@ class vertex:
             print('oedge: ', end = '')
             print(self.__oedges)
             raise Exception("this node should not be here")
+        '''
 
         cnt = 0
         for iedge in self.__iedges:
