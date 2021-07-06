@@ -1,5 +1,5 @@
 import pdb
-from tests import cfgTests
+
 debug = False 
 NOSY = False 
 CHECK = True 

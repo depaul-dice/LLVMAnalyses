@@ -6,10 +6,11 @@ import tests
 import sys
 import re
 import os
+import shutil
 
-TEST = True
+TEST = True 
 
-debug = False 
+DEBUG = False 
 cfg_dict = dict()
 notFound_dict = dict()
 
@@ -158,8 +159,6 @@ def parse_block(block, directory: str, infos: dict) -> None:
                 if func != 'syscall' and func != 'ret':
                     func_flag = False 
                     filename = func + '.dot' 
-                    if debug:
-                        print('parsing ' + filename + ': ' + inst)
                     if func == '__syscall_ret' or parsed == '__syscall_cp':
                         raise Exception('didn\'t catch __syscall_cp or __syscall_ret')
                     if not os.path.exists(os.path.join(directory, filename)):
@@ -268,9 +267,6 @@ def find_syscall(cfg, syscall_dict, tmpCFG_dict) -> dict:
 def parse_func(cfg_, directory: str) -> None:
     cfg_.clear_visit()
     stack = cfg_.get_ends() # this is a list of vertices
-    if debug:
-        print('initial state: ', end = ',') 
-        print(stack)
 
     while len(stack) > 0:
         curr = stack.pop()
@@ -278,17 +274,12 @@ def parse_func(cfg_, directory: str) -> None:
         if curr.is_visited():
             continue
 
-        if debug:
-            print('parsing: ' + curr.get_name())
-
         parse_block(curr, directory)
         curr.visit()
         parents = curr.get_parents()
         if curr.has_mult_parent(): # if curr has multiple parent
             for parent in parents:
                 if not parents[parent].is_visited():
-                    if debug:
-                        print('pushing: ' + parents[parent].get_name())
                     stack.append(parents[parent])
 
         elif curr.has_siblings():
@@ -297,8 +288,6 @@ def parse_func(cfg_, directory: str) -> None:
                 # push the parent here
                 for parent in parents:
                     if not parents[parent].is_visited():
-                        if debug:
-                            print('pushing: ' + parent)
                         stack.append(parents[parent])
                     
             # if not just let it be
@@ -307,8 +296,6 @@ def parse_func(cfg_, directory: str) -> None:
             parents = curr.get_parents()
             assert len(parents) == 0 or len(parents) == 1
             for parent in parents:
-                if debug and len(parents):
-                    print('pushing: ' + parent)
                 stack.append(parents[parent])
     cfg_.clear_visit()
     return
@@ -468,17 +455,20 @@ if __name__ == "__main__":
     else:
         filename = "main.dot"
 
-    '''
-    try:
-        os.mkdir("tmp")
-    except (FileExistsError):
-        print("tmp already exists")
-    '''
+    if DEBUG:
+        try:
+            os.mkdir("tmp")
+        except (FileExistsError):
+            shutil.rmtree("tmp")
+            os.mkdir("tmp")
+            print("tmp already exists, so I deleted and remade it")
 
     try:
         os.mkdir('outs')
     except FileExistsError:
-        print("outs already exists")
+        shutil.rmtree('outs')
+        os.mkdir('outs')
+        print("outs already existed, so I deleted and remade it")
         
     _cfg = parse_cfg(directory, filename, data)
     
@@ -524,10 +514,9 @@ if __name__ == "__main__":
             _tests.nodeCorrespondenceTest()
 
         tmpBlockNum, tmpEdgeNum = further_simplify(_cfg)
-        '''
-        outfile = 'tmp/' + _cfg.name + '.out'
-        _cfg.out_result(outfile)
-        '''
+        if DEBUG:
+            outfile = 'tmp/' + _cfg.name + '.out'
+            _cfg.out_result(outfile)
  
         blockNum += tmpBlockNum
         edgeNum += tmpEdgeNum
@@ -551,6 +540,9 @@ if __name__ == "__main__":
     for name, _cfg in tmpCFG_dict.items():
         currOIG = oneInstG_t(_cfg)
         oneInstGDict[name] = currOIG
+        if TEST:
+            _tests = tests.oneInstGTests(_cfg, currOIG)
+            _tests.instsCountTest()
 
     for name, currOIG in oneInstGDict.items():
         data["finalNodes"] += currOIG.countNodes()

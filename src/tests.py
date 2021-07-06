@@ -68,4 +68,28 @@ class cfgTests(unittest.TestCase):
             stack.append(dst)
         self.cfg.clear_visit()
 
+class oneInstGTests(unittest.TestCase):
+    def __init__(self, cfg, oneInstG):
+        super().__init__()
+        self.cfg = cfg
+        self.oneInstG = oneInstG
 
+    def instsCountTest(self):
+        # count the number of nodes it should have
+        bBlocks = self.cfg.get_vertices()
+        cfg_cnt = 0
+        entryPT = False
+        for bName, block in bBlocks.items():
+            insts = block.get_insts()
+            if len(block.get_parents()) == 0:
+                self.assertFalse(entryPT)
+                entryPT = True
+                cfg_cnt += 1 + len(insts)
+            else:
+                if len(insts) == 0:
+                    cfg_cnt += 1
+                else:
+                    cfg_cnt += len(insts)
+        self.assertEqual(cfg_cnt, self.oneInstG.countNodes())
+
+            
