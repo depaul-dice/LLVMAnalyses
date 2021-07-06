@@ -1,9 +1,9 @@
 import sys
 import os
 import os.path
-
+sys.setrecursionlimit(10**6)
 from os import path
-sys.setrecursionlimit(5000000)
+
 crrDir = sys.argv[1]
 f = open( crrDir + "/main.txt", "r")
 affectedAddress = {}
@@ -100,13 +100,22 @@ def concatenateGraph(affAdd, PGvertex, fileName, outgoingEdges, incomingEdges, b
 	nextGraph = createGraph(fileName)
 	temp = {}
 	count = 0
+	recFuncFlag = 0
 	prevVertex = ""
 	ndPrevVertex = ""
 	head = 0
+	testCount = 0
 	# print(vertex)
 	count = 0
 	for vertex in nextGraph:
+		tempVertex = vertex
+		testCount = testCount + 1
 		
+		if(fileName == nextGraph[vertex][1]):
+			recFuncFlag = 1
+		if testCount == 10:
+			break
+
 		vertexCurr,flag,originalVertex = removeDuplicate(vertex, prevVertices)
 		
 		if head == 0:
@@ -135,7 +144,7 @@ def concatenateGraph(affAdd, PGvertex, fileName, outgoingEdges, incomingEdges, b
 			
 			temp.update({prevVertex:prevValues})
 		if val[0] == 'ret':
-			set1 = set(nextGraph[vertex][2])
+			set1 = set(val[2])
 			set2 = set([prevVertex])
 			res = set2 - set1
 			set1 = list(set1) + list(res)
@@ -148,6 +157,15 @@ def concatenateGraph(affAdd, PGvertex, fileName, outgoingEdges, incomingEdges, b
 		elif val[0] == 'epoint':
 			# print([PGvertex])
 			temp[vertexCurr]=[val[0],nextGraph[vertex][1],[PGvertex],nextGraph[vertex][3]]
+			epoint = [val[0],nextGraph[vertex][1],[PGvertex],nextGraph[vertex][3]]
+			epointVertex = vertexCurr
+
+		elif val[0] == 'funccall' and recFuncFlag == 1:
+			
+			temp[vertexCurr]=['recfunccall',val[1],val[2] + val[3],val[3],val[4]]
+			recFuncFlag = 0
+
+
 
 		else:
 			temp[vertexCurr]=nextGraph[vertex]
@@ -184,6 +202,7 @@ def fileCrawl(graphOut,prevVertex):
 	for vertex in graphOut:
 
 		val = graphOut[vertex]
+
 		if val[0] == 'funccall' and functionDetected == 0:
 			g = graph(temp)
 			concGrp = concatenateGraph(vertex,prevVertex,val[1],val[2],val[3],val[4],g.getVertices())
@@ -212,6 +231,7 @@ def fileCrawl(graphOut,prevVertex):
 			temp[vertex]=graphOut[vertex]
 		
 		prevVertex = vertex
+		# prev
 
 	# print(temp)
 	# print('\n')
@@ -364,7 +384,6 @@ def writeOutput(result):
 
 def main(mainGraph):
 	fileCrawl(mainGraph,'')
-	print(result)
 
 mainGraph = createGraph("main")
 main(mainGraph)
