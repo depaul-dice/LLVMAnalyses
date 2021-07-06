@@ -513,7 +513,7 @@ if __name__ == "__main__":
             _tests = tests.cfgTests(_cfg)
             _tests.nodeCorrespondenceTest()
 
-        tmpBlockNum, tmpEdgeNum = further_simplify(_cfg)
+        tmpBlockNum, tmpEdgeNum = further_simplify(_cfg, False)
         if DEBUG:
             outfile = 'tmp/' + _cfg.name + '.out'
             _cfg.out_result(outfile)

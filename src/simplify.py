@@ -55,6 +55,10 @@ def create_bipartite_graph(curr) -> None:
             src.append_oedge(dest)
             dest.append_iedge(src)
 
+def delete_emptyNodes(emptyVertices: dict):
+    for eName, eV in emptyVertices.items():
+        create_bipartite_graph(eV)
+
 def delete_redundantNodes(emptyVertices: dict, cfg):
     # print(cfg.name)
     flag = True
@@ -108,7 +112,6 @@ def delete_redundantNodes(emptyVertices: dict, cfg):
                 del Vs[eName] 
                 flag = True
     return
-                    
 
 def __count_nodes(curr):
     if curr.is_visited():
@@ -133,14 +136,19 @@ def printEV(empty_vertices):
         print(len(empty_v.get_children()), end = ':')
     print()
 
-def further_simplify(cfg):
+def further_simplify(cfg, allEV: bool):
     '''
     what to do
     1. list all the vertices that are empty
     2. create a bipartite graph for all of the edges that are empty
     '''
     empty_vertices = list_vertices(cfg)
-    delete_redundantNodes(empty_vertices, cfg)
+
+    if allEV:
+        delete_emptyNodes(empty_vertices)
+    else:
+        delete_redundantNodes(empty_vertices, cfg)
+    
     vcount, ecount = count_vertices(cfg)
     
     return vcount, ecount
