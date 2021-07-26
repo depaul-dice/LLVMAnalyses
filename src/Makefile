@@ -3,4 +3,4 @@ main:
 
 .PHONY: clean
 clean:
-	rm -rf outs/* 
+	rm -rf outs/ 

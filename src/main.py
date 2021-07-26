@@ -86,38 +86,45 @@ def find_syscalls(inst: str) -> (list, int):
     return None
 
 def inst2keep(inst: str) -> (list, int):
+    bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*@(.*)\sto\s(.+)'
     ret_pattern = r'^ret\s'
     func_pattern = r'\s*call\s'
     fname_pattern = r'@([A-Za-z0-9_][\w_]*([.?]\w*|))'
 
-    p = re.compile(ret_pattern) 
-    m = p.findall(inst)
+    #p = re.compile(ret_pattern) 
+    m = re.findall(ret_pattern, inst)
     if len(m) > 0:
         return ['ret'], -1
+    m = re.search(bitcast_pattern, inst)
+    if m:
+        print(m.group(1) + ':' + m.group(2) + ':' + m.group(3))
 
-    p = re.compile(func_pattern)
-    m = p.findall(inst)
+    m = re.findall(func_pattern, inst)
     rv = list() 
+    flag = False
     if len(m) > 0:
         syscalls = find_syscalls(inst)
         if syscalls != None:
             return syscalls 
         p = re.compile(fname_pattern)
         matches = p.finditer(inst)
-        length = 0
         for match in matches:
             funcname = inst[match.start()+1:match.end()]
             if funcname.find('llvm.') != -1 or funcname.find('__syscall_ret') != -1 or funcname.find('__unlist_locked_file') != -1 or funcname.find('__vm_wait') != -1 or funcname.find('expand_heap.') != -1 or funcname.find('__PRETTY_FUNCTION__.') != -1 or funcname in unnec:
+                flag = True
                 continue
             if funcname.find('__syscall_cp') != -1:
                 print(inst)
                 raise Exception('__syscall_cp not caught')
             rv.append(funcname)
+        if len(rv) == 0 and flag == False:
+            print("WARNING: %s"%inst, file=sys.stderr)
+            #raise Exception("Call found but could not get the function name: %s"%(inst))
         if len(rv) > 0:
             return rv, -1
         else:
             return None 
- 
+     
     return None
 
 def not_line(inst: str) -> bool:
@@ -468,7 +475,7 @@ if __name__ == "__main__":
     except FileExistsError:
         shutil.rmtree('outs')
         os.mkdir('outs')
-        print("outs already existed, so I deleted and remade it")
+        print("outs already existed, so I deleted and remade it", file = sys.stderr)
         
     _cfg = parse_cfg(directory, filename, data)
     
