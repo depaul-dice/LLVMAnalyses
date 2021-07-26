@@ -85,11 +85,12 @@ def find_syscalls(inst: str) -> (list, int):
         raise Exception(inst + ': this could not be parsed')
     return None
 
-def inst2keep(inst: str) -> (list, int):
-    bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*@(.*)\sto\s(.+)'
+def inst2keep(inst: str, bitcasts: dict) -> (list, int):
+    bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)'
     ret_pattern = r'^ret\s'
     func_pattern = r'\s*call\s'
     fname_pattern = r'@([A-Za-z0-9_][\w_]*([.?]\w*|))'
+    bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s(%struct._IO_FILE|)(i\d+|)\*?\s(%\d+)\('
 
     #p = re.compile(ret_pattern) 
     m = re.findall(ret_pattern, inst)
@@ -98,6 +99,11 @@ def inst2keep(inst: str) -> (list, int):
     m = re.search(bitcast_pattern, inst)
     if m:
         print(m.group(1) + ':' + m.group(2) + ':' + m.group(3))
+        if m.group(1) in bitcasts:
+            raise Exception(m.group(1) + " already in bitcasts, " + m.group(2) + " vs. " + bitcasts[m.group(1)])
+        bitcasts[m.group(1)] = m.group(2)
+
+        return None
 
     m = re.findall(func_pattern, inst)
     rv = list() 
@@ -118,7 +124,15 @@ def inst2keep(inst: str) -> (list, int):
                 raise Exception('__syscall_cp not caught')
             rv.append(funcname)
         if len(rv) == 0 and flag == False:
-            print("WARNING: %s"%inst, file=sys.stderr)
+            # see if it's resolvable
+
+            n = re.search(bitcastResolve_pattern, inst)
+            if n:
+                print("found: %s, %s"%(inst, n.group(4)))
+                rv.append(bitcasts[n.group(4)])
+            else:
+                print("WARNING: %s"%inst, file=sys.stderr)
+                
             #raise Exception("Call found but could not get the function name: %s"%(inst))
         if len(rv) > 0:
             return rv, -1
@@ -138,27 +152,27 @@ def not_line(inst: str) -> bool:
     else:
         raise Exception('no negative values allowed')
 
-def parse_block(block, directory: str, infos: dict) -> None:
+def parse_block(block, directory: str, bitcasts: dict, infos: dict) -> None:
     old_insts = block.get_insts()
     infos["allInsts"] += len(old_insts)
     new_insts = list()
     concat_flag = False
     while len(old_insts) > 0:
         if concat_flag:
-            tmp = old_insts.pop()
-            if tmp[-1] == ' ':
-                inst = tmp + inst
+            tmp = old_insts.pop(0)
+            if inst[-1] == ' ':
+                inst = tmp
             else:
-                inst = tmp + ' ' + inst
+                inst += (' ' + tmp) 
             concat_flag = False
         else:
-            inst = old_insts.pop()
-        if not_line(inst):
-            inst = inst[4:]
+            inst = old_insts.pop(0)
+        if len(old_insts) > 0 and not_line(old_insts[0]):
+            old_insts[0] = old_insts[0][4:]
             concat_flag = True
             continue
         # print('new inst: ' + inst)
-        parsed = inst2keep(inst)
+        parsed = inst2keep(inst, bitcasts)
         if parsed != None: # condition is met
             # then insert the inst at the very top
             funcs, num = parsed
@@ -182,15 +196,16 @@ def parse_block(block, directory: str, infos: dict) -> None:
                             # raise Exception('file not found: %s'%filename)
 
                     parse_cfg(directory, filename, infos)
-                new_insts.insert(0, (func, num)) 
+                new_insts.append((func, num)) 
     block.set_insts(new_insts)
     infos["semiRelevant"] += len(new_insts)
     return
 
 def parse_func_topdown(cfg_, directory: str, infos: dict) -> None:
     vertices = cfg_.get_vertices()
+    bitcasts = dict()
     for vName, vertex in vertices.items():
-        parse_block(vertex, directory, infos)
+        parse_block(vertex, directory, bitcasts, infos)
 
 def find_specSyscall(cfg, specSyscallDict, tmpCFG_dict) -> dict:
     name = cfg.name
