@@ -11,6 +11,8 @@ import shutil
 TEST = True 
 
 DEBUG = False 
+TAKEALLEV = True 
+
 cfg_dict = dict()
 notFound_dict = dict()
 
@@ -80,6 +82,9 @@ def find_syscalls(inst: str) -> (list, int):
         if len(m) > 0:
             if len(m) >= 2:
                 raise Exception("syscall found twice in the instruction")
+            if int(m[0]) == 202:
+                print("202 caught %s"%inst, file = sys.stderr)
+                return None
             return ['syscall'], int(m[0])
     if inst.find('__syscall_ret') == -1:
         raise Exception(inst + ': this could not be parsed')
@@ -98,7 +103,7 @@ def inst2keep(inst: str, bitcasts: dict) -> (list, int):
         return ['ret'], -1
     m = re.search(bitcast_pattern, inst)
     if m:
-        print(m.group(1) + ':' + m.group(2) + ':' + m.group(3))
+        # print(m.group(1) + ':' + m.group(2) + ':' + m.group(3))
         if m.group(1) in bitcasts:
             raise Exception(m.group(1) + " already in bitcasts, " + m.group(2) + " vs. " + bitcasts[m.group(1)])
         bitcasts[m.group(1)] = m.group(2)
@@ -128,8 +133,12 @@ def inst2keep(inst: str, bitcasts: dict) -> (list, int):
 
             n = re.search(bitcastResolve_pattern, inst)
             if n:
-                print("found: %s, %s"%(inst, n.group(4)))
-                rv.append(bitcasts[n.group(4)])
+                # print("found: %s, %s"%(inst, n.group(4)))
+                if n.group(4) in bitcasts: 
+                    rv.append(bitcasts[n.group(4)])
+                    del bitcasts[n.group(4)]
+                else: 
+                    print("key error found: " + inst, file = sys.stderr)
             else:
                 print("WARNING: %s"%inst, file=sys.stderr)
                 
@@ -206,6 +215,9 @@ def parse_func_topdown(cfg_, directory: str, infos: dict) -> None:
     bitcasts = dict()
     for vName, vertex in vertices.items():
         parse_block(vertex, directory, bitcasts, infos)
+    if len(bitcasts) != 0:
+        print(bitcasts, file = sys.stderr)
+        # raise Exception(cfg_.name)
 
 def find_specSyscall(cfg, specSyscallDict, tmpCFG_dict) -> dict:
     name = cfg.name
@@ -246,6 +258,7 @@ def find_specSyscall(cfg, specSyscallDict, tmpCFG_dict) -> dict:
     return rv
 
 def find_syscall(cfg, syscall_dict, tmpCFG_dict) -> dict:
+    # renaming the cfg 
     name = cfg.name
     if name in func_dict:
         name = func_dict[name]
@@ -270,7 +283,7 @@ def find_syscall(cfg, syscall_dict, tmpCFG_dict) -> dict:
             elif inst[0] != 'ret':
                 if inst[0] in func_dict:
                     inst = (func_dict[inst[0]], inst[1]) # this might now have changed as the way i wanted 
-                funcList.append(inst[0])
+                funcList.append(inst[0]) # adding the ones to inspect
         children = curr.get_children()
         for child_name, child in children.items():
             if not child.is_visited():
@@ -322,7 +335,6 @@ def parse_func(cfg_, directory: str) -> None:
     cfg_.clear_visit()
     return
 
-
 def parse_cfg(directory: str, filename: str, infos: dict):
     path = os.path.join(directory, filename) 
     if not os.path.exists(path):
@@ -335,10 +347,6 @@ def parse_cfg(directory: str, filename: str, infos: dict):
     parse_func_topdown(_cfg, directory, infos)
     
     # I want to count the number of vertices and edges here (before simplification)
-    '''
-    outfile = 'tmp/' + filename + '.out'
-    _cfg.out_result(outfile)
-    '''
     
     if _cfg.name in cfg_dict and cfg_dict[_cfg.name] != None:
         raise Exception('this should be new cfg')
@@ -535,7 +543,7 @@ if __name__ == "__main__":
             _tests = tests.cfgTests(_cfg)
             _tests.nodeCorrespondenceTest()
 
-        tmpBlockNum, tmpEdgeNum = further_simplify(_cfg, False)
+        tmpBlockNum, tmpEdgeNum = further_simplify(_cfg, TAKEALLEV)
         if DEBUG:
             outfile = 'tmp/' + _cfg.name + '.out'
             _cfg.out_result(outfile)
