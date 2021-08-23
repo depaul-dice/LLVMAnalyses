@@ -12,6 +12,7 @@ TEST = True
 
 DEBUG = False 
 TAKEALLEV = True 
+TAKEFUTEX = True 
 
 cfg_dict = dict()
 notFound_dict = dict()
@@ -82,7 +83,7 @@ def find_syscalls(inst: str) -> (list, int):
         if len(m) > 0:
             if len(m) >= 2:
                 raise Exception("syscall found twice in the instruction")
-            if int(m[0]) == 202:
+            if int(m[0]) == 202 and TAKEFUTEX:
                 print("202 caught %s"%inst, file = sys.stderr)
                 return None
             return ['syscall'], int(m[0])

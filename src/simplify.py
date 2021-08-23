@@ -24,7 +24,7 @@ def list_vertices(cfg) -> dict:
     cfg.clear_visit()
     return rv
 
-def create_bipartite_graph(curr) -> None:
+def create_bipartite_graph(curr, Vs: dict) -> None:
     if curr.get_type() == 'root':
         return
     srcs = curr.get_parents()
@@ -44,6 +44,7 @@ def create_bipartite_graph(curr) -> None:
     for dst_name, dst in dests.items():
         dst.del_iedge(curr)
 
+    del Vs[curr.get_name()]
     # if there is no outgoing edges, you dont have to iterate through
     if len(dests) == 0:
         return
@@ -55,9 +56,10 @@ def create_bipartite_graph(curr) -> None:
             src.append_oedge(dest)
             dest.append_iedge(src)
 
-def delete_emptyNodes(emptyVertices: dict):
+def delete_emptyNodes(emptyVertices: dict, cfg):
+    Vs = cfg.get_vertices()
     for eName, eV in emptyVertices.items():
-        create_bipartite_graph(eV)
+        create_bipartite_graph(eV, Vs)
 
 def delete_redundantNodes(emptyVertices: dict, cfg):
     # print(cfg.name)
@@ -145,7 +147,7 @@ def further_simplify(cfg, allEV: bool):
     empty_vertices = list_vertices(cfg)
 
     if allEV:
-        delete_emptyNodes(empty_vertices)
+        delete_emptyNodes(empty_vertices, cfg)
     else:
         delete_redundantNodes(empty_vertices, cfg)
     

@@ -23,8 +23,9 @@ class cfgTests(unittest.TestCase):
             # print(dsts)
             for dName, dst in dsts.items():
                 stack.append(dst)
-        #print("%d, %d"%(cnt, numNodes))
         self.cfg.clear_visit()
+        # print(self.cfg.name)
+        # print("%d vs %d"%(cnt, numNodes))
         self.assertEqual(cnt, numNodes)
 
     def edgeCorrespondenceTest(self):

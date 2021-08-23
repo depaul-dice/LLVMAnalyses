@@ -449,6 +449,7 @@ def parse_dot(filename: str, cfg_dict: dict, infos: dict) -> (cfg, bool):
     cfg_dict[cfg_name] = None 
     nodeList = graph.get_node_list() 
     infos["blocks"] += len(nodeList)
+    # print(filename + ':' + str(len(nodeList)))
 
     for n in nodeList:
         insts = parse_attributes(n)
