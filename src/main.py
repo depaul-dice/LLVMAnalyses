@@ -117,12 +117,14 @@ def inst2keep(inst: str, bitcasts: dict) -> (list, int):
     if len(m) > 0:
         syscalls = find_syscalls(inst)
         if syscalls != None:
-            return syscalls 
+            return None
         p = re.compile(fname_pattern)
         matches = p.finditer(inst)
         for match in matches:
             funcname = inst[match.start()+1:match.end()]
-            if funcname.find('llvm.') != -1 or funcname.find('__syscall_ret') != -1 or funcname.find('__unlist_locked_file') != -1 or funcname.find('__vm_wait') != -1 or funcname.find('expand_heap.') != -1 or funcname.find('__PRETTY_FUNCTION__.') != -1 or funcname in unnec:
+            if funcname == 'llvm.memset':
+                funcname = 'memset'
+            if funcname.find('llvm.') != -1 or funcname.find('__unlist_locked_file') != -1 or funcname.find('__vm_wait') != -1 or funcname.find('expand_heap.') != -1 or funcname.find('__PRETTY_FUNCTION__.') != -1 or funcname in unnec:
                 flag = True
                 continue
             if funcname.find('__syscall_cp') != -1:
@@ -190,8 +192,10 @@ def parse_block(block, directory: str, bitcasts: dict, infos: dict) -> None:
                 if func != 'syscall' and func != 'ret':
                     func_flag = False 
                     filename = func + '.dot' 
+                    '''
                     if func == '__syscall_ret' or parsed == '__syscall_cp':
                         raise Exception('didn\'t catch __syscall_cp or __syscall_ret')
+                    '''
                     if not os.path.exists(os.path.join(directory, filename)):
                         if func in func_dict:
                             tmpfunc = func_dict[func]
@@ -518,23 +522,10 @@ if __name__ == "__main__":
         data["mergingBlocks"] += tmpMerge
         data["backEdges"] += countBackEdge(_cfg)
 
-    syscall_dict = dict()
-    find_syscall(tmpCFG_dict['main'], syscall_dict, tmpCFG_dict)
-    for funcName, necessary in syscall_dict.items():
-        if necessary:
-            data["necessaryFuncs"] += 1
-
-    specSyscallDict = dict()
-    find_specSyscall(tmpCFG_dict['main'], specSyscallDict, tmpCFG_dict)
-    
-    for funcName, necessary in syscall_dict.items():
-        if not necessary:
-           del tmpCFG_dict[funcName] 
-
-    unnec_insts = 0
-    for name, _cfg in tmpCFG_dict.items():
-        unnec_insts += deleteUnnecessaryFuncs(_cfg, syscall_dict)
-    data["relevant"] = data["semiRelevant"] - unnec_insts
+    # the part below is finding the syscall
+    # find_syscall marks the function whether the syscall was found in a recursive manner
+    # find_specSyscall is redundant function for some calculation purposes
+    # data["relevant"] = data["semiRelevant"] - unnec_insts
     
     blockNum = 0
     edgeNum = 0
