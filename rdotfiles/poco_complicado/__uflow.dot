@@ -1,0 +1,25 @@
+digraph "CFG for '__uflow' function" {
+	label="CFG for '__uflow' function";
+
+	Node0x2055230 [shape=record,label="{%1:\l  %2 = alloca i8, align 1\l  call void @llvm.lifetime.start.p0i8(i64 1, i8* nonnull %2) #18\l  %3 = tail call fastcc i32 @__toread(%struct._IO_FILE.92* %0) #19\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %5, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x2055230:s0 -> Node0x2055280;
+	Node0x2055230:s1 -> Node0x20554b0;
+	Node0x2055280 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds %struct._IO_FILE.92, %struct._IO_FILE.92* %0,\l... i64 0, i32 8\l  %7 = load i64 (%struct._IO_FILE.92*, i8*, i64)*, i64 (%struct._IO_FILE.92*,\l... i8*, i64)** %6, align 8, !tbaa !2\l  %8 = bitcast i64 (%struct._IO_FILE.80*, i8*, i64)* @__stdio_read to i64\l... (%struct._IO_FILE.92*, i8*, i64)*\l  %9 = icmp eq i64 (%struct._IO_FILE.92*, i8*, i64)* %7, %8\l  br i1 %9, label %if.true.direct_targ, label %if.false.orig_indirect\l|{<s0>T|<s1>F}}"];
+	Node0x2055280:s0 -> Node0x20552d0;
+	Node0x2055280:s1 -> Node0x2055320;
+	Node0x20552d0 [shape=record,label="{if.true.direct_targ:                              \l  %10 = bitcast %struct._IO_FILE.92* %0 to %struct._IO_FILE.80*\l  %11 = call i64 @__stdio_read(%struct._IO_FILE.80* %10, i8* nonnull %2, i64\l... 1) #20\l  br label %if.end.icp\l}"];
+	Node0x20552d0 -> Node0x2055410;
+	Node0x2055320 [shape=record,label="{if.false.orig_indirect:                           \l  %12 = bitcast i64 (%struct._IO_FILE.84*, i8*, i64)* @__stdio_write to i64\l... (%struct._IO_FILE.92*, i8*, i64)*\l  %13 = icmp eq i64 (%struct._IO_FILE.92*, i8*, i64)* %7, %12\l  br i1 %13, label %if.true.direct_targ1, label %if.false.orig_indirect2\l|{<s0>T|<s1>F}}"];
+	Node0x2055320:s0 -> Node0x2055370;
+	Node0x2055320:s1 -> Node0x20553c0;
+	Node0x2055370 [shape=record,label="{if.true.direct_targ1:                             \l  %14 = bitcast %struct._IO_FILE.92* %0 to %struct._IO_FILE.84*\l  %15 = call i64 @__stdio_write(%struct._IO_FILE.84* %14, i8* nonnull %2, i64\l... 1) #20\l  br label %if.end.icp\l}"];
+	Node0x2055370 -> Node0x2055410;
+	Node0x20553c0 [shape=record,label="{if.false.orig_indirect2:                          \l  %16 = bitcast i64 (%struct._IO_FILE.84*, i8*, i64)* @__stdout_write to i64\l... (%struct._IO_FILE.92*, i8*, i64)*\l  %17 = icmp eq i64 (%struct._IO_FILE.92*, i8*, i64)* %7, %16\l  call void @llvm.assume(i1 %17)\l  %18 = bitcast %struct._IO_FILE.92* %0 to %struct._IO_FILE.84*\l  %19 = call i64 @__stdout_write(%struct._IO_FILE.84* %18, i8* nonnull %2, i64\l... 1) #20\l  br label %if.end.icp\l}"];
+	Node0x20553c0 -> Node0x2055410;
+	Node0x2055410 [shape=record,label="{if.end.icp:                                       \l  %20 = phi i64 [ %11, %if.true.direct_targ ], [ %19, %if.false.orig_indirect2\l... ], [ %15, %if.true.direct_targ1 ]\l  %21 = icmp eq i64 %20, 1\l  br i1 %21, label %22, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x2055410:s0 -> Node0x2055460;
+	Node0x2055410:s1 -> Node0x20554b0;
+	Node0x2055460 [shape=record,label="{%22:\l22:                                               \l  %23 = load i8, i8* %2, align 1, !tbaa !9\l  %24 = zext i8 %23 to i32\l  br label %25\l}"];
+	Node0x2055460 -> Node0x20554b0;
+	Node0x20554b0 [shape=record,label="{%25:\l25:                                               \l  %26 = phi i32 [ %24, %22 ], [ -1, %1 ], [ -1, %if.end.icp ]\l  call void @llvm.lifetime.end.p0i8(i64 1, i8* nonnull %2) #18\l  ret i32 %26\l}"];
+}

@@ -1,0 +1,42 @@
+digraph "CFG for '__wait' function" {
+	label="CFG for '__wait' function";
+
+	Node0x206d0c0 [shape=record,label="{%4:\l  %5 = icmp eq i32 %3, 0\l  %6 = select i1 %5, i64 0, i64 128\l  %7 = icmp eq i32* %1, null\l  br label %8\l}"];
+	Node0x206d0c0 -> Node0x206d340;
+	Node0x206d340 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i32 [ 99, %4 ], [ %17, %16 ]\l  br i1 %7, label %13, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x206d340:s0 -> Node0x206d3e0;
+	Node0x206d340:s1 -> Node0x206d390;
+	Node0x206d390 [shape=record,label="{%10:\l10:                                               \l  %11 = load volatile i32, i32* %1, align 4, !tbaa !2\l  %12 = icmp eq i32 %11, 0\l  br i1 %12, label %13, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x206d390:s0 -> Node0x206d3e0;
+	Node0x206d390:s1 -> Node0x206d4d0;
+	Node0x206d3e0 [shape=record,label="{%13:\l13:                                               \l  %14 = load volatile i32, i32* %0, align 4, !tbaa !2\l  %15 = icmp eq i32 %14, %2\l  br i1 %15, label %16, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x206d3e0:s0 -> Node0x206d430;
+	Node0x206d3e0:s1 -> Node0x206d750;
+	Node0x206d430 [shape=record,label="{%16:\l16:                                               \l  tail call void asm sideeffect pause,\l... ~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}() #18, !srcloc !6\l  %17 = add nsw i32 %9, -1\l  %18 = icmp eq i32 %9, 0\l  br i1 %18, label %19, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x206d430:s0 -> Node0x206d480;
+	Node0x206d430:s1 -> Node0x206d340;
+	Node0x206d480 [shape=record,label="{%19:\l19:                                               \l  br i1 %7, label %21, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x206d480:s0 -> Node0x206d520;
+	Node0x206d480:s1 -> Node0x206d4d0;
+	Node0x206d4d0 [shape=record,label="{%20:\l20:                                               \l  tail call void asm sideeffect lock \l  br label %21\l}"];
+	Node0x206d4d0 -> Node0x206d520;
+	Node0x206d520 [shape=record,label="{%21:\l21:                                               \l  %22 = phi i1 [ true, %20 ], [ false, %19 ]\l  %23 = load volatile i32, i32* %0, align 4, !tbaa !2\l  %24 = icmp eq i32 %23, %2\l  br i1 %24, label %25, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x206d520:s0 -> Node0x206d570;
+	Node0x206d520:s1 -> Node0x206d6b0;
+	Node0x206d570 [shape=record,label="{%25:\l25:                                               \l  %26 = ptrtoint i32* %0 to i64\l  %27 = sext i32 %2 to i64\l  br label %28\l}"];
+	Node0x206d570 -> Node0x206d5c0;
+	Node0x206d5c0 [shape=record,label="{%28:\l28:                                               \l  %29 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}(i64 202, i64 %26, i64 %6, i64 %27, i64 0) #18, !srcloc !8\l  %30 = icmp eq i64 %29, -38\l  br i1 %30, label %31, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x206d5c0:s0 -> Node0x206d610;
+	Node0x206d5c0:s1 -> Node0x206d660;
+	Node0x206d610 [shape=record,label="{%31:\l31:                                               \l  %32 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}(i64 202, i64 %26, i64 0, i64 %27, i64 0) #18, !srcloc !8\l  br label %33\l}"];
+	Node0x206d610 -> Node0x206d660;
+	Node0x206d660 [shape=record,label="{%33:\l33:                                               \l  %34 = load volatile i32, i32* %0, align 4, !tbaa !2\l  %35 = icmp eq i32 %34, %2\l  br i1 %35, label %28, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x206d660:s0 -> Node0x206d5c0;
+	Node0x206d660:s1 -> Node0x206d6b0;
+	Node0x206d6b0 [shape=record,label="{%36:\l36:                                               \l  br i1 %22, label %37, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x206d6b0:s0 -> Node0x206d700;
+	Node0x206d6b0:s1 -> Node0x206d750;
+	Node0x206d700 [shape=record,label="{%37:\l37:                                               \l  tail call void asm sideeffect lock \l  br label %38\l}"];
+	Node0x206d700 -> Node0x206d750;
+	Node0x206d750 [shape=record,label="{%38:\l38:                                               \l  ret void\l}"];
+}

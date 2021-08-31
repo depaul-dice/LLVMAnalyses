@@ -1,0 +1,21 @@
+digraph "CFG for 'lock_bin' function" {
+	label="CFG for 'lock_bin' function";
+
+	Node0x1fa8f20 [shape=record,label="{%1:\l  %2 = sext i32 %0 to i64\l  %3 = getelementptr inbounds %struct.anon.52, %struct.anon.52* @mal, i64 0,\l... i32 1, i64 %2, i32 0, i64 0\l  %4 = getelementptr inbounds %struct.__libc, %struct.__libc* @__libc, i64 0,\l... i32 3\l  %5 = load volatile i32, i32* %4, align 4, !tbaa !2\l  %6 = icmp eq i32 %5, 0\l  br i1 %6, label %15, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1fa8f20:s0 -> Node0x20269d0;
+	Node0x1fa8f20:s1 -> Node0x20268e0;
+	Node0x20268e0 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call i32 asm sideeffect xchg $0, $1,\l... =r,=*m,0,~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i32* nonnull %3, i32 1) #18,\l... !srcloc !10\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %15, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x20268e0:s0 -> Node0x20269d0;
+	Node0x20268e0:s1 -> Node0x2026930;
+	Node0x2026930 [shape=record,label="{%10:\l10:                                               \l  %11 = getelementptr inbounds %struct.anon.52, %struct.anon.52* @mal, i64 0,\l... i32 1, i64 %2, i32 0, i64 1\l  br label %12\l}"];
+	Node0x2026930 -> Node0x2026980;
+	Node0x2026980 [shape=record,label="{%12:\l12:                                               \l  tail call fastcc void @__wait(i32* nonnull %3, i32* nonnull %11, i32 1, i32\l... 1) #19\l  %13 = tail call i32 asm sideeffect xchg $0, $1,\l... =r,=*m,0,~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i32* nonnull %3, i32 1) #18,\l... !srcloc !10\l  %14 = icmp eq i32 %13, 0\l  br i1 %14, label %15, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x2026980:s0 -> Node0x20269d0;
+	Node0x2026980:s1 -> Node0x2026980;
+	Node0x20269d0 [shape=record,label="{%15:\l15:                                               \l  %16 = getelementptr inbounds %struct.anon.52, %struct.anon.52* @mal, i64 0,\l... i32 1, i64 %2, i32 1\l  %17 = load %struct.chunk*, %struct.chunk** %16, align 8, !tbaa !11\l  %18 = icmp eq %struct.chunk* %17, null\l  br i1 %18, label %19, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x20269d0:s0 -> Node0x2026a20;
+	Node0x20269d0:s1 -> Node0x2026a70;
+	Node0x2026a20 [shape=record,label="{%19:\l19:                                               \l  %20 = getelementptr inbounds %struct.chunk*, %struct.chunk** %16, i64 -2\l  %21 = getelementptr inbounds %struct.anon.52, %struct.anon.52* @mal, i64 0,\l... i32 1, i64 %2, i32 2\l  %22 = bitcast %struct.chunk** %21 to %struct.chunk***\l  store %struct.chunk** %20, %struct.chunk*** %22, align 8, !tbaa !13\l  %23 = bitcast %struct.chunk** %16 to %struct.chunk***\l  store %struct.chunk** %20, %struct.chunk*** %23, align 8, !tbaa !11\l  br label %24\l}"];
+	Node0x2026a20 -> Node0x2026a70;
+	Node0x2026a70 [shape=record,label="{%24:\l24:                                               \l  ret void\l}"];
+}
