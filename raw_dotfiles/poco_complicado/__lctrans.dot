@@ -1,0 +1,5 @@
+digraph "CFG for '__lctrans' function" {
+	label="CFG for '__lctrans' function";
+
+	Node0x1ffbfe0 [shape=record,label="{%2:\l  ret i8* %0\l}"];
+}

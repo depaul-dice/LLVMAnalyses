@@ -1,0 +1,5 @@
+digraph "CFG for '__ofl_lock' function" {
+	label="CFG for '__ofl_lock' function";
+
+	Node0x1ec4f90 [shape=record,label="{%0:\l  %1 = getelementptr inbounds [1 x i32], [1 x i32]* @ofl_lock, i64 0, i64 0\l  tail call fastcc void @__lock(i32* %1) #18\l  ret %struct._IO_FILE.5** @ofl_head\l}"];
+}

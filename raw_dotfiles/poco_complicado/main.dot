@@ -1,0 +1,21 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x1edbcc0 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = alloca i32, align 4\l  %5 = alloca i8**, align 8\l  %6 = alloca i32, align 4\l  %7 = alloca [10 x i8], align 1\l  %8 = alloca [10 x i8], align 1\l  %9 = alloca [10 x i8], align 1\l  %10 = alloca i32, align 4\l  %11 = alloca %struct._IO_FILE*, align 8\l  store i32 0, i32* %3, align 4\l  store i32 %0, i32* %4, align 4\l  store i8** %1, i8*** %5, align 8\l  %12 = load i32, i32* %4, align 4\l  %13 = icmp eq i32 %12, 1\l  br i1 %13, label %14, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1edbcc0:s0 -> Node0x1edbd10;
+	Node0x1edbcc0:s1 -> Node0x1edc1e0;
+	Node0x1edbd10 [shape=record,label="{%14:\l14:                                               \l  store i32 0, i32* %6, align 4\l  br label %15\l}"];
+	Node0x1edbd10 -> Node0x1edc0a0;
+	Node0x1edc0a0 [shape=record,label="{%15:\l15:                                               \l  %16 = load i32, i32* %6, align 4\l  %17 = icmp slt i32 %16, 2\l  br i1 %17, label %18, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x1edc0a0:s0 -> Node0x1edc0f0;
+	Node0x1edc0a0:s1 -> Node0x1edc190;
+	Node0x1edc0f0 [shape=record,label="{%18:\l18:                                               \l  %19 = getelementptr inbounds [13 x i8], [13 x i8]* @.str, i64 0, i64 0\l  %20 = call i32 (i8*, ...) @printf(i8* %19)\l  br label %21\l}"];
+	Node0x1edc0f0 -> Node0x1edc140;
+	Node0x1edc140 [shape=record,label="{%21:\l21:                                               \l  %22 = load i32, i32* %6, align 4\l  %23 = add nsw i32 %22, 1\l  store i32 %23, i32* %6, align 4\l  br label %15\l}"];
+	Node0x1edc140 -> Node0x1edc0a0;
+	Node0x1edc190 [shape=record,label="{%24:\l24:                                               \l  br label %43\l}"];
+	Node0x1edc190 -> Node0x1edc230;
+	Node0x1edc1e0 [shape=record,label="{%25:\l25:                                               \l  %26 = getelementptr inbounds [13 x i8], [13 x i8]* @.str, i64 0, i64 0\l  %27 = call i32 (i8*, ...) @printf(i8* %26)\l  %28 = load i8**, i8*** %5, align 8\l  %29 = getelementptr inbounds i8*, i8** %28, i64 1\l  %30 = load i8*, i8** %29, align 8\l  %31 = getelementptr inbounds [2 x i8], [2 x i8]* @.str.1, i64 0, i64 0\l  %32 = bitcast %struct._IO_FILE.9* (i8*, i8*)* @fopen to %struct._IO_FILE*\l... (i8*, i8*)*\l  %33 = call %struct._IO_FILE* %32(i8* %30, i8* %31)\l  store %struct._IO_FILE* %33, %struct._IO_FILE** %11, align 8\l  %34 = load %struct._IO_FILE*, %struct._IO_FILE** %11, align 8\l  %35 = getelementptr inbounds [10 x i8], [10 x i8]* %7, i64 0, i64 0\l  %36 = getelementptr inbounds [10 x i8], [10 x i8]* %8, i64 0, i64 0\l  %37 = getelementptr inbounds [10 x i8], [10 x i8]* %9, i64 0, i64 0\l  %38 = getelementptr inbounds [12 x i8], [12 x i8]* @.str.2, i64 0, i64 0\l  %39 = call i32 (%struct._IO_FILE*, i8*, ...) @fscanf(%struct._IO_FILE* %34,\l... i8* %38, i8* %35, i8* %36, i8* %37, i32* %10)\l  %40 = load %struct._IO_FILE*, %struct._IO_FILE** %11, align 8\l  %41 = bitcast i32 (%struct._IO_FILE.5*)* @fclose to i32 (%struct._IO_FILE*)*\l  %42 = call i32 %41(%struct._IO_FILE* %40)\l  br label %43\l}"];
+	Node0x1edc1e0 -> Node0x1edc230;
+	Node0x1edc230 [shape=record,label="{%43:\l43:                                               \l  ret i32 0\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for '__errno_location' function" {
+	label="CFG for '__errno_location' function";
+
+	Node0x1f61f80 [shape=record,label="{%0:\l  %1 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #18, !srcloc !2\l  %2 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64 0,\l... i32 8\l  ret i32* %2\l}"];
+}
