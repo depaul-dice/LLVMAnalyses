@@ -12,7 +12,7 @@ TEST = True
 
 DEBUG = False 
 TAKEALLEV = True 
-TAKEFUTEX = True 
+TAKEFUTEX = False 
 
 cfg_dict = dict()
 notFound_dict = dict()
@@ -74,7 +74,7 @@ syscall_patterns = [
         r'syscall,\s=\\\{ax\\\},\\\{ax\\\},\\\{di\\\},\\\{si\\\},~\\\{rcx\\\},~\\\{r11\\\},~\\\{memory\\\},~\\\{dirflag\\\},~\\\{fpsr\\\},~\\\{flags\\\}\(i64\s(\d+)'
         ]
 
-def find_syscalls(inst: str) -> (list, int):
+def find_syscalls(inst: str, syscallDict: dict, name: str) -> (list, int):
     if inst.find('syscall') == -1:
         return None
     for pattern in syscall_patterns:
@@ -86,12 +86,13 @@ def find_syscalls(inst: str) -> (list, int):
             if int(m[0]) == 202 and TAKEFUTEX:
                 print("202 caught %s"%inst, file = sys.stderr)
                 return None
+            syscallDict[name] = int(m[0])
             return ['syscall'], int(m[0])
     if inst.find('__syscall_ret') == -1:
         raise Exception(inst + ': this could not be parsed')
     return None
 
-def inst2keep(inst: str, bitcasts: dict) -> (list, int):
+def inst2keep(inst: str, bitcasts: dict, syscallDict: dict, name: str) -> (list, int):
     bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)'
     ret_pattern = r'^ret\s'
     func_pattern = r'\s*call\s'
@@ -115,7 +116,7 @@ def inst2keep(inst: str, bitcasts: dict) -> (list, int):
     rv = list() 
     flag = False
     if len(m) > 0:
-        syscalls = find_syscalls(inst)
+        syscalls = find_syscalls(inst, syscallDict, name)
         if syscalls != None:
             return None
         p = re.compile(fname_pattern)
@@ -164,7 +165,7 @@ def not_line(inst: str) -> bool:
     else:
         raise Exception('no negative values allowed')
 
-def parse_block(block, directory: str, bitcasts: dict, infos: dict) -> None:
+def parse_block(block, directory: str, bitcasts: dict, infos: dict, syscallDict: dict, name: str) -> None:
     old_insts = block.get_insts()
     infos["allInsts"] += len(old_insts)
     new_insts = list()
@@ -184,7 +185,7 @@ def parse_block(block, directory: str, bitcasts: dict, infos: dict) -> None:
             concat_flag = True
             continue
         # print('new inst: ' + inst)
-        parsed = inst2keep(inst, bitcasts)
+        parsed = inst2keep(inst, bitcasts, syscallDict, name)
         if parsed != None: # condition is met
             # then insert the inst at the very top
             funcs, num = parsed
@@ -209,17 +210,18 @@ def parse_block(block, directory: str, bitcasts: dict, infos: dict) -> None:
                             continue
                             # raise Exception('file not found: %s'%filename)
 
-                    parse_cfg(directory, filename, infos)
+                    parse_cfg(directory, filename, infos, syscallDict)
                 new_insts.append((func, num)) 
     block.set_insts(new_insts)
     infos["semiRelevant"] += len(new_insts)
     return
 
-def parse_func_topdown(cfg_, directory: str, infos: dict) -> None:
+def parse_func_topdown(cfg_, directory: str, infos: dict, syscallDict: dict) -> None:
     vertices = cfg_.get_vertices()
     bitcasts = dict()
+    name = parseCFGName(cfg_.name)
     for vName, vertex in vertices.items():
-        parse_block(vertex, directory, bitcasts, infos)
+        parse_block(vertex, directory, bitcasts, infos, syscallDict, name)
     if len(bitcasts) != 0:
         print(bitcasts, file = sys.stderr)
         # raise Exception(cfg_.name)
@@ -340,7 +342,7 @@ def parse_func(cfg_, directory: str) -> None:
     cfg_.clear_visit()
     return
 
-def parse_cfg(directory: str, filename: str, infos: dict):
+def parse_cfg(directory: str, filename: str, infos: dict, syscallDict: dict):
     path = os.path.join(directory, filename) 
     if not os.path.exists(path):
         raise Exception(path + " does not exist, exitting...")
@@ -349,7 +351,7 @@ def parse_cfg(directory: str, filename: str, infos: dict):
     if flag:
         return _cfg
     
-    parse_func_topdown(_cfg, directory, infos)
+    parse_func_topdown(_cfg, directory, infos, syscallDict)
     
     # I want to count the number of vertices and edges here (before simplification)
     
@@ -504,8 +506,10 @@ if __name__ == "__main__":
         shutil.rmtree('outs')
         os.mkdir('outs')
         print("outs already existed, so I deleted and remade it", file = sys.stderr)
-        
-    _cfg = parse_cfg(directory, filename, data)
+
+    syscallFuncs = dict() 
+    _cfg = parse_cfg(directory, filename, data, syscallFuncs)
+    print(syscallFuncs)
     
     old_names = list()
     tmpCFG_dict = dict()
