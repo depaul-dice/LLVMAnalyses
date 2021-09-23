@@ -1,0 +1,11 @@
+digraph "CFG for 'libc_exit_fini' function" {
+	label="CFG for 'libc_exit_fini' function";
+
+	Node0x2265fb0 [shape=record,label="{%0:\l  br i1 icmp ugt (void ()** @__fini_array_end, void ()** @__fini_array_start),\l... label %1, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x2265fb0:s0 -> Node0x2266000;
+	Node0x2265fb0:s1 -> Node0x2266050;
+	Node0x2266000 [shape=record,label="{%1:\l1:                                                \l  %2 = phi i64 [ %3, %1 ], [ ptrtoint (void ()** @__fini_array_end to i64), %0\l... ]\l  %3 = add i64 %2, -8\l  %4 = inttoptr i64 %3 to void (...)**\l  %5 = load void (...)*, void (...)** %4, align 8, !tbaa !73\l  tail call void (...) %5() #20\l  %6 = icmp ugt i64 %3, ptrtoint (void ()** @__fini_array_start to i64)\l  br i1 %6, label %1, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x2266000:s0 -> Node0x2266000;
+	Node0x2266000:s1 -> Node0x2266050;
+	Node0x2266050 [shape=record,label="{%7:\l7:                                                \l  tail call void (...) @_fini() #21\l  ret void\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'exit' function" {
+	label="CFG for 'exit' function";
+
+	Node0x2265c80 [shape=record,label="{%1:\l  tail call void @__funcs_on_exit() #20\l  tail call void @__libc_exit_fini() #20\l  tail call void (...) bitcast (void ()* @__stdio_exit to void (...)*)() #20\l  tail call void @_Exit(i32 %0) #21\l  unreachable\l}"];
+}

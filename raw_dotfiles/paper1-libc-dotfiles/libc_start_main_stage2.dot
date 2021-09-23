@@ -1,0 +1,5 @@
+digraph "CFG for 'libc_start_main_stage2' function" {
+	label="CFG for 'libc_start_main_stage2' function";
+
+	Node0x2264c30 [shape=record,label="{%3:\l  %4 = sext i32 %1 to i64\l  %5 = getelementptr inbounds i8*, i8** %2, i64 %4\l  %6 = getelementptr inbounds i8*, i8** %5, i64 1\l  tail call void @__libc_start_init() #20\l  %7 = tail call i32 %0(i32 %1, i8** %2, i8** nonnull %6) #21\l  tail call void @exit(i32 %7) #22\l  unreachable\l}"];
+}

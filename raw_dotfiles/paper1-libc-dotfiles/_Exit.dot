@@ -1,0 +1,8 @@
+digraph "CFG for '_Exit' function" {
+	label="CFG for '_Exit' function";
+
+	Node0x22ab8e0 [shape=record,label="{%1:\l  %2 = sext i32 %0 to i64\l  %3 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64\l... 231, i64 %2) #20, !srcloc !73\l  br label %4\l}"];
+	Node0x22ab8e0 -> Node0x22abba0;
+	Node0x22abba0 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 60,\l... i64 %2) #20, !srcloc !73\l  br label %4\l}"];
+	Node0x22abba0 -> Node0x22abba0;
+}

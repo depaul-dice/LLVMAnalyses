@@ -1,0 +1,22 @@
+digraph "CFG for '__mmap' function" {
+	label="CFG for '__mmap' function";
+
+	Node0x2348fb0 [shape=record,label="{%6:\l  %7 = and i64 %5, 4095\l  %8 = icmp eq i64 %7, 0\l  br i1 %8, label %11, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x2348fb0:s0 -> Node0x23494b0;
+	Node0x2348fb0:s1 -> Node0x2349460;
+	Node0x2349460 [shape=record,label="{%9:\l9:                                                \l  %10 = tail call i32* @___errno_location() #20\l  store i32 22, i32* %10, align 4, !tbaa !73\l  br label %34\l}"];
+	Node0x2349460 -> Node0x2349640;
+	Node0x23494b0 [shape=record,label="{%11:\l11:                                               \l  %12 = icmp ugt i64 %1, 9223372036854775806\l  br i1 %12, label %13, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x23494b0:s0 -> Node0x2349500;
+	Node0x23494b0:s1 -> Node0x2349550;
+	Node0x2349500 [shape=record,label="{%13:\l13:                                               \l  %14 = tail call i32* @___errno_location() #20\l  store i32 12, i32* %14, align 4, !tbaa !73\l  br label %34\l}"];
+	Node0x2349500 -> Node0x2349640;
+	Node0x2349550 [shape=record,label="{%15:\l15:                                               \l  %16 = and i32 %3, 16\l  %17 = icmp eq i32 %16, 0\l  br i1 %17, label %19, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x2349550:s0 -> Node0x23495f0;
+	Node0x2349550:s1 -> Node0x23495a0;
+	Node0x23495a0 [shape=record,label="{%18:\l18:                                               \l  tail call void @__vm_wait() #20\l  br label %19\l}"];
+	Node0x23495a0 -> Node0x23495f0;
+	Node0x23495f0 [shape=record,label="{%19:\l19:                                               \l  %20 = ptrtoint i8* %0 to i64\l  %21 = sext i32 %2 to i64\l  %22 = sext i32 %3 to i64\l  %23 = sext i32 %4 to i64\l  %24 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},\{r8\},\{r9\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},\l...~\{fpsr\},~\{flags\}\"(i64 9, i64 %20, i64 %1, i64 %21, i64 %22, i64 %23, i64 %5)\l... #21, !srcloc !77\l  %25 = icmp ne i64 %24, -1\l  %26 = icmp ne i8* %0, null\l  %27 = or i1 %26, %25\l  %28 = and i32 %3, 48\l  %29 = icmp eq i32 %28, 32\l  %30 = select i1 %29, i64 -12, i64 -1\l  %31 = select i1 %27, i64 %24, i64 %30\l  %32 = tail call i64 @__syscall_ret(i64 %31) #20\l  %33 = inttoptr i64 %32 to i8*\l  br label %34\l}"];
+	Node0x23495f0 -> Node0x2349640;
+	Node0x2349640 [shape=record,label="{%34:\l34:                                               \l  %35 = phi i8* [ inttoptr (i64 -1 to i8*), %9 ], [ inttoptr (i64 -1 to i8*),\l... %13 ], [ %33, %19 ]\l  ret i8* %35\l}"];
+}
