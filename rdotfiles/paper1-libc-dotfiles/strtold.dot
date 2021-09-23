@@ -1,0 +1,5 @@
+digraph "CFG for 'strtold' function" {
+	label="CFG for 'strtold' function";
+
+	Node0x227a510 [shape=record,label="{%2:\l  %3 = tail call fastcc x86_fp80 @strtox(i8* %0, i8** %1, i32 2) #20\l  ret x86_fp80 %3\l}"];
+}

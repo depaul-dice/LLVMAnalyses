@@ -1,0 +1,20 @@
+digraph "CFG for 'free' function" {
+	label="CFG for 'free' function";
+
+	Node0x233e130 [shape=record,label="{%1:\l  %2 = icmp eq i8* %0, null\l  br i1 %2, label %24, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x233e130:s0 -> Node0x233e350;
+	Node0x233e130:s1 -> Node0x233e1c0;
+	Node0x233e1c0 [shape=record,label="{%3:\l3:                                                \l  %4 = getelementptr inbounds i8, i8* %0, i64 -16\l  %5 = getelementptr inbounds i8, i8* %0, i64 -8\l  %6 = bitcast i8* %5 to i64*\l  %7 = load i64, i64* %6, align 8, !tbaa !73\l  %8 = and i64 %7, 1\l  %9 = icmp eq i64 %8, 0\l  br i1 %9, label %10, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x233e1c0:s0 -> Node0x233e210;
+	Node0x233e1c0:s1 -> Node0x233e300;
+	Node0x233e210 [shape=record,label="{%10:\l10:                                               \l  %11 = bitcast i8* %4 to i64*\l  %12 = load i64, i64* %11, align 8, !tbaa !79\l  %13 = sub i64 0, %12\l  %14 = getelementptr inbounds i8, i8* %4, i64 %13\l  %15 = and i64 %7, -2\l  %16 = add i64 %15, %12\l  %17 = and i64 %12, 1\l  %18 = icmp eq i64 %17, 0\l  br i1 %18, label %20, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x233e210:s0 -> Node0x233e2b0;
+	Node0x233e210:s1 -> Node0x233e260;
+	Node0x233e260 [shape=record,label="{%19:\l19:                                               \l  tail call void asm sideeffect hlt,\l... ~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}() #20, !srcloc !80\l  br label %20\l}"];
+	Node0x233e260 -> Node0x233e2b0;
+	Node0x233e2b0 [shape=record,label="{%20:\l20:                                               \l  %21 = tail call i32 @__munmap(i8* nonnull %14, i64 %16) #21\l  br label %24\l}"];
+	Node0x233e2b0 -> Node0x233e350;
+	Node0x233e300 [shape=record,label="{%22:\l22:                                               \l  %23 = bitcast i8* %4 to %struct.chunk*\l  tail call void @__bin_chunk(%struct.chunk* nonnull %23) #22\l  br label %24\l}"];
+	Node0x233e300 -> Node0x233e350;
+	Node0x233e350 [shape=record,label="{%24:\l24:                                               \l  ret void\l}"];
+}

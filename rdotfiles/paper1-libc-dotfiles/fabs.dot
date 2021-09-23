@@ -1,0 +1,5 @@
+digraph "CFG for 'fabs' function" {
+	label="CFG for 'fabs' function";
+
+	Node0x233ff50 [shape=record,label="{%1:\l  %2 = bitcast double %0 to i64\l  %3 = and i64 %2, 9223372036854775807\l  %4 = bitcast i64 %3 to double\l  ret double %4\l}"];
+}
