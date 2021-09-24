@@ -4,6 +4,11 @@ debug = False
 NOSY = False 
 CHECK = True 
 RECORD = False
+TAKEOUTSYSCALLS = True
+
+badFuncs = {
+        "lstat": 0
+        }
 
 def __dfs_visit(curr, vertices:dict) -> None:
     if curr.is_visited():
@@ -138,12 +143,39 @@ def printEV(empty_vertices):
         print(len(empty_v.get_children()), end = ':')
     print()
 
+def __takeOutSyscallInsts(curr):
+    if curr.is_visited():
+        return
+    curr.visit()
+    insts = curr.get_insts()
+    _len = len(insts)
+    for i in reversed(range(_len)):
+        if insts[i][0] == "syscall":
+            tmp = insts.pop(i)
+        elif insts[i][0] in badFuncs:
+            print("found!: " + insts[i][0])
+            tmp = insts.pop(i)
+
+    for name, child in curr.get_children().items():
+        __takeOutSyscallInsts(child)
+    return
+
+def takeOutSyscallInsts(cfg) -> None:
+    root = cfg.get_root()
+    cfg.clear_visit()
+    __takeOutSyscallInsts(root)
+    cfg.clear_visit()
+    return 
+
 def further_simplify(cfg, allEV: bool):
     '''
     what to do
+    (0. you take out the syscalls)
     1. list all the vertices that are empty
     2. create a bipartite graph for all of the edges that are empty
     '''
+    if TAKEOUTSYSCALLS:
+        takeOutSyscallInsts(cfg)
     empty_vertices = list_vertices(cfg)
 
     if allEV:

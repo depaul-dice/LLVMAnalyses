@@ -12,7 +12,6 @@ TEST = True
 
 DEBUG = False 
 TAKEALLEV = True 
-TAKEFUTEX = False 
 
 cfg_dict = dict()
 notFound_dict = dict()
@@ -74,7 +73,7 @@ syscall_patterns = [
         r'syscall,\s=\\\{ax\\\},\\\{ax\\\},\\\{di\\\},\\\{si\\\},~\\\{rcx\\\},~\\\{r11\\\},~\\\{memory\\\},~\\\{dirflag\\\},~\\\{fpsr\\\},~\\\{flags\\\}\(i64\s(\d+)'
         ]
 
-def find_syscalls(inst: str, syscallDict: dict, name: str) -> (list, int):
+def find_syscalls(inst: str) -> (list, int):
     if inst.find('syscall') == -1:
         return None
     for pattern in syscall_patterns:
@@ -83,20 +82,19 @@ def find_syscalls(inst: str, syscallDict: dict, name: str) -> (list, int):
         if len(m) > 0:
             if len(m) >= 2:
                 raise Exception("syscall found twice in the instruction")
-            if int(m[0]) == 202 and TAKEFUTEX:
+            if int(m[0]) == 202:
                 print("202 caught %s"%inst, file = sys.stderr)
                 return None
-            syscallDict[name] = int(m[0])
             return ['syscall'], int(m[0])
     if inst.find('__syscall_ret') == -1:
         raise Exception(inst + ': this could not be parsed')
     return None
 
-def inst2keep(inst: str, bitcasts: dict, syscallDict: dict, name: str) -> (list, int):
+def inst2keep(inst: str, bitcasts: dict) -> (list, int):
     bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)'
     ret_pattern = r'^ret\s'
     func_pattern = r'\s*call\s'
-    fname_pattern = r'@([A-Za-z0-9_][\w_]*([.?]\w*|))'
+    fname_pattern = r'@([A-Za-z0-9_][\w_]*([.?]\w*|))\('
     bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s(%struct._IO_FILE|)(i\d+|)\*?\s(%\d+)\('
 
     #p = re.compile(ret_pattern) 
@@ -116,16 +114,14 @@ def inst2keep(inst: str, bitcasts: dict, syscallDict: dict, name: str) -> (list,
     rv = list() 
     flag = False
     if len(m) > 0:
-        syscalls = find_syscalls(inst, syscallDict, name)
+        syscalls = find_syscalls(inst)
         if syscalls != None:
-            return None
+            return syscalls 
         p = re.compile(fname_pattern)
         matches = p.finditer(inst)
         for match in matches:
-            funcname = inst[match.start()+1:match.end()]
-            if funcname == 'llvm.memset':
-                funcname = 'memset'
-            if funcname.find('llvm.') != -1 or funcname.find('__unlist_locked_file') != -1 or funcname.find('__vm_wait') != -1 or funcname.find('expand_heap.') != -1 or funcname.find('__PRETTY_FUNCTION__.') != -1 or funcname in unnec:
+            funcname = inst[match.start() + 1:match.end() - 1]
+            if funcname.find('llvm.') != -1 or funcname.find('__syscall_ret') != -1 or funcname.find('__unlist_locked_file') != -1 or funcname.find('__vm_wait') != -1 or funcname.find('expand_heap.') != -1 or funcname.find('__PRETTY_FUNCTION__.') != -1 or funcname in unnec:
                 flag = True
                 continue
             if funcname.find('__syscall_cp') != -1:
@@ -165,7 +161,7 @@ def not_line(inst: str) -> bool:
     else:
         raise Exception('no negative values allowed')
 
-def parse_block(block, directory: str, bitcasts: dict, infos: dict, syscallDict: dict, name: str) -> None:
+def parse_block(block, directory: str, bitcasts: dict, infos: dict) -> None:
     old_insts = block.get_insts()
     infos["allInsts"] += len(old_insts)
     new_insts = list()
@@ -185,7 +181,7 @@ def parse_block(block, directory: str, bitcasts: dict, infos: dict, syscallDict:
             concat_flag = True
             continue
         # print('new inst: ' + inst)
-        parsed = inst2keep(inst, bitcasts, syscallDict, name)
+        parsed = inst2keep(inst, bitcasts)
         if parsed != None: # condition is met
             # then insert the inst at the very top
             funcs, num = parsed
@@ -193,10 +189,8 @@ def parse_block(block, directory: str, bitcasts: dict, infos: dict, syscallDict:
                 if func != 'syscall' and func != 'ret':
                     func_flag = False 
                     filename = func + '.dot' 
-                    '''
                     if func == '__syscall_ret' or parsed == '__syscall_cp':
                         raise Exception('didn\'t catch __syscall_cp or __syscall_ret')
-                    '''
                     if not os.path.exists(os.path.join(directory, filename)):
                         if func in func_dict:
                             tmpfunc = func_dict[func]
@@ -210,18 +204,17 @@ def parse_block(block, directory: str, bitcasts: dict, infos: dict, syscallDict:
                             continue
                             # raise Exception('file not found: %s'%filename)
 
-                    parse_cfg(directory, filename, infos, syscallDict)
+                    parse_cfg(directory, filename, infos)
                 new_insts.append((func, num)) 
     block.set_insts(new_insts)
     infos["semiRelevant"] += len(new_insts)
     return
 
-def parse_func_topdown(cfg_, directory: str, infos: dict, syscallDict: dict) -> None:
+def parse_func_topdown(cfg_, directory: str, infos: dict) -> None:
     vertices = cfg_.get_vertices()
     bitcasts = dict()
-    name = parseCFGName(cfg_.name)
     for vName, vertex in vertices.items():
-        parse_block(vertex, directory, bitcasts, infos, syscallDict, name)
+        parse_block(vertex, directory, bitcasts, infos)
     if len(bitcasts) != 0:
         print(bitcasts, file = sys.stderr)
         # raise Exception(cfg_.name)
@@ -342,7 +335,7 @@ def parse_func(cfg_, directory: str) -> None:
     cfg_.clear_visit()
     return
 
-def parse_cfg(directory: str, filename: str, infos: dict, syscallDict: dict):
+def parse_cfg(directory: str, filename: str, infos: dict):
     path = os.path.join(directory, filename) 
     if not os.path.exists(path):
         raise Exception(path + " does not exist, exitting...")
@@ -351,7 +344,7 @@ def parse_cfg(directory: str, filename: str, infos: dict, syscallDict: dict):
     if flag:
         return _cfg
     
-    parse_func_topdown(_cfg, directory, infos, syscallDict)
+    parse_func_topdown(_cfg, directory, infos)
     
     # I want to count the number of vertices and edges here (before simplification)
     
@@ -465,7 +458,13 @@ def countBackEdge(cfg) -> int:
     cfg.clear_visit()
     return backedge
  
+def writeSyscallDict(syscall_dict, filename):
+    with open(filename, "w") as f:
+        for key, value in syscall_dict.items():
+            f.write(key + ':' + str(value) + '\n')
+
 if __name__ == "__main__": 
+    # keep track of data reduction progress
     data = {
             "blocks": 0,
             "branchingBlocks": 0,
@@ -506,10 +505,9 @@ if __name__ == "__main__":
         shutil.rmtree('outs')
         os.mkdir('outs')
         print("outs already existed, so I deleted and remade it", file = sys.stderr)
-
-    syscallFuncs = dict() 
-    _cfg = parse_cfg(directory, filename, data, syscallFuncs)
-    print(syscallFuncs)
+        
+    # reading files and pruning unnecessary instructions
+    _cfg = parse_cfg(directory, filename, data)
     
     old_names = list()
     tmpCFG_dict = dict()
@@ -526,10 +524,26 @@ if __name__ == "__main__":
         data["mergingBlocks"] += tmpMerge
         data["backEdges"] += countBackEdge(_cfg)
 
-    # the part below is finding the syscall
-    # find_syscall marks the function whether the syscall was found in a recursive manner
-    # find_specSyscall is redundant function for some calculation purposes
-    # data["relevant"] = data["semiRelevant"] - unnec_insts
+    # don't worry about these for now
+    syscall_dict = dict()
+    find_syscall(tmpCFG_dict['main'], syscall_dict, tmpCFG_dict)
+    writeSyscallDict(syscall_dict, "syscall.txt")
+
+    for funcName, necessary in syscall_dict.items():
+        if necessary:
+            data["necessaryFuncs"] += 1
+
+    specSyscallDict = dict()
+    find_specSyscall(tmpCFG_dict['main'], specSyscallDict, tmpCFG_dict)
+    
+    for funcName, necessary in syscall_dict.items():
+        if not necessary:
+           del tmpCFG_dict[funcName] 
+
+    unnec_insts = 0
+    for name, _cfg in tmpCFG_dict.items():
+        unnec_insts += deleteUnnecessaryFuncs(_cfg, syscall_dict)
+    data["relevant"] = data["semiRelevant"] - unnec_insts
     
     blockNum = 0
     edgeNum = 0
@@ -539,6 +553,7 @@ if __name__ == "__main__":
             _tests = tests.cfgTests(_cfg)
             _tests.nodeCorrespondenceTest()
 
+        # this function omits all the unnecessary vertices
         tmpBlockNum, tmpEdgeNum = further_simplify(_cfg, TAKEALLEV)
         if DEBUG:
             outfile = 'tmp/' + _cfg.name + '.out'
@@ -547,6 +562,7 @@ if __name__ == "__main__":
         blockNum += tmpBlockNum
         edgeNum += tmpEdgeNum
 
+        # this is just checking if the procedure is done correctly 
         if TEST:
             _tests = tests.cfgTests(_cfg)
             _tests.nodeCorrespondenceTest()
@@ -562,8 +578,10 @@ if __name__ == "__main__":
         data["necessaryMergingBlocks"] += tmpMerge
         data["necessaryBackEdges"] += countBackEdge(_cfg)
         
+    # this part makes it one vertex per instruction
     oneInstGDict = dict()
     for name, _cfg in tmpCFG_dict.items():
+        # this is the function that does the conversion (it's a constructor... but you know what i mean)
         currOIG = oneInstG_t(_cfg)
         oneInstGDict[name] = currOIG
         if TEST:
