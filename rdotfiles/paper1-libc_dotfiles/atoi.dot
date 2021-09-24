@@ -1,0 +1,27 @@
+digraph "CFG for 'atoi' function" {
+	label="CFG for 'atoi' function";
+
+	Node0x1064e20 [shape=record,label="{%1:\l  br label %2\l}"];
+	Node0x1064e20 -> Node0x1064e70;
+	Node0x1064e70 [shape=record,label="{%2:\l2:                                                \l  %3 = phi i8* [ %0, %1 ], [ %10, %2 ]\l  %4 = load i8, i8* %3, align 1, !tbaa !2\l  %5 = sext i8 %4 to i32\l  %6 = icmp ne i8 %4, 32\l  %7 = add nsw i32 %5, -9\l  %8 = icmp ugt i32 %7, 4\l  %9 = and i1 %6, %8\l  %10 = getelementptr inbounds i8, i8* %3, i64 1\l  br i1 %9, label %NodeBlock, label %2\l|{<s0>T|<s1>F}}"];
+	Node0x1064e70:s0 -> Node0x1064ec0;
+	Node0x1064e70:s1 -> Node0x1064e70;
+	Node0x1064ec0 [shape=record,label="{NodeBlock:                                        \l  %Pivot = icmp slt i32 %5, 45\l  br i1 %Pivot, label %LeafBlock, label %LeafBlock1\l|{<s0>T|<s1>F}}"];
+	Node0x1064ec0:s0 -> Node0x1064f60;
+	Node0x1064ec0:s1 -> Node0x1064f10;
+	Node0x1064f10 [shape=record,label="{LeafBlock1:                                       \l  %SwitchLeaf2 = icmp eq i32 %5, 45\l  br i1 %SwitchLeaf2, label %11, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x1064f10:s0 -> Node0x1064fb0;
+	Node0x1064f10:s1 -> Node0x1065000;
+	Node0x1064f60 [shape=record,label="{LeafBlock:                                        \l  %SwitchLeaf = icmp eq i32 %5, 43\l  br i1 %SwitchLeaf, label %11, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x1064f60:s0 -> Node0x1064fb0;
+	Node0x1064f60:s1 -> Node0x1065000;
+	Node0x1064fb0 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i32 [ 0, %LeafBlock ], [ 1, %LeafBlock1 ]\l  %13 = load i8, i8* %10, align 1, !tbaa !2\l  %14 = sext i8 %13 to i32\l  br label %NewDefault\l}"];
+	Node0x1064fb0 -> Node0x1065000;
+	Node0x1065000 [shape=record,label="{NewDefault:                                       \l  %15 = phi i32 [ %14, %11 ], [ %5, %LeafBlock1 ], [ %5, %LeafBlock ]\l  %16 = phi i8* [ %10, %11 ], [ %3, %LeafBlock1 ], [ %3, %LeafBlock ]\l  %17 = phi i32 [ %12, %11 ], [ 0, %LeafBlock1 ], [ 0, %LeafBlock ]\l  %18 = add nsw i32 %15, -48\l  %19 = icmp ult i32 %18, 10\l  br i1 %19, label %20, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1065000:s0 -> Node0x1065050;
+	Node0x1065000:s1 -> Node0x10650a0;
+	Node0x1065050 [shape=record,label="{%20:\l20:                                               \l  %21 = phi i32 [ %29, %20 ], [ %18, %NewDefault ]\l  %22 = phi i32 [ %26, %20 ], [ 0, %NewDefault ]\l  %23 = phi i8* [ %25, %20 ], [ %16, %NewDefault ]\l  %24 = mul nsw i32 %22, 10\l  %25 = getelementptr inbounds i8, i8* %23, i64 1\l  %26 = sub nsw i32 %24, %21\l  %27 = load i8, i8* %25, align 1, !tbaa !2\l  %28 = sext i8 %27 to i32\l  %29 = add nsw i32 %28, -48\l  %30 = icmp ult i32 %29, 10\l  br i1 %30, label %20, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1065050:s0 -> Node0x1065050;
+	Node0x1065050:s1 -> Node0x10650a0;
+	Node0x10650a0 [shape=record,label="{%31:\l31:                                               \l  %32 = phi i32 [ 0, %NewDefault ], [ %26, %20 ]\l  %33 = icmp eq i32 %17, 0\l  %34 = sub nsw i32 0, %32\l  %35 = select i1 %33, i32 %34, i32 %32\l  ret i32 %35\l}"];
+}
