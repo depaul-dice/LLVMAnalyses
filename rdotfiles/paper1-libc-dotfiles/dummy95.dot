@@ -1,5 +1,0 @@
-digraph "CFG for 'dummy.95' function" {
-	label="CFG for 'dummy.95' function";
-
-	Node0x2348f30 [shape=record,label="{%0:\l  ret void\l}"];
-}

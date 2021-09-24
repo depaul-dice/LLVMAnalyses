@@ -1,5 +1,0 @@
-digraph "CFG for '__towrite_needs_stdio_exit' function" {
-	label="CFG for '__towrite_needs_stdio_exit' function";
-
-	Node0x235c160 [shape=record,label="{%0:\l  tail call void @__stdio_exit_needed() #20\l  ret void\l}"];
-}
