@@ -1,5 +1,0 @@
-digraph "CFG for 'strtof' function" {
-	label="CFG for 'strtof' function";
-
-	Node0x226c980 [shape=record,label="{%2:\l  %3 = tail call fastcc x86_fp80 @strtox(i8* %0, i8** %1, i32 0) #20\l  %4 = tail call float @llvm.experimental.constrained.fptrunc.f32.f80(x86_fp80\l... %3, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #21\l  ret float %4\l}"];
-}
