@@ -1,0 +1,13 @@
+digraph "CFG for 'MRaise' function" {
+	label="CFG for 'MRaise' function";
+
+	Node0x104e1b0 [shape=record,label="{%3:\l  %4 = alloca i8*, align 8\l  %5 = alloca i32, align 4\l  %6 = alloca i32, align 4\l  %7 = alloca float, align 4\l  store i8* %0, i8** %4, align 8\l  store i32 %1, i32* %5, align 4\l  store i32 %2, i32* %6, align 4\l  %8 = load i32, i32* %5, align 4\l  %9 = getelementptr inbounds [8 x i8], [8 x i8]* @.str.6, i64 0, i64 0\l  %10 = call fastcc float @SRaise(i8* %9, i32 %8)\l  store float %10, float* %7, align 4\l  %11 = load i32, i32* %5, align 4\l  %12 = icmp sgt i32 %11, 5000\l  br i1 %12, label %13, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x104e1b0:s0 -> Node0x104ed50;
+	Node0x104e1b0:s1 -> Node0x104edf0;
+	Node0x104ed50 [shape=record,label="{%13:\l13:                                               \l  %14 = load i32, i32* %6, align 4\l  %15 = icmp slt i32 %14, 40\l  br i1 %15, label %16, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x104ed50:s0 -> Node0x104eda0;
+	Node0x104ed50:s1 -> Node0x104edf0;
+	Node0x104eda0 [shape=record,label="{%16:\l16:                                               \l  %17 = bitcast i8** %4 to i8*\l  %18 = load i8*, i8** %4, align 8\l  %19 = call fastcc i64 @strlen(i8* %18) #17\l  %20 = bitcast i64 (i8*, i64, i64, %struct._IO_FILE.5*)* @fwrite to i64 (i8*,\l... i64, i64, %struct._IO_FILE*)*\l  %21 = call i64 %20(i8* %17, i64 1, i64 %19, %struct._IO_FILE* null)\l  br label %22\l}"];
+	Node0x104eda0 -> Node0x104edf0;
+	Node0x104edf0 [shape=record,label="{%22:\l22:                                               \l  %23 = load float, float* %7, align 4\l  ret float %23\l}"];
+}

@@ -1,0 +1,16 @@
+digraph "CFG for 'unlock_bin' function" {
+	label="CFG for 'unlock_bin' function";
+
+	Node0x1115170 [shape=record,label="{%1:\l  %2 = sext i32 %0 to i64\l  %3 = getelementptr inbounds %struct.anon.39, %struct.anon.39* @mal, i64 0,\l... i32 1, i64 %2, i32 0, i64 0\l  %4 = load volatile i32, i32* %3, align 8, !tbaa !2\l  %5 = icmp eq i32 %4, 0\l  br i1 %5, label %16, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1115170:s0 -> Node0x11152b0;
+	Node0x1115170:s1 -> Node0x11151c0;
+	Node0x11151c0 [shape=record,label="{%6:\l6:                                                \l  tail call void asm sideeffect mov $1, $0 \l  %7 = getelementptr inbounds %struct.anon.39, %struct.anon.39* @mal, i64 0,\l... i32 1, i64 %2, i32 0, i64 1\l  %8 = load volatile i32, i32* %7, align 4, !tbaa !2\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %16, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x11151c0:s0 -> Node0x11152b0;
+	Node0x11151c0:s1 -> Node0x1115210;
+	Node0x1115210 [shape=record,label="{%10:\l10:                                               \l  %11 = ptrtoint i32* %3 to i64\l  %12 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 202, i64 %11, i64 129, i64 1) #17, !srcloc !7\l  %13 = icmp eq i64 %12, -38\l  br i1 %13, label %14, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1115210:s0 -> Node0x1115260;
+	Node0x1115210:s1 -> Node0x11152b0;
+	Node0x1115260 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 202, i64 %11, i64 1, i64 1) #17, !srcloc !7\l  br label %16\l}"];
+	Node0x1115260 -> Node0x11152b0;
+	Node0x11152b0 [shape=record,label="{%16:\l16:                                               \l  ret void\l}"];
+}
