@@ -1,3 +1,0 @@
-0x104e1b0,epoint,1,0,0,0x104e1b0_0,na,na
-0x104e1b0_0,funccall,SRaise,1,1,0,0x104edf0,0x104e1b0,na
-0x104edf0,ret,0,1,0,na,0x104e1b0_0,na
