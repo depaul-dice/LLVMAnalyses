@@ -82,9 +82,11 @@ def find_syscalls(inst: str) -> (list, int):
         if len(m) > 0:
             if len(m) >= 2:
                 raise Exception("syscall found twice in the instruction")
+            '''
             if int(m[0]) == 202:
                 print("202 caught %s"%inst, file = sys.stderr)
                 return None
+            '''
             return ['syscall'], int(m[0])
     if inst.find('__syscall_ret') == -1:
         raise Exception(inst + ': this could not be parsed')
@@ -140,7 +142,8 @@ def inst2keep(inst: str, bitcasts: dict) -> (list, int):
                 else: 
                     print("key error found: " + inst, file = sys.stderr)
             else:
-                print("WARNING: %s"%inst, file=sys.stderr)
+                # print("WARNING: %s"%inst, file=sys.stderr)
+                pass
                 
             #raise Exception("Call found but could not get the function name: %s"%(inst))
         if len(rv) > 0:
@@ -216,8 +219,9 @@ def parse_func_topdown(cfg_, directory: str, infos: dict) -> None:
     for vName, vertex in vertices.items():
         parse_block(vertex, directory, bitcasts, infos)
     if len(bitcasts) != 0:
-        print(bitcasts, file = sys.stderr)
+        # print(bitcasts, file = sys.stderr)
         # raise Exception(cfg_.name)
+        pass
 
 def find_specSyscall(cfg, specSyscallDict, tmpCFG_dict) -> dict:
     name = cfg.name
