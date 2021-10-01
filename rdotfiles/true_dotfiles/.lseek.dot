@@ -1,0 +1,5 @@
+digraph "CFG for 'lseek' function" {
+	label="CFG for 'lseek' function";
+
+	Node0x258e200 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = sext i32 %0 to i64\l  %5 = sext i32 %2 to i64\l  %6 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 8, i64 %4, i64 %1, i64 %5) #26, !srcloc !1086\l  %7 = tail call fastcc i64 @__syscall_ret(i64 %6) #27\l  ret i64 %7\l}"];
+}

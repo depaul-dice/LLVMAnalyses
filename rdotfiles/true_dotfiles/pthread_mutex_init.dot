@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_mutex_init' function" {
+	label="CFG for 'pthread_mutex_init' function";
+
+	Node0x15e92f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = alloca [5 x i8*], align 8\l  %4 = bitcast [5 x i8*]* %3 to i8*\l  call void @llvm.memset.p0i8.i64(i8* nonnull align 8 dereferenceable(40) %4,\l... i8 0, i64 40, i1 false)\l  %5 = bitcast %struct.pthread_mutex_t* %0 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %5, i8* nonnull align 8 %4,\l... i64 40, i1 true), !tbaa.struct !1086\l  %6 = icmp eq %union.anon* %1, null\l  br i1 %6, label %11, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x15e92f0:s0 -> Node0x15e93f0;
+	Node0x15e92f0:s1 -> Node0x15e93a0;
+	Node0x15e93a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %union.anon, %union.anon* %1, i64 0, i32 0\l  %9 = load i32, i32* %8, align 4, !tbaa !1090\l  %10 = bitcast %struct.pthread_mutex_t* %0 to i32*\l  store i32 %9, i32* %10, align 8, !tbaa !1087\l  br label %11\l}"];
+	Node0x15e93a0 -> Node0x15e93f0;
+	Node0x15e93f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%11:\l11:                                               \l  ret i32 0\l}"];
+}

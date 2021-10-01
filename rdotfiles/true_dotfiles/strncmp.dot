@@ -1,0 +1,19 @@
+digraph "CFG for 'strncmp' function" {
+	label="CFG for 'strncmp' function";
+
+	Node0x1633cf0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ecd3c570",label="{%3:\l  %4 = icmp eq i64 %2, 0\l  br i1 %4, label %32, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1633cf0:s0 -> Node0x1634670;
+	Node0x1633cf0:s1 -> Node0x16340d0;
+	Node0x16340d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6dce470",label="{%5:\l5:                                                \l  %6 = load i8, i8* %0, align 1, !tbaa !1086\l  %7 = icmp eq i8 %6, 0\l  br i1 %7, label %25, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x16340d0:s0 -> Node0x1634620;
+	Node0x16340d0:s1 -> Node0x1634580;
+	Node0x1634580 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%8:\l8:                                                \l  %9 = phi i8 [ %23, %20 ], [ %6, %5 ]\l  %10 = phi i64 [ %13, %20 ], [ %2, %5 ]\l  %11 = phi i8* [ %22, %20 ], [ %1, %5 ]\l  %12 = phi i8* [ %21, %20 ], [ %0, %5 ]\l  %13 = add i64 %10, -1\l  %14 = load i8, i8* %11, align 1, !tbaa !1086\l  %15 = icmp ne i8 %14, 0\l  %16 = icmp ne i64 %13, 0\l  %17 = and i1 %16, %15\l  %18 = icmp eq i8 %9, %14\l  %19 = and i1 %18, %17\l  br i1 %19, label %20, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1634580:s0 -> Node0x16345d0;
+	Node0x1634580:s1 -> Node0x1634620;
+	Node0x16345d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%20:\l20:                                               \l  %21 = getelementptr inbounds i8, i8* %12, i64 1\l  %22 = getelementptr inbounds i8, i8* %11, i64 1\l  %23 = load i8, i8* %21, align 1, !tbaa !1086\l  %24 = icmp eq i8 %23, 0\l  br i1 %24, label %25, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x16345d0:s0 -> Node0x1634620;
+	Node0x16345d0:s1 -> Node0x1634580;
+	Node0x1634620 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6dce470",label="{%25:\l25:                                               \l  %26 = phi i8* [ %1, %5 ], [ %22, %20 ], [ %11, %8 ]\l  %27 = phi i8 [ 0, %5 ], [ 0, %20 ], [ %9, %8 ]\l  %28 = zext i8 %27 to i32\l  %29 = load i8, i8* %26, align 1, !tbaa !1086\l  %30 = zext i8 %29 to i32\l  %31 = sub nsw i32 %28, %30\l  br label %32\l}"];
+	Node0x1634620 -> Node0x1634670;
+	Node0x1634670 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ecd3c570",label="{%32:\l32:                                               \l  %33 = phi i32 [ %31, %25 ], [ 0, %3 ]\l  ret i32 %33\l}"];
+}

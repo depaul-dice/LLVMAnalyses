@@ -1,0 +1,13 @@
+digraph "CFG for '__unlockfile' function" {
+	label="CFG for '__unlockfile' function";
+
+	Node0x24c8fc0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.233, %struct._IO_FILE.233* %0,\l... i64 0, i32 19\l  %3 = tail call i32 asm sideeffect xchg $0, $1,\l... =r,=*m,0,~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i32* nonnull %2, i32 0) #26,\l... !srcloc !1086\l  %4 = and i32 %3, 1073741824\l  %5 = icmp eq i32 %4, 0\l  br i1 %5, label %12, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x24c8fc0:s0 -> Node0x24c92d0;
+	Node0x24c8fc0:s1 -> Node0x24c9230;
+	Node0x24c9230 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ef886b70",label="{%6:\l6:                                                \l  %7 = ptrtoint i32* %2 to i64\l  %8 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 202, i64 %7, i64 129, i64 1) #26, !srcloc !1087\l  %9 = icmp eq i64 %8, -38\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x24c9230:s0 -> Node0x24c9280;
+	Node0x24c9230:s1 -> Node0x24c92d0;
+	Node0x24c9280 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%10:\l10:                                               \l  %11 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 202, i64 %7, i64 1, i64 1) #26, !srcloc !1087\l  br label %12\l}"];
+	Node0x24c9280 -> Node0x24c92d0;
+	Node0x24c92d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%12:\l12:                                               \l  ret void\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'atexit' function" {
+	label="CFG for 'atexit' function";
+
+	Node0x1618ab0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = bitcast void ()* %0 to i8*\l  %3 = tail call fastcc i32 @__cxa_atexit(void (i8*)* nonnull @call, i8* %2,\l... i8* undef) #26\l  ret i32 %3\l}"];
+}

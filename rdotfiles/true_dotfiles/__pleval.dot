@@ -1,0 +1,5 @@
+digraph "CFG for '__pleval' function" {
+	label="CFG for '__pleval' function";
+
+	Node0x170c3d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = alloca %struct.st, align 8\l  %4 = bitcast %struct.st* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %4) #26\l  %5 = getelementptr inbounds %struct.st, %struct.st* %3, i64 0, i32 1\l  store i64 %1, i64* %5, align 8, !tbaa !1086\l  %6 = call fastcc i8* @evalexpr(%struct.st* nonnull %3, i8* %0, i32 100) #27\l  %7 = load i8, i8* %6, align 1, !tbaa !1092\l  %8 = icmp eq i8 %7, 59\l  %9 = getelementptr inbounds %struct.st, %struct.st* %3, i64 0, i32 0\l  %10 = load i64, i64* %9, align 8\l  %11 = select i1 %8, i64 %10, i64 -1\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %4) #26\l  ret i64 %11\l}"];
+}

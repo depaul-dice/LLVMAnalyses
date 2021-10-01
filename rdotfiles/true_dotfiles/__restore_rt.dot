@@ -1,0 +1,5 @@
+digraph "CFG for '__restore_rt' function" {
+	label="CFG for '__restore_rt' function";
+
+	Node0x15c2620 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  ret void\l}"];
+}

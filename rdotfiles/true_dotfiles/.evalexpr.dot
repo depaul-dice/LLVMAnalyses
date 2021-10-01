@@ -1,0 +1,21 @@
+digraph "CFG for 'evalexpr' function" {
+	label="CFG for 'evalexpr' function";
+
+	Node0x259c660 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = add nsw i32 %2, -1\l  %5 = icmp slt i32 %2, 1\l  %6 = getelementptr inbounds [1 x i8], [1 x i8]* @.str.490, i64 0, i64 0\l  br i1 %5, label %28, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x259c660:s0 -> Node0x259d0e0;
+	Node0x259c660:s1 -> Node0x259cf50;
+	Node0x259cf50 [shape=record,color="#b70d28ff", style=filled, fillcolor="#d6524470",label="{%7:\l7:                                                \l  %8 = tail call fastcc i8* @evalbinop(%struct.st* %0, i8* %1, i32 0, i32 %4)\l... #26\l  %9 = load i8, i8* %8, align 1, !tbaa !1086\l  %10 = icmp eq i8 %9, 63\l  br i1 %10, label %11, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x259cf50:s0 -> Node0x259cfa0;
+	Node0x259cf50:s1 -> Node0x259d0e0;
+	Node0x259cfa0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4987a70",label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct.st, %struct.st* %0, i64 0, i32 0\l  %13 = load i64, i64* %12, align 8, !tbaa !1089\l  %14 = getelementptr inbounds i8, i8* %8, i64 1\l  %15 = tail call fastcc i8* @evalexpr(%struct.st* %0, i8* nonnull %14, i32\l... %4) #26\l  %16 = load i8, i8* %15, align 1, !tbaa !1086\l  %17 = icmp eq i8 %16, 58\l  %18 = getelementptr inbounds [1 x i8], [1 x i8]* @.str.490, i64 0, i64 0\l  br i1 %17, label %19, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x259cfa0:s0 -> Node0x259cff0;
+	Node0x259cfa0:s1 -> Node0x259d0e0;
+	Node0x259cff0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%19:\l19:                                               \l  %20 = load i64, i64* %12, align 8, !tbaa !1089\l  %21 = getelementptr inbounds i8, i8* %15, i64 1\l  %22 = tail call fastcc i8* @evalexpr(%struct.st* nonnull %0, i8* nonnull\l... %21, i32 %4) #26\l  %23 = icmp eq i64 %13, 0\l  br i1 %23, label %24, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x259cff0:s0 -> Node0x259d040;
+	Node0x259cff0:s1 -> Node0x259d090;
+	Node0x259d040 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%24:\l24:                                               \l  %25 = load i64, i64* %12, align 8, !tbaa !1089\l  br label %26\l}"];
+	Node0x259d040 -> Node0x259d090;
+	Node0x259d090 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%26:\l26:                                               \l  %27 = phi i64 [ %25, %24 ], [ %20, %19 ]\l  store i64 %27, i64* %12, align 8, !tbaa !1089\l  br label %28\l}"];
+	Node0x259d090 -> Node0x259d0e0;
+	Node0x259d0e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%28:\l28:                                               \l  %29 = phi i8* [ %22, %26 ], [ %6, %3 ], [ %8, %7 ], [ %18, %11 ]\l  ret i8* %29\l}"];
+}

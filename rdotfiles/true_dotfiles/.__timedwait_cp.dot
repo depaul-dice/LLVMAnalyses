@@ -1,0 +1,48 @@
+digraph "CFG for '__timedwait_cp' function" {
+	label="CFG for '__timedwait_cp' function";
+
+	Node0x2438ce0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l  %6 = alloca \<2 x i64\>, align 16\l  %7 = bitcast \<2 x i64\>* %6 to %struct.timeval*\l  %8 = bitcast \<2 x i64\>* %6 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %8) #26\l  %9 = icmp eq i32 %4, 0\l  %10 = select i1 %9, i64 0, i64 128\l  %11 = icmp eq %struct.timeval* %3, null\l  br i1 %11, label %35, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x2438ce0:s0 -> Node0x2439070;
+	Node0x2438ce0:s1 -> Node0x2438e90;
+	Node0x2438e90 [shape=record,color="#b70d28ff", style=filled, fillcolor="#d6524470",label="{%12:\l12:                                               \l  %13 = getelementptr inbounds %struct.timeval, %struct.timeval* %3, i64 0,\l... i32 1\l  %14 = load i64, i64* %13, align 8, !tbaa !1086\l  %15 = icmp ugt i64 %14, 999999999\l  br i1 %15, label %52, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x2438e90:s0 -> Node0x2439340;
+	Node0x2438e90:s1 -> Node0x2438ee0;
+	Node0x2438ee0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f2907270",label="{%16:\l16:                                               \l  %17 = call fastcc i32 @__clock_gettime(i32 %2, %struct.timeval* nonnull %7)\l... #27\l  %18 = icmp eq i32 %17, 0\l  br i1 %18, label %19, label %52\l|{<s0>T|<s1>F}}"];
+	Node0x2438ee0:s0 -> Node0x2438f30;
+	Node0x2438ee0:s1 -> Node0x2439340;
+	Node0x2438f30 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#efcebd70",label="{%19:\l19:                                               \l  %20 = bitcast %struct.timeval* %3 to \<2 x i64\>*\l  %21 = load \<2 x i64\>, \<2 x i64\>* %20, align 8, !tbaa !1091\l  %.i0 = extractelement \<2 x i64\> %21, i32 0\l  %.i1 = extractelement \<2 x i64\> %21, i32 1\l  %22 = load \<2 x i64\>, \<2 x i64\>* %6, align 16, !tbaa !1091\l  %.i01 = extractelement \<2 x i64\> %22, i32 0\l  %23 = sub nsw i64 %.i0, %.i01\l  %.i13 = extractelement \<2 x i64\> %22, i32 1\l  %24 = sub nsw i64 %.i1, %.i13\l  %.upto0 = insertelement \<2 x i64\> undef, i64 %23, i32 0\l  %25 = insertelement \<2 x i64\> %.upto0, i64 %24, i32 1\l  store \<2 x i64\> %25, \<2 x i64\>* %6, align 16, !tbaa !1091\l  %26 = icmp slt i64 %24, 0\l  br i1 %26, label %27, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x2438f30:s0 -> Node0x2438f80;
+	Node0x2438f30:s1 -> Node0x2438fd0;
+	Node0x2438f80 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%27:\l27:                                               \l  %28 = add nsw i64 %23, -1\l  %.i16 = add nsw i64 %24, 1000000000\l  %.upto07 = insertelement \<2 x i64\> undef, i64 %28, i32 0\l  %29 = insertelement \<2 x i64\> %.upto07, i64 %.i16, i32 1\l  store \<2 x i64\> %29, \<2 x i64\>* %6, align 16, !tbaa !1091\l  br label %30\l}"];
+	Node0x2438f80 -> Node0x2438fd0;
+	Node0x2438fd0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#efcebd70",label="{%30:\l30:                                               \l  %31 = phi i64 [ %28, %27 ], [ %23, %19 ]\l  %32 = icmp slt i64 %31, 0\l  br i1 %32, label %52, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x2438fd0:s0 -> Node0x2439340;
+	Node0x2438fd0:s1 -> Node0x2439020;
+	Node0x2439020 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%33:\l33:                                               \l  %34 = ptrtoint \<2 x i64\>* %6 to i64\l  br label %35\l}"];
+	Node0x2439020 -> Node0x2439070;
+	Node0x2439070 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5705870",label="{%35:\l35:                                               \l  %36 = phi i64 [ %34, %33 ], [ 0, %5 ]\l  %37 = ptrtoint i32* %0 to i64\l  %38 = sext i32 %1 to i64\l  %39 = call fastcc i64 @__syscall_cp(i64 202, i64 %37, i64 %10, i64 %38, i64\l... %36, i64 0, i64 0) #27\l  %40 = trunc i64 %39 to i32\l  %41 = sub i32 0, %40\l  %42 = icmp eq i32 %41, 38\l  br i1 %42, label %43, label %NodeBlock12\l|{<s0>T|<s1>F}}"];
+	Node0x2439070:s0 -> Node0x24390c0;
+	Node0x2439070:s1 -> Node0x2439110;
+	Node0x24390c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%43:\l43:                                               \l  %44 = call fastcc i64 @__syscall_cp(i64 202, i64 %37, i64 0, i64 %38, i64\l... %36, i64 0, i64 0) #27\l  %45 = trunc i64 %44 to i32\l  %46 = sub i32 0, %45\l  br label %NodeBlock12\l}"];
+	Node0x24390c0 -> Node0x2439110;
+	Node0x2439110 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5705870",label="{NodeBlock12:                                      \l  %47 = phi i32 [ %46, %43 ], [ %41, %35 ]\l  %Pivot13 = icmp slt i32 %47, 110\l  br i1 %Pivot13, label %LeafBlock, label %NodeBlock\l|{<s0>T|<s1>F}}"];
+	Node0x2439110:s0 -> Node0x2439250;
+	Node0x2439110:s1 -> Node0x2439160;
+	Node0x2439160 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{NodeBlock:                                        \l  %Pivot = icmp slt i32 %47, 125\l  br i1 %Pivot, label %LeafBlock8, label %LeafBlock10\l|{<s0>T|<s1>F}}"];
+	Node0x2439160:s0 -> Node0x2439200;
+	Node0x2439160:s1 -> Node0x24391b0;
+	Node0x24391b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#eed0c070",label="{LeafBlock10:                                      \l  %SwitchLeaf11 = icmp eq i32 %47, 125\l  br i1 %SwitchLeaf11, label %52, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x24391b0:s0 -> Node0x2439340;
+	Node0x24391b0:s1 -> Node0x24392f0;
+	Node0x2439200 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#eed0c070",label="{LeafBlock8:                                       \l  %SwitchLeaf9 = icmp eq i32 %47, 110\l  br i1 %SwitchLeaf9, label %52, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x2439200:s0 -> Node0x2439340;
+	Node0x2439200:s1 -> Node0x24392f0;
+	Node0x2439250 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{LeafBlock:                                        \l  %SwitchLeaf = icmp eq i32 %47, 4\l  br i1 %SwitchLeaf, label %48, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x2439250:s0 -> Node0x24392a0;
+	Node0x2439250:s1 -> Node0x24392f0;
+	Node0x24392a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#eed0c070",label="{%48:\l48:                                               \l  %49 = load volatile i32, i32* @__eintr_valid_flag, align 4, !tbaa !1092\l  %50 = icmp eq i32 %49, 0\l  %51 = select i1 %50, i32 0, i32 4\l  br label %52\l}"];
+	Node0x24392a0 -> Node0x2439340;
+	Node0x24392f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{NewDefault:                                       \l  br label %52\l}"];
+	Node0x24392f0 -> Node0x2439340;
+	Node0x2439340 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%52:\l52:                                               \l  %53 = phi i32 [ 22, %12 ], [ 22, %16 ], [ 110, %30 ], [ %51, %48 ], [ 0,\l... %NewDefault ], [ %47, %LeafBlock10 ], [ %47, %LeafBlock8 ]\l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %8) #26\l  ret i32 %53\l}"];
+}

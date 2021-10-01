@@ -1,0 +1,11 @@
+digraph "CFG for 'strcmp' function" {
+	label="CFG for 'strcmp' function";
+
+	Node0x2450bc0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%2:\l  %3 = load i8, i8* %0, align 1, !tbaa !1086\l  %4 = load i8, i8* %1, align 1, !tbaa !1086\l  %5 = icmp ne i8 %3, %4\l  %6 = icmp eq i8 %3, 0\l  %7 = or i1 %6, %5\l  br i1 %7, label %18, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x2450bc0:s0 -> Node0x24518f0;
+	Node0x2450bc0:s1 -> Node0x24518a0;
+	Node0x24518a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%8:\l8:                                                \l  %9 = phi i8* [ %12, %8 ], [ %1, %2 ]\l  %10 = phi i8* [ %11, %8 ], [ %0, %2 ]\l  %11 = getelementptr inbounds i8, i8* %10, i64 1\l  %12 = getelementptr inbounds i8, i8* %9, i64 1\l  %13 = load i8, i8* %11, align 1, !tbaa !1086\l  %14 = load i8, i8* %12, align 1, !tbaa !1086\l  %15 = icmp ne i8 %13, %14\l  %16 = icmp eq i8 %13, 0\l  %17 = or i1 %16, %15\l  br i1 %17, label %18, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x24518a0:s0 -> Node0x24518f0;
+	Node0x24518a0:s1 -> Node0x24518a0;
+	Node0x24518f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%18:\l18:                                               \l  %19 = phi i8 [ %3, %2 ], [ %13, %8 ]\l  %20 = phi i8 [ %4, %2 ], [ %14, %8 ]\l  %21 = zext i8 %19 to i32\l  %22 = zext i8 %20 to i32\l  %23 = sub nsw i32 %21, %22\l  ret i32 %23\l}"];
+}

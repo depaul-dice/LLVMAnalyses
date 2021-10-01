@@ -1,0 +1,29 @@
+digraph "CFG for '__clock_gettime' function" {
+	label="CFG for '__clock_gettime' function";
+
+	Node0x243bf70 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = load volatile i8*, i8** @vdso_func.1013, align 8, !tbaa !1086\l  %4 = icmp eq i8* %3, null\l  br i1 %4, label %NewDefault, label %if.true.direct_targ\l|{<s0>T|<s1>F}}"];
+	Node0x243bf70:s0 -> Node0x243c730;
+	Node0x243bf70:s1 -> Node0x243c5f0;
+	Node0x243c5f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#dc5d4a70",label="{if.true.direct_targ:                              \l  %5 = bitcast i32 (i32, %struct.timeval*)* @cgt_init to i8*\l  %6 = icmp eq i8* %3, %5\l  call void @llvm.assume(i1 %6)\l  %7 = tail call i32 @cgt_init(i32 %0, %struct.timeval* %1) #26\l  %Pivot = icmp slt i32 %7, 0\l  br i1 %Pivot, label %LeafBlock, label %LeafBlock1\l|{<s0>T|<s1>F}}"];
+	Node0x243c5f0:s0 -> Node0x243c690;
+	Node0x243c5f0:s1 -> Node0x243c640;
+	Node0x243c640 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3947570",label="{LeafBlock1:                                       \l  %SwitchLeaf2 = icmp eq i32 %7, 0\l  br i1 %SwitchLeaf2, label %30, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x243c640:s0 -> Node0x243c870;
+	Node0x243c640:s1 -> Node0x243c730;
+	Node0x243c690 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6bfa670",label="{LeafBlock:                                        \l  %SwitchLeaf = icmp eq i32 %7, -22\l  br i1 %SwitchLeaf, label %8, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x243c690:s0 -> Node0x243c6e0;
+	Node0x243c690:s1 -> Node0x243c730;
+	Node0x243c6e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%8:\l8:                                                \l  %9 = tail call fastcc i64 @__syscall_ret(i64 -22) #27\l  %10 = trunc i64 %9 to i32\l  br label %30\l}"];
+	Node0x243c6e0 -> Node0x243c870;
+	Node0x243c730 [shape=record,color="#b70d28ff", style=filled, fillcolor="#d0473d70",label="{NewDefault:                                       \l  %11 = sext i32 %0 to i64\l  %12 = ptrtoint %struct.timeval* %1 to i64\l  %13 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 228, i64 %11, i64 %12) #28, !srcloc !1090\l  %14 = trunc i64 %13 to i32\l  %15 = icmp eq i32 %14, -38\l  br i1 %15, label %16, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x243c730:s0 -> Node0x243c780;
+	Node0x243c730:s1 -> Node0x243c820;
+	Node0x243c780 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3947570",label="{%16:\l16:                                               \l  %17 = icmp eq i32 %0, 0\l  br i1 %17, label %18, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x243c780:s0 -> Node0x243c7d0;
+	Node0x243c780:s1 -> Node0x243c820;
+	Node0x243c7d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e3d9d370",label="{%18:\l18:                                               \l  %19 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 96, i64 %12, i64 0) #28, !srcloc !1090\l  %20 = getelementptr inbounds %struct.timeval, %struct.timeval* %1, i64 0,\l... i32 1\l  %21 = load i64, i64* %20, align 8, !tbaa !1091\l  %22 = mul i64 %21, 4294967296000\l  %23 = ashr exact i64 %22, 32\l  store i64 %23, i64* %20, align 8, !tbaa !1091\l  br label %30\l}"];
+	Node0x243c7d0 -> Node0x243c870;
+	Node0x243c820 [shape=record,color="#b70d28ff", style=filled, fillcolor="#de614d70",label="{%24:\l24:                                               \l  %25 = phi i64 [ %13, %NewDefault ], [ -22, %16 ]\l  %26 = shl i64 %25, 32\l  %27 = ashr exact i64 %26, 32\l  %28 = tail call fastcc i64 @__syscall_ret(i64 %27) #27\l  %29 = trunc i64 %28 to i32\l  br label %30\l}"];
+	Node0x243c820 -> Node0x243c870;
+	Node0x243c870 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%30:\l30:                                               \l  %31 = phi i32 [ %10, %8 ], [ 0, %18 ], [ %29, %24 ], [ 0, %LeafBlock1 ]\l  ret i32 %31\l}"];
+}

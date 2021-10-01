@@ -1,0 +1,5 @@
+digraph "CFG for '__pthread_rwlock_trywrlock' function" {
+	label="CFG for '__pthread_rwlock_trywrlock' function";
+
+	Node0x24c3be0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = bitcast %struct.pthread_rwlock_t* %0 to i32*\l  %3 = tail call i32 asm sideeffect lock \l  %4 = icmp eq i32 %3, 0\l  %5 = select i1 %4, i32 0, i32 16\l  ret i32 %5\l}"];
+}

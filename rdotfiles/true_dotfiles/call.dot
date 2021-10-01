@@ -1,0 +1,5 @@
+digraph "CFG for 'call' function" {
+	label="CFG for 'call' function";
+
+	Node0x1618b30 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{if.true.direct_targ:\l  %1 = bitcast void ()* @close_stdout to i8*\l  %2 = icmp eq i8* %0, %1\l  call void @llvm.assume(i1 %2)\l  tail call void @close_stdout() #26\l  ret void\l}"];
+}

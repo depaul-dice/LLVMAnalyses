@@ -1,0 +1,5 @@
+digraph "CFG for 'strrchr' function" {
+	label="CFG for 'strrchr' function";
+
+	Node0x160bc40 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = tail call fastcc i64 @strlen(i8* %0) #26\l  %4 = add i64 %3, 1\l  %5 = tail call fastcc i8* @__memrchr(i8* %0, i32 %1, i64 %4) #26\l  ret i8* %5\l}"];
+}

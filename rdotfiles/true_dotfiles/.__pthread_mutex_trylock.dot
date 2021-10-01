@@ -1,0 +1,12 @@
+digraph "CFG for '__pthread_mutex_trylock' function" {
+	label="CFG for '__pthread_mutex_trylock' function";
+
+	Node0x2483170 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = bitcast %struct.pthread_mutex_t* %0 to i32*\l  %3 = load i32, i32* %2, align 8, !tbaa !1086\l  %4 = and i32 %3, 15\l  %5 = icmp eq i32 %4, 0\l  br i1 %5, label %6, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x2483170:s0 -> Node0x24838f0;
+	Node0x2483170:s1 -> Node0x2483940;
+	Node0x24838f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%6:\l6:                                                \l  %7 = bitcast %struct.pthread_mutex_t* %0 to [10 x i32]*\l  %8 = getelementptr inbounds [10 x i32], [10 x i32]* %7, i64 0, i64 1\l  %9 = tail call i32 asm sideeffect lock \l  %10 = and i32 %9, 16\l  br label %13\l}"];
+	Node0x24838f0 -> Node0x2483990;
+	Node0x2483940 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%11:\l11:                                               \l  %12 = tail call fastcc i32\l... @__pthread_mutex_trylock_owner(%struct.pthread_mutex_t* nonnull %0) #27\l  br label %13\l}"];
+	Node0x2483940 -> Node0x2483990;
+	Node0x2483990 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%13:\l13:                                               \l  %14 = phi i32 [ %10, %6 ], [ %12, %11 ]\l  ret i32 %14\l}"];
+}

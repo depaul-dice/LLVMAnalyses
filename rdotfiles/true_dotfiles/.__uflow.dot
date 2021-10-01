@@ -1,0 +1,35 @@
+digraph "CFG for '__uflow' function" {
+	label="CFG for '__uflow' function";
+
+	Node0x256d910 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = alloca i8, align 1\l  call void @llvm.lifetime.start.p0i8(i64 1, i8* nonnull %2) #26\l  %3 = tail call fastcc i32 @__toread(%struct._IO_FILE.828* %0) #27\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %5, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x256d910:s0 -> Node0x256d990;
+	Node0x256d910:s1 -> Node0x256dd00;
+	Node0x256d990 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ec7f6370",label="{%5:\l5:                                                \l  %6 = getelementptr inbounds %struct._IO_FILE.828, %struct._IO_FILE.828* %0,\l... i64 0, i32 8\l  %7 = load i64 (%struct._IO_FILE.828*, i8*, i64)*, i64\l... (%struct._IO_FILE.828*, i8*, i64)** %6, align 8, !tbaa !1086\l  %8 = bitcast i64 (%struct._IO_FILE.0*, i8*, i64)* @wstring_read to i64\l... (%struct._IO_FILE.828*, i8*, i64)*\l  %9 = icmp eq i64 (%struct._IO_FILE.828*, i8*, i64)* %7, %8\l  br i1 %9, label %if.true.direct_targ, label %if.false.orig_indirect\l|{<s0>T|<s1>F}}"];
+	Node0x256d990:s0 -> Node0x256d9e0;
+	Node0x256d990:s1 -> Node0x256da30;
+	Node0x256d9e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f5c1a970",label="{if.true.direct_targ:                              \l  %10 = bitcast %struct._IO_FILE.828* %0 to %struct._IO_FILE.0*\l  %11 = call i64 @wstring_read(%struct._IO_FILE.0* %10, i8* nonnull %2, i64 1)\l... #28\l  br label %if.end.icp\l}"];
+	Node0x256d9e0 -> Node0x256dc60;
+	Node0x256da30 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6a38570",label="{if.false.orig_indirect:                           \l  %12 = bitcast i64 (%struct._IO_FILE.466*, i8*, i64)* @__stdio_write to i64\l... (%struct._IO_FILE.828*, i8*, i64)*\l  %13 = icmp eq i64 (%struct._IO_FILE.828*, i8*, i64)* %7, %12\l  br i1 %13, label %if.true.direct_targ1, label %if.false.orig_indirect2\l|{<s0>T|<s1>F}}"];
+	Node0x256da30:s0 -> Node0x256da80;
+	Node0x256da30:s1 -> Node0x256dad0;
+	Node0x256da80 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8d6cc70",label="{if.true.direct_targ1:                             \l  %14 = bitcast %struct._IO_FILE.828* %0 to %struct._IO_FILE.466*\l  %15 = call i64 @__stdio_write(%struct._IO_FILE.466* %14, i8* nonnull %2, i64\l... 1) #28\l  br label %if.end.icp\l}"];
+	Node0x256da80 -> Node0x256dc60;
+	Node0x256dad0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6bfa670",label="{if.false.orig_indirect2:                          \l  %16 = bitcast i64 (%struct._IO_FILE.280*, i8*, i64)* @__stdio_read to i64\l... (%struct._IO_FILE.828*, i8*, i64)*\l  %17 = icmp eq i64 (%struct._IO_FILE.828*, i8*, i64)* %7, %16\l  br i1 %17, label %if.true.direct_targ4, label %if.false.orig_indirect5\l|{<s0>T|<s1>F}}"];
+	Node0x256dad0:s0 -> Node0x256db20;
+	Node0x256dad0:s1 -> Node0x256db70;
+	Node0x256db20 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d1dae970",label="{if.true.direct_targ4:                             \l  %18 = bitcast %struct._IO_FILE.828* %0 to %struct._IO_FILE.280*\l  %19 = call i64 @__stdio_read(%struct._IO_FILE.280* %18, i8* nonnull %2, i64\l... 1) #28\l  br label %if.end.icp\l}"];
+	Node0x256db20 -> Node0x256dc60;
+	Node0x256db70 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{if.false.orig_indirect5:                          \l  %20 = bitcast i64 (%struct._IO_FILE.0*, i8*, i64)* @do_read to i64\l... (%struct._IO_FILE.828*, i8*, i64)*\l  %21 = icmp eq i64 (%struct._IO_FILE.828*, i8*, i64)* %7, %20\l  br i1 %21, label %if.true.direct_targ7, label %if.false.orig_indirect8\l|{<s0>T|<s1>F}}"];
+	Node0x256db70:s0 -> Node0x256dbc0;
+	Node0x256db70:s1 -> Node0x256dc10;
+	Node0x256dbc0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#bbd1f870",label="{if.true.direct_targ7:                             \l  %22 = bitcast %struct._IO_FILE.828* %0 to %struct._IO_FILE.0*\l  %23 = call i64 @do_read(%struct._IO_FILE.0* %22, i8* nonnull %2, i64 1) #28\l  br label %if.end.icp\l}"];
+	Node0x256dbc0 -> Node0x256dc60;
+	Node0x256dc10 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6dce470",label="{if.false.orig_indirect8:                          \l  %24 = bitcast i64 (%struct._IO_FILE.0*, i8*, i64)* @do_read.915 to i64\l... (%struct._IO_FILE.828*, i8*, i64)*\l  %25 = icmp eq i64 (%struct._IO_FILE.828*, i8*, i64)* %7, %24\l  call void @llvm.assume(i1 %25)\l  %26 = bitcast %struct._IO_FILE.828* %0 to %struct._IO_FILE.0*\l  %27 = call i64 @do_read.915(%struct._IO_FILE.0* %26, i8* nonnull %2, i64 1)\l... #28\l  br label %if.end.icp\l}"];
+	Node0x256dc10 -> Node0x256dc60;
+	Node0x256dc60 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ec7f6370",label="{if.end.icp:                                       \l  %28 = phi i64 [ %11, %if.true.direct_targ ], [ %15, %if.true.direct_targ1 ],\l... [ %19, %if.true.direct_targ4 ], [ %27, %if.false.orig_indirect8 ], [ %23,\l... %if.true.direct_targ7 ]\l  %29 = icmp eq i64 %28, 1\l  br i1 %29, label %30, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x256dc60:s0 -> Node0x256dcb0;
+	Node0x256dc60:s1 -> Node0x256dd00;
+	Node0x256dcb0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%30:\l30:                                               \l  %31 = load i8, i8* %2, align 1, !tbaa !1093\l  %32 = zext i8 %31 to i32\l  br label %33\l}"];
+	Node0x256dcb0 -> Node0x256dd00;
+	Node0x256dd00 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%33:\l33:                                               \l  %34 = phi i32 [ %32, %30 ], [ -1, %1 ], [ -1, %if.end.icp ]\l  call void @llvm.lifetime.end.p0i8(i64 1, i8* nonnull %2) #26\l  ret i32 %34\l}"];
+}

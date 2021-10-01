@@ -1,0 +1,18 @@
+digraph "CFG for 'wstring_read' function" {
+	label="CFG for 'wstring_read' function";
+
+	Node0x25a8630 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = alloca i32*, align 8\l  %5 = bitcast i32** %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %5) #26\l  %6 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 21\l  %7 = bitcast i8** %6 to i32**\l  %8 = load i32*, i32** %7, align 8, !tbaa !1086\l  store i32* %8, i32** %4, align 8, !tbaa !1093\l  %9 = icmp eq i32* %8, null\l  br i1 %9, label %37, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x25a8630:s0 -> Node0x240ae10;
+	Node0x25a8630:s1 -> Node0x240acd0;
+	Node0x240acd0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e1675170",label="{%10:\l10:                                               \l  %11 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 11\l  %12 = load i8*, i8** %11, align 8, !tbaa !1094\l  %13 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 12\l  %14 = load i64, i64* %13, align 8, !tbaa !1095\l  %15 = call fastcc i64 @wcsrtombs(i8* %12, i32** nonnull %4, i64 %14,\l... %struct.FTW* null) #27\l  %16 = icmp eq i64 %15, -1\l  br i1 %16, label %17, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x240acd0:s0 -> Node0x240ad20;
+	Node0x240acd0:s1 -> Node0x240ad70;
+	Node0x240ad20 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%17:\l17:                                               \l  %18 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 1\l  %19 = bitcast i8** %18 to \<2 x i8*\>*\l  store \<2 x i8*\> zeroinitializer, \<2 x i8*\>* %19, align 8, !tbaa !1093\l  br label %37\l}"];
+	Node0x240ad20 -> Node0x240ae10;
+	Node0x240ad70 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%20:\l20:                                               \l  %21 = bitcast i8** %11 to i64*\l  %22 = load i64, i64* %21, align 8, !tbaa !1094\l  %23 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 1\l  %24 = bitcast i8** %23 to i64*\l  store i64 %22, i64* %24, align 8, !tbaa !1096\l  %25 = inttoptr i64 %22 to i8*\l  %26 = getelementptr inbounds i8, i8* %25, i64 %15\l  %27 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 2\l  store i8* %26, i8** %27, align 8, !tbaa !1097\l  %28 = bitcast i32** %4 to i64*\l  %29 = load i64, i64* %28, align 8, !tbaa !1093\l  %30 = bitcast i8** %6 to i64*\l  store i64 %29, i64* %30, align 8, !tbaa !1086\l  %31 = icmp ne i64 %2, 0\l  %32 = icmp ne i64 %15, 0\l  %33 = and i1 %31, %32\l  br i1 %33, label %34, label %37\l|{<s0>T|<s1>F}}"];
+	Node0x240ad70:s0 -> Node0x240adc0;
+	Node0x240ad70:s1 -> Node0x240ae10;
+	Node0x240adc0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ecd3c570",label="{%34:\l34:                                               \l  %35 = getelementptr inbounds i8, i8* %25, i64 1\l  store i8* %35, i8** %23, align 8, !tbaa !1096\l  %36 = load i8, i8* %25, align 1, !tbaa !1098\l  store i8 %36, i8* %1, align 1, !tbaa !1098\l  br label %37\l}"];
+	Node0x240adc0 -> Node0x240ae10;
+	Node0x240ae10 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%37:\l37:                                               \l  %38 = phi i64 [ 0, %17 ], [ 1, %34 ], [ 0, %3 ], [ 0, %20 ]\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %5) #26\l  ret i64 %38\l}"];
+}
