@@ -1,0 +1,5 @@
+digraph "CFG for '__stdio_seek' function" {
+	label="CFG for '__stdio_seek' function";
+
+	Node0x1554d90 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = getelementptr inbounds %struct._IO_FILE.692, %struct._IO_FILE.692* %0,\l... i64 0, i32 15\l  %5 = load i32, i32* %4, align 8, !tbaa !1086\l  %6 = sext i32 %5 to i64\l  %7 = sext i32 %2 to i64\l  %8 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 8, i64 %6, i64 %1, i64 %7) #26, !srcloc !1093\l  %9 = tail call fastcc i64 @__syscall_ret(i64 %8) #27\l  ret i64 %9\l}"];
+}

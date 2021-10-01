@@ -1,0 +1,10 @@
+digraph "CFG for 'init_stack_size' function" {
+	label="CFG for 'init_stack_size' function";
+
+	Node0x1aa7a10 [shape=record,label="{%0:\l  %1 = tail call i64 @__getauxval(i64 51) #40\l  %2 = icmp ugt i64 %1, 2048\l  br i1 %2, label %3, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1aa7a10:s0 -> Node0x1aa7a60;
+	Node0x1aa7a10:s1 -> Node0x1aa7ab0;
+	Node0x1aa7a60 [shape=record,label="{%3:\l3:                                                \l  %4 = add i64 %1, 512\l  store i64 %4, i64* @io_thread_stack_size, align 8, !tbaa !1632\l  br label %5\l}"];
+	Node0x1aa7a60 -> Node0x1aa7ab0;
+	Node0x1aa7ab0 [shape=record,label="{%5:\l5:                                                \l  ret void\l}"];
+}

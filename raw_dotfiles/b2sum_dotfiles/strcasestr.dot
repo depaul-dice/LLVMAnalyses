@@ -1,0 +1,14 @@
+digraph "CFG for 'strcasestr' function" {
+	label="CFG for 'strcasestr' function";
+
+	Node0x1fee550 [shape=record,label="{%2:\l  %3 = tail call i64 @strlen(i8* %1) #40\l  %4 = load i8, i8* %0, align 1, !tbaa !1632\l  %5 = icmp eq i8 %4, 0\l  br i1 %5, label %14, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1fee550:s0 -> Node0x1feefd0;
+	Node0x1fee550:s1 -> Node0x1feef30;
+	Node0x1feef30 [shape=record,label="{%6:\l6:                                                \l  %7 = phi i8* [ %11, %10 ], [ %0, %2 ]\l  %8 = tail call i32 @strncasecmp(i8* nonnull %7, i8* %1, i64 %3) #40\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %14, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1feef30:s0 -> Node0x1feefd0;
+	Node0x1feef30:s1 -> Node0x1feef80;
+	Node0x1feef80 [shape=record,label="{%10:\l10:                                               \l  %11 = getelementptr inbounds i8, i8* %7, i64 1\l  %12 = load i8, i8* %11, align 1, !tbaa !1632\l  %13 = icmp eq i8 %12, 0\l  br i1 %13, label %14, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1feef80:s0 -> Node0x1feefd0;
+	Node0x1feef80:s1 -> Node0x1feef30;
+	Node0x1feefd0 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i8* [ null, %2 ], [ null, %10 ], [ %7, %6 ]\l  ret i8* %15\l}"];
+}

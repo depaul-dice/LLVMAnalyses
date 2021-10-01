@@ -1,0 +1,9 @@
+digraph "CFG for 'xirealloc' function" {
+	label="CFG for 'xirealloc' function";
+
+	Node0x14ad840 [shape=record,label="{%2:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1638\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1637, metadata\l... !DIExpression()), !dbg !1638\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1639, metadata\l... !DIExpression()) #7, !dbg !1644\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1643, metadata\l... !DIExpression()) #7, !dbg !1644\l  %3 = icmp eq i64 %1, 0, !dbg !1646\l  %4 = zext i1 %3 to i64, !dbg !1646\l  %5 = or i64 %4, %1, !dbg !1647\l  %6 = tail call i8* @realloc(i8* %0, i64 %5) #7, !dbg !1648\l  call void @llvm.dbg.value(metadata i8* %6, metadata !1649, metadata\l... !DIExpression()) #7, !dbg !1654\l  %7 = icmp eq i8* %6, null, !dbg !1656\l  br i1 %7, label %8, label %9, !dbg !1658\l|{<s0>T|<s1>F}}"];
+	Node0x14ad840:s0 -> Node0x14ae380;
+	Node0x14ad840:s1 -> Node0x14ae3d0;
+	Node0x14ae380 [shape=record,label="{%8:\l8:                                                \l  tail call void @xalloc_die() #40, !dbg !1659\l  unreachable, !dbg !1659\l}"];
+	Node0x14ae3d0 [shape=record,label="{%9:\l9:                                                \l  ret i8* %6, !dbg !1660\l}"];
+}

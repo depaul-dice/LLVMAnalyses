@@ -1,0 +1,9 @@
+digraph "CFG for 'set_custom_quoting' function" {
+	label="CFG for 'set_custom_quoting' function";
+
+	Node0x13bd580 [shape=record,label="{%3:\l  call void @llvm.dbg.value(metadata %struct.quoting_options* %0, metadata\l... !1637, metadata !DIExpression()), !dbg !1640\l  call void @llvm.dbg.value(metadata i8* %1, metadata !1638, metadata\l... !DIExpression()), !dbg !1640\l  call void @llvm.dbg.value(metadata i8* %2, metadata !1639, metadata\l... !DIExpression()), !dbg !1640\l  %4 = icmp eq %struct.quoting_options* %0, null, !dbg !1641\l  %5 = select i1 %4, %struct.quoting_options* @default_quoting_options,\l... %struct.quoting_options* %0, !dbg !1643\l  call void @llvm.dbg.value(metadata %struct.quoting_options* %5, metadata\l... !1637, metadata !DIExpression()), !dbg !1640\l  %6 = getelementptr inbounds %struct.quoting_options,\l... %struct.quoting_options* %5, i64 0, i32 0, !dbg !1644\l  store i32 10, i32* %6, align 8, !dbg !1645, !tbaa !1646\l  %7 = icmp ne i8* %1, null, !dbg !1652\l  %8 = icmp ne i8* %2, null, !dbg !1654\l  %9 = and i1 %7, %8, !dbg !1655\l  br i1 %9, label %11, label %10, !dbg !1655\l|{<s0>T|<s1>F}}"];
+	Node0x13bd580:s0 -> Node0x13be380;
+	Node0x13bd580:s1 -> Node0x13be330;
+	Node0x13be330 [shape=record,label="{%10:\l10:                                               \l  tail call void @abort() #40, !dbg !1656\l  unreachable, !dbg !1656\l}"];
+	Node0x13be380 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct.quoting_options,\l... %struct.quoting_options* %5, i64 0, i32 3, !dbg !1657\l  store i8* %1, i8** %12, align 8, !dbg !1658, !tbaa !1659\l  %13 = getelementptr inbounds %struct.quoting_options,\l... %struct.quoting_options* %5, i64 0, i32 4, !dbg !1660\l  store i8* %2, i8** %13, align 8, !dbg !1661, !tbaa !1662\l  ret void, !dbg !1663\l}"];
+}

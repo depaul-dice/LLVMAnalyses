@@ -1,0 +1,20 @@
+digraph "CFG for 'tempnam' function" {
+	label="CFG for 'tempnam' function";
+
+	Node0x1cd78c0 [shape=record,label="{%2:\l  %3 = alloca [4096 x i8], align 16\l  %4 = alloca %struct.stat, align 8\l  %5 = getelementptr inbounds [4096 x i8], [4096 x i8]* %3, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 4096, i8* nonnull %5) #40\l  %6 = icmp eq i8* %0, null\l  %7 = select i1 %6, i8* getelementptr inbounds ([5 x i8], [5 x i8]*\l... @.str.327, i64 0, i64 0), i8* %0\l  %8 = icmp eq i8* %1, null\l  %9 = select i1 %8, i8* getelementptr inbounds ([5 x i8], [5 x i8]*\l... @.str.1.328, i64 0, i64 0), i8* %1\l  %10 = tail call i64 @strlen(i8* %7) #41\l  %11 = tail call i64 @strlen(i8* %9) #41\l  %12 = add i64 %10, 1\l  %13 = add i64 %12, %11\l  %14 = add i64 %13, 7\l  %15 = icmp ugt i64 %14, 4095\l  br i1 %15, label %16, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1cd78c0:s0 -> Node0x1cd7bd0;
+	Node0x1cd78c0:s1 -> Node0x1cd7c20;
+	Node0x1cd7bd0 [shape=record,label="{%16:\l16:                                               \l  %17 = tail call i32* @___errno_location() #41\l  store i32 36, i32* %17, align 4, !tbaa !1632\l  br label %42\l}"];
+	Node0x1cd7bd0 -> Node0x1cd7d60;
+	Node0x1cd7c20 [shape=record,label="{%18:\l18:                                               \l  %19 = call i8* @memcpy(i8* nonnull %5, i8* %7, i64 %10) #41\l  %20 = getelementptr inbounds [4096 x i8], [4096 x i8]* %3, i64 0, i64 %10\l  store i8 47, i8* %20, align 1, !tbaa !1636\l  %21 = getelementptr inbounds i8, i8* %20, i64 1\l  %22 = call i8* @memcpy(i8* nonnull %21, i8* %9, i64 %11) #41\l  %23 = getelementptr inbounds [4096 x i8], [4096 x i8]* %3, i64 0, i64 %13\l  store i8 95, i8* %23, align 1, !tbaa !1636\l  %24 = getelementptr inbounds [4096 x i8], [4096 x i8]* %3, i64 0, i64 %14\l  store i8 0, i8* %24, align 1, !tbaa !1636\l  %25 = getelementptr inbounds i8, i8* %24, i64 -6\l  %26 = ptrtoint [4096 x i8]* %3 to i64\l  %27 = getelementptr inbounds %struct.stat, %struct.stat* %4, i64 0, i32 0\l  %28 = ptrtoint %struct.stat* %4 to i64\l  %29 = getelementptr inbounds %struct.stat, %struct.stat* %4, i64 0, i32 1\l  %30 = bitcast i64* %29 to i8*\l  br label %34\l}"];
+	Node0x1cd7c20 -> Node0x1cd7cc0;
+	Node0x1cd7c70 [shape=record,label="{%31:\l31:                                               \l  %32 = add nuw nsw i32 %35, 1\l  %33 = icmp eq i32 %32, 100\l  br i1 %33, label %42, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1cd7c70:s0 -> Node0x1cd7d60;
+	Node0x1cd7c70:s1 -> Node0x1cd7cc0;
+	Node0x1cd7cc0 [shape=record,label="{%34:\l34:                                               \l  %35 = phi i32 [ 0, %18 ], [ %32, %31 ]\l  %36 = call i8* @__randname(i8* nonnull %25) #41\l  call void @llvm.memset.p0i8.i64(i8* nonnull align 8 dereferenceable(144)\l... %30, i8 0, i64 136, i1 false)\l  store i64 0, i64* %27, align 8, !tbaa !1637\l  %37 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64\l... 6, i64 %26, i64 %28) #40, !srcloc !1641\l  %38 = trunc i64 %37 to i32\l  %39 = icmp eq i32 %38, -2\l  br i1 %39, label %40, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1cd7cc0:s0 -> Node0x1cd7d10;
+	Node0x1cd7cc0:s1 -> Node0x1cd7c70;
+	Node0x1cd7d10 [shape=record,label="{%40:\l40:                                               \l  %41 = call i8* @strdup(i8* nonnull %5) #41\l  br label %42\l}"];
+	Node0x1cd7d10 -> Node0x1cd7d60;
+	Node0x1cd7d60 [shape=record,label="{%42:\l42:                                               \l  %43 = phi i8* [ null, %16 ], [ %41, %40 ], [ null, %31 ]\l  call void @llvm.lifetime.end.p0i8(i64 4096, i8* nonnull %5) #40\l  ret i8* %43\l}"];
+}

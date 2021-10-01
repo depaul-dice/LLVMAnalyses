@@ -1,0 +1,5 @@
+digraph "CFG for 'dlsym' function" {
+	label="CFG for 'dlsym' function";
+
+	Node0x1bfdaa0 [shape=record,label="{%2:\l  %3 = tail call i8* @__dlsym(i8* %0, i8* %1, i8* null) #40\l  ret i8* %3\l}"];
+}

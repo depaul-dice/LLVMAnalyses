@@ -1,0 +1,5 @@
+digraph "CFG for 'getnetbyaddr' function" {
+	label="CFG for 'getnetbyaddr' function";
+
+	Node0x1fed660 [shape=record,label="{%2:\l  ret %struct.netent* null\l}"];
+}

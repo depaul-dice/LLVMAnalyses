@@ -1,0 +1,13 @@
+digraph "CFG for 'rpl_mbrtowc' function" {
+	label="CFG for 'rpl_mbrtowc' function";
+
+	Node0x149bde0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%4:\l  %5 = alloca i32, align 4\l  call void @llvm.dbg.value(metadata i32* %0, metadata !1642, metadata\l... !DIExpression()), !dbg !1651\l  call void @llvm.dbg.value(metadata i8* %1, metadata !1643, metadata\l... !DIExpression()), !dbg !1651\l  call void @llvm.dbg.value(metadata i64 %2, metadata !1644, metadata\l... !DIExpression()), !dbg !1651\l  call void @llvm.dbg.value(metadata %struct.__mbstate_t* %3, metadata !1645,\l... metadata !DIExpression()), !dbg !1651\l  %6 = bitcast i32* %5 to i8*, !dbg !1652\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %6) #8, !dbg !1652\l  %7 = icmp eq i32* %0, null, !dbg !1653\l  %8 = select i1 %7, i32* %5, i32* %0, !dbg !1655\l  call void @llvm.dbg.value(metadata i32* %8, metadata !1642, metadata\l... !DIExpression()), !dbg !1651\l  %9 = bitcast %struct.__mbstate_t* %3 to %struct.FTW*, !dbg !1656\l  %10 = call i64 @mbrtowc(i32* %8, i8* %1, i64 %2, %struct.FTW* %9) #8, !dbg\l... !1656\l  call void @llvm.dbg.value(metadata i64 %10, metadata !1646, metadata\l... !DIExpression()), !dbg !1651\l  %11 = icmp ugt i64 %10, -3, !dbg !1657\l  %12 = icmp ne i64 %2, 0, !dbg !1658\l  %13 = and i1 %12, %11, !dbg !1659\l  br i1 %13, label %14, label %19, !dbg !1659\l|{<s0>T|<s1>F}}"];
+	Node0x149bde0:s0 -> Node0x149c060;
+	Node0x149bde0:s1 -> Node0x149c100;
+	Node0x149c060 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ef886b70",label="{%14:\l14:                                               \l  %15 = call fastcc zeroext i1 @hard_locale(i32 0) #8, !dbg !1660\l  br i1 %15, label %19, label %16, !dbg !1661\l|{<s0>T|<s1>F}}"];
+	Node0x149c060:s0 -> Node0x149c100;
+	Node0x149c060:s1 -> Node0x149c0b0;
+	Node0x149c0b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%16:\l16:                                               \l  %17 = load i8, i8* %1, align 1, !dbg !1662, !tbaa !1663\l  call void @llvm.dbg.value(metadata i8 %17, metadata !1648, metadata\l... !DIExpression()), !dbg !1666\l  %18 = zext i8 %17 to i32, !dbg !1667\l  store i32 %18, i32* %8, align 4, !dbg !1668, !tbaa !1669\l  br label %19\l}"];
+	Node0x149c0b0 -> Node0x149c100;
+	Node0x149c100 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%19:\l19:                                               \l  %20 = phi i64 [ 1, %16 ], [ %10, %14 ], [ %10, %4 ], !dbg !1651\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %6) #8, !dbg !1671\l  ret i64 %20, !dbg !1671\l}"];
+}

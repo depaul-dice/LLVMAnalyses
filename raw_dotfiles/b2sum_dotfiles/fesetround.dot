@@ -1,0 +1,10 @@
+digraph "CFG for 'fesetround' function" {
+	label="CFG for 'fesetround' function";
+
+	Node0x1fb1820 [shape=record,label="{%1:\l  %2 = lshr i32 %0, 10\l  %3 = shl i32 %0, 22\l  %4 = or i32 %2, %3\l  %5 = icmp ult i32 %4, 4\l  br i1 %5, label %6, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1fb1820:s0 -> Node0x1fb18a0;
+	Node0x1fb1820:s1 -> Node0x1fb18f0;
+	Node0x1fb18a0 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32 @__fesetround(i32 %0) #40\l  br label %8\l}"];
+	Node0x1fb18a0 -> Node0x1fb18f0;
+	Node0x1fb18f0 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i32 [ %7, %6 ], [ -1, %1 ]\l  ret i32 %9\l}"];
+}

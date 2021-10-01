@@ -1,0 +1,5 @@
+digraph "CFG for '__wcscoll_l' function" {
+	label="CFG for '__wcscoll_l' function";
+
+	Node0x1c394c0 [shape=record,label="{%3:\l  %4 = tail call i32 @wcscmp(i32* %0, i32* %1) #40\l  ret i32 %4\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'isupper' function" {
+	label="CFG for 'isupper' function";
+
+	Node0x1929620 [shape=record,label="{%1:\l  %2 = add i32 %0, -65\l  %3 = icmp ult i32 %2, 26\l  %4 = zext i1 %3 to i32\l  ret i32 %4\l}"];
+}

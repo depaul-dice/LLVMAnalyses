@@ -1,0 +1,5 @@
+digraph "CFG for 'dup_safer' function" {
+	label="CFG for 'dup_safer' function";
+
+	Node0x15f6280 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  call void @llvm.dbg.value(metadata i32 %0, metadata !1634, metadata\l... !DIExpression()), !dbg !1635\l  %2 = tail call i32 (i32, i32, ...) @rpl_fcntl(i32 %0, i32 0, i32 3) #8, !dbg\l... !1636\l  ret i32 %2, !dbg !1637\l}"];
+}

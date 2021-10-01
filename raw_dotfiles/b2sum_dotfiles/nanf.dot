@@ -1,0 +1,5 @@
+digraph "CFG for 'nanf' function" {
+	label="CFG for 'nanf' function";
+
+	Node0x1ce0350 [shape=record,label="{%1:\l  ret float 0x7FF8000000000000\l}"];
+}

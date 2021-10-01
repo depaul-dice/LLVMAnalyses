@@ -1,0 +1,5 @@
+digraph "CFG for 'inet_network' function" {
+	label="CFG for 'inet_network' function";
+
+	Node0x1ed70d0 [shape=record,label="{%1:\l  %2 = tail call i32 @inet_addr(i8* %0) #40\l  %3 = tail call i32 @ntohl(i32 %2) #40\l  ret i32 %3\l}"];
+}

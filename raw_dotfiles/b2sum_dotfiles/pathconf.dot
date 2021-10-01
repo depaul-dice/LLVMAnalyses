@@ -1,0 +1,5 @@
+digraph "CFG for 'pathconf' function" {
+	label="CFG for 'pathconf' function";
+
+	Node0x2001b60 [shape=record,label="{%2:\l  %3 = tail call i64 @fpathconf(i32 -1, i32 %1) #40\l  ret i64 %3\l}"];
+}

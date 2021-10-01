@@ -1,0 +1,15 @@
+digraph "CFG for 'setkey' function" {
+	label="CFG for 'setkey' function";
+
+	Node0x165deb0 [shape=record,label="{%1:\l  %2 = alloca [8 x i8], align 1\l  %3 = getelementptr inbounds [8 x i8], [8 x i8]* %2, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %3) #40\l  br label %4\l}"];
+	Node0x165deb0 -> Node0x165df60;
+	Node0x165df60 [shape=record,label="{%4:\l4:                                                \l  %5 = phi i64 [ 0, %1 ], [ %22, %21 ]\l  %6 = phi i8* [ %0, %1 ], [ %19, %21 ]\l  %7 = getelementptr inbounds [8 x i8], [8 x i8]* %2, i64 0, i64 %5\l  store i8 0, i8* %7, align 1, !tbaa !1632\l  br label %8\l}"];
+	Node0x165df60 -> Node0x165dfb0;
+	Node0x165dfb0 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i8 [ 0, %4 ], [ %17, %8 ]\l  %10 = phi i32 [ 7, %4 ], [ %18, %8 ]\l  %11 = phi i8* [ %6, %4 ], [ %19, %8 ]\l  %12 = load i8, i8* %11, align 1, !tbaa !1632\l  %13 = and i8 %12, 1\l  %14 = zext i8 %13 to i32\l  %15 = shl nuw i32 %14, %10\l  %16 = trunc i32 %15 to i8\l  %17 = or i8 %9, %16\l  store i8 %17, i8* %7, align 1, !tbaa !1632\l  %18 = add nsw i32 %10, -1\l  %19 = getelementptr inbounds i8, i8* %11, i64 1\l  %20 = icmp eq i32 %10, 0\l  br i1 %20, label %21, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x165dfb0:s0 -> Node0x165e000;
+	Node0x165dfb0:s1 -> Node0x165dfb0;
+	Node0x165e000 [shape=record,label="{%21:\l21:                                               \l  %22 = add nuw nsw i64 %5, 1\l  %23 = icmp eq i64 %22, 8\l  br i1 %23, label %24, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x165e000:s0 -> Node0x165e050;
+	Node0x165e000:s1 -> Node0x165df60;
+	Node0x165e050 [shape=record,label="{%24:\l24:                                               \l  call void @__des_setkey(i8* nonnull %3, %struct.expanded_key* nonnull\l... @__encrypt_key) #41\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %3) #40\l  ret void\l}"];
+}

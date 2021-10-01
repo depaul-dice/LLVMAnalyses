@@ -1,0 +1,25 @@
+digraph "CFG for 'modf' function" {
+	label="CFG for 'modf' function";
+
+	Node0x1ab73b0 [shape=record,label="{%2:\l  %3 = bitcast double %0 to i64\l  %4 = lshr i64 %3, 52\l  %5 = trunc i64 %4 to i32\l  %6 = and i32 %5, 2047\l  %7 = add nsw i32 %6, -1023\l  %8 = icmp ugt i32 %6, 1074\l  br i1 %8, label %9, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1ab73b0:s0 -> Node0x1ab7400;
+	Node0x1ab73b0:s1 -> Node0x1ab74a0;
+	Node0x1ab7400 [shape=record,label="{%9:\l9:                                                \l  store double %0, double* %1, align 8, !tbaa !1632\l  %10 = icmp ne i32 %7, 1024\l  %11 = and i64 %3, 4503599627370495\l  %12 = icmp eq i64 %11, 0\l  %13 = or i1 %12, %10\l  br i1 %13, label %14, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x1ab7400:s0 -> Node0x1ab7450;
+	Node0x1ab7400:s1 -> Node0x1ab7630;
+	Node0x1ab7450 [shape=record,label="{%14:\l14:                                               \l  %15 = and i64 %3, -9223372036854775808\l  %16 = bitcast i64 %15 to double\l  br label %36\l}"];
+	Node0x1ab7450 -> Node0x1ab7630;
+	Node0x1ab74a0 [shape=record,label="{%17:\l17:                                               \l  %18 = icmp ult i32 %6, 1023\l  br i1 %18, label %19, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1ab74a0:s0 -> Node0x1ab74f0;
+	Node0x1ab74a0:s1 -> Node0x1ab7540;
+	Node0x1ab74f0 [shape=record,label="{%19:\l19:                                               \l  %20 = and i64 %3, -9223372036854775808\l  %21 = bitcast double* %1 to i64*\l  store i64 %20, i64* %21, align 8, !tbaa !1632\l  br label %36\l}"];
+	Node0x1ab74f0 -> Node0x1ab7630;
+	Node0x1ab7540 [shape=record,label="{%22:\l22:                                               \l  %23 = zext i32 %7 to i64\l  %24 = lshr i64 4503599627370495, %23\l  %25 = and i64 %24, %3\l  %26 = icmp eq i64 %25, 0\l  br i1 %26, label %27, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1ab7540:s0 -> Node0x1ab7590;
+	Node0x1ab7540:s1 -> Node0x1ab75e0;
+	Node0x1ab7590 [shape=record,label="{%27:\l27:                                               \l  store double %0, double* %1, align 8, !tbaa !1632\l  %28 = and i64 %3, -9223372036854775808\l  %29 = bitcast i64 %28 to double\l  br label %36\l}"];
+	Node0x1ab7590 -> Node0x1ab7630;
+	Node0x1ab75e0 [shape=record,label="{%30:\l30:                                               \l  %31 = ashr i64 -4503599627370496, %23\l  %32 = and i64 %31, %3\l  %33 = bitcast i64 %32 to double\l  %34 = bitcast double* %1 to i64*\l  store i64 %32, i64* %34, align 8, !tbaa !1632\l  %35 = tail call double @llvm.experimental.constrained.fsub.f64(double %0,\l... double %33, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %36\l}"];
+	Node0x1ab75e0 -> Node0x1ab7630;
+	Node0x1ab7630 [shape=record,label="{%36:\l36:                                               \l  %37 = phi double [ %16, %14 ], [ %0, %19 ], [ %29, %27 ], [ %35, %30 ], [\l... %0, %9 ]\l  ret double %37\l}"];
+}

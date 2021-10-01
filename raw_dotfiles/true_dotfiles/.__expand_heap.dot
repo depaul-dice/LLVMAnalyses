@@ -1,0 +1,36 @@
+digraph "CFG for '__expand_heap' function" {
+	label="CFG for '__expand_heap' function";
+
+	Node0x24995b0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = alloca i64, align 8\l  %3 = load i64, i64* %0, align 8, !tbaa !1086\l  %4 = icmp ugt i64 %3, 9223372036854771711\l  br i1 %4, label %5, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x24995b0:s0 -> Node0x242a240;
+	Node0x24995b0:s1 -> Node0x242b730;
+	Node0x242a240 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#de614d70",label="{%5:\l5:                                                \l  %6 = tail call fastcc i32* @__errno_location() #26\l  store i32 12, i32* %6, align 4, !tbaa !1090\l  br label %62\l}"];
+	Node0x242a240 -> Node0x242ba50;
+	Node0x242b730 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#de614d70",label="{%7:\l7:                                                \l  %8 = sub nsw i64 0, %3\l  %9 = and i64 %8, 4095\l  %10 = add nuw nsw i64 %9, %3\l  %11 = load i64, i64* @__expand_heap.brk, align 8, !tbaa !1086\l  %12 = icmp eq i64 %11, 0\l  br i1 %12, label %13, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x242b730:s0 -> Node0x242b780;
+	Node0x242b730:s1 -> Node0x242b7d0;
+	Node0x242b780 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7af9170",label="{%13:\l13:                                               \l  %14 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 12,\l... i64 0) #27, !srcloc !1092\l  %15 = sub i64 0, %14\l  %16 = and i64 %15, 4095\l  %17 = add i64 %16, %14\l  store i64 %17, i64* @__expand_heap.brk, align 8, !tbaa !1086\l  br label %18\l}"];
+	Node0x242b780 -> Node0x242b7d0;
+	Node0x242b7d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#de614d70",label="{%18:\l18:                                               \l  %19 = phi i64 [ %11, %7 ], [ %17, %13 ]\l  %20 = xor i64 %19, -1\l  %21 = icmp ult i64 %10, %20\l  br i1 %21, label %22, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x242b7d0:s0 -> Node0x242b820;
+	Node0x242b7d0:s1 -> Node0x242b9b0;
+	Node0x242b820 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%22:\l22:                                               \l  %23 = add i64 %19, %10\l  %24 = bitcast i64* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %24) #27\l  %25 = getelementptr inbounds %struct.__libc, %struct.__libc* @__libc, i64 0,\l... i32 4\l  %26 = bitcast i64** %25 to i64*\l  %27 = load i64, i64* %26, align 8, !tbaa !1093\l  store i64 %27, i64* %2, align 8, !tbaa !1086\l  %28 = tail call i64 @llvm.usub.sat.i64(i64 %27, i64 8388608) #6\l  %29 = icmp ult i64 %28, %23\l  %30 = icmp ugt i64 %27, %19\l  %31 = and i1 %30, %29\l  br i1 %31, label %32, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x242b820:s0 -> Node0x242b870;
+	Node0x242b820:s1 -> Node0x242b8c0;
+	Node0x242b870 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4c5ad70",label="{%32:\l32:                                               \l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %24) #27\l  br label %49\l}"];
+	Node0x242b870 -> Node0x242b9b0;
+	Node0x242b8c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4c5ad70",label="{%33:\l33:                                               \l  %34 = ptrtoint i64* %2 to i64\l  %35 = inttoptr i64 8388608 to i64*\l  %36 = icmp ugt i64* %2, %35\l  %37 = add i64 %34, -8388608\l  %38 = select i1 %36, i64 %37, i64 0\l  %39 = icmp uge i64 %38, %23\l  %40 = icmp uge i64 %19, %34\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %24) #27\l  %41 = or i1 %40, %39\l  br i1 %41, label %42, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x242b8c0:s0 -> Node0x242b910;
+	Node0x242b8c0:s1 -> Node0x242b9b0;
+	Node0x242b910 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dedcdb70",label="{%42:\l42:                                               \l  %43 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 12,\l... i64 %23) #27, !srcloc !1092\l  %44 = load i64, i64* @__expand_heap.brk, align 8, !tbaa !1086\l  %45 = add i64 %44, %10\l  %46 = icmp eq i64 %43, %45\l  br i1 %46, label %47, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x242b910:s0 -> Node0x242b960;
+	Node0x242b910:s1 -> Node0x242b9b0;
+	Node0x242b960 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%47:\l47:                                               \l  store i64 %10, i64* %0, align 8, !tbaa !1086\l  store i64 %43, i64* @__expand_heap.brk, align 8, !tbaa !1086\l  %48 = inttoptr i64 %44 to i8*\l  br label %62\l}"];
+	Node0x242b960 -> Node0x242ba50;
+	Node0x242b9b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e36c5570",label="{%49:\l49:                                               \l  %50 = load i32, i32* @__expand_heap.mmap_step, align 4, !tbaa !1090\l  %51 = lshr i32 %50, 1\l  %52 = zext i32 %51 to i64\l  %53 = shl i64 4096, %52\l  %54 = icmp ult i64 %10, %53\l  %55 = select i1 %54, i64 %53, i64 %10\l  %56 = call fastcc i8* @__mmap(i8* null, i64 %55, i32 3, i32 34, i32 -1, i64\l... 0) #26\l  %57 = inttoptr i64 -1 to i8*\l  %58 = icmp eq i8* %56, %57\l  br i1 %58, label %62, label %59\l|{<s0>T|<s1>F}}"];
+	Node0x242b9b0:s0 -> Node0x242ba50;
+	Node0x242b9b0:s1 -> Node0x242ba00;
+	Node0x242ba00 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f2907270",label="{%59:\l59:                                               \l  store i64 %55, i64* %0, align 8, !tbaa !1086\l  %60 = load i32, i32* @__expand_heap.mmap_step, align 4, !tbaa !1090\l  %61 = add i32 %60, 1\l  store i32 %61, i32* @__expand_heap.mmap_step, align 4, !tbaa !1090\l  br label %62\l}"];
+	Node0x242ba00 -> Node0x242ba50;
+	Node0x242ba50 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%62:\l62:                                               \l  %63 = phi i8* [ null, %5 ], [ %48, %47 ], [ %56, %59 ], [ null, %49 ]\l  ret i8* %63\l}"];
+}

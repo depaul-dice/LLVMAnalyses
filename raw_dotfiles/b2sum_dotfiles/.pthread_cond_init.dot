@@ -1,0 +1,13 @@
+digraph "CFG for 'pthread_cond_init' function" {
+	label="CFG for 'pthread_cond_init' function";
+
+	Node0x17ac020 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = alloca [6 x i8*], align 8\l  %4 = bitcast [6 x i8*]* %3 to i8*\l  call void @llvm.memset.p0i8.i64(i8* nonnull align 8 dereferenceable(48) %4,\l... i8 0, i64 48, i1 false)\l  %5 = bitcast %struct.pthread_cond_t* %0 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %5, i8* nonnull align 8 %4,\l... i64 48, i1 true), !tbaa.struct !1632\l  %6 = icmp eq %union.anon* %1, null\l  br i1 %6, label %17, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x17ac020:s0 -> Node0x14b0aa0;
+	Node0x17ac020:s1 -> Node0x14b0a00;
+	Node0x14b0a00 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e36c5570",label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %union.anon, %union.anon* %1, i64 0, i32 0\l  %9 = load i32, i32* %8, align 4, !tbaa !1636\l  %10 = and i32 %9, 2147483647\l  %11 = getelementptr inbounds %struct.pthread_cond_t, %struct.pthread_cond_t*\l... %0, i64 0, i32 0, i32 0, i64 2\l  %12 = bitcast i8** %11 to i32*\l  store i32 %10, i32* %12, align 8, !tbaa !1633\l  %13 = icmp slt i32 %9, 0\l  br i1 %13, label %14, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x14b0a00:s0 -> Node0x14b0a50;
+	Node0x14b0a00:s1 -> Node0x14b0aa0;
+	Node0x14b0a50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#efcebd70",label="{%14:\l14:                                               \l  %15 = getelementptr inbounds %struct.pthread_cond_t, %struct.pthread_cond_t*\l... %0, i64 0, i32 0, i32 0, i64 0\l  %16 = inttoptr i64 -1 to i8*\l  store i8* %16, i8** %15, align 8, !tbaa !1633\l  br label %17\l}"];
+	Node0x14b0a50 -> Node0x14b0aa0;
+	Node0x14b0aa0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%17:\l17:                                               \l  ret i32 0\l}"];
+}

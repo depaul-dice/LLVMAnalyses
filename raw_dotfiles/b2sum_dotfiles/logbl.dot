@@ -1,0 +1,17 @@
+digraph "CFG for 'logbl' function" {
+	label="CFG for 'logbl' function";
+
+	Node0x1ccf0e0 [shape=record,label="{%1:\l  %2 = tail call i32 @__fpclassifyl(x86_fp80 %0) #40\l  %3 = icmp sgt i32 %2, 1\l  br i1 %3, label %6, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1ccf0e0:s0 -> Node0x1ccf180;
+	Node0x1ccf0e0:s1 -> Node0x1ccf130;
+	Node0x1ccf130 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80 %0,\l... x86_fp80 %0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  br label %16\l}"];
+	Node0x1ccf130 -> Node0x1ccf270;
+	Node0x1ccf180 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call x86_fp80 @llvm.experimental.constrained.sitofp.f80.i32(i32 0,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %8 = tail call i1 @llvm.experimental.constrained.fcmp.f80(x86_fp80 %0,\l... x86_fp80 %7, metadata !\"oeq\", metadata !\"fpexcept.ignore\") #41\l  br i1 %8, label %9, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1ccf180:s0 -> Node0x1ccf1d0;
+	Node0x1ccf180:s1 -> Node0x1ccf220;
+	Node0x1ccf1d0 [shape=record,label="{%9:\l9:                                                \l  %10 = tail call x86_fp80 @llvm.experimental.constrained.sitofp.f80.i32(i32\l... -1, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %11 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80\l... %0, x86_fp80 %0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %12 = tail call x86_fp80 @llvm.experimental.constrained.fdiv.f80(x86_fp80\l... %10, x86_fp80 %11, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  br label %16\l}"];
+	Node0x1ccf1d0 -> Node0x1ccf270;
+	Node0x1ccf220 [shape=record,label="{%13:\l13:                                               \l  %14 = tail call i32 @ilogbl(x86_fp80 %0) #40\l  %15 = tail call x86_fp80 @llvm.experimental.constrained.sitofp.f80.i32(i32\l... %14, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  br label %16\l}"];
+	Node0x1ccf220 -> Node0x1ccf270;
+	Node0x1ccf270 [shape=record,label="{%16:\l16:                                               \l  %17 = phi x86_fp80 [ %12, %9 ], [ %15, %13 ], [ %5, %4 ]\l  ret x86_fp80 %17\l}"];
+}

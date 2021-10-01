@@ -1,0 +1,5 @@
+digraph "CFG for 'drand48' function" {
+	label="CFG for 'drand48' function";
+
+	Node0x1e6e600 [shape=record,label="{%0:\l  %1 = tail call i64 @__rand48_step(i16* getelementptr inbounds ([7 x i16], [7\l... x i16]* @__seed48, i64 0, i64 0), i16* getelementptr inbounds ([7 x i16], [7\l... x i16]* @__seed48, i64 0, i64 3)) #40\l  %2 = shl i64 %1, 4\l  %3 = or i64 %2, 4607182418800017408\l  %4 = bitcast i64 %3 to double\l  %5 = tail call double @llvm.experimental.constrained.fsub.f64(double %4,\l... double 1.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\")\l... #41\l  ret double %5\l}"];
+}

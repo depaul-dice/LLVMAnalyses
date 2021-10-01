@@ -1,0 +1,10 @@
+digraph "CFG for 'endmntent' function" {
+	label="CFG for 'endmntent' function";
+
+	Node0x1f92ab0 [shape=record,label="{%1:\l  %2 = icmp eq %struct._IO_FILE.0* %0, null\l  br i1 %2, label %5, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1f92ab0:s0 -> Node0x1f92b50;
+	Node0x1f92ab0:s1 -> Node0x1f92b00;
+	Node0x1f92b00 [shape=record,label="{%3:\l3:                                                \l  %4 = tail call i32 @fclose(%struct._IO_FILE.0* nonnull %0) #40\l  br label %5\l}"];
+	Node0x1f92b00 -> Node0x1f92b50;
+	Node0x1f92b50 [shape=record,label="{%5:\l5:                                                \l  ret i32 1\l}"];
+}

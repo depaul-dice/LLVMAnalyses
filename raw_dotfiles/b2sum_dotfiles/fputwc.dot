@@ -1,0 +1,15 @@
+digraph "CFG for 'fputwc' function" {
+	label="CFG for 'fputwc' function";
+
+	Node0x15978d0 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 19\l  %4 = load volatile i32, i32* %3, align 4, !tbaa !1632\l  %5 = icmp sgt i32 %4, -1\l  br i1 %5, label %8, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x15978d0:s0 -> Node0x1598110;
+	Node0x15978d0:s1 -> Node0x1597920;
+	Node0x1597920 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32 @__fputwc_unlocked(i32 %0, %struct._IO_FILE.0* nonnull\l... %1) #40\l  br label %13\l}"];
+	Node0x1597920 -> Node0x15981b0;
+	Node0x1598110 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call i32 bitcast (i32 (%struct._IO_FILE.233*)* @__lockfile to i32\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* nonnull %1) #41\l  %10 = icmp eq i32 %9, 0\l  %11 = tail call i32 @__fputwc_unlocked(i32 %0, %struct._IO_FILE.0* nonnull\l... %1) #40\l  br i1 %10, label %13, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1598110:s0 -> Node0x15981b0;
+	Node0x1598110:s1 -> Node0x1598160;
+	Node0x1598160 [shape=record,label="{%12:\l12:                                               \l  tail call void bitcast (void (%struct._IO_FILE.233*)* @__unlockfile to void\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* nonnull %1) #41\l  br label %13\l}"];
+	Node0x1598160 -> Node0x15981b0;
+	Node0x15981b0 [shape=record,label="{%13:\l13:                                               \l  %14 = phi i32 [ %7, %6 ], [ %11, %12 ], [ %11, %8 ]\l  ret i32 %14\l}"];
+}

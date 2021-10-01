@@ -1,0 +1,15 @@
+digraph "CFG for 'posix_spawn_file_actions_addclose' function" {
+	label="CFG for 'posix_spawn_file_actions_addclose' function";
+
+	Node0x1ea9890 [shape=record,label="{%2:\l  %3 = tail call i8* @malloc(i64 40) #40\l  %4 = icmp eq i8* %3, null\l  br i1 %4, label %21, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1ea9890:s0 -> Node0x1ea9a30;
+	Node0x1ea9890:s1 -> Node0x1ea9940;
+	Node0x1ea9940 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds i8, i8* %3, i64 16\l  %7 = bitcast i8* %6 to i32*\l  store i32 1, i32* %7, align 8, !tbaa !1632\l  %8 = getelementptr inbounds i8, i8* %3, i64 20\l  %9 = bitcast i8* %8 to i32*\l  store i32 %1, i32* %9, align 4, !tbaa !1632\l  %10 = getelementptr inbounds %struct.posix_spawn_file_actions_t,\l... %struct.posix_spawn_file_actions_t* %0, i64 0, i32 1\l  %11 = bitcast i8** %10 to %struct.fdop**\l  %12 = load %struct.fdop*, %struct.fdop** %11, align 8, !tbaa !1636\l  %13 = bitcast i8* %3 to %struct.fdop**\l  store %struct.fdop* %12, %struct.fdop** %13, align 8, !tbaa !1639\l  %14 = icmp eq %struct.fdop* %12, null\l  br i1 %14, label %18, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1ea9940:s0 -> Node0x1ea99e0;
+	Node0x1ea9940:s1 -> Node0x1ea9990;
+	Node0x1ea9990 [shape=record,label="{%15:\l15:                                               \l  %16 = getelementptr inbounds %struct.fdop, %struct.fdop* %12, i64 0, i32 1\l  %17 = bitcast %struct.fdop** %16 to i8**\l  store i8* %3, i8** %17, align 8, !tbaa !1639\l  br label %18\l}"];
+	Node0x1ea9990 -> Node0x1ea99e0;
+	Node0x1ea99e0 [shape=record,label="{%18:\l18:                                               \l  %19 = getelementptr inbounds i8, i8* %3, i64 8\l  %20 = bitcast i8* %19 to %struct.fdop**\l  store %struct.fdop* null, %struct.fdop** %20, align 8, !tbaa !1639\l  store i8* %3, i8** %10, align 8, !tbaa !1636\l  br label %21\l}"];
+	Node0x1ea99e0 -> Node0x1ea9a30;
+	Node0x1ea9a30 [shape=record,label="{%21:\l21:                                               \l  %22 = phi i32 [ 0, %18 ], [ 12, %2 ]\l  ret i32 %22\l}"];
+}

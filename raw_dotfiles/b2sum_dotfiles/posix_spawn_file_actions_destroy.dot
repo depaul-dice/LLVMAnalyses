@@ -1,0 +1,11 @@
+digraph "CFG for 'posix_spawn_file_actions_destroy' function" {
+	label="CFG for 'posix_spawn_file_actions_destroy' function";
+
+	Node0x1f6cbc0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.posix_spawn_file_actions_t,\l... %struct.posix_spawn_file_actions_t* %0, i64 0, i32 1\l  %3 = bitcast i8** %2 to %struct.fdop**\l  %4 = load %struct.fdop*, %struct.fdop** %3, align 8, !tbaa !1632\l  %5 = icmp eq %struct.fdop* %4, null\l  br i1 %5, label %12, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1f6cbc0:s0 -> Node0x1f6ce30;
+	Node0x1f6cbc0:s1 -> Node0x1f6cde0;
+	Node0x1f6cde0 [shape=record,label="{%6:\l6:                                                \l  %7 = phi %struct.fdop* [ %9, %6 ], [ %4, %1 ]\l  %8 = getelementptr inbounds %struct.fdop, %struct.fdop* %7, i64 0, i32 0\l  %9 = load %struct.fdop*, %struct.fdop** %8, align 8, !tbaa !1637\l  %10 = bitcast %struct.fdop* %7 to i8*\l  tail call void @free(i8* nonnull %10) #40\l  %11 = icmp eq %struct.fdop* %9, null\l  br i1 %11, label %12, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1f6cde0:s0 -> Node0x1f6ce30;
+	Node0x1f6cde0:s1 -> Node0x1f6cde0;
+	Node0x1f6ce30 [shape=record,label="{%12:\l12:                                               \l  ret i32 0\l}"];
+}

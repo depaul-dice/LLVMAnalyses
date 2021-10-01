@@ -1,0 +1,13 @@
+digraph "CFG for 'hard_locale' function" {
+	label="CFG for 'hard_locale' function";
+
+	Node0x16e32f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = alloca [257 x i8], align 16\l  call void @llvm.dbg.value(metadata i32 %0, metadata !1634, metadata\l... !DIExpression()), !dbg !1639\l  %3 = getelementptr inbounds [257 x i8], [257 x i8]* %2, i64 0, i64 0, !dbg\l... !1640\l  call void @llvm.lifetime.start.p0i8(i64 257, i8* nonnull %3) #8, !dbg !1640\l  call void @llvm.dbg.declare(metadata [257 x i8]* %2, metadata !1635,\l... metadata !DIExpression()), !dbg !1641\l  %4 = call fastcc i32 @setlocale_null_r(i32 %0, i8* nonnull %3, i64 257) #8,\l... !dbg !1642\l  %5 = icmp eq i32 %4, 0, !dbg !1642\l  br i1 %5, label %6, label %14, !dbg !1644\l|{<s0>T|<s1>F}}"];
+	Node0x16e32f0:s0 -> Node0x16e3370;
+	Node0x16e32f0:s1 -> Node0x16e3410;
+	Node0x16e3370 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f5a08170",label="{%6:\l6:                                                \l  %7 = bitcast [257 x i8]* %2 to i16*, !dbg !1645\l  %8 = load i16, i16* %7, align 16, !dbg !1645\l  %9 = icmp eq i16 %8, 67, !dbg !1645\l  br i1 %9, label %14, label %10, !dbg !1646\l|{<s0>T|<s1>F}}"];
+	Node0x16e3370:s0 -> Node0x16e3410;
+	Node0x16e3370:s1 -> Node0x16e33c0;
+	Node0x16e33c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%10:\l10:                                               \l  %11 = getelementptr inbounds [6 x i8], [6 x i8]* @.str.1.206, i64 0, i64 0\l  %12 = call fastcc i32 @bcmp(i8* nonnull dereferenceable(6) %3, i8* nonnull\l... dereferenceable(6) %11, i64 6), !dbg !1647\l  %13 = icmp ne i32 %12, 0, !dbg !1648\l  br label %14, !dbg !1646\l}"];
+	Node0x16e33c0 -> Node0x16e3410;
+	Node0x16e3410 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%14:\l14:                                               \l  %15 = phi i1 [ false, %1 ], [ false, %6 ], [ %13, %10 ], !dbg !1639\l  call void @llvm.lifetime.end.p0i8(i64 257, i8* nonnull %3) #8, !dbg !1649\l  ret i1 %15, !dbg !1649\l}"];
+}

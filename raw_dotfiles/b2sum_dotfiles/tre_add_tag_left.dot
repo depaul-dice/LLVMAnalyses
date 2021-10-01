@@ -1,0 +1,16 @@
+digraph "CFG for 'tre_add_tag_left' function" {
+	label="CFG for 'tre_add_tag_left' function";
+
+	Node0x196d950 [shape=record,label="{%3:\l  %4 = tail call i8* @__tre_mem_alloc_impl(%struct.tre_mem_struct* %0, i32 0,\l... i8* null, i32 0, i64 16) #40\l  %5 = icmp eq i8* %4, null\l  br i1 %5, label %34, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x196d950:s0 -> Node0x196db10;
+	Node0x196d950:s1 -> Node0x196da20;
+	Node0x196da20 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call fastcc %struct.tre_ast_node_t*\l... @tre_ast_new_literal(%struct.tre_mem_struct* %0, i32 -3, i32 %2, i32 -1) #41\l  %8 = bitcast i8* %4 to %struct.tre_ast_node_t**\l  store %struct.tre_ast_node_t* %7, %struct.tre_ast_node_t** %8, align 8,\l... !tbaa !1632\l  %9 = icmp eq %struct.tre_ast_node_t* %7, null\l  br i1 %9, label %34, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x196da20:s0 -> Node0x196db10;
+	Node0x196da20:s1 -> Node0x196da70;
+	Node0x196da70 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call i8* @__tre_mem_alloc_impl(%struct.tre_mem_struct* %0, i32 0,\l... i8* null, i32 0, i64 48) #40\l  %12 = getelementptr inbounds i8, i8* %4, i64 8\l  %13 = bitcast i8* %12 to i8**\l  store i8* %11, i8** %13, align 8, !tbaa !1637\l  %14 = icmp eq i8* %11, null\l  br i1 %14, label %34, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x196da70:s0 -> Node0x196db10;
+	Node0x196da70:s1 -> Node0x196dac0;
+	Node0x196dac0 [shape=record,label="{%15:\l15:                                               \l  %16 = getelementptr inbounds %struct.tre_ast_node_t, %struct.tre_ast_node_t*\l... %1, i64 0, i32 1\l  %17 = bitcast i8** %16 to i64*\l  %18 = load i64, i64* %17, align 8, !tbaa !1638\l  %19 = getelementptr inbounds i8, i8* %11, i64 8\l  %20 = bitcast i8* %19 to i64*\l  store i64 %18, i64* %20, align 8, !tbaa !1638\l  %21 = getelementptr inbounds %struct.tre_ast_node_t, %struct.tre_ast_node_t*\l... %1, i64 0, i32 0\l  %22 = load i32, i32* %21, align 8, !tbaa !1641\l  %23 = bitcast i8* %11 to i32*\l  store i32 %22, i32* %23, align 8, !tbaa !1641\l  %24 = getelementptr inbounds i8, i8* %11, i64 16\l  %25 = bitcast i8* %24 to i32*\l  store i32 -1, i32* %25, align 8, !tbaa !1642\l  %26 = getelementptr inbounds i8, i8* %11, i64 20\l  %27 = bitcast i8* %26 to i32*\l  store i32 -1, i32* %27, align 4, !tbaa !1643\l  %28 = getelementptr inbounds i8, i8* %11, i64 32\l  %29 = bitcast i8* %28 to \<2 x %struct.tre_pos_and_tags_t*\>*\l  store \<2 x %struct.tre_pos_and_tags_t*\> zeroinitializer, \<2 x\l... %struct.tre_pos_and_tags_t*\>* %29, align 8, !tbaa !1644\l  %30 = getelementptr inbounds i8, i8* %11, i64 28\l  %31 = bitcast i8* %30 to i32*\l  store i32 0, i32* %31, align 4, !tbaa !1645\l  %32 = getelementptr inbounds i8, i8* %11, i64 24\l  %33 = bitcast i8* %32 to i32*\l  store i32 0, i32* %33, align 8, !tbaa !1646\l  store i8* %4, i8** %16, align 8, !tbaa !1638\l  store i32 1, i32* %21, align 8, !tbaa !1641\l  br label %34\l}"];
+	Node0x196dac0 -> Node0x196db10;
+	Node0x196db10 [shape=record,label="{%34:\l34:                                               \l  %35 = phi i32 [ 0, %15 ], [ 12, %3 ], [ 12, %6 ], [ 12, %10 ]\l  ret i32 %35\l}"];
+}

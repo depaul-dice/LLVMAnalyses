@@ -1,0 +1,23 @@
+digraph "CFG for 'sem_post' function" {
+	label="CFG for 'sem_post' function";
+
+	Node0x16884e0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.sem_t, %struct.sem_t* %0, i64 0, i32 0,\l... i64 2\l  %3 = load volatile i32, i32* %2, align 4, !tbaa !1632\l  %4 = getelementptr inbounds %struct.sem_t, %struct.sem_t* %0, i64 0, i32 0,\l... i64 0\l  %5 = getelementptr inbounds %struct.sem_t, %struct.sem_t* %0, i64 0, i32 0,\l... i64 1\l  br label %6\l}"];
+	Node0x16884e0 -> Node0x1688530;
+	Node0x1688530 [shape=record,label="{%6:\l6:                                                \l  %7 = load volatile i32, i32* %4, align 4, !tbaa !1632\l  %8 = load volatile i32, i32* %5, align 4, !tbaa !1632\l  %9 = icmp eq i32 %7, 2147483647\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1688530:s0 -> Node0x1688580;
+	Node0x1688530:s1 -> Node0x16885d0;
+	Node0x1688580 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call i32* @___errno_location() #40\l  store i32 75, i32* %11, align 4, !tbaa !1632\l  br label %30\l}"];
+	Node0x1688580 -> Node0x1688710;
+	Node0x16885d0 [shape=record,label="{%12:\l12:                                               \l  %13 = add nsw i32 %7, 1\l  %14 = lshr i32 %7, 31\l  %15 = add nsw i32 %13, %14\l  %16 = tail call i32 asm sideeffect \"lock \l  %17 = icmp eq i32 %16, %7\l  br i1 %17, label %18, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x16885d0:s0 -> Node0x1688620;
+	Node0x16885d0:s1 -> Node0x1688530;
+	Node0x1688620 [shape=record,label="{%18:\l18:                                               \l  %19 = icmp slt i32 %7, 0\l  %20 = icmp ne i32 %8, 0\l  %21 = or i1 %19, %20\l  br i1 %21, label %22, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1688620:s0 -> Node0x1688670;
+	Node0x1688620:s1 -> Node0x1688710;
+	Node0x1688670 [shape=record,label="{%22:\l22:                                               \l  %23 = icmp eq i32 %3, 0\l  %24 = ptrtoint %struct.sem_t* %0 to i64\l  %25 = select i1 %23, i64 1, i64 129\l  %26 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %24, i64 %25, i64 1) #41, !srcloc !1637\l  %27 = icmp eq i64 %26, -38\l  br i1 %27, label %28, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1688670:s0 -> Node0x16886c0;
+	Node0x1688670:s1 -> Node0x1688710;
+	Node0x16886c0 [shape=record,label="{%28:\l28:                                               \l  %29 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %24, i64 1, i64 1) #41, !srcloc !1637\l  br label %30\l}"];
+	Node0x16886c0 -> Node0x1688710;
+	Node0x1688710 [shape=record,label="{%30:\l30:                                               \l  %31 = phi i32 [ -1, %10 ], [ 0, %18 ], [ 0, %22 ], [ 0, %28 ]\l  ret i32 %31\l}"];
+}

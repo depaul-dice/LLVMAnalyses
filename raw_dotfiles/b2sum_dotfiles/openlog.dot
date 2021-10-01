@@ -1,0 +1,17 @@
+digraph "CFG for 'openlog' function" {
+	label="CFG for 'openlog' function";
+
+	Node0x1bb2ba0 [shape=record,label="{%3:\l  %4 = alloca i32, align 4\l  %5 = bitcast i32* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %5) #40\l  %6 = call i32 @pthread_setcancelstate(i32 1, i32* nonnull %4) #41\l  call void @__lock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.185, i64 0, i64 0)) #41\l  %7 = icmp eq i8* %0, null\l  br i1 %7, label %12, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1bb2ba0:s0 -> Node0x1bb3300;
+	Node0x1bb2ba0:s1 -> Node0x1bb32b0;
+	Node0x1bb32b0 [shape=record,label="{%8:\l8:                                                \l  %9 = call i64 @strnlen(i8* nonnull %0, i64 31) #41\l  %10 = call i8* @memcpy(i8* getelementptr inbounds ([32 x i8], [32 x i8]*\l... @log_ident, i64 0, i64 0), i8* nonnull %0, i64 %9) #41\l  %11 = getelementptr inbounds [32 x i8], [32 x i8]* @log_ident, i64 0, i64 %9\l  store i8 0, i8* %11, align 1, !tbaa !1632\l  br label %13\l}"];
+	Node0x1bb32b0 -> Node0x1bb3350;
+	Node0x1bb3300 [shape=record,label="{%12:\l12:                                               \l  store i8 0, i8* getelementptr inbounds ([32 x i8], [32 x i8]* @log_ident,\l... i64 0, i64 0), align 16, !tbaa !1632\l  br label %13\l}"];
+	Node0x1bb3300 -> Node0x1bb3350;
+	Node0x1bb3350 [shape=record,label="{%13:\l13:                                               \l  store i32 %1, i32* @log_opt, align 4, !tbaa !1635\l  store i32 %2, i32* @log_facility, align 4, !tbaa !1635\l  %14 = and i32 %1, 8\l  %15 = icmp ne i32 %14, 0\l  %16 = load i32, i32* @log_fd, align 4\l  %17 = icmp slt i32 %16, 0\l  %18 = and i1 %15, %17\l  br i1 %18, label %19, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1bb3350:s0 -> Node0x1bb33a0;
+	Node0x1bb3350:s1 -> Node0x1bb33f0;
+	Node0x1bb33a0 [shape=record,label="{%19:\l19:                                               \l  call fastcc void @__openlog() #42\l  br label %20\l}"];
+	Node0x1bb33a0 -> Node0x1bb33f0;
+	Node0x1bb33f0 [shape=record,label="{%20:\l20:                                               \l  call void @__unlock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.185, i64 0, i64 0)) #41\l  %21 = load i32, i32* %4, align 4, !tbaa !1635\l  %22 = call i32 @pthread_setcancelstate(i32 %21, i32* null) #41\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %5) #40\l  ret void\l}"];
+}

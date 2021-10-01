@@ -1,0 +1,10 @@
+digraph "CFG for '__pthread_detach' function" {
+	label="CFG for '__pthread_detach' function";
+
+	Node0x2022220 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64 0,\l... i32 9\l  %3 = tail call i32 asm sideeffect \"lock \l  %4 = icmp eq i32 %3, 1\l  br i1 %4, label %7, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x2022220:s0 -> Node0x20225d0;
+	Node0x2022220:s1 -> Node0x2022580;
+	Node0x2022580 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i32 @__pthread_join(%struct.__pthread* %0, i8** null) #41\l  br label %7\l}"];
+	Node0x2022580 -> Node0x20225d0;
+	Node0x20225d0 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32 [ %6, %5 ], [ 0, %1 ]\l  ret i32 %8\l}"];
+}

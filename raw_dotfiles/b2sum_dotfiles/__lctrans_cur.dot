@@ -1,0 +1,5 @@
+digraph "CFG for '__lctrans_cur' function" {
+	label="CFG for '__lctrans_cur' function";
+
+	Node0x166fd40 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #29, !srcloc !1632\l  %3 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %2, i64 0,\l... i32 24\l  %4 = load %struct.__locale_struct*, %struct.__locale_struct** %3, align 8,\l... !tbaa !1633\l  %5 = getelementptr inbounds %struct.__locale_struct,\l... %struct.__locale_struct* %4, i64 0, i32 0, i64 5\l  %6 = load %struct.__locale_map*, %struct.__locale_map** %5, align 8, !tbaa\l... !1641\l  %7 = tail call fastcc i8* @__lctrans_impl(i8* %0, %struct.__locale_map* %6)\l... #30\l  ret i8* %7\l}"];
+}

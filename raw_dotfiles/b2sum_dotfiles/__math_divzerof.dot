@@ -1,0 +1,5 @@
+digraph "CFG for '__math_divzerof' function" {
+	label="CFG for '__math_divzerof' function";
+
+	Node0x115fef0 [shape=record,label="{%1:\l  %2 = alloca float, align 4\l  %3 = icmp eq i32 %0, 0\l  %4 = select i1 %3, float 1.000000e+00, float -1.000000e+00\l  %5 = bitcast float* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %5)\l  store volatile float %4, float* %2, align 4, !tbaa !1632\l  %6 = load volatile float, float* %2, align 4, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %5)\l  %7 = tail call float @llvm.experimental.constrained.fdiv.f32(float %6, float\l... 0.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  ret float %7\l}"];
+}

@@ -1,0 +1,16 @@
+digraph "CFG for '__pthread_rwlock_tryrdlock' function" {
+	label="CFG for '__pthread_rwlock_tryrdlock' function";
+
+	Node0x14c4360 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%1:\l  %2 = bitcast %struct.pthread_rwlock_t* %0 to i32*\l  br label %NodeBlock\l}"];
+	Node0x14c4360 -> Node0x14c43e0;
+	Node0x14c43e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{NodeBlock:                                        \l  %3 = load volatile i32, i32* %2, align 8, !tbaa !1632\l  %4 = and i32 %3, 2147483647\l  %Pivot = icmp slt i32 %4, 2147483647\l  br i1 %Pivot, label %LeafBlock, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x14c43e0:s0 -> Node0x14c4430;
+	Node0x14c43e0:s1 -> Node0x14c44d0;
+	Node0x14c4430 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{LeafBlock:                                        \l  %SwitchLeaf = icmp eq i32 %4, 2147483646\l  br i1 %SwitchLeaf, label %8, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x14c4430:s0 -> Node0x14c44d0;
+	Node0x14c4430:s1 -> Node0x14c4480;
+	Node0x14c4480 [shape=record,color="#b70d28ff", style=filled, fillcolor="#be242e70",label="{NewDefault:                                       \l  %5 = add nsw i32 %3, 1\l  %6 = tail call i32 asm sideeffect \"lock \l  %7 = icmp eq i32 %6, %3\l  br i1 %7, label %8, label %NodeBlock\l|{<s0>T|<s1>F}}"];
+	Node0x14c4480:s0 -> Node0x14c44d0;
+	Node0x14c4480:s1 -> Node0x14c43e0;
+	Node0x14c44d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%8:\l8:                                                \l  %9 = phi i32 [ 11, %LeafBlock ], [ 0, %NewDefault ], [ 16, %NodeBlock ]\l  ret i32 %9\l}"];
+}

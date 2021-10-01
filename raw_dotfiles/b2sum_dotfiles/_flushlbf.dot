@@ -1,0 +1,5 @@
+digraph "CFG for '_flushlbf' function" {
+	label="CFG for '_flushlbf' function";
+
+	Node0x1c59680 [shape=record,label="{%0:\l  %1 = tail call i32 bitcast (i32 (%struct._IO_FILE.0*)* @fflush to i32\l... (%struct._IO_FILE.1002*)*)(%struct._IO_FILE.1002* null) #40\l  ret void\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'wcstof' function" {
+	label="CFG for 'wcstof' function";
+
+	Node0x1beb740 [shape=record,label="{%2:\l  %3 = tail call fastcc x86_fp80 @wcstox.214(i32* %0, i32** %1, i32 0) #40\l  %4 = tail call float @llvm.experimental.constrained.fptrunc.f32.f80(x86_fp80\l... %3, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  ret float %4\l}"];
+}

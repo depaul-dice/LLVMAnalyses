@@ -1,0 +1,29 @@
+digraph "CFG for 'tan' function" {
+	label="CFG for 'tan' function";
+
+	Node0x19d5190 [shape=record,label="{%1:\l  %2 = alloca double, align 8\l  %3 = alloca [2 x double], align 16\l  %4 = bitcast [2 x double]* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %4) #40\l  %5 = bitcast double %0 to i64\l  %6 = lshr i64 %5, 32\l  %7 = trunc i64 %6 to i32\l  %8 = and i32 %7, 2147483647\l  %9 = icmp ult i32 %8, 1072243196\l  br i1 %9, label %10, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x19d5190:s0 -> Node0x19d51e0;
+	Node0x19d5190:s1 -> Node0x19d53c0;
+	Node0x19d51e0 [shape=record,label="{%10:\l10:                                               \l  %11 = icmp ult i32 %8, 1044381696\l  br i1 %11, label %12, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x19d51e0:s0 -> Node0x19d5230;
+	Node0x19d51e0:s1 -> Node0x19d5370;
+	Node0x19d5230 [shape=record,label="{%12:\l12:                                               \l  %13 = icmp ult i32 %8, 1048576\l  %14 = tail call double @llvm.experimental.constrained.fpext.f64.f32(float\l... 0x4770000000000000, metadata !\"fpexcept.ignore\") #41\l  br i1 %13, label %15, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x19d5230:s0 -> Node0x19d5280;
+	Node0x19d5230:s1 -> Node0x19d52d0;
+	Node0x19d5280 [shape=record,label="{%15:\l15:                                               \l  %16 = tail call double @llvm.experimental.constrained.fdiv.f64(double %0,\l... double %14, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  br label %19\l}"];
+	Node0x19d5280 -> Node0x19d5320;
+	Node0x19d52d0 [shape=record,label="{%17:\l17:                                               \l  %18 = tail call double @llvm.experimental.constrained.fadd.f64(double %0,\l... double %14, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  br label %19\l}"];
+	Node0x19d52d0 -> Node0x19d5320;
+	Node0x19d5320 [shape=record,label="{%19:\l19:                                               \l  %20 = phi double [ %16, %15 ], [ %18, %17 ]\l  %21 = bitcast double* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %21)\l  store volatile double %20, double* %2, align 8, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %21)\l  br label %36\l}"];
+	Node0x19d5320 -> Node0x19d54b0;
+	Node0x19d5370 [shape=record,label="{%22:\l22:                                               \l  %23 = tail call double @__tan(double %0, double 0.000000e+00, i32 0) #42\l  br label %36\l}"];
+	Node0x19d5370 -> Node0x19d54b0;
+	Node0x19d53c0 [shape=record,label="{%24:\l24:                                               \l  %25 = icmp ugt i32 %8, 2146435071\l  br i1 %25, label %26, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x19d53c0:s0 -> Node0x19d5410;
+	Node0x19d53c0:s1 -> Node0x19d5460;
+	Node0x19d5410 [shape=record,label="{%26:\l26:                                               \l  %27 = tail call double @llvm.experimental.constrained.fsub.f64(double %0,\l... double %0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  br label %36\l}"];
+	Node0x19d5410 -> Node0x19d54b0;
+	Node0x19d5460 [shape=record,label="{%28:\l28:                                               \l  %29 = getelementptr inbounds [2 x double], [2 x double]* %3, i64 0, i64 0\l  %30 = call i32 @__rem_pio2(double %0, double* nonnull %29) #42\l  %31 = load double, double* %29, align 16, !tbaa !1632\l  %32 = getelementptr inbounds [2 x double], [2 x double]* %3, i64 0, i64 1\l  %33 = load double, double* %32, align 8, !tbaa !1632\l  %34 = and i32 %30, 1\l  %35 = call double @__tan(double %31, double %33, i32 %34) #42\l  br label %36\l}"];
+	Node0x19d5460 -> Node0x19d54b0;
+	Node0x19d54b0 [shape=record,label="{%36:\l36:                                               \l  %37 = phi double [ %0, %19 ], [ %23, %22 ], [ %27, %26 ], [ %35, %28 ]\l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %4) #40\l  ret double %37\l}"];
+}

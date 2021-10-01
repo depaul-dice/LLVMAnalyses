@@ -1,0 +1,27 @@
+digraph "CFG for '__strncasecmp_l' function" {
+	label="CFG for '__strncasecmp_l' function";
+
+	Node0x16e37e0 [shape=record,label="{%4:\l  %5 = icmp eq i64 %2, 0\l  br i1 %5, label %44, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x16e37e0:s0 -> Node0x16e3a60;
+	Node0x16e37e0:s1 -> Node0x16e3830;
+	Node0x16e3830 [shape=record,label="{%6:\l6:                                                \l  %7 = load i8, i8* %0, align 1, !tbaa !1632\l  %8 = icmp eq i8 %7, 0\l  br i1 %8, label %35, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x16e3830:s0 -> Node0x16e3a10;
+	Node0x16e3830:s1 -> Node0x16e3880;
+	Node0x16e3880 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i8 [ %33, %30 ], [ %7, %6 ]\l  %11 = phi i64 [ %14, %30 ], [ %2, %6 ]\l  %12 = phi i8* [ %32, %30 ], [ %1, %6 ]\l  %13 = phi i8* [ %31, %30 ], [ %0, %6 ]\l  %14 = add i64 %11, -1\l  %15 = zext i8 %10 to i32\l  %16 = load i8, i8* %12, align 1, !tbaa !1632\l  %17 = icmp ne i8 %16, 0\l  %18 = icmp ne i64 %14, 0\l  %19 = and i1 %18, %17\l  br i1 %19, label %20, label %35\l|{<s0>T|<s1>F}}"];
+	Node0x16e3880:s0 -> Node0x16e38d0;
+	Node0x16e3880:s1 -> Node0x16e3a10;
+	Node0x16e38d0 [shape=record,label="{%20:\l20:                                               \l  %21 = icmp eq i8 %10, %16\l  br i1 %21, label %30, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x16e38d0:s0 -> Node0x16e39c0;
+	Node0x16e38d0:s1 -> Node0x16e3920;
+	Node0x16e3920 [shape=record,label="{%22:\l22:                                               \l  %23 = tail call i32 @tolower(i32 %15) #40\l  %24 = load i8, i8* %12, align 1, !tbaa !1632\l  %25 = zext i8 %24 to i32\l  %26 = tail call i32 @tolower(i32 %25) #40\l  %27 = icmp eq i32 %23, %26\l  br i1 %27, label %30, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x16e3920:s0 -> Node0x16e39c0;
+	Node0x16e3920:s1 -> Node0x16e3970;
+	Node0x16e3970 [shape=record,label="{%28:\l28:                                               \l  %29 = load i8, i8* %13, align 1, !tbaa !1632\l  br label %35\l}"];
+	Node0x16e3970 -> Node0x16e3a10;
+	Node0x16e39c0 [shape=record,label="{%30:\l30:                                               \l  %31 = getelementptr inbounds i8, i8* %13, i64 1\l  %32 = getelementptr inbounds i8, i8* %12, i64 1\l  %33 = load i8, i8* %31, align 1, !tbaa !1632\l  %34 = icmp eq i8 %33, 0\l  br i1 %34, label %35, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x16e39c0:s0 -> Node0x16e3a10;
+	Node0x16e39c0:s1 -> Node0x16e3880;
+	Node0x16e3a10 [shape=record,label="{%35:\l35:                                               \l  %36 = phi i8 [ 0, %6 ], [ %29, %28 ], [ 0, %30 ], [ %10, %9 ]\l  %37 = phi i8* [ %1, %6 ], [ %12, %28 ], [ %32, %30 ], [ %12, %9 ]\l  %38 = zext i8 %36 to i32\l  %39 = tail call i32 @tolower(i32 %38) #40\l  %40 = load i8, i8* %37, align 1, !tbaa !1632\l  %41 = zext i8 %40 to i32\l  %42 = tail call i32 @tolower(i32 %41) #40\l  %43 = sub nsw i32 %39, %42\l  br label %44\l}"];
+	Node0x16e3a10 -> Node0x16e3a60;
+	Node0x16e3a60 [shape=record,label="{%44:\l44:                                               \l  %45 = phi i32 [ %43, %35 ], [ 0, %4 ]\l  ret i32 %45\l}"];
+}

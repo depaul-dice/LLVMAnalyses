@@ -1,0 +1,5 @@
+digraph "CFG for 'ignore_err' function" {
+	label="CFG for 'ignore_err' function";
+
+	Node0x1b08720 [shape=record,label="{%2:\l  ret i32 0\l}"];
+}

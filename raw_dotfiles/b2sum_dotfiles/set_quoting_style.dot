@@ -1,0 +1,5 @@
+digraph "CFG for 'set_quoting_style' function" {
+	label="CFG for 'set_quoting_style' function";
+
+	Node0x13bb190 [shape=record,label="{%2:\l  call void @llvm.dbg.value(metadata %struct.quoting_options* %0, metadata\l... !1637, metadata !DIExpression()), !dbg !1639\l  call void @llvm.dbg.value(metadata i32 %1, metadata !1638, metadata\l... !DIExpression()), !dbg !1639\l  %3 = icmp eq %struct.quoting_options* %0, null, !dbg !1640\l  %4 = select i1 %3, %struct.quoting_options* @default_quoting_options,\l... %struct.quoting_options* %0, !dbg !1640\l  %5 = getelementptr inbounds %struct.quoting_options,\l... %struct.quoting_options* %4, i64 0, i32 0, !dbg !1641\l  store i32 %1, i32* %5, align 8, !dbg !1642, !tbaa !1643\l  ret void, !dbg !1649\l}"];
+}

@@ -1,0 +1,13 @@
+digraph "CFG for 'login_tty' function" {
+	label="CFG for 'login_tty' function";
+
+	Node0x1d376b0 [shape=record,label="{%1:\l  %2 = tail call i32 @setsid() #40\l  %3 = tail call i32 (i32, i32, ...) @ioctl(i32 %0, i32 21518, i8* null) #40\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %5, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1d376b0:s0 -> Node0x1d37700;
+	Node0x1d376b0:s1 -> Node0x1d377a0;
+	Node0x1d37700 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i32 @dup2(i32 %0, i32 0) #40\l  %7 = tail call i32 @dup2(i32 %0, i32 1) #40\l  %8 = tail call i32 @dup2(i32 %0, i32 2) #40\l  %9 = icmp sgt i32 %0, 2\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1d37700:s0 -> Node0x1d37750;
+	Node0x1d37700:s1 -> Node0x1d377a0;
+	Node0x1d37750 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call i32 @close(i32 %0) #40\l  br label %12\l}"];
+	Node0x1d37750 -> Node0x1d377a0;
+	Node0x1d377a0 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i32 [ -1, %1 ], [ 0, %10 ], [ 0, %5 ]\l  ret i32 %13\l}"];
+}

@@ -1,0 +1,10 @@
+digraph "CFG for '__iswpunct_l' function" {
+	label="CFG for '__iswpunct_l' function";
+
+	Node0x1eecab0 [shape=record,label="{%2:\l  %3 = icmp ult i32 %0, 131072\l  br i1 %3, label %4, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1eecab0:s0 -> Node0x1eecb00;
+	Node0x1eecab0:s1 -> Node0x1eecb50;
+	Node0x1eecb00 [shape=record,label="{%4:\l4:                                                \l  %5 = lshr i32 %0, 8\l  %6 = zext i32 %5 to i64\l  %7 = getelementptr inbounds [3648 x i8], [3648 x i8]* @table.784, i64 0, i64\l... %6\l  %8 = load i8, i8* %7, align 1, !tbaa !1632\l  %9 = zext i8 %8 to i32\l  %10 = shl nuw nsw i32 %9, 5\l  %11 = lshr i32 %0, 3\l  %12 = and i32 %11, 31\l  %13 = or i32 %10, %12\l  %14 = zext i32 %13 to i64\l  %15 = getelementptr inbounds [3648 x i8], [3648 x i8]* @table.784, i64 0,\l... i64 %14\l  %16 = load i8, i8* %15, align 1, !tbaa !1632\l  %17 = zext i8 %16 to i32\l  %18 = and i32 %0, 7\l  %19 = lshr i32 %17, %18\l  %20 = and i32 %19, 1\l  br label %21\l}"];
+	Node0x1eecb00 -> Node0x1eecb50;
+	Node0x1eecb50 [shape=record,label="{%21:\l21:                                               \l  %22 = phi i32 [ %20, %4 ], [ 0, %2 ]\l  ret i32 %22\l}"];
+}

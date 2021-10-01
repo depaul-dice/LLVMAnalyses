@@ -1,0 +1,10 @@
+digraph "CFG for 'strdup' function" {
+	label="CFG for 'strdup' function";
+
+	Node0x16516b0 [shape=record,label="{%1:\l  %2 = tail call i64 @strlen(i8* %0) #40\l  %3 = add i64 %2, 1\l  %4 = tail call i8* @malloc(i64 %3) #40\l  %5 = icmp eq i8* %4, null\l  br i1 %5, label %8, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x16516b0:s0 -> Node0x16517b0;
+	Node0x16516b0:s1 -> Node0x1651760;
+	Node0x1651760 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i8* @memcpy(i8* nonnull %4, i8* %0, i64 %3) #40\l  br label %8\l}"];
+	Node0x1651760 -> Node0x16517b0;
+	Node0x16517b0 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i8* [ %7, %6 ], [ null, %1 ]\l  ret i8* %9\l}"];
+}

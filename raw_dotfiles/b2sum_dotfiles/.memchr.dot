@@ -1,0 +1,46 @@
+digraph "CFG for 'memchr' function" {
+	label="CFG for 'memchr' function";
+
+	Node0x1853be0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7bca170",label="{%3:\l  %4 = and i32 %1, 255\l  %5 = ptrtoint i8* %0 to i64\l  %6 = and i64 %5, 7\l  %7 = icmp ne i64 %6, 0\l  %8 = icmp ne i64 %2, 0\l  %9 = and i1 %8, %7\l  br i1 %9, label %10, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1853be0:s0 -> Node0x1853cc0;
+	Node0x1853be0:s1 -> Node0x1853db0;
+	Node0x1853cc0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5d8d170",label="{%10:\l10:                                               \l  %11 = trunc i32 %1 to i8\l  br label %12\l}"];
+	Node0x1853cc0 -> Node0x1853d10;
+	Node0x1853d10 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%12:\l12:                                               \l  %13 = phi i8* [ %0, %10 ], [ %18, %17 ]\l  %14 = phi i64 [ %2, %10 ], [ %19, %17 ]\l  %15 = load i8, i8* %13, align 1, !tbaa !1632\l  %16 = icmp eq i8 %15, %11\l  br i1 %16, label %29, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1853d10:s0 -> Node0x1853e50;
+	Node0x1853d10:s1 -> Node0x1853d60;
+	Node0x1853d60 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%17:\l17:                                               \l  %18 = getelementptr inbounds i8, i8* %13, i64 1\l  %19 = add i64 %14, -1\l  %20 = ptrtoint i8* %18 to i64\l  %21 = and i64 %20, 7\l  %22 = icmp ne i64 %21, 0\l  %23 = icmp ne i64 %19, 0\l  %24 = and i1 %23, %22\l  br i1 %24, label %12, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1853d60:s0 -> Node0x1853d10;
+	Node0x1853d60:s1 -> Node0x1853db0;
+	Node0x1853db0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f2cab570",label="{%25:\l25:                                               \l  %26 = phi i64 [ %2, %3 ], [ %19, %17 ]\l  %27 = phi i8* [ %0, %3 ], [ %18, %17 ]\l  %28 = phi i1 [ %8, %3 ], [ %23, %17 ]\l  br i1 %28, label %._crit_edge, label %75\l|{<s0>T|<s1>F}}"];
+	Node0x1853db0:s0 -> Node0x1853e00;
+	Node0x1853db0:s1 -> Node0x1854120;
+	Node0x1853e00 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d9dce170",label="{._crit_edge:                                      \l  %.pre = load i8, i8* %27, align 1, !tbaa !1632\l  %.pre1 = trunc i32 %1 to i8\l  br label %29\l}"];
+	Node0x1853e00 -> Node0x1853e50;
+	Node0x1853e50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#eed0c070",label="{%29:\l29:                                               \l  %.pre-phi = phi i8 [ %.pre1, %._crit_edge ], [ %11, %12 ]\l  %30 = phi i8 [ %.pre, %._crit_edge ], [ %11, %12 ]\l  %31 = phi i8* [ %27, %._crit_edge ], [ %13, %12 ]\l  %32 = phi i64 [ %26, %._crit_edge ], [ %14, %12 ]\l  %33 = icmp eq i8 %30, %.pre-phi\l  br i1 %33, label %62, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1853e50:s0 -> Node0x1854030;
+	Node0x1853e50:s1 -> Node0x1853ea0;
+	Node0x1853ea0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%34:\l34:                                               \l  %35 = zext i32 %4 to i64\l  %36 = mul nuw i64 %35, 72340172838076673\l  %37 = bitcast i8* %31 to i64*\l  %38 = icmp ugt i64 %32, 7\l  br i1 %38, label %39, label %58\l|{<s0>T|<s1>F}}"];
+	Node0x1853ea0:s0 -> Node0x1853ef0;
+	Node0x1853ea0:s1 -> Node0x1853fe0;
+	Node0x1853ef0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%39:\l39:                                               \l  %40 = and i64 %32, 7\l  %41 = and i64 %32, -8\l  %42 = getelementptr i8, i8* %31, i64 %41\l  %43 = bitcast i8* %42 to i64*\l  br label %44\l}"];
+	Node0x1853ef0 -> Node0x1853f40;
+	Node0x1853f40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ed836670",label="{%44:\l44:                                               \l  %45 = phi i64* [ %55, %54 ], [ %37, %39 ]\l  %46 = phi i64 [ %56, %54 ], [ %32, %39 ]\l  %47 = load i64, i64* %45, align 8, !tbaa !1632\l  %48 = xor i64 %47, %36\l  %49 = add i64 %48, -72340172838076673\l  %50 = and i64 %48, -9187201950435737472\l  %51 = xor i64 %50, -9187201950435737472\l  %52 = and i64 %51, %49\l  %53 = icmp eq i64 %52, 0\l  br i1 %53, label %54, label %58\l|{<s0>T|<s1>F}}"];
+	Node0x1853f40:s0 -> Node0x1853f90;
+	Node0x1853f40:s1 -> Node0x1853fe0;
+	Node0x1853f90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ef886b70",label="{%54:\l54:                                               \l  %55 = getelementptr inbounds i64, i64* %45, i64 1\l  %56 = add i64 %46, -8\l  %57 = icmp ugt i64 %56, 7\l  br i1 %57, label %44, label %58\l|{<s0>T|<s1>F}}"];
+	Node0x1853f90:s0 -> Node0x1853f40;
+	Node0x1853f90:s1 -> Node0x1853fe0;
+	Node0x1853fe0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%58:\l58:                                               \l  %59 = phi i64 [ %32, %34 ], [ %40, %54 ], [ %46, %44 ]\l  %60 = phi i64* [ %37, %34 ], [ %43, %54 ], [ %45, %44 ]\l  %61 = bitcast i64* %60 to i8*\l  br label %62\l}"];
+	Node0x1853fe0 -> Node0x1854030;
+	Node0x1854030 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#eed0c070",label="{%62:\l62:                                               \l  %63 = phi i64 [ %59, %58 ], [ %32, %29 ]\l  %64 = phi i8* [ %61, %58 ], [ %31, %29 ]\l  %65 = icmp eq i64 %63, 0\l  br i1 %65, label %75, label %66\l|{<s0>T|<s1>F}}"];
+	Node0x1854030:s0 -> Node0x1854120;
+	Node0x1854030:s1 -> Node0x1854080;
+	Node0x1854080 [shape=record,color="#b70d28ff", style=filled, fillcolor="#c5333470",label="{%66:\l66:                                               \l  %67 = phi i8* [ %72, %71 ], [ %64, %62 ]\l  %68 = phi i64 [ %73, %71 ], [ %63, %62 ]\l  %69 = load i8, i8* %67, align 1, !tbaa !1632\l  %70 = icmp eq i8 %69, %.pre-phi\l  br i1 %70, label %75, label %71\l|{<s0>T|<s1>F}}"];
+	Node0x1854080:s0 -> Node0x1854120;
+	Node0x1854080:s1 -> Node0x18540d0;
+	Node0x18540d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#ca3b3770",label="{%71:\l71:                                               \l  %72 = getelementptr inbounds i8, i8* %67, i64 1\l  %73 = add i64 %68, -1\l  %74 = icmp eq i64 %73, 0\l  br i1 %74, label %75, label %66\l|{<s0>T|<s1>F}}"];
+	Node0x18540d0:s0 -> Node0x1854120;
+	Node0x18540d0:s1 -> Node0x1854080;
+	Node0x1854120 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7bca170",label="{%75:\l75:                                               \l  %76 = phi i8* [ null, %62 ], [ null, %25 ], [ null, %71 ], [ %67, %66 ]\l  ret i8* %76\l}"];
+}

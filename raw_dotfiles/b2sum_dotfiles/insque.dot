@@ -1,0 +1,15 @@
+digraph "CFG for 'insque' function" {
+	label="CFG for 'insque' function";
+
+	Node0x1eea590 [shape=record,label="{%2:\l  %3 = icmp eq i8* %1, null\l  br i1 %3, label %4, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1eea590:s0 -> Node0x1eea5e0;
+	Node0x1eea590:s1 -> Node0x1eea630;
+	Node0x1eea5e0 [shape=record,label="{%4:\l4:                                                \l  %5 = bitcast i8* %0 to \<2 x %struct.node.953*\>*\l  store \<2 x %struct.node.953*\> zeroinitializer, \<2 x %struct.node.953*\>* %5,\l... align 8, !tbaa !1632\l  br label %19\l}"];
+	Node0x1eea5e0 -> Node0x1eea6d0;
+	Node0x1eea630 [shape=record,label="{%6:\l6:                                                \l  %7 = bitcast i8* %1 to i64*\l  %8 = load i64, i64* %7, align 8, !tbaa !1636\l  %9 = bitcast i8* %0 to %struct.node.953**\l  %10 = bitcast i8* %0 to i64*\l  store i64 %8, i64* %10, align 8, !tbaa !1636\l  %11 = getelementptr inbounds i8, i8* %0, i64 8\l  %12 = bitcast i8* %11 to i8**\l  store i8* %1, i8** %12, align 8, !tbaa !1638\l  %13 = bitcast i8* %1 to i8**\l  store i8* %0, i8** %13, align 8, !tbaa !1636\l  %14 = load %struct.node.953*, %struct.node.953** %9, align 8, !tbaa !1636\l  %15 = icmp eq %struct.node.953* %14, null\l  br i1 %15, label %19, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1eea630:s0 -> Node0x1eea6d0;
+	Node0x1eea630:s1 -> Node0x1eea680;
+	Node0x1eea680 [shape=record,label="{%16:\l16:                                               \l  %17 = getelementptr inbounds %struct.node.953, %struct.node.953* %14, i64 0,\l... i32 1\l  %18 = bitcast %struct.node.953** %17 to i8**\l  store i8* %0, i8** %18, align 8, !tbaa !1638\l  br label %19\l}"];
+	Node0x1eea680 -> Node0x1eea6d0;
+	Node0x1eea6d0 [shape=record,label="{%19:\l19:                                               \l  ret void\l}"];
+}

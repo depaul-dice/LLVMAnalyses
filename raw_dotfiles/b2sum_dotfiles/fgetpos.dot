@@ -1,0 +1,10 @@
+digraph "CFG for 'fgetpos' function" {
+	label="CFG for 'fgetpos' function";
+
+	Node0x17ace20 [shape=record,label="{%2:\l  %3 = tail call i64 @__ftello(%struct._IO_FILE.0* %0) #40\l  %4 = icmp slt i64 %3, 0\l  br i1 %4, label %7, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x17ace20:s0 -> Node0x17ae930;
+	Node0x17ace20:s1 -> Node0x17ae8e0;
+	Node0x17ae8e0 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr %union._G_fpos64_t, %union._G_fpos64_t* %1, i64 0, i32 0\l  store i64 %3, i64* %6, align 8, !tbaa !1632\l  br label %7\l}"];
+	Node0x17ae8e0 -> Node0x17ae930;
+	Node0x17ae930 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32 [ 0, %5 ], [ -1, %2 ]\l  ret i32 %8\l}"];
+}

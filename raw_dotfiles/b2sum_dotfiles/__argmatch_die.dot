@@ -1,0 +1,5 @@
+digraph "CFG for '__argmatch_die' function" {
+	label="CFG for '__argmatch_die' function";
+
+	Node0x11dd120 [shape=record,label="{%0:\l  tail call void @usage(i32 1) #7, !dbg !1633\l  ret void, !dbg !1634\l}"];
+}

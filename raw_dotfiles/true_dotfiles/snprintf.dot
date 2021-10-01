@@ -1,0 +1,5 @@
+digraph "CFG for 'snprintf' function" {
+	label="CFG for 'snprintf' function";
+
+	Node0x1639cc0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = alloca [1 x %struct.__va_list_tag], align 16\l  %5 = bitcast [1 x %struct.__va_list_tag]* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %5) #26\l  %6 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %4, i64 0, i64 0\l  call void @llvm.va_start(i8* nonnull %5) #27\l  %7 = call fastcc i32 @vsnprintf(i8* %0, i64 %1, i8* %2,\l... %struct.__va_list_tag* nonnull %6) #28\l  call void @llvm.va_end(i8* nonnull %5) #27\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %5) #26\l  ret i32 %7\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'sscanf' function" {
+	label="CFG for 'sscanf' function";
+
+	Node0x1cf9890 [shape=record,label="{%2:\l  %3 = alloca [1 x %struct.__va_list_tag], align 16\l  %4 = bitcast [1 x %struct.__va_list_tag]* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %4) #40\l  %5 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0\l  call void @llvm.va_start(i8* nonnull %4) #41\l  %6 = call i32 @vsscanf(i8* %0, i8* %1, %struct.__va_list_tag* nonnull %5) #42\l  call void @llvm.va_end(i8* nonnull %4) #41\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %4) #40\l  ret i32 %6\l}"];
+}

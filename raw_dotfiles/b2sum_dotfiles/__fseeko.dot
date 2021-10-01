@@ -1,0 +1,15 @@
+digraph "CFG for '__fseeko' function" {
+	label="CFG for '__fseeko' function";
+
+	Node0x16afce0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 19\l  %5 = load volatile i32, i32* %4, align 4, !tbaa !1632\l  %6 = icmp sgt i32 %5, -1\l  br i1 %6, label %9, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x16afce0:s0 -> Node0x16afe00;
+	Node0x16afce0:s1 -> Node0x16afdb0;
+	Node0x16afdb0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%7:\l7:                                                \l  %8 = tail call fastcc i32 @__fseeko_unlocked(%struct._IO_FILE.0* nonnull %0,\l... i64 %1, i32 %2) #29\l  br label %15\l}"];
+	Node0x16afdb0 -> Node0x16afea0;
+	Node0x16afe00 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%9:\l9:                                                \l  %10 = bitcast %struct._IO_FILE.0* %0 to %struct._IO_FILE.233*\l  %11 = tail call i32 @__lockfile(%struct._IO_FILE.233* nonnull %10) #30\l  %12 = icmp eq i32 %11, 0\l  %13 = tail call fastcc i32 @__fseeko_unlocked(%struct._IO_FILE.0* nonnull\l... %0, i64 %1, i32 %2) #29\l  br i1 %12, label %15, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x16afe00:s0 -> Node0x16afea0;
+	Node0x16afe00:s1 -> Node0x16afe50;
+	Node0x16afe50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%14:\l14:                                               \l  tail call void @__unlockfile(%struct._IO_FILE.233* nonnull %10) #30\l  br label %15\l}"];
+	Node0x16afe50 -> Node0x16afea0;
+	Node0x16afea0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%15:\l15:                                               \l  %16 = phi i32 [ %8, %7 ], [ %13, %14 ], [ %13, %9 ]\l  ret i32 %16\l}"];
+}

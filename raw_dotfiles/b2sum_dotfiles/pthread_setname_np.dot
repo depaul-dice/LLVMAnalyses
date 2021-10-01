@@ -1,0 +1,30 @@
+digraph "CFG for 'pthread_setname_np' function" {
+	label="CFG for 'pthread_setname_np' function";
+
+	Node0x1da4560 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = alloca [34 x i8], align 16\l  %5 = bitcast i32* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %5) #40\l  %6 = getelementptr inbounds [34 x i8], [34 x i8]* %4, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 34, i8* nonnull %6) #40\l  %7 = tail call i64 @strnlen(i8* %1, i64 16) #41\l  %8 = icmp ugt i64 %7, 15\l  br i1 %8, label %42, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1da4560:s0 -> Node0x1da4940;
+	Node0x1da4560:s1 -> Node0x1da4670;
+	Node0x1da4670 [shape=record,label="{%9:\l9:                                                \l  %10 = tail call %struct.__pthread* @pthread_self() #42\l  %11 = icmp eq %struct.__pthread* %10, %0\l  br i1 %11, label %12, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1da4670:s0 -> Node0x1da46c0;
+	Node0x1da4670:s1 -> Node0x1da4760;
+	Node0x1da46c0 [shape=record,label="{%12:\l12:                                               \l  %13 = ptrtoint i8* %1 to i64\l  %14 = tail call i32 (i32, ...) @prctl(i32 15, i64 %13, i64 0, i64 0, i64 0)\l... #41\l  %15 = icmp eq i32 %14, 0\l  br i1 %15, label %42, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1da46c0:s0 -> Node0x1da4940;
+	Node0x1da46c0:s1 -> Node0x1da4710;
+	Node0x1da4710 [shape=record,label="{%16:\l16:                                               \l  %17 = tail call i32* @___errno_location() #41\l  %18 = load i32, i32* %17, align 4, !tbaa !1632\l  br label %42\l}"];
+	Node0x1da4710 -> Node0x1da4940;
+	Node0x1da4760 [shape=record,label="{%19:\l19:                                               \l  %20 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64\l... 0, i32 7\l  %21 = load i32, i32* %20, align 8, !tbaa !1636\l  %22 = call i32 (i8*, i64, i8*, ...) @snprintf(i8* nonnull %6, i64 34, i8*\l... getelementptr inbounds ([24 x i8], [24 x i8]* @.str.479, i64 0, i64 0), i32\l... %21) #41\l  %23 = call i32 @pthread_setcancelstate(i32 1, i32* nonnull %3) #41\l  %24 = call i32 (i8*, i32, ...) @open(i8* nonnull %6, i32 1) #41\l  %25 = icmp slt i32 %24, 0\l  br i1 %25, label %32, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x1da4760:s0 -> Node0x1da4850;
+	Node0x1da4760:s1 -> Node0x1da47b0;
+	Node0x1da47b0 [shape=record,label="{%26:\l26:                                               \l  %27 = call i64 @write(i32 %24, i8* %1, i64 %7) #41\l  %28 = icmp slt i64 %27, 0\l  br i1 %28, label %29, label %35\l|{<s0>T|<s1>F}}"];
+	Node0x1da47b0:s0 -> Node0x1da4800;
+	Node0x1da47b0:s1 -> Node0x1da48a0;
+	Node0x1da4800 [shape=record,label="{%29:\l29:                                               \l  %30 = call i32* @___errno_location() #41\l  %31 = load i32, i32* %30, align 4, !tbaa !1632\l  br label %35\l}"];
+	Node0x1da4800 -> Node0x1da48a0;
+	Node0x1da4850 [shape=record,label="{%32:\l32:                                               \l  %33 = call i32* @___errno_location() #41\l  %34 = load i32, i32* %33, align 4, !tbaa !1632\l  br label %38\l}"];
+	Node0x1da4850 -> Node0x1da48f0;
+	Node0x1da48a0 [shape=record,label="{%35:\l35:                                               \l  %36 = phi i32 [ %31, %29 ], [ 0, %26 ]\l  %37 = call i32 @close(i32 %24) #41\l  br label %38\l}"];
+	Node0x1da48a0 -> Node0x1da48f0;
+	Node0x1da48f0 [shape=record,label="{%38:\l38:                                               \l  %39 = phi i32 [ %36, %35 ], [ %34, %32 ]\l  %40 = load i32, i32* %3, align 4, !tbaa !1632\l  %41 = call i32 @pthread_setcancelstate(i32 %40, i32* null) #41\l  br label %42\l}"];
+	Node0x1da48f0 -> Node0x1da4940;
+	Node0x1da4940 [shape=record,label="{%42:\l42:                                               \l  %43 = phi i32 [ %39, %38 ], [ 34, %2 ], [ %18, %16 ], [ 0, %12 ]\l  call void @llvm.lifetime.end.p0i8(i64 34, i8* nonnull %6) #40\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %5) #40\l  ret i32 %43\l}"];
+}

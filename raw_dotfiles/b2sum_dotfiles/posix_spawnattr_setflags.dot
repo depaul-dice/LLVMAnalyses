@@ -1,0 +1,10 @@
+digraph "CFG for 'posix_spawnattr_setflags' function" {
+	label="CFG for 'posix_spawnattr_setflags' function";
+
+	Node0x1b80630 [shape=record,label="{%2:\l  %3 = icmp ugt i16 %1, 255\l  br i1 %3, label %7, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1b80630:s0 -> Node0x1b80730;
+	Node0x1b80630:s1 -> Node0x1b806e0;
+	Node0x1b806e0 [shape=record,label="{%4:\l4:                                                \l  %5 = zext i16 %1 to i32\l  %6 = getelementptr inbounds %struct.posix_spawnattr_t,\l... %struct.posix_spawnattr_t* %0, i64 0, i32 0\l  store i32 %5, i32* %6, align 8, !tbaa !1632\l  br label %7\l}"];
+	Node0x1b806e0 -> Node0x1b80730;
+	Node0x1b80730 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32 [ 0, %4 ], [ 22, %2 ]\l  ret i32 %8\l}"];
+}

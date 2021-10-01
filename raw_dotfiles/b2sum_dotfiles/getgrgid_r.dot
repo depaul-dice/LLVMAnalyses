@@ -1,0 +1,5 @@
+digraph "CFG for 'getgrgid_r' function" {
+	label="CFG for 'getgrgid_r' function";
+
+	Node0x1faff90 [shape=record,label="{%5:\l  %6 = tail call fastcc i32 @getgr_r(i8* null, i32 %0, %struct.group* %1, i8*\l... %2, i64 %3, %struct.group** %4) #40\l  ret i32 %6\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'cacosh' function" {
+	label="CFG for 'cacosh' function";
+
+	Node0x1d76680 [shape=record,label="{%2:\l  %3 = tail call \{ double, double \} @cacos(double %0, double %1) #40\l  %4 = extractvalue \{ double, double \} %3, 0\l  %5 = extractvalue \{ double, double \} %3, 1\l  %6 = fneg double %5\l  %7 = insertvalue \{ double, double \} undef, double %6, 0\l  %8 = insertvalue \{ double, double \} %7, double %4, 1\l  ret \{ double, double \} %8\l}"];
+}

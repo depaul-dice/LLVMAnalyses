@@ -1,0 +1,12 @@
+digraph "CFG for 'ioctl' function" {
+	label="CFG for 'ioctl' function";
+
+	Node0x166bc90 [shape=record,label="{%2:\l  %3 = alloca [1 x %struct.__va_list_tag], align 16\l  %4 = bitcast [1 x %struct.__va_list_tag]* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %4) #40\l  call void @llvm.va_start(i8* nonnull %4) #41\l  %5 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 0\l  %6 = load i32, i32* %5, align 16\l  %7 = icmp ult i32 %6, 41\l  br i1 %7, label %8, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x166bc90:s0 -> Node0x166be80;
+	Node0x166bc90:s1 -> Node0x166bed0;
+	Node0x166be80 [shape=record,label="{%8:\l8:                                                \l  %9 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 3\l  %10 = load i8*, i8** %9, align 16\l  %11 = zext i32 %6 to i64\l  %12 = getelementptr i8, i8* %10, i64 %11\l  %13 = add nuw nsw i32 %6, 8\l  store i32 %13, i32* %5, align 16\l  br label %18\l}"];
+	Node0x166be80 -> Node0x166bf20;
+	Node0x166bed0 [shape=record,label="{%14:\l14:                                               \l  %15 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 2\l  %16 = load i8*, i8** %15, align 8\l  %17 = getelementptr i8, i8* %16, i64 8\l  store i8* %17, i8** %15, align 8\l  br label %18\l}"];
+	Node0x166bed0 -> Node0x166bf20;
+	Node0x166bf20 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i8* [ %12, %8 ], [ %16, %14 ]\l  %20 = bitcast i8* %19 to i64*\l  %21 = load i64, i64* %20, align 8\l  call void @llvm.va_end(i8* nonnull %4) #41\l  %22 = sext i32 %0 to i64\l  %23 = sext i32 %1 to i64\l  %24 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 16, i64 %22, i64 %23, i64 %21) #40, !srcloc !1632\l  %25 = call i64 @__syscall_ret(i64 %24) #42\l  %26 = trunc i64 %25 to i32\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %4) #40\l  ret i32 %26\l}"];
+}

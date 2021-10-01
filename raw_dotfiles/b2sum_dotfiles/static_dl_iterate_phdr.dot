@@ -1,0 +1,45 @@
+digraph "CFG for 'static_dl_iterate_phdr' function" {
+	label="CFG for 'static_dl_iterate_phdr' function";
+
+	Node0x201e220 [shape=record,label="{%2:\l  %3 = alloca %struct.dl_phdr_info, align 8\l  %4 = alloca [38 x i64], align 16\l  %5 = bitcast %struct.dl_phdr_info* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 64, i8* nonnull %5) #40\l  %6 = bitcast [38 x i64]* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 304, i8* nonnull %6) #40\l  call void @llvm.memset.p0i8.i64(i8* nonnull align 16 dereferenceable(304)\l... %6, i8 0, i64 304, i1 false)\l  %7 = load i64*, i64** getelementptr inbounds (%struct.__libc,\l... %struct.__libc* @__libc, i64 0, i32 4), align 8, !tbaa !1632\l  %8 = load i64, i64* %7, align 8, !tbaa !1640\l  %9 = icmp eq i64 %8, 0\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x201e220:s0 -> Node0x201e4d0;
+	Node0x201e220:s1 -> Node0x201e520;
+	Node0x201e4d0 [shape=record,label="{%10:\l10:                                               \l  %11 = getelementptr inbounds [38 x i64], [38 x i64]* %4, i64 0, i64 3\l  br label %31\l}"];
+	Node0x201e4d0 -> Node0x201e660;
+	Node0x201e520 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i64 [ %24, %21 ], [ %8, %2 ]\l  %14 = phi i64 [ %22, %21 ], [ 0, %2 ]\l  %15 = icmp ult i64 %13, 38\l  br i1 %15, label %16, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x201e520:s0 -> Node0x201e570;
+	Node0x201e520:s1 -> Node0x201e5c0;
+	Node0x201e570 [shape=record,label="{%16:\l16:                                               \l  %17 = or i64 %14, 1\l  %18 = getelementptr inbounds i64, i64* %7, i64 %17\l  %19 = load i64, i64* %18, align 8, !tbaa !1640\l  %20 = getelementptr inbounds [38 x i64], [38 x i64]* %4, i64 0, i64 %13\l  store i64 %19, i64* %20, align 8, !tbaa !1640\l  br label %21\l}"];
+	Node0x201e570 -> Node0x201e5c0;
+	Node0x201e5c0 [shape=record,label="{%21:\l21:                                               \l  %22 = add i64 %14, 2\l  %23 = getelementptr inbounds i64, i64* %7, i64 %22\l  %24 = load i64, i64* %23, align 8, !tbaa !1640\l  %25 = icmp eq i64 %24, 0\l  br i1 %25, label %26, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x201e5c0:s0 -> Node0x201e610;
+	Node0x201e5c0:s1 -> Node0x201e520;
+	Node0x201e610 [shape=record,label="{%26:\l26:                                               \l  %27 = getelementptr inbounds [38 x i64], [38 x i64]* %4, i64 0, i64 5\l  %28 = load i64, i64* %27, align 8, !tbaa !1640\l  %29 = getelementptr inbounds [38 x i64], [38 x i64]* %4, i64 0, i64 3\l  %30 = icmp eq i64 %28, 0\l  br i1 %30, label %31, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x201e610:s0 -> Node0x201e660;
+	Node0x201e610:s1 -> Node0x201e6b0;
+	Node0x201e660 [shape=record,label="{%31:\l31:                                               \l  %32 = phi i64* [ %11, %10 ], [ %29, %26 ]\l  %33 = load i64, i64* %32, align 8, !tbaa !1640\l  br label %67\l}"];
+	Node0x201e660 -> Node0x201e890;
+	Node0x201e6b0 [shape=record,label="{%34:\l34:                                               \l  %35 = bitcast i64* %29 to i8**\l  %36 = load i8*, i8** %35, align 8\l  %37 = ptrtoint i8* %36 to i64\l  %38 = getelementptr inbounds [38 x i64], [38 x i64]* %4, i64 0, i64 4\l  %39 = load i64, i64* %38, align 16, !tbaa !1640\l  br label %40\l}"];
+	Node0x201e6b0 -> Node0x201e700;
+	Node0x201e700 [shape=record,label="{%40:\l40:                                               \l  %41 = phi i64 [ %28, %34 ], [ %62, %58 ]\l  %42 = phi i64 [ 0, %34 ], [ %59, %58 ]\l  %43 = phi %struct.Elf64_Phdr* [ null, %34 ], [ %61, %58 ]\l  %44 = phi i8* [ %36, %34 ], [ %63, %58 ]\l  %45 = bitcast i8* %44 to %struct.Elf64_Phdr*\l  %46 = bitcast i8* %44 to i32*\l  %47 = load i32, i32* %46, align 8, !tbaa !1641\l  %48 = icmp eq i32 %47, 6\l  br i1 %48, label %52, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x201e700:s0 -> Node0x201e7a0;
+	Node0x201e700:s1 -> Node0x201e750;
+	Node0x201e750 [shape=record,label="{%49:\l49:                                               \l  %50 = icmp ne i32 %47, 2\l  %51 = or i1 %50, icmp eq (i64* getelementptr inbounds ([0 x i64], [0 x i64]*\l... @_DYNAMIC, i64 0, i64 0), i64* null)\l  br i1 %51, label %58, label %52\l|{<s0>T|<s1>F}}"];
+	Node0x201e750:s0 -> Node0x201e7f0;
+	Node0x201e750:s1 -> Node0x201e7a0;
+	Node0x201e7a0 [shape=record,label="{%52:\l52:                                               \l  %53 = phi i64 [ %37, %40 ], [ ptrtoint ([0 x i64]* @_DYNAMIC to i64), %49 ]\l  %54 = getelementptr inbounds i8, i8* %44, i64 16\l  %55 = bitcast i8* %54 to i64*\l  %56 = load i64, i64* %55, align 8, !tbaa !1643\l  %57 = sub i64 %53, %56\l  br label %58\l}"];
+	Node0x201e7a0 -> Node0x201e7f0;
+	Node0x201e7f0 [shape=record,label="{%58:\l58:                                               \l  %59 = phi i64 [ %42, %49 ], [ %57, %52 ]\l  %60 = icmp eq i32 %47, 7\l  %61 = select i1 %60, %struct.Elf64_Phdr* %45, %struct.Elf64_Phdr* %43\l  %62 = add i64 %41, -1\l  %63 = getelementptr inbounds i8, i8* %44, i64 %39\l  %64 = icmp eq i64 %62, 0\l  br i1 %64, label %65, label %40\l|{<s0>T|<s1>F}}"];
+	Node0x201e7f0:s0 -> Node0x201e840;
+	Node0x201e7f0:s1 -> Node0x201e700;
+	Node0x201e840 [shape=record,label="{%65:\l65:                                               \l  %66 = trunc i64 %28 to i16\l  br label %67\l}"];
+	Node0x201e840 -> Node0x201e890;
+	Node0x201e890 [shape=record,label="{%67:\l67:                                               \l  %68 = phi i16 [ 0, %31 ], [ %66, %65 ]\l  %69 = phi i64 [ %33, %31 ], [ %37, %65 ]\l  %70 = phi %struct.Elf64_Phdr* [ null, %31 ], [ %61, %65 ]\l  %71 = phi i64 [ 0, %31 ], [ %59, %65 ]\l  %72 = getelementptr inbounds %struct.dl_phdr_info, %struct.dl_phdr_info* %3,\l... i64 0, i32 0\l  store i64 %71, i64* %72, align 8, !tbaa !1644\l  %73 = getelementptr inbounds %struct.dl_phdr_info, %struct.dl_phdr_info* %3,\l... i64 0, i32 1\l  store i8* getelementptr inbounds ([15 x i8], [15 x i8]* @.str.88.202, i64 0,\l... i64 0), i8** %73, align 8, !tbaa !1648\l  %74 = getelementptr inbounds %struct.dl_phdr_info, %struct.dl_phdr_info* %3,\l... i64 0, i32 2\l  %75 = bitcast %struct.Elf64_Phdr** %74 to i64*\l  store i64 %69, i64* %75, align 8, !tbaa !1649\l  %76 = getelementptr inbounds %struct.dl_phdr_info, %struct.dl_phdr_info* %3,\l... i64 0, i32 3\l  store i16 %68, i16* %76, align 8, !tbaa !1650\l  %77 = getelementptr inbounds %struct.dl_phdr_info, %struct.dl_phdr_info* %3,\l... i64 0, i32 4\l  %78 = bitcast i64* %77 to \<2 x i64\>*\l  store \<2 x i64\> zeroinitializer, \<2 x i64\>* %78, align 8, !tbaa !1651\l  %79 = icmp eq %struct.Elf64_Phdr* %70, null\l  %80 = getelementptr inbounds %struct.dl_phdr_info, %struct.dl_phdr_info* %3,\l... i64 0, i32 6\l  br i1 %79, label %86, label %81\l|{<s0>T|<s1>F}}"];
+	Node0x201e890:s0 -> Node0x201e930;
+	Node0x201e890:s1 -> Node0x201e8e0;
+	Node0x201e8e0 [shape=record,label="{%81:\l81:                                               \l  store i64 1, i64* %80, align 8, !tbaa !1652\l  %82 = getelementptr inbounds %struct.Elf64_Phdr, %struct.Elf64_Phdr* %70,\l... i64 0, i32 3\l  %83 = load i64, i64* %82, align 8, !tbaa !1643\l  %84 = add i64 %83, %71\l  %85 = inttoptr i64 %84 to i8*\l  br label %87\l}"];
+	Node0x201e8e0 -> Node0x201e980;
+	Node0x201e930 [shape=record,label="{%86:\l86:                                               \l  store i64 0, i64* %80, align 8, !tbaa !1652\l  br label %87\l}"];
+	Node0x201e930 -> Node0x201e980;
+	Node0x201e980 [shape=record,label="{%87:\l87:                                               \l  %88 = phi i8* [ null, %86 ], [ %85, %81 ]\l  %89 = getelementptr inbounds %struct.dl_phdr_info, %struct.dl_phdr_info* %3,\l... i64 0, i32 7\l  store i8* %88, i8** %89, align 8\l  %90 = call i32 %0(%struct.dl_phdr_info* nonnull %3, i64 64, i8* %1) #41\l  call void @llvm.lifetime.end.p0i8(i64 304, i8* nonnull %6) #40\l  call void @llvm.lifetime.end.p0i8(i64 64, i8* nonnull %5) #40\l  ret i32 %90\l}"];
+}

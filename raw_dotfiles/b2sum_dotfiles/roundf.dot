@@ -1,0 +1,25 @@
+digraph "CFG for 'roundf' function" {
+	label="CFG for 'roundf' function";
+
+	Node0x1d54100 [shape=record,label="{%1:\l  %2 = alloca float, align 4\l  %3 = bitcast float %0 to i32\l  %4 = lshr i32 %3, 23\l  %5 = and i32 %4, 255\l  %6 = icmp ugt i32 %5, 149\l  br i1 %6, label %35, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1d54100:s0 -> Node0x1d54380;
+	Node0x1d54100:s1 -> Node0x1d54150;
+	Node0x1d54150 [shape=record,label="{%7:\l7:                                                \l  %8 = icmp slt i32 %3, 0\l  %9 = fneg float %0\l  %10 = select i1 %8, float %9, float %0\l  %11 = icmp ult i32 %5, 126\l  %12 = tail call float @llvm.experimental.constrained.fadd.f32(float %10,\l... float 0x4160000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #40\l  br i1 %11, label %13, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1d54150:s0 -> Node0x1d541a0;
+	Node0x1d54150:s1 -> Node0x1d541f0;
+	Node0x1d541a0 [shape=record,label="{%13:\l13:                                               \l  %14 = bitcast float* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %14)\l  store volatile float %12, float* %2, align 4, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %14)\l  %15 = tail call float @llvm.experimental.constrained.sitofp.f32.i32(i32 0,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %16 = tail call float @llvm.experimental.constrained.fmul.f32(float %15,\l... float %0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %35\l}"];
+	Node0x1d541a0 -> Node0x1d54380;
+	Node0x1d541f0 [shape=record,label="{%17:\l17:                                               \l  %18 = tail call float @llvm.experimental.constrained.fsub.f32(float %12,\l... float 0x4160000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #40\l  %19 = tail call float @llvm.experimental.constrained.fsub.f32(float %18,\l... float %10, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %20 = tail call i1 @llvm.experimental.constrained.fcmps.f32(float %19, float\l... 5.000000e-01, metadata !\"ogt\", metadata !\"fpexcept.ignore\") #40\l  br i1 %20, label %21, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1d541f0:s0 -> Node0x1d54240;
+	Node0x1d541f0:s1 -> Node0x1d54290;
+	Node0x1d54240 [shape=record,label="{%21:\l21:                                               \l  %22 = tail call float @llvm.experimental.constrained.fadd.f32(float %19,\l... float %10, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %23 = tail call float @llvm.experimental.constrained.sitofp.f32.i32(i32 1,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %24 = tail call float @llvm.experimental.constrained.fsub.f32(float %22,\l... float %23, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %31\l}"];
+	Node0x1d54240 -> Node0x1d54330;
+	Node0x1d54290 [shape=record,label="{%25:\l25:                                               \l  %26 = tail call i1 @llvm.experimental.constrained.fcmps.f32(float %19, float\l... -5.000000e-01, metadata !\"ole\", metadata !\"fpexcept.ignore\") #40\l  %27 = tail call float @llvm.experimental.constrained.fadd.f32(float %19,\l... float %10, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br i1 %26, label %28, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1d54290:s0 -> Node0x1d542e0;
+	Node0x1d54290:s1 -> Node0x1d54330;
+	Node0x1d542e0 [shape=record,label="{%28:\l28:                                               \l  %29 = tail call float @llvm.experimental.constrained.sitofp.f32.i32(i32 1,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %30 = tail call float @llvm.experimental.constrained.fadd.f32(float %27,\l... float %29, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %31\l}"];
+	Node0x1d542e0 -> Node0x1d54330;
+	Node0x1d54330 [shape=record,label="{%31:\l31:                                               \l  %32 = phi float [ %24, %21 ], [ %30, %28 ], [ %27, %25 ]\l  %33 = fneg float %32\l  %34 = select i1 %8, float %33, float %32\l  br label %35\l}"];
+	Node0x1d54330 -> Node0x1d54380;
+	Node0x1d54380 [shape=record,label="{%35:\l35:                                               \l  %36 = phi float [ %16, %13 ], [ %34, %31 ], [ %0, %1 ]\l  ret float %36\l}"];
+}

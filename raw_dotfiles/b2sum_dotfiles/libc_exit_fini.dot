@@ -1,0 +1,11 @@
+digraph "CFG for 'libc_exit_fini' function" {
+	label="CFG for 'libc_exit_fini' function";
+
+	Node0x151c180 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%0:\l  %1 = icmp ugt void ()** @__fini_array_end, @__fini_array_start\l  %2 = ptrtoint void ()** @__fini_array_end to i64\l  br i1 %1, label %3, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x151c180:s0 -> Node0x151c1d0;
+	Node0x151c180:s1 -> Node0x151c220;
+	Node0x151c1d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l3:                                                \l  %4 = phi i64 [ %5, %3 ], [ %2, %0 ]\l  %5 = add i64 %4, -8\l  %6 = inttoptr i64 %5 to void (...)**\l  %7 = load void (...)*, void (...)** %6, align 8, !tbaa !1632\l  tail call void (...) %7() #29\l  %8 = ptrtoint void ()** @__fini_array_start to i64\l  %9 = icmp ugt i64 %5, %8\l  br i1 %9, label %3, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x151c1d0:s0 -> Node0x151c1d0;
+	Node0x151c1d0:s1 -> Node0x151c220;
+	Node0x151c220 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%10:\l10:                                               \l  ret void\l}"];
+}

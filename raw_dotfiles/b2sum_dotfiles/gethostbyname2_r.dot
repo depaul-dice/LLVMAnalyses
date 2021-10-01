@@ -1,0 +1,42 @@
+digraph "CFG for 'gethostbyname2_r' function" {
+	label="CFG for 'gethostbyname2_r' function";
+
+	Node0x1a659b0 [shape=record,label="{%7:\l  %8 = alloca [48 x %struct.address], align 16\l  %9 = alloca [256 x i8], align 16\l  %10 = bitcast [48 x %struct.address]* %8 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 1344, i8* nonnull %10) #40\l  %11 = getelementptr inbounds [256 x i8], [256 x i8]* %9, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 256, i8* nonnull %11) #40\l  store %struct.hostent* null, %struct.hostent** %5, align 8, !tbaa !1632\l  %12 = getelementptr inbounds [48 x %struct.address], [48 x %struct.address]*\l... %8, i64 0, i64 0\l  %13 = call i32 @__lookup_name(%struct.address* nonnull %12, i8* nonnull %11,\l... i8* %0, i32 %1, i32 2) #41\l  %14 = icmp slt i32 %13, 0\l  br i1 %14, label %15, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1a659b0:s0 -> Node0x1a65ba0;
+	Node0x1a659b0:s1 -> Node0x1a65d30;
+	Node0x1a65ba0 [shape=record,label="{%15:\l15:                                               \l  switch i32 %13, label %18 [\l    i32 -2, label %16\l    i32 -3, label %17\l    i32 -11, label %19\l    i32 -10, label %19\l  ]\l|{<s0>def|<s1>-2|<s2>-3|<s3>-11|<s4>-10}}"];
+	Node0x1a65ba0:s0 -> Node0x1a65c90;
+	Node0x1a65ba0:s1 -> Node0x1a65bf0;
+	Node0x1a65ba0:s2 -> Node0x1a65c40;
+	Node0x1a65ba0:s3 -> Node0x1a65ce0;
+	Node0x1a65ba0:s4 -> Node0x1a65ce0;
+	Node0x1a65bf0 [shape=record,label="{%16:\l16:                                               \l  store i32 1, i32* %6, align 4, !tbaa !1636\l  br label %101\l}"];
+	Node0x1a65bf0 -> Node0x1a65fb0;
+	Node0x1a65c40 [shape=record,label="{%17:\l17:                                               \l  store i32 2, i32* %6, align 4, !tbaa !1636\l  br label %101\l}"];
+	Node0x1a65c40 -> Node0x1a65fb0;
+	Node0x1a65c90 [shape=record,label="{%18:\l18:                                               \l  store i32 3, i32* %6, align 4, !tbaa !1636\l  br label %101\l}"];
+	Node0x1a65c90 -> Node0x1a65fb0;
+	Node0x1a65ce0 [shape=record,label="{%19:\l19:                                               \l  store i32 3, i32* %6, align 4, !tbaa !1636\l  %20 = call i32* @___errno_location() #41\l  %21 = load i32, i32* %20, align 4, !tbaa !1636\l  br label %101\l}"];
+	Node0x1a65ce0 -> Node0x1a65fb0;
+	Node0x1a65d30 [shape=record,label="{%22:\l22:                                               \l  %23 = getelementptr inbounds %struct.hostent, %struct.hostent* %2, i64 0,\l... i32 2\l  store i32 %1, i32* %23, align 8, !tbaa !1638\l  %24 = icmp eq i32 %1, 10\l  %25 = select i1 %24, i32 16, i32 4\l  %26 = getelementptr inbounds %struct.hostent, %struct.hostent* %2, i64 0,\l... i32 3\l  store i32 %25, i32* %26, align 4, !tbaa !1640\l  %27 = ptrtoint i8* %3 to i64\l  %28 = sub i64 0, %27\l  %29 = and i64 %28, 7\l  %30 = add nuw nsw i32 %13, 1\l  %31 = sext i32 %30 to i64\l  %32 = or i32 %25, 8\l  %33 = zext i32 %32 to i64\l  %34 = mul nuw nsw i64 %31, %33\l  %35 = call i64 @strlen(i8* %0) #41\l  %36 = call i64 @strlen(i8* nonnull %11) #41\l  %37 = add nuw nsw i64 %29, 34\l  %38 = add nuw nsw i64 %37, %34\l  %39 = add i64 %38, %35\l  %40 = add i64 %39, %36\l  %41 = icmp ugt i64 %40, %4\l  br i1 %41, label %101, label %42\l|{<s0>T|<s1>F}}"];
+	Node0x1a65d30:s0 -> Node0x1a65fb0;
+	Node0x1a65d30:s1 -> Node0x1a65d80;
+	Node0x1a65d80 [shape=record,label="{%42:\l42:                                               \l  %43 = getelementptr inbounds i8, i8* %3, i64 %29\l  %44 = getelementptr inbounds %struct.hostent, %struct.hostent* %2, i64 0,\l... i32 1\l  %45 = bitcast i8*** %44 to i8**\l  store i8* %43, i8** %45, align 8, !tbaa !1641\l  %46 = getelementptr inbounds i8, i8* %43, i64 24\l  %47 = getelementptr inbounds %struct.hostent, %struct.hostent* %2, i64 0,\l... i32 4\l  %48 = bitcast i8*** %47 to i8**\l  store i8* %46, i8** %48, align 8, !tbaa !1642\l  %49 = shl nuw nsw i64 %31, 3\l  %50 = getelementptr inbounds i8, i8* %46, i64 %49\l  %51 = icmp sgt i32 %13, 0\l  %52 = bitcast i8* %46 to i8**\l  br i1 %51, label %53, label %71\l|{<s0>T|<s1>F}}"];
+	Node0x1a65d80:s0 -> Node0x1a65dd0;
+	Node0x1a65d80:s1 -> Node0x1a65e70;
+	Node0x1a65dd0 [shape=record,label="{%53:\l53:                                               \l  %54 = zext i32 %13 to i64\l  br label %55\l}"];
+	Node0x1a65dd0 -> Node0x1a65e20;
+	Node0x1a65e20 [shape=record,label="{%55:\l55:                                               \l  %56 = phi i64 [ 0, %53 ], [ %67, %55 ]\l  %57 = phi i8** [ %52, %53 ], [ %69, %55 ]\l  %58 = phi i8* [ %50, %53 ], [ %61, %55 ]\l  store i8* %58, i8** %57, align 8, !tbaa !1632\l  %59 = load i32, i32* %26, align 4, !tbaa !1640\l  %60 = sext i32 %59 to i64\l  %61 = getelementptr inbounds i8, i8* %58, i64 %60\l  %62 = load i8**, i8*** %47, align 8, !tbaa !1642\l  %63 = getelementptr inbounds i8*, i8** %62, i64 %56\l  %64 = load i8*, i8** %63, align 8, !tbaa !1632\l  %65 = getelementptr inbounds [48 x %struct.address], [48 x %struct.address]*\l... %8, i64 0, i64 %56, i32 2, i64 0\l  %66 = call i8* @memcpy(i8* %64, i8* nonnull %65, i64 %60) #41\l  %67 = add nuw nsw i64 %56, 1\l  %68 = load i8**, i8*** %47, align 8, !tbaa !1642\l  %69 = getelementptr inbounds i8*, i8** %68, i64 %67\l  %70 = icmp eq i64 %67, %54\l  br i1 %70, label %71, label %55\l|{<s0>T|<s1>F}}"];
+	Node0x1a65e20:s0 -> Node0x1a65e70;
+	Node0x1a65e20:s1 -> Node0x1a65e20;
+	Node0x1a65e70 [shape=record,label="{%71:\l71:                                               \l  %72 = phi i8* [ %50, %42 ], [ %61, %55 ]\l  %73 = phi i8** [ %52, %42 ], [ %69, %55 ]\l  store i8* null, i8** %73, align 8, !tbaa !1632\l  %74 = load i8**, i8*** %44, align 8, !tbaa !1641\l  store i8* %72, i8** %74, align 8, !tbaa !1632\l  %75 = getelementptr inbounds %struct.hostent, %struct.hostent* %2, i64 0,\l... i32 0\l  store i8* %72, i8** %75, align 8, !tbaa !1643\l  %76 = call i8* @strcpy(i8* %72, i8* nonnull %11) #41\l  %77 = load i8*, i8** %75, align 8, !tbaa !1643\l  %78 = call i64 @strlen(i8* %77) #41\l  %79 = load i8*, i8** %75, align 8, !tbaa !1643\l  %80 = call i32 @strcmp(i8* %79, i8* %0) #41\l  %81 = icmp eq i32 %80, 0\l  br i1 %81, label %95, label %82\l|{<s0>T|<s1>F}}"];
+	Node0x1a65e70:s0 -> Node0x1a65f10;
+	Node0x1a65e70:s1 -> Node0x1a65ec0;
+	Node0x1a65ec0 [shape=record,label="{%82:\l82:                                               \l  %83 = add i64 %78, 1\l  %84 = getelementptr inbounds i8, i8* %72, i64 %83\l  %85 = load i8**, i8*** %44, align 8, !tbaa !1641\l  %86 = getelementptr inbounds i8*, i8** %85, i64 1\l  store i8* %84, i8** %86, align 8, !tbaa !1632\l  %87 = load i8**, i8*** %44, align 8, !tbaa !1641\l  %88 = getelementptr inbounds i8*, i8** %87, i64 1\l  %89 = load i8*, i8** %88, align 8, !tbaa !1632\l  %90 = call i8* @strcpy(i8* %89, i8* %0) #41\l  %91 = load i8**, i8*** %44, align 8, !tbaa !1641\l  %92 = getelementptr inbounds i8*, i8** %91, i64 1\l  %93 = load i8*, i8** %92, align 8, !tbaa !1632\l  %94 = call i64 @strlen(i8* %93) #41\l  br label %98\l}"];
+	Node0x1a65ec0 -> Node0x1a65f60;
+	Node0x1a65f10 [shape=record,label="{%95:\l95:                                               \l  %96 = load i8**, i8*** %44, align 8, !tbaa !1641\l  %97 = getelementptr inbounds i8*, i8** %96, i64 1\l  store i8* null, i8** %97, align 8, !tbaa !1632\l  br label %98\l}"];
+	Node0x1a65f10 -> Node0x1a65f60;
+	Node0x1a65f60 [shape=record,label="{%98:\l98:                                               \l  %99 = load i8**, i8*** %44, align 8, !tbaa !1641\l  %100 = getelementptr inbounds i8*, i8** %99, i64 2\l  store i8* null, i8** %100, align 8, !tbaa !1632\l  store %struct.hostent* %2, %struct.hostent** %5, align 8, !tbaa !1632\l  br label %101\l}"];
+	Node0x1a65f60 -> Node0x1a65fb0;
+	Node0x1a65fb0 [shape=record,label="{%101:\l101:                                              \l  %102 = phi i32 [ 74, %18 ], [ %21, %19 ], [ 11, %17 ], [ 2, %16 ], [ 0, %98\l... ], [ 34, %22 ]\l  call void @llvm.lifetime.end.p0i8(i64 256, i8* nonnull %11) #40\l  call void @llvm.lifetime.end.p0i8(i64 1344, i8* nonnull %10) #40\l  ret i32 %102\l}"];
+}

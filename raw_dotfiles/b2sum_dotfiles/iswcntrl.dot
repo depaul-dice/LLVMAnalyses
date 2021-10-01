@@ -1,0 +1,5 @@
+digraph "CFG for 'iswcntrl' function" {
+	label="CFG for 'iswcntrl' function";
+
+	Node0x17a1f10 [shape=record,label="{%1:\l  %2 = icmp ult i32 %0, 32\l  %3 = add i32 %0, -127\l  %4 = icmp ult i32 %3, 33\l  %5 = or i1 %2, %4\l  %6 = and i32 %0, -2\l  %7 = icmp eq i32 %6, 8232\l  %8 = or i1 %7, %5\l  %9 = add i32 %0, -65529\l  %10 = icmp ult i32 %9, 3\l  %11 = or i1 %10, %8\l  %12 = zext i1 %11 to i32\l  ret i32 %12\l}"];
+}

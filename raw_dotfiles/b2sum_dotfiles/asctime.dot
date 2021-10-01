@@ -1,0 +1,5 @@
+digraph "CFG for 'asctime' function" {
+	label="CFG for 'asctime' function";
+
+	Node0x19e3ed0 [shape=record,label="{%1:\l  %2 = tail call i8* @__asctime_r(%struct.tm* %0, i8* getelementptr inbounds\l... ([26 x i8], [26 x i8]* @asctime.buf, i64 0, i64 0)) #40\l  ret i8* %2\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_attr_getinheritsched' function" {
+	label="CFG for 'pthread_attr_getinheritsched' function";
+
+	Node0x1ff27e0 [shape=record,label="{%2:\l  %3 = bitcast %struct.pthread_attr_t* %0 to [14 x i32]*\l  %4 = getelementptr inbounds [14 x i32], [14 x i32]* %3, i64 0, i64 7\l  %5 = load i32, i32* %4, align 4, !tbaa !1632\l  store i32 %5, i32* %1, align 4, !tbaa !1635\l  ret i32 0\l}"];
+}

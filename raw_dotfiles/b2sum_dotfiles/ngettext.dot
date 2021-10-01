@@ -1,0 +1,5 @@
+digraph "CFG for 'ngettext' function" {
+	label="CFG for 'ngettext' function";
+
+	Node0x1b4b450 [shape=record,label="{%3:\l  %4 = tail call i8* @dngettext(i8* null, i8* %0, i8* %1, i64 %2) #40\l  ret i8* %4\l}"];
+}

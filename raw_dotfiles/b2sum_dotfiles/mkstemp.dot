@@ -1,0 +1,5 @@
+digraph "CFG for 'mkstemp' function" {
+	label="CFG for 'mkstemp' function";
+
+	Node0x1b4b890 [shape=record,label="{%1:\l  %2 = tail call i32 @__mkostemps(i8* %0, i32 0, i32 0) #40\l  ret i32 %2\l}"];
+}

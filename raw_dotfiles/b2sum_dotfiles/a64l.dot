@@ -1,0 +1,16 @@
+digraph "CFG for 'a64l' function" {
+	label="CFG for 'a64l' function";
+
+	Node0x17fd480 [shape=record,label="{%1:\l  br label %2\l}"];
+	Node0x17fd480 -> Node0x17fd500;
+	Node0x17fd500 [shape=record,label="{%2:\l2:                                                \l  %3 = phi i8* [ %0, %1 ], [ %20, %18 ]\l  %4 = phi i32 [ 0, %1 ], [ %17, %18 ]\l  %5 = phi i32 [ 0, %1 ], [ %19, %18 ]\l  %6 = load i8, i8* %3, align 1, !tbaa !1632\l  %7 = icmp eq i8 %6, 0\l  br i1 %7, label %22, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x17fd500:s0 -> Node0x17fd8a0;
+	Node0x17fd500:s1 -> Node0x17fd800;
+	Node0x17fd800 [shape=record,label="{%8:\l8:                                                \l  %9 = sext i8 %6 to i32\l  %10 = tail call i8* @strchr(i8* getelementptr inbounds ([65 x i8], [65 x\l... i8]* @digits, i64 0, i64 0), i32 %9) #40\l  %11 = icmp eq i8* %10, null\l  %12 = ptrtoint i8* %10 to i64\l  %13 = trunc i64 %12 to i32\l  %14 = sub i32 %13, ptrtoint ([65 x i8]* @digits to i32)\l  %15 = shl i32 %14, %5\l  %16 = select i1 %11, i32 0, i32 %15\l  %17 = or i32 %16, %4\l  br i1 %11, label %22, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x17fd800:s0 -> Node0x17fd8a0;
+	Node0x17fd800:s1 -> Node0x17fd850;
+	Node0x17fd850 [shape=record,label="{%18:\l18:                                               \l  %19 = add nuw nsw i32 %5, 6\l  %20 = getelementptr inbounds i8, i8* %3, i64 1\l  %21 = icmp ult i32 %5, 30\l  br i1 %21, label %2, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x17fd850:s0 -> Node0x17fd500;
+	Node0x17fd850:s1 -> Node0x17fd8a0;
+	Node0x17fd8a0 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i32 [ %17, %8 ], [ %4, %2 ], [ %17, %18 ]\l  %24 = sext i32 %23 to i64\l  ret i64 %24\l}"];
+}

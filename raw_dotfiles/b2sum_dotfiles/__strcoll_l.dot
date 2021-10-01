@@ -1,0 +1,5 @@
+digraph "CFG for '__strcoll_l' function" {
+	label="CFG for '__strcoll_l' function";
+
+	Node0x1cfc360 [shape=record,label="{%3:\l  %4 = tail call i32 @strcmp(i8* %0, i8* %1) #40\l  ret i32 %4\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'addrcmp' function" {
+	label="CFG for 'addrcmp' function";
+
+	Node0x1a87f10 [shape=record,label="{%2:\l  %3 = getelementptr inbounds i8, i8* %1, i64 24\l  %4 = bitcast i8* %3 to i32*\l  %5 = load i32, i32* %4, align 4, !tbaa !1632\l  %6 = getelementptr inbounds i8, i8* %0, i64 24\l  %7 = bitcast i8* %6 to i32*\l  %8 = load i32, i32* %7, align 4, !tbaa !1632\l  %9 = sub nsw i32 %5, %8\l  ret i32 %9\l}"];
+}

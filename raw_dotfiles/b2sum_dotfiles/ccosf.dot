@@ -1,0 +1,5 @@
+digraph "CFG for 'ccosf' function" {
+	label="CFG for 'ccosf' function";
+
+	Node0x1cf87a0 [shape=record,label="{%1:\l  %2 = extractelement \<2 x float\> %0, i32 1\l  %3 = fneg float %2\l  %4 = insertelement \<2 x float\> undef, float %3, i32 0\l  %5 = shufflevector \<2 x float\> %4, \<2 x float\> %0, \<2 x i32\> \<i32 0, i32 2\>\l  %6 = tail call \<2 x float\> @ccoshf(\<2 x float\> %5) #40\l  ret \<2 x float\> %6\l}"];
+}

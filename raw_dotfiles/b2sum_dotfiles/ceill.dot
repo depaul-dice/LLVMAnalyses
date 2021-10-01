@@ -1,0 +1,28 @@
+digraph "CFG for 'ceill' function" {
+	label="CFG for 'ceill' function";
+
+	Node0x1ffa1a0 [shape=record,label="{%1:\l  %2 = alloca x86_fp80, align 16\l  %3 = bitcast x86_fp80 %0 to i80\l  %4 = lshr i80 %3, 64\l  %5 = trunc i80 %4 to i32\l  %6 = and i32 %5, 32767\l  %7 = icmp ugt i32 %6, 16445\l  br i1 %7, label %35, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1ffa1a0:s0 -> Node0x1ffab10;
+	Node0x1ffa1a0:s1 -> Node0x1ffa890;
+	Node0x1ffa890 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call x86_fp80 @llvm.experimental.constrained.sitofp.f80.i32(i32 0,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %10 = tail call i1 @llvm.experimental.constrained.fcmp.f80(x86_fp80 %0,\l... x86_fp80 %9, metadata !\"oeq\", metadata !\"fpexcept.ignore\") #40\l  br i1 %10, label %35, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1ffa890:s0 -> Node0x1ffab10;
+	Node0x1ffa890:s1 -> Node0x1ffa8e0;
+	Node0x1ffa8e0 [shape=record,label="{%11:\l11:                                               \l  %12 = icmp slt i80 %3, 0\l  br i1 %12, label %13, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1ffa8e0:s0 -> Node0x1ffa930;
+	Node0x1ffa8e0:s1 -> Node0x1ffa980;
+	Node0x1ffa930 [shape=record,label="{%13:\l13:                                               \l  %14 = tail call x86_fp80 @llvm.experimental.constrained.fsub.f80(x86_fp80\l... %0, x86_fp80 0xK403E8000000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #40\l  %15 = tail call x86_fp80 @llvm.experimental.constrained.fadd.f80(x86_fp80\l... %14, x86_fp80 0xK403E8000000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #40\l  br label %19\l}"];
+	Node0x1ffa930 -> Node0x1ffa9d0;
+	Node0x1ffa980 [shape=record,label="{%16:\l16:                                               \l  %17 = tail call x86_fp80 @llvm.experimental.constrained.fadd.f80(x86_fp80\l... %0, x86_fp80 0xK403E8000000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #40\l  %18 = tail call x86_fp80 @llvm.experimental.constrained.fsub.f80(x86_fp80\l... %17, x86_fp80 0xK403E8000000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #40\l  br label %19\l}"];
+	Node0x1ffa980 -> Node0x1ffa9d0;
+	Node0x1ffa9d0 [shape=record,label="{%19:\l19:                                               \l  %20 = phi x86_fp80 [ %18, %16 ], [ %15, %13 ]\l  %21 = tail call x86_fp80 @llvm.experimental.constrained.fsub.f80(x86_fp80\l... %20, x86_fp80 %0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %22 = icmp ult i32 %6, 16383\l  br i1 %22, label %23, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1ffa9d0:s0 -> Node0x1ffaa20;
+	Node0x1ffa9d0:s1 -> Node0x1ffaa70;
+	Node0x1ffaa20 [shape=record,label="{%23:\l23:                                               \l  %24 = bitcast x86_fp80* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 10, i8* nonnull %24)\l  store volatile x86_fp80 %21, x86_fp80* %2, align 16, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 10, i8* nonnull %24)\l  %25 = tail call double @llvm.experimental.constrained.sitofp.f64.i32(i32 1,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %26 = select i1 %12, double -0.000000e+00, double %25\l  %27 = tail call x86_fp80 @llvm.experimental.constrained.fpext.f80.f64(double\l... %26, metadata !\"fpexcept.ignore\") #40\l  br label %35\l}"];
+	Node0x1ffaa20 -> Node0x1ffab10;
+	Node0x1ffaa70 [shape=record,label="{%28:\l28:                                               \l  %29 = tail call x86_fp80 @llvm.experimental.constrained.sitofp.f80.i32(i32\l... 0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %30 = tail call i1 @llvm.experimental.constrained.fcmps.f80(x86_fp80 %21,\l... x86_fp80 %29, metadata !\"olt\", metadata !\"fpexcept.ignore\") #40\l  %31 = tail call x86_fp80 @llvm.experimental.constrained.fadd.f80(x86_fp80\l... %0, x86_fp80 %21, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br i1 %30, label %32, label %35\l|{<s0>T|<s1>F}}"];
+	Node0x1ffaa70:s0 -> Node0x1ffaac0;
+	Node0x1ffaa70:s1 -> Node0x1ffab10;
+	Node0x1ffaac0 [shape=record,label="{%32:\l32:                                               \l  %33 = tail call x86_fp80 @llvm.experimental.constrained.sitofp.f80.i32(i32\l... 1, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %34 = tail call x86_fp80 @llvm.experimental.constrained.fadd.f80(x86_fp80\l... %31, x86_fp80 %33, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %35\l}"];
+	Node0x1ffaac0 -> Node0x1ffab10;
+	Node0x1ffab10 [shape=record,label="{%35:\l35:                                               \l  %36 = phi x86_fp80 [ %27, %23 ], [ %34, %32 ], [ %0, %8 ], [ %0, %1 ], [\l... %31, %28 ]\l  ret x86_fp80 %36\l}"];
+}

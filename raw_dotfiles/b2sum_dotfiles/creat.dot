@@ -1,0 +1,5 @@
+digraph "CFG for 'creat' function" {
+	label="CFG for 'creat' function";
+
+	Node0x1ff69f0 [shape=record,label="{%2:\l  %3 = tail call i32 (i8*, i32, ...) @open(i8* %0, i32 577, i32 %1) #40\l  ret i32 %3\l}"];
+}

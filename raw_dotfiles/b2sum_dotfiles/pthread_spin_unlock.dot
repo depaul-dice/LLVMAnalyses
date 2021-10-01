@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_spin_unlock' function" {
+	label="CFG for 'pthread_spin_unlock' function";
+
+	Node0x1fb17d0 [shape=record,label="{%1:\l  tail call void asm sideeffect \"mov $1, $0 \l  ret i32 0\l}"];
+}

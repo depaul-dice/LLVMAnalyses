@@ -1,0 +1,10 @@
+digraph "CFG for 'sigismember' function" {
+	label="CFG for 'sigismember' function";
+
+	Node0x1b6f220 [shape=record,label="{%2:\l  %3 = add nsw i32 %1, -1\l  %4 = icmp ugt i32 %3, 63\l  br i1 %4, label %15, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1b6f220:s0 -> Node0x1b6f320;
+	Node0x1b6f220:s1 -> Node0x1b6f2d0;
+	Node0x1b6f2d0 [shape=record,label="{%5:\l5:                                                \l  %6 = lshr i32 %3, 6\l  %7 = zext i32 %6 to i64\l  %8 = getelementptr inbounds %struct.__sigset_t, %struct.__sigset_t* %0, i64\l... 0, i32 0, i64 %7\l  %9 = load i64, i64* %8, align 8, !tbaa !1632\l  %10 = zext i32 %3 to i64\l  %11 = shl nuw i64 1, %10\l  %12 = and i64 %9, %11\l  %13 = icmp ne i64 %12, 0\l  %14 = zext i1 %13 to i32\l  br label %15\l}"];
+	Node0x1b6f2d0 -> Node0x1b6f320;
+	Node0x1b6f320 [shape=record,label="{%15:\l15:                                               \l  %16 = phi i32 [ %14, %5 ], [ 0, %2 ]\l  ret i32 %16\l}"];
+}

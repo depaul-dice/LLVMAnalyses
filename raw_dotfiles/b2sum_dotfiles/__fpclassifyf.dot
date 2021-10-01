@@ -1,0 +1,13 @@
+digraph "CFG for '__fpclassifyf' function" {
+	label="CFG for '__fpclassifyf' function";
+
+	Node0x1ee8550 [shape=record,label="{%1:\l  %2 = bitcast float %0 to i32\l  %3 = lshr i32 %2, 23\l  %4 = trunc i32 %3 to i8\l  switch i8 %4, label %13 [\l    i8 0, label %5\l    i8 -1, label %9\l  ]\l|{<s0>def|<s1>0|<s2>-1}}"];
+	Node0x1ee8550:s0 -> Node0x1ee8640;
+	Node0x1ee8550:s1 -> Node0x1ee85a0;
+	Node0x1ee8550:s2 -> Node0x1ee85f0;
+	Node0x1ee85a0 [shape=record,label="{%5:\l5:                                                \l  %6 = and i32 %2, 2147483647\l  %7 = icmp eq i32 %6, 0\l  %8 = select i1 %7, i32 2, i32 3\l  br label %13\l}"];
+	Node0x1ee85a0 -> Node0x1ee8640;
+	Node0x1ee85f0 [shape=record,label="{%9:\l9:                                                \l  %10 = and i32 %2, 8388607\l  %11 = icmp eq i32 %10, 0\l  %12 = zext i1 %11 to i32\l  br label %13\l}"];
+	Node0x1ee85f0 -> Node0x1ee8640;
+	Node0x1ee8640 [shape=record,label="{%13:\l13:                                               \l  %14 = phi i32 [ %12, %9 ], [ %8, %5 ], [ 4, %1 ]\l  ret i32 %14\l}"];
+}

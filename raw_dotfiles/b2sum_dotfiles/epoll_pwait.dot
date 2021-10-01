@@ -1,0 +1,10 @@
+digraph "CFG for 'epoll_pwait' function" {
+	label="CFG for 'epoll_pwait' function";
+
+	Node0x1d1bf40 [shape=record,label="{%5:\l  %6 = sext i32 %0 to i64\l  %7 = ptrtoint %struct.epoll_event* %1 to i64\l  %8 = sext i32 %2 to i64\l  %9 = sext i32 %3 to i64\l  %10 = ptrtoint %struct.__sigset_t* %4 to i64\l  %11 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},\{r8\},\{r9\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},\l...~\{fpsr\},~\{flags\}\"(i64 281, i64 %6, i64 %7, i64 %8, i64 %9, i64 %10, i64 8)\l... #40, !srcloc !1632\l  %12 = trunc i64 %11 to i32\l  %13 = icmp ne i32 %12, -38\l  %14 = icmp ne %struct.__sigset_t* %4, null\l  %15 = or i1 %14, %13\l  br i1 %15, label %18, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1d1bf40:s0 -> Node0x1d1c540;
+	Node0x1d1bf40:s1 -> Node0x1d1bff0;
+	Node0x1d1bff0 [shape=record,label="{%16:\l16:                                               \l  %17 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}\"(i64 232, i64 %6, i64 %7, i64 %8, i64 %9) #40, !srcloc !1633\l  br label %18\l}"];
+	Node0x1d1bff0 -> Node0x1d1c540;
+	Node0x1d1c540 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i64 [ %11, %5 ], [ %17, %16 ]\l  %20 = shl i64 %19, 32\l  %21 = ashr exact i64 %20, 32\l  %22 = tail call i64 @__syscall_ret(i64 %21) #41\l  %23 = trunc i64 %22 to i32\l  ret i32 %23\l}"];
+}

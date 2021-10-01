@@ -1,0 +1,17 @@
+digraph "CFG for 'wcswidth' function" {
+	label="CFG for 'wcswidth' function";
+
+	Node0x1e66340 [shape=record,label="{%2:\l  %3 = icmp eq i64 %1, 0\l  br i1 %3, label %18, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1e66340:s0 -> Node0x1e665f0;
+	Node0x1e66340:s1 -> Node0x1e66500;
+	Node0x1e66500 [shape=record,label="{%4:\l4:                                                \l  %5 = phi i64 [ %8, %14 ], [ %1, %2 ]\l  %6 = phi i32 [ %15, %14 ], [ 0, %2 ]\l  %7 = phi i32* [ %16, %14 ], [ %0, %2 ]\l  %8 = add i64 %5, -1\l  %9 = load i32, i32* %7, align 4, !tbaa !1632\l  %10 = icmp eq i32 %9, 0\l  br i1 %10, label %18, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1e66500:s0 -> Node0x1e665f0;
+	Node0x1e66500:s1 -> Node0x1e66550;
+	Node0x1e66550 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call i32 @wcwidth(i32 %9) #40\l  %13 = icmp sgt i32 %12, -1\l  br i1 %13, label %14, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1e66550:s0 -> Node0x1e665a0;
+	Node0x1e66550:s1 -> Node0x1e665f0;
+	Node0x1e665a0 [shape=record,label="{%14:\l14:                                               \l  %15 = add nsw i32 %12, %6\l  %16 = getelementptr inbounds i32, i32* %7, i64 1\l  %17 = icmp eq i64 %8, 0\l  br i1 %17, label %18, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1e665a0:s0 -> Node0x1e665f0;
+	Node0x1e665a0:s1 -> Node0x1e66500;
+	Node0x1e665f0 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i32 [ 0, %2 ], [ %15, %14 ], [ %6, %4 ], [ %12, %11 ]\l  ret i32 %19\l}"];
+}

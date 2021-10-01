@@ -1,0 +1,13 @@
+digraph "CFG for 'vasprintf' function" {
+	label="CFG for 'vasprintf' function";
+
+	Node0x1d7e710 [shape=record,label="{%3:\l  %4 = alloca [1 x %struct.__va_list_tag], align 16\l  %5 = bitcast [1 x %struct.__va_list_tag]* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %5) #40\l  %6 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %4, i64 0, i64 0\l  %7 = bitcast %struct.__va_list_tag* %2 to i8*\l  call void @llvm.va_copy(i8* nonnull %5, i8* %7) #41\l  %8 = call i32 @vsnprintf(i8* null, i64 0, i8* %1, %struct.__va_list_tag*\l... nonnull %6) #42\l  call void @llvm.va_end(i8* nonnull %5) #41\l  %9 = icmp slt i32 %8, 0\l  br i1 %9, label %17, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1d7e710:s0 -> Node0x1d7eed0;
+	Node0x1d7e710:s1 -> Node0x1d7eb00;
+	Node0x1d7eb00 [shape=record,label="{%10:\l10:                                               \l  %11 = add nuw i32 %8, 1\l  %12 = zext i32 %11 to i64\l  %13 = call i8* @malloc(i64 %12) #42\l  store i8* %13, i8** %0, align 8, !tbaa !1632\l  %14 = icmp eq i8* %13, null\l  br i1 %14, label %17, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1d7eb00:s0 -> Node0x1d7eed0;
+	Node0x1d7eb00:s1 -> Node0x1d7ee80;
+	Node0x1d7ee80 [shape=record,label="{%15:\l15:                                               \l  %16 = call i32 @vsnprintf(i8* nonnull %13, i64 %12, i8* %1,\l... %struct.__va_list_tag* %2) #42\l  br label %17\l}"];
+	Node0x1d7ee80 -> Node0x1d7eed0;
+	Node0x1d7eed0 [shape=record,label="{%17:\l17:                                               \l  %18 = phi i32 [ %16, %15 ], [ -1, %10 ], [ -1, %3 ]\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %5) #40\l  ret i32 %18\l}"];
+}

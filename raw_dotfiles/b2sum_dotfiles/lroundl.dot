@@ -1,0 +1,5 @@
+digraph "CFG for 'lroundl' function" {
+	label="CFG for 'lroundl' function";
+
+	Node0x1cdb340 [shape=record,label="{%1:\l  %2 = tail call x86_fp80 @roundl(x86_fp80 %0) #40\l  %3 = tail call i64 @llvm.experimental.constrained.fptosi.i64.f80(x86_fp80\l... %2, metadata !\"fpexcept.ignore\") #41\l  ret i64 %3\l}"];
+}

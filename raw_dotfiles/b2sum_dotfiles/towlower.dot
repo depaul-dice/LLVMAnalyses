@@ -1,0 +1,12 @@
+digraph "CFG for 'towlower' function" {
+	label="CFG for 'towlower' function";
+
+	Node0x1973f30 [shape=record,label="{%1:\l  %2 = icmp ult i32 %0, 128\l  br i1 %2, label %3, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1973f30:s0 -> Node0x1973f80;
+	Node0x1973f30:s1 -> Node0x1973fd0;
+	Node0x1973f80 [shape=record,label="{%3:\l3:                                                \l  %4 = tail call i32 @tolower(i32 %0) #40\l  br label %7\l}"];
+	Node0x1973f80 -> Node0x1974020;
+	Node0x1973fd0 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call fastcc i32 @__towcase(i32 %0, i32 1) #41\l  br label %7\l}"];
+	Node0x1973fd0 -> Node0x1974020;
+	Node0x1974020 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32 [ %4, %3 ], [ %6, %5 ]\l  ret i32 %8\l}"];
+}

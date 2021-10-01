@@ -1,0 +1,19 @@
+digraph "CFG for 'fcvt' function" {
+	label="CFG for 'fcvt' function";
+
+	Node0x1be3070 [shape=record,label="{%4:\l  %5 = alloca [1500 x i8], align 16\l  %6 = getelementptr inbounds [1500 x i8], [1500 x i8]* %5, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 1500, i8* nonnull %6) #40\l  %7 = icmp ult i32 %1, 1400\l  %8 = select i1 %7, i32 %1, i32 1400\l  %9 = call i32 (i8*, i8*, ...) @sprintf(i8* nonnull %6, i8* getelementptr\l... inbounds ([5 x i8], [5 x i8]* @.str.202, i64 0, i64 0), i32 %8, double %0) #41\l  %10 = load i8, i8* %6, align 16, !tbaa !1632\l  %11 = icmp eq i8 %10, 45\l  %12 = zext i1 %11 to i32\l  %13 = zext i1 %11 to i64\l  %14 = getelementptr inbounds [1500 x i8], [1500 x i8]* %5, i64 0, i64 %13\l  %15 = load i8, i8* %14, align 1, !tbaa !1632\l  %16 = icmp eq i8 %15, 48\l  br i1 %16, label %17, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1be3070:s0 -> Node0x1be3980;
+	Node0x1be3070:s1 -> Node0x1be39d0;
+	Node0x1be3980 [shape=record,label="{%17:\l17:                                               \l  %18 = getelementptr inbounds i8, i8* %14, i64 2\l  %19 = call i64 @strspn(i8* nonnull %18, i8* getelementptr inbounds ([2 x\l... i8], [2 x i8]* @.str.1.203, i64 0, i64 0)) #41\l  %20 = trunc i64 %19 to i32\l  br label %25\l}"];
+	Node0x1be3980 -> Node0x1be3a20;
+	Node0x1be39d0 [shape=record,label="{%21:\l21:                                               \l  %22 = call i64 @strcspn(i8* nonnull %14, i8* getelementptr inbounds ([2 x\l... i8], [2 x i8]* @.str.2.204, i64 0, i64 0)) #41\l  %23 = trunc i64 %22 to i32\l  %24 = sub nsw i32 0, %23\l  br label %25\l}"];
+	Node0x1be39d0 -> Node0x1be3a20;
+	Node0x1be3a20 [shape=record,label="{%25:\l25:                                               \l  %26 = phi i32 [ %20, %17 ], [ %24, %21 ]\l  %27 = icmp sgt i32 %8, %26\l  br i1 %27, label %34, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1be3a20:s0 -> Node0x1be3ac0;
+	Node0x1be3a20:s1 -> Node0x1be3a70;
+	Node0x1be3a70 [shape=record,label="{%28:\l28:                                               \l  store i32 %12, i32* %3, align 4, !tbaa !1635\l  store i32 1, i32* %2, align 4, !tbaa !1635\l  %29 = icmp ult i32 %8, 14\l  %30 = select i1 %29, i32 %1, i32 14\l  %31 = sext i32 %30 to i64\l  %32 = sub nsw i64 0, %31\l  %33 = getelementptr inbounds i8, i8* getelementptr inbounds ([16 x i8], [16\l... x i8]* @.str.3.205, i64 0, i64 14), i64 %32\l  br label %37\l}"];
+	Node0x1be3a70 -> Node0x1be3b10;
+	Node0x1be3ac0 [shape=record,label="{%34:\l34:                                               \l  %35 = sub nsw i32 %8, %26\l  %36 = call i8* @ecvt(double %0, i32 %35, i32* %2, i32* %3) #41\l  br label %37\l}"];
+	Node0x1be3ac0 -> Node0x1be3b10;
+	Node0x1be3b10 [shape=record,label="{%37:\l37:                                               \l  %38 = phi i8* [ %33, %28 ], [ %36, %34 ]\l  call void @llvm.lifetime.end.p0i8(i64 1500, i8* nonnull %6) #40\l  ret i8* %38\l}"];
+}

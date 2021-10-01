@@ -1,0 +1,20 @@
+digraph "CFG for '__testcancel' function" {
+	label="CFG for '__testcancel' function";
+
+	Node0x1677710 [shape=record,label="{%0:\l  %1 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #40, !srcloc !1632\l  %2 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64 0,\l... i32 10\l  %3 = load volatile i32, i32* %2, align 4, !tbaa !1633\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %18, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1677710:s0 -> Node0x1677a20;
+	Node0x1677710:s1 -> Node0x1677890;
+	Node0x1677890 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64 0,\l... i32 11\l  %7 = load volatile i8, i8* %6, align 8, !tbaa !1641\l  %8 = icmp eq i8 %7, 0\l  br i1 %8, label %9, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1677890:s0 -> Node0x16778e0;
+	Node0x1677890:s1 -> Node0x1677a20;
+	Node0x16778e0 [shape=record,label="{%9:\l9:                                                \l  %10 = load volatile i8, i8* %6, align 8, !tbaa !1641\l  %11 = icmp eq i8 %10, 0\l  br i1 %11, label %16, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x16778e0:s0 -> Node0x1677980;
+	Node0x16778e0:s1 -> Node0x1677930;
+	Node0x1677930 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64\l... 0, i32 12\l  %14 = load volatile i8, i8* %13, align 1, !tbaa !1642\l  %15 = icmp eq i8 %14, 0\l  br i1 %15, label %17, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1677930:s0 -> Node0x16779d0;
+	Node0x1677930:s1 -> Node0x1677980;
+	Node0x1677980 [shape=record,label="{%16:\l16:                                               \l  tail call void @pthread_exit(i8* nonnull inttoptr (i64 -1 to i8*)) #41\l  unreachable\l}"];
+	Node0x16779d0 [shape=record,label="{%17:\l17:                                               \l  store volatile i8 1, i8* %6, align 8, !tbaa !1641\l  br label %18\l}"];
+	Node0x16779d0 -> Node0x1677a20;
+	Node0x1677a20 [shape=record,label="{%18:\l18:                                               \l  ret void\l}"];
+}

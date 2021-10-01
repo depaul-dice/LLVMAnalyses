@@ -1,0 +1,5 @@
+digraph "CFG for 'isxdigit' function" {
+	label="CFG for 'isxdigit' function";
+
+	Node0x20106f0 [shape=record,label="{%1:\l  %2 = add i32 %0, -48\l  %3 = icmp ult i32 %2, 10\l  %4 = or i32 %0, 32\l  %5 = add i32 %4, -97\l  %6 = icmp ult i32 %5, 6\l  %7 = or i1 %3, %6\l  %8 = zext i1 %7 to i32\l  ret i32 %8\l}"];
+}

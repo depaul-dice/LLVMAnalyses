@@ -1,0 +1,21 @@
+digraph "CFG for 'signalfd' function" {
+	label="CFG for 'signalfd' function";
+
+	Node0x1c32aa0 [shape=record,label="{%3:\l  %4 = sext i32 %0 to i64\l  %5 = ptrtoint %struct.__sigset_t* %1 to i64\l  %6 = sext i32 %2 to i64\l  %7 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}\"(i64 289, i64 %4, i64 %5, i64 8, i64 %6) #40, !srcloc !1632\l  %8 = trunc i64 %7 to i32\l  %9 = icmp eq i32 %8, -38\l  br i1 %9, label %10, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1c32aa0:s0 -> Node0x1c32f80;
+	Node0x1c32aa0:s1 -> Node0x1c33110;
+	Node0x1c32f80 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 282, i64 %4, i64 %5, i64 8) #40, !srcloc !1633\l  %12 = trunc i64 %11 to i32\l  %13 = icmp sgt i32 %12, -1\l  br i1 %13, label %14, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1c32f80:s0 -> Node0x1c32fd0;
+	Node0x1c32f80:s1 -> Node0x1c33110;
+	Node0x1c32fd0 [shape=record,label="{%14:\l14:                                               \l  %15 = and i32 %2, 524288\l  %16 = icmp eq i32 %15, 0\l  br i1 %16, label %21, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1c32fd0:s0 -> Node0x1c33070;
+	Node0x1c32fd0:s1 -> Node0x1c33020;
+	Node0x1c33020 [shape=record,label="{%17:\l17:                                               \l  %18 = shl i64 %11, 32\l  %19 = ashr exact i64 %18, 32\l  %20 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 72, i64 %19, i64 2, i64 1) #40, !srcloc !1633\l  br label %21\l}"];
+	Node0x1c33020 -> Node0x1c33070;
+	Node0x1c33070 [shape=record,label="{%21:\l21:                                               \l  %22 = and i32 %2, 2048\l  %23 = icmp eq i32 %22, 0\l  br i1 %23, label %28, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x1c33070:s0 -> Node0x1c33110;
+	Node0x1c33070:s1 -> Node0x1c330c0;
+	Node0x1c330c0 [shape=record,label="{%24:\l24:                                               \l  %25 = shl i64 %11, 32\l  %26 = ashr exact i64 %25, 32\l  %27 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 72, i64 %26, i64 4, i64 2048) #40, !srcloc !1633\l  br label %28\l}"];
+	Node0x1c330c0 -> Node0x1c33110;
+	Node0x1c33110 [shape=record,label="{%28:\l28:                                               \l  %29 = phi i64 [ %7, %3 ], [ %11, %21 ], [ %11, %24 ], [ %11, %10 ]\l  %30 = shl i64 %29, 32\l  %31 = ashr exact i64 %30, 32\l  %32 = tail call i64 @__syscall_ret(i64 %31) #41\l  %33 = trunc i64 %32 to i32\l  ret i32 %33\l}"];
+}

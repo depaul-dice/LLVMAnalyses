@@ -1,0 +1,5 @@
+digraph "CFG for '__pthread_equal' function" {
+	label="CFG for '__pthread_equal' function";
+
+	Node0x2023160 [shape=record,label="{%2:\l  %3 = icmp eq %struct.__pthread* %0, %1\l  %4 = zext i1 %3 to i32\l  ret i32 %4\l}"];
+}

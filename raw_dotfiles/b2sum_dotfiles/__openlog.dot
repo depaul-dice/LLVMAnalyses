@@ -1,0 +1,10 @@
+digraph "CFG for '__openlog' function" {
+	label="CFG for '__openlog' function";
+
+	Node0x1bb3440 [shape=record,label="{%0:\l  %1 = tail call i32 @socket(i32 1, i32 524290, i32 0) #40\l  store i32 %1, i32* @log_fd, align 4, !tbaa !1632\l  %2 = icmp sgt i32 %1, -1\l  br i1 %2, label %3, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1bb3440:s0 -> Node0x1bb4320;
+	Node0x1bb3440:s1 -> Node0x1bb4370;
+	Node0x1bb4320 [shape=record,label="{%3:\l3:                                                \l  %4 = tail call i32 @connect(i32 %1, %struct.sockaddr* bitcast\l... (%struct.anon.295* @log_addr to %struct.sockaddr*), i32 12) #40\l  br label %5\l}"];
+	Node0x1bb4320 -> Node0x1bb4370;
+	Node0x1bb4370 [shape=record,label="{%5:\l5:                                                \l  ret void\l}"];
+}

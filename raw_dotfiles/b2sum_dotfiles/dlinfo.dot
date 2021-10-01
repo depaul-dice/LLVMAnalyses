@@ -1,0 +1,15 @@
+digraph "CFG for 'dlinfo' function" {
+	label="CFG for 'dlinfo' function";
+
+	Node0x1cfae00 [shape=record,label="{%3:\l  %4 = tail call i32 @__dl_invalid_handle(i8* %0) #40\l  %5 = icmp eq i32 %4, 0\l  br i1 %5, label %6, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1cfae00:s0 -> Node0x1cfb920;
+	Node0x1cfae00:s1 -> Node0x1cfba10;
+	Node0x1cfb920 [shape=record,label="{%6:\l6:                                                \l  %7 = icmp eq i32 %1, 2\l  br i1 %7, label %9, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1cfb920:s0 -> Node0x1cfb9c0;
+	Node0x1cfb920:s1 -> Node0x1cfb970;
+	Node0x1cfb970 [shape=record,label="{%8:\l8:                                                \l  tail call void (i8*, ...) @__dl_seterr(i8* getelementptr inbounds ([23 x\l... i8], [23 x i8]* @.str.380, i64 0, i64 0), i32 %1) #40\l  br label %11\l}"];
+	Node0x1cfb970 -> Node0x1cfba10;
+	Node0x1cfb9c0 [shape=record,label="{%9:\l9:                                                \l  %10 = bitcast i8* %2 to i8**\l  store i8* %0, i8** %10, align 8, !tbaa !1632\l  br label %11\l}"];
+	Node0x1cfb9c0 -> Node0x1cfba10;
+	Node0x1cfba10 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i32 [ -1, %8 ], [ 0, %9 ], [ -1, %3 ]\l  ret i32 %12\l}"];
+}

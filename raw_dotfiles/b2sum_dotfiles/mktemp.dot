@@ -1,0 +1,26 @@
+digraph "CFG for 'mktemp' function" {
+	label="CFG for 'mktemp' function";
+
+	Node0x1eae9c0 [shape=record,label="{%1:\l  %2 = alloca %struct.stat, align 8\l  %3 = tail call i64 @strlen(i8* %0) #40\l  %4 = bitcast %struct.stat* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 144, i8* nonnull %4) #41\l  %5 = icmp ult i64 %3, 6\l  br i1 %5, label %11, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1eae9c0:s0 -> Node0x1eaed90;
+	Node0x1eae9c0:s1 -> Node0x1eaed40;
+	Node0x1eaed40 [shape=record,label="{%6:\l6:                                                \l  %7 = getelementptr inbounds i8, i8* %0, i64 %3\l  %8 = getelementptr inbounds i8, i8* %7, i64 -6\l  %9 = tail call i32 @memcmp(i8* nonnull %8, i8* getelementptr inbounds ([7 x\l... i8], [7 x i8]* @.str.701, i64 0, i64 0), i64 6) #40\l  %10 = icmp eq i32 %9, 0\l  br i1 %10, label %13, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1eaed40:s0 -> Node0x1eaede0;
+	Node0x1eaed40:s1 -> Node0x1eaed90;
+	Node0x1eaed90 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %12, align 4, !tbaa !1632\l  store i8 0, i8* %0, align 1, !tbaa !1636\l  br label %28\l}"];
+	Node0x1eaed90 -> Node0x1eaef70;
+	Node0x1eaede0 [shape=record,label="{%13:\l13:                                               \l  %14 = phi i32 [ %24, %23 ], [ 100, %6 ]\l  %15 = call i8* @__randname(i8* nonnull %8) #40\l  %16 = call i32 @stat(i8* %0, %struct.stat* nonnull %2) #40\l  %17 = icmp eq i32 %16, 0\l  br i1 %17, label %23, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1eaede0:s0 -> Node0x1eaeed0;
+	Node0x1eaede0:s1 -> Node0x1eaee30;
+	Node0x1eaee30 [shape=record,label="{%18:\l18:                                               \l  %19 = call i32* @___errno_location() #40\l  %20 = load i32, i32* %19, align 4, !tbaa !1632\l  %21 = icmp eq i32 %20, 2\l  br i1 %21, label %28, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1eaee30:s0 -> Node0x1eaef70;
+	Node0x1eaee30:s1 -> Node0x1eaee80;
+	Node0x1eaee80 [shape=record,label="{%22:\l22:                                               \l  store i8 0, i8* %0, align 1, !tbaa !1636\l  br label %28\l}"];
+	Node0x1eaee80 -> Node0x1eaef70;
+	Node0x1eaeed0 [shape=record,label="{%23:\l23:                                               \l  %24 = add nsw i32 %14, -1\l  %25 = icmp eq i32 %24, 0\l  br i1 %25, label %26, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1eaeed0:s0 -> Node0x1eaef20;
+	Node0x1eaeed0:s1 -> Node0x1eaede0;
+	Node0x1eaef20 [shape=record,label="{%26:\l26:                                               \l  store i8 0, i8* %0, align 1, !tbaa !1636\l  %27 = call i32* @___errno_location() #40\l  store i32 17, i32* %27, align 4, !tbaa !1632\l  br label %28\l}"];
+	Node0x1eaef20 -> Node0x1eaef70;
+	Node0x1eaef70 [shape=record,label="{%28:\l28:                                               \l  call void @llvm.lifetime.end.p0i8(i64 144, i8* nonnull %4) #41\l  ret i8* %0\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'sem_destroy' function" {
+	label="CFG for 'sem_destroy' function";
+
+	Node0x1688490 [shape=record,label="{%1:\l  ret i32 0\l}"];
+}

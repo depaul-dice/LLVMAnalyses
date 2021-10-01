@@ -1,0 +1,5 @@
+digraph "CFG for 'abs' function" {
+	label="CFG for 'abs' function";
+
+	Node0x1c76800 [shape=record,label="{%1:\l  %2 = icmp slt i32 %0, 0\l  %3 = sub nsw i32 0, %0\l  %4 = select i1 %2, i32 %3, i32 %0\l  ret i32 %4\l}"];
+}

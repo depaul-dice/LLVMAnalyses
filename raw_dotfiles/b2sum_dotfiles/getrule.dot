@@ -1,0 +1,42 @@
+digraph "CFG for 'getrule' function" {
+	label="CFG for 'getrule' function";
+
+	Node0x16b5d50 [shape=record,label="{%2:\l  %3 = load i8*, i8** %0, align 8, !tbaa !1632\l  %4 = load i8, i8* %3, align 1, !tbaa !1636\l  %5 = sext i8 %4 to i32\l  store i32 %5, i32* %1, align 4, !tbaa !1637\l  switch i8 %4, label %8 [\l    i8 77, label %26\l    i8 74, label %6\l  ]\l|{<s0>def|<s1>77|<s2>74}}"];
+	Node0x16b5d50:s0 -> Node0x16b5e50;
+	Node0x16b5d50:s1 -> Node0x16b5f40;
+	Node0x16b5d50:s2 -> Node0x16b5e00;
+	Node0x16b5e00 [shape=record,label="{%6:\l6:                                                \l  %7 = getelementptr inbounds i8, i8* %3, i64 1\l  store i8* %7, i8** %0, align 8, !tbaa !1632\l  br label %9\l}"];
+	Node0x16b5e00 -> Node0x16b5ea0;
+	Node0x16b5e50 [shape=record,label="{%8:\l8:                                                \l  store i32 0, i32* %1, align 4, !tbaa !1637\l  br label %9\l}"];
+	Node0x16b5e50 -> Node0x16b5ea0;
+	Node0x16b5ea0 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i8* [ %3, %8 ], [ %7, %6 ]\l  %11 = load i8, i8* %10, align 1, !tbaa !1636\l  %12 = sext i8 %11 to i32\l  %13 = add nsw i32 %12, -48\l  %14 = icmp ult i32 %13, 10\l  br i1 %14, label %15, label %83\l|{<s0>T|<s1>F}}"];
+	Node0x16b5ea0:s0 -> Node0x16b5ef0;
+	Node0x16b5ea0:s1 -> Node0x16b6120;
+	Node0x16b5ef0 [shape=record,label="{%15:\l15:                                               \l  %16 = phi i32 [ %24, %15 ], [ %13, %9 ]\l  %17 = phi i8* [ %21, %15 ], [ %10, %9 ]\l  %18 = phi i32 [ %20, %15 ], [ 0, %9 ]\l  %19 = mul i32 %18, 10\l  %20 = add i32 %19, %16\l  %21 = getelementptr inbounds i8, i8* %17, i64 1\l  store i8* %21, i8** %0, align 8, !tbaa !1632\l  %22 = load i8, i8* %21, align 1, !tbaa !1636\l  %23 = sext i8 %22 to i32\l  %24 = add nsw i32 %23, -48\l  %25 = icmp ult i32 %24, 10\l  br i1 %25, label %15, label %83\l|{<s0>T|<s1>F}}"];
+	Node0x16b5ef0:s0 -> Node0x16b5ef0;
+	Node0x16b5ef0:s1 -> Node0x16b6120;
+	Node0x16b5f40 [shape=record,label="{%26:\l26:                                               \l  %27 = getelementptr inbounds i8, i8* %3, i64 1\l  store i8* %27, i8** %0, align 8, !tbaa !1632\l  %28 = load i8, i8* %27, align 1, !tbaa !1636\l  %29 = sext i8 %28 to i32\l  %30 = add nsw i32 %29, -48\l  %31 = icmp ult i32 %30, 10\l  br i1 %31, label %32, label %43\l|{<s0>T|<s1>F}}"];
+	Node0x16b5f40:s0 -> Node0x16b5f90;
+	Node0x16b5f40:s1 -> Node0x16b5fe0;
+	Node0x16b5f90 [shape=record,label="{%32:\l32:                                               \l  %33 = phi i32 [ %41, %32 ], [ %30, %26 ]\l  %34 = phi i8* [ %38, %32 ], [ %27, %26 ]\l  %35 = phi i32 [ %37, %32 ], [ 0, %26 ]\l  %36 = mul i32 %35, 10\l  %37 = add i32 %36, %33\l  %38 = getelementptr inbounds i8, i8* %34, i64 1\l  store i8* %38, i8** %0, align 8, !tbaa !1632\l  %39 = load i8, i8* %38, align 1, !tbaa !1636\l  %40 = sext i8 %39 to i32\l  %41 = add nsw i32 %40, -48\l  %42 = icmp ult i32 %41, 10\l  br i1 %42, label %32, label %43\l|{<s0>T|<s1>F}}"];
+	Node0x16b5f90:s0 -> Node0x16b5f90;
+	Node0x16b5f90:s1 -> Node0x16b5fe0;
+	Node0x16b5fe0 [shape=record,label="{%43:\l43:                                               \l  %44 = phi i8* [ %3, %26 ], [ %34, %32 ]\l  %45 = phi i32 [ 0, %26 ], [ %37, %32 ]\l  %46 = getelementptr inbounds i32, i32* %1, i64 1\l  store i32 %45, i32* %46, align 4, !tbaa !1637\l  %47 = getelementptr inbounds i8, i8* %44, i64 2\l  store i8* %47, i8** %0, align 8, !tbaa !1632\l  %48 = load i8, i8* %47, align 1, !tbaa !1636\l  %49 = sext i8 %48 to i32\l  %50 = add nsw i32 %49, -48\l  %51 = icmp ult i32 %50, 10\l  br i1 %51, label %52, label %63\l|{<s0>T|<s1>F}}"];
+	Node0x16b5fe0:s0 -> Node0x16b6030;
+	Node0x16b5fe0:s1 -> Node0x16b6080;
+	Node0x16b6030 [shape=record,label="{%52:\l52:                                               \l  %53 = phi i32 [ %61, %52 ], [ %50, %43 ]\l  %54 = phi i8* [ %58, %52 ], [ %47, %43 ]\l  %55 = phi i32 [ %57, %52 ], [ 0, %43 ]\l  %56 = mul i32 %55, 10\l  %57 = add i32 %56, %53\l  %58 = getelementptr inbounds i8, i8* %54, i64 1\l  store i8* %58, i8** %0, align 8, !tbaa !1632\l  %59 = load i8, i8* %58, align 1, !tbaa !1636\l  %60 = sext i8 %59 to i32\l  %61 = add nsw i32 %60, -48\l  %62 = icmp ult i32 %61, 10\l  br i1 %62, label %52, label %63\l|{<s0>T|<s1>F}}"];
+	Node0x16b6030:s0 -> Node0x16b6030;
+	Node0x16b6030:s1 -> Node0x16b6080;
+	Node0x16b6080 [shape=record,label="{%63:\l63:                                               \l  %64 = phi i8* [ %47, %43 ], [ %58, %52 ]\l  %65 = phi i32 [ 0, %43 ], [ %57, %52 ]\l  %66 = getelementptr inbounds i32, i32* %1, i64 2\l  store i32 %65, i32* %66, align 4, !tbaa !1637\l  %67 = getelementptr inbounds i8, i8* %64, i64 1\l  store i8* %67, i8** %0, align 8, !tbaa !1632\l  %68 = load i8, i8* %67, align 1, !tbaa !1636\l  %69 = sext i8 %68 to i32\l  %70 = add nsw i32 %69, -48\l  %71 = icmp ult i32 %70, 10\l  br i1 %71, label %72, label %83\l|{<s0>T|<s1>F}}"];
+	Node0x16b6080:s0 -> Node0x16b60d0;
+	Node0x16b6080:s1 -> Node0x16b6120;
+	Node0x16b60d0 [shape=record,label="{%72:\l72:                                               \l  %73 = phi i32 [ %81, %72 ], [ %70, %63 ]\l  %74 = phi i8* [ %78, %72 ], [ %67, %63 ]\l  %75 = phi i32 [ %77, %72 ], [ 0, %63 ]\l  %76 = mul i32 %75, 10\l  %77 = add i32 %76, %73\l  %78 = getelementptr inbounds i8, i8* %74, i64 1\l  store i8* %78, i8** %0, align 8, !tbaa !1632\l  %79 = load i8, i8* %78, align 1, !tbaa !1636\l  %80 = sext i8 %79 to i32\l  %81 = add nsw i32 %80, -48\l  %82 = icmp ult i32 %81, 10\l  br i1 %82, label %72, label %83\l|{<s0>T|<s1>F}}"];
+	Node0x16b60d0:s0 -> Node0x16b60d0;
+	Node0x16b60d0:s1 -> Node0x16b6120;
+	Node0x16b6120 [shape=record,label="{%83:\l83:                                               \l  %84 = phi i64 [ 1, %9 ], [ 3, %63 ], [ 1, %15 ], [ 3, %72 ]\l  %85 = phi i32 [ 0, %9 ], [ 0, %63 ], [ %20, %15 ], [ %77, %72 ]\l  %86 = phi i8* [ %10, %9 ], [ %67, %63 ], [ %21, %15 ], [ %78, %72 ]\l  %87 = getelementptr inbounds i32, i32* %1, i64 %84\l  store i32 %85, i32* %87, align 4, !tbaa !1637\l  %88 = load i8, i8* %86, align 1, !tbaa !1636\l  %89 = icmp eq i8 %88, 47\l  br i1 %89, label %90, label %93\l|{<s0>T|<s1>F}}"];
+	Node0x16b6120:s0 -> Node0x16b6170;
+	Node0x16b6120:s1 -> Node0x16b61c0;
+	Node0x16b6170 [shape=record,label="{%90:\l90:                                               \l  %91 = getelementptr inbounds i8, i8* %86, i64 1\l  store i8* %91, i8** %0, align 8, !tbaa !1632\l  %92 = tail call fastcc i32 @getoff(i8** nonnull %0) #40\l  br label %93\l}"];
+	Node0x16b6170 -> Node0x16b61c0;
+	Node0x16b61c0 [shape=record,label="{%93:\l93:                                               \l  %94 = phi i32 [ %92, %90 ], [ 7200, %83 ]\l  %95 = getelementptr inbounds i32, i32* %1, i64 4\l  store i32 %94, i32* %95, align 4\l  ret void\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'blake2' function" {
+	label="CFG for 'blake2' function";
+
+	Node0x14671a0 [shape=record,label="{%6:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1642\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1637, metadata\l... !DIExpression()), !dbg !1642\l  call void @llvm.dbg.value(metadata i8* %2, metadata !1638, metadata\l... !DIExpression()), !dbg !1642\l  call void @llvm.dbg.value(metadata i64 %3, metadata !1639, metadata\l... !DIExpression()), !dbg !1642\l  call void @llvm.dbg.value(metadata i8* %4, metadata !1640, metadata\l... !DIExpression()), !dbg !1642\l  call void @llvm.dbg.value(metadata i64 %5, metadata !1641, metadata\l... !DIExpression()), !dbg !1642\l  %7 = tail call i32 @blake2b(i8* %0, i64 %1, i8* %2, i64 %3, i8* %4, i64 %5),\l... !dbg !1643\l  ret i32 %7, !dbg !1644\l}"];
+}

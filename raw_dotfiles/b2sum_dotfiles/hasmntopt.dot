@@ -1,0 +1,5 @@
+digraph "CFG for 'hasmntopt' function" {
+	label="CFG for 'hasmntopt' function";
+
+	Node0x1f96d40 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct.mntent, %struct.mntent* %0, i64 0, i32 3\l  %4 = load i8*, i8** %3, align 8, !tbaa !1632\l  %5 = tail call i8* @strstr(i8* %4, i8* %1) #40\l  ret i8* %5\l}"];
+}

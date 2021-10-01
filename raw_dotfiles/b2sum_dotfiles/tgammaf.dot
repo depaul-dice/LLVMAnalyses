@@ -1,0 +1,5 @@
+digraph "CFG for 'tgammaf' function" {
+	label="CFG for 'tgammaf' function";
+
+	Node0x187deb0 [shape=record,label="{%1:\l  %2 = tail call double @llvm.experimental.constrained.fpext.f64.f32(float %0,\l... metadata !\"fpexcept.ignore\") #40\l  %3 = tail call double @tgamma(double %2) #41\l  %4 = tail call float @llvm.experimental.constrained.fptrunc.f32.f64(double\l... %3, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  ret float %4\l}"];
+}

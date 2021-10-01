@@ -1,0 +1,18 @@
+digraph "CFG for 'frexpf' function" {
+	label="CFG for 'frexpf' function";
+
+	Node0x1eed500 [shape=record,label="{%2:\l  %3 = bitcast float %0 to i32\l  %4 = lshr i32 %3, 23\l  %5 = trunc i32 %4 to i8\l  switch i8 %5, label %18 [\l    i8 0, label %6\l    i8 -1, label %24\l  ]\l|{<s0>def|<s1>0|<s2>-1}}"];
+	Node0x1eed500:s0 -> Node0x1eed6e0;
+	Node0x1eed500:s1 -> Node0x1eed5f0;
+	Node0x1eed500:s2 -> Node0x1eed730;
+	Node0x1eed5f0 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i1 @llvm.experimental.constrained.fcmp.f32(float %0, float\l... 0.000000e+00, metadata !\"une\", metadata !\"fpexcept.ignore\") #40\l  br i1 %7, label %8, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1eed5f0:s0 -> Node0x1eed640;
+	Node0x1eed5f0:s1 -> Node0x1eed690;
+	Node0x1eed640 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call double @llvm.experimental.constrained.fpext.f64.f32(float %0,\l... metadata !\"fpexcept.ignore\") #40\l  %10 = tail call double @llvm.experimental.constrained.fmul.f64(double %9,\l... double 0x43F0000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #40\l  %11 = tail call float @llvm.experimental.constrained.fptrunc.f32.f64(double\l... %10, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %12 = tail call float @frexpf(float %11, i32* %1) #41\l  %13 = load i32, i32* %1, align 4, !tbaa !1632\l  %14 = add nsw i32 %13, -64\l  br label %15\l}"];
+	Node0x1eed640 -> Node0x1eed690;
+	Node0x1eed690 [shape=record,label="{%15:\l15:                                               \l  %16 = phi i32 [ %14, %8 ], [ 0, %6 ]\l  %17 = phi float [ %12, %8 ], [ %0, %6 ]\l  store i32 %16, i32* %1, align 4, !tbaa !1632\l  br label %24\l}"];
+	Node0x1eed690 -> Node0x1eed730;
+	Node0x1eed6e0 [shape=record,label="{%18:\l18:                                               \l  %19 = and i32 %4, 255\l  %20 = add nsw i32 %19, -126\l  store i32 %20, i32* %1, align 4, !tbaa !1632\l  %21 = and i32 %3, -2139095041\l  %22 = or i32 %21, 1056964608\l  %23 = bitcast i32 %22 to float\l  br label %24\l}"];
+	Node0x1eed6e0 -> Node0x1eed730;
+	Node0x1eed730 [shape=record,label="{%24:\l24:                                               \l  %25 = phi float [ %23, %18 ], [ %17, %15 ], [ %0, %2 ]\l  ret float %25\l}"];
+}

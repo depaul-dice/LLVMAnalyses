@@ -1,0 +1,12 @@
+digraph "CFG for 'aio_fsync' function" {
+	label="CFG for 'aio_fsync' function";
+
+	Node0x1ed1370 [shape=record,label="{%2:\l  %3 = or i32 %0, 1048576\l  %4 = icmp eq i32 %3, 1052672\l  br i1 %4, label %7, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1ed1370:s0 -> Node0x1ed1fd0;
+	Node0x1ed1370:s1 -> Node0x1ed1f80;
+	Node0x1ed1f80 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %6, align 4, !tbaa !1632\l  br label %9\l}"];
+	Node0x1ed1f80 -> Node0x1ed2020;
+	Node0x1ed1fd0 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call fastcc i32 @submit(%struct.aiocb* %1, i32 %0) #41\l  br label %9\l}"];
+	Node0x1ed1fd0 -> Node0x1ed2020;
+	Node0x1ed2020 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i32 [ -1, %5 ], [ %8, %7 ]\l  ret i32 %10\l}"];
+}

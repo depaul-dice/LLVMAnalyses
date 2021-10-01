@@ -1,0 +1,5 @@
+digraph "CFG for 'c32rtomb' function" {
+	label="CFG for 'c32rtomb' function";
+
+	Node0x1f86ad0 [shape=record,label="{%3:\l  %4 = tail call i64 @wcrtomb(i8* %0, i32 %1, %struct.FTW* %2) #40\l  ret i64 %4\l}"];
+}

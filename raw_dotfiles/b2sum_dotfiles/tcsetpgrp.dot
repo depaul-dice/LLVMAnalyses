@@ -1,0 +1,5 @@
+digraph "CFG for 'tcsetpgrp' function" {
+	label="CFG for 'tcsetpgrp' function";
+
+	Node0x1cd7490 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = bitcast i32* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %4) #40\l  store i32 %1, i32* %3, align 4, !tbaa !1632\l  %5 = call i32 (i32, i32, ...) @ioctl(i32 %0, i32 21520, i32* nonnull %3) #41\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %4) #40\l  ret i32 %5\l}"];
+}

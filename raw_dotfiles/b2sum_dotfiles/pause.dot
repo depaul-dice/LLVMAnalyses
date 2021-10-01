@@ -1,0 +1,5 @@
+digraph "CFG for 'pause' function" {
+	label="CFG for 'pause' function";
+
+	Node0x1fc03b0 [shape=record,label="{%0:\l  %1 = tail call i64 @__syscall_cp(i64 34, i64 0, i64 0, i64 0, i64 0, i64 0,\l... i64 0) #40\l  %2 = tail call i64 @__syscall_ret(i64 %1) #40\l  %3 = trunc i64 %2 to i32\l  ret i32 %3\l}"];
+}

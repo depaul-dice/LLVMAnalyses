@@ -1,0 +1,5 @@
+digraph "CFG for 'sync' function" {
+	label="CFG for 'sync' function";
+
+	Node0x1b92a50 [shape=record,label="{%0:\l  %1 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 162)\l... #40, !srcloc !1632\l  ret void\l}"];
+}

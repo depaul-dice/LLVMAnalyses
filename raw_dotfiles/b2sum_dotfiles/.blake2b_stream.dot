@@ -1,0 +1,35 @@
+digraph "CFG for 'blake2b_stream' function" {
+	label="CFG for 'blake2b_stream' function";
+
+	Node0x1578b30 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5d8d170",label="{%3:\l  %4 = alloca [1 x %struct.blake2b_state__], align 16\l  call void @llvm.dbg.value(metadata %struct._IO_FILE* %0, metadata !677,\l... metadata !DIExpression()), !dbg !1632\l  call void @llvm.dbg.value(metadata i8* %1, metadata !678, metadata\l... !DIExpression()), !dbg !1632\l  call void @llvm.dbg.value(metadata i64 %2, metadata !679, metadata\l... !DIExpression()), !dbg !1632\l  call void @llvm.dbg.value(metadata i32 -1, metadata !680, metadata\l... !DIExpression()), !dbg !1632\l  %5 = bitcast [1 x %struct.blake2b_state__]* %4 to i8*, !dbg !1633\l  call void @llvm.lifetime.start.p0i8(i64 248, i8* nonnull %5) #8, !dbg !1633\l  call void @llvm.dbg.declare(metadata [1 x %struct.blake2b_state__]* %4,\l... metadata !683, metadata !DIExpression()), !dbg !1634\l  %6 = tail call fastcc noalias dereferenceable_or_null(32768) i8* @malloc(i64\l... 32768) #8, !dbg !1635\l  call void @llvm.dbg.value(metadata i8* %6, metadata !686, metadata\l... !DIExpression()), !dbg !1632\l  %7 = icmp eq i8* %6, null, !dbg !1636\l  br i1 %7, label %41, label %8, !dbg !1638\l|{<s0>T|<s1>F}}"];
+	Node0x1578b30:s0 -> Node0x1578fe0;
+	Node0x1578b30:s1 -> Node0x1578c70;
+	Node0x1578c70 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d1dae970",label="{%8:\l8:                                                \l  %9 = getelementptr inbounds [1 x %struct.blake2b_state__], [1 x\l... %struct.blake2b_state__]* %4, i64 0, i64 0, !dbg !1639\l  %10 = call fastcc i32 @blake2b_init(%struct.blake2b_state__* nonnull %9, i64\l... %2) #8, !dbg !1640\l  br label %11, !dbg !1641\l}"];
+	Node0x1578c70 -> Node0x1578cc0;
+	Node0x1578cc0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%11:\l11:                                               \l  %12 = phi i64 [ 0, %8 ], [ %30, %29 ], !dbg !1642\l  call void @llvm.dbg.value(metadata i64 %12, metadata !681, metadata\l... !DIExpression()), !dbg !1632\l  %13 = getelementptr inbounds i8, i8* %6, i64 %12, !dbg !1644\l  %14 = sub i64 32768, %12, !dbg !1646\l  %15 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.0*, !dbg !1647\l  %16 = call i64 @fread(i8* nonnull %13, i64 1, i64 %14, %struct._IO_FILE.0*\l... %15) #8, !dbg !1647\l  call void @llvm.dbg.value(metadata i64 %16, metadata !682, metadata\l... !DIExpression()), !dbg !1632\l  %17 = add i64 %16, %12, !dbg !1648\l  call void @llvm.dbg.value(metadata i64 %17, metadata !681, metadata\l... !DIExpression()), !dbg !1632\l  %18 = icmp eq i64 %17, 32768, !dbg !1649\l  br i1 %18, label %31, label %19, !dbg !1651\l|{<s0>T|<s1>F}}"];
+	Node0x1578cc0:s0 -> Node0x1578e50;
+	Node0x1578cc0:s1 -> Node0x1578d10;
+	Node0x1578d10 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dc5d4a70",label="{%19:\l19:                                               \l  %20 = icmp eq i64 %16, 0, !dbg !1652\l  br i1 %20, label %21, label %25, !dbg !1654\l|{<s0>T|<s1>F}}"];
+	Node0x1578d10:s0 -> Node0x1578d60;
+	Node0x1578d10:s1 -> Node0x1578db0;
+	Node0x1578d60 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%21:\l21:                                               \l  %22 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.118*, !dbg !1655\l  %23 = call i32 @ferror(%struct._IO_FILE.118* %22) #8, !dbg !1655\l  %24 = icmp eq i32 %23, 0, !dbg !1655\l  br i1 %24, label %33, label %39, !dbg !1658\l|{<s0>T|<s1>F}}"];
+	Node0x1578d60:s0 -> Node0x1578ea0;
+	Node0x1578d60:s1 -> Node0x1578f90;
+	Node0x1578db0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dc5d4a70",label="{%25:\l25:                                               \l  %26 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.233*, !dbg !1659\l  %27 = call i32 @feof(%struct._IO_FILE.233* %26) #8, !dbg !1659\l  %28 = icmp eq i32 %27, 0, !dbg !1659\l  br i1 %28, label %29, label %33, !dbg !1661\l|{<s0>T|<s1>F}}"];
+	Node0x1578db0:s0 -> Node0x1578e00;
+	Node0x1578db0:s1 -> Node0x1578ea0;
+	Node0x1578e00 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%29:\l29:                                               \l  %30 = phi i64 [ %17, %25 ], [ 0, %31 ]\l  br label %11, !dbg !1632, !llvm.loop !1662\l}"];
+	Node0x1578e00 -> Node0x1578cc0;
+	Node0x1578e50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dc5d4a70",label="{%31:\l31:                                               \l  %32 = call fastcc i32 @blake2b_update(%struct.blake2b_state__* nonnull %9,\l... i8* nonnull %6, i64 32768) #8, !dbg !1664\l  br label %29, !dbg !1641\l}"];
+	Node0x1578e50 -> Node0x1578e00;
+	Node0x1578ea0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#bbd1f870",label="{%33:\l33:                                               \l  call void @llvm.dbg.label(metadata !687), !dbg !1665\l  %34 = icmp eq i64 %17, 0, !dbg !1666\l  br i1 %34, label %37, label %35, !dbg !1668\l|{<s0>T|<s1>F}}"];
+	Node0x1578ea0:s0 -> Node0x1578f40;
+	Node0x1578ea0:s1 -> Node0x1578ef0;
+	Node0x1578ef0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#a7c5fe70",label="{%35:\l35:                                               \l  %36 = call fastcc i32 @blake2b_update(%struct.blake2b_state__* nonnull %9,\l... i8* nonnull %6, i64 %17) #8, !dbg !1669\l  br label %37, !dbg !1669\l}"];
+	Node0x1578ef0 -> Node0x1578f40;
+	Node0x1578f40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#bbd1f870",label="{%37:\l37:                                               \l  %38 = call fastcc i32 @blake2b_final(%struct.blake2b_state__* nonnull %9,\l... i8* %1, i64 %2) #8, !dbg !1670\l  call void @llvm.dbg.value(metadata i32 0, metadata !680, metadata\l... !DIExpression()), !dbg !1632\l  br label %39, !dbg !1671\l}"];
+	Node0x1578f40 -> Node0x1578f90;
+	Node0x1578f90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d1dae970",label="{%39:\l39:                                               \l  %40 = phi i32 [ -1, %21 ], [ 0, %37 ], !dbg !1632\l  call void @llvm.dbg.value(metadata i32 %40, metadata !680, metadata\l... !DIExpression()), !dbg !1632\l  call void @llvm.dbg.label(metadata !688), !dbg !1672\l  call fastcc void @rpl_free(i8* nonnull %6) #8, !dbg !1673\l  br label %41, !dbg !1674\l}"];
+	Node0x1578f90 -> Node0x1578fe0;
+	Node0x1578fe0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5d8d170",label="{%41:\l41:                                               \l  %42 = phi i32 [ %40, %39 ], [ -1, %3 ], !dbg !1632\l  call void @llvm.lifetime.end.p0i8(i64 248, i8* nonnull %5) #8, !dbg !1675\l  ret i32 %42, !dbg !1675\l}"];
+}

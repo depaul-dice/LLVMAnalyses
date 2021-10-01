@@ -1,0 +1,13 @@
+digraph "CFG for 'tre_ast_new_union' function" {
+	label="CFG for 'tre_ast_new_union' function";
+
+	Node0x18e4780 [shape=record,label="{%3:\l  %4 = icmp eq %struct.tre_ast_node_t* %1, null\l  br i1 %4, label %21, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x18e4780:s0 -> Node0x18e48f0;
+	Node0x18e4780:s1 -> Node0x18e4850;
+	Node0x18e4850 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i8* @__tre_mem_alloc_impl(%struct.tre_mem_struct* %0, i32 0,\l... i8* null, i32 1, i64 16) #40\l  %7 = tail call fastcc %struct.tre_ast_node_t*\l... @tre_ast_new_node(%struct.tre_mem_struct* %0, i32 3, i8* %6) #41\l  %8 = icmp ne %struct.tre_ast_node_t* %7, null\l  %9 = icmp ne %struct.tre_ast_node_t* %2, null\l  %10 = and i1 %9, %8\l  br i1 %10, label %11, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x18e4850:s0 -> Node0x18e48a0;
+	Node0x18e4850:s1 -> Node0x18e48f0;
+	Node0x18e48a0 [shape=record,label="{%11:\l11:                                               \l  %12 = bitcast i8* %6 to %struct.tre_ast_node_t**\l  store %struct.tre_ast_node_t* %1, %struct.tre_ast_node_t** %12, align 8,\l... !tbaa !1632\l  %13 = getelementptr inbounds i8, i8* %6, i64 8\l  %14 = bitcast i8* %13 to %struct.tre_ast_node_t**\l  store %struct.tre_ast_node_t* %2, %struct.tre_ast_node_t** %14, align 8,\l... !tbaa !1637\l  %15 = getelementptr inbounds %struct.tre_ast_node_t, %struct.tre_ast_node_t*\l... %1, i64 0, i32 4\l  %16 = load i32, i32* %15, align 8, !tbaa !1638\l  %17 = getelementptr inbounds %struct.tre_ast_node_t, %struct.tre_ast_node_t*\l... %2, i64 0, i32 4\l  %18 = load i32, i32* %17, align 8, !tbaa !1638\l  %19 = add nsw i32 %18, %16\l  %20 = getelementptr inbounds %struct.tre_ast_node_t, %struct.tre_ast_node_t*\l... %7, i64 0, i32 4\l  store i32 %19, i32* %20, align 8, !tbaa !1638\l  br label %21\l}"];
+	Node0x18e48a0 -> Node0x18e48f0;
+	Node0x18e48f0 [shape=record,label="{%21:\l21:                                               \l  %22 = phi %struct.tre_ast_node_t* [ %7, %11 ], [ %2, %3 ], [ null, %5 ]\l  ret %struct.tre_ast_node_t* %22\l}"];
+}

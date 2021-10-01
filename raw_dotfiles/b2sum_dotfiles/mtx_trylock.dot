@@ -1,0 +1,12 @@
+digraph "CFG for 'mtx_trylock' function" {
+	label="CFG for 'mtx_trylock' function";
+
+	Node0x1c7d370 [shape=record,label="{%1:\l  %2 = bitcast %struct.pthread_mutex_t* %0 to i32*\l  %3 = load i32, i32* %2, align 8, !tbaa !1632\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %5, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1c7d370:s0 -> Node0x1c7d4d0;
+	Node0x1c7d370:s1 -> Node0x1c7d520;
+	Node0x1c7d4d0 [shape=record,label="{%5:\l5:                                                \l  %6 = bitcast %struct.pthread_mutex_t* %0 to [10 x i32]*\l  %7 = getelementptr inbounds [10 x i32], [10 x i32]* %6, i64 0, i64 1\l  %8 = tail call i32 asm sideeffect \"lock \l  %9 = lshr i32 %8, 4\l  %10 = and i32 %9, 1\l  br label %18\l}"];
+	Node0x1c7d4d0 -> Node0x1c7d570;
+	Node0x1c7d520 [shape=record,label="{%11:\l11:                                               \l  %12 = bitcast %struct.pthread_mutex_t* %0 to %struct.pthread_mutex_t*\l  %13 = tail call i32 @__pthread_mutex_trylock(%struct.pthread_mutex_t* %12)\l... #41\l  %14 = icmp eq i32 %13, 16\l  %15 = select i1 %14, i32 1, i32 2\l  %16 = icmp eq i32 %13, 0\l  %17 = select i1 %16, i32 0, i32 %15\l  br label %18\l}"];
+	Node0x1c7d520 -> Node0x1c7d570;
+	Node0x1c7d570 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i32 [ %10, %5 ], [ %17, %11 ]\l  ret i32 %19\l}"];
+}

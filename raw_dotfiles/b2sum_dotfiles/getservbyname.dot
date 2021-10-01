@@ -1,0 +1,5 @@
+digraph "CFG for 'getservbyname' function" {
+	label="CFG for 'getservbyname' function";
+
+	Node0x1e2aab0 [shape=record,label="{%2:\l  %3 = alloca %struct.servent*, align 8\l  %4 = bitcast %struct.servent** %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %4) #40\l  %5 = call i32 @getservbyname_r(i8* %0, i8* %1, %struct.servent* nonnull\l... @getservbyname.se, i8* bitcast ([2 x i8*]* @getservbyname.buf to i8*), i64\l... 16, %struct.servent** nonnull %3) #41\l  %6 = icmp eq i32 %5, 0\l  %7 = select i1 %6, %struct.servent* @getservbyname.se, %struct.servent* null\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %4) #40\l  ret %struct.servent* %7\l}"];
+}

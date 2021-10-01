@@ -1,0 +1,12 @@
+digraph "CFG for 'getc_unlocked' function" {
+	label="CFG for 'getc_unlocked' function";
+
+	Node0x1eeeae0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.963, %struct._IO_FILE.963* %0,\l... i64 0, i32 1\l  %3 = load i8*, i8** %2, align 8, !tbaa !1632\l  %4 = getelementptr inbounds %struct._IO_FILE.963, %struct._IO_FILE.963* %0,\l... i64 0, i32 2\l  %5 = load i8*, i8** %4, align 8, !tbaa !1639\l  %6 = icmp eq i8* %3, %5\l  br i1 %6, label %11, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1eeeae0:s0 -> Node0x1eeeb80;
+	Node0x1eeeae0:s1 -> Node0x1eeeb30;
+	Node0x1eeeb30 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds i8, i8* %3, i64 1\l  store i8* %8, i8** %2, align 8, !tbaa !1632\l  %9 = load i8, i8* %3, align 1, !tbaa !1640\l  %10 = zext i8 %9 to i32\l  br label %13\l}"];
+	Node0x1eeeb30 -> Node0x1eeebd0;
+	Node0x1eeeb80 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call i32 bitcast (i32 (%struct._IO_FILE.828*)* @__uflow to i32\l... (%struct._IO_FILE.963*)*)(%struct._IO_FILE.963* nonnull %0) #40\l  br label %13\l}"];
+	Node0x1eeeb80 -> Node0x1eeebd0;
+	Node0x1eeebd0 [shape=record,label="{%13:\l13:                                               \l  %14 = phi i32 [ %10, %7 ], [ %12, %11 ]\l  ret i32 %14\l}"];
+}

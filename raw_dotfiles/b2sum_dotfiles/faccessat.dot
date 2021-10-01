@@ -1,0 +1,36 @@
+digraph "CFG for 'faccessat' function" {
+	label="CFG for 'faccessat' function";
+
+	Node0x1d79b40 [shape=record,label="{%4:\l  %5 = alloca [1024 x i8], align 16\l  %6 = alloca %struct.__sigset_t, align 8\l  %7 = alloca i32, align 4\l  %8 = alloca i32, align 4\l  %9 = alloca [2 x i32], align 4\l  %10 = alloca %struct.ctx.742, align 8\l  switch i32 %3, label %26 [\l    i32 0, label %19\l    i32 512, label %11\l  ]\l|{<s0>def|<s1>0|<s2>512}}"];
+	Node0x1d79b40:s0 -> Node0x1d79ed0;
+	Node0x1d79b40:s1 -> Node0x1d79e80;
+	Node0x1d79b40:s2 -> Node0x1d79de0;
+	Node0x1d79de0 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call i32 @getuid() #40\l  %13 = tail call i32 @geteuid() #40\l  %14 = icmp eq i32 %12, %13\l  br i1 %14, label %15, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1d79de0:s0 -> Node0x1d79e30;
+	Node0x1d79de0:s1 -> Node0x1d79f20;
+	Node0x1d79e30 [shape=record,label="{%15:\l15:                                               \l  %16 = tail call i32 @getgid() #40\l  %17 = tail call i32 @getegid() #40\l  %18 = icmp eq i32 %16, %17\l  br i1 %18, label %19, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1d79e30:s0 -> Node0x1d79e80;
+	Node0x1d79e30:s1 -> Node0x1d79f20;
+	Node0x1d79e80 [shape=record,label="{%19:\l19:                                               \l  %20 = sext i32 %0 to i64\l  %21 = ptrtoint i8* %1 to i64\l  %22 = sext i32 %2 to i64\l  %23 = zext i32 %3 to i64\l  %24 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}\"(i64 269, i64 %20, i64 %21, i64 %22, i64 %23) #41, !srcloc !1632\l  %25 = tail call i64 @__syscall_ret(i64 %24) #40\l  br label %72\l}"];
+	Node0x1d79e80 -> Node0x1d7a150;
+	Node0x1d79ed0 [shape=record,label="{%26:\l26:                                               \l  %27 = tail call i64 @__syscall_ret(i64 -22) #40\l  br label %72\l}"];
+	Node0x1d79ed0 -> Node0x1d7a150;
+	Node0x1d79f20 [shape=record,label="{%28:\l28:                                               \l  %29 = getelementptr inbounds [1024 x i8], [1024 x i8]* %5, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 1024, i8* nonnull %29) #41\l  %30 = bitcast %struct.__sigset_t* %6 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %30) #41\l  %31 = bitcast i32* %7 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %31) #41\l  %32 = bitcast i32* %8 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %32) #41\l  %33 = bitcast [2 x i32]* %9 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %33) #41\l  %34 = getelementptr inbounds [2 x i32], [2 x i32]* %9, i64 0, i64 0\l  %35 = call i32 @pipe2(i32* nonnull %34, i32 524288) #40\l  %36 = icmp eq i32 %35, 0\l  br i1 %36, label %39, label %37\l|{<s0>T|<s1>F}}"];
+	Node0x1d79f20:s0 -> Node0x1d79fc0;
+	Node0x1d79f20:s1 -> Node0x1d79f70;
+	Node0x1d79f70 [shape=record,label="{%37:\l37:                                               \l  %38 = call i64 @__syscall_ret(i64 -16) #40\l  br label %70\l}"];
+	Node0x1d79f70 -> Node0x1d7a100;
+	Node0x1d79fc0 [shape=record,label="{%39:\l39:                                               \l  %40 = bitcast %struct.ctx.742* %10 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %40) #41\l  %41 = getelementptr inbounds %struct.ctx.742, %struct.ctx.742* %10, i64 0,\l... i32 0\l  store i32 %0, i32* %41, align 8, !tbaa !1633\l  %42 = getelementptr inbounds %struct.ctx.742, %struct.ctx.742* %10, i64 0,\l... i32 1\l  store i8* %1, i8** %42, align 8, !tbaa !1639\l  %43 = getelementptr inbounds %struct.ctx.742, %struct.ctx.742* %10, i64 0,\l... i32 2\l  store i32 %2, i32* %43, align 8, !tbaa !1640\l  %44 = getelementptr inbounds %struct.ctx.742, %struct.ctx.742* %10, i64 0,\l... i32 3\l  %45 = getelementptr inbounds [2 x i32], [2 x i32]* %9, i64 0, i64 1\l  %46 = load i32, i32* %45, align 4, !tbaa !1641\l  store i32 %46, i32* %44, align 4, !tbaa !1642\l  call void @__block_all_sigs(i8* nonnull %30) #40\l  %47 = getelementptr inbounds [1024 x i8], [1024 x i8]* %5, i64 0, i64 1024\l  %48 = call i32 (i32 (i8*)*, i8*, i32, i8*, ...) @__clone(i32 (i8*)* nonnull\l... @checker, i8* nonnull %47, i32 0, i8* nonnull %40) #40\l  %49 = load i32, i32* %45, align 4, !tbaa !1641\l  %50 = sext i32 %49 to i64\l  %51 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 3,\l... i64 %50) #41, !srcloc !1643\l  %52 = icmp slt i32 %48, 0\l  br i1 %52, label %59, label %53\l|{<s0>T|<s1>F}}"];
+	Node0x1d79fc0:s0 -> Node0x1d7a060;
+	Node0x1d79fc0:s1 -> Node0x1d7a010;
+	Node0x1d7a010 [shape=record,label="{%53:\l53:                                               \l  %54 = load i32, i32* %34, align 4, !tbaa !1641\l  %55 = sext i32 %54 to i64\l  %56 = ptrtoint i32* %8 to i64\l  %57 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 0, i64 %55, i64 %56, i64 4) #41, !srcloc !1644\l  %58 = icmp eq i64 %57, 4\l  br i1 %58, label %60, label %59\l|{<s0>T|<s1>F}}"];
+	Node0x1d7a010:s0 -> Node0x1d7a0b0;
+	Node0x1d7a010:s1 -> Node0x1d7a060;
+	Node0x1d7a060 [shape=record,label="{%59:\l59:                                               \l  store i32 -16, i32* %8, align 4, !tbaa !1641\l  br label %60\l}"];
+	Node0x1d7a060 -> Node0x1d7a0b0;
+	Node0x1d7a0b0 [shape=record,label="{%60:\l60:                                               \l  %61 = load i32, i32* %34, align 4, !tbaa !1641\l  %62 = sext i32 %61 to i64\l  %63 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 3,\l... i64 %62) #41, !srcloc !1643\l  %64 = sext i32 %48 to i64\l  %65 = ptrtoint i32* %7 to i64\l  %66 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}\"(i64 61, i64 %64, i64 %65, i64 2147483648, i64 0) #41, !srcloc !1632\l  call void @__restore_sigs(i8* nonnull %30) #40\l  %67 = load i32, i32* %8, align 4, !tbaa !1641\l  %68 = sext i32 %67 to i64\l  %69 = call i64 @__syscall_ret(i64 %68) #40\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %40) #41\l  br label %70\l}"];
+	Node0x1d7a0b0 -> Node0x1d7a100;
+	Node0x1d7a100 [shape=record,label="{%70:\l70:                                               \l  %71 = phi i64 [ %38, %37 ], [ %69, %60 ]\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %33) #41\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %32) #41\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %31) #41\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %30) #41\l  call void @llvm.lifetime.end.p0i8(i64 1024, i8* nonnull %29) #41\l  br label %72\l}"];
+	Node0x1d7a100 -> Node0x1d7a150;
+	Node0x1d7a150 [shape=record,label="{%72:\l72:                                               \l  %73 = phi i64 [ %25, %19 ], [ %27, %26 ], [ %71, %70 ]\l  %74 = trunc i64 %73 to i32\l  ret i32 %74\l}"];
+}

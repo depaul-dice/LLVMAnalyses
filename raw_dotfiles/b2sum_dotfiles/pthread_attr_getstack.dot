@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_attr_getstack' function" {
+	label="CFG for 'pthread_attr_getstack' function";
+
+	Node0x1ff3310 [shape=record,label="{%3:\l  %4 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %0, i64 0, i32 0, i32 0, i64 2\l  %5 = load i64, i64* %4, align 8, !tbaa !1632\l  %6 = icmp eq i64 %5, 0\l  br i1 %6, label %12, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1ff3310:s0 -> Node0x1ff3430;
+	Node0x1ff3310:s1 -> Node0x1ff33e0;
+	Node0x1ff33e0 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %0, i64 0, i32 0, i32 0, i64 0\l  %9 = load i64, i64* %8, align 8, !tbaa !1632\l  store i64 %9, i64* %2, align 8, !tbaa !1635\l  %10 = sub i64 %5, %9\l  %11 = inttoptr i64 %10 to i8*\l  store i8* %11, i8** %1, align 8, !tbaa !1637\l  br label %12\l}"];
+	Node0x1ff33e0 -> Node0x1ff3430;
+	Node0x1ff3430 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i32 [ 0, %7 ], [ 22, %3 ]\l  ret i32 %13\l}"];
+}

@@ -1,0 +1,10 @@
+digraph "CFG for 'timer_getoverrun' function" {
+	label="CFG for 'timer_getoverrun' function";
+
+	Node0x1f86120 [shape=record,label="{%1:\l  %2 = icmp slt i8* %0, null\l  br i1 %2, label %3, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1f86120:s0 -> Node0x1f861a0;
+	Node0x1f86120:s1 -> Node0x1f861f0;
+	Node0x1f861a0 [shape=record,label="{%3:\l3:                                                \l  %4 = ptrtoint i8* %0 to i64\l  %5 = shl i64 %4, 1\l  %6 = inttoptr i64 %5 to %struct.__pthread*\l  %7 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %6, i64 0,\l... i32 23\l  %8 = load volatile i32, i32* %7, align 8, !tbaa !1632\l  %9 = and i32 %8, 2147483647\l  %10 = zext i32 %9 to i64\l  %11 = inttoptr i64 %10 to i8*\l  br label %12\l}"];
+	Node0x1f861a0 -> Node0x1f861f0;
+	Node0x1f861f0 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i8* [ %11, %3 ], [ %0, %1 ]\l  %14 = ptrtoint i8* %13 to i64\l  %15 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64\l... 225, i64 %14) #40, !srcloc !1640\l  %16 = tail call i64 @__syscall_ret(i64 %15) #41\l  %17 = trunc i64 %16 to i32\l  ret i32 %17\l}"];
+}

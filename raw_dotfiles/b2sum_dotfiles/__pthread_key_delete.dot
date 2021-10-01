@@ -1,0 +1,10 @@
+digraph "CFG for '__pthread_key_delete' function" {
+	label="CFG for '__pthread_key_delete' function";
+
+	Node0x1c306b0 [shape=record,label="{%1:\l  %2 = alloca %struct.__sigset_t, align 8\l  %3 = bitcast %struct.__sigset_t* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %3) #40\l  %4 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #41, !srcloc !1632\l  call void @__block_app_sigs(i8* nonnull %3) #42\l  %5 = call i32 @__pthread_rwlock_wrlock(%struct.pthread_rwlock_t* bitcast (\{\l... \{ [14 x i32] \} \}* @key_lock to %struct.pthread_rwlock_t*)) #42\l  call void @__tl_lock() #42\l  %6 = zext i32 %0 to i64\l  br label %7\l}"];
+	Node0x1c306b0 -> Node0x1c30700;
+	Node0x1c30700 [shape=record,label="{%7:\l7:                                                \l  %8 = phi %struct.__pthread* [ %4, %1 ], [ %13, %7 ]\l  %9 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %8, i64 0,\l... i32 21\l  %10 = load i8**, i8*** %9, align 8, !tbaa !1633\l  %11 = getelementptr inbounds i8*, i8** %10, i64 %6\l  store i8* null, i8** %11, align 8, !tbaa !1641\l  %12 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %8, i64\l... 0, i32 3\l  %13 = load %struct.__pthread*, %struct.__pthread** %12, align 8, !tbaa !1642\l  %14 = icmp eq %struct.__pthread* %13, %4\l  br i1 %14, label %15, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1c30700:s0 -> Node0x1c30750;
+	Node0x1c30700:s1 -> Node0x1c30700;
+	Node0x1c30750 [shape=record,label="{%15:\l15:                                               \l  call void @__tl_unlock() #42\l  %16 = getelementptr inbounds [128 x void (i8*)*], [128 x void (i8*)*]*\l... @keys, i64 0, i64 %6\l  store void (i8*)* null, void (i8*)** %16, align 8, !tbaa !1641\l  %17 = call i32 @__pthread_rwlock_unlock(%struct.pthread_rwlock_t* bitcast (\{\l... \{ [14 x i32] \} \}* @key_lock to %struct.pthread_rwlock_t*)) #42\l  call void @__restore_sigs(i8* nonnull %3) #42\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %3) #40\l  ret i32 0\l}"];
+}

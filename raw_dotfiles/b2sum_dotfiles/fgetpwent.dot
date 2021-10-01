@@ -1,0 +1,5 @@
+digraph "CFG for 'fgetpwent' function" {
+	label="CFG for 'fgetpwent' function";
+
+	Node0x1bf7820 [shape=record,label="{%1:\l  %2 = alloca i64, align 8\l  %3 = alloca %struct.passwd*, align 8\l  %4 = bitcast i64* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %4) #40\l  store i64 0, i64* %2, align 8, !tbaa !1632\l  %5 = bitcast %struct.passwd** %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %5) #40\l  %6 = call i32 @__getpwent_a(%struct._IO_FILE.0* %0, %struct.passwd* nonnull\l... @fgetpwent.pw, i8** nonnull @fgetpwent.line, i64* nonnull %2,\l... %struct.passwd** nonnull %3) #41\l  %7 = load %struct.passwd*, %struct.passwd** %3, align 8, !tbaa !1636\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %5) #40\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %4) #40\l  ret %struct.passwd* %7\l}"];
+}

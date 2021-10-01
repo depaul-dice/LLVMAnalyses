@@ -1,0 +1,10 @@
+digraph "CFG for 'utime' function" {
+	label="CFG for 'utime' function";
+
+	Node0x1938ad0 [shape=record,label="{%2:\l  %3 = alloca [2 x %struct.timeval], align 8\l  %4 = icmp eq %struct.timeval* %1, null\l  br i1 %4, label %15, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1938ad0:s0 -> Node0x1938bd0;
+	Node0x1938ad0:s1 -> Node0x1938b80;
+	Node0x1938b80 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds [2 x %struct.timeval], [2 x %struct.timeval]*\l... %3, i64 0, i64 0\l  %7 = getelementptr inbounds [2 x %struct.timeval], [2 x %struct.timeval]*\l... %3, i64 0, i64 0, i32 0\l  %8 = getelementptr inbounds %struct.timeval, %struct.timeval* %1, i64 0, i32\l... 0\l  %9 = load i64, i64* %8, align 8, !tbaa !1632\l  store i64 %9, i64* %7, align 8, !tbaa !1637\l  %10 = getelementptr inbounds [2 x %struct.timeval], [2 x %struct.timeval]*\l... %3, i64 0, i64 0, i32 1\l  store i64 0, i64* %10, align 8, !tbaa !1639\l  %11 = getelementptr inbounds [2 x %struct.timeval], [2 x %struct.timeval]*\l... %3, i64 0, i64 1, i32 0\l  %12 = getelementptr inbounds %struct.timeval, %struct.timeval* %1, i64 0,\l... i32 1\l  %13 = load i64, i64* %12, align 8, !tbaa !1640\l  store i64 %13, i64* %11, align 8, !tbaa !1637\l  %14 = getelementptr inbounds [2 x %struct.timeval], [2 x %struct.timeval]*\l... %3, i64 0, i64 1, i32 1\l  store i64 0, i64* %14, align 8, !tbaa !1639\l  br label %15\l}"];
+	Node0x1938b80 -> Node0x1938bd0;
+	Node0x1938bd0 [shape=record,label="{%15:\l15:                                               \l  %16 = phi %struct.timeval* [ %6, %5 ], [ null, %2 ]\l  %17 = call i32 @utimensat(i32 -100, i8* %0, %struct.timeval* %16, i32 0) #40\l  ret i32 %17\l}"];
+}

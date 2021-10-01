@@ -1,0 +1,13 @@
+digraph "CFG for 'globfree' function" {
+	label="CFG for 'globfree' function";
+
+	Node0x1b2e980 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.glob_t, %struct.glob_t* %0, i64 0, i32 0\l  %3 = load i64, i64* %2, align 8, !tbaa !1632\l  %4 = icmp eq i64 %3, 0\l  %5 = getelementptr inbounds %struct.glob_t, %struct.glob_t* %0, i64 0, i32 1\l  %6 = load i8**, i8*** %5, align 8, !tbaa !1639\l  br i1 %4, label %21, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1b2e980:s0 -> Node0x1b2ea70;
+	Node0x1b2e980:s1 -> Node0x1b2e9d0;
+	Node0x1b2e9d0 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct.glob_t, %struct.glob_t* %0, i64 0, i32 2\l  br label %9\l}"];
+	Node0x1b2e9d0 -> Node0x1b2ea20;
+	Node0x1b2ea20 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i8** [ %6, %7 ], [ %20, %9 ]\l  %11 = phi i64 [ 0, %7 ], [ %17, %9 ]\l  %12 = load i64, i64* %8, align 8, !tbaa !1640\l  %13 = add i64 %12, %11\l  %14 = getelementptr inbounds i8*, i8** %10, i64 %13\l  %15 = load i8*, i8** %14, align 8, !tbaa !1641\l  %16 = getelementptr inbounds i8, i8* %15, i64 -8\l  tail call void @free(i8* nonnull %16) #40\l  %17 = add nuw i64 %11, 1\l  %18 = load i64, i64* %2, align 8, !tbaa !1632\l  %19 = icmp ult i64 %17, %18\l  %20 = load i8**, i8*** %5, align 8, !tbaa !1639\l  br i1 %19, label %9, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1b2ea20:s0 -> Node0x1b2ea20;
+	Node0x1b2ea20:s1 -> Node0x1b2ea70;
+	Node0x1b2ea70 [shape=record,label="{%21:\l21:                                               \l  %22 = phi i8** [ %6, %1 ], [ %20, %9 ]\l  %23 = bitcast i8** %22 to i8*\l  tail call void @free(i8* %23) #40\l  store i64 0, i64* %2, align 8, !tbaa !1632\l  store i8** null, i8*** %5, align 8, !tbaa !1639\l  ret void\l}"];
+}

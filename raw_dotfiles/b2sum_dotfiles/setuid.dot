@@ -1,0 +1,5 @@
+digraph "CFG for 'setuid' function" {
+	label="CFG for 'setuid' function";
+
+	Node0x1ecedf0 [shape=record,label="{%1:\l  %2 = tail call i32 @__setxid(i32 105, i32 %0, i32 0, i32 0) #40\l  ret i32 %2\l}"];
+}

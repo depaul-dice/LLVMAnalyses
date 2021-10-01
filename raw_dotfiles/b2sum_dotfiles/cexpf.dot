@@ -1,0 +1,37 @@
+digraph "CFG for 'cexpf' function" {
+	label="CFG for 'cexpf' function";
+
+	Node0x1ea2950 [shape=record,label="{%1:\l  %2 = extractelement \<2 x float\> %0, i32 0\l  %3 = extractelement \<2 x float\> %0, i32 1\l  %4 = bitcast float %3 to i32\l  %5 = and i32 %4, 2147483647\l  %6 = icmp eq i32 %5, 0\l  br i1 %6, label %7, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1ea2950:s0 -> Node0x1ea2a20;
+	Node0x1ea2950:s1 -> Node0x1ea2a70;
+	Node0x1ea2a20 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call float @expf(float %2) #40\l  %9 = insertelement \<2 x float\> %0, float %8, i32 0\l  br label %52\l}"];
+	Node0x1ea2a20 -> Node0x1ea2de0;
+	Node0x1ea2a70 [shape=record,label="{%10:\l10:                                               \l  %11 = bitcast float %2 to i32\l  %12 = and i32 %11, 2147483647\l  %13 = icmp eq i32 %12, 0\l  br i1 %13, label %14, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1ea2a70:s0 -> Node0x1ea2ac0;
+	Node0x1ea2a70:s1 -> Node0x1ea2b10;
+	Node0x1ea2ac0 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call float @cosf(float %3) #40\l  %16 = tail call float @sinf(float %3) #40\l  %17 = insertelement \<2 x float\> undef, float %15, i32 0\l  %18 = insertelement \<2 x float\> %17, float %16, i32 1\l  br label %52\l}"];
+	Node0x1ea2ac0 -> Node0x1ea2de0;
+	Node0x1ea2b10 [shape=record,label="{%19:\l19:                                               \l  %20 = icmp ugt i32 %5, 2139095039\l  br i1 %20, label %21, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x1ea2b10:s0 -> Node0x1ea2b60;
+	Node0x1ea2b10:s1 -> Node0x1ea2cf0;
+	Node0x1ea2b60 [shape=record,label="{%21:\l21:                                               \l  %22 = icmp eq i32 %12, 2139095040\l  br i1 %22, label %28, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x1ea2b60:s0 -> Node0x1ea2c00;
+	Node0x1ea2b60:s1 -> Node0x1ea2bb0;
+	Node0x1ea2bb0 [shape=record,label="{%23:\l23:                                               \l  %24 = tail call float @llvm.experimental.constrained.fsub.f32(float %3,\l... float %3, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %25 = tail call float @llvm.experimental.constrained.fsub.f32(float %3,\l... float %3, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %26 = insertelement \<2 x float\> undef, float %24, i32 0\l  %27 = insertelement \<2 x float\> %26, float %25, i32 1\l  br label %52\l}"];
+	Node0x1ea2bb0 -> Node0x1ea2de0;
+	Node0x1ea2c00 [shape=record,label="{%28:\l28:                                               \l  %29 = icmp slt i32 %11, 0\l  br i1 %29, label %30, label %35\l|{<s0>T|<s1>F}}"];
+	Node0x1ea2c00:s0 -> Node0x1ea2c50;
+	Node0x1ea2c00:s1 -> Node0x1ea2ca0;
+	Node0x1ea2c50 [shape=record,label="{%30:\l30:                                               \l  %31 = tail call float @llvm.experimental.constrained.fptrunc.f32.f64(double\l... 0.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %32 = tail call float @llvm.experimental.constrained.fptrunc.f32.f64(double\l... 0.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %33 = insertelement \<2 x float\> undef, float %31, i32 0\l  %34 = insertelement \<2 x float\> %33, float %32, i32 1\l  br label %52\l}"];
+	Node0x1ea2c50 -> Node0x1ea2de0;
+	Node0x1ea2ca0 [shape=record,label="{%35:\l35:                                               \l  %36 = tail call float @llvm.experimental.constrained.fsub.f32(float %3,\l... float %3, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %37 = insertelement \<2 x float\> undef, float %2, i32 0\l  %38 = insertelement \<2 x float\> %37, float %36, i32 1\l  br label %52\l}"];
+	Node0x1ea2ca0 -> Node0x1ea2de0;
+	Node0x1ea2cf0 [shape=record,label="{%39:\l39:                                               \l  %40 = add i32 %11, -1118925336\l  %41 = icmp ult i32 %40, 9342557\l  br i1 %41, label %42, label %44\l|{<s0>T|<s1>F}}"];
+	Node0x1ea2cf0:s0 -> Node0x1ea2d40;
+	Node0x1ea2cf0:s1 -> Node0x1ea2d90;
+	Node0x1ea2d40 [shape=record,label="{%42:\l42:                                               \l  %43 = tail call \<2 x float\> @__ldexp_cexpf(\<2 x float\> %0, i32 0) #40\l  br label %52\l}"];
+	Node0x1ea2d40 -> Node0x1ea2de0;
+	Node0x1ea2d90 [shape=record,label="{%44:\l44:                                               \l  %45 = tail call float @expf(float %2) #40\l  %46 = tail call float @cosf(float %3) #40\l  %47 = tail call float @llvm.experimental.constrained.fmul.f32(float %45,\l... float %46, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %48 = tail call float @sinf(float %3) #40\l  %49 = tail call float @llvm.experimental.constrained.fmul.f32(float %45,\l... float %48, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %50 = insertelement \<2 x float\> undef, float %47, i32 0\l  %51 = insertelement \<2 x float\> %50, float %49, i32 1\l  br label %52\l}"];
+	Node0x1ea2d90 -> Node0x1ea2de0;
+	Node0x1ea2de0 [shape=record,label="{%52:\l52:                                               \l  %53 = phi \<2 x float\> [ %9, %7 ], [ %18, %14 ], [ %27, %23 ], [ %34, %30 ],\l... [ %38, %35 ], [ %43, %42 ], [ %51, %44 ]\l  ret \<2 x float\> %53\l}"];
+}

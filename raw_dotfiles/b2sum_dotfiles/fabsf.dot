@@ -1,0 +1,5 @@
+digraph "CFG for 'fabsf' function" {
+	label="CFG for 'fabsf' function";
+
+	Node0x1a17ac0 [shape=record,label="{%1:\l  %2 = bitcast float %0 to i32\l  %3 = and i32 %2, 2147483647\l  %4 = bitcast i32 %3 to float\l  ret float %4\l}"];
+}

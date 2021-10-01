@@ -1,0 +1,22 @@
+digraph "CFG for '__srandom' function" {
+	label="CFG for '__srandom' function";
+
+	Node0x1849370 [shape=record,label="{%1:\l  %2 = load i32, i32* @n, align 4, !tbaa !1632\l  %3 = icmp eq i32 %2, 0\l  br i1 %3, label %4, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1849370:s0 -> Node0x18493c0;
+	Node0x1849370:s1 -> Node0x1849410;
+	Node0x18493c0 [shape=record,label="{%4:\l4:                                                \l  %5 = load i32*, i32** @x, align 8, !tbaa !1636\l  store i32 %0, i32* %5, align 4, !tbaa !1632\l  br label %32\l}"];
+	Node0x18493c0 -> Node0x18495a0;
+	Node0x1849410 [shape=record,label="{%6:\l6:                                                \l  %7 = icmp eq i32 %2, 31\l  %8 = icmp eq i32 %2, 7\l  %9 = or i1 %7, %8\l  %10 = select i1 %9, i32 3, i32 1\l  store i32 %10, i32* @i, align 4, !tbaa !1632\l  store i32 0, i32* @j, align 4, !tbaa !1632\l  %11 = icmp sgt i32 %2, 0\l  br i1 %11, label %14, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1849410:s0 -> Node0x18494b0;
+	Node0x1849410:s1 -> Node0x1849460;
+	Node0x1849460 [shape=record,label="{%12:\l12:                                               \l  %13 = load i32*, i32** @x, align 8, !tbaa !1636\l  br label %28\l}"];
+	Node0x1849460 -> Node0x1849550;
+	Node0x18494b0 [shape=record,label="{%14:\l14:                                               \l  %15 = zext i32 %0 to i64\l  %16 = load i32*, i32** @x, align 8, !tbaa !1636\l  %17 = zext i32 %2 to i64\l  br label %18\l}"];
+	Node0x18494b0 -> Node0x1849500;
+	Node0x1849500 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i64 [ 0, %14 ], [ %26, %18 ]\l  %20 = phi i64 [ %15, %14 ], [ %22, %18 ]\l  %21 = mul i64 %20, 6364136223846793005\l  %22 = add i64 %21, 1\l  %23 = lshr i64 %22, 32\l  %24 = trunc i64 %23 to i32\l  %25 = getelementptr inbounds i32, i32* %16, i64 %19\l  store i32 %24, i32* %25, align 4, !tbaa !1632\l  %26 = add nuw nsw i64 %19, 1\l  %27 = icmp eq i64 %26, %17\l  br i1 %27, label %28, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1849500:s0 -> Node0x1849550;
+	Node0x1849500:s1 -> Node0x1849500;
+	Node0x1849550 [shape=record,label="{%28:\l28:                                               \l  %29 = phi i32* [ %13, %12 ], [ %16, %18 ]\l  %30 = load i32, i32* %29, align 4, !tbaa !1632\l  %31 = or i32 %30, 1\l  store i32 %31, i32* %29, align 4, !tbaa !1632\l  br label %32\l}"];
+	Node0x1849550 -> Node0x18495a0;
+	Node0x18495a0 [shape=record,label="{%32:\l32:                                               \l  ret void\l}"];
+}

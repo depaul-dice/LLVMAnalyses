@@ -1,0 +1,5 @@
+digraph "CFG for '__pthread_getspecific' function" {
+	label="CFG for '__pthread_getspecific' function";
+
+	Node0x20221d0 [shape=record,label="{%1:\l  %2 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #40, !srcloc !1632\l  %3 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %2, i64 0,\l... i32 21\l  %4 = load i8**, i8*** %3, align 8, !tbaa !1633\l  %5 = zext i32 %0 to i64\l  %6 = getelementptr inbounds i8*, i8** %4, i64 %5\l  %7 = load i8*, i8** %6, align 8, !tbaa !1641\l  ret i8* %7\l}"];
+}

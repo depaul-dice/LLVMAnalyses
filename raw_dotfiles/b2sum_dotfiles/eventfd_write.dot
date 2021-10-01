@@ -1,0 +1,5 @@
+digraph "CFG for 'eventfd_write' function" {
+	label="CFG for 'eventfd_write' function";
+
+	Node0x16bd8b0 [shape=record,label="{%2:\l  %3 = alloca i64, align 8\l  store i64 %1, i64* %3, align 8, !tbaa !1632\l  %4 = bitcast i64* %3 to i8*\l  %5 = call i64 @write(i32 %0, i8* nonnull %4, i64 8) #40\l  %6 = icmp ne i64 %5, 8\l  %7 = sext i1 %6 to i32\l  ret i32 %7\l}"];
+}

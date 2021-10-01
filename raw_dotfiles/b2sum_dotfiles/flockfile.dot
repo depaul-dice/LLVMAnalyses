@@ -1,0 +1,10 @@
+digraph "CFG for 'flockfile' function" {
+	label="CFG for 'flockfile' function";
+
+	Node0x1b77030 [shape=record,label="{%1:\l  %2 = tail call i32 @ftrylockfile(%struct._IO_FILE.0* %0) #40\l  %3 = icmp eq i32 %2, 0\l  br i1 %3, label %7, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1b77030:s0 -> Node0x1b78ab0;
+	Node0x1b77030:s1 -> Node0x1b78a60;
+	Node0x1b78a60 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i32 bitcast (i32 (%struct._IO_FILE.233*)* @__lockfile to i32\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* %0) #40\l  %6 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #41, !srcloc !1632\l  tail call void @__register_locked_file(%struct._IO_FILE.0* %0,\l... %struct.__pthread* %6) #40\l  br label %7\l}"];
+	Node0x1b78a60 -> Node0x1b78ab0;
+	Node0x1b78ab0 [shape=record,label="{%7:\l7:                                                \l  ret void\l}"];
+}

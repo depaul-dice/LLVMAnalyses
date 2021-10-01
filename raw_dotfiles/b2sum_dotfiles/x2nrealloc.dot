@@ -1,0 +1,27 @@
+digraph "CFG for 'x2nrealloc' function" {
+	label="CFG for 'x2nrealloc' function";
+
+	Node0x14b3d80 [shape=record,label="{%3:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !962, metadata\l... !DIExpression()), !dbg !1632\l  call void @llvm.dbg.value(metadata i64* %1, metadata !963, metadata\l... !DIExpression()), !dbg !1632\l  call void @llvm.dbg.value(metadata i64 %2, metadata !964, metadata\l... !DIExpression()), !dbg !1632\l  %4 = load i64, i64* %1, align 8, !dbg !1633, !tbaa !1634\l  call void @llvm.dbg.value(metadata i64 %4, metadata !965, metadata\l... !DIExpression()), !dbg !1632\l  %5 = icmp eq i8* %0, null, !dbg !1638\l  br i1 %5, label %6, label %13, !dbg !1640\l|{<s0>T|<s1>F}}"];
+	Node0x14b3d80:s0 -> Node0x14b3eb0;
+	Node0x14b3d80:s1 -> Node0x14b3f50;
+	Node0x14b3eb0 [shape=record,label="{%6:\l6:                                                \l  %7 = icmp eq i64 %4, 0, !dbg !1641\l  br i1 %7, label %8, label %20, !dbg !1644\l|{<s0>T|<s1>F}}"];
+	Node0x14b3eb0:s0 -> Node0x14b3f00;
+	Node0x14b3eb0:s1 -> Node0x14b3ff0;
+	Node0x14b3f00 [shape=record,label="{%8:\l8:                                                \l  %9 = udiv i64 128, %2, !dbg !1645\l  call void @llvm.dbg.value(metadata i64 %9, metadata !965, metadata\l... !DIExpression()), !dbg !1632\l  %10 = icmp ugt i64 %2, 128, !dbg !1647\l  %11 = zext i1 %10 to i64, !dbg !1647\l  %12 = add nuw nsw i64 %9, %11, !dbg !1648\l  call void @llvm.dbg.value(metadata i64 %12, metadata !965, metadata\l... !DIExpression()), !dbg !1632\l  br label %20, !dbg !1649\l}"];
+	Node0x14b3f00 -> Node0x14b3ff0;
+	Node0x14b3f50 [shape=record,label="{%13:\l13:                                               \l  %14 = lshr i64 %4, 1, !dbg !1650\l  %15 = add nuw i64 %14, 1, !dbg !1650\l  %16 = tail call \{ i64, i1 \} @llvm.uadd.with.overflow.i64(i64 %4, i64 %15),\l... !dbg !1650\l  %17 = extractvalue \{ i64, i1 \} %16, 1, !dbg !1650\l  %18 = extractvalue \{ i64, i1 \} %16, 0, !dbg !1650\l  call void @llvm.dbg.value(metadata i64 %18, metadata !965, metadata\l... !DIExpression()), !dbg !1632\l  br i1 %17, label %19, label %20, !dbg !1653\l|{<s0>T|<s1>F}}"];
+	Node0x14b3f50:s0 -> Node0x14b3fa0;
+	Node0x14b3f50:s1 -> Node0x14b3ff0;
+	Node0x14b3fa0 [shape=record,label="{%19:\l19:                                               \l  tail call void @xalloc_die() #40, !dbg !1654\l  unreachable, !dbg !1654\l}"];
+	Node0x14b3ff0 [shape=record,label="{%20:\l20:                                               \l  %21 = phi i64 [ %18, %13 ], [ %4, %6 ], [ %12, %8 ], !dbg !1632\l  call void @llvm.dbg.value(metadata i64 %21, metadata !965, metadata\l... !DIExpression()), !dbg !1632\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1655, metadata\l... !DIExpression()) #7, !dbg !1663\l  call void @llvm.dbg.value(metadata i64 %21, metadata !1660, metadata\l... !DIExpression()) #7, !dbg !1663\l  call void @llvm.dbg.value(metadata i64 %2, metadata !1661, metadata\l... !DIExpression()) #7, !dbg !1663\l  %22 = tail call i8* @reallocarray(i8* %0, i64 %21, i64 %2) #7, !dbg !1665\l  call void @llvm.dbg.value(metadata i8* %22, metadata !1662, metadata\l... !DIExpression()) #7, !dbg !1663\l  %23 = icmp eq i8* %22, null, !dbg !1666\l  br i1 %23, label %24, label %30, !dbg !1668\l|{<s0>T|<s1>F}}"];
+	Node0x14b3ff0:s0 -> Node0x14b4040;
+	Node0x14b3ff0:s1 -> Node0x14b4130;
+	Node0x14b4040 [shape=record,label="{%24:\l24:                                               \l  br i1 %5, label %29, label %25, !dbg !1669\l|{<s0>T|<s1>F}}"];
+	Node0x14b4040:s0 -> Node0x14b40e0;
+	Node0x14b4040:s1 -> Node0x14b4090;
+	Node0x14b4090 [shape=record,label="{%25:\l25:                                               \l  %26 = icmp ne i64 %21, 0, !dbg !1670\l  %27 = icmp ne i64 %2, 0, !dbg !1671\l  %28 = and i1 %27, %26, !dbg !1672\l  br i1 %28, label %29, label %30, !dbg !1672\l|{<s0>T|<s1>F}}"];
+	Node0x14b4090:s0 -> Node0x14b40e0;
+	Node0x14b4090:s1 -> Node0x14b4130;
+	Node0x14b40e0 [shape=record,label="{%29:\l29:                                               \l  tail call void @xalloc_die() #40, !dbg !1673\l  unreachable, !dbg !1673\l}"];
+	Node0x14b4130 [shape=record,label="{%30:\l30:                                               \l  call void @llvm.dbg.value(metadata i8* %22, metadata !962, metadata\l... !DIExpression()), !dbg !1632\l  store i64 %21, i64* %1, align 8, !dbg !1674, !tbaa !1634\l  ret i8* %22, !dbg !1675\l}"];
+}

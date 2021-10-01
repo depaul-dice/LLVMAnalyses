@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_attr_setdetachstate' function" {
+	label="CFG for 'pthread_attr_setdetachstate' function";
+
+	Node0x19eb390 [shape=record,label="{%2:\l  %3 = icmp ugt i32 %1, 1\l  br i1 %3, label %7, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x19eb390:s0 -> Node0x19ebcb0;
+	Node0x19eb390:s1 -> Node0x19ebc60;
+	Node0x19ebc60 [shape=record,label="{%4:\l4:                                                \l  %5 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %0, i64 0, i32 0, i32 0, i64 3\l  %6 = bitcast i64* %5 to i32*\l  store i32 %1, i32* %6, align 8, !tbaa !1632\l  br label %7\l}"];
+	Node0x19ebc60 -> Node0x19ebcb0;
+	Node0x19ebcb0 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32 [ 0, %4 ], [ 22, %2 ]\l  ret i32 %8\l}"];
+}

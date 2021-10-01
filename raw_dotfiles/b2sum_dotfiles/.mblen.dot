@@ -1,0 +1,5 @@
+digraph "CFG for 'mblen' function" {
+	label="CFG for 'mblen' function";
+
+	Node0x18c4520 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = tail call fastcc i32 @mbtowc(i32* null, i8* %0, i64 %1) #29\l  ret i32 %3\l}"];
+}

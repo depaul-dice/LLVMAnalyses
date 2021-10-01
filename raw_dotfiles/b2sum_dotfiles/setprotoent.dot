@@ -1,0 +1,5 @@
+digraph "CFG for 'setprotoent' function" {
+	label="CFG for 'setprotoent' function";
+
+	Node0x1c34480 [shape=record,label="{%1:\l  store i32 0, i32* @idx, align 4, !tbaa !1632\l  ret void\l}"];
+}

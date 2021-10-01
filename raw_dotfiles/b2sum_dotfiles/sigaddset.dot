@@ -1,0 +1,12 @@
+digraph "CFG for 'sigaddset' function" {
+	label="CFG for 'sigaddset' function";
+
+	Node0x1b6e050 [shape=record,label="{%2:\l  %3 = add nsw i32 %1, -1\l  %4 = icmp ugt i32 %3, 63\l  %5 = add i32 %1, -32\l  %6 = icmp ult i32 %5, 3\l  %7 = or i1 %4, %6\l  br i1 %7, label %8, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1b6e050:s0 -> Node0x1b6e2b0;
+	Node0x1b6e050:s1 -> Node0x1b6e300;
+	Node0x1b6e2b0 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %9, align 4, !tbaa !1632\l  br label %18\l}"];
+	Node0x1b6e2b0 -> Node0x1b6e350;
+	Node0x1b6e300 [shape=record,label="{%10:\l10:                                               \l  %11 = zext i32 %3 to i64\l  %12 = shl nuw i64 1, %11\l  %13 = lshr i32 %3, 6\l  %14 = zext i32 %13 to i64\l  %15 = getelementptr inbounds %struct.__sigset_t, %struct.__sigset_t* %0, i64\l... 0, i32 0, i64 %14\l  %16 = load i64, i64* %15, align 8, !tbaa !1636\l  %17 = or i64 %16, %12\l  store i64 %17, i64* %15, align 8, !tbaa !1636\l  br label %18\l}"];
+	Node0x1b6e300 -> Node0x1b6e350;
+	Node0x1b6e350 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i32 [ -1, %8 ], [ 0, %10 ]\l  ret i32 %19\l}"];
+}

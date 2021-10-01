@@ -1,0 +1,5 @@
+digraph "CFG for 'aio_return' function" {
+	label="CFG for 'aio_return' function";
+
+	Node0x1ed2530 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.aiocb, %struct.aiocb* %0, i64 0, i32 9\l  %3 = load i64, i64* %2, align 8, !tbaa !1632\l  ret i64 %3\l}"];
+}

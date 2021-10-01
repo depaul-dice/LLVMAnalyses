@@ -1,0 +1,25 @@
+digraph "CFG for 'round' function" {
+	label="CFG for 'round' function";
+
+	Node0x1988d10 [shape=record,label="{%1:\l  %2 = alloca double, align 8\l  %3 = bitcast double %0 to i64\l  %4 = lshr i64 %3, 52\l  %5 = trunc i64 %4 to i32\l  %6 = and i32 %5, 2047\l  %7 = icmp ugt i32 %6, 1074\l  br i1 %7, label %36, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1988d10:s0 -> Node0x1988f90;
+	Node0x1988d10:s1 -> Node0x1988d60;
+	Node0x1988d60 [shape=record,label="{%8:\l8:                                                \l  %9 = icmp slt i64 %3, 0\l  %10 = fneg double %0\l  %11 = select i1 %9, double %10, double %0\l  %12 = icmp ult i32 %6, 1022\l  %13 = tail call double @llvm.experimental.constrained.fadd.f64(double %11,\l... double 0x4330000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #40\l  br i1 %12, label %14, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1988d60:s0 -> Node0x1988db0;
+	Node0x1988d60:s1 -> Node0x1988e00;
+	Node0x1988db0 [shape=record,label="{%14:\l14:                                               \l  %15 = bitcast double* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %15)\l  store volatile double %13, double* %2, align 8, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %15)\l  %16 = tail call double @llvm.experimental.constrained.sitofp.f64.i32(i32 0,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %17 = tail call double @llvm.experimental.constrained.fmul.f64(double %16,\l... double %0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %36\l}"];
+	Node0x1988db0 -> Node0x1988f90;
+	Node0x1988e00 [shape=record,label="{%18:\l18:                                               \l  %19 = tail call double @llvm.experimental.constrained.fsub.f64(double %13,\l... double 0x4330000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #40\l  %20 = tail call double @llvm.experimental.constrained.fsub.f64(double %19,\l... double %11, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %21 = tail call i1 @llvm.experimental.constrained.fcmps.f64(double %20,\l... double 5.000000e-01, metadata !\"ogt\", metadata !\"fpexcept.ignore\") #40\l  br i1 %21, label %22, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x1988e00:s0 -> Node0x1988e50;
+	Node0x1988e00:s1 -> Node0x1988ea0;
+	Node0x1988e50 [shape=record,label="{%22:\l22:                                               \l  %23 = tail call double @llvm.experimental.constrained.fadd.f64(double %20,\l... double %11, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %24 = tail call double @llvm.experimental.constrained.sitofp.f64.i32(i32 1,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %25 = tail call double @llvm.experimental.constrained.fsub.f64(double %23,\l... double %24, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %32\l}"];
+	Node0x1988e50 -> Node0x1988f40;
+	Node0x1988ea0 [shape=record,label="{%26:\l26:                                               \l  %27 = tail call i1 @llvm.experimental.constrained.fcmps.f64(double %20,\l... double -5.000000e-01, metadata !\"ole\", metadata !\"fpexcept.ignore\") #40\l  %28 = tail call double @llvm.experimental.constrained.fadd.f64(double %20,\l... double %11, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br i1 %27, label %29, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x1988ea0:s0 -> Node0x1988ef0;
+	Node0x1988ea0:s1 -> Node0x1988f40;
+	Node0x1988ef0 [shape=record,label="{%29:\l29:                                               \l  %30 = tail call double @llvm.experimental.constrained.sitofp.f64.i32(i32 1,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %31 = tail call double @llvm.experimental.constrained.fadd.f64(double %28,\l... double %30, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %32\l}"];
+	Node0x1988ef0 -> Node0x1988f40;
+	Node0x1988f40 [shape=record,label="{%32:\l32:                                               \l  %33 = phi double [ %25, %22 ], [ %31, %29 ], [ %28, %26 ]\l  %34 = fneg double %33\l  %35 = select i1 %9, double %34, double %33\l  br label %36\l}"];
+	Node0x1988f40 -> Node0x1988f90;
+	Node0x1988f90 [shape=record,label="{%36:\l36:                                               \l  %37 = phi double [ %17, %14 ], [ %35, %32 ], [ %0, %1 ]\l  ret double %37\l}"];
+}

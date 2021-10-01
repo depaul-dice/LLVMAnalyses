@@ -1,0 +1,40 @@
+digraph "CFG for 'scalb' function" {
+	label="CFG for 'scalb' function";
+
+	Node0x1ce2df0 [shape=record,label="{%2:\l  %3 = bitcast double %0 to i64\l  %4 = and i64 %3, 9223372036854775807\l  %5 = icmp ugt i64 %4, 9218868437227405312\l  br i1 %5, label %10, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1ce2df0:s0 -> Node0x1ce2e90;
+	Node0x1ce2df0:s1 -> Node0x1ce2e40;
+	Node0x1ce2e40 [shape=record,label="{%6:\l6:                                                \l  %7 = bitcast double %1 to i64\l  %8 = and i64 %7, 9223372036854775807\l  %9 = icmp ugt i64 %8, 9218868437227405312\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1ce2e40:s0 -> Node0x1ce2e90;
+	Node0x1ce2e40:s1 -> Node0x1ce2ee0;
+	Node0x1ce2e90 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call double @llvm.experimental.constrained.fmul.f64(double %0,\l... double %1, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %41\l}"];
+	Node0x1ce2e90 -> Node0x1ce3250;
+	Node0x1ce2ee0 [shape=record,label="{%12:\l12:                                               \l  %13 = and i64 %7, 9218868437227405312\l  %14 = icmp eq i64 %13, 9218868437227405312\l  br i1 %14, label %15, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1ce2ee0:s0 -> Node0x1ce2f30;
+	Node0x1ce2ee0:s1 -> Node0x1ce3020;
+	Node0x1ce2f30 [shape=record,label="{%15:\l15:                                               \l  %16 = tail call i1 @llvm.experimental.constrained.fcmps.f64(double %1,\l... double 0.000000e+00, metadata !\"ogt\", metadata !\"fpexcept.ignore\") #40\l  br i1 %16, label %17, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1ce2f30:s0 -> Node0x1ce2f80;
+	Node0x1ce2f30:s1 -> Node0x1ce2fd0;
+	Node0x1ce2f80 [shape=record,label="{%17:\l17:                                               \l  %18 = tail call double @llvm.experimental.constrained.fmul.f64(double %0,\l... double %1, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %41\l}"];
+	Node0x1ce2f80 -> Node0x1ce3250;
+	Node0x1ce2fd0 [shape=record,label="{%19:\l19:                                               \l  %20 = fneg double %1\l  %21 = tail call double @llvm.experimental.constrained.fdiv.f64(double %0,\l... double %20, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %41\l}"];
+	Node0x1ce2fd0 -> Node0x1ce3250;
+	Node0x1ce3020 [shape=record,label="{%22:\l22:                                               \l  %23 = tail call double @rint(double %1) #41\l  %24 = tail call i1 @llvm.experimental.constrained.fcmp.f64(double %23,\l... double %1, metadata !\"une\", metadata !\"fpexcept.ignore\") #40\l  br i1 %24, label %25, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x1ce3020:s0 -> Node0x1ce3070;
+	Node0x1ce3020:s1 -> Node0x1ce30c0;
+	Node0x1ce3070 [shape=record,label="{%25:\l25:                                               \l  %26 = tail call double @llvm.experimental.constrained.fsub.f64(double %1,\l... double %1, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %27 = tail call double @llvm.experimental.constrained.fsub.f64(double %1,\l... double %1, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %28 = tail call double @llvm.experimental.constrained.fdiv.f64(double %26,\l... double %27, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %41\l}"];
+	Node0x1ce3070 -> Node0x1ce3250;
+	Node0x1ce30c0 [shape=record,label="{%29:\l29:                                               \l  %30 = tail call i1 @llvm.experimental.constrained.fcmps.f64(double %1,\l... double 6.500000e+04, metadata !\"ogt\", metadata !\"fpexcept.ignore\") #40\l  br i1 %30, label %31, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x1ce30c0:s0 -> Node0x1ce3110;
+	Node0x1ce30c0:s1 -> Node0x1ce3160;
+	Node0x1ce3110 [shape=record,label="{%31:\l31:                                               \l  %32 = tail call double @scalbn(double %0, i32 65000) #41\l  br label %41\l}"];
+	Node0x1ce3110 -> Node0x1ce3250;
+	Node0x1ce3160 [shape=record,label="{%33:\l33:                                               \l  %34 = fneg double %1\l  %35 = tail call i1 @llvm.experimental.constrained.fcmps.f64(double %34,\l... double 6.500000e+04, metadata !\"ogt\", metadata !\"fpexcept.ignore\") #40\l  br i1 %35, label %36, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x1ce3160:s0 -> Node0x1ce31b0;
+	Node0x1ce3160:s1 -> Node0x1ce3200;
+	Node0x1ce31b0 [shape=record,label="{%36:\l36:                                               \l  %37 = tail call double @scalbn(double %0, i32 -65000) #41\l  br label %41\l}"];
+	Node0x1ce31b0 -> Node0x1ce3250;
+	Node0x1ce3200 [shape=record,label="{%38:\l38:                                               \l  %39 = tail call i32 @llvm.experimental.constrained.fptosi.i32.f64(double %1,\l... metadata !\"fpexcept.ignore\") #40\l  %40 = tail call double @scalbn(double %0, i32 %39) #41\l  br label %41\l}"];
+	Node0x1ce3200 -> Node0x1ce3250;
+	Node0x1ce3250 [shape=record,label="{%41:\l41:                                               \l  %42 = phi double [ %11, %10 ], [ %28, %25 ], [ %32, %31 ], [ %37, %36 ], [\l... %40, %38 ], [ %18, %17 ], [ %21, %19 ]\l  ret double %42\l}"];
+}

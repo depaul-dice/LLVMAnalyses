@@ -1,0 +1,10 @@
+digraph "CFG for '__crypt_sha512' function" {
+	label="CFG for '__crypt_sha512' function";
+
+	Node0x1abcb00 [shape=record,label="{%3:\l  %4 = alloca [128 x i8], align 16\l  %5 = getelementptr inbounds [128 x i8], [128 x i8]* %4, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %5) #40\l  %6 = tail call fastcc i8* @sha512crypt(i8* %0, i8* %1, i8* %2) #41\l  %7 = call fastcc i8* @sha512crypt(i8* getelementptr inbounds ([18 x i8], [18\l... x i8]* @__crypt_sha512.testkey, i64 0, i64 0), i8* getelementptr inbounds\l... ([30 x i8], [30 x i8]* @__crypt_sha512.testsetting, i64 0, i64 0), i8*\l... nonnull %5) #41\l  %8 = icmp ne i8* %6, null\l  %9 = icmp eq i8* %7, %5\l  %10 = and i1 %8, %9\l  br i1 %10, label %11, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1abcb00:s0 -> Node0x1abcbf0;
+	Node0x1abcb00:s1 -> Node0x1abcc40;
+	Node0x1abcbf0 [shape=record,label="{%11:\l11:                                               \l  %12 = call i32 @memcmp(i8* nonnull %5, i8* getelementptr inbounds ([116 x\l... i8], [116 x i8]* @__crypt_sha512.testhash, i64 0, i64 0), i64 116) #42\l  %13 = icmp eq i32 %12, 0\l  %14 = select i1 %13, i8* %6, i8* getelementptr inbounds ([2 x i8], [2 x i8]*\l... @.str.108, i64 0, i64 0)\l  br label %15\l}"];
+	Node0x1abcbf0 -> Node0x1abcc40;
+	Node0x1abcc40 [shape=record,label="{%15:\l15:                                               \l  %16 = phi i8* [ getelementptr inbounds ([2 x i8], [2 x i8]* @.str.108, i64\l... 0, i64 0), %3 ], [ %14, %11 ]\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %5) #40\l  ret i8* %16\l}"];
+}

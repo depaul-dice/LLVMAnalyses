@@ -1,0 +1,28 @@
+digraph "CFG for 'getentropy' function" {
+	label="CFG for 'getentropy' function";
+
+	Node0x1c4d790 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = bitcast i32* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %4) #40\l  %5 = icmp ugt i64 %1, 256\l  br i1 %5, label %6, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1c4d790:s0 -> Node0x1c4d7e0;
+	Node0x1c4d790:s1 -> Node0x1c4dc60;
+	Node0x1c4d7e0 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32* @___errno_location() #41\l  store i32 5, i32* %7, align 4, !tbaa !1632\l  br label %34\l}"];
+	Node0x1c4d7e0 -> Node0x1c4de90;
+	Node0x1c4dc60 [shape=record,label="{%8:\l8:                                                \l  %9 = call i32 @pthread_setcancelstate(i32 1, i32* nonnull %3) #41\l  %10 = icmp eq i64 %1, 0\l  br i1 %10, label %30, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1c4dc60:s0 -> Node0x1c4de40;
+	Node0x1c4dc60:s1 -> Node0x1c4dcb0;
+	Node0x1c4dcb0 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i8* [ %25, %22 ], [ %0, %8 ]\l  %13 = phi i64 [ %26, %22 ], [ %1, %8 ]\l  br label %14\l}"];
+	Node0x1c4dcb0 -> Node0x1c4dd00;
+	Node0x1c4dd00 [shape=record,label="{%14:\l14:                                               \l  %15 = call i64 @getrandom(i8* %12, i64 %13, i32 0) #41\l  %16 = trunc i64 %15 to i32\l  %17 = icmp slt i32 %16, 0\l  br i1 %17, label %18, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1c4dd00:s0 -> Node0x1c4dd50;
+	Node0x1c4dd00:s1 -> Node0x1c4dda0;
+	Node0x1c4dd50 [shape=record,label="{%18:\l18:                                               \l  %19 = call i32* @___errno_location() #41\l  %20 = load i32, i32* %19, align 4, !tbaa !1632\l  %21 = icmp eq i32 %20, 4\l  br i1 %21, label %14, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1c4dd50:s0 -> Node0x1c4dd00;
+	Node0x1c4dd50:s1 -> Node0x1c4ddf0;
+	Node0x1c4dda0 [shape=record,label="{%22:\l22:                                               \l  %23 = shl i64 %15, 32\l  %24 = ashr exact i64 %23, 32\l  %25 = getelementptr inbounds i8, i8* %12, i64 %24\l  %26 = sub i64 %13, %24\l  %27 = icmp eq i64 %26, 0\l  br i1 %27, label %30, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1c4dda0:s0 -> Node0x1c4de40;
+	Node0x1c4dda0:s1 -> Node0x1c4dcb0;
+	Node0x1c4ddf0 [shape=record,label="{%28:\l28:                                               \l  %29 = trunc i64 %15 to i32\l  br label %30\l}"];
+	Node0x1c4ddf0 -> Node0x1c4de40;
+	Node0x1c4de40 [shape=record,label="{%30:\l30:                                               \l  %31 = phi i32 [ 0, %8 ], [ %29, %28 ], [ 0, %22 ]\l  %32 = load i32, i32* %3, align 4, !tbaa !1632\l  %33 = call i32 @pthread_setcancelstate(i32 %32, i32* null) #41\l  br label %34\l}"];
+	Node0x1c4de40 -> Node0x1c4de90;
+	Node0x1c4de90 [shape=record,label="{%34:\l34:                                               \l  %35 = phi i32 [ -1, %6 ], [ %31, %30 ]\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %4) #40\l  ret i32 %35\l}"];
+}

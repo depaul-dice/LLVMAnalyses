@@ -1,0 +1,12 @@
+digraph "CFG for 'iswalpha' function" {
+	label="CFG for 'iswalpha' function";
+
+	Node0x1987290 [shape=record,label="{%1:\l  %2 = icmp ult i32 %0, 131072\l  br i1 %2, label %3, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1987290:s0 -> Node0x1987310;
+	Node0x1987290:s1 -> Node0x1987360;
+	Node0x1987310 [shape=record,label="{%3:\l3:                                                \l  %4 = lshr i32 %0, 8\l  %5 = zext i32 %4 to i64\l  %6 = getelementptr inbounds [3680 x i8], [3680 x i8]* bitcast (\<\{ [3666 x\l... i8], [14 x i8] \}\>* @table.885 to [3680 x i8]*), i64 0, i64 %5\l  %7 = load i8, i8* %6, align 1, !tbaa !1632\l  %8 = zext i8 %7 to i32\l  %9 = shl nuw nsw i32 %8, 5\l  %10 = lshr i32 %0, 3\l  %11 = and i32 %10, 31\l  %12 = or i32 %9, %11\l  %13 = zext i32 %12 to i64\l  %14 = getelementptr inbounds [3680 x i8], [3680 x i8]* bitcast (\<\{ [3666 x\l... i8], [14 x i8] \}\>* @table.885 to [3680 x i8]*), i64 0, i64 %13\l  %15 = load i8, i8* %14, align 1, !tbaa !1632\l  %16 = zext i8 %15 to i32\l  %17 = and i32 %0, 7\l  %18 = lshr i32 %16, %17\l  %19 = and i32 %18, 1\l  br label %23\l}"];
+	Node0x1987310 -> Node0x19873b0;
+	Node0x1987360 [shape=record,label="{%20:\l20:                                               \l  %21 = icmp ult i32 %0, 196606\l  %22 = zext i1 %21 to i32\l  br label %23\l}"];
+	Node0x1987360 -> Node0x19873b0;
+	Node0x19873b0 [shape=record,label="{%23:\l23:                                               \l  %24 = phi i32 [ %19, %3 ], [ %22, %20 ]\l  ret i32 %24\l}"];
+}

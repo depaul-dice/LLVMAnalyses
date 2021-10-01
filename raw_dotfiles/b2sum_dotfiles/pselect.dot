@@ -1,0 +1,10 @@
+digraph "CFG for 'pselect' function" {
+	label="CFG for 'pselect' function";
+
+	Node0x1fff980 [shape=record,label="{%6:\l  %7 = alloca [2 x i64], align 16\l  %8 = alloca %struct.timeval, align 8\l  %9 = bitcast [2 x i64]* %7 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %9) #40\l  %10 = getelementptr inbounds [2 x i64], [2 x i64]* %7, i64 0, i64 0\l  %11 = ptrtoint %struct.__sigset_t* %5 to i64\l  store i64 %11, i64* %10, align 16, !tbaa !1632\l  %12 = getelementptr inbounds [2 x i64], [2 x i64]* %7, i64 0, i64 1\l  store i64 8, i64* %12, align 8, !tbaa !1632\l  %13 = bitcast %struct.timeval* %8 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %13) #40\l  %14 = icmp ne %struct.timeval* %4, null\l  br i1 %14, label %15, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1fff980:s0 -> Node0x1fffad0;
+	Node0x1fff980:s1 -> Node0x1fffb20;
+	Node0x1fffad0 [shape=record,label="{%15:\l15:                                               \l  %16 = bitcast %struct.timeval* %4 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8 dereferenceable(16)\l... %13, i8* nonnull align 8 dereferenceable(16) %16, i64 16, i1 false),\l... !tbaa.struct !1636\l  br label %17\l}"];
+	Node0x1fffad0 -> Node0x1fffb20;
+	Node0x1fffb20 [shape=record,label="{%17:\l17:                                               \l  %18 = sext i32 %0 to i64\l  %19 = ptrtoint %struct.__sigset_t* %1 to i64\l  %20 = ptrtoint %struct.__sigset_t* %2 to i64\l  %21 = ptrtoint %struct.__sigset_t* %3 to i64\l  %22 = select i1 %14, %struct.timeval* %8, %struct.timeval* null\l  %23 = ptrtoint %struct.timeval* %22 to i64\l  %24 = ptrtoint [2 x i64]* %7 to i64\l  %25 = call i64 @__syscall_cp(i64 270, i64 %18, i64 %19, i64 %20, i64 %21,\l... i64 %23, i64 %24) #41\l  %26 = call i64 @__syscall_ret(i64 %25) #41\l  %27 = trunc i64 %26 to i32\l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %13) #40\l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %9) #40\l  ret i32 %27\l}"];
+}

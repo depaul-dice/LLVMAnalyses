@@ -1,0 +1,16 @@
+digraph "CFG for '__vm_unlock' function" {
+	label="CFG for '__vm_unlock' function";
+
+	Node0x1559300 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  %1 = getelementptr inbounds [2 x i32], [2 x i32]* @vmlock, i64 0, i64 0\l  %2 = tail call i32 asm sideeffect \"lock \l  %3 = icmp eq i32 %2, 1\l  br i1 %3, label %4, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1559300:s0 -> Node0x15594d0;
+	Node0x1559300:s1 -> Node0x15595c0;
+	Node0x15594d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ec7f6370",label="{%4:\l4:                                                \l  %5 = getelementptr inbounds [2 x i32], [2 x i32]* @vmlock, i64 0, i64 1\l  %6 = load volatile i32, i32* %5, align 4, !tbaa !1087\l  %7 = icmp eq i32 %6, 0\l  br i1 %7, label %15, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x15594d0:s0 -> Node0x15595c0;
+	Node0x15594d0:s1 -> Node0x1559520;
+	Node0x1559520 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%8:\l8:                                                \l  %9 = ptrtoint [2 x i32]* @vmlock to i64\l  %10 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %9, i64 129, i64 2147483647) #26, !srcloc !1091\l  %11 = icmp eq i64 %10, -38\l  br i1 %11, label %12, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1559520:s0 -> Node0x1559570;
+	Node0x1559520:s1 -> Node0x15595c0;
+	Node0x1559570 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e3d9d370",label="{%12:\l12:                                               \l  %13 = ptrtoint [2 x i32]* @vmlock to i64\l  %14 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %13, i64 1, i64 2147483647) #26, !srcloc !1091\l  br label %15\l}"];
+	Node0x1559570 -> Node0x15595c0;
+	Node0x15595c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%15:\l15:                                               \l  ret void\l}"];
+}

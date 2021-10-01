@@ -1,0 +1,5 @@
+digraph "CFG for 'putw' function" {
+	label="CFG for 'putw' function";
+
+	Node0x1f53e10 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  store i32 %0, i32* %3, align 4, !tbaa !1632\l  %4 = bitcast i32* %3 to i8*\l  %5 = call i64 @fwrite(i8* nonnull %4, i64 4, i64 1, %struct._IO_FILE.0* %1)\l... #40\l  %6 = trunc i64 %5 to i32\l  %7 = add nsw i32 %6, -1\l  ret i32 %7\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'gettext' function" {
+	label="CFG for 'gettext' function";
+
+	Node0x1b36dc0 [shape=record,label="{%1:\l  %2 = tail call i8* @dgettext(i8* null, i8* %0) #40\l  ret i8* %2\l}"];
+}

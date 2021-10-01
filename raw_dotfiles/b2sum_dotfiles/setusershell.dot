@@ -1,0 +1,13 @@
+digraph "CFG for 'setusershell' function" {
+	label="CFG for 'setusershell' function";
+
+	Node0x1638210 [shape=record,label="{%0:\l  %1 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** @f, align 8, !tbaa !1632\l  %2 = icmp eq %struct._IO_FILE.0* %1, null\l  br i1 %2, label %3, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1638210:s0 -> Node0x1638260;
+	Node0x1638210:s1 -> Node0x1638e80;
+	Node0x1638260 [shape=record,label="{%3:\l3:                                                \l  %4 = tail call %struct._IO_FILE.0* @fopen(i8* getelementptr inbounds ([12 x\l... i8], [12 x i8]* @.str.3.104, i64 0, i64 0), i8* getelementptr inbounds ([4 x\l... i8], [4 x i8]* @.str.1.4, i64 0, i64 0)) #40\l  store %struct._IO_FILE.0* %4, %struct._IO_FILE.0** @f, align 8, !tbaa !1632\l  %5 = icmp eq %struct._IO_FILE.0* %4, null\l  br i1 %5, label %6, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1638260:s0 -> Node0x1638e30;
+	Node0x1638260:s1 -> Node0x1638e80;
+	Node0x1638e30 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call %struct._IO_FILE.0* @fmemopen(i8* getelementptr inbounds ([18\l... x i8], [18 x i8]* @defshells, i64 0, i64 0), i64 17, i8* getelementptr\l... inbounds ([3 x i8], [3 x i8]* @.str.2.5, i64 0, i64 0)) #40\l  store %struct._IO_FILE.0* %7, %struct._IO_FILE.0** @f, align 8, !tbaa !1632\l  br label %8\l}"];
+	Node0x1638e30 -> Node0x1638e80;
+	Node0x1638e80 [shape=record,label="{%8:\l8:                                                \l  ret void\l}"];
+}

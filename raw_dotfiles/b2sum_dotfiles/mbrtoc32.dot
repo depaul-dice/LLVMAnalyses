@@ -1,0 +1,17 @@
+digraph "CFG for 'mbrtoc32' function" {
+	label="CFG for 'mbrtoc32' function";
+
+	Node0x1e796a0 [shape=record,label="{%4:\l  %5 = alloca i32, align 4\l  %6 = alloca i32, align 4\l  %7 = icmp eq %struct.FTW* %3, null\l  %8 = select i1 %7, %struct.FTW* bitcast (i32* @mbrtoc32.internal_state to\l... %struct.FTW*), %struct.FTW* %3\l  %9 = icmp eq i8* %1, null\l  br i1 %9, label %10, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1e796a0:s0 -> Node0x1e797a0;
+	Node0x1e796a0:s1 -> Node0x1e797f0;
+	Node0x1e797a0 [shape=record,label="{%10:\l10:                                               \l  %11 = bitcast i32* %5 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %11) #40, !noalias\l... !1632\l  %12 = call i64 @mbrtowc(i32* nonnull %5, i8* nonnull getelementptr inbounds\l... ([1 x i8], [1 x i8]* @.str.624, i64 0, i64 0), i64 1, %struct.FTW* %8) #41,\l... !noalias !1637\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %11) #40, !noalias !1632\l  br label %22\l}"];
+	Node0x1e797a0 -> Node0x1e798e0;
+	Node0x1e797f0 [shape=record,label="{%13:\l13:                                               \l  %14 = bitcast i32* %6 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %14) #40\l  %15 = call i64 @mbrtowc(i32* nonnull %6, i8* nonnull %1, i64 %2,\l... %struct.FTW* %8) #41\l  %16 = icmp ult i64 %15, 5\l  %17 = icmp ne i32* %0, null\l  %18 = and i1 %17, %16\l  br i1 %18, label %19, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1e797f0:s0 -> Node0x1e79840;
+	Node0x1e797f0:s1 -> Node0x1e79890;
+	Node0x1e79840 [shape=record,label="{%19:\l19:                                               \l  %20 = load i32, i32* %6, align 4, !tbaa !1638\l  store i32 %20, i32* %0, align 4, !tbaa !1638\l  br label %21\l}"];
+	Node0x1e79840 -> Node0x1e79890;
+	Node0x1e79890 [shape=record,label="{%21:\l21:                                               \l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %14) #40\l  br label %22\l}"];
+	Node0x1e79890 -> Node0x1e798e0;
+	Node0x1e798e0 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i64 [ %15, %21 ], [ %12, %10 ]\l  ret i64 %23\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'toascii' function" {
+	label="CFG for 'toascii' function";
+
+	Node0x1ff5cd0 [shape=record,label="{%1:\l  %2 = and i32 %0, 127\l  ret i32 %2\l}"];
+}

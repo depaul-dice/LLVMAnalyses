@@ -1,0 +1,5 @@
+digraph "CFG for 'aio_write' function" {
+	label="CFG for 'aio_write' function";
+
+	Node0x1a9bdb0 [shape=record,label="{%1:\l  %2 = tail call fastcc i32 @submit(%struct.aiocb* %0, i32 1) #40\l  ret i32 %2\l}"];
+}

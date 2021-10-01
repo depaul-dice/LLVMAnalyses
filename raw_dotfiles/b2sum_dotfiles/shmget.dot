@@ -1,0 +1,5 @@
+digraph "CFG for 'shmget' function" {
+	label="CFG for 'shmget' function";
+
+	Node0x1fa6ec0 [shape=record,label="{%3:\l  %4 = icmp sgt i64 %1, -1\l  %5 = select i1 %4, i64 %1, i64 -1\l  %6 = sext i32 %0 to i64\l  %7 = sext i32 %2 to i64\l  %8 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 29, i64 %6, i64 %5, i64 %7) #40, !srcloc !1632\l  %9 = tail call i64 @__syscall_ret(i64 %8) #41\l  %10 = trunc i64 %9 to i32\l  ret i32 %10\l}"];
+}

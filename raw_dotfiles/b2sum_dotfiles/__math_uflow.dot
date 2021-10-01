@@ -1,0 +1,5 @@
+digraph "CFG for '__math_uflow' function" {
+	label="CFG for '__math_uflow' function";
+
+	Node0x1555fd0 [shape=record,label="{%1:\l  %2 = tail call double @__math_xflow(i32 %0, double 0x1000000000000000) #40\l  ret double %2\l}"];
+}

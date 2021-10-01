@@ -1,0 +1,5 @@
+digraph "CFG for 'sigwaitinfo' function" {
+	label="CFG for 'sigwaitinfo' function";
+
+	Node0x1a05da0 [shape=record,label="{%2:\l  %3 = tail call i32 @sigtimedwait(%struct.__sigset_t* %0, %struct.siginfo_t*\l... %1, %struct.timeval* null) #40\l  ret i32 %3\l}"];
+}

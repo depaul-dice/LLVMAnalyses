@@ -1,0 +1,34 @@
+digraph "CFG for 'ns_skiprr' function" {
+	label="CFG for 'ns_skiprr' function";
+
+	Node0x1c05df0 [shape=record,label="{%4:\l  %5 = icmp eq i32 %3, 0\l  br i1 %5, label %46, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1c05df0:s0 -> Node0x1c06170;
+	Node0x1c05df0:s1 -> Node0x1c05ef0;
+	Node0x1c05ef0 [shape=record,label="{%6:\l6:                                                \l  %7 = ptrtoint i8* %1 to i64\l  %8 = icmp eq i32 %2, 0\l  br label %9\l}"];
+	Node0x1c05ef0 -> Node0x1c05f40;
+	Node0x1c05f40 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i32 [ %3, %6 ], [ %12, %43 ]\l  %11 = phi i8* [ %0, %6 ], [ %44, %43 ]\l  %12 = add nsw i32 %10, -1\l  %13 = tail call i32 @dn_skipname(i8* %11, i8* %1) #40\l  %14 = icmp slt i32 %13, 0\l  br i1 %14, label %52, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1c05f40:s0 -> Node0x1c061c0;
+	Node0x1c05f40:s1 -> Node0x1c05f90;
+	Node0x1c05f90 [shape=record,label="{%15:\l15:                                               \l  %16 = add nuw nsw i32 %13, 4\l  %17 = sext i32 %16 to i64\l  %18 = ptrtoint i8* %11 to i64\l  %19 = sub i64 %7, %18\l  %20 = icmp slt i64 %19, %17\l  br i1 %20, label %52, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1c05f90:s0 -> Node0x1c061c0;
+	Node0x1c05f90:s1 -> Node0x1c05fe0;
+	Node0x1c05fe0 [shape=record,label="{%21:\l21:                                               \l  %22 = getelementptr inbounds i8, i8* %11, i64 %17\l  br i1 %8, label %43, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x1c05fe0:s0 -> Node0x1c06120;
+	Node0x1c05fe0:s1 -> Node0x1c06030;
+	Node0x1c06030 [shape=record,label="{%23:\l23:                                               \l  %24 = ptrtoint i8* %22 to i64\l  %25 = sub i64 %7, %24\l  %26 = icmp slt i64 %25, 6\l  br i1 %26, label %52, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x1c06030:s0 -> Node0x1c061c0;
+	Node0x1c06030:s1 -> Node0x1c06080;
+	Node0x1c06080 [shape=record,label="{%27:\l27:                                               \l  %28 = getelementptr inbounds i8, i8* %22, i64 4\l  %29 = getelementptr inbounds i8, i8* %28, i64 2\l  %30 = getelementptr inbounds i8, i8* %29, i64 -2\l  %31 = load i8, i8* %30, align 1, !tbaa !1632\l  %32 = zext i8 %31 to i64\l  %33 = shl nuw nsw i64 %32, 8\l  %34 = getelementptr inbounds i8, i8* %30, i64 1\l  %35 = load i8, i8* %34, align 1, !tbaa !1632\l  %36 = zext i8 %35 to i64\l  %37 = or i64 %33, %36\l  %38 = ptrtoint i8* %29 to i64\l  %39 = sub i64 %7, %38\l  %40 = icmp slt i64 %39, %37\l  br i1 %40, label %52, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x1c06080:s0 -> Node0x1c061c0;
+	Node0x1c06080:s1 -> Node0x1c060d0;
+	Node0x1c060d0 [shape=record,label="{%41:\l41:                                               \l  %42 = getelementptr inbounds i8, i8* %29, i64 %37\l  br label %43\l}"];
+	Node0x1c060d0 -> Node0x1c06120;
+	Node0x1c06120 [shape=record,label="{%43:\l43:                                               \l  %44 = phi i8* [ %42, %41 ], [ %22, %21 ]\l  %45 = icmp eq i32 %12, 0\l  br i1 %45, label %46, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1c06120:s0 -> Node0x1c06170;
+	Node0x1c06120:s1 -> Node0x1c05f40;
+	Node0x1c06170 [shape=record,label="{%46:\l46:                                               \l  %47 = phi i8* [ %0, %4 ], [ %44, %43 ]\l  %48 = ptrtoint i8* %47 to i64\l  %49 = ptrtoint i8* %0 to i64\l  %50 = sub i64 %48, %49\l  %51 = trunc i64 %50 to i32\l  br label %54\l}"];
+	Node0x1c06170 -> Node0x1c06210;
+	Node0x1c061c0 [shape=record,label="{%52:\l52:                                               \l  %53 = tail call i32* @___errno_location() #40\l  store i32 90, i32* %53, align 4, !tbaa !1635\l  br label %54\l}"];
+	Node0x1c061c0 -> Node0x1c06210;
+	Node0x1c06210 [shape=record,label="{%54:\l54:                                               \l  %55 = phi i32 [ -1, %52 ], [ %51, %46 ]\l  ret i32 %55\l}"];
+}

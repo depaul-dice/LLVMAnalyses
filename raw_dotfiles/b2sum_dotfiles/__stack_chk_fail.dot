@@ -1,0 +1,5 @@
+digraph "CFG for '__stack_chk_fail' function" {
+	label="CFG for '__stack_chk_fail' function";
+
+	Node0x1c1b1c0 [shape=record,label="{%0:\l  tail call void asm sideeffect \"hlt\",\l... \"~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"() #40, !srcloc !1632\l  ret void\l}"];
+}

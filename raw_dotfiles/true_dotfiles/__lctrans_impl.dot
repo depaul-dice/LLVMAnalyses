@@ -1,0 +1,10 @@
+digraph "CFG for '__lctrans_impl' function" {
+	label="CFG for '__lctrans_impl' function";
+
+	Node0x16bc9d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = icmp eq %struct.__locale_map* %1, null\l  br i1 %3, label %10, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x16bc9d0:s0 -> Node0x16bcc60;
+	Node0x16bc9d0:s1 -> Node0x16bcc10;
+	Node0x16bcc10 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%4:\l4:                                                \l  %5 = getelementptr inbounds %struct.__locale_map, %struct.__locale_map* %1,\l... i64 0, i32 0\l  %6 = load i8*, i8** %5, align 8, !tbaa !1086\l  %7 = getelementptr inbounds %struct.__locale_map, %struct.__locale_map* %1,\l... i64 0, i32 1\l  %8 = load i64, i64* %7, align 8, !tbaa !1092\l  %9 = tail call fastcc i8* @__mo_lookup(i8* %6, i64 %8, i8* %0) #26\l  br label %10\l}"];
+	Node0x16bcc10 -> Node0x16bcc60;
+	Node0x16bcc60 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%10:\l10:                                               \l  %11 = phi i8* [ %9, %4 ], [ null, %2 ]\l  %12 = icmp eq i8* %11, null\l  %13 = select i1 %12, i8* %0, i8* %11\l  ret i8* %13\l}"];
+}

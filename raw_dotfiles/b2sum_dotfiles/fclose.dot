@@ -1,0 +1,35 @@
+digraph "CFG for 'fclose' function" {
+	label="CFG for 'fclose' function";
+
+	Node0x131ea00 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 19\l  %3 = load volatile i32, i32* %2, align 4, !tbaa !1632\l  %4 = icmp sgt i32 %3, -1\l  br i1 %4, label %5, label %if.true.direct_targ\l|{<s0>T|<s1>F}}"];
+	Node0x131ea00:s0 -> Node0x131ecc0;
+	Node0x131ea00:s1 -> Node0x131ed10;
+	Node0x131ecc0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e1675170",label="{%5:\l5:                                                \l  %6 = bitcast %struct._IO_FILE.0* %0 to %struct._IO_FILE.233*\l  %7 = tail call i32 @__lockfile(%struct._IO_FILE.233* nonnull %6) #29\l  %8 = icmp ne i32 %7, 0\l  br label %if.true.direct_targ\l}"];
+	Node0x131ecc0 -> Node0x131ed10;
+	Node0x131ed10 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{if.true.direct_targ:                              \l  %9 = phi i1 [ %8, %5 ], [ false, %1 ]\l  %10 = tail call i32 @fflush(%struct._IO_FILE.0* nonnull %0) #29\l  %11 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 3\l  %12 = load i32 (%struct._IO_FILE.0*)*, i32 (%struct._IO_FILE.0*)** %11,\l... align 8, !tbaa !1639\l  %13 = bitcast i32 (%struct._IO_FILE.495*)* @__stdio_close to i32\l... (%struct._IO_FILE.0*)*\l  %14 = icmp eq i32 (%struct._IO_FILE.0*)* %12, %13\l  call void @llvm.assume(i1 %14)\l  %15 = bitcast %struct._IO_FILE.0* %0 to %struct._IO_FILE.495*\l  %16 = tail call i32 @__stdio_close(%struct._IO_FILE.495* nonnull %15) #30\l  br i1 %9, label %17, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x131ed10:s0 -> Node0x131ed60;
+	Node0x131ed10:s1 -> Node0x131edb0;
+	Node0x131ed60 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ec7f6370",label="{%17:\l17:                                               \l  %18 = bitcast %struct._IO_FILE.0* %0 to %struct._IO_FILE.233*\l  tail call void @__unlockfile(%struct._IO_FILE.233* nonnull %18) #29\l  br label %19\l}"];
+	Node0x131ed60 -> Node0x131edb0;
+	Node0x131edb0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%19:\l19:                                               \l  %20 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 0\l  %21 = load i32, i32* %20, align 8, !tbaa !1640\l  %22 = and i32 %21, 1\l  %23 = icmp eq i32 %22, 0\l  br i1 %23, label %24, label %53\l|{<s0>T|<s1>F}}"];
+	Node0x131edb0:s0 -> Node0x131ee00;
+	Node0x131edb0:s1 -> Node0x131f030;
+	Node0x131ee00 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ec7f6370",label="{%24:\l24:                                               \l  tail call fastcc void @__unlist_locked_file(%struct._IO_FILE.0* nonnull %0)\l... #29\l  %25 = tail call fastcc %struct._IO_FILE.0** @__ofl_lock() #29\l  %26 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 13\l  %27 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** %26, align 8, !tbaa\l... !1641\l  %28 = icmp eq %struct._IO_FILE.0* %27, null\l  %29 = ptrtoint %struct._IO_FILE.0* %27 to i64\l  br i1 %28, label %36, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x131ee00:s0 -> Node0x131eea0;
+	Node0x131ee00:s1 -> Node0x131ee50;
+	Node0x131ee50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%30:\l30:                                               \l  %31 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 14\l  %32 = bitcast %struct._IO_FILE.0** %31 to i64*\l  %33 = load i64, i64* %32, align 8, !tbaa !1642\l  %34 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %27,\l... i64 0, i32 14\l  %35 = bitcast %struct._IO_FILE.0** %34 to i64*\l  store i64 %33, i64* %35, align 8, !tbaa !1642\l  br label %36\l}"];
+	Node0x131ee50 -> Node0x131eea0;
+	Node0x131eea0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ec7f6370",label="{%36:\l36:                                               \l  %37 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 14\l  %38 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** %37, align 8, !tbaa\l... !1642\l  %39 = icmp eq %struct._IO_FILE.0* %38, null\l  %40 = ptrtoint %struct._IO_FILE.0* %38 to i64\l  br i1 %39, label %44, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x131eea0:s0 -> Node0x131ef40;
+	Node0x131eea0:s1 -> Node0x131eef0;
+	Node0x131eef0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%41:\l41:                                               \l  %42 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %38,\l... i64 0, i32 13\l  %43 = bitcast %struct._IO_FILE.0** %42 to i64*\l  store i64 %29, i64* %43, align 8, !tbaa !1641\l  br label %44\l}"];
+	Node0x131eef0 -> Node0x131ef40;
+	Node0x131ef40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ec7f6370",label="{%44:\l44:                                               \l  %45 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** %25, align 8, !tbaa\l... !1643\l  %46 = icmp eq %struct._IO_FILE.0* %45, %0\l  br i1 %46, label %47, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x131ef40:s0 -> Node0x131ef90;
+	Node0x131ef40:s1 -> Node0x131efe0;
+	Node0x131ef90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%47:\l47:                                               \l  %48 = bitcast %struct._IO_FILE.0** %25 to i64*\l  store i64 %40, i64* %48, align 8, !tbaa !1643\l  br label %49\l}"];
+	Node0x131ef90 -> Node0x131efe0;
+	Node0x131efe0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ec7f6370",label="{%49:\l49:                                               \l  tail call fastcc void @__ofl_unlock() #29\l  %50 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 23\l  %51 = load i8*, i8** %50, align 8, !tbaa !1644\l  tail call fastcc void @free(i8* %51) #29\l  %52 = bitcast %struct._IO_FILE.0* %0 to i8*\l  tail call fastcc void @free(i8* %52) #29\l  br label %53\l}"];
+	Node0x131efe0 -> Node0x131f030;
+	Node0x131f030 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%53:\l53:                                               \l  %54 = or i32 %16, %10\l  ret i32 %54\l}"];
+}

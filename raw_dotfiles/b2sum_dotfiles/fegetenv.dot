@@ -1,0 +1,5 @@
+digraph "CFG for 'fegetenv' function" {
+	label="CFG for 'fegetenv' function";
+
+	Node0x1bef910 [shape=record,label="{%1:\l  ret i32 0\l}"];
+}

@@ -1,0 +1,10 @@
+digraph "CFG for 'setlogmask' function" {
+	label="CFG for 'setlogmask' function";
+
+	Node0x1bb2680 [shape=record,label="{%1:\l  tail call void @__lock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.185, i64 0, i64 0)) #40\l  %2 = load i32, i32* @log_mask, align 4, !tbaa !1632\l  %3 = icmp eq i32 %0, 0\l  br i1 %3, label %5, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1bb2680:s0 -> Node0x1bb2720;
+	Node0x1bb2680:s1 -> Node0x1bb26d0;
+	Node0x1bb26d0 [shape=record,label="{%4:\l4:                                                \l  store i32 %0, i32* @log_mask, align 4, !tbaa !1632\l  br label %5\l}"];
+	Node0x1bb26d0 -> Node0x1bb2720;
+	Node0x1bb2720 [shape=record,label="{%5:\l5:                                                \l  tail call void @__unlock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.185, i64 0, i64 0)) #40\l  ret i32 %2\l}"];
+}

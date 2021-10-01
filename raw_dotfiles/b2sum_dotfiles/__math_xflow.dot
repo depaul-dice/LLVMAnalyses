@@ -1,0 +1,5 @@
+digraph "CFG for '__math_xflow' function" {
+	label="CFG for '__math_xflow' function";
+
+	Node0x1556190 [shape=record,label="{%2:\l  %3 = alloca double, align 8\l  %4 = icmp eq i32 %0, 0\l  %5 = fneg double %1\l  %6 = select i1 %4, double %1, double %5\l  %7 = bitcast double* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %7)\l  store volatile double %6, double* %3, align 8, !tbaa !1632\l  %8 = load volatile double, double* %3, align 8, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %7)\l  %9 = tail call double @llvm.experimental.constrained.fmul.f64(double %8,\l... double %1, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  ret double %9\l}"];
+}

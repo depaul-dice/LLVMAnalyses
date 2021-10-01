@@ -1,0 +1,12 @@
+digraph "CFG for '__cancel' function" {
+	label="CFG for '__cancel' function";
+
+	Node0x1b64790 [shape=record,label="{%0:\l  %1 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #40, !srcloc !1632\l  %2 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64 0,\l... i32 11\l  %3 = load volatile i8, i8* %2, align 8, !tbaa !1633\l  %4 = icmp eq i8 %3, 0\l  br i1 %4, label %9, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1b64790:s0 -> Node0x1b65130;
+	Node0x1b64790:s1 -> Node0x1b650e0;
+	Node0x1b650e0 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64 0,\l... i32 12\l  %7 = load volatile i8, i8* %6, align 1, !tbaa !1641\l  %8 = icmp eq i8 %7, 0\l  br i1 %8, label %10, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1b650e0:s0 -> Node0x1b65180;
+	Node0x1b650e0:s1 -> Node0x1b65130;
+	Node0x1b65130 [shape=record,label="{%9:\l9:                                                \l  tail call void @pthread_exit(i8* nonnull inttoptr (i64 -1 to i8*)) #41\l  unreachable\l}"];
+	Node0x1b65180 [shape=record,label="{%10:\l10:                                               \l  store volatile i8 1, i8* %2, align 8, !tbaa !1633\l  ret i64 -125\l}"];
+}

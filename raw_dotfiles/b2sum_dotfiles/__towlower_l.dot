@@ -1,0 +1,5 @@
+digraph "CFG for '__towlower_l' function" {
+	label="CFG for '__towlower_l' function";
+
+	Node0x1f97140 [shape=record,label="{%2:\l  %3 = tail call i32 @towlower(i32 %0) #40\l  ret i32 %3\l}"];
+}

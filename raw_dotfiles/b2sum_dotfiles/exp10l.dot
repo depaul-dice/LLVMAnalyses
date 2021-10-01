@@ -1,0 +1,17 @@
+digraph "CFG for 'exp10l' function" {
+	label="CFG for 'exp10l' function";
+
+	Node0x17a4e40 [shape=record,label="{%1:\l  %2 = alloca x86_fp80, align 16\l  %3 = bitcast x86_fp80* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %3) #40\l  %4 = call x86_fp80 @modfl(x86_fp80 %0, x86_fp80* nonnull %2) #41\l  %5 = bitcast x86_fp80* %2 to i80*\l  %6 = load i80, i80* %5, align 16, !tbaa !1632\l  %7 = and i80 %6, 604444463063240877801472\l  %8 = icmp ult i80 %7, 302286795135878422331392\l  %9 = bitcast i80 %6 to x86_fp80\l  br i1 %8, label %10, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x17a4e40:s0 -> Node0x17a4ed0;
+	Node0x17a4e40:s1 -> Node0x17a4fc0;
+	Node0x17a4ed0 [shape=record,label="{%10:\l10:                                               \l  %11 = call i1 @llvm.experimental.constrained.fcmp.f80(x86_fp80 %4, x86_fp80\l... 0xK00000000000000000000, metadata !\"une\", metadata !\"fpexcept.ignore\") #42\l  br i1 %11, label %18, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x17a4ed0:s0 -> Node0x17a4f70;
+	Node0x17a4ed0:s1 -> Node0x17a4f20;
+	Node0x17a4f20 [shape=record,label="{%12:\l12:                                               \l  %13 = call i32 @llvm.experimental.constrained.fptosi.i32.f80(x86_fp80 %9,\l... metadata !\"fpexcept.ignore\") #42\l  %14 = add nsw i32 %13, 15\l  %15 = sext i32 %14 to i64\l  %16 = getelementptr inbounds [31 x x86_fp80], [31 x x86_fp80]* @exp10l.p10,\l... i64 0, i64 %15\l  %17 = load x86_fp80, x86_fp80* %16, align 16, !tbaa !1632\l  br label %31\l}"];
+	Node0x17a4f20 -> Node0x17a5010;
+	Node0x17a4f70 [shape=record,label="{%18:\l18:                                               \l  %19 = call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80\l... 0xK4000D49A784BCD1B8AFE, x86_fp80 %4, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #42\l  %20 = call x86_fp80 @exp2l(x86_fp80 %19) #41\l  %21 = load x86_fp80, x86_fp80* %2, align 16, !tbaa !1632\l  %22 = call i32 @llvm.experimental.constrained.fptosi.i32.f80(x86_fp80 %21,\l... metadata !\"fpexcept.ignore\") #42\l  %23 = add nsw i32 %22, 15\l  %24 = sext i32 %23 to i64\l  %25 = getelementptr inbounds [31 x x86_fp80], [31 x x86_fp80]* @exp10l.p10,\l... i64 0, i64 %24\l  %26 = load x86_fp80, x86_fp80* %25, align 16, !tbaa !1632\l  %27 = call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80 %20,\l... x86_fp80 %26, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #42\l  br label %31\l}"];
+	Node0x17a4f70 -> Node0x17a5010;
+	Node0x17a4fc0 [shape=record,label="{%28:\l28:                                               \l  %29 = call x86_fp80 @llvm.experimental.constrained.fpext.f80.f64(double\l... 1.000000e+01, metadata !\"fpexcept.ignore\") #42\l  %30 = call x86_fp80 @powl(x86_fp80 %29, x86_fp80 %0) #41\l  br label %31\l}"];
+	Node0x17a4fc0 -> Node0x17a5010;
+	Node0x17a5010 [shape=record,label="{%31:\l31:                                               \l  %32 = phi x86_fp80 [ %27, %18 ], [ %17, %12 ], [ %30, %28 ]\l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %3) #40\l  ret x86_fp80 %32\l}"];
+}

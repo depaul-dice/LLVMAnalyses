@@ -1,0 +1,31 @@
+digraph "CFG for '__netlink_enumerate' function" {
+	label="CFG for '__netlink_enumerate' function";
+
+	Node0x1d8d880 [shape=record,label="{%6:\l  %7 = alloca %union.anon.1255, align 4\l  %8 = bitcast %union.anon.1255* %7 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8192, i8* nonnull %8) #40\l  %9 = call i8* @memset(i8* nonnull %8, i32 0, i64 20) #41\l  %10 = getelementptr inbounds %union.anon.1255, %union.anon.1255* %7, i64 0,\l... i32 0, i32 0, i32 0\l  store i32 20, i32* %10, align 4, !tbaa !1632\l  %11 = trunc i32 %2 to i16\l  %12 = getelementptr inbounds %union.anon.1255, %union.anon.1255* %7, i64 0,\l... i32 0, i32 0, i32 1\l  store i16 %11, i16* %12, align 4, !tbaa !1632\l  %13 = getelementptr inbounds %union.anon.1255, %union.anon.1255* %7, i64 0,\l... i32 0, i32 0, i32 2\l  store i16 769, i16* %13, align 2, !tbaa !1632\l  %14 = getelementptr inbounds %union.anon.1255, %union.anon.1255* %7, i64 0,\l... i32 0, i32 0, i32 3\l  store i32 %1, i32* %14, align 4, !tbaa !1632\l  %15 = trunc i32 %3 to i8\l  %16 = getelementptr inbounds %union.anon.1255, %union.anon.1255* %7, i64 0,\l... i32 0, i32 1, i32 0\l  store i8 %15, i8* %16, align 4, !tbaa !1632\l  %17 = call i64 @send(i32 %0, i8* nonnull %8, i64 20, i32 0) #41\l  %18 = trunc i64 %17 to i32\l  %19 = icmp slt i32 %18, 0\l  br i1 %19, label %61, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1d8d880:s0 -> Node0x1d8dcb0;
+	Node0x1d8d880:s1 -> Node0x1d8da30;
+	Node0x1d8da30 [shape=record,label="{%20:\l20:                                               \l  %21 = bitcast %union.anon.1255* %7 to [8192 x i8]*\l  %22 = call i64 @recv(i32 %0, i8* nonnull %8, i64 8192, i32 64) #41\l  %23 = trunc i64 %22 to i32\l  %24 = icmp slt i32 %23, 1\l  br i1 %24, label %61, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1d8da30:s0 -> Node0x1d8dcb0;
+	Node0x1d8da30:s1 -> Node0x1d8da80;
+	Node0x1d8da80 [shape=record,label="{%25:\l25:                                               \l  %26 = getelementptr inbounds %union.anon.1255, %union.anon.1255* %7, i64 0,\l... i32 0, i32 0\l  %27 = ptrtoint %union.anon.1255* %7 to i64\l  br label %32\l}"];
+	Node0x1d8da80 -> Node0x1d8db20;
+	Node0x1d8dad0 [shape=record,label="{%28:\l28:                                               \l  %29 = call i64 @recv(i32 %0, i8* nonnull %8, i64 8192, i32 64) #41\l  %30 = trunc i64 %29 to i32\l  %31 = icmp slt i32 %30, 1\l  br i1 %31, label %61, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x1d8dad0:s0 -> Node0x1d8dcb0;
+	Node0x1d8dad0:s1 -> Node0x1d8db20;
+	Node0x1d8db20 [shape=record,label="{%32:\l32:                                               \l  %33 = phi i64 [ %22, %25 ], [ %29, %28 ]\l  %34 = shl i64 %33, 32\l  %35 = ashr exact i64 %34, 32\l  %36 = getelementptr inbounds [8192 x i8], [8192 x i8]* %21, i64 0, i64 %35\l  %37 = ptrtoint i8* %36 to i64\l  %38 = sub i64 %37, %27\l  %39 = icmp ugt i64 %38, 15\l  br i1 %39, label %40, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1d8db20:s0 -> Node0x1d8db70;
+	Node0x1d8db20:s1 -> Node0x1d8dad0;
+	Node0x1d8db70 [shape=record,label="{%40:\l40:                                               \l  %41 = phi i8* [ %54, %48 ], [ %8, %32 ]\l  %42 = phi %struct.nlmsghdr* [ %55, %48 ], [ %26, %32 ]\l  %43 = getelementptr inbounds %struct.nlmsghdr, %struct.nlmsghdr* %42, i64 0,\l... i32 1\l  %44 = load i16, i16* %43, align 4, !tbaa !1635\l  switch i16 %44, label %45 [\l    i16 3, label %59\l    i16 2, label %61\l  ]\l|{<s0>def|<s1>3|<s2>2}}"];
+	Node0x1d8db70:s0 -> Node0x1d8dbc0;
+	Node0x1d8db70:s1 -> Node0x1d8dc60;
+	Node0x1d8db70:s2 -> Node0x1d8dcb0;
+	Node0x1d8dbc0 [shape=record,label="{%45:\l45:                                               \l  %46 = call i32 %4(i8* %5, %struct.nlmsghdr* nonnull %42) #42\l  %47 = icmp eq i32 %46, 0\l  br i1 %47, label %48, label %59\l|{<s0>T|<s1>F}}"];
+	Node0x1d8dbc0:s0 -> Node0x1d8dc10;
+	Node0x1d8dbc0:s1 -> Node0x1d8dc60;
+	Node0x1d8dc10 [shape=record,label="{%48:\l48:                                               \l  %49 = getelementptr inbounds %struct.nlmsghdr, %struct.nlmsghdr* %42, i64 0,\l... i32 0\l  %50 = load i32, i32* %49, align 4, !tbaa !1639\l  %51 = add i32 %50, 3\l  %52 = and i32 %51, -4\l  %53 = zext i32 %52 to i64\l  %54 = getelementptr inbounds i8, i8* %41, i64 %53\l  %55 = bitcast i8* %54 to %struct.nlmsghdr*\l  %56 = ptrtoint i8* %54 to i64\l  %57 = sub i64 %37, %56\l  %58 = icmp ugt i64 %57, 15\l  br i1 %58, label %40, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1d8dc10:s0 -> Node0x1d8db70;
+	Node0x1d8dc10:s1 -> Node0x1d8dad0;
+	Node0x1d8dc60 [shape=record,label="{%59:\l59:                                               \l  %60 = phi i32 [ %46, %45 ], [ 0, %40 ]\l  br label %61\l}"];
+	Node0x1d8dc60 -> Node0x1d8dcb0;
+	Node0x1d8dcb0 [shape=record,label="{%61:\l61:                                               \l  %62 = phi i32 [ %18, %6 ], [ -1, %20 ], [ %60, %59 ], [ -1, %40 ], [ -1, %28\l... ]\l  call void @llvm.lifetime.end.p0i8(i64 8192, i8* nonnull %8) #40\l  ret i32 %62\l}"];
+}

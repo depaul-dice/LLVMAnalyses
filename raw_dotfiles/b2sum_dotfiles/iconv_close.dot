@@ -1,0 +1,10 @@
+digraph "CFG for 'iconv_close' function" {
+	label="CFG for 'iconv_close' function";
+
+	Node0x1a964d0 [shape=record,label="{%1:\l  %2 = ptrtoint i8* %0 to i64\l  %3 = and i64 %2, 1\l  %4 = icmp eq i64 %3, 0\l  br i1 %4, label %5, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1a964d0:s0 -> Node0x1a96520;
+	Node0x1a964d0:s1 -> Node0x1a96570;
+	Node0x1a96520 [shape=record,label="{%5:\l5:                                                \l  tail call void @free(i8* %0) #40\l  br label %6\l}"];
+	Node0x1a96520 -> Node0x1a96570;
+	Node0x1a96570 [shape=record,label="{%6:\l6:                                                \l  ret i32 0\l}"];
+}

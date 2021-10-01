@@ -1,0 +1,5 @@
+digraph "CFG for 'recv' function" {
+	label="CFG for 'recv' function";
+
+	Node0x1ae5ba0 [shape=record,label="{%4:\l  %5 = tail call i64 @recvfrom(i32 %0, i8* %1, i64 %2, i32 %3,\l... %struct.sockaddr* null, i32* null) #40\l  ret i64 %5\l}"];
+}

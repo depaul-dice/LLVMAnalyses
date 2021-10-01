@@ -1,0 +1,5 @@
+digraph "CFG for 'cargf' function" {
+	label="CFG for 'cargf' function";
+
+	Node0x1c251e0 [shape=record,label="{%1:\l  %2 = extractelement \<2 x float\> %0, i32 1\l  %3 = extractelement \<2 x float\> %0, i32 0\l  %4 = tail call float @atan2f(float %2, float %3) #40\l  ret float %4\l}"];
+}

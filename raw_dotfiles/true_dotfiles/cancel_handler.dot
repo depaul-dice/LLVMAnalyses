@@ -1,0 +1,21 @@
+digraph "CFG for 'cancel_handler' function" {
+	label="CFG for 'cancel_handler' function";
+
+	Node0x14d2790 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #26, !srcloc !1086\l  %5 = getelementptr inbounds i8, i8* %2, i64 168\l  %6 = bitcast i8* %5 to i64*\l  %7 = load i64, i64* %6, align 8, !tbaa !1087\l  tail call void asm sideeffect \"\", \"~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"()\l... #27, !srcloc !1091\l  %8 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %4, i64 0,\l... i32 10\l  %9 = load volatile i32, i32* %8, align 4, !tbaa !1092\l  %10 = icmp eq i32 %9, 0\l  br i1 %10, label %36, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x14d2790:s0 -> Node0x14d2b30;
+	Node0x14d2790:s1 -> Node0x14d29a0;
+	Node0x14d29a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#d6524470",label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %4, i64\l... 0, i32 11\l  %13 = load volatile i8, i8* %12, align 8, !tbaa !1098\l  %14 = icmp eq i8 %13, 1\l  br i1 %14, label %36, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x14d29a0:s0 -> Node0x14d2b30;
+	Node0x14d29a0:s1 -> Node0x14d29f0;
+	Node0x14d29f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4987a70",label="{%15:\l15:                                               \l  %16 = getelementptr inbounds i8, i8* %2, i64 296\l  %17 = bitcast i8* %16 to i64*\l  %18 = load i64, i64* %17, align 8, !tbaa !1099\l  %19 = or i64 %18, 4294967296\l  store i64 %19, i64* %17, align 8, !tbaa !1099\l  %20 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %4, i64\l... 0, i32 12\l  %21 = load volatile i8, i8* %20, align 1, !tbaa !1100\l  %22 = icmp eq i8 %21, 0\l  br i1 %22, label %23, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x14d29f0:s0 -> Node0x14d2a40;
+	Node0x14d29f0:s1 -> Node0x14d2a90;
+	Node0x14d2a40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ecd3c570",label="{%23:\l23:                                               \l  %24 = ptrtoint [1 x i8]* @__cp_begin to i64\l  %25 = icmp uge i64 %7, %24\l  %26 = ptrtoint [1 x i8]* @__cp_end to i64\l  %27 = icmp ult i64 %7, %26\l  %28 = and i1 %25, %27\l  br i1 %28, label %29, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x14d2a40:s0 -> Node0x14d2a90;
+	Node0x14d2a40:s1 -> Node0x14d2ae0;
+	Node0x14d2a90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7a88970",label="{%29:\l29:                                               \l  %30 = ptrtoint [1 x i8]* @__cp_cancel to i64\l  store i64 %30, i64* %6, align 8, !tbaa !1087\l  br label %36\l}"];
+	Node0x14d2a90 -> Node0x14d2b30;
+	Node0x14d2ae0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%31:\l31:                                               \l  %32 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %4, i64\l... 0, i32 7\l  %33 = load i32, i32* %32, align 8, !tbaa !1101\l  %34 = sext i32 %33 to i64\l  %35 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64\l... 200, i64 %34, i64 33) #27, !srcloc !1102\l  br label %36\l}"];
+	Node0x14d2ae0 -> Node0x14d2b30;
+	Node0x14d2b30 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%36:\l36:                                               \l  ret void\l}"];
+}

@@ -1,0 +1,9 @@
+digraph "CFG for '__flt_rounds' function" {
+	label="CFG for '__flt_rounds' function";
+
+	Node0x1c59590 [shape=record,label="{%0:\l  %1 = tail call i32 @fegetround() #40\l  %2 = lshr i32 %1, 10\l  %3 = shl i32 %1, 22\l  %4 = or i32 %2, %3\l  %5 = icmp ult i32 %4, 4\l  br i1 %5, label %6, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1c59590:s0 -> Node0x1c595e0;
+	Node0x1c59590:s1 -> Node0x1c59630;
+	Node0x1c595e0 [shape=record,label="{%6:\l6:                                                \l  %7 = sext i32 %4 to i64\l  %8 = getelementptr inbounds [4 x i32], [4 x i32]*\l... @switch.table.__flt_rounds, i64 0, i64 %7\l  %9 = load i32, i32* %8, align 4\l  ret i32 %9\l}"];
+	Node0x1c59630 [shape=record,label="{%10:\l10:                                               \l  ret i32 -1\l}"];
+}

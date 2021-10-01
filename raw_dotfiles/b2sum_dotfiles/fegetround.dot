@@ -1,0 +1,5 @@
+digraph "CFG for 'fegetround' function" {
+	label="CFG for 'fegetround' function";
+
+	Node0x1bef780 [shape=record,label="{%0:\l  ret i32 0\l}"];
+}

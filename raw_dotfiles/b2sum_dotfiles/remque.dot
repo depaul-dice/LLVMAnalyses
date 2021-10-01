@@ -1,0 +1,15 @@
+digraph "CFG for 'remque' function" {
+	label="CFG for 'remque' function";
+
+	Node0x1eea720 [shape=record,label="{%1:\l  %2 = bitcast i8* %0 to %struct.node.953**\l  %3 = load %struct.node.953*, %struct.node.953** %2, align 8, !tbaa !1632\l  %4 = icmp eq %struct.node.953* %3, null\l  %5 = ptrtoint %struct.node.953* %3 to i64\l  br i1 %4, label %12, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1eea720:s0 -> Node0x1eeb180;
+	Node0x1eea720:s1 -> Node0x1eeb130;
+	Node0x1eeb130 [shape=record,label="{%6:\l6:                                                \l  %7 = getelementptr inbounds i8, i8* %0, i64 8\l  %8 = bitcast i8* %7 to i64*\l  %9 = load i64, i64* %8, align 8, !tbaa !1637\l  %10 = getelementptr inbounds %struct.node.953, %struct.node.953* %3, i64 0,\l... i32 1\l  %11 = bitcast %struct.node.953** %10 to i64*\l  store i64 %9, i64* %11, align 8, !tbaa !1637\l  br label %12\l}"];
+	Node0x1eeb130 -> Node0x1eeb180;
+	Node0x1eeb180 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds i8, i8* %0, i64 8\l  %14 = bitcast i8* %13 to %struct.node.953**\l  %15 = load %struct.node.953*, %struct.node.953** %14, align 8, !tbaa !1637\l  %16 = icmp eq %struct.node.953* %15, null\l  br i1 %16, label %19, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1eeb180:s0 -> Node0x1eeb220;
+	Node0x1eeb180:s1 -> Node0x1eeb1d0;
+	Node0x1eeb1d0 [shape=record,label="{%17:\l17:                                               \l  %18 = bitcast %struct.node.953* %15 to i64*\l  store i64 %5, i64* %18, align 8, !tbaa !1632\l  br label %19\l}"];
+	Node0x1eeb1d0 -> Node0x1eeb220;
+	Node0x1eeb220 [shape=record,label="{%19:\l19:                                               \l  ret void\l}"];
+}

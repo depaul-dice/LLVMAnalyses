@@ -1,0 +1,5 @@
+digraph "CFG for 'ether_line' function" {
+	label="CFG for 'ether_line' function";
+
+	Node0x1c75470 [shape=record,label="{%3:\l  ret i32 -1\l}"];
+}

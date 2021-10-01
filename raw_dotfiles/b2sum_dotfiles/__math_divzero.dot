@@ -1,0 +1,5 @@
+digraph "CFG for '__math_divzero' function" {
+	label="CFG for '__math_divzero' function";
+
+	Node0x19c10b0 [shape=record,label="{%1:\l  %2 = alloca double, align 8\l  %3 = icmp eq i32 %0, 0\l  %4 = select i1 %3, double 1.000000e+00, double -1.000000e+00\l  %5 = bitcast double* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %5)\l  store volatile double %4, double* %2, align 8, !tbaa !1632\l  %6 = load volatile double, double* %2, align 8, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %5)\l  %7 = tail call double @llvm.experimental.constrained.fdiv.f64(double %6,\l... double 0.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\")\l... #40\l  ret double %7\l}"];
+}

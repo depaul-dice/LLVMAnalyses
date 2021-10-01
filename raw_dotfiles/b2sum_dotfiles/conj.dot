@@ -1,0 +1,5 @@
+digraph "CFG for 'conj' function" {
+	label="CFG for 'conj' function";
+
+	Node0x190d680 [shape=record,label="{%2:\l  %3 = fneg double %1\l  %4 = insertvalue \{ double, double \} undef, double %0, 0\l  %5 = insertvalue \{ double, double \} %4, double %3, 1\l  ret \{ double, double \} %5\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_attr_getschedparam' function" {
+	label="CFG for 'pthread_attr_getschedparam' function";
+
+	Node0x1ff2ad0 [shape=record,label="{%2:\l  %3 = bitcast %struct.pthread_attr_t* %0 to [14 x i32]*\l  %4 = getelementptr inbounds [14 x i32], [14 x i32]* %3, i64 0, i64 9\l  %5 = load i32, i32* %4, align 4, !tbaa !1632\l  %6 = getelementptr inbounds %struct.sched_param, %struct.sched_param* %1,\l... i64 0, i32 0\l  store i32 %5, i32* %6, align 8, !tbaa !1635\l  ret i32 0\l}"];
+}

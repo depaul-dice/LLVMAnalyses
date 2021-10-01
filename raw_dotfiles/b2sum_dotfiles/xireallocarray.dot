@@ -1,0 +1,9 @@
+digraph "CFG for 'xireallocarray' function" {
+	label="CFG for 'xireallocarray' function";
+
+	Node0x14ae420 [shape=record,label="{%3:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1639\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1637, metadata\l... !DIExpression()), !dbg !1639\l  call void @llvm.dbg.value(metadata i64 %2, metadata !1638, metadata\l... !DIExpression()), !dbg !1639\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1640, metadata\l... !DIExpression()) #7, !dbg !1646\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1644, metadata\l... !DIExpression()) #7, !dbg !1646\l  call void @llvm.dbg.value(metadata i64 %2, metadata !1645, metadata\l... !DIExpression()) #7, !dbg !1646\l  %4 = icmp eq i64 %1, 0, !dbg !1648\l  %5 = icmp eq i64 %2, 0, !dbg !1650\l  %6 = or i1 %4, %5, !dbg !1651\l  %7 = select i1 %6, i64 1, i64 %1, !dbg !1651\l  %8 = select i1 %6, i64 1, i64 %2, !dbg !1651\l  call void @llvm.dbg.value(metadata i64 %8, metadata !1645, metadata\l... !DIExpression()) #7, !dbg !1646\l  call void @llvm.dbg.value(metadata i64 %7, metadata !1644, metadata\l... !DIExpression()) #7, !dbg !1646\l  %9 = tail call i8* @reallocarray(i8* %0, i64 %7, i64 %8) #7, !dbg !1652\l  call void @llvm.dbg.value(metadata i8* %9, metadata !1653, metadata\l... !DIExpression()) #7, !dbg !1658\l  %10 = icmp eq i8* %9, null, !dbg !1660\l  br i1 %10, label %11, label %12, !dbg !1662\l|{<s0>T|<s1>F}}"];
+	Node0x14ae420:s0 -> Node0x14af4a0;
+	Node0x14ae420:s1 -> Node0x14af4f0;
+	Node0x14af4a0 [shape=record,label="{%11:\l11:                                               \l  tail call void @xalloc_die() #40, !dbg !1663\l  unreachable, !dbg !1663\l}"];
+	Node0x14af4f0 [shape=record,label="{%12:\l12:                                               \l  ret i8* %9, !dbg !1664\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'fgetgrent' function" {
+	label="CFG for 'fgetgrent' function";
+
+	Node0x1d31710 [shape=record,label="{%1:\l  %2 = alloca %struct.group*, align 8\l  %3 = alloca i64, align 8\l  %4 = alloca i64, align 8\l  %5 = bitcast %struct.group** %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %5) #40\l  %6 = bitcast i64* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %6) #40\l  store i64 0, i64* %3, align 8, !tbaa !1632\l  %7 = bitcast i64* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %7) #40\l  store i64 0, i64* %4, align 8, !tbaa !1632\l  %8 = call i32 @__getgrent_a(%struct._IO_FILE.0* %0, %struct.group* nonnull\l... @fgetgrent.gr, i8** nonnull @fgetgrent.line, i64* nonnull %3, i8*** nonnull\l... @fgetgrent.mem, i64* nonnull %4, %struct.group** nonnull %2) #41\l  %9 = load %struct.group*, %struct.group** %2, align 8, !tbaa !1636\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %7) #40\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %6) #40\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %5) #40\l  ret %struct.group* %9\l}"];
+}

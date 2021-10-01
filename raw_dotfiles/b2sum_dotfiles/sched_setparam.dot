@@ -1,0 +1,5 @@
+digraph "CFG for 'sched_setparam' function" {
+	label="CFG for 'sched_setparam' function";
+
+	Node0x1c5eda0 [shape=record,label="{%2:\l  %3 = tail call i64 @__syscall_ret(i64 -38) #40\l  %4 = trunc i64 %3 to i32\l  ret i32 %4\l}"];
+}

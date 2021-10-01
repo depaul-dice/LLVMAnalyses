@@ -1,0 +1,10 @@
+digraph "CFG for 'normalize' function" {
+	label="CFG for 'normalize' function";
+
+	Node0x1de7930 [shape=record,label="{%1:\l  %2 = bitcast double %0 to i64\l  %3 = lshr i64 %2, 52\l  %4 = trunc i64 %3 to i32\l  %5 = and i32 %4, 2047\l  %6 = icmp eq i32 %5, 0\l  br i1 %6, label %7, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1de7930:s0 -> Node0x1de79b0;
+	Node0x1de7930:s1 -> Node0x1de7a00;
+	Node0x1de79b0 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call double @llvm.experimental.constrained.fmul.f64(double %0,\l... double 0x43E0000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #40\l  %9 = bitcast double %8 to i64\l  %10 = lshr i64 %9, 52\l  %11 = trunc i64 %10 to i32\l  %12 = and i32 %11, 2047\l  %13 = icmp eq i32 %12, 0\l  %14 = add nsw i32 %12, -63\l  %15 = select i1 %13, i32 2048, i32 %14\l  br label %16\l}"];
+	Node0x1de79b0 -> Node0x1de7a00;
+	Node0x1de7a00 [shape=record,label="{%16:\l16:                                               \l  %17 = phi i32 [ %5, %1 ], [ %15, %7 ]\l  %18 = phi i64 [ %2, %1 ], [ %9, %7 ]\l  %19 = shl i64 %18, 1\l  %20 = and i64 %19, 9007199254740990\l  %21 = or i64 %20, 9007199254740992\l  %22 = add nsw i32 %17, -1076\l  %23 = insertvalue \{ i64, i64 \} undef, i64 %21, 0\l  %24 = shl nuw nsw i64 %3, 32\l  %25 = and i64 %24, 8796093022208\l  %26 = zext i32 %22 to i64\l  %27 = or i64 %25, %26\l  %28 = insertvalue \{ i64, i64 \} %23, i64 %27, 1\l  ret \{ i64, i64 \} %28\l}"];
+}

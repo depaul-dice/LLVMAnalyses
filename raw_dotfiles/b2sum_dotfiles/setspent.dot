@@ -1,0 +1,5 @@
+digraph "CFG for 'setspent' function" {
+	label="CFG for 'setspent' function";
+
+	Node0x1fa6d90 [shape=record,label="{%0:\l  ret void\l}"];
+}

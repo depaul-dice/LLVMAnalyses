@@ -1,0 +1,13 @@
+digraph "CFG for '__pthread_mutex_lock' function" {
+	label="CFG for '__pthread_mutex_lock' function";
+
+	Node0x15e9df0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = bitcast %struct.pthread_mutex_t* %0 to i32*\l  %3 = load i32, i32* %2, align 8, !tbaa !1086\l  %4 = and i32 %3, 15\l  %5 = icmp eq i32 %4, 0\l  br i1 %5, label %6, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x15e9df0:s0 -> Node0x15eab20;
+	Node0x15e9df0:s1 -> Node0x15eab70;
+	Node0x15eab20 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%6:\l6:                                                \l  %7 = bitcast %struct.pthread_mutex_t* %0 to [10 x i32]*\l  %8 = getelementptr inbounds [10 x i32], [10 x i32]* %7, i64 0, i64 1\l  %9 = tail call i32 asm sideeffect \"lock \l  %10 = icmp eq i32 %9, 0\l  br i1 %10, label %13, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x15eab20:s0 -> Node0x15eabc0;
+	Node0x15eab20:s1 -> Node0x15eab70;
+	Node0x15eab70 [shape=record,color="#b70d28ff", style=filled, fillcolor="#ca3b3770",label="{%11:\l11:                                               \l  %12 = tail call fastcc i32\l... @__pthread_mutex_timedlock(%struct.pthread_mutex_t* nonnull %0,\l... %struct.timeval* null) #27\l  br label %13\l}"];
+	Node0x15eab70 -> Node0x15eabc0;
+	Node0x15eabc0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%13:\l13:                                               \l  %14 = phi i32 [ %12, %11 ], [ 0, %6 ]\l  ret i32 %14\l}"];
+}

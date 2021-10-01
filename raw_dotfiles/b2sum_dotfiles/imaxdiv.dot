@@ -1,0 +1,5 @@
+digraph "CFG for 'imaxdiv' function" {
+	label="CFG for 'imaxdiv' function";
+
+	Node0x193f740 [shape=record,label="{%2:\l  %3 = sdiv i64 %0, %1\l  %4 = srem i64 %0, %1\l  %5 = insertvalue \{ i64, i64 \} undef, i64 %3, 0\l  %6 = insertvalue \{ i64, i64 \} %5, i64 %4, 1\l  ret \{ i64, i64 \} %6\l}"];
+}

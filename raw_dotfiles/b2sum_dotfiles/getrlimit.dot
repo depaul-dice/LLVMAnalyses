@@ -1,0 +1,34 @@
+digraph "CFG for 'getrlimit' function" {
+	label="CFG for 'getrlimit' function";
+
+	Node0x17ac3b0 [shape=record,label="{%2:\l  %3 = alloca [2 x i64], align 16\l  %4 = bitcast [2 x i64]* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %4) #40\l  %5 = sext i32 %0 to i64\l  %6 = ptrtoint %struct.timeval* %1 to i64\l  %7 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}\"(i64 302, i64 0, i64 %5, i64 0, i64 %6) #40, !srcloc !1632\l  %8 = tail call i64 @__syscall_ret(i64 %7) #41\l  %9 = trunc i64 %8 to i32\l  %10 = icmp eq i32 %9, 0\l  br i1 %10, label %11, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x17ac3b0:s0 -> Node0x17aca30;
+	Node0x17ac3b0:s1 -> Node0x17acb70;
+	Node0x17aca30 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct.timeval, %struct.timeval* %1, i64 0,\l... i32 0\l  %13 = load i64, i64* %12, align 8, !tbaa !1633\l  %14 = icmp eq i64 %13, -1\l  br i1 %14, label %15, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x17aca30:s0 -> Node0x17aca80;
+	Node0x17aca30:s1 -> Node0x17acad0;
+	Node0x17aca80 [shape=record,label="{%15:\l15:                                               \l  store i64 -1, i64* %12, align 8, !tbaa !1633\l  br label %16\l}"];
+	Node0x17aca80 -> Node0x17acad0;
+	Node0x17acad0 [shape=record,label="{%16:\l16:                                               \l  %17 = getelementptr inbounds %struct.timeval, %struct.timeval* %1, i64 0,\l... i32 1\l  %18 = load i64, i64* %17, align 8, !tbaa !1638\l  %19 = icmp eq i64 %18, -1\l  br i1 %19, label %20, label %42\l|{<s0>T|<s1>F}}"];
+	Node0x17acad0:s0 -> Node0x17acb20;
+	Node0x17acad0:s1 -> Node0x17acd50;
+	Node0x17acb20 [shape=record,label="{%20:\l20:                                               \l  store i64 -1, i64* %17, align 8, !tbaa !1638\l  br label %42\l}"];
+	Node0x17acb20 -> Node0x17acd50;
+	Node0x17acb70 [shape=record,label="{%21:\l21:                                               \l  %22 = tail call i32* @___errno_location() #41\l  %23 = load i32, i32* %22, align 4, !tbaa !1639\l  %24 = icmp eq i32 %23, 38\l  br i1 %24, label %25, label %42\l|{<s0>T|<s1>F}}"];
+	Node0x17acb70:s0 -> Node0x17acbc0;
+	Node0x17acb70:s1 -> Node0x17acd50;
+	Node0x17acbc0 [shape=record,label="{%25:\l25:                                               \l  %26 = ptrtoint [2 x i64]* %3 to i64\l  %27 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64\l... 97, i64 %5, i64 %26) #40, !srcloc !1641\l  %28 = call i64 @__syscall_ret(i64 %27) #41\l  %29 = icmp slt i64 %28, 0\l  br i1 %29, label %42, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x17acbc0:s0 -> Node0x17acd50;
+	Node0x17acbc0:s1 -> Node0x17acc10;
+	Node0x17acc10 [shape=record,label="{%30:\l30:                                               \l  %31 = getelementptr inbounds [2 x i64], [2 x i64]* %3, i64 0, i64 0\l  %32 = load i64, i64* %31, align 16, !tbaa !1642\l  %33 = getelementptr inbounds %struct.timeval, %struct.timeval* %1, i64 0,\l... i32 0\l  store i64 %32, i64* %33, align 8, !tbaa !1633\l  %34 = getelementptr inbounds [2 x i64], [2 x i64]* %3, i64 0, i64 1\l  %35 = load i64, i64* %34, align 8, !tbaa !1642\l  %36 = getelementptr inbounds %struct.timeval, %struct.timeval* %1, i64 0,\l... i32 1\l  store i64 %35, i64* %36, align 8, !tbaa !1638\l  %37 = icmp eq i64 %32, -1\l  br i1 %37, label %38, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x17acc10:s0 -> Node0x17acc60;
+	Node0x17acc10:s1 -> Node0x17accb0;
+	Node0x17acc60 [shape=record,label="{%38:\l38:                                               \l  store i64 -1, i64* %33, align 8, !tbaa !1633\l  br label %39\l}"];
+	Node0x17acc60 -> Node0x17accb0;
+	Node0x17accb0 [shape=record,label="{%39:\l39:                                               \l  %40 = icmp eq i64 %35, -1\l  br i1 %40, label %41, label %42\l|{<s0>T|<s1>F}}"];
+	Node0x17accb0:s0 -> Node0x17acd00;
+	Node0x17accb0:s1 -> Node0x17acd50;
+	Node0x17acd00 [shape=record,label="{%41:\l41:                                               \l  store i64 -1, i64* %36, align 8, !tbaa !1638\l  br label %42\l}"];
+	Node0x17acd00 -> Node0x17acd50;
+	Node0x17acd50 [shape=record,label="{%42:\l42:                                               \l  %43 = phi i32 [ %9, %21 ], [ -1, %25 ], [ 0, %41 ], [ 0, %39 ], [ 0, %16 ],\l... [ 0, %20 ]\l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %4) #40\l  ret i32 %43\l}"];
+}

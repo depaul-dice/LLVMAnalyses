@@ -1,0 +1,5 @@
+digraph "CFG for 'cnd_destroy' function" {
+	label="CFG for 'cnd_destroy' function";
+
+	Node0x1e5ea60 [shape=record,label="{%1:\l  ret void\l}"];
+}

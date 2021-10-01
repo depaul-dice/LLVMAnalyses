@@ -1,0 +1,5 @@
+digraph "CFG for 'strtoull' function" {
+	label="CFG for 'strtoull' function";
+
+	Node0x17a1150 [shape=record,label="{%3:\l  %4 = tail call fastcc i64 @strtox(i8* %0, i8** %1, i32 %2, i64 -1) #40\l  ret i64 %4\l}"];
+}

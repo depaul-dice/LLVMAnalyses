@@ -1,0 +1,21 @@
+digraph "CFG for 'rpl_fseeko' function" {
+	label="CFG for 'rpl_fseeko' function";
+
+	Node0x1574d20 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  call void @llvm.dbg.value(metadata %struct._IO_FILE* %0, metadata !1639,\l... metadata !DIExpression()), !dbg !1645\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1640, metadata\l... !DIExpression()), !dbg !1645\l  call void @llvm.dbg.value(metadata i32 %2, metadata !1641, metadata\l... !DIExpression()), !dbg !1645\l  %4 = getelementptr inbounds %struct._IO_FILE, %struct._IO_FILE* %0, i64 0,\l... i32 2, !dbg !1646\l  %5 = load i8*, i8** %4, align 8, !dbg !1646, !tbaa !1647\l  %6 = getelementptr inbounds %struct._IO_FILE, %struct._IO_FILE* %0, i64 0,\l... i32 1, !dbg !1655\l  %7 = load i8*, i8** %6, align 8, !dbg !1655, !tbaa !1656\l  %8 = icmp eq i8* %5, %7, !dbg !1657\l  br i1 %8, label %9, label %29, !dbg !1658\l|{<s0>T|<s1>F}}"];
+	Node0x1574d20:s0 -> Node0x1574df0;
+	Node0x1574d20:s1 -> Node0x1574f30;
+	Node0x1574df0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ec7f6370",label="{%9:\l9:                                                \l  %10 = getelementptr inbounds %struct._IO_FILE, %struct._IO_FILE* %0, i64 0,\l... i32 5, !dbg !1659\l  %11 = load i8*, i8** %10, align 8, !dbg !1659, !tbaa !1660\l  %12 = getelementptr inbounds %struct._IO_FILE, %struct._IO_FILE* %0, i64 0,\l... i32 4, !dbg !1661\l  %13 = load i8*, i8** %12, align 8, !dbg !1661, !tbaa !1662\l  %14 = icmp eq i8* %11, %13, !dbg !1663\l  br i1 %14, label %15, label %29, !dbg !1664\l|{<s0>T|<s1>F}}"];
+	Node0x1574df0:s0 -> Node0x1574e40;
+	Node0x1574df0:s1 -> Node0x1574f30;
+	Node0x1574e40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6bfa670",label="{%15:\l15:                                               \l  %16 = getelementptr inbounds %struct._IO_FILE, %struct._IO_FILE* %0, i64 0,\l... i32 9, !dbg !1665\l  %17 = load i8*, i8** %16, align 8, !dbg !1665, !tbaa !1666\l  %18 = icmp eq i8* %17, null, !dbg !1667\l  br i1 %18, label %19, label %29, !dbg !1668\l|{<s0>T|<s1>F}}"];
+	Node0x1574e40:s0 -> Node0x1574e90;
+	Node0x1574e40:s1 -> Node0x1574f30;
+	Node0x1574e90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d1dae970",label="{%19:\l19:                                               \l  %20 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.233*, !dbg !1669\l  %21 = tail call i32 @fileno(%struct._IO_FILE.233* nonnull %20) #8, !dbg !1669\l  %22 = tail call fastcc i64 @lseek(i32 %21, i64 %1, i32 %2) #8, !dbg !1670\l  call void @llvm.dbg.value(metadata i64 %22, metadata !1642, metadata\l... !DIExpression()), !dbg !1671\l  %23 = icmp eq i64 %22, -1, !dbg !1672\l  br i1 %23, label %32, label %24, !dbg !1674\l|{<s0>T|<s1>F}}"];
+	Node0x1574e90:s0 -> Node0x1574f80;
+	Node0x1574e90:s1 -> Node0x1574ee0;
+	Node0x1574ee0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#bbd1f870",label="{%24:\l24:                                               \l  %25 = getelementptr inbounds %struct._IO_FILE, %struct._IO_FILE* %0, i64 0,\l... i32 0, !dbg !1675\l  %26 = load i32, i32* %25, align 8, !dbg !1676, !tbaa !1677\l  %27 = and i32 %26, -17, !dbg !1676\l  store i32 %27, i32* %25, align 8, !dbg !1676, !tbaa !1677\l  %28 = getelementptr inbounds %struct._IO_FILE, %struct._IO_FILE* %0, i64 0,\l... i32 21, !dbg !1678\l  store i64 %22, i64* %28, align 8, !dbg !1679, !tbaa !1680\l  br label %32, !dbg !1681\l}"];
+	Node0x1574ee0 -> Node0x1574f80;
+	Node0x1574f30 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%29:\l29:                                               \l  %30 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.0*, !dbg !1682\l  %31 = tail call i32 @__fseeko(%struct._IO_FILE.0* nonnull %30, i64 %1, i32\l... %2) #8, !dbg !1682\l  br label %32, !dbg !1683\l}"];
+	Node0x1574f30 -> Node0x1574f80;
+	Node0x1574f80 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%32:\l32:                                               \l  %33 = phi i32 [ %31, %29 ], [ 0, %24 ], [ -1, %19 ], !dbg !1645\l  ret i32 %33, !dbg !1684\l}"];
+}

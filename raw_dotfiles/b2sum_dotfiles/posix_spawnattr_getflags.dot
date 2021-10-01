@@ -1,0 +1,5 @@
+digraph "CFG for 'posix_spawnattr_getflags' function" {
+	label="CFG for 'posix_spawnattr_getflags' function";
+
+	Node0x1b9cbb0 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct.posix_spawnattr_t,\l... %struct.posix_spawnattr_t* %0, i64 0, i32 0\l  %4 = load i32, i32* %3, align 8, !tbaa !1632\l  %5 = trunc i32 %4 to i16\l  store i16 %5, i16* %1, align 2, !tbaa !1639\l  ret i32 0\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for '__libc_current_sigrtmax' function" {
+	label="CFG for '__libc_current_sigrtmax' function";
+
+	Node0x1ed80f0 [shape=record,label="{%0:\l  ret i32 64\l}"];
+}

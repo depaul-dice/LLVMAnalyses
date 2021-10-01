@@ -1,0 +1,5 @@
+digraph "CFG for 'localeconv' function" {
+	label="CFG for 'localeconv' function";
+
+	Node0x1befaa0 [shape=record,label="{%0:\l  ret %struct.lconv* @posix_lconv\l}"];
+}

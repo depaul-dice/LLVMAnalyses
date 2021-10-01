@@ -1,0 +1,10 @@
+digraph "CFG for 'nearbyintf' function" {
+	label="CFG for 'nearbyintf' function";
+
+	Node0x1eea100 [shape=record,label="{%1:\l  %2 = tail call i32 @fetestexcept(i32 32) #40\l  %3 = tail call float @rintf(float %0) #40\l  %4 = icmp eq i32 %2, 0\l  br i1 %4, label %5, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1eea100:s0 -> Node0x1eea150;
+	Node0x1eea100:s1 -> Node0x1eea1a0;
+	Node0x1eea150 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i32 @feclearexcept(i32 32) #40\l  br label %7\l}"];
+	Node0x1eea150 -> Node0x1eea1a0;
+	Node0x1eea1a0 [shape=record,label="{%7:\l7:                                                \l  ret float %3\l}"];
+}

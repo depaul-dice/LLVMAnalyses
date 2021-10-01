@@ -1,0 +1,5 @@
+digraph "CFG for 'unlockpt' function" {
+	label="CFG for 'unlockpt' function";
+
+	Node0x1c31520 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  %3 = bitcast i32* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %3) #40\l  store i32 0, i32* %2, align 4, !tbaa !1632\l  %4 = call i32 (i32, i32, ...) @ioctl(i32 %0, i32 1074025521, i32* nonnull\l... %2) #41\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %3) #40\l  ret i32 %4\l}"];
+}

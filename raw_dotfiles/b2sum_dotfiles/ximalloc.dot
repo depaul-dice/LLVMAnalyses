@@ -1,0 +1,9 @@
+digraph "CFG for 'ximalloc' function" {
+	label="CFG for 'ximalloc' function";
+
+	Node0x14ac600 [shape=record,label="{%1:\l  call void @llvm.dbg.value(metadata i64 %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1637\l  call void @llvm.dbg.value(metadata i64 %0, metadata !1638, metadata\l... !DIExpression()) #7, !dbg !1642\l  %2 = tail call noalias i8* @malloc(i64 %0) #7, !dbg !1644\l  call void @llvm.dbg.value(metadata i8* %2, metadata !1645, metadata\l... !DIExpression()) #7, !dbg !1650\l  %3 = icmp eq i8* %2, null, !dbg !1652\l  br i1 %3, label %4, label %5, !dbg !1654\l|{<s0>T|<s1>F}}"];
+	Node0x14ac600:s0 -> Node0x14acd70;
+	Node0x14ac600:s1 -> Node0x14acdc0;
+	Node0x14acd70 [shape=record,label="{%4:\l4:                                                \l  tail call void @xalloc_die() #40, !dbg !1655\l  unreachable, !dbg !1655\l}"];
+	Node0x14acdc0 [shape=record,label="{%5:\l5:                                                \l  ret i8* %2, !dbg !1656\l}"];
+}

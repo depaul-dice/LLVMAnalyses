@@ -1,0 +1,5 @@
+digraph "CFG for 'dngettext' function" {
+	label="CFG for 'dngettext' function";
+
+	Node0x1b4b700 [shape=record,label="{%4:\l  %5 = tail call i8* @dcngettext(i8* %0, i8* %1, i8* %2, i64 %3, i32 5) #40\l  ret i8* %5\l}"];
+}

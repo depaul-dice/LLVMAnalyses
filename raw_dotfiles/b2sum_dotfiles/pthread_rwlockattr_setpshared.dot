@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_rwlockattr_setpshared' function" {
+	label="CFG for 'pthread_rwlockattr_setpshared' function";
+
+	Node0x1ce4a20 [shape=record,label="{%2:\l  %3 = icmp ugt i32 %1, 1\l  br i1 %3, label %6, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1ce4a20:s0 -> Node0x1ce4ac0;
+	Node0x1ce4a20:s1 -> Node0x1ce4a70;
+	Node0x1ce4a70 [shape=record,label="{%4:\l4:                                                \l  %5 = getelementptr inbounds %struct.pthread_rwlockattr_t,\l... %struct.pthread_rwlockattr_t* %0, i64 0, i32 0, i64 0\l  store i32 %1, i32* %5, align 4, !tbaa !1632\l  br label %6\l}"];
+	Node0x1ce4a70 -> Node0x1ce4ac0;
+	Node0x1ce4ac0 [shape=record,label="{%6:\l6:                                                \l  %7 = phi i32 [ 0, %4 ], [ 22, %2 ]\l  ret i32 %7\l}"];
+}

@@ -1,0 +1,10 @@
+digraph "CFG for 'ctime' function" {
+	label="CFG for 'ctime' function";
+
+	Node0x19e3790 [shape=record,label="{%1:\l  %2 = tail call %struct.tm* @localtime(i64* %0) #40\l  %3 = icmp eq %struct.tm* %2, null\l  br i1 %3, label %6, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x19e3790:s0 -> Node0x19e3a00;
+	Node0x19e3790:s1 -> Node0x19e39b0;
+	Node0x19e39b0 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i8* @asctime(%struct.tm* nonnull %2) #40\l  br label %6\l}"];
+	Node0x19e39b0 -> Node0x19e3a00;
+	Node0x19e3a00 [shape=record,label="{%6:\l6:                                                \l  %7 = phi i8* [ %5, %4 ], [ null, %1 ]\l  ret i8* %7\l}"];
+}

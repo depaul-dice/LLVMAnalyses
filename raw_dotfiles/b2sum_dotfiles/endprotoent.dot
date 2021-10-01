@@ -1,0 +1,5 @@
+digraph "CFG for 'endprotoent' function" {
+	label="CFG for 'endprotoent' function";
+
+	Node0x1c343d0 [shape=record,label="{%0:\l  store i32 0, i32* @idx, align 4, !tbaa !1632\l  ret void\l}"];
+}

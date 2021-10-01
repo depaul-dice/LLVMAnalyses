@@ -1,0 +1,27 @@
+digraph "CFG for 'pad' function" {
+	label="CFG for 'pad' function";
+
+	Node0x15361a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4c5ad70",label="{%5:\l  %6 = alloca [256 x i8], align 16\l  %7 = getelementptr inbounds [256 x i8], [256 x i8]* %6, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 256, i8* nonnull %7) #29\l  %8 = and i32 %4, 73728\l  %9 = icmp eq i32 %8, 0\l  %10 = icmp sgt i32 %2, %3\l  %11 = and i1 %10, %9\l  br i1 %11, label %12, label %44\l|{<s0>T|<s1>F}}"];
+	Node0x15361a0:s0 -> Node0x15361f0;
+	Node0x15361a0:s1 -> Node0x1536420;
+	Node0x15361f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dedcdb70",label="{%12:\l12:                                               \l  %13 = sub i32 %2, %3\l  %14 = sext i8 %1 to i32\l  %15 = sext i32 %13 to i64\l  %16 = icmp ult i64 %15, 256\l  %17 = select i1 %16, i64 %15, i64 256\l  %18 = call i8* @memset(i8* nonnull %7, i32 %14, i64 %17) #30\l  %19 = icmp ugt i32 %13, 255\l  %20 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 0\l  %21 = load i32, i32* %20, align 8, !tbaa !1632\l  %22 = and i32 %21, 32\l  %23 = icmp eq i32 %22, 0\l  br i1 %19, label %24, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x15361f0:s0 -> Node0x1536240;
+	Node0x15361f0:s1 -> Node0x1536380;
+	Node0x1536240 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%24:\l24:                                               \l  %25 = phi i32 [ %32, %31 ], [ %21, %12 ]\l  %26 = phi i1 [ %36, %31 ], [ %23, %12 ]\l  %27 = phi i32 [ %33, %31 ], [ %13, %12 ]\l  br i1 %26, label %28, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1536240:s0 -> Node0x1536290;
+	Node0x1536240:s1 -> Node0x15362e0;
+	Node0x1536290 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#de614d70",label="{%28:\l28:                                               \l  %29 = call fastcc i64 @__fwritex(i8* nonnull %7, i64 256,\l... %struct._IO_FILE.0* nonnull %0) #30\l  %30 = load i32, i32* %20, align 8, !tbaa !1632\l  br label %31\l}"];
+	Node0x1536290 -> Node0x15362e0;
+	Node0x15362e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%31:\l31:                                               \l  %32 = phi i32 [ %25, %24 ], [ %30, %28 ]\l  %33 = add i32 %27, -256\l  %34 = icmp ugt i32 %33, 255\l  %35 = and i32 %32, 32\l  %36 = icmp eq i32 %35, 0\l  br i1 %34, label %24, label %37\l|{<s0>T|<s1>F}}"];
+	Node0x15362e0:s0 -> Node0x1536240;
+	Node0x15362e0:s1 -> Node0x1536330;
+	Node0x1536330 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%37:\l37:                                               \l  %38 = and i32 %13, 255\l  br i1 %36, label %40, label %44\l|{<s0>T|<s1>F}}"];
+	Node0x1536330:s0 -> Node0x15363d0;
+	Node0x1536330:s1 -> Node0x1536420;
+	Node0x1536380 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%39:\l39:                                               \l  br i1 %23, label %40, label %44\l|{<s0>T|<s1>F}}"];
+	Node0x1536380:s0 -> Node0x15363d0;
+	Node0x1536380:s1 -> Node0x1536420;
+	Node0x15363d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%40:\l40:                                               \l  %41 = phi i32 [ %38, %37 ], [ %13, %39 ]\l  %42 = zext i32 %41 to i64\l  %43 = call fastcc i64 @__fwritex(i8* nonnull %7, i64 %42,\l... %struct._IO_FILE.0* nonnull %0) #30\l  br label %44\l}"];
+	Node0x15363d0 -> Node0x1536420;
+	Node0x1536420 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4c5ad70",label="{%44:\l44:                                               \l  call void @llvm.lifetime.end.p0i8(i64 256, i8* nonnull %7) #29\l  ret void\l}"];
+}

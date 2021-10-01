@@ -1,0 +1,5 @@
+digraph "CFG for 'strcpy' function" {
+	label="CFG for 'strcpy' function";
+
+	Node0x1557290 [shape=record,label="{%2:\l  %3 = tail call i8* @__stpcpy(i8* %0, i8* %1) #40\l  ret i8* %0\l}"];
+}

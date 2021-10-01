@@ -1,0 +1,5 @@
+digraph "CFG for 'cabs' function" {
+	label="CFG for 'cabs' function";
+
+	Node0x1cdaca0 [shape=record,label="{%2:\l  %3 = tail call double @hypot(double %0, double %1) #40\l  ret double %3\l}"];
+}

@@ -1,0 +1,12 @@
+digraph "CFG for 'sbrk' function" {
+	label="CFG for 'sbrk' function";
+
+	Node0x1bfcfa0 [shape=record,label="{%1:\l  %2 = icmp eq i64 %0, 0\l  br i1 %2, label %5, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1bfcfa0:s0 -> Node0x1bfd500;
+	Node0x1bfcfa0:s1 -> Node0x1bfd020;
+	Node0x1bfd020 [shape=record,label="{%3:\l3:                                                \l  %4 = tail call i64 @__syscall_ret(i64 -12) #40\l  br label %7\l}"];
+	Node0x1bfd020 -> Node0x1bfd550;
+	Node0x1bfd500 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 12,\l... i64 0) #41, !srcloc !1632\l  br label %7\l}"];
+	Node0x1bfd500 -> Node0x1bfd550;
+	Node0x1bfd550 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i64 [ %4, %3 ], [ %6, %5 ]\l  %9 = inttoptr i64 %8 to i8*\l  ret i8* %9\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'lgammaf' function" {
+	label="CFG for 'lgammaf' function";
+
+	Node0x1cd98f0 [shape=record,label="{%1:\l  %2 = tail call float @__lgammaf_r(float %0, i32* nonnull @__signgam) #40\l  ret float %2\l}"];
+}

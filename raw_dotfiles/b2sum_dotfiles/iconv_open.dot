@@ -1,0 +1,27 @@
+digraph "CFG for 'iconv_open' function" {
+	label="CFG for 'iconv_open' function";
+
+	Node0x1ef47d0 [shape=record,label="{%2:\l  %3 = tail call fastcc i64 @find_charmap(i8* %0) #40\l  %4 = icmp eq i64 %3, -1\l  br i1 %4, label %12, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1ef47d0:s0 -> Node0x1ef48c0;
+	Node0x1ef47d0:s1 -> Node0x1ef4820;
+	Node0x1ef4820 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call fastcc i64 @find_charmap(i8* %1) #40\l  %7 = icmp eq i64 %6, -1\l  br i1 %7, label %12, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1ef4820:s0 -> Node0x1ef48c0;
+	Node0x1ef4820:s1 -> Node0x1ef4870;
+	Node0x1ef4870 [shape=record,label="{%8:\l8:                                                \l  %9 = getelementptr inbounds [4884 x i8], [4884 x i8]* @charmaps, i64 0, i64\l... %3\l  %10 = load i8, i8* %9, align 1, !tbaa !1632\l  %11 = icmp ugt i8 %10, -41\l  br i1 %11, label %12, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1ef4870:s0 -> Node0x1ef48c0;
+	Node0x1ef4870:s1 -> Node0x1ef4910;
+	Node0x1ef48c0 [shape=record,label="{%12:\l12:                                               \l  %13 = tail call i32* @___errno_location() #41\l  store i32 22, i32* %13, align 4, !tbaa !1635\l  br label %29\l}"];
+	Node0x1ef48c0 -> Node0x1ef4a00;
+	Node0x1ef4910 [shape=record,label="{%14:\l14:                                               \l  %15 = shl i64 %6, 16\l  %16 = shl i64 %3, 1\l  %17 = or i64 %16, %15\l  %18 = or i64 %17, 1\l  %19 = inttoptr i64 %18 to i8*\l  %20 = getelementptr inbounds [4884 x i8], [4884 x i8]* @charmaps, i64 0, i64\l... %6\l  %21 = load i8, i8* %20, align 1, !tbaa !1632\l  switch i8 %21, label %29 [\l    i8 -54, label %22\l    i8 -53, label %22\l    i8 -52, label %22\l    i8 -46, label %22\l  ]\l|{<s0>def|<s1>-54|<s2>-53|<s3>-52|<s4>-46}}"];
+	Node0x1ef4910:s0 -> Node0x1ef4a00;
+	Node0x1ef4910:s1 -> Node0x1ef4960;
+	Node0x1ef4910:s2 -> Node0x1ef4960;
+	Node0x1ef4910:s3 -> Node0x1ef4960;
+	Node0x1ef4910:s4 -> Node0x1ef4960;
+	Node0x1ef4960 [shape=record,label="{%22:\l22:                                               \l  %23 = tail call i8* @malloc(i64 16) #41\l  %24 = icmp eq i8* %23, null\l  br i1 %24, label %29, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1ef4960:s0 -> Node0x1ef4a00;
+	Node0x1ef4960:s1 -> Node0x1ef49b0;
+	Node0x1ef49b0 [shape=record,label="{%25:\l25:                                               \l  %26 = bitcast i8* %23 to i8**\l  store i8* %19, i8** %26, align 8, !tbaa !1637\l  %27 = getelementptr inbounds i8, i8* %23, i64 8\l  %28 = bitcast i8* %27 to i32*\l  store i32 0, i32* %28, align 8, !tbaa !1640\l  br label %29\l}"];
+	Node0x1ef49b0 -> Node0x1ef4a00;
+	Node0x1ef4a00 [shape=record,label="{%29:\l29:                                               \l  %30 = phi i8* [ inttoptr (i64 -1 to i8*), %12 ], [ inttoptr (i64 -1 to i8*),\l... %22 ], [ %19, %14 ], [ %23, %25 ]\l  ret i8* %30\l}"];
+}

@@ -1,0 +1,13 @@
+digraph "CFG for 'cproj' function" {
+	label="CFG for 'cproj' function";
+
+	Node0x1f86d40 [shape=record,label="{%2:\l  %3 = bitcast double %0 to i64\l  %4 = and i64 %3, 9223372036854775807\l  %5 = icmp eq i64 %4, 9218868437227405312\l  br i1 %5, label %10, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1f86d40:s0 -> Node0x1f86de0;
+	Node0x1f86d40:s1 -> Node0x1f86d90;
+	Node0x1f86d90 [shape=record,label="{%6:\l6:                                                \l  %7 = bitcast double %1 to i64\l  %8 = and i64 %7, 9223372036854775807\l  %9 = icmp eq i64 %8, 9218868437227405312\l  br i1 %9, label %10, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1f86d90:s0 -> Node0x1f86de0;
+	Node0x1f86d90:s1 -> Node0x1f86e30;
+	Node0x1f86de0 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call double @llvm.experimental.constrained.fpext.f64.f32(float\l... 0x7FF0000000000000, metadata !\"fpexcept.ignore\") #40\l  %12 = tail call double @copysign(double 0.000000e+00, double %0) #41\l  br label %13\l}"];
+	Node0x1f86de0 -> Node0x1f86e30;
+	Node0x1f86e30 [shape=record,label="{%13:\l13:                                               \l  %14 = phi double [ %11, %10 ], [ %0, %6 ]\l  %15 = phi double [ %12, %10 ], [ %1, %6 ]\l  %16 = insertvalue \{ double, double \} undef, double %14, 0\l  %17 = insertvalue \{ double, double \} %16, double %15, 1\l  ret \{ double, double \} %17\l}"];
+}

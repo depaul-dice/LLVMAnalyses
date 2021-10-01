@@ -1,0 +1,10 @@
+digraph "CFG for 'at_quick_exit' function" {
+	label="CFG for 'at_quick_exit' function";
+
+	Node0x1a43120 [shape=record,label="{%1:\l  tail call void @__lock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.81, i64 0, i64 0)) #40\l  %2 = load i32, i32* @count, align 4, !tbaa !1632\l  %3 = icmp eq i32 %2, 32\l  br i1 %3, label %8, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1a43120:s0 -> Node0x1a431c0;
+	Node0x1a43120:s1 -> Node0x1a43170;
+	Node0x1a43170 [shape=record,label="{%4:\l4:                                                \l  %5 = add nsw i32 %2, 1\l  store i32 %5, i32* @count, align 4, !tbaa !1632\l  %6 = sext i32 %2 to i64\l  %7 = getelementptr inbounds [32 x void ()*], [32 x void ()*]* @funcs, i64 0,\l... i64 %6\l  store void ()* %0, void ()** %7, align 8, !tbaa !1636\l  br label %8\l}"];
+	Node0x1a43170 -> Node0x1a431c0;
+	Node0x1a431c0 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i32 [ 0, %4 ], [ -1, %1 ]\l  tail call void @__unlock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.81, i64 0, i64 0)) #40\l  ret i32 %9\l}"];
+}

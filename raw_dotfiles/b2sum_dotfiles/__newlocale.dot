@@ -1,0 +1,42 @@
+digraph "CFG for '__newlocale' function" {
+	label="CFG for '__newlocale' function";
+
+	Node0x1ea6a50 [shape=record,label="{%3:\l  %4 = alloca %struct.__locale_struct, align 8\l  %5 = bitcast %struct.__locale_struct* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 48, i8* nonnull %5) #40\l  %6 = icmp ne %struct.__locale_struct* %2, null\l  br label %10\l}"];
+	Node0x1ea6a50 -> Node0x1ea6cd0;
+	Node0x1ea6c80 [shape=record,label="{%7:\l7:                                                \l  %8 = add nuw nsw i64 %11, 1\l  %9 = icmp eq i64 %8, 6\l  br i1 %9, label %27, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1ea6c80:s0 -> Node0x1ea6e10;
+	Node0x1ea6c80:s1 -> Node0x1ea6cd0;
+	Node0x1ea6cd0 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i64 [ 0, %3 ], [ %8, %7 ]\l  %12 = trunc i64 %11 to i32\l  %13 = shl nuw nsw i32 1, %12\l  %14 = and i32 %13, %0\l  %15 = icmp eq i32 %14, 0\l  %16 = and i1 %6, %15\l  br i1 %16, label %17, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1ea6cd0:s0 -> Node0x1ea6d20;
+	Node0x1ea6cd0:s1 -> Node0x1ea6d70;
+	Node0x1ea6d20 [shape=record,label="{%17:\l17:                                               \l  %18 = getelementptr inbounds %struct.__locale_struct,\l... %struct.__locale_struct* %2, i64 0, i32 0, i64 %11\l  %19 = load %struct.__locale_map*, %struct.__locale_map** %18, align 8, !tbaa\l... !1632\l  br label %23\l}"];
+	Node0x1ea6d20 -> Node0x1ea6dc0;
+	Node0x1ea6d70 [shape=record,label="{%20:\l20:                                               \l  %21 = select i1 %15, i8* getelementptr inbounds ([1 x i8], [1 x i8]*\l... @.str.669, i64 0, i64 0), i8* %1\l  %22 = tail call %struct.__locale_map* @__get_locale(i32 %12, i8* %21) #41\l  br label %23\l}"];
+	Node0x1ea6d70 -> Node0x1ea6dc0;
+	Node0x1ea6dc0 [shape=record,label="{%23:\l23:                                               \l  %24 = phi %struct.__locale_map* [ %19, %17 ], [ %22, %20 ]\l  %25 = getelementptr inbounds %struct.__locale_struct,\l... %struct.__locale_struct* %4, i64 0, i32 0, i64 %11\l  store %struct.__locale_map* %24, %struct.__locale_map** %25, align 8, !tbaa\l... !1632\l  %26 = icmp eq %struct.__locale_map* %24, inttoptr (i64 -1 to\l... %struct.__locale_map*)\l  br i1 %26, label %56, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1ea6dc0:s0 -> Node0x1ea7090;
+	Node0x1ea6dc0:s1 -> Node0x1ea6c80;
+	Node0x1ea6e10 [shape=record,label="{%27:\l27:                                               \l  %28 = icmp ne %struct.__locale_struct* %2, @__c_locale\l  %29 = and i1 %6, %28\l  %30 = icmp ne %struct.__locale_struct* %2, @__c_dot_utf8_locale\l  %31 = and i1 %30, %29\l  %32 = icmp ne %struct.__locale_struct* %2, @default_locale\l  %33 = and i1 %32, %31\l  %34 = icmp ne %struct.__locale_struct* %2, @default_ctype_locale\l  %35 = and i1 %34, %33\l  br i1 %35, label %36, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x1ea6e10:s0 -> Node0x1ea6e60;
+	Node0x1ea6e10:s1 -> Node0x1ea6eb0;
+	Node0x1ea6e60 [shape=record,label="{%36:\l36:                                               \l  %37 = bitcast %struct.__locale_struct* %2 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8 dereferenceable(48)\l... %37, i8* nonnull align 8 dereferenceable(48) %5, i64 48, i1 false),\l... !tbaa.struct !1636\l  br label %56\l}"];
+	Node0x1ea6e60 -> Node0x1ea7090;
+	Node0x1ea6eb0 [shape=record,label="{%38:\l38:                                               \l  %39 = call i32 @memcmp(i8* nonnull %5, i8* bitcast (%struct.__locale_struct*\l... @__c_locale to i8*), i64 48) #41\l  %40 = icmp eq i32 %39, 0\l  br i1 %40, label %56, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x1ea6eb0:s0 -> Node0x1ea7090;
+	Node0x1ea6eb0:s1 -> Node0x1ea6f00;
+	Node0x1ea6f00 [shape=record,label="{%41:\l41:                                               \l  %42 = call i32 @memcmp(i8* nonnull %5, i8* bitcast (%struct.__locale_struct*\l... @__c_dot_utf8_locale to i8*), i64 48) #41\l  %43 = icmp eq i32 %42, 0\l  br i1 %43, label %56, label %44\l|{<s0>T|<s1>F}}"];
+	Node0x1ea6f00:s0 -> Node0x1ea7090;
+	Node0x1ea6f00:s1 -> Node0x1ea6f50;
+	Node0x1ea6f50 [shape=record,label="{%44:\l44:                                               \l  %45 = call i32 @pthread_once(i32* nonnull @default_locale_once, void ()*\l... nonnull @default_locale_init) #41\l  %46 = call i32 @memcmp(i8* nonnull %5, i8* bitcast (%struct.__locale_struct*\l... @default_locale to i8*), i64 48) #41\l  %47 = icmp eq i32 %46, 0\l  br i1 %47, label %56, label %48\l|{<s0>T|<s1>F}}"];
+	Node0x1ea6f50:s0 -> Node0x1ea7090;
+	Node0x1ea6f50:s1 -> Node0x1ea6fa0;
+	Node0x1ea6fa0 [shape=record,label="{%48:\l48:                                               \l  %49 = call i32 @memcmp(i8* nonnull %5, i8* bitcast (%struct.__locale_struct*\l... @default_ctype_locale to i8*), i64 48) #41\l  %50 = icmp eq i32 %49, 0\l  br i1 %50, label %56, label %51\l|{<s0>T|<s1>F}}"];
+	Node0x1ea6fa0:s0 -> Node0x1ea7090;
+	Node0x1ea6fa0:s1 -> Node0x1ea6ff0;
+	Node0x1ea6ff0 [shape=record,label="{%51:\l51:                                               \l  %52 = call i8* @malloc(i64 48) #41\l  %53 = bitcast i8* %52 to %struct.__locale_struct*\l  %54 = icmp eq i8* %52, null\l  br i1 %54, label %56, label %55\l|{<s0>T|<s1>F}}"];
+	Node0x1ea6ff0:s0 -> Node0x1ea7090;
+	Node0x1ea6ff0:s1 -> Node0x1ea7040;
+	Node0x1ea7040 [shape=record,label="{%55:\l55:                                               \l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8 dereferenceable(48)\l... %52, i8* nonnull align 8 dereferenceable(48) %5, i64 48, i1 false),\l... !tbaa.struct !1636\l  br label %56\l}"];
+	Node0x1ea7040 -> Node0x1ea7090;
+	Node0x1ea7090 [shape=record,label="{%56:\l56:                                               \l  %57 = phi %struct.__locale_struct* [ %2, %36 ], [ @__c_locale, %38 ], [\l... @__c_dot_utf8_locale, %41 ], [ @default_locale, %44 ], [\l... @default_ctype_locale, %48 ], [ %53, %51 ], [ %53, %55 ], [ null, %23 ]\l  call void @llvm.lifetime.end.p0i8(i64 48, i8* nonnull %5) #40\l  ret %struct.__locale_struct* %57\l}"];
+}

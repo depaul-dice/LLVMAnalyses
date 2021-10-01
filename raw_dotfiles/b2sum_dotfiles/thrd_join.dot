@@ -1,0 +1,10 @@
+digraph "CFG for 'thrd_join' function" {
+	label="CFG for 'thrd_join' function";
+
+	Node0x1cfc9d0 [shape=record,label="{%2:\l  %3 = alloca i8*, align 8\l  %4 = bitcast i8** %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %4) #40\l  %5 = call i32 @__pthread_join(%struct.__pthread* %0, i8** nonnull %3) #41\l  %6 = icmp eq i32* %1, null\l  br i1 %6, label %11, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1cfc9d0:s0 -> Node0x1cfd020;
+	Node0x1cfc9d0:s1 -> Node0x1cfcfd0;
+	Node0x1cfcfd0 [shape=record,label="{%7:\l7:                                                \l  %8 = bitcast i8** %3 to i64*\l  %9 = load i64, i64* %8, align 8, !tbaa !1632\l  %10 = trunc i64 %9 to i32\l  store i32 %10, i32* %1, align 4, !tbaa !1636\l  br label %11\l}"];
+	Node0x1cfcfd0 -> Node0x1cfd020;
+	Node0x1cfd020 [shape=record,label="{%11:\l11:                                               \l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %4) #40\l  ret i32 0\l}"];
+}

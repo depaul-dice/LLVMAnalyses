@@ -1,0 +1,20 @@
+digraph "CFG for 'rpl_fflush' function" {
+	label="CFG for 'rpl_fflush' function";
+
+	Node0x154c1c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  call void @llvm.dbg.value(metadata %struct._IO_FILE* %0, metadata !1093,\l... metadata !DIExpression()), !dbg !1094\l  %2 = icmp eq %struct._IO_FILE* %0, null, !dbg !1095\l  br i1 %2, label %7, label %3, !dbg !1097\l|{<s0>T|<s1>F}}"];
+	Node0x154c1c0:s0 -> Node0x1533460;
+	Node0x154c1c0:s1 -> Node0x15333a0;
+	Node0x15333a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e1675170",label="{%3:\l3:                                                \l  %4 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.1002*, !dbg !1098\l  %5 = tail call i32 @__freading(%struct._IO_FILE.1002* nonnull %4) #6, !dbg\l... !1098\l  %6 = icmp eq i32 %5, 0, !dbg !1098\l  br i1 %6, label %7, label %10, !dbg !1099\l|{<s0>T|<s1>F}}"];
+	Node0x15333a0:s0 -> Node0x1533460;
+	Node0x15333a0:s1 -> Node0x15334b0;
+	Node0x1533460 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e36c5570",label="{%7:\l7:                                                \l  %8 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.0*, !dbg !1100\l  %9 = tail call i32 @fflush(%struct._IO_FILE.0* %8) #6, !dbg !1100\l  br label %20, !dbg !1101\l}"];
+	Node0x1533460 -> Node0x15335a0;
+	Node0x15334b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%10:\l10:                                               \l  call void @llvm.dbg.value(metadata %struct._IO_FILE* %0, metadata !1102,\l... metadata !DIExpression()) #6, !dbg !1107\l  %11 = getelementptr inbounds %struct._IO_FILE, %struct._IO_FILE* %0, i64 0,\l... i32 0, !dbg !1109\l  %12 = load i32, i32* %11, align 8, !dbg !1109, !tbaa !1111\l  %13 = and i32 %12, 256, !dbg !1119\l  %14 = icmp eq i32 %13, 0, !dbg !1119\l  br i1 %14, label %17, label %15, !dbg !1120\l|{<s0>T|<s1>F}}"];
+	Node0x15334b0:s0 -> Node0x1533550;
+	Node0x15334b0:s1 -> Node0x1533500;
+	Node0x1533500 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ecd3c570",label="{%15:\l15:                                               \l  %16 = tail call fastcc i32 @rpl_fseeko(%struct._IO_FILE* nonnull %0, i64 0,\l... i32 1) #6, !dbg !1121\l  br label %17, !dbg !1121\l}"];
+	Node0x1533500 -> Node0x1533550;
+	Node0x1533550 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%17:\l17:                                               \l  %18 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.0*, !dbg !1122\l  %19 = tail call i32 @fflush(%struct._IO_FILE.0* nonnull %18) #6, !dbg !1122\l  br label %20, !dbg !1123\l}"];
+	Node0x1533550 -> Node0x15335a0;
+	Node0x15335a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%20:\l20:                                               \l  %21 = phi i32 [ %9, %7 ], [ %19, %17 ], !dbg !1094\l  ret i32 %21, !dbg !1124\l}"];
+}

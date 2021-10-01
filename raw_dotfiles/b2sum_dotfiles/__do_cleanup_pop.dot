@@ -1,0 +1,5 @@
+digraph "CFG for '__do_cleanup_pop' function" {
+	label="CFG for '__do_cleanup_pop' function";
+
+	Node0x168cf50 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.__ptcb, %struct.__ptcb* %0, i64 0, i32 2\l  %3 = bitcast %struct.__ptcb** %2 to i64*\l  %4 = load i64, i64* %3, align 8, !tbaa !1632\l  %5 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #40, !srcloc !1637\l  %6 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %5, i64 0,\l... i32 20\l  %7 = bitcast %struct.__ptcb** %6 to i64*\l  store i64 %4, i64* %7, align 8, !tbaa !1638\l  ret void\l}"];
+}

@@ -1,0 +1,10 @@
+digraph "CFG for '__randname' function" {
+	label="CFG for '__randname' function";
+
+	Node0x1a64b90 [shape=record,label="{%1:\l  %2 = alloca %struct.timeval, align 8\l  %3 = bitcast %struct.timeval* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %3) #40\l  %4 = call i32 @__clock_gettime(i32 0, %struct.timeval* nonnull %2) #41\l  %5 = getelementptr inbounds %struct.timeval, %struct.timeval* %2, i64 0, i32\l... 1\l  %6 = load i64, i64* %5, align 8, !tbaa !1632\l  %7 = mul nsw i64 %6, 65537\l  %8 = ptrtoint %struct.timeval* %2 to i64\l  %9 = lshr i64 %8, 4\l  %10 = ptrtoint i8* %0 to i64\l  %11 = add i64 %9, %10\l  %12 = xor i64 %7, %11\l  br label %13\l}"];
+	Node0x1a64b90 -> Node0x1a64be0;
+	Node0x1a64be0 [shape=record,label="{%13:\l13:                                               \l  %14 = phi i64 [ 0, %1 ], [ %23, %13 ]\l  %15 = phi i64 [ %12, %1 ], [ %24, %13 ]\l  %16 = and i64 %15, 15\l  %17 = add nuw nsw i64 %16, 65\l  %18 = shl i64 %15, 1\l  %19 = and i64 %18, 32\l  %20 = or i64 %17, %19\l  %21 = trunc i64 %20 to i8\l  %22 = getelementptr inbounds i8, i8* %0, i64 %14\l  store i8 %21, i8* %22, align 1, !tbaa !1637\l  %23 = add nuw nsw i64 %14, 1\l  %24 = lshr i64 %15, 5\l  %25 = icmp eq i64 %23, 6\l  br i1 %25, label %26, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1a64be0:s0 -> Node0x1a64c30;
+	Node0x1a64be0:s1 -> Node0x1a64be0;
+	Node0x1a64c30 [shape=record,label="{%26:\l26:                                               \l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %3) #40\l  ret i8* %0\l}"];
+}

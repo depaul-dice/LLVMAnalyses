@@ -1,0 +1,5 @@
+digraph "CFG for 'getdtablesize' function" {
+	label="CFG for 'getdtablesize' function";
+
+	Node0x17ac360 [shape=record,label="{%0:\l  %1 = alloca %struct.timeval, align 8\l  %2 = bitcast %struct.timeval* %1 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %2) #40\l  %3 = call i32 @getrlimit(i32 7, %struct.timeval* nonnull %1) #41\l  %4 = getelementptr inbounds %struct.timeval, %struct.timeval* %1, i64 0, i32\l... 0\l  %5 = load i64, i64* %4, align 8, !tbaa !1632\l  %6 = icmp ult i64 %5, 2147483647\l  %7 = select i1 %6, i64 %5, i64 2147483647\l  %8 = trunc i64 %7 to i32\l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %2) #40\l  ret i32 %8\l}"];
+}

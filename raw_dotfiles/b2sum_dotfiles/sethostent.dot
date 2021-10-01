@@ -1,0 +1,5 @@
+digraph "CFG for 'sethostent' function" {
+	label="CFG for 'sethostent' function";
+
+	Node0x1d973d0 [shape=record,label="{%1:\l  ret void\l}"];
+}

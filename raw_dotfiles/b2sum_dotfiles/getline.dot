@@ -1,0 +1,5 @@
+digraph "CFG for 'getline' function" {
+	label="CFG for 'getline' function";
+
+	Node0x164b360 [shape=record,label="{%3:\l  %4 = tail call i64 @getdelim(i8** %0, i64* %1, i32 10, %struct._IO_FILE.0*\l... %2) #40\l  ret i64 %4\l}"];
+}

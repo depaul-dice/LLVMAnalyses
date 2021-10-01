@@ -1,0 +1,15 @@
+digraph "CFG for 'wcschr' function" {
+	label="CFG for 'wcschr' function";
+
+	Node0x17a4500 [shape=record,label="{%2:\l  %3 = icmp eq i32 %1, 0\l  br i1 %3, label %4, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x17a4500:s0 -> Node0x17a4550;
+	Node0x17a4500:s1 -> Node0x17a45a0;
+	Node0x17a4550 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i64 @wcslen(i32* %0) #40\l  %6 = getelementptr inbounds i32, i32* %0, i64 %5\l  br label %16\l}"];
+	Node0x17a4550 -> Node0x17a4640;
+	Node0x17a45a0 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32* [ %13, %7 ], [ %0, %2 ]\l  %9 = load i32, i32* %8, align 4, !tbaa !1632\l  %10 = icmp eq i32 %9, 0\l  %11 = icmp eq i32 %9, %1\l  %12 = or i1 %10, %11\l  %13 = getelementptr inbounds i32, i32* %8, i64 1\l  br i1 %12, label %14, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x17a45a0:s0 -> Node0x17a45f0;
+	Node0x17a45a0:s1 -> Node0x17a45a0;
+	Node0x17a45f0 [shape=record,label="{%14:\l14:                                               \l  %15 = select i1 %10, i32* null, i32* %8\l  br label %16\l}"];
+	Node0x17a45f0 -> Node0x17a4640;
+	Node0x17a4640 [shape=record,label="{%16:\l16:                                               \l  %17 = phi i32* [ %15, %14 ], [ %6, %4 ]\l  ret i32* %17\l}"];
+}

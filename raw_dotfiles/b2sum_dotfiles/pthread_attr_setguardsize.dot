@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_attr_setguardsize' function" {
+	label="CFG for 'pthread_attr_setguardsize' function";
+
+	Node0x165d870 [shape=record,label="{%2:\l  %3 = icmp ugt i64 %1, 2305843009213693951\l  br i1 %3, label %6, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x165d870:s0 -> Node0x165da80;
+	Node0x165d870:s1 -> Node0x165da30;
+	Node0x165da30 [shape=record,label="{%4:\l4:                                                \l  %5 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %0, i64 0, i32 0, i32 0, i64 1\l  store i64 %1, i64* %5, align 8, !tbaa !1632\l  br label %6\l}"];
+	Node0x165da30 -> Node0x165da80;
+	Node0x165da80 [shape=record,label="{%6:\l6:                                                \l  %7 = phi i32 [ 0, %4 ], [ 22, %2 ]\l  ret i32 %7\l}"];
+}

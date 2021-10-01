@@ -1,0 +1,5 @@
+digraph "CFG for 'copysignl' function" {
+	label="CFG for 'copysignl' function";
+
+	Node0x17ea060 [shape=record,label="{%2:\l  %3 = bitcast x86_fp80 %0 to i80\l  %4 = bitcast x86_fp80 %1 to i80\l  %5 = lshr i80 %4, 64\l  %6 = trunc i80 %5 to i16\l  %7 = and i16 %6, -32768\l  %8 = lshr i80 %3, 64\l  %9 = trunc i80 %8 to i16\l  %10 = and i16 %9, 32767\l  %11 = or i16 %7, %10\l  %12 = zext i16 %11 to i80\l  %13 = shl nuw i80 %12, 64\l  %14 = and i80 %3, 18446744073709551615\l  %15 = or i80 %13, %14\l  %16 = bitcast i80 %15 to x86_fp80\l  ret x86_fp80 %16\l}"];
+}

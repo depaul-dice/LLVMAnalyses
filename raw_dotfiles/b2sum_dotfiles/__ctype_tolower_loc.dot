@@ -1,0 +1,5 @@
+digraph "CFG for '__ctype_tolower_loc' function" {
+	label="CFG for '__ctype_tolower_loc' function";
+
+	Node0x166e440 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  ret i32** @ptable\l}"];
+}

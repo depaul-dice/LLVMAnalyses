@@ -1,0 +1,44 @@
+digraph "CFG for 'wcsnrtombs' function" {
+	label="CFG for 'wcsnrtombs' function";
+
+	Node0x1c85740 [shape=record,label="{%5:\l  %6 = alloca [256 x i8], align 16\l  %7 = alloca i32*, align 8\l  %8 = getelementptr inbounds [256 x i8], [256 x i8]* %6, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 256, i8* nonnull %8) #40\l  %9 = bitcast i32** %7 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %9) #40\l  %10 = bitcast i32** %1 to i64*\l  %11 = load i64, i64* %10, align 8, !tbaa !1632\l  %12 = bitcast i32** %7 to i64*\l  store i64 %11, i64* %12, align 8, !tbaa !1632\l  %13 = icmp ne i8* %0, null\l  %14 = select i1 %13, i64 %3, i64 256\l  %15 = select i1 %13, i8* %0, i8* %8\l  %16 = inttoptr i64 %11 to i32*\l  %17 = icmp ne i64 %11, 0\l  %18 = icmp ne i64 %14, 0\l  %19 = and i1 %18, %17\l  br i1 %19, label %20, label %57\l|{<s0>T|<s1>F}}"];
+	Node0x1c85740:s0 -> Node0x1c858e0;
+	Node0x1c85740:s1 -> Node0x1c85a70;
+	Node0x1c858e0 [shape=record,label="{%20:\l20:                                               \l  %21 = icmp ule i64 %14, %2\l  %22 = icmp ugt i64 %2, 32\l  %23 = or i1 %21, %22\l  br i1 %23, label %28, label %57\l|{<s0>T|<s1>F}}"];
+	Node0x1c858e0:s0 -> Node0x1c85980;
+	Node0x1c858e0:s1 -> Node0x1c85a70;
+	Node0x1c85930 [shape=record,label="{%24:\l24:                                               \l  %25 = icmp uge i64 %52, %44\l  %26 = icmp ugt i64 %52, 32\l  %27 = or i1 %25, %26\l  br i1 %27, label %28, label %57\l|{<s0>T|<s1>F}}"];
+	Node0x1c85930:s0 -> Node0x1c85980;
+	Node0x1c85930:s1 -> Node0x1c85a70;
+	Node0x1c85980 [shape=record,label="{%28:\l28:                                               \l  %29 = phi i1 [ %25, %24 ], [ %21, %20 ]\l  %30 = phi i64 [ %44, %24 ], [ %14, %20 ]\l  %31 = phi i64 [ %53, %24 ], [ 0, %20 ]\l  %32 = phi i8* [ %45, %24 ], [ %15, %20 ]\l  %33 = phi i64 [ %52, %24 ], [ %2, %20 ]\l  %34 = phi i64 [ %48, %24 ], [ %11, %20 ]\l  %35 = select i1 %29, i64 %30, i64 %33\l  %36 = call i64 @wcsrtombs(i8* %32, i32** nonnull %7, i64 %35, %struct.FTW*\l... null) #41\l  %37 = icmp eq i64 %36, -1\l  br i1 %37, label %38, label %40\l|{<s0>T|<s1>F}}"];
+	Node0x1c85980:s0 -> Node0x1c859d0;
+	Node0x1c85980:s1 -> Node0x1c85a20;
+	Node0x1c859d0 [shape=record,label="{%38:\l38:                                               \l  %39 = load i32*, i32** %7, align 8, !tbaa !1632\l  br label %57\l}"];
+	Node0x1c859d0 -> Node0x1c85a70;
+	Node0x1c85a20 [shape=record,label="{%40:\l40:                                               \l  %41 = icmp eq i8* %32, %8\l  %42 = getelementptr inbounds i8, i8* %32, i64 %36\l  %43 = select i1 %41, i64 0, i64 %36\l  %44 = sub i64 %30, %43\l  %45 = select i1 %41, i8* %32, i8* %42\l  %46 = load i32*, i32** %7, align 8, !tbaa !1632\l  %47 = icmp eq i32* %46, null\l  %48 = ptrtoint i32* %46 to i64\l  %49 = sub i64 %48, %34\l  %50 = ashr exact i64 %49, 2\l  %51 = sub i64 %33, %50\l  %52 = select i1 %47, i64 0, i64 %51\l  %53 = add i64 %36, %31\l  %54 = icmp ne i32* %46, null\l  %55 = icmp ne i64 %44, 0\l  %56 = and i1 %55, %54\l  br i1 %56, label %24, label %57\l|{<s0>T|<s1>F}}"];
+	Node0x1c85a20:s0 -> Node0x1c85930;
+	Node0x1c85a20:s1 -> Node0x1c85a70;
+	Node0x1c85a70 [shape=record,label="{%57:\l57:                                               \l  %58 = phi i32* [ %16, %5 ], [ %39, %38 ], [ %16, %20 ], [ %46, %40 ], [ %46,\l... %24 ]\l  %59 = phi i8* [ %15, %5 ], [ %32, %38 ], [ %15, %20 ], [ %45, %40 ], [ %45,\l... %24 ]\l  %60 = phi i64 [ %2, %5 ], [ %33, %38 ], [ %2, %20 ], [ %52, %40 ], [ %52,\l... %24 ]\l  %61 = phi i64 [ %14, %5 ], [ 0, %38 ], [ %14, %20 ], [ %44, %40 ], [ %44,\l... %24 ]\l  %62 = phi i64 [ 0, %5 ], [ -1, %38 ], [ 0, %20 ], [ %53, %40 ], [ %53, %24 ]\l  %63 = icmp eq i32* %58, null\l  br i1 %63, label %91, label %64\l|{<s0>T|<s1>F}}"];
+	Node0x1c85a70:s0 -> Node0x1c85c50;
+	Node0x1c85a70:s1 -> Node0x1c85ac0;
+	Node0x1c85ac0 [shape=record,label="{%64:\l64:                                               \l  %65 = icmp ne i64 %61, 0\l  %66 = icmp ne i64 %60, 0\l  %67 = and i1 %65, %66\l  br i1 %67, label %68, label %91\l|{<s0>T|<s1>F}}"];
+	Node0x1c85ac0:s0 -> Node0x1c85b10;
+	Node0x1c85ac0:s1 -> Node0x1c85c50;
+	Node0x1c85b10 [shape=record,label="{%68:\l68:                                               \l  %69 = phi i32* [ %83, %81 ], [ %58, %64 ]\l  %70 = phi i64 [ %84, %81 ], [ %60, %64 ]\l  %71 = phi i8* [ %85, %81 ], [ %59, %64 ]\l  %72 = phi i64 [ %87, %81 ], [ %62, %64 ]\l  %73 = phi i64 [ %86, %81 ], [ %61, %64 ]\l  %74 = load i32, i32* %69, align 4, !tbaa !1636\l  %75 = call i64 @wcrtomb(i8* %71, i32 %74, %struct.FTW* null) #41\l  %76 = add i64 %75, 1\l  %77 = icmp ult i64 %76, 2\l  br i1 %77, label %78, label %81\l|{<s0>T|<s1>F}}"];
+	Node0x1c85b10:s0 -> Node0x1c85b60;
+	Node0x1c85b10:s1 -> Node0x1c85c00;
+	Node0x1c85b60 [shape=record,label="{%78:\l78:                                               \l  %79 = icmp eq i64 %75, 0\l  br i1 %79, label %80, label %91\l|{<s0>T|<s1>F}}"];
+	Node0x1c85b60:s0 -> Node0x1c85bb0;
+	Node0x1c85b60:s1 -> Node0x1c85c50;
+	Node0x1c85bb0 [shape=record,label="{%80:\l80:                                               \l  store i32* null, i32** %7, align 8, !tbaa !1632\l  br label %91\l}"];
+	Node0x1c85bb0 -> Node0x1c85c50;
+	Node0x1c85c00 [shape=record,label="{%81:\l81:                                               \l  %82 = load i32*, i32** %7, align 8, !tbaa !1632\l  %83 = getelementptr inbounds i32, i32* %82, i64 1\l  store i32* %83, i32** %7, align 8, !tbaa !1632\l  %84 = add i64 %70, -1\l  %85 = getelementptr inbounds i8, i8* %71, i64 %75\l  %86 = sub i64 %73, %75\l  %87 = add i64 %75, %72\l  %88 = icmp ne i64 %86, 0\l  %89 = icmp ne i64 %84, 0\l  %90 = and i1 %88, %89\l  br i1 %90, label %68, label %91\l|{<s0>T|<s1>F}}"];
+	Node0x1c85c00:s0 -> Node0x1c85b10;
+	Node0x1c85c00:s1 -> Node0x1c85c50;
+	Node0x1c85c50 [shape=record,label="{%91:\l91:                                               \l  %92 = phi i64 [ %72, %80 ], [ %62, %57 ], [ -1, %78 ], [ %62, %64 ], [ %87,\l... %81 ]\l  br i1 %13, label %93, label %95\l|{<s0>T|<s1>F}}"];
+	Node0x1c85c50:s0 -> Node0x1c85ca0;
+	Node0x1c85c50:s1 -> Node0x1c85cf0;
+	Node0x1c85ca0 [shape=record,label="{%93:\l93:                                               \l  %94 = load i64, i64* %12, align 8, !tbaa !1632\l  store i64 %94, i64* %10, align 8, !tbaa !1632\l  br label %95\l}"];
+	Node0x1c85ca0 -> Node0x1c85cf0;
+	Node0x1c85cf0 [shape=record,label="{%95:\l95:                                               \l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %9) #40\l  call void @llvm.lifetime.end.p0i8(i64 256, i8* nonnull %8) #40\l  ret i64 %92\l}"];
+}

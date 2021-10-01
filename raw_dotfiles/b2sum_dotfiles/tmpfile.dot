@@ -1,0 +1,18 @@
+digraph "CFG for 'tmpfile' function" {
+	label="CFG for 'tmpfile' function";
+
+	Node0x1ea4ce0 [shape=record,label="{%0:\l  %1 = alloca [20 x i8], align 16\l  %2 = getelementptr inbounds [20 x i8], [20 x i8]* %1, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 20, i8* nonnull %2) #40\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 16\l... dereferenceable(20) %2, i8* nonnull align 16 dereferenceable(20)\l... getelementptr inbounds ([20 x i8], [20 x i8]* @__const.tmpfile.s, i64 0, i64\l... 0), i64 20, i1 false)\l  %3 = getelementptr inbounds [20 x i8], [20 x i8]* %1, i64 0, i64 13\l  %4 = ptrtoint [20 x i8]* %1 to i64\l  br label %8\l}"];
+	Node0x1ea4ce0 -> Node0x1ea4d80;
+	Node0x1ea4d30 [shape=record,label="{%5:\l5:                                                \l  %6 = add nuw nsw i32 %9, 1\l  %7 = icmp eq i32 %6, 100\l  br i1 %7, label %24, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1ea4d30:s0 -> Node0x1ea4e70;
+	Node0x1ea4d30:s1 -> Node0x1ea4d80;
+	Node0x1ea4d80 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i32 [ 0, %0 ], [ %6, %5 ]\l  %10 = call i8* @__randname(i8* nonnull %3) #41\l  %11 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 2, i64 %4, i64 194, i64 384) #40, !srcloc !1632\l  %12 = call i64 @__syscall_ret(i64 %11) #41\l  %13 = trunc i64 %12 to i32\l  %14 = icmp sgt i32 %13, -1\l  br i1 %14, label %15, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1ea4d80:s0 -> Node0x1ea4dd0;
+	Node0x1ea4d80:s1 -> Node0x1ea4d30;
+	Node0x1ea4dd0 [shape=record,label="{%15:\l15:                                               \l  %16 = trunc i64 %12 to i32\l  %17 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 87,\l... i64 %4) #40, !srcloc !1633\l  %18 = call %struct._IO_FILE.0* @__fdopen(i32 %16, i8* getelementptr inbounds\l... ([3 x i8], [3 x i8]* @.str.666, i64 0, i64 0)) #41\l  %19 = icmp eq %struct._IO_FILE.0* %18, null\l  br i1 %19, label %20, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x1ea4dd0:s0 -> Node0x1ea4e20;
+	Node0x1ea4dd0:s1 -> Node0x1ea4e70;
+	Node0x1ea4e20 [shape=record,label="{%20:\l20:                                               \l  %21 = shl i64 %12, 32\l  %22 = ashr exact i64 %21, 32\l  %23 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 3,\l... i64 %22) #40, !srcloc !1633\l  br label %24\l}"];
+	Node0x1ea4e20 -> Node0x1ea4e70;
+	Node0x1ea4e70 [shape=record,label="{%24:\l24:                                               \l  %25 = phi %struct._IO_FILE.0* [ %18, %15 ], [ null, %20 ], [ null, %5 ]\l  call void @llvm.lifetime.end.p0i8(i64 20, i8* nonnull %2) #40\l  ret %struct._IO_FILE.0* %25\l}"];
+}

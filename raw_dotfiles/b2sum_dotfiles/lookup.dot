@@ -1,0 +1,17 @@
+digraph "CFG for 'lookup' function" {
+	label="CFG for 'lookup' function";
+
+	Node0x1c63b40 [shape=record,label="{%3:\l  %4 = getelementptr inbounds %struct.hsearch_data, %struct.hsearch_data* %2,\l... i64 0, i32 0\l  %5 = load %struct.__tab*, %struct.__tab** %4, align 8, !tbaa !1632\l  %6 = getelementptr inbounds %struct.__tab, %struct.__tab* %5, i64 0, i32 0\l  %7 = load %struct.infomap*, %struct.infomap** %6, align 8, !tbaa !1638\l  %8 = getelementptr inbounds %struct.__tab, %struct.__tab* %5, i64 0, i32 1\l  %9 = load i64, i64* %8, align 8, !tbaa !1641\l  %10 = and i64 %9, %1\l  %11 = getelementptr inbounds %struct.infomap, %struct.infomap* %7, i64 %10\l  %12 = getelementptr inbounds %struct.infomap, %struct.infomap* %11, i64 0,\l... i32 0\l  %13 = load i8*, i8** %12, align 8, !tbaa !1642\l  %14 = icmp eq i8* %13, null\l  br i1 %14, label %36, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1c63b40:s0 -> Node0x1c65c30;
+	Node0x1c63b40:s1 -> Node0x1c65ac0;
+	Node0x1c65ac0 [shape=record,label="{%15:\l15:                                               \l  %16 = tail call i32 @strcmp(i8* nonnull %13, i8* %0) #40\l  %17 = icmp eq i32 %16, 0\l  br i1 %17, label %36, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1c65ac0:s0 -> Node0x1c65c30;
+	Node0x1c65ac0:s1 -> Node0x1c65be0;
+	Node0x1c65b90 [shape=record,label="{%18:\l18:                                               \l  %19 = add i64 %23, 1\l  %20 = tail call i32 @strcmp(i8* nonnull %34, i8* %0) #40\l  %21 = icmp eq i32 %20, 0\l  br i1 %21, label %36, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1c65b90:s0 -> Node0x1c65c30;
+	Node0x1c65b90:s1 -> Node0x1c65be0;
+	Node0x1c65be0 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i64 [ %19, %18 ], [ 1, %15 ]\l  %24 = phi i64 [ %25, %18 ], [ %1, %15 ]\l  %25 = add i64 %24, %23\l  %26 = load %struct.__tab*, %struct.__tab** %4, align 8, !tbaa !1632\l  %27 = getelementptr inbounds %struct.__tab, %struct.__tab* %26, i64 0, i32 0\l  %28 = load %struct.infomap*, %struct.infomap** %27, align 8, !tbaa !1638\l  %29 = getelementptr inbounds %struct.__tab, %struct.__tab* %26, i64 0, i32 1\l  %30 = load i64, i64* %29, align 8, !tbaa !1641\l  %31 = and i64 %30, %25\l  %32 = getelementptr inbounds %struct.infomap, %struct.infomap* %28, i64 %31\l  %33 = getelementptr inbounds %struct.infomap, %struct.infomap* %32, i64 0,\l... i32 0\l  %34 = load i8*, i8** %33, align 8, !tbaa !1642\l  %35 = icmp eq i8* %34, null\l  br i1 %35, label %36, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1c65be0:s0 -> Node0x1c65c30;
+	Node0x1c65be0:s1 -> Node0x1c65b90;
+	Node0x1c65c30 [shape=record,label="{%36:\l36:                                               \l  %37 = phi %struct.infomap* [ %11, %3 ], [ %11, %15 ], [ %32, %18 ], [ %32,\l... %22 ]\l  ret %struct.infomap* %37\l}"];
+}

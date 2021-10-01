@@ -1,0 +1,5 @@
+digraph "CFG for 'gethostid' function" {
+	label="CFG for 'gethostid' function";
+
+	Node0x1ae5a40 [shape=record,label="{%0:\l  ret i64 0\l}"];
+}

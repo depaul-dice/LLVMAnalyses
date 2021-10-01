@@ -1,0 +1,20 @@
+digraph "CFG for 'sendmmsg' function" {
+	label="CFG for 'sendmmsg' function";
+
+	Node0x1c5be90 [shape=record,label="{%4:\l  %5 = icmp ult i32 %2, 1024\l  %6 = select i1 %5, i32 %2, i32 1024\l  %7 = icmp eq i32 %6, 0\l  br i1 %7, label %26, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1c5be90:s0 -> Node0x1c5c5e0;
+	Node0x1c5be90:s1 -> Node0x1c5c450;
+	Node0x1c5c450 [shape=record,label="{%8:\l8:                                                \l  %9 = zext i32 %6 to i64\l  br label %10\l}"];
+	Node0x1c5c450 -> Node0x1c5c4a0;
+	Node0x1c5c4a0 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i64 [ 0, %8 ], [ %18, %15 ]\l  %12 = getelementptr inbounds %struct.mmsghdr, %struct.mmsghdr* %1, i64 %11,\l... i32 0\l  %13 = tail call i64 @sendmsg(i32 %0, %struct.msghdr* %12, i32 %3) #40\l  %14 = icmp slt i64 %13, 0\l  br i1 %14, label %20, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1c5c4a0:s0 -> Node0x1c5c540;
+	Node0x1c5c4a0:s1 -> Node0x1c5c4f0;
+	Node0x1c5c4f0 [shape=record,label="{%15:\l15:                                               \l  %16 = trunc i64 %13 to i32\l  %17 = getelementptr inbounds %struct.mmsghdr, %struct.mmsghdr* %1, i64 %11,\l... i32 1\l  store i32 %16, i32* %17, align 8, !tbaa !1632\l  %18 = add nuw nsw i64 %11, 1\l  %19 = icmp ult i64 %18, %9\l  br i1 %19, label %10, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1c5c4f0:s0 -> Node0x1c5c4a0;
+	Node0x1c5c4f0:s1 -> Node0x1c5c590;
+	Node0x1c5c540 [shape=record,label="{%20:\l20:                                               \l  %21 = trunc i64 %11 to i32\l  br label %22\l}"];
+	Node0x1c5c540 -> Node0x1c5c590;
+	Node0x1c5c590 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i32 [ %21, %20 ], [ %6, %15 ]\l  %24 = icmp eq i32 %23, 0\l  %25 = select i1 %24, i32 -1, i32 %23\l  br label %26\l}"];
+	Node0x1c5c590 -> Node0x1c5c5e0;
+	Node0x1c5c5e0 [shape=record,label="{%26:\l26:                                               \l  %27 = phi i32 [ %25, %22 ], [ 0, %4 ]\l  ret i32 %27\l}"];
+}

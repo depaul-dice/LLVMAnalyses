@@ -1,0 +1,5 @@
+digraph "CFG for 'strtol' function" {
+	label="CFG for 'strtol' function";
+
+	Node0x1d02590 [shape=record,label="{%3:\l  %4 = tail call fastcc i64 @strtox(i8* %0, i8** %1, i32 %2, i64\l... -9223372036854775808) #40\l  ret i64 %4\l}"];
+}

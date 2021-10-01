@@ -1,0 +1,5 @@
+digraph "CFG for 'posix_fadvise' function" {
+	label="CFG for 'posix_fadvise' function";
+
+	Node0x16c0f20 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%4:\l  %5 = sext i32 %0 to i64\l  %6 = sext i32 %3 to i64\l  %7 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}\"(i64 221, i64 %5, i64 %1, i64 %2, i64 %6) #29, !srcloc !1632\l  %8 = trunc i64 %7 to i32\l  %9 = sub i32 0, %8\l  ret i32 %9\l}"];
+}

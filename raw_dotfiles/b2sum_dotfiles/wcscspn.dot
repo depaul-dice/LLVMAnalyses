@@ -1,0 +1,31 @@
+digraph "CFG for 'wcscspn' function" {
+	label="CFG for 'wcscspn' function";
+
+	Node0x17a2de0 [shape=record,label="{%2:\l  %3 = load i32, i32* %1, align 4, !tbaa !1632\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %5, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x17a2de0:s0 -> Node0x17a2ef0;
+	Node0x17a2de0:s1 -> Node0x17a2f40;
+	Node0x17a2ef0 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i64 @wcslen(i32* %0) #40\l  br label %39\l}"];
+	Node0x17a2ef0 -> Node0x17a31c0;
+	Node0x17a2f40 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds i32, i32* %1, i64 1\l  %9 = load i32, i32* %8, align 4, !tbaa !1632\l  %10 = icmp eq i32 %9, 0\l  br i1 %10, label %14, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x17a2f40:s0 -> Node0x17a2fe0;
+	Node0x17a2f40:s1 -> Node0x17a2f90;
+	Node0x17a2f90 [shape=record,label="{%11:\l11:                                               \l  %12 = load i32, i32* %0, align 4, !tbaa !1632\l  %13 = icmp eq i32 %12, 0\l  br i1 %13, label %33, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x17a2f90:s0 -> Node0x17a3170;
+	Node0x17a2f90:s1 -> Node0x17a30d0;
+	Node0x17a2fe0 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call i32* @wcschr(i32* %0, i32 %3) #40\l  %16 = icmp eq i32* %15, null\l  br i1 %16, label %22, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x17a2fe0:s0 -> Node0x17a3080;
+	Node0x17a2fe0:s1 -> Node0x17a3030;
+	Node0x17a3030 [shape=record,label="{%17:\l17:                                               \l  %18 = ptrtoint i32* %15 to i64\l  %19 = ptrtoint i32* %0 to i64\l  %20 = sub i64 %18, %19\l  %21 = ashr exact i64 %20, 2\l  br label %39\l}"];
+	Node0x17a3030 -> Node0x17a31c0;
+	Node0x17a3080 [shape=record,label="{%22:\l22:                                               \l  %23 = tail call i64 @wcslen(i32* %0) #40\l  br label %39\l}"];
+	Node0x17a3080 -> Node0x17a31c0;
+	Node0x17a30d0 [shape=record,label="{%24:\l24:                                               \l  %25 = phi i32 [ %31, %29 ], [ %12, %11 ]\l  %26 = phi i32* [ %30, %29 ], [ %0, %11 ]\l  %27 = tail call i32* @wcschr(i32* nonnull %1, i32 %25) #40\l  %28 = icmp eq i32* %27, null\l  br i1 %28, label %29, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x17a30d0:s0 -> Node0x17a3120;
+	Node0x17a30d0:s1 -> Node0x17a3170;
+	Node0x17a3120 [shape=record,label="{%29:\l29:                                               \l  %30 = getelementptr inbounds i32, i32* %26, i64 1\l  %31 = load i32, i32* %30, align 4, !tbaa !1632\l  %32 = icmp eq i32 %31, 0\l  br i1 %32, label %33, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x17a3120:s0 -> Node0x17a3170;
+	Node0x17a3120:s1 -> Node0x17a30d0;
+	Node0x17a3170 [shape=record,label="{%33:\l33:                                               \l  %34 = phi i32* [ %0, %11 ], [ %30, %29 ], [ %26, %24 ]\l  %35 = ptrtoint i32* %34 to i64\l  %36 = ptrtoint i32* %0 to i64\l  %37 = sub i64 %35, %36\l  %38 = ashr exact i64 %37, 2\l  br label %39\l}"];
+	Node0x17a3170 -> Node0x17a31c0;
+	Node0x17a31c0 [shape=record,label="{%39:\l39:                                               \l  %40 = phi i64 [ %38, %33 ], [ %6, %5 ], [ %21, %17 ], [ %23, %22 ]\l  ret i64 %40\l}"];
+}

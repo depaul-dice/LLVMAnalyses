@@ -1,0 +1,5 @@
+digraph "CFG for 'mclose' function" {
+	label="CFG for 'mclose' function";
+
+	Node0x1643440 [shape=record,label="{%1:\l  ret i32 0\l}"];
+}

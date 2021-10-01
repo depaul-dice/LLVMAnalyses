@@ -1,0 +1,25 @@
+digraph "CFG for 'modff' function" {
+	label="CFG for 'modff' function";
+
+	Node0x154d570 [shape=record,label="{%2:\l  %3 = bitcast float %0 to i32\l  %4 = lshr i32 %3, 23\l  %5 = and i32 %4, 255\l  %6 = add nsw i32 %5, -127\l  %7 = icmp ugt i32 %5, 149\l  br i1 %7, label %8, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x154d570:s0 -> Node0x154d5c0;
+	Node0x154d570:s1 -> Node0x154d660;
+	Node0x154d5c0 [shape=record,label="{%8:\l8:                                                \l  store float %0, float* %1, align 4, !tbaa !1632\l  %9 = icmp ne i32 %6, 128\l  %10 = and i32 %3, 8388607\l  %11 = icmp eq i32 %10, 0\l  %12 = or i1 %11, %9\l  br i1 %12, label %13, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x154d5c0:s0 -> Node0x154d610;
+	Node0x154d5c0:s1 -> Node0x154d7f0;
+	Node0x154d610 [shape=record,label="{%13:\l13:                                               \l  %14 = and i32 %3, -2147483648\l  %15 = bitcast i32 %14 to float\l  br label %34\l}"];
+	Node0x154d610 -> Node0x154d7f0;
+	Node0x154d660 [shape=record,label="{%16:\l16:                                               \l  %17 = icmp ult i32 %5, 127\l  br i1 %17, label %18, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x154d660:s0 -> Node0x154d6b0;
+	Node0x154d660:s1 -> Node0x154d700;
+	Node0x154d6b0 [shape=record,label="{%18:\l18:                                               \l  %19 = and i32 %3, -2147483648\l  %20 = bitcast float* %1 to i32*\l  store i32 %19, i32* %20, align 4, !tbaa !1632\l  br label %34\l}"];
+	Node0x154d6b0 -> Node0x154d7f0;
+	Node0x154d700 [shape=record,label="{%21:\l21:                                               \l  %22 = lshr i32 8388607, %6\l  %23 = and i32 %22, %3\l  %24 = icmp eq i32 %23, 0\l  br i1 %24, label %25, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x154d700:s0 -> Node0x154d750;
+	Node0x154d700:s1 -> Node0x154d7a0;
+	Node0x154d750 [shape=record,label="{%25:\l25:                                               \l  store float %0, float* %1, align 4, !tbaa !1632\l  %26 = and i32 %3, -2147483648\l  %27 = bitcast i32 %26 to float\l  br label %34\l}"];
+	Node0x154d750 -> Node0x154d7f0;
+	Node0x154d7a0 [shape=record,label="{%28:\l28:                                               \l  %29 = ashr i32 -8388608, %6\l  %30 = and i32 %29, %3\l  %31 = bitcast i32 %30 to float\l  %32 = bitcast float* %1 to i32*\l  store i32 %30, i32* %32, align 4, !tbaa !1632\l  %33 = tail call float @llvm.experimental.constrained.fsub.f32(float %0,\l... float %31, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %34\l}"];
+	Node0x154d7a0 -> Node0x154d7f0;
+	Node0x154d7f0 [shape=record,label="{%34:\l34:                                               \l  %35 = phi float [ %15, %13 ], [ %0, %18 ], [ %27, %25 ], [ %33, %28 ], [ %0,\l... %8 ]\l  ret float %35\l}"];
+}

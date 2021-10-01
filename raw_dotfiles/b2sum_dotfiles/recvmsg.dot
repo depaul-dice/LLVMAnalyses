@@ -1,0 +1,15 @@
+digraph "CFG for 'recvmsg' function" {
+	label="CFG for 'recvmsg' function";
+
+	Node0x1ffd300 [shape=record,label="{%3:\l  %4 = alloca %struct.msghdr, align 8\l  %5 = bitcast %struct.msghdr* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 56, i8* nonnull %5) #40\l  %6 = icmp ne %struct.msghdr* %1, null\l  br i1 %6, label %7, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1ffd300:s0 -> Node0x1ffeb20;
+	Node0x1ffd300:s1 -> Node0x1ffebf0;
+	Node0x1ffeb20 [shape=record,label="{%7:\l7:                                                \l  %8 = bitcast %struct.msghdr* %1 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8 dereferenceable(56)\l... %5, i8* nonnull align 8 dereferenceable(56) %8, i64 56, i1 false),\l... !tbaa.struct !1632\l  %9 = getelementptr inbounds %struct.msghdr, %struct.msghdr* %4, i64 0, i32 7\l  store i32 0, i32* %9, align 4, !tbaa !1639\l  %10 = getelementptr inbounds %struct.msghdr, %struct.msghdr* %4, i64 0, i32 4\l  store i32 0, i32* %10, align 4, !tbaa !1641\l  %11 = ptrtoint %struct.msghdr* %4 to i64\l  br label %12\l}"];
+	Node0x1ffeb20 -> Node0x1ffebf0;
+	Node0x1ffebf0 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i64 [ %11, %7 ], [ 0, %3 ]\l  %14 = sext i32 %0 to i64\l  %15 = sext i32 %2 to i64\l  %16 = call i64 @__syscall_cp(i64 47, i64 %14, i64 %13, i64 %15, i64 0, i64\l... 0, i64 0) #41\l  %17 = call i64 @__syscall_ret(i64 %16) #41\l  br i1 %6, label %18, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1ffebf0:s0 -> Node0x1ffec40;
+	Node0x1ffebf0:s1 -> Node0x1ffec90;
+	Node0x1ffec40 [shape=record,label="{%18:\l18:                                               \l  %19 = bitcast %struct.msghdr* %1 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8 dereferenceable(56)\l... %19, i8* nonnull align 8 dereferenceable(56) %5, i64 56, i1 false),\l... !tbaa.struct !1632\l  br label %20\l}"];
+	Node0x1ffec40 -> Node0x1ffec90;
+	Node0x1ffec90 [shape=record,label="{%20:\l20:                                               \l  call void @llvm.lifetime.end.p0i8(i64 56, i8* nonnull %5) #40\l  ret i64 %17\l}"];
+}

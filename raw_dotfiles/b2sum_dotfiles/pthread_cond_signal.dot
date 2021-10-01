@@ -1,0 +1,18 @@
+digraph "CFG for 'pthread_cond_signal' function" {
+	label="CFG for 'pthread_cond_signal' function";
+
+	Node0x1f55480 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.pthread_cond_t, %struct.pthread_cond_t*\l... %0, i64 0, i32 0, i32 0, i64 0\l  %3 = load i8*, i8** %2, align 8, !tbaa !1632\l  %4 = icmp eq i8* %3, null\l  br i1 %4, label %5, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1f55480:s0 -> Node0x1f554d0;
+	Node0x1f55480:s1 -> Node0x1f55520;
+	Node0x1f554d0 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i32 @__private_cond_signal(%struct.pthread_cond_t* nonnull\l... %0, i32 1) #40\l  br label %20\l}"];
+	Node0x1f554d0 -> Node0x1f55610;
+	Node0x1f55520 [shape=record,label="{%7:\l7:                                                \l  %8 = bitcast %struct.pthread_cond_t* %0 to [12 x i32]*\l  %9 = getelementptr inbounds [12 x i32], [12 x i32]* %8, i64 0, i64 3\l  %10 = load volatile i32, i32* %9, align 4, !tbaa !1632\l  %11 = icmp eq i32 %10, 0\l  br i1 %11, label %20, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1f55520:s0 -> Node0x1f55610;
+	Node0x1f55520:s1 -> Node0x1f55570;
+	Node0x1f55570 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds %struct.pthread_cond_t, %struct.pthread_cond_t*\l... %0, i64 0, i32 0, i32 0, i64 1\l  %14 = bitcast i8** %13 to i32*\l  tail call void asm sideeffect \"lock \l  %15 = ptrtoint i8** %13 to i64\l  %16 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %15, i64 1, i64 1) #41, !srcloc !1636\l  %17 = icmp eq i64 %16, -38\l  br i1 %17, label %18, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1f55570:s0 -> Node0x1f555c0;
+	Node0x1f55570:s1 -> Node0x1f55610;
+	Node0x1f555c0 [shape=record,label="{%18:\l18:                                               \l  %19 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %15, i64 1, i64 1) #41, !srcloc !1636\l  br label %20\l}"];
+	Node0x1f555c0 -> Node0x1f55610;
+	Node0x1f55610 [shape=record,label="{%20:\l20:                                               \l  %21 = phi i32 [ %6, %5 ], [ 0, %7 ], [ 0, %12 ], [ 0, %18 ]\l  ret i32 %21\l}"];
+}

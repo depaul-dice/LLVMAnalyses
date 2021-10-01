@@ -1,0 +1,10 @@
+digraph "CFG for 'posix_spawnp' function" {
+	label="CFG for 'posix_spawnp' function";
+
+	Node0x1929c10 [shape=record,label="{%6:\l  %7 = alloca %struct.posix_spawnattr_t, align 8\l  %8 = bitcast %struct.posix_spawnattr_t* %7 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 336, i8* nonnull %8) #40\l  call void @llvm.memset.p0i8.i64(i8* nonnull align 8 dereferenceable(336) %8,\l... i8 0, i64 336, i1 false)\l  %9 = icmp eq %struct.posix_spawnattr_t* %3, null\l  br i1 %9, label %12, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1929c10:s0 -> Node0x1929cb0;
+	Node0x1929c10:s1 -> Node0x1929c60;
+	Node0x1929c60 [shape=record,label="{%10:\l10:                                               \l  %11 = bitcast %struct.posix_spawnattr_t* %3 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8\l... dereferenceable(336) %8, i8* nonnull align 8 dereferenceable(336) %11, i64\l... 336, i1 false), !tbaa.struct !1632\l  br label %12\l}"];
+	Node0x1929c60 -> Node0x1929cb0;
+	Node0x1929cb0 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds %struct.posix_spawnattr_t,\l... %struct.posix_spawnattr_t* %7, i64 0, i32 6\l  store i8* bitcast (i32 (i8*, i8**, i8**)* @__execvpe to i8*), i8** %13,\l... align 8, !tbaa !1640\l  %14 = call i32 @posix_spawn(i32* %0, i8* %1,\l... %struct.posix_spawn_file_actions_t* %2, %struct.posix_spawnattr_t* nonnull\l... %7, i8** %4, i8** %5) #41\l  call void @llvm.lifetime.end.p0i8(i64 336, i8* nonnull %8) #40\l  ret i32 %14\l}"];
+}

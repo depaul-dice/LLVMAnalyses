@@ -1,0 +1,5 @@
+digraph "CFG for 'feupdateenv' function" {
+	label="CFG for 'feupdateenv' function";
+
+	Node0x1c4d460 [shape=record,label="{%1:\l  %2 = tail call i32 @fetestexcept(i32 63) #40\l  %3 = tail call i32 @fesetenv(%struct.fenv_t* %0) #40\l  %4 = tail call i32 @feraiseexcept(i32 %2) #40\l  ret i32 0\l}"];
+}

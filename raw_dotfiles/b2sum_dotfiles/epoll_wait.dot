@@ -1,0 +1,5 @@
+digraph "CFG for 'epoll_wait' function" {
+	label="CFG for 'epoll_wait' function";
+
+	Node0x1d1cef0 [shape=record,label="{%4:\l  %5 = tail call i32 @epoll_pwait(i32 %0, %struct.epoll_event* %1, i32 %2, i32\l... %3, %struct.__sigset_t* null) #40\l  ret i32 %5\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'thrd_yield' function" {
+	label="CFG for 'thrd_yield' function";
+
+	Node0x1fec630 [shape=record,label="{%0:\l  %1 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 24) #40,\l... !srcloc !1632\l  ret void\l}"];
+}

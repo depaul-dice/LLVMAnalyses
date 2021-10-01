@@ -1,0 +1,5 @@
+digraph "CFG for 'grantpt' function" {
+	label="CFG for 'grantpt' function";
+
+	Node0x1c312f0 [shape=record,label="{%1:\l  ret i32 0\l}"];
+}

@@ -1,0 +1,48 @@
+digraph "CFG for 'evalprim' function" {
+	label="CFG for 'evalprim' function";
+
+	Node0x18db330 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f5c1a970",label="{%3:\l  %4 = alloca i8*, align 8\l  %5 = bitcast i8** %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %5) #29\l  %6 = add nsw i32 %2, -1\l  %7 = icmp slt i32 %2, 1\l  %8 = getelementptr inbounds [1 x i8], [1 x i8]* @.str.490, i64 0, i64 0\l  br i1 %7, label %NewDefault, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x18db330:s0 -> Node0x18dc2a0;
+	Node0x18db330:s1 -> Node0x18dbe40;
+	Node0x18dbe40 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%9:\l9:                                                \l  %10 = phi i8* [ %17, %9 ], [ %1, %3 ]\l  %11 = load i8, i8* %10, align 1, !tbaa !1632\l  %12 = sext i8 %11 to i32\l  %13 = icmp ne i8 %11, 32\l  %14 = add nsw i32 %12, -9\l  %15 = icmp ugt i32 %14, 4\l  %16 = and i1 %13, %15\l  %17 = getelementptr inbounds i8, i8* %10, i64 1\l  br i1 %16, label %18, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x18dbe40:s0 -> Node0x18dbe90;
+	Node0x18dbe40:s1 -> Node0x18dbe40;
+	Node0x18dbe90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#efcebd70",label="{%18:\l18:                                               \l  %19 = add nsw i32 %12, -48\l  %20 = icmp ult i32 %19, 10\l  br i1 %20, label %21, label %NodeBlock5\l|{<s0>T|<s1>F}}"];
+	Node0x18dbe90:s0 -> Node0x18dbee0;
+	Node0x18dbe90:s1 -> Node0x18dbf80;
+	Node0x18dbee0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dedcdb70",label="{%21:\l21:                                               \l  %22 = call i64 @strtoul(i8* nonnull %10, i8** nonnull %4, i32 10) #30\l  %23 = getelementptr inbounds %struct.st, %struct.st* %0, i64 0, i32 0\l  store i64 %22, i64* %23, align 8, !tbaa !1635\l  %24 = load i8*, i8** %4, align 8, !tbaa !1639\l  %25 = icmp eq i8* %24, %10\l  %26 = icmp eq i64 %22, -1\l  %27 = or i1 %26, %25\l  %28 = getelementptr inbounds [1 x i8], [1 x i8]* @.str.490, i64 0, i64 0\l  br i1 %27, label %NewDefault, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x18dbee0:s0 -> Node0x18dc2a0;
+	Node0x18dbee0:s1 -> Node0x18dbf30;
+	Node0x18dbf30 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e97a5f70",label="{%29:\l29:                                               \l  %30 = phi i8* [ %37, %29 ], [ %24, %21 ]\l  %31 = load i8, i8* %30, align 1, !tbaa !1632\l  %32 = sext i8 %31 to i32\l  %33 = icmp ne i8 %31, 32\l  %34 = add nsw i32 %32, -9\l  %35 = icmp ugt i32 %34, 4\l  %36 = and i1 %33, %35\l  %37 = getelementptr inbounds i8, i8* %30, i64 1\l  br i1 %36, label %NewDefault, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x18dbf30:s0 -> Node0x18dc2a0;
+	Node0x18dbf30:s1 -> Node0x18dbf30;
+	Node0x18dbf80 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dedcdb70",label="{NodeBlock5:                                       \l  %Pivot6 = icmp slt i8 %11, 40\l  br i1 %Pivot6, label %LeafBlock, label %NodeBlock\l|{<s0>T|<s1>F}}"];
+	Node0x18dbf80:s0 -> Node0x18dc0c0;
+	Node0x18dbf80:s1 -> Node0x18dbfd0;
+	Node0x18dbfd0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{NodeBlock:                                        \l  %Pivot = icmp slt i8 %11, 110\l  br i1 %Pivot, label %LeafBlock1, label %LeafBlock3\l|{<s0>T|<s1>F}}"];
+	Node0x18dbfd0:s0 -> Node0x18dc070;
+	Node0x18dbfd0:s1 -> Node0x18dc020;
+	Node0x18dc020 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#abc8fd70",label="{LeafBlock3:                                       \l  %SwitchLeaf4 = icmp eq i8 %11, 110\l  %38 = getelementptr inbounds [1 x i8], [1 x i8]* @.str.490, i64 0, i64 0\l  br i1 %SwitchLeaf4, label %41, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x18dc020:s0 -> Node0x18dc110;
+	Node0x18dc020:s1 -> Node0x18dc2a0;
+	Node0x18dc070 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#abc8fd70",label="{LeafBlock1:                                       \l  %SwitchLeaf2 = icmp eq i8 %11, 40\l  %39 = getelementptr inbounds [1 x i8], [1 x i8]* @.str.490, i64 0, i64 0\l  br i1 %SwitchLeaf2, label %54, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x18dc070:s0 -> Node0x18dc1b0;
+	Node0x18dc070:s1 -> Node0x18dc2a0;
+	Node0x18dc0c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{LeafBlock:                                        \l  %SwitchLeaf = icmp eq i8 %11, 33\l  %40 = getelementptr inbounds [1 x i8], [1 x i8]* @.str.490, i64 0, i64 0\l  br i1 %SwitchLeaf, label %68, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x18dc0c0:s0 -> Node0x18dc250;
+	Node0x18dc0c0:s1 -> Node0x18dc2a0;
+	Node0x18dc110 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#8fb1fe70",label="{%41:\l41:                                               \l  %42 = getelementptr inbounds %struct.st, %struct.st* %0, i64 0, i32 1\l  %43 = load i64, i64* %42, align 8, !tbaa !1641\l  %44 = getelementptr inbounds %struct.st, %struct.st* %0, i64 0, i32 0\l  store i64 %43, i64* %44, align 8, !tbaa !1635\l  br label %45\l}"];
+	Node0x18dc110 -> Node0x18dc160;
+	Node0x18dc160 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b99e70",label="{%45:\l45:                                               \l  %46 = phi i8* [ %17, %41 ], [ %53, %45 ]\l  %47 = load i8, i8* %46, align 1, !tbaa !1632\l  %48 = sext i8 %47 to i32\l  %49 = icmp ne i8 %47, 32\l  %50 = add nsw i32 %48, -9\l  %51 = icmp ugt i32 %50, 4\l  %52 = and i1 %49, %51\l  %53 = getelementptr inbounds i8, i8* %46, i64 1\l  br i1 %52, label %NewDefault, label %45\l|{<s0>T|<s1>F}}"];
+	Node0x18dc160:s0 -> Node0x18dc2a0;
+	Node0x18dc160:s1 -> Node0x18dc160;
+	Node0x18dc1b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#8fb1fe70",label="{%54:\l54:                                               \l  %55 = tail call fastcc i8* @evalexpr(%struct.st* %0, i8* nonnull %17, i32\l... %6) #31\l  %56 = load i8, i8* %55, align 1, !tbaa !1632\l  %57 = icmp eq i8 %56, 41\l  %58 = getelementptr inbounds [1 x i8], [1 x i8]* @.str.490, i64 0, i64 0\l  br i1 %57, label %59, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x18dc1b0:s0 -> Node0x18dc200;
+	Node0x18dc1b0:s1 -> Node0x18dc2a0;
+	Node0x18dc200 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#efcebd70",label="{%59:\l59:                                               \l  %60 = phi i8* [ %61, %59 ], [ %55, %54 ]\l  %61 = getelementptr inbounds i8, i8* %60, i64 1\l  %62 = load i8, i8* %61, align 1, !tbaa !1632\l  %63 = sext i8 %62 to i32\l  %64 = icmp ne i8 %62, 32\l  %65 = add nsw i32 %63, -9\l  %66 = icmp ugt i32 %65, 4\l  %67 = and i1 %64, %66\l  br i1 %67, label %NewDefault, label %59\l|{<s0>T|<s1>F}}"];
+	Node0x18dc200:s0 -> Node0x18dc2a0;
+	Node0x18dc200:s1 -> Node0x18dc200;
+	Node0x18dc250 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#abc8fd70",label="{%68:\l68:                                               \l  %69 = tail call fastcc i8* @evalprim(%struct.st* %0, i8* nonnull %17, i32\l... %6) #31\l  %70 = getelementptr inbounds %struct.st, %struct.st* %0, i64 0, i32 0\l  %71 = load i64, i64* %70, align 8, !tbaa !1635\l  %72 = icmp eq i64 %71, 0\l  %73 = zext i1 %72 to i64\l  store i64 %73, i64* %70, align 8, !tbaa !1635\l  br label %NewDefault\l}"];
+	Node0x18dc250 -> Node0x18dc2a0;
+	Node0x18dc2a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f5c1a970",label="{NewDefault:                                       \l  %74 = phi i8* [ %69, %68 ], [ %8, %3 ], [ %28, %21 ], [ %58, %54 ], [ %30,\l... %29 ], [ %46, %45 ], [ %61, %59 ], [ %38, %LeafBlock3 ], [ %39, %LeafBlock1\l... ], [ %40, %LeafBlock ]\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %5) #29\l  ret i8* %74\l}"];
+}

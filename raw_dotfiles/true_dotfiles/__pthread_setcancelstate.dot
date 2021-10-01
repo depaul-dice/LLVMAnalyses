@@ -1,0 +1,15 @@
+digraph "CFG for '__pthread_setcancelstate' function" {
+	label="CFG for '__pthread_setcancelstate' function";
+
+	Node0x1576bd0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = icmp ugt i32 %0, 2\l  br i1 %3, label %14, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1576bd0:s0 -> Node0x15a82e0;
+	Node0x1576bd0:s1 -> Node0x15a81f0;
+	Node0x15a81f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3947570",label="{%4:\l4:                                                \l  %5 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #26, !srcloc !1086\l  %6 = icmp eq i32* %1, null\l  br i1 %6, label %11, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x15a81f0:s0 -> Node0x15a8290;
+	Node0x15a81f0:s1 -> Node0x15a8240;
+	Node0x15a8240 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6bfa670",label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %5, i64 0,\l... i32 11\l  %9 = load volatile i8, i8* %8, align 8, !tbaa !1087\l  %10 = zext i8 %9 to i32\l  store i32 %10, i32* %1, align 4, !tbaa !1095\l  br label %11\l}"];
+	Node0x15a8240 -> Node0x15a8290;
+	Node0x15a8290 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3947570",label="{%11:\l11:                                               \l  %12 = trunc i32 %0 to i8\l  %13 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %5, i64\l... 0, i32 11\l  store volatile i8 %12, i8* %13, align 8, !tbaa !1087\l  br label %14\l}"];
+	Node0x15a8290 -> Node0x15a82e0;
+	Node0x15a82e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%14:\l14:                                               \l  %15 = phi i32 [ 0, %11 ], [ 22, %2 ]\l  ret i32 %15\l}"];
+}

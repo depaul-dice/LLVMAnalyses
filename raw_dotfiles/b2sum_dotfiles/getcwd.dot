@@ -1,0 +1,29 @@
+digraph "CFG for 'getcwd' function" {
+	label="CFG for 'getcwd' function";
+
+	Node0x1bdfee0 [shape=record,label="{%2:\l  %3 = icmp ne i8* %0, null\l  %4 = select i1 %3, i64 1, i64 4096\l  %5 = alloca i8, i64 %4, align 16\l  br i1 %3, label %6, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1bdfee0:s0 -> Node0x1bdfff0;
+	Node0x1bdfee0:s1 -> Node0x1be0090;
+	Node0x1bdfff0 [shape=record,label="{%6:\l6:                                                \l  %7 = icmp eq i64 %1, 0\l  br i1 %7, label %8, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1bdfff0:s0 -> Node0x1be0040;
+	Node0x1bdfff0:s1 -> Node0x1be0090;
+	Node0x1be0040 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %9, align 4, !tbaa !1632\l  br label %28\l}"];
+	Node0x1be0040 -> Node0x1be0270;
+	Node0x1be0090 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i64 [ %1, %6 ], [ 4096, %2 ]\l  %12 = phi i8* [ %0, %6 ], [ %5, %2 ]\l  %13 = ptrtoint i8* %12 to i64\l  %14 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64\l... 79, i64 %13, i64 %11) #41, !srcloc !1636\l  %15 = call i64 @__syscall_ret(i64 %14) #40\l  %16 = icmp slt i64 %15, 0\l  br i1 %16, label %28, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1be0090:s0 -> Node0x1be0270;
+	Node0x1be0090:s1 -> Node0x1be00e0;
+	Node0x1be00e0 [shape=record,label="{%17:\l17:                                               \l  %18 = icmp eq i64 %15, 0\l  br i1 %18, label %22, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1be00e0:s0 -> Node0x1be0180;
+	Node0x1be00e0:s1 -> Node0x1be0130;
+	Node0x1be0130 [shape=record,label="{%19:\l19:                                               \l  %20 = load i8, i8* %12, align 1, !tbaa !1637\l  %21 = icmp eq i8 %20, 47\l  br i1 %21, label %24, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1be0130:s0 -> Node0x1be01d0;
+	Node0x1be0130:s1 -> Node0x1be0180;
+	Node0x1be0180 [shape=record,label="{%22:\l22:                                               \l  %23 = call i32* @___errno_location() #40\l  store i32 2, i32* %23, align 4, !tbaa !1632\l  br label %28\l}"];
+	Node0x1be0180 -> Node0x1be0270;
+	Node0x1be01d0 [shape=record,label="{%24:\l24:                                               \l  %25 = icmp eq i8* %12, %5\l  br i1 %25, label %26, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1be01d0:s0 -> Node0x1be0220;
+	Node0x1be01d0:s1 -> Node0x1be0270;
+	Node0x1be0220 [shape=record,label="{%26:\l26:                                               \l  %27 = call i8* @strdup(i8* nonnull %5) #40\l  br label %28\l}"];
+	Node0x1be0220 -> Node0x1be0270;
+	Node0x1be0270 [shape=record,label="{%28:\l28:                                               \l  %29 = phi i8* [ null, %8 ], [ null, %22 ], [ null, %10 ], [ %27, %26 ], [\l... %12, %24 ]\l  ret i8* %29\l}"];
+}

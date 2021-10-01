@@ -1,0 +1,18 @@
+digraph "CFG for 'if_indextoname' function" {
+	label="CFG for 'if_indextoname' function";
+
+	Node0x17560e0 [shape=record,label="{%2:\l  %3 = alloca %struct.ifreq, align 8\l  %4 = getelementptr inbounds %struct.ifreq, %struct.ifreq* %3, i64 0, i32 0,\l... i32 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 40, i8* nonnull %4) #40\l  %5 = tail call i32 @socket(i32 1, i32 524290, i32 0) #41\l  %6 = icmp slt i32 %5, 0\l  br i1 %6, label %22, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x17560e0:s0 -> Node0x1756310;
+	Node0x17560e0:s1 -> Node0x17561d0;
+	Node0x17561d0 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct.ifreq, %struct.ifreq* %3, i64 0, i32 1\l  %9 = bitcast %union.anon.0.194* %8 to i32*\l  store i32 %0, i32* %9, align 8, !tbaa !1632\l  %10 = call i32 (i32, i32, ...) @ioctl(i32 %5, i32 35088, %struct.ifreq*\l... nonnull %3) #41\l  %11 = zext i32 %5 to i64\l  %12 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 3,\l... i64 %11) #40, !srcloc !1635\l  %13 = icmp slt i32 %10, 0\l  br i1 %13, label %14, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x17561d0:s0 -> Node0x1756220;
+	Node0x17561d0:s1 -> Node0x17562c0;
+	Node0x1756220 [shape=record,label="{%14:\l14:                                               \l  %15 = call i32* @___errno_location() #41\l  %16 = load i32, i32* %15, align 4, !tbaa !1636\l  %17 = icmp eq i32 %16, 19\l  br i1 %17, label %18, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1756220:s0 -> Node0x1756270;
+	Node0x1756220:s1 -> Node0x1756310;
+	Node0x1756270 [shape=record,label="{%18:\l18:                                               \l  %19 = call i32* @___errno_location() #41\l  store i32 6, i32* %19, align 4, !tbaa !1636\l  br label %22\l}"];
+	Node0x1756270 -> Node0x1756310;
+	Node0x17562c0 [shape=record,label="{%20:\l20:                                               \l  %21 = call i8* @strncpy(i8* %1, i8* nonnull %4, i64 16) #41\l  br label %22\l}"];
+	Node0x17562c0 -> Node0x1756310;
+	Node0x1756310 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i8* [ %21, %20 ], [ null, %2 ], [ null, %18 ], [ null, %14 ]\l  call void @llvm.lifetime.end.p0i8(i64 40, i8* nonnull %4) #40\l  ret i8* %23\l}"];
+}

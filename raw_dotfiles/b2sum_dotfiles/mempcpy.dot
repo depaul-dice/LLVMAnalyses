@@ -1,0 +1,5 @@
+digraph "CFG for 'mempcpy' function" {
+	label="CFG for 'mempcpy' function";
+
+	Node0x1b30460 [shape=record,label="{%3:\l  %4 = tail call i8* @memcpy(i8* %0, i8* %1, i64 %2) #40\l  %5 = getelementptr inbounds i8, i8* %4, i64 %2\l  ret i8* %5\l}"];
+}

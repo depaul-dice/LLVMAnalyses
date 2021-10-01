@@ -1,0 +1,28 @@
+digraph "CFG for 'c16rtomb' function" {
+	label="CFG for 'c16rtomb' function";
+
+	Node0x1fd1e30 [shape=record,label="{%3:\l  %4 = icmp eq %struct.FTW* %2, null\l  %5 = select i1 %4, %struct.FTW* bitcast (i32* @c16rtomb.internal_state to\l... %struct.FTW*), %struct.FTW* %2\l  %6 = getelementptr %struct.FTW, %struct.FTW* %5, i64 0, i32 0\l  %7 = icmp eq i8* %0, null\l  %8 = load i32, i32* %6, align 4, !tbaa !1632\l  %9 = icmp ne i32 %8, 0\l  br i1 %7, label %10, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1fd1e30:s0 -> Node0x1fd1e80;
+	Node0x1fd1e30:s1 -> Node0x1fd22f0;
+	Node0x1fd1e80 [shape=record,label="{%10:\l10:                                               \l  br i1 %9, label %27, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x1fd1e80:s0 -> Node0x1fd24d0;
+	Node0x1fd1e80:s1 -> Node0x1fd2520;
+	Node0x1fd22f0 [shape=record,label="{%11:\l11:                                               \l  %12 = zext i16 %1 to i32\l  %13 = and i32 %12, 64512\l  br i1 %9, label %19, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1fd22f0:s0 -> Node0x1fd23e0;
+	Node0x1fd22f0:s1 -> Node0x1fd2340;
+	Node0x1fd2340 [shape=record,label="{%14:\l14:                                               \l  %15 = icmp eq i32 %13, 55296\l  br i1 %15, label %16, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x1fd2340:s0 -> Node0x1fd2390;
+	Node0x1fd2340:s1 -> Node0x1fd2480;
+	Node0x1fd2390 [shape=record,label="{%16:\l16:                                               \l  %17 = shl nuw nsw i32 %12, 10\l  %18 = add nsw i32 %17, -56557568\l  store i32 %18, i32* %6, align 4, !tbaa !1632\l  br label %29\l}"];
+	Node0x1fd2390 -> Node0x1fd2520;
+	Node0x1fd23e0 [shape=record,label="{%19:\l19:                                               \l  %20 = icmp eq i32 %13, 56320\l  br i1 %20, label %21, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x1fd23e0:s0 -> Node0x1fd2430;
+	Node0x1fd23e0:s1 -> Node0x1fd24d0;
+	Node0x1fd2430 [shape=record,label="{%21:\l21:                                               \l  %22 = add nsw i32 %12, -56320\l  %23 = add i32 %22, %8\l  store i32 0, i32* %6, align 4, !tbaa !1632\l  br label %24\l}"];
+	Node0x1fd2430 -> Node0x1fd2480;
+	Node0x1fd2480 [shape=record,label="{%24:\l24:                                               \l  %25 = phi i32 [ %23, %21 ], [ %12, %14 ]\l  %26 = tail call i64 @wcrtomb(i8* nonnull %0, i32 %25, %struct.FTW* null) #40\l  br label %29\l}"];
+	Node0x1fd2480 -> Node0x1fd2520;
+	Node0x1fd24d0 [shape=record,label="{%27:\l27:                                               \l  store i32 0, i32* %6, align 4, !tbaa !1632\l  %28 = tail call i32* @___errno_location() #40\l  store i32 84, i32* %28, align 4, !tbaa !1632\l  br label %29\l}"];
+	Node0x1fd24d0 -> Node0x1fd2520;
+	Node0x1fd2520 [shape=record,label="{%29:\l29:                                               \l  %30 = phi i64 [ -1, %27 ], [ %26, %24 ], [ 0, %16 ], [ 1, %10 ]\l  ret i64 %30\l}"];
+}

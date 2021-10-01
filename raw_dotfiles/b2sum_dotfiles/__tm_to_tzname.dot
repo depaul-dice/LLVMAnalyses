@@ -1,0 +1,19 @@
+digraph "CFG for '__tm_to_tzname' function" {
+	label="CFG for '__tm_to_tzname' function";
+
+	Node0x16b9830 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.tm, %struct.tm* %0, i64 0, i32 10\l  %3 = load i8*, i8** %2, align 8, !tbaa !1632\l  tail call void @__lock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock, i64 0, i64 0)) #40\l  tail call fastcc void @do_tzset() #41\l  %4 = icmp eq i8* %3, getelementptr inbounds ([4 x i8], [4 x i8]* @__utc, i64\l... 0, i64 0)\l  br i1 %4, label %22, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x16b9830:s0 -> Node0x16b9a00;
+	Node0x16b9830:s1 -> Node0x16b98c0;
+	Node0x16b98c0 [shape=record,label="{%5:\l5:                                                \l  %6 = load i8*, i8** getelementptr inbounds ([2 x i8*], [2 x i8*]* @__tzname,\l... i64 0, i64 0), align 16, !tbaa !1639\l  %7 = icmp eq i8* %3, %6\l  %8 = load i8*, i8** getelementptr inbounds ([2 x i8*], [2 x i8*]* @__tzname,\l... i64 0, i64 1), align 8\l  %9 = icmp eq i8* %3, %8\l  %10 = or i1 %7, %9\l  br i1 %10, label %22, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x16b98c0:s0 -> Node0x16b9a00;
+	Node0x16b98c0:s1 -> Node0x16b9910;
+	Node0x16b9910 [shape=record,label="{%11:\l11:                                               \l  %12 = load i8*, i8** @zi, align 8, !tbaa !1639\l  %13 = icmp eq i8* %12, null\l  br i1 %13, label %21, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x16b9910:s0 -> Node0x16b99b0;
+	Node0x16b9910:s1 -> Node0x16b9960;
+	Node0x16b9960 [shape=record,label="{%14:\l14:                                               \l  %15 = ptrtoint i8* %3 to i64\l  %16 = load i64, i64* bitcast (i8** @abbrevs to i64*), align 8, !tbaa !1639\l  %17 = sub i64 %15, %16\l  %18 = load i64, i64* bitcast (i8** @abbrevs_end to i64*), align 8, !tbaa\l... !1639\l  %19 = sub i64 %18, %16\l  %20 = icmp ult i64 %17, %19\l  br i1 %20, label %22, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x16b9960:s0 -> Node0x16b9a00;
+	Node0x16b9960:s1 -> Node0x16b99b0;
+	Node0x16b99b0 [shape=record,label="{%21:\l21:                                               \l  br label %22\l}"];
+	Node0x16b99b0 -> Node0x16b9a00;
+	Node0x16b9a00 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i8* [ getelementptr inbounds ([1 x i8], [1 x i8]* @.str.16.123,\l... i64 0, i64 0), %21 ], [ %3, %14 ], [ %3, %5 ], [ getelementptr inbounds ([4 x\l... i8], [4 x i8]* @__utc, i64 0, i64 0), %1 ]\l  tail call void @__unlock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock, i64 0, i64 0)) #40\l  ret i8* %23\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'cimag' function" {
+	label="CFG for 'cimag' function";
+
+	Node0x1fc7760 [shape=record,label="{%2:\l  ret double %1\l}"];
+}

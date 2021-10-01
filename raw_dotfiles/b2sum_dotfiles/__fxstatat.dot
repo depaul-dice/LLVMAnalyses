@@ -1,0 +1,5 @@
+digraph "CFG for '__fxstatat' function" {
+	label="CFG for '__fxstatat' function";
+
+	Node0x1ae5ff0 [shape=record,label="{%5:\l  %6 = tail call i32 @fstatat(i32 %1, i8* %2, %struct.stat* %3, i32 %4) #40\l  ret i32 %6\l}"];
+}

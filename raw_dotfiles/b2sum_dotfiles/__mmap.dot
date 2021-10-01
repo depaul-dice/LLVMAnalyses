@@ -1,0 +1,22 @@
+digraph "CFG for '__mmap' function" {
+	label="CFG for '__mmap' function";
+
+	Node0x1587e20 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%6:\l  %7 = and i64 %5, 4095\l  %8 = icmp eq i64 %7, 0\l  br i1 %8, label %12, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1587e20:s0 -> Node0x1587ec0;
+	Node0x1587e20:s1 -> Node0x1587e70;
+	Node0x1587e70 [shape=record,color="#b70d28ff", style=filled, fillcolor="#dc5d4a70",label="{%9:\l9:                                                \l  %10 = tail call fastcc i32* @__errno_location() #29\l  store i32 22, i32* %10, align 4, !tbaa !1632\l  %11 = inttoptr i64 -1 to i8*\l  br label %36\l}"];
+	Node0x1587e70 -> Node0x1588050;
+	Node0x1587ec0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f2907270",label="{%12:\l12:                                               \l  %13 = icmp ugt i64 %1, 9223372036854775806\l  br i1 %13, label %14, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1587ec0:s0 -> Node0x1587f10;
+	Node0x1587ec0:s1 -> Node0x1587f60;
+	Node0x1587f10 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f2cab570",label="{%14:\l14:                                               \l  %15 = tail call fastcc i32* @__errno_location() #29\l  store i32 12, i32* %15, align 4, !tbaa !1632\l  %16 = inttoptr i64 -1 to i8*\l  br label %36\l}"];
+	Node0x1587f10 -> Node0x1588050;
+	Node0x1587f60 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f2cab570",label="{%17:\l17:                                               \l  %18 = and i32 %3, 16\l  %19 = icmp eq i32 %18, 0\l  br i1 %19, label %21, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1587f60:s0 -> Node0x1588000;
+	Node0x1587f60:s1 -> Node0x1587fb0;
+	Node0x1587fb0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%20:\l20:                                               \l  tail call fastcc void @__vm_wait() #29\l  br label %21\l}"];
+	Node0x1587fb0 -> Node0x1588000;
+	Node0x1588000 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f2cab570",label="{%21:\l21:                                               \l  %22 = ptrtoint i8* %0 to i64\l  %23 = sext i32 %2 to i64\l  %24 = sext i32 %3 to i64\l  %25 = sext i32 %4 to i64\l  %26 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},\{r8\},\{r9\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},\l...~\{fpsr\},~\{flags\}\"(i64 9, i64 %22, i64 %1, i64 %23, i64 %24, i64 %25, i64 %5)\l... #30, !srcloc !1636\l  %27 = icmp ne i64 %26, -1\l  %28 = icmp ne i8* %0, null\l  %29 = or i1 %28, %27\l  %30 = and i32 %3, 48\l  %31 = icmp eq i32 %30, 32\l  %32 = select i1 %31, i64 -12, i64 -1\l  %33 = select i1 %29, i64 %26, i64 %32\l  %34 = tail call fastcc i64 @__syscall_ret(i64 %33) #29\l  %35 = inttoptr i64 %34 to i8*\l  br label %36\l}"];
+	Node0x1588000 -> Node0x1588050;
+	Node0x1588050 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%36:\l36:                                               \l  %37 = phi i8* [ %11, %9 ], [ %16, %14 ], [ %35, %21 ]\l  ret i8* %37\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'posix_spawn_file_actions_init' function" {
+	label="CFG for 'posix_spawn_file_actions_init' function";
+
+	Node0x1be1570 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.posix_spawn_file_actions_t,\l... %struct.posix_spawn_file_actions_t* %0, i64 0, i32 1\l  store i8* null, i8** %2, align 8, !tbaa !1632\l  ret i32 0\l}"];
+}

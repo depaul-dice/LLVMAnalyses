@@ -1,0 +1,5 @@
+digraph "CFG for '__flbf' function" {
+	label="CFG for '__flbf' function";
+
+	Node0x1c5b1c0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.1002, %struct._IO_FILE.1002*\l... %0, i64 0, i32 20\l  %3 = load i32, i32* %2, align 8, !tbaa !1632\l  %4 = lshr i32 %3, 31\l  %5 = xor i32 %4, 1\l  ret i32 %5\l}"];
+}

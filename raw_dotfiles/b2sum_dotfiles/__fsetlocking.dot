@@ -1,0 +1,5 @@
+digraph "CFG for '__fsetlocking' function" {
+	label="CFG for '__fsetlocking' function";
+
+	Node0x1c59bb0 [shape=record,label="{%2:\l  ret i32 0\l}"];
+}

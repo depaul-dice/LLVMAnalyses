@@ -1,0 +1,12 @@
+digraph "CFG for 'random' function" {
+	label="CFG for 'random' function";
+
+	Node0x184be90 [shape=record,label="{%0:\l  tail call void @__lock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.38, i64 0, i64 0)) #40\l  %1 = load i32, i32* @n, align 4, !tbaa !1632\l  %2 = icmp eq i32 %1, 0\l  %3 = load i32*, i32** @x, align 8, !tbaa !1636\l  br i1 %2, label %4, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x184be90:s0 -> Node0x184ca10;
+	Node0x184be90:s1 -> Node0x184ca60;
+	Node0x184ca10 [shape=record,label="{%4:\l4:                                                \l  %5 = load i32, i32* %3, align 4, !tbaa !1632\l  %6 = mul i32 %5, 1103515245\l  %7 = add i32 %6, 12345\l  %8 = and i32 %7, 2147483647\l  store i32 %8, i32* %3, align 4, !tbaa !1632\l  br label %26\l}"];
+	Node0x184ca10 -> Node0x184cab0;
+	Node0x184ca60 [shape=record,label="{%9:\l9:                                                \l  %10 = load i32, i32* @j, align 4, !tbaa !1632\l  %11 = sext i32 %10 to i64\l  %12 = getelementptr inbounds i32, i32* %3, i64 %11\l  %13 = load i32, i32* %12, align 4, !tbaa !1632\l  %14 = load i32, i32* @i, align 4, !tbaa !1632\l  %15 = sext i32 %14 to i64\l  %16 = getelementptr inbounds i32, i32* %3, i64 %15\l  %17 = load i32, i32* %16, align 4, !tbaa !1632\l  %18 = add i32 %17, %13\l  store i32 %18, i32* %16, align 4, !tbaa !1632\l  %19 = lshr i32 %18, 1\l  %20 = add nsw i32 %14, 1\l  %21 = icmp eq i32 %20, %1\l  %22 = select i1 %21, i32 0, i32 %20\l  store i32 %22, i32* @i, align 4\l  %23 = add nsw i32 %10, 1\l  %24 = icmp eq i32 %23, %1\l  %25 = select i1 %24, i32 0, i32 %23\l  store i32 %25, i32* @j, align 4\l  br label %26\l}"];
+	Node0x184ca60 -> Node0x184cab0;
+	Node0x184cab0 [shape=record,label="{%26:\l26:                                               \l  %27 = phi i32 [ %8, %4 ], [ %19, %9 ]\l  %28 = zext i32 %27 to i64\l  tail call void @__unlock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.38, i64 0, i64 0)) #40\l  ret i64 %28\l}"];
+}

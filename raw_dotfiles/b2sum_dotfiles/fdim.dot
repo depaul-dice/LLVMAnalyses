@@ -1,0 +1,18 @@
+digraph "CFG for 'fdim' function" {
+	label="CFG for 'fdim' function";
+
+	Node0x1bea8e0 [shape=record,label="{%2:\l  %3 = bitcast double %0 to i64\l  %4 = and i64 %3, 9223372036854775807\l  %5 = icmp ugt i64 %4, 9218868437227405312\l  br i1 %5, label %16, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1bea8e0:s0 -> Node0x1beae10;
+	Node0x1bea8e0:s1 -> Node0x1beacd0;
+	Node0x1beacd0 [shape=record,label="{%6:\l6:                                                \l  %7 = bitcast double %1 to i64\l  %8 = and i64 %7, 9223372036854775807\l  %9 = icmp ugt i64 %8, 9218868437227405312\l  br i1 %9, label %16, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1beacd0:s0 -> Node0x1beae10;
+	Node0x1beacd0:s1 -> Node0x1bead20;
+	Node0x1bead20 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call i1 @llvm.experimental.constrained.fcmps.f64(double %0,\l... double %1, metadata !\"ogt\", metadata !\"fpexcept.ignore\") #40\l  br i1 %11, label %12, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1bead20:s0 -> Node0x1bead70;
+	Node0x1bead20:s1 -> Node0x1beadc0;
+	Node0x1bead70 [shape=record,label="{%12:\l12:                                               \l  %13 = tail call double @llvm.experimental.constrained.fsub.f64(double %0,\l... double %1, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %16\l}"];
+	Node0x1bead70 -> Node0x1beae10;
+	Node0x1beadc0 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call double @llvm.experimental.constrained.sitofp.f64.i32(i32 0,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %16\l}"];
+	Node0x1beadc0 -> Node0x1beae10;
+	Node0x1beae10 [shape=record,label="{%16:\l16:                                               \l  %17 = phi double [ %0, %2 ], [ %1, %6 ], [ %13, %12 ], [ %15, %14 ]\l  ret double %17\l}"];
+}

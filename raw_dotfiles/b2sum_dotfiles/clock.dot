@@ -1,0 +1,13 @@
+digraph "CFG for 'clock' function" {
+	label="CFG for 'clock' function";
+
+	Node0x1e8de50 [shape=record,label="{%0:\l  %1 = alloca %struct.timeval, align 8\l  %2 = bitcast %struct.timeval* %1 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %2) #40\l  %3 = call i32 @__clock_gettime(i32 2, %struct.timeval* nonnull %1) #41\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %5, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1e8de50:s0 -> Node0x1e8dea0;
+	Node0x1e8de50:s1 -> Node0x1e8df40;
+	Node0x1e8dea0 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds %struct.timeval, %struct.timeval* %1, i64 0, i32\l... 0\l  %7 = load i64, i64* %6, align 8, !tbaa !1632\l  %8 = icmp sgt i64 %7, 9223372036854\l  br i1 %8, label %18, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1e8dea0:s0 -> Node0x1e8df40;
+	Node0x1e8dea0:s1 -> Node0x1e8def0;
+	Node0x1e8def0 [shape=record,label="{%9:\l9:                                                \l  %10 = getelementptr inbounds %struct.timeval, %struct.timeval* %1, i64 0,\l... i32 1\l  %11 = load i64, i64* %10, align 8, !tbaa !1637\l  %12 = sdiv i64 %11, 1000\l  %13 = mul nsw i64 %7, 1000000\l  %14 = sub nsw i64 9223372036854775807, %13\l  %15 = icmp sgt i64 %12, %14\l  %16 = add nsw i64 %12, %13\l  %17 = select i1 %15, i64 -1, i64 %16\l  br label %18\l}"];
+	Node0x1e8def0 -> Node0x1e8df40;
+	Node0x1e8df40 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i64 [ -1, %0 ], [ -1, %5 ], [ %17, %9 ]\l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %2) #40\l  ret i64 %19\l}"];
+}

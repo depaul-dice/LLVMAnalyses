@@ -1,0 +1,5 @@
+digraph "CFG for 'fputs' function" {
+	label="CFG for 'fputs' function";
+
+	Node0x258a020 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = tail call fastcc i64 @strlen(i8* %0) #26\l  %4 = tail call i64 @fwrite(i8* %0, i64 1, i64 %3, %struct._IO_FILE.0* %1) #26\l  %5 = icmp ne i64 %4, %3\l  %6 = sext i1 %5 to i32\l  ret i32 %6\l}"];
+}

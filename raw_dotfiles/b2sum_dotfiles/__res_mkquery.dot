@@ -1,0 +1,33 @@
+digraph "CFG for '__res_mkquery' function" {
+	label="CFG for '__res_mkquery' function";
+
+	Node0x1747c60 [shape=record,label="{%9:\l  %10 = alloca [280 x i8], align 16\l  %11 = alloca %struct.timeval, align 8\l  %12 = getelementptr inbounds [280 x i8], [280 x i8]* %10, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 280, i8* nonnull %12) #40\l  %13 = bitcast %struct.timeval* %11 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %13) #40\l  %14 = tail call i64 @strnlen(i8* %1, i64 255) #41\l  %15 = icmp eq i64 %14, 0\l  br i1 %15, label %28, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1747c60:s0 -> Node0x1747d60;
+	Node0x1747c60:s1 -> Node0x1747d10;
+	Node0x1747d10 [shape=record,label="{%16:\l16:                                               \l  %17 = add i64 %14, -1\l  %18 = getelementptr inbounds i8, i8* %1, i64 %17\l  %19 = load i8, i8* %18, align 1, !tbaa !1632\l  %20 = icmp eq i8 %19, 46\l  %21 = select i1 %20, i64 %17, i64 %14\l  %22 = add i64 %21, 17\l  %23 = icmp ne i64 %21, 0\l  %24 = zext i1 %23 to i64\l  %25 = add i64 %22, %24\l  %26 = trunc i64 %25 to i32\l  %27 = icmp ugt i64 %21, 253\l  br i1 %27, label %96, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1747d10:s0 -> Node0x1747fe0;
+	Node0x1747d10:s1 -> Node0x1747d60;
+	Node0x1747d60 [shape=record,label="{%28:\l28:                                               \l  %29 = phi i32 [ %26, %16 ], [ 17, %9 ]\l  %30 = phi i64 [ %25, %16 ], [ 17, %9 ]\l  %31 = phi i64 [ %21, %16 ], [ 0, %9 ]\l  %32 = icmp sgt i32 %29, %8\l  %33 = icmp ugt i32 %0, 15\l  %34 = or i1 %33, %32\l  %35 = or i32 %3, %2\l  %36 = icmp ugt i32 %35, 255\l  %37 = or i1 %36, %34\l  br i1 %37, label %96, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x1747d60:s0 -> Node0x1747fe0;
+	Node0x1747d60:s1 -> Node0x1747db0;
+	Node0x1747db0 [shape=record,label="{%38:\l38:                                               \l  %39 = shl i64 %30, 32\l  %40 = ashr exact i64 %39, 32\l  %41 = call i8* @memset(i8* nonnull %12, i32 0, i64 %40) #41\l  %42 = trunc i32 %0 to i8\l  %43 = shl nuw nsw i8 %42, 3\l  %44 = or i8 %43, 1\l  %45 = getelementptr inbounds [280 x i8], [280 x i8]* %10, i64 0, i64 2\l  store i8 %44, i8* %45, align 2, !tbaa !1632\l  %46 = getelementptr inbounds [280 x i8], [280 x i8]* %10, i64 0, i64 5\l  store i8 1, i8* %46, align 1, !tbaa !1632\l  %47 = getelementptr inbounds [280 x i8], [280 x i8]* %10, i64 0, i64 13\l  %48 = call i8* @memcpy(i8* nonnull %47, i8* %1, i64 %31) #41\l  %49 = load i8, i8* %47, align 1, !tbaa !1632\l  %50 = icmp eq i8 %49, 0\l  br i1 %50, label %75, label %51\l|{<s0>T|<s1>F}}"];
+	Node0x1747db0:s0 -> Node0x1747f90;
+	Node0x1747db0:s1 -> Node0x1747e00;
+	Node0x1747e00 [shape=record,label="{%51:\l51:                                               \l  %52 = phi i32 [ %70, %65 ], [ 13, %38 ]\l  %53 = sext i32 %52 to i64\l  br label %54\l}"];
+	Node0x1747e00 -> Node0x1747e50;
+	Node0x1747e50 [shape=record,label="{%54:\l54:                                               \l  %55 = phi i64 [ %53, %51 ], [ %59, %58 ]\l  %56 = getelementptr inbounds [280 x i8], [280 x i8]* %10, i64 0, i64 %55\l  %57 = load i8, i8* %56, align 1, !tbaa !1632\l  switch i8 %57, label %58 [\l    i8 0, label %60\l    i8 46, label %60\l  ]\l|{<s0>def|<s1>0|<s2>46}}"];
+	Node0x1747e50:s0 -> Node0x1747ea0;
+	Node0x1747e50:s1 -> Node0x1747ef0;
+	Node0x1747e50:s2 -> Node0x1747ef0;
+	Node0x1747ea0 [shape=record,label="{%58:\l58:                                               \l  %59 = add i64 %55, 1\l  br label %54\l}"];
+	Node0x1747ea0 -> Node0x1747e50;
+	Node0x1747ef0 [shape=record,label="{%60:\l60:                                               \l  %61 = trunc i64 %55 to i32\l  %62 = sub nsw i32 %61, %52\l  %63 = add i32 %62, -1\l  %64 = icmp ugt i32 %63, 62\l  br i1 %64, label %96, label %65\l|{<s0>T|<s1>F}}"];
+	Node0x1747ef0:s0 -> Node0x1747fe0;
+	Node0x1747ef0:s1 -> Node0x1747f40;
+	Node0x1747f40 [shape=record,label="{%65:\l65:                                               \l  %66 = trunc i32 %62 to i8\l  %67 = add nsw i32 %52, -1\l  %68 = sext i32 %67 to i64\l  %69 = getelementptr inbounds [280 x i8], [280 x i8]* %10, i64 0, i64 %68\l  store i8 %66, i8* %69, align 1, !tbaa !1632\l  %70 = add nsw i32 %61, 1\l  %71 = sext i32 %70 to i64\l  %72 = getelementptr inbounds [280 x i8], [280 x i8]* %10, i64 0, i64 %71\l  %73 = load i8, i8* %72, align 1, !tbaa !1632\l  %74 = icmp eq i8 %73, 0\l  br i1 %74, label %75, label %51\l|{<s0>T|<s1>F}}"];
+	Node0x1747f40:s0 -> Node0x1747f90;
+	Node0x1747f40:s1 -> Node0x1747e00;
+	Node0x1747f90 [shape=record,label="{%75:\l75:                                               \l  %76 = phi i32 [ 13, %38 ], [ %70, %65 ]\l  %77 = trunc i32 %3 to i8\l  %78 = add nsw i32 %76, 1\l  %79 = sext i32 %78 to i64\l  %80 = getelementptr inbounds [280 x i8], [280 x i8]* %10, i64 0, i64 %79\l  store i8 %77, i8* %80, align 1, !tbaa !1632\l  %81 = trunc i32 %2 to i8\l  %82 = add nsw i32 %76, 3\l  %83 = sext i32 %82 to i64\l  %84 = getelementptr inbounds [280 x i8], [280 x i8]* %10, i64 0, i64 %83\l  store i8 %81, i8* %84, align 1, !tbaa !1632\l  %85 = call i32 @clock_gettime(i32 0, %struct.timeval* nonnull %11) #41\l  %86 = getelementptr inbounds %struct.timeval, %struct.timeval* %11, i64 0,\l... i32 1\l  %87 = load i64, i64* %86, align 8, !tbaa !1635\l  %88 = lshr i64 %87, 16\l  %89 = add i64 %88, %87\l  %90 = trunc i64 %89 to i32\l  %91 = lshr i32 %90, 8\l  %92 = trunc i32 %91 to i8\l  store i8 %92, i8* %12, align 16, !tbaa !1632\l  %93 = trunc i64 %89 to i8\l  %94 = getelementptr inbounds [280 x i8], [280 x i8]* %10, i64 0, i64 1\l  store i8 %93, i8* %94, align 1, !tbaa !1632\l  %95 = call i8* @memcpy(i8* %7, i8* nonnull %12, i64 %40) #41\l  br label %96\l}"];
+	Node0x1747f90 -> Node0x1747fe0;
+	Node0x1747fe0 [shape=record,label="{%96:\l96:                                               \l  %97 = phi i32 [ %29, %75 ], [ -1, %28 ], [ -1, %16 ], [ -1, %60 ]\l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %13) #40\l  call void @llvm.lifetime.end.p0i8(i64 280, i8* nonnull %12) #40\l  ret i32 %97\l}"];
+}

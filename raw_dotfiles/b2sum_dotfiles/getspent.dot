@@ -1,0 +1,5 @@
+digraph "CFG for 'getspent' function" {
+	label="CFG for 'getspent' function";
+
+	Node0x1fa6e70 [shape=record,label="{%0:\l  ret %struct.spwd* null\l}"];
+}

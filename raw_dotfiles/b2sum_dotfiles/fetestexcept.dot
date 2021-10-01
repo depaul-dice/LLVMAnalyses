@@ -1,0 +1,5 @@
+digraph "CFG for 'fetestexcept' function" {
+	label="CFG for 'fetestexcept' function";
+
+	Node0x1bef6d0 [shape=record,label="{%1:\l  ret i32 0\l}"];
+}

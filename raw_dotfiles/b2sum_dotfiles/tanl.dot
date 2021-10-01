@@ -1,0 +1,29 @@
+digraph "CFG for 'tanl' function" {
+	label="CFG for 'tanl' function";
+
+	Node0x1e571f0 [shape=record,label="{%1:\l  %2 = alloca x86_fp80, align 16\l  %3 = alloca [2 x x86_fp80], align 16\l  %4 = bitcast [2 x x86_fp80]* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 32, i8* nonnull %4) #40\l  %5 = bitcast x86_fp80 %0 to i80\l  %6 = and i80 %5, 604462909807314587353087\l  %7 = lshr i80 %6, 64\l  %8 = trunc i80 %7 to i32\l  %9 = icmp eq i32 %8, 32767\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1e571f0:s0 -> Node0x1e57640;
+	Node0x1e571f0:s1 -> Node0x1e57690;
+	Node0x1e57640 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call x86_fp80 @llvm.experimental.constrained.fsub.f80(x86_fp80\l... %0, x86_fp80 %0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  br label %40\l}"];
+	Node0x1e57640 -> Node0x1e57910;
+	Node0x1e57690 [shape=record,label="{%12:\l12:                                               \l  %13 = bitcast i80 %6 to x86_fp80\l  %14 = tail call x86_fp80 @llvm.experimental.constrained.fpext.f80.f64(double\l... 0x3FE921FB54442D18, metadata !\"fpexcept.ignore\") #41\l  %15 = tail call i1 @llvm.experimental.constrained.fcmps.f80(x86_fp80 %13,\l... x86_fp80 %14, metadata !\"olt\", metadata !\"fpexcept.ignore\") #41\l  br i1 %15, label %16, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x1e57690:s0 -> Node0x1e576e0;
+	Node0x1e57690:s1 -> Node0x1e578c0;
+	Node0x1e576e0 [shape=record,label="{%16:\l16:                                               \l  %17 = icmp ult i32 %8, 16351\l  br i1 %17, label %18, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x1e576e0:s0 -> Node0x1e57730;
+	Node0x1e576e0:s1 -> Node0x1e57870;
+	Node0x1e57730 [shape=record,label="{%18:\l18:                                               \l  %19 = icmp eq i32 %8, 0\l  br i1 %19, label %20, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x1e57730:s0 -> Node0x1e57780;
+	Node0x1e57730:s1 -> Node0x1e577d0;
+	Node0x1e57780 [shape=record,label="{%20:\l20:                                               \l  %21 = tail call x86_fp80 @llvm.experimental.constrained.fpext.f80.f32(float\l... 0x3870000000000000, metadata !\"fpexcept.ignore\") #41\l  %22 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80\l... %0, x86_fp80 %21, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  br label %26\l}"];
+	Node0x1e57780 -> Node0x1e57820;
+	Node0x1e577d0 [shape=record,label="{%23:\l23:                                               \l  %24 = tail call x86_fp80 @llvm.experimental.constrained.fpext.f80.f32(float\l... 0x4770000000000000, metadata !\"fpexcept.ignore\") #41\l  %25 = tail call x86_fp80 @llvm.experimental.constrained.fadd.f80(x86_fp80\l... %0, x86_fp80 %24, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  br label %26\l}"];
+	Node0x1e577d0 -> Node0x1e57820;
+	Node0x1e57820 [shape=record,label="{%26:\l26:                                               \l  %27 = phi x86_fp80 [ %22, %20 ], [ %25, %23 ]\l  %28 = bitcast x86_fp80* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 10, i8* nonnull %28)\l  store volatile x86_fp80 %27, x86_fp80* %2, align 16, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 10, i8* nonnull %28)\l  br label %40\l}"];
+	Node0x1e57820 -> Node0x1e57910;
+	Node0x1e57870 [shape=record,label="{%29:\l29:                                               \l  %30 = tail call x86_fp80 @llvm.experimental.constrained.sitofp.f80.i32(i32\l... 0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %31 = tail call x86_fp80 @__tanl(x86_fp80 %0, x86_fp80 %30, i32 0) #42\l  br label %40\l}"];
+	Node0x1e57870 -> Node0x1e57910;
+	Node0x1e578c0 [shape=record,label="{%32:\l32:                                               \l  %33 = getelementptr inbounds [2 x x86_fp80], [2 x x86_fp80]* %3, i64 0, i64 0\l  %34 = call i32 @__rem_pio2l(x86_fp80 %0, x86_fp80* nonnull %33) #42\l  %35 = load x86_fp80, x86_fp80* %33, align 16, !tbaa !1632\l  %36 = getelementptr inbounds [2 x x86_fp80], [2 x x86_fp80]* %3, i64 0, i64 1\l  %37 = load x86_fp80, x86_fp80* %36, align 16, !tbaa !1632\l  %38 = and i32 %34, 1\l  %39 = call x86_fp80 @__tanl(x86_fp80 %35, x86_fp80 %37, i32 %38) #42\l  br label %40\l}"];
+	Node0x1e578c0 -> Node0x1e57910;
+	Node0x1e57910 [shape=record,label="{%40:\l40:                                               \l  %41 = phi x86_fp80 [ %11, %10 ], [ %0, %26 ], [ %31, %29 ], [ %39, %32 ]\l  call void @llvm.lifetime.end.p0i8(i64 32, i8* nonnull %4) #40\l  ret x86_fp80 %41\l}"];
+}

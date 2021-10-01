@@ -1,0 +1,33 @@
+digraph "CFG for '__pthread_rwlock_timedwrlock' function" {
+	label="CFG for '__pthread_rwlock_timedwrlock' function";
+
+	Node0x15a1680 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b99e70",label="{%2:\l  %3 = tail call fastcc i32\l... @__pthread_rwlock_trywrlock(%struct.pthread_rwlock_t* %0) #29\l  %4 = icmp eq i32 %3, 16\l  br i1 %4, label %5, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x15a1680:s0 -> Node0x15a2320;
+	Node0x15a1680:s1 -> Node0x15a25f0;
+	Node0x15a2320 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5d8d170",label="{%5:\l5:                                                \l  %6 = bitcast %struct.pthread_rwlock_t* %0 to i32*\l  %7 = bitcast %struct.pthread_rwlock_t* %0 to [14 x i32]*\l  %8 = getelementptr inbounds [14 x i32], [14 x i32]* %7, i64 0, i64 1\l  br label %9\l}"];
+	Node0x15a2320 -> Node0x15a2370;
+	Node0x15a2370 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%9:\l9:                                                \l  %10 = phi i32 [ 99, %5 ], [ %17, %16 ]\l  %11 = load volatile i32, i32* %6, align 8, !tbaa !1632\l  %12 = icmp eq i32 %11, 0\l  br i1 %12, label %19, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x15a2370:s0 -> Node0x15a2460;
+	Node0x15a2370:s1 -> Node0x15a23c0;
+	Node0x15a23c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%13:\l13:                                               \l  %14 = load volatile i32, i32* %8, align 4, !tbaa !1632\l  %15 = icmp eq i32 %14, 0\l  br i1 %15, label %16, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x15a23c0:s0 -> Node0x15a2410;
+	Node0x15a23c0:s1 -> Node0x15a2460;
+	Node0x15a2410 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%16:\l16:                                               \l  tail call void asm sideeffect \"pause\",\l... \"~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"() #30, !srcloc !1635\l  %17 = add nsw i32 %10, -1\l  %18 = icmp eq i32 %10, 0\l  br i1 %18, label %19, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x15a2410:s0 -> Node0x15a2460;
+	Node0x15a2410:s1 -> Node0x15a2370;
+	Node0x15a2460 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5d8d170",label="{%19:\l19:                                               \l  %20 = tail call fastcc i32\l... @__pthread_rwlock_trywrlock(%struct.pthread_rwlock_t* nonnull %0) #29\l  %21 = icmp eq i32 %20, 16\l  br i1 %21, label %22, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x15a2460:s0 -> Node0x15a24b0;
+	Node0x15a2460:s1 -> Node0x15a25f0;
+	Node0x15a24b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c1d4f470",label="{%22:\l22:                                               \l  %23 = getelementptr inbounds %struct.pthread_rwlock_t,\l... %struct.pthread_rwlock_t* %0, i64 0, i32 0, i32 0, i64 1\l  %24 = bitcast i8** %23 to i32*\l  br label %25\l}"];
+	Node0x15a24b0 -> Node0x15a2500;
+	Node0x15a2500 [shape=record,color="#b70d28ff", style=filled, fillcolor="#be242e70",label="{%25:\l25:                                               \l  %26 = load volatile i32, i32* %6, align 8, !tbaa !1632\l  %27 = icmp eq i32 %26, 0\l  br i1 %27, label %28, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x15a2500:s0 -> Node0x15a2550;
+	Node0x15a2500:s1 -> Node0x15a25a0;
+	Node0x15a2550 [shape=record,color="#b70d28ff", style=filled, fillcolor="#be242e70",label="{%28:\l28:                                               \l  %29 = tail call fastcc i32\l... @__pthread_rwlock_trywrlock(%struct.pthread_rwlock_t* nonnull %0) #29\l  %30 = icmp eq i32 %29, 16\l  br i1 %30, label %25, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x15a2550:s0 -> Node0x15a2500;
+	Node0x15a2550:s1 -> Node0x15a25f0;
+	Node0x15a25a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#dc5d4a70",label="{%31:\l31:                                               \l  %32 = or i32 %26, -2147483648\l  tail call void asm sideeffect \"lock \l  %33 = tail call i32 asm sideeffect \"lock \l  %34 = load i32, i32* %24, align 8, !tbaa !1632\l  %35 = xor i32 %34, 128\l  %36 = tail call fastcc i32 @__timedwait(i32* nonnull %6, i32 %32, i32 0,\l... %struct.timeval* %1, i32 %35) #29\l  tail call void asm sideeffect \"lock \l  %37 = and i32 %36, -5\l  %38 = icmp eq i32 %37, 0\l  br i1 %38, label %28, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x15a25a0:s0 -> Node0x15a2550;
+	Node0x15a25a0:s1 -> Node0x15a25f0;
+	Node0x15a25f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b99e70",label="{%39:\l39:                                               \l  %40 = phi i32 [ %3, %2 ], [ %20, %19 ], [ %29, %28 ], [ %36, %31 ]\l  ret i32 %40\l}"];
+}

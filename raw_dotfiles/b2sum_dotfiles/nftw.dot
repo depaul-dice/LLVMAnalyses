@@ -1,0 +1,15 @@
+digraph "CFG for 'nftw' function" {
+	label="CFG for 'nftw' function";
+
+	Node0x183db80 [shape=record,label="{%4:\l  %5 = alloca i32, align 4\l  %6 = alloca [4097 x i8], align 16\l  %7 = bitcast i32* %5 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %7) #40\l  %8 = getelementptr inbounds [4097 x i8], [4097 x i8]* %6, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 4097, i8* nonnull %8) #40\l  %9 = icmp slt i32 %2, 1\l  br i1 %9, label %22, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x183db80:s0 -> Node0x183e0b0;
+	Node0x183db80:s1 -> Node0x183dfc0;
+	Node0x183dfc0 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call i64 @strlen(i8* %0) #41\l  %12 = icmp ugt i64 %11, 4096\l  br i1 %12, label %13, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x183dfc0:s0 -> Node0x183e010;
+	Node0x183dfc0:s1 -> Node0x183e060;
+	Node0x183e010 [shape=record,label="{%13:\l13:                                               \l  %14 = tail call i32* @___errno_location() #41\l  store i32 36, i32* %14, align 4, !tbaa !1632\l  br label %22\l}"];
+	Node0x183e010 -> Node0x183e0b0;
+	Node0x183e060 [shape=record,label="{%15:\l15:                                               \l  %16 = add nuw nsw i64 %11, 1\l  %17 = call i8* @memcpy(i8* nonnull %8, i8* %0, i64 %16) #41\l  %18 = call i32 @pthread_setcancelstate(i32 1, i32* nonnull %5) #41\l  %19 = call fastcc i32 @do_nftw(i8* nonnull %8, i32 (i8*, %struct.stat*, i32,\l... %struct.FTW*)* %1, i32 %2, i32 %3, %struct.history* null) #42\l  %20 = load i32, i32* %5, align 4, !tbaa !1632\l  %21 = call i32 @pthread_setcancelstate(i32 %20, i32* null) #41\l  br label %22\l}"];
+	Node0x183e060 -> Node0x183e0b0;
+	Node0x183e0b0 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i32 [ -1, %13 ], [ %19, %15 ], [ 0, %4 ]\l  call void @llvm.lifetime.end.p0i8(i64 4097, i8* nonnull %8) #40\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %7) #40\l  ret i32 %23\l}"];
+}

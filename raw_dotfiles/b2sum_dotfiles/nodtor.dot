@@ -1,0 +1,5 @@
+digraph "CFG for 'nodtor' function" {
+	label="CFG for 'nodtor' function";
+
+	Node0x14f2390 [shape=record,label="{%1:\l  ret void\l}"];
+}

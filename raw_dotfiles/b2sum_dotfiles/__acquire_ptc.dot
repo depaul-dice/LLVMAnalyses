@@ -1,0 +1,5 @@
+digraph "CFG for '__acquire_ptc' function" {
+	label="CFG for '__acquire_ptc' function";
+
+	Node0x1a03470 [shape=record,label="{%0:\l  %1 = tail call i32 @pthread_rwlock_rdlock(%struct.pthread_rwlock_t* bitcast\l... (\{ \{ [14 x i32] \} \}* @lock.521 to %struct.pthread_rwlock_t*)) #40\l  ret void\l}"];
+}

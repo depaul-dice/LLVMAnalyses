@@ -1,0 +1,43 @@
+digraph "CFG for 'resize' function" {
+	label="CFG for 'resize' function";
+
+	Node0x1c5fe10 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct.hsearch_data, %struct.hsearch_data* %1,\l... i64 0, i32 0\l  %4 = load %struct.__tab*, %struct.__tab** %3, align 8, !tbaa !1632\l  %5 = getelementptr inbounds %struct.__tab, %struct.__tab* %4, i64 0, i32 0\l  %6 = load %struct.infomap*, %struct.infomap** %5, align 8, !tbaa !1638\l  %7 = getelementptr inbounds %struct.__tab, %struct.__tab* %4, i64 0, i32 1\l  %8 = load i64, i64* %7, align 8, !tbaa !1641\l  %9 = getelementptr inbounds %struct.infomap, %struct.infomap* %6, i64 %8\l  %10 = icmp ult i64 %0, -9223372036854775808\l  %11 = select i1 %10, i64 %0, i64 -9223372036854775808\l  br label %12\l}"];
+	Node0x1c5fe10 -> Node0x1c5ff40;
+	Node0x1c5ff40 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i64 [ 8, %2 ], [ %15, %12 ]\l  %14 = icmp ult i64 %13, %11\l  %15 = shl i64 %13, 1\l  br i1 %14, label %12, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1c5ff40:s0 -> Node0x1c5ff40;
+	Node0x1c5ff40:s1 -> Node0x1c5ff90;
+	Node0x1c5ff90 [shape=record,label="{%16:\l16:                                               \l  %17 = getelementptr inbounds %struct.infomap, %struct.infomap* %9, i64 1\l  %18 = tail call i8* @calloc(i64 %13, i64 16) #40\l  %19 = bitcast %struct.hsearch_data* %1 to i8***\l  %20 = load i8**, i8*** %19, align 8, !tbaa !1632\l  store i8* %18, i8** %20, align 8, !tbaa !1638\l  %21 = icmp eq i8* %18, null\l  br i1 %21, label %22, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x1c5ff90:s0 -> Node0x1c5ffe0;
+	Node0x1c5ff90:s1 -> Node0x1c60030;
+	Node0x1c5ffe0 [shape=record,label="{%22:\l22:                                               \l  %23 = bitcast i8** %20 to %struct.infomap**\l  store %struct.infomap* %6, %struct.infomap** %23, align 8, !tbaa !1638\l  br label %80\l}"];
+	Node0x1c5ffe0 -> Node0x1c60350;
+	Node0x1c60030 [shape=record,label="{%24:\l24:                                               \l  %25 = add i64 %13, -1\l  %26 = getelementptr inbounds i8*, i8** %20, i64 1\l  %27 = bitcast i8** %26 to i64*\l  store i64 %25, i64* %27, align 8, !tbaa !1641\l  %28 = icmp eq %struct.infomap* %6, null\l  br i1 %28, label %80, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x1c60030:s0 -> Node0x1c60350;
+	Node0x1c60030:s1 -> Node0x1c60080;
+	Node0x1c60080 [shape=record,label="{%29:\l29:                                               \l  %30 = icmp ult %struct.infomap* %6, %17\l  br i1 %30, label %31, label %78\l|{<s0>T|<s1>F}}"];
+	Node0x1c60080:s0 -> Node0x1c600d0;
+	Node0x1c60080:s1 -> Node0x1c60300;
+	Node0x1c600d0 [shape=record,label="{%31:\l31:                                               \l  %32 = phi %struct.infomap* [ %76, %75 ], [ %6, %29 ]\l  %33 = getelementptr inbounds %struct.infomap, %struct.infomap* %32, i64 0,\l... i32 0\l  %34 = load i8*, i8** %33, align 8, !tbaa !1642\l  %35 = icmp eq i8* %34, null\l  br i1 %35, label %75, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x1c600d0:s0 -> Node0x1c602b0;
+	Node0x1c600d0:s1 -> Node0x1c60120;
+	Node0x1c60120 [shape=record,label="{%36:\l36:                                               \l  %37 = load i8, i8* %34, align 1, !tbaa !1644\l  %38 = icmp eq i8 %37, 0\l  br i1 %38, label %49, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x1c60120:s0 -> Node0x1c601c0;
+	Node0x1c60120:s1 -> Node0x1c60170;
+	Node0x1c60170 [shape=record,label="{%39:\l39:                                               \l  %40 = phi i8 [ %47, %39 ], [ %37, %36 ]\l  %41 = phi i64 [ %46, %39 ], [ 0, %36 ]\l  %42 = phi i8* [ %44, %39 ], [ %34, %36 ]\l  %43 = mul i64 %41, 31\l  %44 = getelementptr inbounds i8, i8* %42, i64 1\l  %45 = zext i8 %40 to i64\l  %46 = add i64 %43, %45\l  %47 = load i8, i8* %44, align 1, !tbaa !1644\l  %48 = icmp eq i8 %47, 0\l  br i1 %48, label %49, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x1c60170:s0 -> Node0x1c601c0;
+	Node0x1c60170:s1 -> Node0x1c60170;
+	Node0x1c601c0 [shape=record,label="{%49:\l49:                                               \l  %50 = phi i64 [ 0, %36 ], [ %46, %39 ]\l  %51 = load %struct.__tab*, %struct.__tab** %3, align 8, !tbaa !1632\l  %52 = getelementptr inbounds %struct.__tab, %struct.__tab* %51, i64 0, i32 0\l  %53 = load %struct.infomap*, %struct.infomap** %52, align 8, !tbaa !1638\l  %54 = getelementptr inbounds %struct.__tab, %struct.__tab* %51, i64 0, i32 1\l  %55 = load i64, i64* %54, align 8, !tbaa !1641\l  %56 = and i64 %55, %50\l  %57 = getelementptr inbounds %struct.infomap, %struct.infomap* %53, i64 %56\l  %58 = getelementptr inbounds %struct.infomap, %struct.infomap* %57, i64 0,\l... i32 0\l  %59 = load i8*, i8** %58, align 8, !tbaa !1642\l  %60 = icmp eq i8* %59, null\l  br i1 %60, label %71, label %61\l|{<s0>T|<s1>F}}"];
+	Node0x1c601c0:s0 -> Node0x1c60260;
+	Node0x1c601c0:s1 -> Node0x1c60210;
+	Node0x1c60210 [shape=record,label="{%61:\l61:                                               \l  %62 = phi i64 [ %64, %61 ], [ 1, %49 ]\l  %63 = phi i64 [ %65, %61 ], [ %50, %49 ]\l  %64 = add i64 %62, 1\l  %65 = add i64 %62, %63\l  %66 = and i64 %55, %65\l  %67 = getelementptr inbounds %struct.infomap, %struct.infomap* %53, i64 %66\l  %68 = getelementptr inbounds %struct.infomap, %struct.infomap* %67, i64 0,\l... i32 0\l  %69 = load i8*, i8** %68, align 8, !tbaa !1642\l  %70 = icmp eq i8* %69, null\l  br i1 %70, label %71, label %61\l|{<s0>T|<s1>F}}"];
+	Node0x1c60210:s0 -> Node0x1c60260;
+	Node0x1c60210:s1 -> Node0x1c60210;
+	Node0x1c60260 [shape=record,label="{%71:\l71:                                               \l  %72 = phi %struct.infomap* [ %57, %49 ], [ %67, %61 ]\l  %73 = bitcast %struct.infomap* %72 to i8*\l  %74 = bitcast %struct.infomap* %32 to i8*\l  tail call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8\l... dereferenceable(16) %73, i8* nonnull align 8 dereferenceable(16) %74, i64 16,\l... i1 false), !tbaa.struct !1645\l  br label %75\l}"];
+	Node0x1c60260 -> Node0x1c602b0;
+	Node0x1c602b0 [shape=record,label="{%75:\l75:                                               \l  %76 = getelementptr inbounds %struct.infomap, %struct.infomap* %32, i64 1\l  %77 = icmp ult %struct.infomap* %32, %9\l  br i1 %77, label %31, label %78\l|{<s0>T|<s1>F}}"];
+	Node0x1c602b0:s0 -> Node0x1c600d0;
+	Node0x1c602b0:s1 -> Node0x1c60300;
+	Node0x1c60300 [shape=record,label="{%78:\l78:                                               \l  %79 = bitcast %struct.infomap* %6 to i8*\l  tail call void @free(i8* nonnull %79) #40\l  br label %80\l}"];
+	Node0x1c60300 -> Node0x1c60350;
+	Node0x1c60350 [shape=record,label="{%80:\l80:                                               \l  %81 = phi i32 [ 1, %78 ], [ 0, %22 ], [ 1, %24 ]\l  ret i32 %81\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'isprint' function" {
+	label="CFG for 'isprint' function";
+
+	Node0x1d1cff0 [shape=record,label="{%1:\l  %2 = add i32 %0, -32\l  %3 = icmp ult i32 %2, 95\l  %4 = zext i1 %3 to i32\l  ret i32 %4\l}"];
+}

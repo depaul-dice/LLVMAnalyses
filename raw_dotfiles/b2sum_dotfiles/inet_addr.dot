@@ -1,0 +1,5 @@
+digraph "CFG for 'inet_addr' function" {
+	label="CFG for 'inet_addr' function";
+
+	Node0x1ed7280 [shape=record,label="{%1:\l  %2 = alloca %union.anon, align 4\l  %3 = bitcast %union.anon* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %3) #40\l  %4 = call i32 @__inet_aton(i8* %0, %union.anon* nonnull %2) #41\l  %5 = icmp eq i32 %4, 0\l  %6 = getelementptr inbounds %union.anon, %union.anon* %2, i64 0, i32 0\l  %7 = load i32, i32* %6, align 4\l  %8 = select i1 %5, i32 -1, i32 %7\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %3) #40\l  ret i32 %8\l}"];
+}

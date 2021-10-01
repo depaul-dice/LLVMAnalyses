@@ -1,0 +1,5 @@
+digraph "CFG for 'lcong48' function" {
+	label="CFG for 'lcong48' function";
+
+	Node0x1c7d320 [shape=record,label="{%1:\l  %2 = bitcast i16* %0 to i8*\l  %3 = tail call i8* @memcpy(i8* bitcast ([7 x i16]* @__seed48 to i8*), i8*\l... %2, i64 14) #40\l  ret void\l}"];
+}

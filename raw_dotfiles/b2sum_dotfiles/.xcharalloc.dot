@@ -1,0 +1,9 @@
+digraph "CFG for 'xcharalloc' function" {
+	label="CFG for 'xcharalloc' function";
+
+	Node0x16ce910 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  call void @llvm.dbg.value(metadata i64 %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1637\l  call void @llvm.dbg.value(metadata i64 %0, metadata !1638, metadata\l... !DIExpression()) #8, !dbg !1643\l  %2 = tail call fastcc noalias i8* @malloc(i64 %0) #8, !dbg !1645\l  call void @llvm.dbg.value(metadata i8* %2, metadata !1646, metadata\l... !DIExpression()) #8, !dbg !1651\l  %3 = icmp eq i8* %2, null, !dbg !1653\l  br i1 %3, label %4, label %5, !dbg !1655\l|{<s0>T|<s1>F}}"];
+	Node0x16ce910:s0 -> Node0x166cfc0;
+	Node0x16ce910:s1 -> Node0x166d010;
+	Node0x166cfc0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#5977e370",label="{%4:\l4:                                                \l  tail call fastcc void @xalloc_die() #29, !dbg !1656\l  unreachable, !dbg !1656\l}"];
+	Node0x166d010 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l5:                                                \l  ret i8* %2, !dbg !1657\l}"];
+}

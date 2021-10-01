@@ -1,0 +1,42 @@
+digraph "CFG for 'unsetenv' function" {
+	label="CFG for 'unsetenv' function";
+
+	Node0x1fc5100 [shape=record,label="{%1:\l  %2 = tail call i8* @__strchrnul(i8* %0, i32 61) #40\l  %3 = ptrtoint i8* %2 to i64\l  %4 = ptrtoint i8* %0 to i64\l  %5 = sub i64 %3, %4\l  %6 = icmp eq i64 %5, 0\l  br i1 %6, label %10, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1fc5100:s0 -> Node0x1fc5220;
+	Node0x1fc5100:s1 -> Node0x1fc51d0;
+	Node0x1fc51d0 [shape=record,label="{%7:\l7:                                                \l  %8 = load i8, i8* %2, align 1, !tbaa !1632\l  %9 = icmp eq i8 %8, 0\l  br i1 %9, label %12, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1fc51d0:s0 -> Node0x1fc5270;
+	Node0x1fc51d0:s1 -> Node0x1fc5220;
+	Node0x1fc5220 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %11, align 4, !tbaa !1635\l  br label %47\l}"];
+	Node0x1fc5220 -> Node0x1fc55e0;
+	Node0x1fc5270 [shape=record,label="{%12:\l12:                                               \l  %13 = load i8**, i8*** @__environ, align 8, !tbaa !1637\l  %14 = icmp eq i8** %13, null\l  br i1 %14, label %47, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1fc5270:s0 -> Node0x1fc55e0;
+	Node0x1fc5270:s1 -> Node0x1fc52c0;
+	Node0x1fc52c0 [shape=record,label="{%15:\l15:                                               \l  %16 = load i8*, i8** %13, align 8, !tbaa !1637\l  %17 = icmp eq i8* %16, null\l  br i1 %17, label %47, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1fc52c0:s0 -> Node0x1fc55e0;
+	Node0x1fc52c0:s1 -> Node0x1fc5310;
+	Node0x1fc5310 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i8* [ %42, %39 ], [ %16, %15 ]\l  %20 = phi i8** [ %40, %39 ], [ %13, %15 ]\l  %21 = phi i8** [ %41, %39 ], [ %13, %15 ]\l  %22 = tail call i32 @strncmp(i8* %0, i8* nonnull %19, i64 %5) #40\l  %23 = icmp eq i32 %22, 0\l  br i1 %23, label %24, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1fc5310:s0 -> Node0x1fc5360;
+	Node0x1fc5310:s1 -> Node0x1fc5400;
+	Node0x1fc5360 [shape=record,label="{%24:\l24:                                               \l  %25 = load i8*, i8** %21, align 8, !tbaa !1637\l  %26 = getelementptr inbounds i8, i8* %25, i64 %5\l  %27 = load i8, i8* %26, align 1, !tbaa !1632\l  %28 = icmp eq i8 %27, 61\l  br i1 %28, label %29, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1fc5360:s0 -> Node0x1fc53b0;
+	Node0x1fc5360:s1 -> Node0x1fc5400;
+	Node0x1fc53b0 [shape=record,label="{%29:\l29:                                               \l  tail call void @__env_rm_add(i8* %25, i8* null) #40\l  br label %39\l}"];
+	Node0x1fc53b0 -> Node0x1fc54f0;
+	Node0x1fc5400 [shape=record,label="{%30:\l30:                                               \l  %31 = icmp eq i8** %20, %21\l  br i1 %31, label %37, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x1fc5400:s0 -> Node0x1fc54a0;
+	Node0x1fc5400:s1 -> Node0x1fc5450;
+	Node0x1fc5450 [shape=record,label="{%32:\l32:                                               \l  %33 = bitcast i8** %21 to i64*\l  %34 = load i64, i64* %33, align 8, !tbaa !1637\l  %35 = getelementptr inbounds i8*, i8** %20, i64 1\l  %36 = bitcast i8** %20 to i64*\l  store i64 %34, i64* %36, align 8, !tbaa !1637\l  br label %39\l}"];
+	Node0x1fc5450 -> Node0x1fc54f0;
+	Node0x1fc54a0 [shape=record,label="{%37:\l37:                                               \l  %38 = getelementptr inbounds i8*, i8** %20, i64 1\l  br label %39\l}"];
+	Node0x1fc54a0 -> Node0x1fc54f0;
+	Node0x1fc54f0 [shape=record,label="{%39:\l39:                                               \l  %40 = phi i8** [ %35, %32 ], [ %38, %37 ], [ %20, %29 ]\l  %41 = getelementptr inbounds i8*, i8** %21, i64 1\l  %42 = load i8*, i8** %41, align 8, !tbaa !1637\l  %43 = icmp eq i8* %42, null\l  br i1 %43, label %44, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1fc54f0:s0 -> Node0x1fc5540;
+	Node0x1fc54f0:s1 -> Node0x1fc5310;
+	Node0x1fc5540 [shape=record,label="{%44:\l44:                                               \l  %45 = icmp eq i8** %40, %41\l  br i1 %45, label %47, label %46\l|{<s0>T|<s1>F}}"];
+	Node0x1fc5540:s0 -> Node0x1fc55e0;
+	Node0x1fc5540:s1 -> Node0x1fc5590;
+	Node0x1fc5590 [shape=record,label="{%46:\l46:                                               \l  store i8* null, i8** %40, align 8, !tbaa !1637\l  br label %47\l}"];
+	Node0x1fc5590 -> Node0x1fc55e0;
+	Node0x1fc55e0 [shape=record,label="{%47:\l47:                                               \l  %48 = phi i32 [ -1, %10 ], [ 0, %46 ], [ 0, %44 ], [ 0, %12 ], [ 0, %15 ]\l  ret i32 %48\l}"];
+}

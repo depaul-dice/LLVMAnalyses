@@ -1,0 +1,15 @@
+digraph "CFG for 'putc_unlocked' function" {
+	label="CFG for 'putc_unlocked' function";
+
+	Node0x1fa8410 [shape=record,label="{%2:\l  %3 = trunc i32 %0 to i8\l  %4 = and i32 %0, 255\l  %5 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 20\l  %6 = load i32, i32* %5, align 8, !tbaa !1632\l  %7 = icmp eq i32 %4, %6\l  br i1 %7, label %16, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1fa8410:s0 -> Node0x1fa8560;
+	Node0x1fa8410:s1 -> Node0x1fa84c0;
+	Node0x1fa84c0 [shape=record,label="{%8:\l8:                                                \l  %9 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 5\l  %10 = load i8*, i8** %9, align 8, !tbaa !1639\l  %11 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 4\l  %12 = load i8*, i8** %11, align 8, !tbaa !1640\l  %13 = icmp eq i8* %10, %12\l  br i1 %13, label %16, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1fa84c0:s0 -> Node0x1fa8560;
+	Node0x1fa84c0:s1 -> Node0x1fa8510;
+	Node0x1fa8510 [shape=record,label="{%14:\l14:                                               \l  %15 = getelementptr inbounds i8, i8* %10, i64 1\l  store i8* %15, i8** %9, align 8, !tbaa !1639\l  store i8 %3, i8* %10, align 1, !tbaa !1641\l  br label %18\l}"];
+	Node0x1fa8510 -> Node0x1fa85b0;
+	Node0x1fa8560 [shape=record,label="{%16:\l16:                                               \l  %17 = tail call i32 @__overflow(%struct._IO_FILE.0* nonnull %1, i32 %4) #40\l  br label %18\l}"];
+	Node0x1fa8560 -> Node0x1fa85b0;
+	Node0x1fa85b0 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i32 [ %4, %14 ], [ %17, %16 ]\l  ret i32 %19\l}"];
+}

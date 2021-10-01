@@ -1,0 +1,5 @@
+digraph "CFG for '__tlsdesc_static' function" {
+	label="CFG for '__tlsdesc_static' function";
+
+	Node0x1c76a50 [shape=record,label="{%0:\l  ret i64 0\l}"];
+}

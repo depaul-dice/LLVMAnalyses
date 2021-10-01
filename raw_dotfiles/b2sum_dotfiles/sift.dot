@@ -1,0 +1,30 @@
+digraph "CFG for 'sift' function" {
+	label="CFG for 'sift' function";
+
+	Node0x197b290 [shape=record,label="{%5:\l  %6 = alloca [113 x i8*], align 16\l  %7 = bitcast [113 x i8*]* %6 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 904, i8* nonnull %7) #40\l  %8 = getelementptr inbounds [113 x i8*], [113 x i8*]* %6, i64 0, i64 0\l  store i8* %0, i8** %8, align 16, !tbaa !1632\l  %9 = icmp sgt i32 %3, 1\l  br i1 %9, label %10, label %47\l|{<s0>T|<s1>F}}"];
+	Node0x197b290:s0 -> Node0x197b410;
+	Node0x197b290:s1 -> Node0x197b6e0;
+	Node0x197b410 [shape=record,label="{%10:\l10:                                               \l  %11 = sub i64 0, %1\l  br label %12\l}"];
+	Node0x197b410 -> Node0x197b460;
+	Node0x197b460 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i8* [ %0, %10 ], [ %44, %42 ]\l  %14 = phi i64 [ 1, %10 ], [ %43, %42 ]\l  %15 = phi i32 [ 1, %10 ], [ %40, %42 ]\l  %16 = phi i8* [ %0, %10 ], [ %39, %42 ]\l  %17 = phi i32 [ %3, %10 ], [ %38, %42 ]\l  %18 = getelementptr inbounds i8, i8* %16, i64 %11\l  %19 = add nsw i32 %17, -2\l  %20 = sext i32 %19 to i64\l  %21 = getelementptr inbounds i64, i64* %4, i64 %20\l  %22 = load i64, i64* %21, align 8, !tbaa !1636\l  %23 = sub i64 0, %22\l  %24 = getelementptr inbounds i8, i8* %18, i64 %23\l  %25 = tail call i32 %2(i8* %13, i8* %24) #41\l  %26 = icmp sgt i32 %25, -1\l  br i1 %26, label %27, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x197b460:s0 -> Node0x197b4b0;
+	Node0x197b460:s1 -> Node0x197b500;
+	Node0x197b4b0 [shape=record,label="{%27:\l27:                                               \l  %28 = tail call i32 %2(i8* %13, i8* %18) #41\l  %29 = icmp sgt i32 %28, -1\l  br i1 %29, label %45, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x197b4b0:s0 -> Node0x197b690;
+	Node0x197b4b0:s1 -> Node0x197b500;
+	Node0x197b500 [shape=record,label="{%30:\l30:                                               \l  %31 = tail call i32 %2(i8* %24, i8* %18) #41\l  %32 = icmp sgt i32 %31, -1\l  %33 = getelementptr inbounds [113 x i8*], [113 x i8*]* %6, i64 0, i64 %14\l  br i1 %32, label %34, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x197b500:s0 -> Node0x197b550;
+	Node0x197b500:s1 -> Node0x197b5a0;
+	Node0x197b550 [shape=record,label="{%34:\l34:                                               \l  store i8* %24, i8** %33, align 8, !tbaa !1632\l  %35 = add nsw i32 %17, -1\l  br label %37\l}"];
+	Node0x197b550 -> Node0x197b5f0;
+	Node0x197b5a0 [shape=record,label="{%36:\l36:                                               \l  store i8* %18, i8** %33, align 8, !tbaa !1632\l  br label %37\l}"];
+	Node0x197b5a0 -> Node0x197b5f0;
+	Node0x197b5f0 [shape=record,label="{%37:\l37:                                               \l  %38 = phi i32 [ %35, %34 ], [ %19, %36 ]\l  %39 = phi i8* [ %24, %34 ], [ %18, %36 ]\l  %40 = add nuw nsw i32 %15, 1\l  %41 = icmp sgt i32 %38, 1\l  br i1 %41, label %42, label %47\l|{<s0>T|<s1>F}}"];
+	Node0x197b5f0:s0 -> Node0x197b640;
+	Node0x197b5f0:s1 -> Node0x197b6e0;
+	Node0x197b640 [shape=record,label="{%42:\l42:                                               \l  %43 = add nuw i64 %14, 1\l  %44 = load i8*, i8** %8, align 16, !tbaa !1632\l  br label %12\l}"];
+	Node0x197b640 -> Node0x197b460;
+	Node0x197b690 [shape=record,label="{%45:\l45:                                               \l  %46 = trunc i64 %14 to i32\l  br label %47\l}"];
+	Node0x197b690 -> Node0x197b6e0;
+	Node0x197b6e0 [shape=record,label="{%47:\l47:                                               \l  %48 = phi i32 [ 1, %5 ], [ %46, %45 ], [ %40, %37 ]\l  call fastcc void @cycle(i64 %1, i8** nonnull %8, i32 %48) #42\l  call void @llvm.lifetime.end.p0i8(i64 904, i8* nonnull %7) #40\l  ret void\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'issetugid' function" {
+	label="CFG for 'issetugid' function";
+
+	Node0x16e1750 [shape=record,label="{%0:\l  %1 = load i32, i32* getelementptr inbounds (%struct.__libc, %struct.__libc*\l... @__libc, i64 0, i32 2), align 8, !tbaa !1632\l  ret i32 %1\l}"];
+}

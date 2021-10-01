@@ -1,0 +1,5 @@
+digraph "CFG for 'lrand48' function" {
+	label="CFG for 'lrand48' function";
+
+	Node0x1caa460 [shape=record,label="{%0:\l  %1 = tail call i64 @__rand48_step(i16* getelementptr inbounds ([7 x i16], [7\l... x i16]* @__seed48, i64 0, i64 0), i16* getelementptr inbounds ([7 x i16], [7\l... x i16]* @__seed48, i64 0, i64 3)) #40\l  %2 = lshr i64 %1, 17\l  ret i64 %2\l}"];
+}

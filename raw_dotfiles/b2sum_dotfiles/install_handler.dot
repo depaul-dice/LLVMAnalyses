@@ -1,0 +1,5 @@
+digraph "CFG for 'install_handler' function" {
+	label="CFG for 'install_handler' function";
+
+	Node0x19eaf60 [shape=record,label="{%0:\l  %1 = alloca %struct.sigaction, align 8\l  %2 = bitcast %struct.sigaction* %1 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 152, i8* nonnull %2) #40\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8\l... dereferenceable(152) %2, i8* nonnull align 8 dereferenceable(152) bitcast (\{\l... \{ void (i32, %struct.siginfo_t*, i8*)* \}, %struct.__sigset_t, i32, void ()*\l... \}* @__const.install_handler.sa to i8*), i64 152, i1 false)\l  %3 = call i32 @__libc_sigaction(i32 32, %struct.sigaction* nonnull %1,\l... %struct.sigaction* null) #41\l  call void @llvm.lifetime.end.p0i8(i64 152, i8* nonnull %2) #40\l  ret void\l}"];
+}

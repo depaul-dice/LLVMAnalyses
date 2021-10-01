@@ -1,0 +1,5 @@
+digraph "CFG for 'mtx_destroy' function" {
+	label="CFG for 'mtx_destroy' function";
+
+	Node0x1d6a9e0 [shape=record,label="{%1:\l  ret void\l}"];
+}

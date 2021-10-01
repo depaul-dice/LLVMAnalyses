@@ -1,0 +1,5 @@
+digraph "CFG for '__restore' function" {
+	label="CFG for '__restore' function";
+
+	Node0x1f792e0 [shape=record,label="{%0:\l  ret void\l}"];
+}

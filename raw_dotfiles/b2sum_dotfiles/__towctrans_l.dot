@@ -1,0 +1,5 @@
+digraph "CFG for '__towctrans_l' function" {
+	label="CFG for '__towctrans_l' function";
+
+	Node0x1c67d70 [shape=record,label="{%3:\l  %4 = tail call i32 @towctrans(i32 %0, i32* %1) #40\l  ret i32 %4\l}"];
+}

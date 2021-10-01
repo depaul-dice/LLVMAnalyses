@@ -1,0 +1,5 @@
+digraph "CFG for 'pwritev' function" {
+	label="CFG for 'pwritev' function";
+
+	Node0x160a400 [shape=record,label="{%4:\l  %5 = sext i32 %0 to i64\l  %6 = ptrtoint %struct.iovec* %1 to i64\l  %7 = sext i32 %2 to i64\l  %8 = ashr i64 %3, 32\l  %9 = tail call i64 @__syscall_cp(i64 296, i64 %5, i64 %6, i64 %7, i64 %3,\l... i64 %8, i64 0) #40\l  %10 = tail call i64 @__syscall_ret(i64 %9) #40\l  ret i64 %10\l}"];
+}

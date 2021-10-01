@@ -1,0 +1,5 @@
+digraph "CFG for '__libc_start_main' function" {
+	label="CFG for '__libc_start_main' function";
+
+	Node0x1fd0d40 [shape=record,label="{%3:\l  %4 = sext i32 %1 to i64\l  %5 = getelementptr inbounds i8*, i8** %2, i64 %4\l  %6 = getelementptr inbounds i8*, i8** %5, i64 1\l  %7 = load i8*, i8** %2, align 8, !tbaa !1632\l  tail call void @__init_libc(i8** nonnull %6, i8* %7) #40\l  %8 = tail call i32 (i32 (i32, i8**, i8**)*, i32, i8**)* asm \"\",\l... \"=r,0,~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i32 (i32 (i32, i8**, i8**)*,\l... i32, i8**)* nonnull @libc_start_main_stage2) #41, !srcloc !1636\l  %9 = tail call i32 %8(i32 (i32, i8**, i8**)* %0, i32 %1, i8** nonnull %2) #42\l  ret i32 %9\l}"];
+}

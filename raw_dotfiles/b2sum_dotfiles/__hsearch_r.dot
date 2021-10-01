@@ -1,0 +1,27 @@
+digraph "CFG for '__hsearch_r' function" {
+	label="CFG for '__hsearch_r' function";
+
+	Node0x1c63c60 [shape=record,label="{%5:\l  %6 = load i8, i8* %0, align 1, !tbaa !1632\l  %7 = icmp eq i8 %6, 0\l  br i1 %7, label %18, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1c63c60:s0 -> Node0x1c63d00;
+	Node0x1c63c60:s1 -> Node0x1c63cb0;
+	Node0x1c63cb0 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i8 [ %16, %8 ], [ %6, %5 ]\l  %10 = phi i64 [ %15, %8 ], [ 0, %5 ]\l  %11 = phi i8* [ %13, %8 ], [ %0, %5 ]\l  %12 = mul i64 %10, 31\l  %13 = getelementptr inbounds i8, i8* %11, i64 1\l  %14 = zext i8 %9 to i64\l  %15 = add i64 %12, %14\l  %16 = load i8, i8* %13, align 1, !tbaa !1632\l  %17 = icmp eq i8 %16, 0\l  br i1 %17, label %18, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1c63cb0:s0 -> Node0x1c63d00;
+	Node0x1c63cb0:s1 -> Node0x1c63cb0;
+	Node0x1c63d00 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i64 [ 0, %5 ], [ %15, %8 ]\l  %20 = tail call fastcc %struct.infomap* @lookup(i8* nonnull %0, i64 %19,\l... %struct.hsearch_data* %4) #40\l  %21 = getelementptr inbounds %struct.infomap, %struct.infomap* %20, i64 0,\l... i32 0\l  %22 = load i8*, i8** %21, align 8, !tbaa !1635\l  %23 = icmp eq i8* %22, null\l  br i1 %23, label %24, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x1c63d00:s0 -> Node0x1c63d50;
+	Node0x1c63d00:s1 -> Node0x1c63ee0;
+	Node0x1c63d50 [shape=record,label="{%24:\l24:                                               \l  %25 = icmp eq i32 %2, 0\l  br i1 %25, label %49, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x1c63d50:s0 -> Node0x1c63ee0;
+	Node0x1c63d50:s1 -> Node0x1c63da0;
+	Node0x1c63da0 [shape=record,label="{%26:\l26:                                               \l  store i8* %0, i8** %21, align 8, !tbaa.struct !1638\l  %27 = getelementptr inbounds %struct.infomap, %struct.infomap* %20, i64 0,\l... i32 1\l  store i8* %1, i8** %27, align 8, !tbaa.struct !1638\l  %28 = getelementptr inbounds %struct.hsearch_data, %struct.hsearch_data* %4,\l... i64 0, i32 0\l  %29 = load %struct.__tab*, %struct.__tab** %28, align 8, !tbaa !1640\l  %30 = getelementptr inbounds %struct.__tab, %struct.__tab* %29, i64 0, i32 2\l  %31 = load i64, i64* %30, align 8, !tbaa !1643\l  %32 = add i64 %31, 1\l  store i64 %32, i64* %30, align 8, !tbaa !1643\l  %33 = getelementptr inbounds %struct.__tab, %struct.__tab* %29, i64 0, i32 1\l  %34 = load i64, i64* %33, align 8, !tbaa !1646\l  %35 = lshr i64 %34, 2\l  %36 = sub i64 %34, %35\l  %37 = icmp ugt i64 %32, %36\l  br i1 %37, label %38, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x1c63da0:s0 -> Node0x1c63df0;
+	Node0x1c63da0:s1 -> Node0x1c63ee0;
+	Node0x1c63df0 [shape=record,label="{%38:\l38:                                               \l  %39 = shl i64 %32, 1\l  %40 = tail call fastcc i32 @resize(i64 %39, %struct.hsearch_data* nonnull\l... %4) #40\l  %41 = icmp eq i32 %40, 0\l  br i1 %41, label %42, label %47\l|{<s0>T|<s1>F}}"];
+	Node0x1c63df0:s0 -> Node0x1c63e40;
+	Node0x1c63df0:s1 -> Node0x1c63e90;
+	Node0x1c63e40 [shape=record,label="{%42:\l42:                                               \l  %43 = load %struct.__tab*, %struct.__tab** %28, align 8, !tbaa !1640\l  %44 = getelementptr inbounds %struct.__tab, %struct.__tab* %43, i64 0, i32 2\l  %45 = load i64, i64* %44, align 8, !tbaa !1643\l  %46 = add i64 %45, -1\l  store i64 %46, i64* %44, align 8, !tbaa !1643\l  store i8* null, i8** %21, align 8, !tbaa !1635\l  br label %49\l}"];
+	Node0x1c63e40 -> Node0x1c63ee0;
+	Node0x1c63e90 [shape=record,label="{%47:\l47:                                               \l  %48 = tail call fastcc %struct.infomap* @lookup(i8* nonnull %0, i64 %19,\l... %struct.hsearch_data* nonnull %4) #40\l  br label %49\l}"];
+	Node0x1c63e90 -> Node0x1c63ee0;
+	Node0x1c63ee0 [shape=record,label="{%49:\l49:                                               \l  %50 = phi %struct.infomap* [ null, %42 ], [ %20, %18 ], [ null, %24 ], [\l... %48, %47 ], [ %20, %26 ]\l  %51 = phi i32 [ 0, %42 ], [ 1, %18 ], [ 0, %24 ], [ 1, %47 ], [ 1, %26 ]\l  store %struct.infomap* %50, %struct.infomap** %3, align 8, !tbaa !1639\l  ret i32 %51\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'remainder' function" {
+	label="CFG for 'remainder' function";
+
+	Node0x1d540b0 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = bitcast i32* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %4) #40\l  %5 = call double @remquo(double %0, double %1, i32* nonnull %3) #41\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %4) #40\l  ret double %5\l}"];
+}

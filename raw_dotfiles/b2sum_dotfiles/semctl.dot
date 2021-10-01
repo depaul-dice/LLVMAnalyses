@@ -1,0 +1,24 @@
+digraph "CFG for 'semctl' function" {
+	label="CFG for 'semctl' function";
+
+	Node0x1fa8fb0 [shape=record,label="{%3:\l  %4 = alloca [1 x %struct.__va_list_tag], align 16\l  %5 = load %struct.semid_ds*, %struct.semid_ds** bitcast (\{ i32, [4 x i8] \}*\l... @__const.semctl.arg to %struct.semid_ds**), align 8\l  %6 = bitcast [1 x %struct.__va_list_tag]* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %6) #40\l  switch i32 %2, label %25 [\l    i32 16, label %7\l    i32 13, label %7\l    i32 17, label %7\l    i32 2, label %7\l    i32 1, label %7\l    i32 3, label %7\l    i32 19, label %7\l    i32 18, label %7\l  ]\l|{<s0>def|<s1>16|<s2>13|<s3>17|<s4>2|<s5>1|<s6>3|<s7>19|<s8>18}}"];
+	Node0x1fa8fb0:s0 -> Node0x1fa9200;
+	Node0x1fa8fb0:s1 -> Node0x1fa90c0;
+	Node0x1fa8fb0:s2 -> Node0x1fa90c0;
+	Node0x1fa8fb0:s3 -> Node0x1fa90c0;
+	Node0x1fa8fb0:s4 -> Node0x1fa90c0;
+	Node0x1fa8fb0:s5 -> Node0x1fa90c0;
+	Node0x1fa8fb0:s6 -> Node0x1fa90c0;
+	Node0x1fa8fb0:s7 -> Node0x1fa90c0;
+	Node0x1fa8fb0:s8 -> Node0x1fa90c0;
+	Node0x1fa90c0 [shape=record,label="{%7:\l7:                                                \l  call void @llvm.va_start(i8* nonnull %6) #41\l  %8 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %4, i64 0, i64 0, i32 0\l  %9 = load i32, i32* %8, align 16\l  %10 = icmp ult i32 %9, 41\l  br i1 %10, label %11, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1fa90c0:s0 -> Node0x1fa9110;
+	Node0x1fa90c0:s1 -> Node0x1fa9160;
+	Node0x1fa9110 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %4, i64 0, i64 0, i32 3\l  %13 = load i8*, i8** %12, align 16\l  %14 = zext i32 %9 to i64\l  %15 = getelementptr i8, i8* %13, i64 %14\l  %16 = add nuw nsw i32 %9, 8\l  store i32 %16, i32* %8, align 16\l  br label %21\l}"];
+	Node0x1fa9110 -> Node0x1fa91b0;
+	Node0x1fa9160 [shape=record,label="{%17:\l17:                                               \l  %18 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %4, i64 0, i64 0, i32 2\l  %19 = load i8*, i8** %18, align 8\l  %20 = getelementptr i8, i8* %19, i64 8\l  store i8* %20, i8** %18, align 8\l  br label %21\l}"];
+	Node0x1fa9160 -> Node0x1fa91b0;
+	Node0x1fa91b0 [shape=record,label="{%21:\l21:                                               \l  %22 = phi i8* [ %15, %11 ], [ %19, %17 ]\l  %23 = bitcast i8* %22 to %struct.semid_ds**\l  %24 = load %struct.semid_ds*, %struct.semid_ds** %23, align 8, !tbaa.struct\l... !1632\l  call void @llvm.va_end(i8* nonnull %6) #41\l  br label %25\l}"];
+	Node0x1fa91b0 -> Node0x1fa9200;
+	Node0x1fa9200 [shape=record,label="{%25:\l25:                                               \l  %26 = phi %struct.semid_ds* [ %5, %3 ], [ %24, %21 ]\l  %27 = sext i32 %0 to i64\l  %28 = sext i32 %1 to i64\l  %29 = sext i32 %2 to i64\l  %30 = ptrtoint %struct.semid_ds* %26 to i64\l  %31 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}\"(i64 66, i64 %27, i64 %28, i64 %29, i64 %30) #40, !srcloc !1639\l  %32 = shl i64 %31, 32\l  %33 = ashr exact i64 %32, 32\l  %34 = call i64 @__syscall_ret(i64 %33) #42\l  %35 = trunc i64 %34 to i32\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %6) #40\l  ret i32 %35\l}"];
+}

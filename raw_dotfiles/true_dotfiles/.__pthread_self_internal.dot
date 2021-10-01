@@ -1,0 +1,5 @@
+digraph "CFG for '__pthread_self_internal' function" {
+	label="CFG for '__pthread_self_internal' function";
+
+	Node0x24525d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  %1 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #26, !srcloc !1086\l  ret %struct.__pthread* %1\l}"];
+}

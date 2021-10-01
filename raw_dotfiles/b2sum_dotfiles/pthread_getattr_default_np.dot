@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_getattr_default_np' function" {
+	label="CFG for 'pthread_getattr_default_np' function";
+
+	Node0x1e73510 [shape=record,label="{%1:\l  %2 = alloca %struct.pthread_attr_t, align 8\l  tail call void @__acquire_ptc() #40\l  %3 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %2, i64 0, i32 0, i32 0, i64 0\l  %4 = load i32, i32* @__default_stacksize, align 4, !tbaa !1632\l  %5 = zext i32 %4 to i64\l  store i64 %5, i64* %3, align 8, !tbaa !1636\l  %6 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %2, i64 0, i32 0, i32 0, i64 1\l  %7 = load i32, i32* @__default_guardsize, align 4, !tbaa !1632\l  %8 = zext i32 %7 to i64\l  store i64 %8, i64* %6, align 8, !tbaa !1636\l  %9 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %2, i64 0, i32 0, i32 0, i64 2\l  %10 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %2, i64 0, i32 0, i32 0, i64 7\l  br label %11\l}"];
+	Node0x1e73510 -> Node0x1e73590;
+	Node0x1e73590 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i64* [ %9, %1 ], [ %13, %11 ]\l  store i64 0, i64* %12, align 8, !tbaa !1636\l  %13 = getelementptr inbounds i64, i64* %12, i64 1\l  %14 = icmp eq i64* %13, %10\l  br i1 %14, label %15, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1e73590:s0 -> Node0x1e735e0;
+	Node0x1e73590:s1 -> Node0x1e73590;
+	Node0x1e735e0 [shape=record,label="{%15:\l15:                                               \l  %16 = bitcast %struct.pthread_attr_t* %0 to i8*\l  %17 = bitcast %struct.pthread_attr_t* %2 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %16, i8* nonnull align 8\l... %17, i64 56, i1 true), !tbaa.struct !1638\l  call void @__release_ptc() #40\l  ret i32 0\l}"];
+}

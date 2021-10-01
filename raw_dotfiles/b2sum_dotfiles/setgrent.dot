@@ -1,0 +1,10 @@
+digraph "CFG for 'setgrent' function" {
+	label="CFG for 'setgrent' function";
+
+	Node0x1e81a40 [shape=record,label="{%0:\l  %1 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** @f.632, align 8, !tbaa\l... !1632\l  %2 = icmp eq %struct._IO_FILE.0* %1, null\l  br i1 %2, label %5, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1e81a40:s0 -> Node0x1e822a0;
+	Node0x1e81a40:s1 -> Node0x1e82250;
+	Node0x1e82250 [shape=record,label="{%3:\l3:                                                \l  %4 = tail call i32 @fclose(%struct._IO_FILE.0* nonnull %1) #40\l  br label %5\l}"];
+	Node0x1e82250 -> Node0x1e822a0;
+	Node0x1e822a0 [shape=record,label="{%5:\l5:                                                \l  store %struct._IO_FILE.0* null, %struct._IO_FILE.0** @f.632, align 8, !tbaa\l... !1632\l  ret void\l}"];
+}

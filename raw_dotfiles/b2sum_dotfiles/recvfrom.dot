@@ -1,0 +1,5 @@
+digraph "CFG for 'recvfrom' function" {
+	label="CFG for 'recvfrom' function";
+
+	Node0x17889a0 [shape=record,label="{%6:\l  %7 = sext i32 %0 to i64\l  %8 = ptrtoint i8* %1 to i64\l  %9 = sext i32 %3 to i64\l  %10 = ptrtoint %struct.sockaddr* %4 to i64\l  %11 = ptrtoint i32* %5 to i64\l  %12 = tail call i64 @__syscall_cp(i64 45, i64 %7, i64 %8, i64 %2, i64 %9,\l... i64 %10, i64 %11) #40\l  %13 = tail call i64 @__syscall_ret(i64 %12) #40\l  ret i64 %13\l}"];
+}

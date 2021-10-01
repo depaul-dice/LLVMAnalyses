@@ -1,0 +1,5 @@
+digraph "CFG for 'setutxent' function" {
+	label="CFG for 'setutxent' function";
+
+	Node0x1fedba0 [shape=record,label="{%0:\l  ret void\l}"];
+}

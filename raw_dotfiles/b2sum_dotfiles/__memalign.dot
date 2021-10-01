@@ -1,0 +1,33 @@
+digraph "CFG for '__memalign' function" {
+	label="CFG for '__memalign' function";
+
+	Node0x1c12010 [shape=record,label="{%2:\l  %3 = sub i64 0, %0\l  %4 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !1632\l  %5 = icmp ugt i64 %4, 1\l  br i1 %5, label %6, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1c12010:s0 -> Node0x1c12130;
+	Node0x1c12010:s1 -> Node0x1c12180;
+	Node0x1c12130 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %7, align 4, !tbaa !1633\l  br label %60\l}"];
+	Node0x1c12130 -> Node0x1c12450;
+	Node0x1c12180 [shape=record,label="{%8:\l8:                                                \l  %9 = xor i64 %0, -1\l  %10 = icmp ult i64 %9, %1\l  %11 = load i32, i32* @__malloc_replaced, align 4\l  %12 = icmp ne i32 %11, 0\l  %13 = or i1 %10, %12\l  br i1 %13, label %14, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1c12180:s0 -> Node0x1c121d0;
+	Node0x1c12180:s1 -> Node0x1c12220;
+	Node0x1c121d0 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call i32* @___errno_location() #40\l  store i32 12, i32* %15, align 4, !tbaa !1633\l  br label %60\l}"];
+	Node0x1c121d0 -> Node0x1c12450;
+	Node0x1c12220 [shape=record,label="{%16:\l16:                                               \l  %17 = icmp ult i64 %0, 33\l  br i1 %17, label %18, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1c12220:s0 -> Node0x1c12270;
+	Node0x1c12220:s1 -> Node0x1c122c0;
+	Node0x1c12270 [shape=record,label="{%18:\l18:                                               \l  %19 = tail call i8* @malloc(i64 %1) #40\l  br label %60\l}"];
+	Node0x1c12270 -> Node0x1c12450;
+	Node0x1c122c0 [shape=record,label="{%20:\l20:                                               \l  %21 = add i64 %0, -1\l  %22 = add i64 %21, %1\l  %23 = tail call i8* @malloc(i64 %22) #40\l  %24 = icmp eq i8* %23, null\l  br i1 %24, label %60, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1c122c0:s0 -> Node0x1c12450;
+	Node0x1c122c0:s1 -> Node0x1c12310;
+	Node0x1c12310 [shape=record,label="{%25:\l25:                                               \l  %26 = ptrtoint i8* %23 to i64\l  %27 = add i64 %21, %26\l  %28 = and i64 %27, %3\l  %29 = inttoptr i64 %28 to i8*\l  %30 = icmp eq i8* %23, %29\l  br i1 %30, label %60, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1c12310:s0 -> Node0x1c12450;
+	Node0x1c12310:s1 -> Node0x1c12360;
+	Node0x1c12360 [shape=record,label="{%31:\l31:                                               \l  %32 = getelementptr inbounds i8, i8* %23, i64 -16\l  %33 = getelementptr inbounds i8, i8* %29, i64 -16\l  %34 = getelementptr inbounds i8, i8* %23, i64 -8\l  %35 = bitcast i8* %34 to i64*\l  %36 = load i64, i64* %35, align 8, !tbaa !1637\l  %37 = and i64 %36, 1\l  %38 = icmp eq i64 %37, 0\l  br i1 %38, label %39, label %48\l|{<s0>T|<s1>F}}"];
+	Node0x1c12360:s0 -> Node0x1c123b0;
+	Node0x1c12360:s1 -> Node0x1c12400;
+	Node0x1c123b0 [shape=record,label="{%39:\l39:                                               \l  %40 = bitcast i8* %32 to i64*\l  %41 = load i64, i64* %40, align 8, !tbaa !1641\l  %42 = sub i64 %28, %26\l  %43 = add i64 %41, %42\l  %44 = bitcast i8* %33 to i64*\l  store i64 %43, i64* %44, align 8, !tbaa !1641\l  %45 = sub i64 %36, %42\l  %46 = getelementptr inbounds i8, i8* %29, i64 -8\l  %47 = bitcast i8* %46 to i64*\l  store i64 %45, i64* %47, align 8, !tbaa !1637\l  br label %60\l}"];
+	Node0x1c123b0 -> Node0x1c12450;
+	Node0x1c12400 [shape=record,label="{%48:\l48:                                               \l  %49 = bitcast i8* %32 to %struct.chunk*\l  %50 = and i64 %36, -2\l  %51 = getelementptr inbounds i8, i8* %32, i64 %50\l  %52 = sub i64 %28, %26\l  %53 = or i64 %52, 1\l  store i64 %53, i64* %35, align 8, !tbaa !1637\l  %54 = bitcast i8* %33 to i64*\l  store i64 %53, i64* %54, align 8, !tbaa !1641\l  %55 = bitcast i8* %51 to i64*\l  %56 = load i64, i64* %55, align 8, !tbaa !1641\l  %57 = sub i64 %56, %52\l  store i64 %57, i64* %55, align 8, !tbaa !1641\l  %58 = getelementptr inbounds i8, i8* %29, i64 -8\l  %59 = bitcast i8* %58 to i64*\l  store i64 %57, i64* %59, align 8, !tbaa !1637\l  tail call void @__bin_chunk(%struct.chunk* nonnull %49) #40\l  br label %60\l}"];
+	Node0x1c12400 -> Node0x1c12450;
+	Node0x1c12450 [shape=record,label="{%60:\l60:                                               \l  %61 = phi i8* [ null, %6 ], [ null, %14 ], [ %19, %18 ], [ null, %20 ], [\l... %23, %25 ], [ %29, %48 ], [ %29, %39 ]\l  ret i8* %61\l}"];
+}

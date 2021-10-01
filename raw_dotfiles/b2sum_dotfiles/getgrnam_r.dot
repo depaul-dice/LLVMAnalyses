@@ -1,0 +1,5 @@
+digraph "CFG for 'getgrnam_r' function" {
+	label="CFG for 'getgrnam_r' function";
+
+	Node0x1faacf0 [shape=record,label="{%5:\l  %6 = tail call fastcc i32 @getgr_r(i8* %0, i32 0, %struct.group* %1, i8* %2,\l... i64 %3, %struct.group** %4) #40\l  ret i32 %6\l}"];
+}

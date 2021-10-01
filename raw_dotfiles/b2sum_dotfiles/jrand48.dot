@@ -1,0 +1,5 @@
+digraph "CFG for 'jrand48' function" {
+	label="CFG for 'jrand48' function";
+
+	Node0x19330d0 [shape=record,label="{%1:\l  %2 = tail call i64 @__rand48_step(i16* %0, i16* getelementptr inbounds ([7 x\l... i16], [7 x i16]* @__seed48, i64 0, i64 3)) #40\l  %3 = shl i64 %2, 16\l  %4 = ashr i64 %3, 32\l  ret i64 %4\l}"];
+}

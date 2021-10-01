@@ -1,0 +1,10 @@
+digraph "CFG for 'epoll_create1' function" {
+	label="CFG for 'epoll_create1' function";
+
+	Node0x1d1b560 [shape=record,label="{%1:\l  %2 = sext i32 %0 to i64\l  %3 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64\l... 291, i64 %2) #40, !srcloc !1632\l  %4 = trunc i64 %3 to i32\l  %5 = icmp ne i32 %4, -38\l  %6 = icmp ne i32 %0, 0\l  %7 = or i1 %6, %5\l  br i1 %7, label %10, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1d1b560:s0 -> Node0x1d1b600;
+	Node0x1d1b560:s1 -> Node0x1d1b5b0;
+	Node0x1d1b5b0 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64\l... 213, i64 1) #40, !srcloc !1632\l  br label %10\l}"];
+	Node0x1d1b5b0 -> Node0x1d1b600;
+	Node0x1d1b600 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i64 [ %3, %1 ], [ %9, %8 ]\l  %12 = shl i64 %11, 32\l  %13 = ashr exact i64 %12, 32\l  %14 = tail call i64 @__syscall_ret(i64 %13) #41\l  %15 = trunc i64 %14 to i32\l  ret i32 %15\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'lgammal' function" {
+	label="CFG for 'lgammal' function";
+
+	Node0x1cc7bf0 [shape=record,label="{%1:\l  %2 = tail call x86_fp80 @__lgammal_r(x86_fp80 %0, i32* nonnull @__signgam)\l... #40\l  ret x86_fp80 %2\l}"];
+}

@@ -1,0 +1,12 @@
+digraph "CFG for 'clock_getcpuclockid' function" {
+	label="CFG for 'clock_getcpuclockid' function";
+
+	Node0x19de700 [shape=record,label="{%2:\l  %3 = alloca %struct.timeval, align 8\l  %4 = bitcast %struct.timeval* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %4) #40\l  %5 = shl i32 %0, 3\l  %6 = xor i32 %5, -6\l  %7 = sext i32 %6 to i64\l  %8 = ptrtoint %struct.timeval* %3 to i64\l  %9 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64\l... 229, i64 %7, i64 %8) #40, !srcloc !1632\l  %10 = trunc i64 %9 to i32\l  %11 = icmp eq i32 %10, 0\l  br i1 %11, label %14, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x19de700:s0 -> Node0x19de800;
+	Node0x19de700:s1 -> Node0x19de7b0;
+	Node0x19de7b0 [shape=record,label="{%12:\l12:                                               \l  %13 = sub nsw i32 0, %10\l  br label %15\l}"];
+	Node0x19de7b0 -> Node0x19de850;
+	Node0x19de800 [shape=record,label="{%14:\l14:                                               \l  store i32 %6, i32* %1, align 4, !tbaa !1633\l  br label %15\l}"];
+	Node0x19de800 -> Node0x19de850;
+	Node0x19de850 [shape=record,label="{%15:\l15:                                               \l  %16 = phi i32 [ %13, %12 ], [ 0, %14 ]\l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %4) #40\l  ret i32 %16\l}"];
+}

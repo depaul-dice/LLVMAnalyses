@@ -1,0 +1,10 @@
+digraph "CFG for 'handler' function" {
+	label="CFG for 'handler' function";
+
+	Node0x168d3e0 [shape=record,label="{%1:\l  %2 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #40, !srcloc !1632\l  %3 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %2, i64 0,\l... i32 7\l  %4 = load i32, i32* %3, align 8, !tbaa !1633\l  %5 = load i32, i32* @target_tid, align 4, !tbaa !1641\l  %6 = icmp eq i32 %4, %5\l  br i1 %6, label %7, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x168d3e0:s0 -> Node0x168d870;
+	Node0x168d3e0:s1 -> Node0x168d8c0;
+	Node0x168d870 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call i32* @___errno_location() #41\l  %9 = load i32, i32* %8, align 4, !tbaa !1641\l  %10 = tail call i32 @sem_post(%struct.sem_t* nonnull @caller_sem) #41\l  %11 = tail call i32 @sem_wait(%struct.sem_t* nonnull @target_sem) #41\l  %12 = load void (i8*)*, void (i8*)** @callback, align 8, !tbaa !1642\l  %13 = load i8*, i8** @context, align 8, !tbaa !1642\l  tail call void %12(i8* %13) #42\l  %14 = tail call i32 @sem_post(%struct.sem_t* nonnull @caller_sem) #41\l  %15 = tail call i32 @sem_wait(%struct.sem_t* nonnull @target_sem) #41\l  %16 = tail call i32 @sem_post(%struct.sem_t* nonnull @caller_sem) #41\l  %17 = tail call i32* @___errno_location() #41\l  store i32 %9, i32* %17, align 4, !tbaa !1641\l  br label %18\l}"];
+	Node0x168d870 -> Node0x168d8c0;
+	Node0x168d8c0 [shape=record,label="{%18:\l18:                                               \l  ret void\l}"];
+}

@@ -1,0 +1,15 @@
+digraph "CFG for 'posix_spawn_file_actions_adddup2' function" {
+	label="CFG for 'posix_spawn_file_actions_adddup2' function";
+
+	Node0x1fc0400 [shape=record,label="{%3:\l  %4 = tail call i8* @malloc(i64 40) #40\l  %5 = icmp eq i8* %4, null\l  br i1 %5, label %24, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1fc0400:s0 -> Node0x1fc0840;
+	Node0x1fc0400:s1 -> Node0x1fc0750;
+	Node0x1fc0750 [shape=record,label="{%6:\l6:                                                \l  %7 = getelementptr inbounds i8, i8* %4, i64 16\l  %8 = bitcast i8* %7 to i32*\l  store i32 2, i32* %8, align 8, !tbaa !1632\l  %9 = getelementptr inbounds i8, i8* %4, i64 24\l  %10 = bitcast i8* %9 to i32*\l  store i32 %1, i32* %10, align 8, !tbaa !1632\l  %11 = getelementptr inbounds i8, i8* %4, i64 20\l  %12 = bitcast i8* %11 to i32*\l  store i32 %2, i32* %12, align 4, !tbaa !1632\l  %13 = getelementptr inbounds %struct.posix_spawn_file_actions_t,\l... %struct.posix_spawn_file_actions_t* %0, i64 0, i32 1\l  %14 = bitcast i8** %13 to %struct.fdop**\l  %15 = load %struct.fdop*, %struct.fdop** %14, align 8, !tbaa !1636\l  %16 = bitcast i8* %4 to %struct.fdop**\l  store %struct.fdop* %15, %struct.fdop** %16, align 8, !tbaa !1639\l  %17 = icmp eq %struct.fdop* %15, null\l  br i1 %17, label %21, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1fc0750:s0 -> Node0x1fc07f0;
+	Node0x1fc0750:s1 -> Node0x1fc07a0;
+	Node0x1fc07a0 [shape=record,label="{%18:\l18:                                               \l  %19 = getelementptr inbounds %struct.fdop, %struct.fdop* %15, i64 0, i32 1\l  %20 = bitcast %struct.fdop** %19 to i8**\l  store i8* %4, i8** %20, align 8, !tbaa !1639\l  br label %21\l}"];
+	Node0x1fc07a0 -> Node0x1fc07f0;
+	Node0x1fc07f0 [shape=record,label="{%21:\l21:                                               \l  %22 = getelementptr inbounds i8, i8* %4, i64 8\l  %23 = bitcast i8* %22 to %struct.fdop**\l  store %struct.fdop* null, %struct.fdop** %23, align 8, !tbaa !1639\l  store i8* %4, i8** %13, align 8, !tbaa !1636\l  br label %24\l}"];
+	Node0x1fc07f0 -> Node0x1fc0840;
+	Node0x1fc0840 [shape=record,label="{%24:\l24:                                               \l  %25 = phi i32 [ 0, %21 ], [ 12, %3 ]\l  ret i32 %25\l}"];
+}

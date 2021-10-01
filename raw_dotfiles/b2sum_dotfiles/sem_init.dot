@@ -1,0 +1,12 @@
+digraph "CFG for 'sem_init' function" {
+	label="CFG for 'sem_init' function";
+
+	Node0x1687940 [shape=record,label="{%3:\l  %4 = icmp slt i32 %2, 0\l  br i1 %4, label %5, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1687940:s0 -> Node0x1687a10;
+	Node0x1687940:s1 -> Node0x1687a60;
+	Node0x1687a10 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %6, align 4, !tbaa !1632\l  br label %13\l}"];
+	Node0x1687a10 -> Node0x1687ab0;
+	Node0x1687a60 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct.sem_t, %struct.sem_t* %0, i64 0, i32 0,\l... i64 0\l  store volatile i32 %2, i32* %8, align 4, !tbaa !1632\l  %9 = getelementptr inbounds %struct.sem_t, %struct.sem_t* %0, i64 0, i32 0,\l... i64 1\l  store volatile i32 0, i32* %9, align 4, !tbaa !1632\l  %10 = icmp eq i32 %1, 0\l  %11 = select i1 %10, i32 128, i32 0\l  %12 = getelementptr inbounds %struct.sem_t, %struct.sem_t* %0, i64 0, i32 0,\l... i64 2\l  store volatile i32 %11, i32* %12, align 4, !tbaa !1632\l  br label %13\l}"];
+	Node0x1687a60 -> Node0x1687ab0;
+	Node0x1687ab0 [shape=record,label="{%13:\l13:                                               \l  %14 = phi i32 [ -1, %5 ], [ 0, %7 ]\l  ret i32 %14\l}"];
+}

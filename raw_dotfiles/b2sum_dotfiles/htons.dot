@@ -1,0 +1,5 @@
+digraph "CFG for 'htons' function" {
+	label="CFG for 'htons' function";
+
+	Node0x17871a0 [shape=record,label="{%1:\l  %2 = tail call i16 @llvm.bswap.i16(i16 %0) #7\l  ret i16 %2\l}"];
+}

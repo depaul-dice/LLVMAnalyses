@@ -1,0 +1,15 @@
+digraph "CFG for 'xnrealloc' function" {
+	label="CFG for 'xnrealloc' function";
+
+	Node0x14a9600 [shape=record,label="{%3:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1639\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1637, metadata\l... !DIExpression()), !dbg !1639\l  call void @llvm.dbg.value(metadata i64 %2, metadata !1638, metadata\l... !DIExpression()), !dbg !1639\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1640, metadata\l... !DIExpression()) #7, !dbg !1646\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1643, metadata\l... !DIExpression()) #7, !dbg !1646\l  call void @llvm.dbg.value(metadata i64 %2, metadata !1644, metadata\l... !DIExpression()) #7, !dbg !1646\l  %4 = tail call i8* @reallocarray(i8* %0, i64 %1, i64 %2) #7, !dbg !1648\l  call void @llvm.dbg.value(metadata i8* %4, metadata !1645, metadata\l... !DIExpression()) #7, !dbg !1646\l  %5 = icmp eq i8* %4, null, !dbg !1649\l  br i1 %5, label %6, label %13, !dbg !1651\l|{<s0>T|<s1>F}}"];
+	Node0x14a9600:s0 -> Node0x14aa170;
+	Node0x14a9600:s1 -> Node0x14aa260;
+	Node0x14aa170 [shape=record,label="{%6:\l6:                                                \l  %7 = icmp eq i8* %0, null, !dbg !1652\l  br i1 %7, label %12, label %8, !dbg !1653\l|{<s0>T|<s1>F}}"];
+	Node0x14aa170:s0 -> Node0x14aa210;
+	Node0x14aa170:s1 -> Node0x14aa1c0;
+	Node0x14aa1c0 [shape=record,label="{%8:\l8:                                                \l  %9 = icmp ne i64 %1, 0, !dbg !1654\l  %10 = icmp ne i64 %2, 0, !dbg !1655\l  %11 = and i1 %9, %10, !dbg !1656\l  br i1 %11, label %12, label %13, !dbg !1656\l|{<s0>T|<s1>F}}"];
+	Node0x14aa1c0:s0 -> Node0x14aa210;
+	Node0x14aa1c0:s1 -> Node0x14aa260;
+	Node0x14aa210 [shape=record,label="{%12:\l12:                                               \l  tail call void @xalloc_die() #40, !dbg !1657\l  unreachable, !dbg !1657\l}"];
+	Node0x14aa260 [shape=record,label="{%13:\l13:                                               \l  ret i8* %4, !dbg !1658\l}"];
+}

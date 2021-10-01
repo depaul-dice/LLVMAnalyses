@@ -1,0 +1,5 @@
+digraph "CFG for 'mkfifoat' function" {
+	label="CFG for 'mkfifoat' function";
+
+	Node0x1988340 [shape=record,label="{%3:\l  %4 = or i32 %2, 4096\l  %5 = tail call i32 @mknodat(i32 %0, i8* %1, i32 %4, i64 0) #40\l  ret i32 %5\l}"];
+}

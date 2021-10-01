@@ -1,0 +1,5 @@
+digraph "CFG for '__pthread_testcancel' function" {
+	label="CFG for '__pthread_testcancel' function";
+
+	Node0x16776a0 [shape=record,label="{%0:\l  tail call void (...) bitcast (void ()* @__testcancel to void (...)*)() #40\l  ret void\l}"];
+}

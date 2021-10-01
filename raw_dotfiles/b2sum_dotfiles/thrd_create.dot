@@ -1,0 +1,5 @@
+digraph "CFG for 'thrd_create' function" {
+	label="CFG for 'thrd_create' function";
+
+	Node0x1bea810 [shape=record,label="{%3:\l  %4 = bitcast i32 (i8*)* %1 to i8* (i8*)*\l  %5 = tail call i32 @__pthread_create(%struct.__pthread** %0,\l... %struct.pthread_attr_t* nonnull inttoptr (i64 -1 to %struct.pthread_attr_t*),\l... i8* (i8*)* %4, i8* %2) #40\l  %6 = icmp eq i32 %5, 11\l  %7 = select i1 %6, i32 3, i32 2\l  %8 = icmp eq i32 %5, 0\l  %9 = select i1 %8, i32 0, i32 %7\l  ret i32 %9\l}"];
+}

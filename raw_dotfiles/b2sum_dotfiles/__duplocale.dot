@@ -1,0 +1,10 @@
+digraph "CFG for '__duplocale' function" {
+	label="CFG for '__duplocale' function";
+
+	Node0x1ff1100 [shape=record,label="{%1:\l  %2 = tail call i8* @malloc(i64 48) #40\l  %3 = icmp eq i8* %2, null\l  br i1 %3, label %9, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1ff1100:s0 -> Node0x1ff1530;
+	Node0x1ff1100:s1 -> Node0x1ff14e0;
+	Node0x1ff14e0 [shape=record,label="{%4:\l4:                                                \l  %5 = bitcast i8* %2 to %struct.__locale_struct*\l  %6 = icmp eq %struct.__locale_struct* %0, inttoptr (i64 -1 to\l... %struct.__locale_struct*)\l  %7 = select i1 %6, %struct.__locale_struct* getelementptr inbounds\l... (%struct.__libc, %struct.__libc* @__libc, i64 0, i32 10),\l... %struct.__locale_struct* %0\l  %8 = bitcast %struct.__locale_struct* %7 to i8*\l  tail call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8\l... dereferenceable(48) %2, i8* nonnull align 8 dereferenceable(48) %8, i64 48,\l... i1 false), !tbaa.struct !1632\l  br label %9\l}"];
+	Node0x1ff14e0 -> Node0x1ff1530;
+	Node0x1ff1530 [shape=record,label="{%9:\l9:                                                \l  %10 = phi %struct.__locale_struct* [ %5, %4 ], [ null, %1 ]\l  ret %struct.__locale_struct* %10\l}"];
+}

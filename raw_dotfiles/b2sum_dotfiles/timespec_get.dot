@@ -1,0 +1,10 @@
+digraph "CFG for 'timespec_get' function" {
+	label="CFG for 'timespec_get' function";
+
+	Node0x1ff5780 [shape=record,label="{%2:\l  %3 = icmp eq i32 %1, 1\l  br i1 %3, label %4, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1ff5780:s0 -> Node0x1ff57d0;
+	Node0x1ff5780:s1 -> Node0x1ff5820;
+	Node0x1ff57d0 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i32 @__clock_gettime(i32 0, %struct.timeval* %0) #40\l  %6 = lshr i32 %5, 31\l  %7 = xor i32 %6, 1\l  br label %8\l}"];
+	Node0x1ff57d0 -> Node0x1ff5820;
+	Node0x1ff5820 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i32 [ %7, %4 ], [ 0, %2 ]\l  ret i32 %9\l}"];
+}

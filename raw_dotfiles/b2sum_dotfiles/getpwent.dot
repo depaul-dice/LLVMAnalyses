@@ -1,0 +1,13 @@
+digraph "CFG for 'getpwent' function" {
+	label="CFG for 'getpwent' function";
+
+	Node0x1f84da0 [shape=record,label="{%0:\l  %1 = alloca %struct.passwd*, align 8\l  %2 = bitcast %struct.passwd** %1 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %2) #40\l  %3 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** @f.999, align 8, !tbaa\l... !1632\l  %4 = icmp eq %struct._IO_FILE.0* %3, null\l  br i1 %4, label %5, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1f84da0:s0 -> Node0x1f84e20;
+	Node0x1f84da0:s1 -> Node0x1f84e70;
+	Node0x1f84e20 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call %struct._IO_FILE.0* @fopen(i8* getelementptr inbounds ([12 x\l... i8], [12 x i8]* @.str.1000, i64 0, i64 0), i8* getelementptr inbounds ([4 x\l... i8], [4 x i8]* @.str.1.1001, i64 0, i64 0)) #41\l  store %struct._IO_FILE.0* %6, %struct._IO_FILE.0** @f.999, align 8, !tbaa\l... !1632\l  %7 = icmp eq %struct._IO_FILE.0* %6, null\l  br i1 %7, label %12, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1f84e20:s0 -> Node0x1f84ec0;
+	Node0x1f84e20:s1 -> Node0x1f84e70;
+	Node0x1f84e70 [shape=record,label="{%8:\l8:                                                \l  %9 = phi %struct._IO_FILE.0* [ %6, %5 ], [ %3, %0 ]\l  %10 = call i32 @__getpwent_a(%struct._IO_FILE.0* nonnull %9, %struct.passwd*\l... nonnull @pw, i8** nonnull @line.1002, i64* nonnull @size, %struct.passwd**\l... nonnull %1) #41\l  %11 = load %struct.passwd*, %struct.passwd** %1, align 8, !tbaa !1632\l  br label %12\l}"];
+	Node0x1f84e70 -> Node0x1f84ec0;
+	Node0x1f84ec0 [shape=record,label="{%12:\l12:                                               \l  %13 = phi %struct.passwd* [ %11, %8 ], [ null, %5 ]\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %2) #40\l  ret %struct.passwd* %13\l}"];
+}

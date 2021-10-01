@@ -1,0 +1,5 @@
+digraph "CFG for 'setpgrp' function" {
+	label="CFG for 'setpgrp' function";
+
+	Node0x1ccb140 [shape=record,label="{%0:\l  %1 = tail call i32 @setpgid(i32 0, i32 0) #40\l  ret i32 %1\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for '__cxa_finalize' function" {
+	label="CFG for '__cxa_finalize' function";
+
+	Node0x1c57930 [shape=record,label="{%1:\l  ret void\l}"];
+}

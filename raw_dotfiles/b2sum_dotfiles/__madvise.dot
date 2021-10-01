@@ -1,0 +1,5 @@
+digraph "CFG for '__madvise' function" {
+	label="CFG for '__madvise' function";
+
+	Node0x159e340 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = ptrtoint i8* %0 to i64\l  %5 = sext i32 %2 to i64\l  %6 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 28, i64 %4, i64 %1, i64 %5) #29, !srcloc !1632\l  %7 = tail call fastcc i64 @__syscall_ret(i64 %6) #30\l  %8 = trunc i64 %7 to i32\l  ret i32 %8\l}"];
+}

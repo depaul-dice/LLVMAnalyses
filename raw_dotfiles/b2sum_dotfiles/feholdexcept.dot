@@ -1,0 +1,5 @@
+digraph "CFG for 'feholdexcept' function" {
+	label="CFG for 'feholdexcept' function";
+
+	Node0x19225f0 [shape=record,label="{%1:\l  %2 = tail call i32 @fegetenv(%struct.fenv_t* %0) #40\l  %3 = tail call i32 @feclearexcept(i32 63) #40\l  ret i32 0\l}"];
+}

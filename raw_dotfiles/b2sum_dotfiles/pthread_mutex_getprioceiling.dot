@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_mutex_getprioceiling' function" {
+	label="CFG for 'pthread_mutex_getprioceiling' function";
+
+	Node0x1f76a40 [shape=record,label="{%2:\l  ret i32 22\l}"];
+}

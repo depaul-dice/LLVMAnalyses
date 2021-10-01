@@ -1,0 +1,17 @@
+digraph "CFG for 'logbf' function" {
+	label="CFG for 'logbf' function";
+
+	Node0x1ce0b80 [shape=record,label="{%1:\l  %2 = bitcast float %0 to i32\l  %3 = and i32 %2, 2139095040\l  %4 = icmp eq i32 %3, 2139095040\l  br i1 %4, label %5, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1ce0b80:s0 -> Node0x1ce0c00;
+	Node0x1ce0b80:s1 -> Node0x1ce0c50;
+	Node0x1ce0c00 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call float @llvm.experimental.constrained.fmul.f32(float %0, float\l... %0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %17\l}"];
+	Node0x1ce0c00 -> Node0x1ce0d40;
+	Node0x1ce0c50 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call float @llvm.experimental.constrained.sitofp.f32.i32(i32 0,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %9 = tail call i1 @llvm.experimental.constrained.fcmp.f32(float %0, float\l... %8, metadata !\"oeq\", metadata !\"fpexcept.ignore\") #40\l  br i1 %9, label %10, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1ce0c50:s0 -> Node0x1ce0ca0;
+	Node0x1ce0c50:s1 -> Node0x1ce0cf0;
+	Node0x1ce0ca0 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call float @llvm.experimental.constrained.sitofp.f32.i32(i32 -1,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %12 = tail call float @llvm.experimental.constrained.fmul.f32(float %0,\l... float %0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  %13 = tail call float @llvm.experimental.constrained.fdiv.f32(float %11,\l... float %12, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %17\l}"];
+	Node0x1ce0ca0 -> Node0x1ce0d40;
+	Node0x1ce0cf0 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call i32 @ilogbf(float %0) #41\l  %16 = tail call float @llvm.experimental.constrained.sitofp.f32.i32(i32 %15,\l... metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #40\l  br label %17\l}"];
+	Node0x1ce0cf0 -> Node0x1ce0d40;
+	Node0x1ce0d40 [shape=record,label="{%17:\l17:                                               \l  %18 = phi float [ %13, %10 ], [ %16, %14 ], [ %6, %5 ]\l  ret float %18\l}"];
+}

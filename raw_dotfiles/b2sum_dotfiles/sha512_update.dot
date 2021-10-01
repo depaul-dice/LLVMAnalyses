@@ -1,0 +1,25 @@
+digraph "CFG for 'sha512_update' function" {
+	label="CFG for 'sha512_update' function";
+
+	Node0x1ac6f40 [shape=record,label="{%3:\l  %4 = getelementptr inbounds %struct.sha512, %struct.sha512* %0, i64 0, i32 0\l  %5 = load i64, i64* %4, align 8, !tbaa !1632\l  %6 = trunc i64 %5 to i32\l  %7 = and i32 %6, 127\l  %8 = add i64 %5, %2\l  store i64 %8, i64* %4, align 8, !tbaa !1632\l  %9 = icmp eq i32 %7, 0\l  br i1 %9, label %23, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1ac6f40:s0 -> Node0x1ac7080;
+	Node0x1ac6f40:s1 -> Node0x1ac6f90;
+	Node0x1ac6f90 [shape=record,label="{%10:\l10:                                               \l  %11 = sub nuw nsw i32 128, %7\l  %12 = zext i32 %11 to i64\l  %13 = icmp ugt i64 %12, %2\l  %14 = zext i32 %7 to i64\l  %15 = getelementptr inbounds %struct.sha512, %struct.sha512* %0, i64 0, i32\l... 2, i64 %14\l  br i1 %13, label %16, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1ac6f90:s0 -> Node0x1ac6fe0;
+	Node0x1ac6f90:s1 -> Node0x1ac7030;
+	Node0x1ac6fe0 [shape=record,label="{%16:\l16:                                               \l  %17 = tail call i8* @memcpy(i8* nonnull %15, i8* %1, i64 %2) #40\l  br label %40\l}"];
+	Node0x1ac6fe0 -> Node0x1ac71c0;
+	Node0x1ac7030 [shape=record,label="{%18:\l18:                                               \l  %19 = getelementptr inbounds %struct.sha512, %struct.sha512* %0, i64 0, i32\l... 2, i64 0\l  %20 = tail call i8* @memcpy(i8* nonnull %15, i8* %1, i64 %12) #40\l  %21 = sub i64 %2, %12\l  %22 = getelementptr inbounds i8, i8* %1, i64 %12\l  tail call fastcc void @processblock(%struct.sha512* nonnull %0, i8* nonnull\l... %19) #41\l  br label %23\l}"];
+	Node0x1ac7030 -> Node0x1ac7080;
+	Node0x1ac7080 [shape=record,label="{%23:\l23:                                               \l  %24 = phi i8* [ %22, %18 ], [ %1, %3 ]\l  %25 = phi i64 [ %21, %18 ], [ %2, %3 ]\l  %26 = icmp ugt i64 %25, 127\l  br i1 %26, label %27, label %35\l|{<s0>T|<s1>F}}"];
+	Node0x1ac7080:s0 -> Node0x1ac70d0;
+	Node0x1ac7080:s1 -> Node0x1ac7170;
+	Node0x1ac70d0 [shape=record,label="{%27:\l27:                                               \l  %28 = phi i64 [ %30, %27 ], [ %25, %23 ]\l  %29 = phi i8* [ %31, %27 ], [ %24, %23 ]\l  tail call fastcc void @processblock(%struct.sha512* %0, i8* %29) #41\l  %30 = add i64 %28, -128\l  %31 = getelementptr inbounds i8, i8* %29, i64 128\l  %32 = icmp ugt i64 %30, 127\l  br i1 %32, label %27, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x1ac70d0:s0 -> Node0x1ac70d0;
+	Node0x1ac70d0:s1 -> Node0x1ac7120;
+	Node0x1ac7120 [shape=record,label="{%33:\l33:                                               \l  %34 = and i64 %25, 127\l  br label %35\l}"];
+	Node0x1ac7120 -> Node0x1ac7170;
+	Node0x1ac7170 [shape=record,label="{%35:\l35:                                               \l  %36 = phi i8* [ %24, %23 ], [ %31, %33 ]\l  %37 = phi i64 [ %25, %23 ], [ %34, %33 ]\l  %38 = getelementptr inbounds %struct.sha512, %struct.sha512* %0, i64 0, i32\l... 2, i64 0\l  %39 = tail call i8* @memcpy(i8* nonnull %38, i8* %36, i64 %37) #40\l  br label %40\l}"];
+	Node0x1ac7170 -> Node0x1ac71c0;
+	Node0x1ac71c0 [shape=record,label="{%40:\l40:                                               \l  ret void\l}"];
+}

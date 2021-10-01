@@ -1,0 +1,10 @@
+digraph "CFG for '__iswspace_l' function" {
+	label="CFG for '__iswspace_l' function";
+
+	Node0x1ff64d0 [shape=record,label="{%2:\l  %3 = icmp eq i32 %0, 0\l  br i1 %3, label %8, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1ff64d0:s0 -> Node0x1ff6570;
+	Node0x1ff64d0:s1 -> Node0x1ff6520;
+	Node0x1ff6520 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i32* @wcschr(i32* getelementptr inbounds ([22 x i32], [22 x\l... i32]* @iswspace.spaces, i64 0, i64 0), i32 %0) #40\l  %6 = icmp ne i32* %5, null\l  %7 = zext i1 %6 to i32\l  br label %8\l}"];
+	Node0x1ff6520 -> Node0x1ff6570;
+	Node0x1ff6570 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i32 [ 0, %2 ], [ %7, %4 ]\l  ret i32 %9\l}"];
+}

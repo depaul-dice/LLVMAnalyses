@@ -1,0 +1,5 @@
+digraph "CFG for 'finitef' function" {
+	label="CFG for 'finitef' function";
+
+	Node0x1f725e0 [shape=record,label="{%1:\l  %2 = bitcast float %0 to i32\l  %3 = and i32 %2, 2139095040\l  %4 = icmp ne i32 %3, 2139095040\l  %5 = zext i1 %4 to i32\l  ret i32 %5\l}"];
+}

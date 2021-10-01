@@ -1,0 +1,5 @@
+digraph "CFG for '__mprotect' function" {
+	label="CFG for '__mprotect' function";
+
+	Node0x1a034c0 [shape=record,label="{%3:\l  %4 = ptrtoint i8* %0 to i64\l  %5 = and i64 %4, -4096\l  %6 = getelementptr inbounds i8, i8* %0, i64 %1\l  %7 = getelementptr inbounds i8, i8* %6, i64 4096\l  %8 = getelementptr inbounds i8, i8* %7, i64 -1\l  %9 = ptrtoint i8* %8 to i64\l  %10 = and i64 %9, -4096\l  %11 = sub i64 %10, %5\l  %12 = sext i32 %2 to i64\l  %13 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 10, i64 %5, i64 %11, i64 %12) #40, !srcloc !1632\l  %14 = tail call i64 @__syscall_ret(i64 %13) #41\l  %15 = trunc i64 %14 to i32\l  ret i32 %15\l}"];
+}

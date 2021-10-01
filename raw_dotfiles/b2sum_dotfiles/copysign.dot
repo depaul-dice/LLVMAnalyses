@@ -1,0 +1,5 @@
+digraph "CFG for 'copysign' function" {
+	label="CFG for 'copysign' function";
+
+	Node0x16ddd10 [shape=record,label="{%2:\l  %3 = bitcast double %0 to i64\l  %4 = bitcast double %1 to i64\l  %5 = and i64 %3, 9223372036854775807\l  %6 = and i64 %4, -9223372036854775808\l  %7 = or i64 %6, %5\l  %8 = bitcast i64 %7 to double\l  ret double %8\l}"];
+}

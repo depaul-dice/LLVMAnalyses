@@ -1,0 +1,5 @@
+digraph "CFG for 'ccos' function" {
+	label="CFG for 'ccos' function";
+
+	Node0x1ccef30 [shape=record,label="{%2:\l  %3 = fneg double %1\l  %4 = tail call \{ double, double \} @ccosh(double %3, double %0) #40\l  ret \{ double, double \} %4\l}"];
+}

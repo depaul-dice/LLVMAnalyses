@@ -1,0 +1,5 @@
+digraph "CFG for 'posix_spawnattr_getsigmask' function" {
+	label="CFG for 'posix_spawnattr_getsigmask' function";
+
+	Node0x19e5c10 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct.posix_spawnattr_t,\l... %struct.posix_spawnattr_t* %0, i64 0, i32 3\l  %4 = bitcast %struct.__sigset_t* %1 to i8*\l  %5 = bitcast %struct.__sigset_t* %3 to i8*\l  tail call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8\l... dereferenceable(128) %4, i8* nonnull align 8 dereferenceable(128) %5, i64\l... 128, i1 false), !tbaa.struct !1632\l  ret i32 0\l}"];
+}

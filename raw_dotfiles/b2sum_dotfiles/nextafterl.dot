@@ -1,0 +1,44 @@
+digraph "CFG for 'nextafterl' function" {
+	label="CFG for 'nextafterl' function";
+
+	Node0x1cf44a0 [shape=record,label="{%2:\l  %3 = alloca x86_fp80, align 16\l  %4 = tail call i32 @__fpclassifyl(x86_fp80 %0) #40\l  %5 = icmp eq i32 %4, 0\l  br i1 %5, label %9, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1cf44a0:s0 -> Node0x1cf4540;
+	Node0x1cf44a0:s1 -> Node0x1cf44f0;
+	Node0x1cf44f0 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32 @__fpclassifyl(x86_fp80 %1) #40\l  %8 = icmp eq i32 %7, 0\l  br i1 %8, label %9, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1cf44f0:s0 -> Node0x1cf4540;
+	Node0x1cf44f0:s1 -> Node0x1cf4590;
+	Node0x1cf4540 [shape=record,label="{%9:\l9:                                                \l  %10 = tail call x86_fp80 @llvm.experimental.constrained.fadd.f80(x86_fp80\l... %0, x86_fp80 %1, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  br label %75\l}"];
+	Node0x1cf4540 -> Node0x1cf4950;
+	Node0x1cf4590 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call i1 @llvm.experimental.constrained.fcmp.f80(x86_fp80 %0,\l... x86_fp80 %1, metadata !\"oeq\", metadata !\"fpexcept.ignore\") #41\l  br i1 %12, label %75, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1cf4590:s0 -> Node0x1cf4950;
+	Node0x1cf4590:s1 -> Node0x1cf45e0;
+	Node0x1cf45e0 [shape=record,label="{%13:\l13:                                               \l  %14 = tail call x86_fp80 @llvm.experimental.constrained.sitofp.f80.i32(i32\l... 0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %15 = tail call i1 @llvm.experimental.constrained.fcmp.f80(x86_fp80 %0,\l... x86_fp80 %14, metadata !\"oeq\", metadata !\"fpexcept.ignore\") #41\l  br i1 %15, label %16, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1cf45e0:s0 -> Node0x1cf4630;
+	Node0x1cf45e0:s1 -> Node0x1cf4680;
+	Node0x1cf4630 [shape=record,label="{%16:\l16:                                               \l  %17 = bitcast x86_fp80 %1 to i80\l  %18 = and i80 %17, -604462909807314587353088\l  %19 = or i80 %18, 1\l  br label %62\l}"];
+	Node0x1cf4630 -> Node0x1cf4860;
+	Node0x1cf4680 [shape=record,label="{%20:\l20:                                               \l  %21 = tail call i1 @llvm.experimental.constrained.fcmps.f80(x86_fp80 %0,\l... x86_fp80 %1, metadata !\"olt\", metadata !\"fpexcept.ignore\") #41\l  %22 = zext i1 %21 to i32\l  %23 = bitcast x86_fp80 %0 to i80\l  %24 = lshr i80 %23, 64\l  %25 = trunc i80 %24 to i16\l  %26 = lshr i80 %23, 79\l  %27 = trunc i80 %26 to i32\l  %28 = xor i32 %27, 1\l  %29 = icmp eq i32 %28, %22\l  %30 = trunc i80 %23 to i64\l  br i1 %29, label %31, label %43\l|{<s0>T|<s1>F}}"];
+	Node0x1cf4680:s0 -> Node0x1cf46d0;
+	Node0x1cf4680:s1 -> Node0x1cf4770;
+	Node0x1cf46d0 [shape=record,label="{%31:\l31:                                               \l  %32 = add i64 %30, 1\l  %33 = zext i64 %32 to i80\l  %34 = and i80 %23, -18446744073709551616\l  %35 = or i80 %34, %33\l  %36 = and i64 %32, 9223372036854775807\l  %37 = icmp eq i64 %36, 0\l  br i1 %37, label %38, label %62\l|{<s0>T|<s1>F}}"];
+	Node0x1cf46d0:s0 -> Node0x1cf4720;
+	Node0x1cf46d0:s1 -> Node0x1cf4860;
+	Node0x1cf4720 [shape=record,label="{%38:\l38:                                               \l  %39 = add i16 %25, 1\l  %40 = zext i16 %39 to i80\l  %41 = shl nuw i80 %40, 64\l  %42 = or i80 %41, 9223372036854775808\l  br label %62\l}"];
+	Node0x1cf4720 -> Node0x1cf4860;
+	Node0x1cf4770 [shape=record,label="{%43:\l43:                                               \l  %44 = and i64 %30, 9223372036854775807\l  %45 = icmp eq i64 %44, 0\l  br i1 %45, label %46, label %55\l|{<s0>T|<s1>F}}"];
+	Node0x1cf4770:s0 -> Node0x1cf47c0;
+	Node0x1cf4770:s1 -> Node0x1cf4810;
+	Node0x1cf47c0 [shape=record,label="{%46:\l46:                                               \l  %47 = add i16 %25, -1\l  %48 = zext i16 %47 to i80\l  %49 = shl nuw i80 %48, 64\l  %50 = and i80 %23, 18446744073709551615\l  %51 = icmp eq i16 %47, 0\l  %52 = select i1 %51, i80 %50, i80 0\l  %53 = or i80 %49, %52\l  %54 = trunc i80 %52 to i64\l  br label %55\l}"];
+	Node0x1cf47c0 -> Node0x1cf4810;
+	Node0x1cf4810 [shape=record,label="{%55:\l55:                                               \l  %56 = phi i64 [ %54, %46 ], [ %30, %43 ]\l  %57 = phi i80 [ %53, %46 ], [ %23, %43 ]\l  %58 = add i64 %56, -1\l  %59 = zext i64 %58 to i80\l  %60 = and i80 %57, -18446744073709551616\l  %61 = or i80 %60, %59\l  br label %62\l}"];
+	Node0x1cf4810 -> Node0x1cf4860;
+	Node0x1cf4860 [shape=record,label="{%62:\l62:                                               \l  %63 = phi i80 [ %19, %16 ], [ %42, %38 ], [ %35, %31 ], [ %61, %55 ]\l  %64 = bitcast i80 %63 to x86_fp80\l  %65 = lshr i80 %63, 64\l  %66 = trunc i80 %65 to i32\l  %67 = and i32 %66, 32767\l  switch i32 %67, label %75 [\l    i32 32767, label %68\l    i32 0, label %70\l  ]\l|{<s0>def|<s1>32767|<s2>0}}"];
+	Node0x1cf4860:s0 -> Node0x1cf4950;
+	Node0x1cf4860:s1 -> Node0x1cf48b0;
+	Node0x1cf4860:s2 -> Node0x1cf4900;
+	Node0x1cf48b0 [shape=record,label="{%68:\l68:                                               \l  %69 = tail call x86_fp80 @llvm.experimental.constrained.fadd.f80(x86_fp80\l... %0, x86_fp80 %0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  br label %75\l}"];
+	Node0x1cf48b0 -> Node0x1cf4950;
+	Node0x1cf4900 [shape=record,label="{%70:\l70:                                               \l  %71 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80\l... %0, x86_fp80 %0, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %72 = tail call x86_fp80 @llvm.experimental.constrained.fmul.f80(x86_fp80\l... %64, x86_fp80 %64, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %73 = tail call x86_fp80 @llvm.experimental.constrained.fadd.f80(x86_fp80\l... %71, x86_fp80 %72, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %74 = bitcast x86_fp80* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 10, i8* nonnull %74)\l  store volatile x86_fp80 %73, x86_fp80* %3, align 16, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 10, i8* nonnull %74)\l  br label %75\l}"];
+	Node0x1cf4900 -> Node0x1cf4950;
+	Node0x1cf4950 [shape=record,label="{%75:\l75:                                               \l  %76 = phi x86_fp80 [ %10, %9 ], [ %69, %68 ], [ %1, %11 ], [ %64, %62 ], [\l... %64, %70 ]\l  ret x86_fp80 %76\l}"];
+}

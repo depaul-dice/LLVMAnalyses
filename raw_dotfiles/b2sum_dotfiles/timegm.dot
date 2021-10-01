@@ -1,0 +1,12 @@
+digraph "CFG for 'timegm' function" {
+	label="CFG for 'timegm' function";
+
+	Node0x1b2f7c0 [shape=record,label="{%1:\l  %2 = alloca %struct.tm, align 8\l  %3 = bitcast %struct.tm* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 56, i8* nonnull %3) #40\l  %4 = tail call i64 @__tm_to_secs(%struct.tm* %0) #41\l  %5 = call i32 @__secs_to_tm(i64 %4, %struct.tm* nonnull %2) #41\l  %6 = icmp slt i32 %5, 0\l  br i1 %6, label %7, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1b2f7c0:s0 -> Node0x1b2f810;
+	Node0x1b2f7c0:s1 -> Node0x1b2f860;
+	Node0x1b2f810 [shape=record,label="{%7:\l7:                                                \l  %8 = call i32* @___errno_location() #41\l  store i32 75, i32* %8, align 4, !tbaa !1632\l  br label %14\l}"];
+	Node0x1b2f810 -> Node0x1b2f8b0;
+	Node0x1b2f860 [shape=record,label="{%9:\l9:                                                \l  %10 = bitcast %struct.tm* %0 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8 dereferenceable(56)\l... %10, i8* nonnull align 8 dereferenceable(56) %3, i64 40, i1 false),\l... !tbaa.struct !1636\l  %11 = getelementptr inbounds %struct.tm, %struct.tm* %0, i64 0, i32 8\l  store i32 0, i32* %11, align 8, !tbaa !1641\l  %12 = getelementptr inbounds %struct.tm, %struct.tm* %0, i64 0, i32 9\l  store i64 0, i64* %12, align 8, !tbaa !1643\l  %13 = getelementptr inbounds %struct.tm, %struct.tm* %0, i64 0, i32 10\l  store i8* getelementptr inbounds ([4 x i8], [4 x i8]* @__utc, i64 0, i64 0),\l... i8** %13, align 8, !tbaa !1644\l  br label %14\l}"];
+	Node0x1b2f860 -> Node0x1b2f8b0;
+	Node0x1b2f8b0 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i64 [ -1, %7 ], [ %4, %9 ]\l  call void @llvm.lifetime.end.p0i8(i64 56, i8* nonnull %3) #40\l  ret i64 %15\l}"];
+}

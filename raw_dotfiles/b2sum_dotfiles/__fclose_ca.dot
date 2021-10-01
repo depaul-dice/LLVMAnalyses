@@ -1,0 +1,5 @@
+digraph "CFG for '__fclose_ca' function" {
+	label="CFG for '__fclose_ca' function";
+
+	Node0x17479d0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.1443, %struct._IO_FILE.1443*\l... %0, i64 0, i32 3\l  %3 = bitcast \{\}** %2 to i32 (%struct._IO_FILE.1443*)**\l  %4 = load i32 (%struct._IO_FILE.1443*)*, i32 (%struct._IO_FILE.1443*)** %3,\l... align 8, !tbaa !1632\l  %5 = tail call i32 %4(%struct._IO_FILE.1443* %0) #40\l  ret i32 %5\l}"];
+}

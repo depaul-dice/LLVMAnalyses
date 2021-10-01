@@ -1,0 +1,22 @@
+digraph "CFG for 'pthread_cond_destroy' function" {
+	label="CFG for 'pthread_cond_destroy' function";
+
+	Node0x1af3fd0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.pthread_cond_t, %struct.pthread_cond_t*\l... %0, i64 0, i32 0, i32 0, i64 0\l  %3 = load i8*, i8** %2, align 8, !tbaa !1632\l  %4 = icmp eq i8* %3, null\l  br i1 %4, label %27, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1af3fd0:s0 -> Node0x1af4240;
+	Node0x1af3fd0:s1 -> Node0x1af40b0;
+	Node0x1af40b0 [shape=record,label="{%5:\l5:                                                \l  %6 = bitcast %struct.pthread_cond_t* %0 to [12 x i32]*\l  %7 = getelementptr inbounds [12 x i32], [12 x i32]* %6, i64 0, i64 3\l  %8 = load volatile i32, i32* %7, align 4, !tbaa !1632\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %27, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1af40b0:s0 -> Node0x1af4240;
+	Node0x1af40b0:s1 -> Node0x1af4100;
+	Node0x1af4100 [shape=record,label="{%10:\l10:                                               \l  tail call void asm sideeffect \"lock \l  %11 = getelementptr inbounds %struct.pthread_cond_t, %struct.pthread_cond_t*\l... %0, i64 0, i32 0, i32 0, i64 1\l  %12 = bitcast i8** %11 to i32*\l  tail call void asm sideeffect \"lock \l  %13 = ptrtoint i8** %11 to i64\l  %14 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %13, i64 1, i64 2147483647) #40, !srcloc !1637\l  %15 = icmp eq i64 %14, -38\l  br i1 %15, label %16, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1af4100:s0 -> Node0x1af4150;
+	Node0x1af4100:s1 -> Node0x1af41a0;
+	Node0x1af4150 [shape=record,label="{%16:\l16:                                               \l  %17 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %13, i64 1, i64 2147483647) #40, !srcloc !1637\l  br label %18\l}"];
+	Node0x1af4150 -> Node0x1af41a0;
+	Node0x1af41a0 [shape=record,label="{%18:\l18:                                               \l  %19 = load volatile i32, i32* %7, align 4, !tbaa !1632\l  %20 = and i32 %19, 2147483647\l  %21 = icmp eq i32 %20, 0\l  br i1 %21, label %27, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1af41a0:s0 -> Node0x1af4240;
+	Node0x1af41a0:s1 -> Node0x1af41f0;
+	Node0x1af41f0 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i32 [ %24, %22 ], [ %19, %18 ]\l  tail call void @__wait(i32* nonnull %7, i32* null, i32 %23, i32 0) #41\l  %24 = load volatile i32, i32* %7, align 4, !tbaa !1632\l  %25 = and i32 %24, 2147483647\l  %26 = icmp eq i32 %25, 0\l  br i1 %26, label %27, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1af41f0:s0 -> Node0x1af4240;
+	Node0x1af41f0:s1 -> Node0x1af41f0;
+	Node0x1af4240 [shape=record,label="{%27:\l27:                                               \l  ret i32 0\l}"];
+}

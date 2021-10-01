@@ -1,0 +1,5 @@
+digraph "CFG for 'inet_ntoa' function" {
+	label="CFG for 'inet_ntoa' function";
+
+	Node0x1eec2e0 [shape=record,label="{%1:\l  %2 = lshr i32 %0, 8\l  %3 = lshr i32 %0, 16\l  %4 = lshr i32 %0, 24\l  %5 = and i32 %0, 255\l  %6 = and i32 %2, 255\l  %7 = and i32 %3, 255\l  %8 = tail call i32 (i8*, i64, i8*, ...) @snprintf(i8* getelementptr inbounds\l... ([16 x i8], [16 x i8]* @inet_ntoa.buf, i64 0, i64 0), i64 16, i8*\l... getelementptr inbounds ([12 x i8], [12 x i8]* @.str.781, i64 0, i64 0), i32\l... %5, i32 %6, i32 %7, i32 %4) #40\l  ret i8* getelementptr inbounds ([16 x i8], [16 x i8]* @inet_ntoa.buf, i64 0,\l... i64 0)\l}"];
+}

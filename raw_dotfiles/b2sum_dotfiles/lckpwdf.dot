@@ -1,0 +1,5 @@
+digraph "CFG for 'lckpwdf' function" {
+	label="CFG for 'lckpwdf' function";
+
+	Node0x1a32e10 [shape=record,label="{%0:\l  ret i32 0\l}"];
+}

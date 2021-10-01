@@ -1,0 +1,13 @@
+digraph "CFG for 'reap' function" {
+	label="CFG for 'reap' function";
+
+	Node0x1cf2fb0 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  %3 = bitcast i32* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %3) #40\l  br label %4\l}"];
+	Node0x1cf2fb0 -> Node0x1cf3000;
+	Node0x1cf3000 [shape=record,label="{%4:\l4:                                                \l  %5 = call i32 @waitpid(i32 %0, i32* nonnull %2, i32 0) #41\l  %6 = icmp slt i32 %5, 0\l  br i1 %6, label %7, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1cf3000:s0 -> Node0x1cf3050;
+	Node0x1cf3000:s1 -> Node0x1cf30a0;
+	Node0x1cf3050 [shape=record,label="{%7:\l7:                                                \l  %8 = call i32* @___errno_location() #41\l  %9 = load i32, i32* %8, align 4, !tbaa !1632\l  %10 = icmp eq i32 %9, 4\l  br i1 %10, label %4, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1cf3050:s0 -> Node0x1cf3000;
+	Node0x1cf3050:s1 -> Node0x1cf30a0;
+	Node0x1cf30a0 [shape=record,label="{%11:\l11:                                               \l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %3) #40\l  ret void\l}"];
+}

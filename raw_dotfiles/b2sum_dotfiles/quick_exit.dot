@@ -1,0 +1,5 @@
+digraph "CFG for 'quick_exit' function" {
+	label="CFG for 'quick_exit' function";
+
+	Node0x1b62d10 [shape=record,label="{%1:\l  tail call void @__funcs_on_quick_exit() #40\l  tail call void @_Exit(i32 %0) #41\l  unreachable\l}"];
+}

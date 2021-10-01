@@ -1,0 +1,35 @@
+digraph "CFG for 'mbrtoc16' function" {
+	label="CFG for 'mbrtoc16' function";
+
+	Node0x1dc0fe0 [shape=record,label="{%4:\l  %5 = alloca i32, align 4\l  %6 = icmp eq %struct.FTW* %3, null\l  %7 = select i1 %6, %struct.FTW* bitcast (i32* @mbrtoc16.internal_state to\l... %struct.FTW*), %struct.FTW* %3\l  %8 = getelementptr %struct.FTW, %struct.FTW* %7, i64 0, i32 0\l  %9 = icmp eq i8* %1, null\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1dc0fe0:s0 -> Node0x1dc1150;
+	Node0x1dc0fe0:s1 -> Node0x1dc11a0;
+	Node0x1dc1150 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call i64 @mbrtoc16(i16* null, i8* getelementptr inbounds ([1 x\l... i8], [1 x i8]* @.str.497, i64 0, i64 0), i64 1, %struct.FTW* %7) #40\l  br label %38\l}"];
+	Node0x1dc1150 -> Node0x1dc14c0;
+	Node0x1dc11a0 [shape=record,label="{%12:\l12:                                               \l  %13 = load i32, i32* %8, align 4, !tbaa !1632\l  %14 = icmp sgt i32 %13, 0\l  br i1 %14, label %15, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1dc11a0:s0 -> Node0x1dc11f0;
+	Node0x1dc11a0:s1 -> Node0x1dc12e0;
+	Node0x1dc11f0 [shape=record,label="{%15:\l15:                                               \l  %16 = icmp eq i16* %0, null\l  br i1 %16, label %19, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1dc11f0:s0 -> Node0x1dc1290;
+	Node0x1dc11f0:s1 -> Node0x1dc1240;
+	Node0x1dc1240 [shape=record,label="{%17:\l17:                                               \l  %18 = trunc i32 %13 to i16\l  store i16 %18, i16* %0, align 2, !tbaa !1636\l  br label %19\l}"];
+	Node0x1dc1240 -> Node0x1dc1290;
+	Node0x1dc1290 [shape=record,label="{%19:\l19:                                               \l  store i32 0, i32* %8, align 4, !tbaa !1632\l  br label %38\l}"];
+	Node0x1dc1290 -> Node0x1dc14c0;
+	Node0x1dc12e0 [shape=record,label="{%20:\l20:                                               \l  %21 = bitcast i32* %5 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %21) #41\l  %22 = call i64 @mbrtowc(i32* nonnull %5, i8* nonnull %1, i64 %2,\l... %struct.FTW* nonnull %7) #42\l  %23 = icmp ult i64 %22, 5\l  br i1 %23, label %24, label %37\l|{<s0>T|<s1>F}}"];
+	Node0x1dc12e0:s0 -> Node0x1dc1330;
+	Node0x1dc12e0:s1 -> Node0x1dc1470;
+	Node0x1dc1330 [shape=record,label="{%24:\l24:                                               \l  %25 = load i32, i32* %5, align 4, !tbaa !1632\l  %26 = icmp sgt i32 %25, 65535\l  br i1 %26, label %27, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x1dc1330:s0 -> Node0x1dc1380;
+	Node0x1dc1330:s1 -> Node0x1dc13d0;
+	Node0x1dc1380 [shape=record,label="{%27:\l27:                                               \l  %28 = and i32 %25, 1023\l  %29 = or i32 %28, 56320\l  store i32 %29, i32* %8, align 4, !tbaa !1632\l  %30 = lshr i32 %25, 10\l  %31 = add nuw nsw i32 %30, 55232\l  store i32 %31, i32* %5, align 4, !tbaa !1632\l  br label %32\l}"];
+	Node0x1dc1380 -> Node0x1dc13d0;
+	Node0x1dc13d0 [shape=record,label="{%32:\l32:                                               \l  %33 = phi i32 [ %31, %27 ], [ %25, %24 ]\l  %34 = icmp eq i16* %0, null\l  br i1 %34, label %37, label %35\l|{<s0>T|<s1>F}}"];
+	Node0x1dc13d0:s0 -> Node0x1dc1470;
+	Node0x1dc13d0:s1 -> Node0x1dc1420;
+	Node0x1dc1420 [shape=record,label="{%35:\l35:                                               \l  %36 = trunc i32 %33 to i16\l  store i16 %36, i16* %0, align 2, !tbaa !1636\l  br label %37\l}"];
+	Node0x1dc1420 -> Node0x1dc1470;
+	Node0x1dc1470 [shape=record,label="{%37:\l37:                                               \l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %21) #41\l  br label %38\l}"];
+	Node0x1dc1470 -> Node0x1dc14c0;
+	Node0x1dc14c0 [shape=record,label="{%38:\l38:                                               \l  %39 = phi i64 [ -3, %19 ], [ %22, %37 ], [ %11, %10 ]\l  ret i64 %39\l}"];
+}

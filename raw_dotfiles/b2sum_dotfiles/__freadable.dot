@@ -1,0 +1,5 @@
+digraph "CFG for '__freadable' function" {
+	label="CFG for '__freadable' function";
+
+	Node0x1c5ab60 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.1002, %struct._IO_FILE.1002*\l... %0, i64 0, i32 0\l  %3 = load i32, i32* %2, align 8, !tbaa !1632\l  %4 = lshr i32 %3, 2\l  %5 = and i32 %4, 1\l  %6 = xor i32 %5, 1\l  ret i32 %6\l}"];
+}

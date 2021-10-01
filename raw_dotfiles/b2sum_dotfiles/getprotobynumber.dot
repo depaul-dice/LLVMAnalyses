@@ -1,0 +1,13 @@
+digraph "CFG for 'getprotobynumber' function" {
+	label="CFG for 'getprotobynumber' function";
+
+	Node0x1c35840 [shape=record,label="{%1:\l  store i32 0, i32* @idx, align 4, !tbaa !1632\l  br label %2\l}"];
+	Node0x1c35840 -> Node0x1c35e10;
+	Node0x1c35e10 [shape=record,label="{%2:\l2:                                                \l  %3 = tail call %struct.protoent* @getprotoent() #40\l  %4 = icmp eq %struct.protoent* %3, null\l  br i1 %4, label %9, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1c35e10:s0 -> Node0x1c35eb0;
+	Node0x1c35e10:s1 -> Node0x1c35e60;
+	Node0x1c35e60 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds %struct.protoent, %struct.protoent* %3, i64 0,\l... i32 2\l  %7 = load i32, i32* %6, align 8, !tbaa !1636\l  %8 = icmp eq i32 %7, %0\l  br i1 %8, label %9, label %2\l|{<s0>T|<s1>F}}"];
+	Node0x1c35e60:s0 -> Node0x1c35eb0;
+	Node0x1c35e60:s1 -> Node0x1c35e10;
+	Node0x1c35eb0 [shape=record,label="{%9:\l9:                                                \l  ret %struct.protoent* %3\l}"];
+}

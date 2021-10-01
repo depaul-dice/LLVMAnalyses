@@ -1,0 +1,5 @@
+digraph "CFG for 'setmntent' function" {
+	label="CFG for 'setmntent' function";
+
+	Node0x1f92900 [shape=record,label="{%2:\l  %3 = tail call %struct._IO_FILE.0* @fopen(i8* %0, i8* %1) #40\l  ret %struct._IO_FILE.0* %3\l}"];
+}

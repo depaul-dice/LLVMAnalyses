@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_attr_setschedpolicy' function" {
+	label="CFG for 'pthread_attr_setschedpolicy' function";
+
+	Node0x1f92640 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %0, i64 0, i32 0, i32 0, i64 4\l  %4 = bitcast i64* %3 to i32*\l  store i32 %1, i32* %4, align 8, !tbaa !1632\l  ret i32 0\l}"];
+}

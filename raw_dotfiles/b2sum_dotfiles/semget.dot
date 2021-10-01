@@ -1,0 +1,10 @@
+digraph "CFG for 'semget' function" {
+	label="CFG for 'semget' function";
+
+	Node0x1922640 [shape=record,label="{%3:\l  %4 = icmp sgt i32 %1, 65535\l  br i1 %4, label %10, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1922640:s0 -> Node0x1922a90;
+	Node0x1922640:s1 -> Node0x1922a40;
+	Node0x1922a40 [shape=record,label="{%5:\l5:                                                \l  %6 = sext i32 %0 to i64\l  %7 = sext i32 %1 to i64\l  %8 = sext i32 %2 to i64\l  %9 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 64, i64 %6, i64 %7, i64 %8) #40, !srcloc !1632\l  br label %10\l}"];
+	Node0x1922a40 -> Node0x1922a90;
+	Node0x1922a90 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i64 [ %9, %5 ], [ -22, %3 ]\l  %12 = tail call i64 @__syscall_ret(i64 %11) #41\l  %13 = trunc i64 %12 to i32\l  ret i32 %13\l}"];
+}

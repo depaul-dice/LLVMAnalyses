@@ -1,0 +1,14 @@
+digraph "CFG for 'wcsncat' function" {
+	label="CFG for 'wcsncat' function";
+
+	Node0x1ed8e00 [shape=record,label="{%3:\l  %4 = tail call i64 @wcslen(i32* %0) #40\l  %5 = getelementptr inbounds i32, i32* %0, i64 %4\l  %6 = icmp eq i64 %2, 0\l  br i1 %6, label %18, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1ed8e00:s0 -> Node0x1ed95b0;
+	Node0x1ed8e00:s1 -> Node0x1ed9510;
+	Node0x1ed9510 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32* [ %16, %13 ], [ %5, %3 ]\l  %9 = phi i64 [ %14, %13 ], [ %2, %3 ]\l  %10 = phi i32* [ %15, %13 ], [ %1, %3 ]\l  %11 = load i32, i32* %10, align 4, !tbaa !1632\l  %12 = icmp eq i32 %11, 0\l  br i1 %12, label %18, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1ed9510:s0 -> Node0x1ed95b0;
+	Node0x1ed9510:s1 -> Node0x1ed9560;
+	Node0x1ed9560 [shape=record,label="{%13:\l13:                                               \l  %14 = add i64 %9, -1\l  %15 = getelementptr inbounds i32, i32* %10, i64 1\l  %16 = getelementptr inbounds i32, i32* %8, i64 1\l  store i32 %11, i32* %8, align 4, !tbaa !1632\l  %17 = icmp eq i64 %14, 0\l  br i1 %17, label %18, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1ed9560:s0 -> Node0x1ed95b0;
+	Node0x1ed9560:s1 -> Node0x1ed9510;
+	Node0x1ed95b0 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i32* [ %5, %3 ], [ %8, %7 ], [ %16, %13 ]\l  store i32 0, i32* %19, align 4, !tbaa !1632\l  ret i32* %0\l}"];
+}

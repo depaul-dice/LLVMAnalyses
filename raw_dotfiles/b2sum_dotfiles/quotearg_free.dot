@@ -1,0 +1,21 @@
+digraph "CFG for 'quotearg_free' function" {
+	label="CFG for 'quotearg_free' function";
+
+	Node0x14901a0 [shape=record,label="{%0:\l  %1 = load %struct.slotvec*, %struct.slotvec** @slotvec, align 8, !dbg !1636,\l... !tbaa !1637\l  call void @llvm.dbg.value(metadata %struct.slotvec* %1, metadata !1634,\l... metadata !DIExpression()), !dbg !1641\l  call void @llvm.dbg.value(metadata i32 1, metadata !1635, metadata\l... !DIExpression()), !dbg !1641\l  %2 = load i32, i32* @nslots, align 4, !dbg !1642, !tbaa !1645\l  %3 = icmp sgt i32 %2, 1, !dbg !1647\l  br i1 %3, label %4, label %12, !dbg !1648\l|{<s0>T|<s1>F}}"];
+	Node0x14901a0:s0 -> Node0x1492290;
+	Node0x14901a0:s1 -> Node0x14922e0;
+	Node0x1492290 [shape=record,label="{%4:\l4:                                                \l  %5 = phi i64 [ %8, %4 ], [ 1, %0 ]\l  call void @llvm.dbg.value(metadata i64 %5, metadata !1635, metadata\l... !DIExpression()), !dbg !1641\l  %6 = getelementptr inbounds %struct.slotvec, %struct.slotvec* %1, i64 %5,\l... i32 1, !dbg !1649\l  %7 = load i8*, i8** %6, align 8, !dbg !1649, !tbaa !1650\l  tail call void @rpl_free(i8* %7) #7, !dbg !1653\l  %8 = add nuw nsw i64 %5, 1, !dbg !1654\l  call void @llvm.dbg.value(metadata i64 %8, metadata !1635, metadata\l... !DIExpression()), !dbg !1641\l  %9 = load i32, i32* @nslots, align 4, !dbg !1642, !tbaa !1645\l  %10 = sext i32 %9 to i64, !dbg !1647\l  %11 = icmp slt i64 %8, %10, !dbg !1647\l  br i1 %11, label %4, label %12, !dbg !1648, !llvm.loop !1655\l|{<s0>T|<s1>F}}"];
+	Node0x1492290:s0 -> Node0x1492290;
+	Node0x1492290:s1 -> Node0x14922e0;
+	Node0x14922e0 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds %struct.slotvec, %struct.slotvec* %1, i64 0,\l... i32 1, !dbg !1657\l  %14 = load i8*, i8** %13, align 8, !dbg !1657, !tbaa !1650\l  %15 = icmp eq i8* %14, getelementptr inbounds ([256 x i8], [256 x i8]*\l... @slot0, i64 0, i64 0), !dbg !1659\l  br i1 %15, label %17, label %16, !dbg !1660\l|{<s0>T|<s1>F}}"];
+	Node0x14922e0:s0 -> Node0x1492380;
+	Node0x14922e0:s1 -> Node0x1492330;
+	Node0x1492330 [shape=record,label="{%16:\l16:                                               \l  tail call void @rpl_free(i8* %14) #7, !dbg !1661\l  store i64 256, i64* getelementptr inbounds (%struct.slotvec,\l... %struct.slotvec* @slotvec0, i64 0, i32 0), align 8, !dbg !1663, !tbaa !1664\l  store i8* getelementptr inbounds ([256 x i8], [256 x i8]* @slot0, i64 0, i64\l... 0), i8** getelementptr inbounds (%struct.slotvec, %struct.slotvec* @slotvec0,\l... i64 0, i32 1), align 8, !dbg !1665, !tbaa !1650\l  br label %17, !dbg !1666\l}"];
+	Node0x1492330 -> Node0x1492380;
+	Node0x1492380 [shape=record,label="{%17:\l17:                                               \l  %18 = icmp eq %struct.slotvec* %1, @slotvec0, !dbg !1667\l  br i1 %18, label %21, label %19, !dbg !1669\l|{<s0>T|<s1>F}}"];
+	Node0x1492380:s0 -> Node0x1492420;
+	Node0x1492380:s1 -> Node0x14923d0;
+	Node0x14923d0 [shape=record,label="{%19:\l19:                                               \l  %20 = bitcast %struct.slotvec* %1 to i8*, !dbg !1670\l  tail call void @rpl_free(i8* %20) #7, !dbg !1672\l  store %struct.slotvec* @slotvec0, %struct.slotvec** @slotvec, align 8, !dbg\l... !1673, !tbaa !1637\l  br label %21, !dbg !1674\l}"];
+	Node0x14923d0 -> Node0x1492420;
+	Node0x1492420 [shape=record,label="{%21:\l21:                                               \l  store i32 1, i32* @nslots, align 4, !dbg !1675, !tbaa !1645\l  ret void, !dbg !1676\l}"];
+}

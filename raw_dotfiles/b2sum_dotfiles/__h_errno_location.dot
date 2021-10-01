@@ -1,0 +1,5 @@
+digraph "CFG for '__h_errno_location' function" {
+	label="CFG for '__h_errno_location' function";
+
+	Node0x172d830 [shape=record,label="{%0:\l  ret i32* @h_errno\l}"];
+}

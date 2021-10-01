@@ -1,0 +1,5 @@
+digraph "CFG for 'call_once' function" {
+	label="CFG for 'call_once' function";
+
+	Node0x1f98810 [shape=record,label="{%2:\l  %3 = tail call i32 @__pthread_once(i32* %0, void ()* %1) #40\l  ret void\l}"];
+}

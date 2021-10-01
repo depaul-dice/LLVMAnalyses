@@ -1,0 +1,5 @@
+digraph "CFG for 'getlogin' function" {
+	label="CFG for 'getlogin' function";
+
+	Node0x1e77680 [shape=record,label="{%0:\l  %1 = tail call i8* @getenv(i8* getelementptr inbounds ([8 x i8], [8 x i8]*\l... @.str.813, i64 0, i64 0)) #40\l  ret i8* %1\l}"];
+}

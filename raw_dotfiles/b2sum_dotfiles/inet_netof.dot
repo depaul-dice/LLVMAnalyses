@@ -1,0 +1,5 @@
+digraph "CFG for 'inet_netof' function" {
+	label="CFG for 'inet_netof' function";
+
+	Node0x1ed7da0 [shape=record,label="{%1:\l  %2 = icmp sgt i32 %0, -1\l  %3 = icmp ult i32 %0, -1073741824\l  %4 = select i1 %3, i32 16, i32 8\l  %5 = select i1 %2, i32 24, i32 %4\l  %6 = lshr i32 %0, %5\l  ret i32 %6\l}"];
+}

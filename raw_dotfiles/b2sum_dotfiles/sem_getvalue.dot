@@ -1,0 +1,5 @@
+digraph "CFG for 'sem_getvalue' function" {
+	label="CFG for 'sem_getvalue' function";
+
+	Node0x2002150 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct.sem_t, %struct.sem_t* %0, i64 0, i32 0,\l... i64 0\l  %4 = load volatile i32, i32* %3, align 4, !tbaa !1632\l  %5 = icmp sgt i32 %4, 0\l  %6 = select i1 %5, i32 %4, i32 0\l  store i32 %6, i32* %1, align 4, !tbaa !1632\l  ret i32 0\l}"];
+}

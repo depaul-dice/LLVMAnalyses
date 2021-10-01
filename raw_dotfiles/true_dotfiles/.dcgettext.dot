@@ -1,0 +1,5 @@
+digraph "CFG for 'dcgettext' function" {
+	label="CFG for 'dcgettext' function";
+
+	Node0x24a7010 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = tail call fastcc i8* @dcngettext(i8* %0, i8* %1, i8* null, i64 1, i32\l... %2) #26\l  ret i8* %4\l}"];
+}

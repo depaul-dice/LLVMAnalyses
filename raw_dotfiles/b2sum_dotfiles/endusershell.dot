@@ -1,0 +1,10 @@
+digraph "CFG for 'endusershell' function" {
+	label="CFG for 'endusershell' function";
+
+	Node0x1632180 [shape=record,label="{%0:\l  %1 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** @f, align 8, !tbaa !1632\l  %2 = icmp eq %struct._IO_FILE.0* %1, null\l  br i1 %2, label %5, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1632180:s0 -> Node0x1632220;
+	Node0x1632180:s1 -> Node0x16321d0;
+	Node0x16321d0 [shape=record,label="{%3:\l3:                                                \l  %4 = tail call i32 @fclose(%struct._IO_FILE.0* nonnull %1) #40\l  br label %5\l}"];
+	Node0x16321d0 -> Node0x1632220;
+	Node0x1632220 [shape=record,label="{%5:\l5:                                                \l  store %struct._IO_FILE.0* null, %struct._IO_FILE.0** @f, align 8, !tbaa !1632\l  ret void\l}"];
+}

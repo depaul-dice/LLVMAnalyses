@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_spin_trylock' function" {
+	label="CFG for 'pthread_spin_trylock' function";
+
+	Node0x200bac0 [shape=record,label="{%1:\l  %2 = tail call i32 asm sideeffect \"lock \l  ret i32 %2\l}"];
+}

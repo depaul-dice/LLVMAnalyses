@@ -1,0 +1,19 @@
+digraph "CFG for 'bsearch' function" {
+	label="CFG for 'bsearch' function";
+
+	Node0x1e67030 [shape=record,label="{%5:\l  %6 = icmp eq i64 %2, 0\l  br i1 %6, label %25, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1e67030:s0 -> Node0x1e68fe0;
+	Node0x1e67030:s1 -> Node0x1e68d90;
+	Node0x1e68d90 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i8* [ %23, %21 ], [ %1, %5 ]\l  %9 = phi i64 [ %22, %21 ], [ %2, %5 ]\l  %10 = lshr i64 %9, 1\l  %11 = mul i64 %10, %3\l  %12 = getelementptr inbounds i8, i8* %8, i64 %11\l  %13 = tail call i32 %4(i8* %0, i8* %12) #40\l  %14 = icmp slt i32 %13, 0\l  br i1 %14, label %21, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1e68d90:s0 -> Node0x1e68f90;
+	Node0x1e68d90:s1 -> Node0x1e68ef0;
+	Node0x1e68ef0 [shape=record,label="{%15:\l15:                                               \l  %16 = icmp eq i32 %13, 0\l  br i1 %16, label %25, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1e68ef0:s0 -> Node0x1e68fe0;
+	Node0x1e68ef0:s1 -> Node0x1e68f40;
+	Node0x1e68f40 [shape=record,label="{%17:\l17:                                               \l  %18 = getelementptr inbounds i8, i8* %12, i64 %3\l  %19 = xor i64 %10, -1\l  %20 = add i64 %9, %19\l  br label %21\l}"];
+	Node0x1e68f40 -> Node0x1e68f90;
+	Node0x1e68f90 [shape=record,label="{%21:\l21:                                               \l  %22 = phi i64 [ %20, %17 ], [ %10, %7 ]\l  %23 = phi i8* [ %18, %17 ], [ %8, %7 ]\l  %24 = icmp eq i64 %22, 0\l  br i1 %24, label %25, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1e68f90:s0 -> Node0x1e68fe0;
+	Node0x1e68f90:s1 -> Node0x1e68d90;
+	Node0x1e68fe0 [shape=record,label="{%25:\l25:                                               \l  %26 = phi i8* [ null, %5 ], [ null, %21 ], [ %12, %15 ]\l  ret i8* %26\l}"];
+}

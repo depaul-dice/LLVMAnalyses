@@ -1,0 +1,20 @@
+digraph "CFG for '__pthread_key_create' function" {
+	label="CFG for '__pthread_key_create' function";
+
+	Node0x1a8cd90 [shape=record,label="{%2:\l  %3 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #40, !srcloc !1632\l  %4 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %3, i64 0,\l... i32 21\l  %5 = load i8**, i8*** %4, align 8, !tbaa !1633\l  %6 = icmp eq i8** %5, null\l  br i1 %6, label %7, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1a8cd90:s0 -> Node0x1a8cde0;
+	Node0x1a8cd90:s1 -> Node0x1a8ce30;
+	Node0x1a8cde0 [shape=record,label="{%7:\l7:                                                \l  store i8** getelementptr inbounds ([128 x i8*], [128 x i8*]*\l... @__pthread_tsd_main, i64 0, i64 0), i8*** %4, align 8, !tbaa !1633\l  br label %8\l}"];
+	Node0x1a8cde0 -> Node0x1a8ce30;
+	Node0x1a8ce30 [shape=record,label="{%8:\l8:                                                \l  %9 = icmp eq void (i8*)* %1, null\l  %10 = select i1 %9, void (i8*)* @nodtor, void (i8*)* %1\l  %11 = tail call i32 @__pthread_rwlock_wrlock(%struct.pthread_rwlock_t*\l... bitcast (\{ \{ [14 x i32] \} \}* @key_lock to %struct.pthread_rwlock_t*)) #41\l  %12 = load i32, i32* @next_key, align 4, !tbaa !1641\l  br label %13\l}"];
+	Node0x1a8ce30 -> Node0x1a8ce80;
+	Node0x1a8ce80 [shape=record,label="{%13:\l13:                                               \l  %14 = phi i32 [ %12, %8 ], [ %24, %22 ]\l  %15 = zext i32 %14 to i64\l  %16 = getelementptr inbounds [128 x void (i8*)*], [128 x void (i8*)*]*\l... @keys, i64 0, i64 %15\l  %17 = load void (i8*)*, void (i8*)** %16, align 8, !tbaa !1642\l  %18 = icmp eq void (i8*)* %17, null\l  br i1 %18, label %19, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1a8ce80:s0 -> Node0x1a8ced0;
+	Node0x1a8ce80:s1 -> Node0x1a8cf20;
+	Node0x1a8ced0 [shape=record,label="{%19:\l19:                                               \l  %20 = zext i32 %14 to i64\l  %21 = getelementptr inbounds [128 x void (i8*)*], [128 x void (i8*)*]*\l... @keys, i64 0, i64 %20\l  store i32 %14, i32* %0, align 4, !tbaa !1641\l  store i32 %14, i32* @next_key, align 4, !tbaa !1641\l  store void (i8*)* %10, void (i8*)** %21, align 8, !tbaa !1642\l  br label %26\l}"];
+	Node0x1a8ced0 -> Node0x1a8cf70;
+	Node0x1a8cf20 [shape=record,label="{%22:\l22:                                               \l  %23 = add i32 %14, 1\l  %24 = and i32 %23, 127\l  %25 = icmp eq i32 %24, %12\l  br i1 %25, label %26, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1a8cf20:s0 -> Node0x1a8cf70;
+	Node0x1a8cf20:s1 -> Node0x1a8ce80;
+	Node0x1a8cf70 [shape=record,label="{%26:\l26:                                               \l  %27 = phi i32 [ 0, %19 ], [ 11, %22 ]\l  %28 = tail call i32 @__pthread_rwlock_unlock(%struct.pthread_rwlock_t*\l... bitcast (\{ \{ [14 x i32] \} \}* @key_lock to %struct.pthread_rwlock_t*)) #41\l  ret i32 %27\l}"];
+}

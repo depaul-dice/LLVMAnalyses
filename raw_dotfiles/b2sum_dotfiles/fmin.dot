@@ -1,0 +1,18 @@
+digraph "CFG for 'fmin' function" {
+	label="CFG for 'fmin' function";
+
+	Node0x1f54800 [shape=record,label="{%2:\l  %3 = bitcast double %0 to i64\l  %4 = and i64 %3, 9223372036854775807\l  %5 = icmp ugt i64 %4, 9218868437227405312\l  br i1 %5, label %22, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1f54800:s0 -> Node0x1f54990;
+	Node0x1f54800:s1 -> Node0x1f54850;
+	Node0x1f54850 [shape=record,label="{%6:\l6:                                                \l  %7 = bitcast double %1 to i64\l  %8 = and i64 %7, 9223372036854775807\l  %9 = icmp ugt i64 %8, 9218868437227405312\l  br i1 %9, label %22, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1f54850:s0 -> Node0x1f54990;
+	Node0x1f54850:s1 -> Node0x1f548a0;
+	Node0x1f548a0 [shape=record,label="{%10:\l10:                                               \l  %11 = lshr i64 %3, 63\l  %12 = trunc i64 %11 to i32\l  %13 = lshr i64 %7, 63\l  %14 = trunc i64 %13 to i32\l  %15 = icmp eq i32 %12, %14\l  br i1 %15, label %19, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1f548a0:s0 -> Node0x1f54940;
+	Node0x1f548a0:s1 -> Node0x1f548f0;
+	Node0x1f548f0 [shape=record,label="{%16:\l16:                                               \l  %17 = icmp slt i64 %3, 0\l  %18 = select i1 %17, double %0, double %1\l  br label %22\l}"];
+	Node0x1f548f0 -> Node0x1f54990;
+	Node0x1f54940 [shape=record,label="{%19:\l19:                                               \l  %20 = tail call i1 @llvm.experimental.constrained.fcmps.f64(double %0,\l... double %1, metadata !\"olt\", metadata !\"fpexcept.ignore\") #40\l  %21 = select i1 %20, double %0, double %1\l  br label %22\l}"];
+	Node0x1f54940 -> Node0x1f54990;
+	Node0x1f54990 [shape=record,label="{%22:\l22:                                               \l  %23 = phi double [ %18, %16 ], [ %21, %19 ], [ %1, %2 ], [ %0, %6 ]\l  ret double %23\l}"];
+}

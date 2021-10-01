@@ -1,0 +1,27 @@
+digraph "CFG for '__membarrier' function" {
+	label="CFG for '__membarrier' function";
+
+	Node0x1d5ff00 [shape=record,label="{%2:\l  %3 = alloca %struct.__sigset_t, align 8\l  %4 = alloca %struct.sigaction, align 8\l  %5 = sext i32 %0 to i64\l  %6 = sext i32 %1 to i64\l  %7 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64\l... 324, i64 %5, i64 %6) #40, !srcloc !1632\l  %8 = trunc i64 %7 to i32\l  %9 = icmp eq i32 %8, 0\l  %10 = icmp ne i32 %0, 8\l  %11 = or i1 %10, %9\l  %12 = icmp ne i32 %1, 0\l  %13 = or i1 %12, %11\l  br i1 %13, label %52, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1d5ff00:s0 -> Node0x1d60180;
+	Node0x1d5ff00:s1 -> Node0x1d5ff50;
+	Node0x1d5ff50 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #41, !srcloc !1633\l  %16 = bitcast %struct.__sigset_t* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %16) #40\l  call void @__block_app_sigs(i8* nonnull %16) #42\l  call void @__tl_lock() #42\l  %17 = call i32 @sem_init(%struct.sem_t* nonnull @barrier_sem, i32 0, i32 0)\l... #42\l  %18 = bitcast %struct.sigaction* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 152, i8* nonnull %18) #40\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8\l... dereferenceable(152) %18, i8* nonnull align 8 dereferenceable(152) bitcast\l... (%struct.sigaction* @__const.__membarrier.sa to i8*), i64 152, i1 false)\l  %19 = getelementptr inbounds %struct.sigaction, %struct.sigaction* %4, i64\l... 0, i32 1\l  %20 = bitcast %struct.__sigset_t* %19 to i8*\l  %21 = call i8* @memset(i8* nonnull %20, i32 -1, i64 128) #42\l  %22 = call i32 @__libc_sigaction(i32 34, %struct.sigaction* nonnull %4,\l... %struct.sigaction* null) #42\l  %23 = icmp eq i32 %22, 0\l  br i1 %23, label %24, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x1d5ff50:s0 -> Node0x1d5ffa0;
+	Node0x1d5ff50:s1 -> Node0x1d60130;
+	Node0x1d5ffa0 [shape=record,label="{%24:\l24:                                               \l  %25 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %15, i64\l... 0, i32 3\l  %26 = load %struct.__pthread*, %struct.__pthread** %25, align 8, !tbaa !1634\l  %27 = icmp eq %struct.__pthread* %26, %15\l  br i1 %27, label %46, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1d5ffa0:s0 -> Node0x1d600e0;
+	Node0x1d5ffa0:s1 -> Node0x1d60040;
+	Node0x1d5fff0 [shape=record,label="{%28:\l28:                                               \l  %29 = load %struct.__pthread*, %struct.__pthread** %25, align 8, !tbaa !1634\l  %30 = icmp eq %struct.__pthread* %29, %15\l  br i1 %30, label %46, label %40\l|{<s0>T|<s1>F}}"];
+	Node0x1d5fff0:s0 -> Node0x1d600e0;
+	Node0x1d5fff0:s1 -> Node0x1d60090;
+	Node0x1d60040 [shape=record,label="{%31:\l31:                                               \l  %32 = phi %struct.__pthread* [ %38, %31 ], [ %26, %24 ]\l  %33 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %32, i64\l... 0, i32 7\l  %34 = load i32, i32* %33, align 8, !tbaa !1642\l  %35 = sext i32 %34 to i64\l  %36 = call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64\l... 200, i64 %35, i64 34) #40, !srcloc !1632\l  %37 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %32, i64\l... 0, i32 3\l  %38 = load %struct.__pthread*, %struct.__pthread** %37, align 8, !tbaa !1634\l  %39 = icmp eq %struct.__pthread* %38, %15\l  br i1 %39, label %28, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1d60040:s0 -> Node0x1d5fff0;
+	Node0x1d60040:s1 -> Node0x1d60040;
+	Node0x1d60090 [shape=record,label="{%40:\l40:                                               \l  %41 = phi %struct.__pthread* [ %44, %40 ], [ %29, %28 ]\l  %42 = call i32 @sem_wait(%struct.sem_t* nonnull @barrier_sem) #42\l  %43 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %41, i64\l... 0, i32 3\l  %44 = load %struct.__pthread*, %struct.__pthread** %43, align 8, !tbaa !1634\l  %45 = icmp eq %struct.__pthread* %44, %15\l  br i1 %45, label %46, label %40\l|{<s0>T|<s1>F}}"];
+	Node0x1d60090:s0 -> Node0x1d600e0;
+	Node0x1d60090:s1 -> Node0x1d60090;
+	Node0x1d600e0 [shape=record,label="{%46:\l46:                                               \l  %47 = getelementptr inbounds %struct.sigaction, %struct.sigaction* %4, i64\l... 0, i32 0, i32 0\l  store void (i32)* inttoptr (i64 1 to void (i32)*), void (i32)** %47, align\l... 8, !tbaa !1643\l  %48 = call i32 @__libc_sigaction(i32 34, %struct.sigaction* nonnull %4,\l... %struct.sigaction* null) #42\l  br label %49\l}"];
+	Node0x1d600e0 -> Node0x1d60130;
+	Node0x1d60130 [shape=record,label="{%49:\l49:                                               \l  %50 = phi i64 [ %7, %14 ], [ 0, %46 ]\l  %51 = call i32 @sem_destroy(%struct.sem_t* nonnull @barrier_sem) #42\l  call void @__tl_unlock() #42\l  call void @__restore_sigs(i8* nonnull %16) #42\l  call void @llvm.lifetime.end.p0i8(i64 152, i8* nonnull %18) #40\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %16) #40\l  br label %52\l}"];
+	Node0x1d60130 -> Node0x1d60180;
+	Node0x1d60180 [shape=record,label="{%52:\l52:                                               \l  %53 = phi i64 [ %7, %2 ], [ %50, %49 ]\l  %54 = shl i64 %53, 32\l  %55 = ashr exact i64 %54, 32\l  %56 = call i64 @__syscall_ret(i64 %55) #42\l  %57 = trunc i64 %56 to i32\l  ret i32 %57\l}"];
+}

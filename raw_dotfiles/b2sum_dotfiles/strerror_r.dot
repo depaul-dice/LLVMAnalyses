@@ -1,0 +1,15 @@
+digraph "CFG for 'strerror_r' function" {
+	label="CFG for 'strerror_r' function";
+
+	Node0x1fb1fe0 [shape=record,label="{%3:\l  %4 = tail call i8* @strerror(i32 %0) #40\l  %5 = tail call i64 @strlen(i8* %4) #40\l  %6 = icmp ult i64 %5, %2\l  br i1 %6, label %13, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1fb1fe0:s0 -> Node0x1fb20d0;
+	Node0x1fb1fe0:s1 -> Node0x1fb2030;
+	Node0x1fb2030 [shape=record,label="{%7:\l7:                                                \l  %8 = icmp eq i64 %2, 0\l  br i1 %8, label %16, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1fb2030:s0 -> Node0x1fb2120;
+	Node0x1fb2030:s1 -> Node0x1fb2080;
+	Node0x1fb2080 [shape=record,label="{%9:\l9:                                                \l  %10 = add i64 %2, -1\l  %11 = tail call i8* @memcpy(i8* %1, i8* %4, i64 %10) #40\l  %12 = getelementptr inbounds i8, i8* %1, i64 %10\l  store i8 0, i8* %12, align 1, !tbaa !1632\l  br label %16\l}"];
+	Node0x1fb2080 -> Node0x1fb2120;
+	Node0x1fb20d0 [shape=record,label="{%13:\l13:                                               \l  %14 = add nuw i64 %5, 1\l  %15 = tail call i8* @memcpy(i8* %1, i8* %4, i64 %14) #40\l  br label %16\l}"];
+	Node0x1fb20d0 -> Node0x1fb2120;
+	Node0x1fb2120 [shape=record,label="{%16:\l16:                                               \l  %17 = phi i32 [ 0, %13 ], [ 34, %7 ], [ 34, %9 ]\l  ret i32 %17\l}"];
+}

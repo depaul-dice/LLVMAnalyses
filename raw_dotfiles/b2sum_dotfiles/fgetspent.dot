@@ -1,0 +1,10 @@
+digraph "CFG for 'fgetspent' function" {
+	label="CFG for 'fgetspent' function";
+
+	Node0x1fffb70 [shape=record,label="{%1:\l  %2 = alloca i64, align 8\l  %3 = alloca i32, align 4\l  %4 = bitcast i64* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %4) #40\l  store i64 0, i64* %2, align 8, !tbaa !1632\l  %5 = bitcast i32* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %5) #40\l  %6 = call i32 @pthread_setcancelstate(i32 1, i32* nonnull %3) #41\l  %7 = call i64 @getline(i8** nonnull @fgetspent.line, i64* nonnull %2,\l... %struct._IO_FILE.0* %0) #41\l  %8 = icmp sgt i64 %7, -1\l  br i1 %8, label %9, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1fffb70:s0 -> Node0x2000a40;
+	Node0x1fffb70:s1 -> Node0x2000a90;
+	Node0x2000a40 [shape=record,label="{%9:\l9:                                                \l  %10 = load i8*, i8** @fgetspent.line, align 8, !tbaa !1636\l  %11 = call i32 @__parsespent(i8* %10, %struct.spwd* nonnull @fgetspent.sp)\l... #41\l  %12 = icmp sgt i32 %11, -1\l  %13 = select i1 %12, %struct.spwd* @fgetspent.sp, %struct.spwd* null\l  br label %14\l}"];
+	Node0x2000a40 -> Node0x2000a90;
+	Node0x2000a90 [shape=record,label="{%14:\l14:                                               \l  %15 = phi %struct.spwd* [ null, %1 ], [ %13, %9 ]\l  %16 = load i32, i32* %3, align 4, !tbaa !1638\l  %17 = call i32 @pthread_setcancelstate(i32 %16, i32* null) #41\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %5) #40\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %4) #40\l  ret %struct.spwd* %15\l}"];
+}

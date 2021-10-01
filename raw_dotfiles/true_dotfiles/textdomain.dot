@@ -1,0 +1,23 @@
+digraph "CFG for 'textdomain' function" {
+	label="CFG for 'textdomain' function";
+
+	Node0x16fe9a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = icmp eq i8* %0, null\l  br i1 %2, label %3, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x16fe9a0:s0 -> Node0x16fe9f0;
+	Node0x16fe9a0:s1 -> Node0x16fea40;
+	Node0x16fe9f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3947570",label="{%3:\l3:                                                \l  %4 = load i8*, i8** @current_domain, align 8, !tbaa !1086\l  %5 = icmp eq i8* %4, null\l  %6 = getelementptr inbounds [9 x i8], [9 x i8]* @.str.121, i64 0, i64 0\l  %7 = select i1 %5, i8* %6, i8* %4\l  br label %24\l}"];
+	Node0x16fe9f0 -> Node0x16febd0;
+	Node0x16fea40 [shape=record,color="#b70d28ff", style=filled, fillcolor="#dc5d4a70",label="{%8:\l8:                                                \l  %9 = tail call fastcc i64 @strlen(i8* nonnull %0) #26\l  %10 = icmp ugt i64 %9, 255\l  br i1 %10, label %11, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x16fea40:s0 -> Node0x16fea90;
+	Node0x16fea40:s1 -> Node0x16feae0;
+	Node0x16fea90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7a88970",label="{%11:\l11:                                               \l  %12 = tail call fastcc i32* @__errno_location() #26\l  store i32 22, i32* %12, align 4, !tbaa !1090\l  br label %24\l}"];
+	Node0x16fea90 -> Node0x16febd0;
+	Node0x16feae0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7a88970",label="{%13:\l13:                                               \l  %14 = load i8*, i8** @current_domain, align 8, !tbaa !1086\l  %15 = icmp eq i8* %14, null\l  br i1 %15, label %16, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x16feae0:s0 -> Node0x16feb30;
+	Node0x16feae0:s1 -> Node0x16feb80;
+	Node0x16feb30 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%16:\l16:                                               \l  %17 = tail call fastcc i8* @malloc(i64 256) #26\l  store i8* %17, i8** @current_domain, align 8, !tbaa !1086\l  %18 = icmp eq i8* %17, null\l  br i1 %18, label %24, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x16feb30:s0 -> Node0x16febd0;
+	Node0x16feb30:s1 -> Node0x16feb80;
+	Node0x16feb80 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%19:\l19:                                               \l  %20 = phi i8* [ %17, %16 ], [ %14, %13 ]\l  %21 = add nuw nsw i64 %9, 1\l  %22 = tail call fastcc i8* @memcpy(i8* nonnull %20, i8* nonnull %0, i64 %21)\l... #26\l  %23 = load i8*, i8** @current_domain, align 8, !tbaa !1086\l  br label %24\l}"];
+	Node0x16feb80 -> Node0x16febd0;
+	Node0x16febd0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%24:\l24:                                               \l  %25 = phi i8* [ %7, %3 ], [ null, %11 ], [ %23, %19 ], [ null, %16 ]\l  ret i8* %25\l}"];
+}

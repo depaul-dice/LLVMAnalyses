@@ -1,0 +1,5 @@
+digraph "CFG for 'posix_openpt' function" {
+	label="CFG for 'posix_openpt' function";
+
+	Node0x1c312a0 [shape=record,label="{%1:\l  %2 = tail call i32 (i8*, i32, ...) @open(i8* getelementptr inbounds ([10 x\l... i8], [10 x i8]* @.str.247, i64 0, i64 0), i32 %0) #40\l  ret i32 %2\l}"];
+}

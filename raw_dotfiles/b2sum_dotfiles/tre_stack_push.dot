@@ -1,0 +1,17 @@
+digraph "CFG for 'tre_stack_push' function" {
+	label="CFG for 'tre_stack_push' function";
+
+	Node0x1897330 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct.tre_stack_rec, %struct.tre_stack_rec*\l... %0, i64 0, i32 3\l  %4 = load i32, i32* %3, align 4, !tbaa !1632\l  %5 = getelementptr inbounds %struct.tre_stack_rec, %struct.tre_stack_rec*\l... %0, i64 0, i32 0\l  %6 = load i32, i32* %5, align 8, !tbaa !1638\l  %7 = icmp slt i32 %4, %6\l  br i1 %7, label %8, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1897330:s0 -> Node0x1897380;
+	Node0x1897330:s1 -> Node0x18973d0;
+	Node0x1897380 [shape=record,label="{%8:\l8:                                                \l  %9 = getelementptr inbounds %struct.tre_stack_rec, %struct.tre_stack_rec*\l... %0, i64 0, i32 4\l  %10 = load %union.tre_stack_item*, %union.tre_stack_item** %9, align 8,\l... !tbaa !1639\l  %11 = sext i32 %4 to i64\l  %12 = getelementptr inbounds %union.tre_stack_item, %union.tre_stack_item*\l... %10, i64 %11, i32 0\l  store i8* %1, i8** %12, align 8, !tbaa.struct !1640\l  %13 = load i32, i32* %3, align 4, !tbaa !1632\l  %14 = add nsw i32 %13, 1\l  store i32 %14, i32* %3, align 4, !tbaa !1632\l  br label %34\l}"];
+	Node0x1897380 -> Node0x18cb810;
+	Node0x18973d0 [shape=record,label="{%15:\l15:                                               \l  %16 = getelementptr inbounds %struct.tre_stack_rec, %struct.tre_stack_rec*\l... %0, i64 0, i32 1\l  %17 = load i32, i32* %16, align 4, !tbaa !1643\l  %18 = icmp slt i32 %6, %17\l  br i1 %18, label %19, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x18973d0:s0 -> Node0x18cb770;
+	Node0x18973d0:s1 -> Node0x18cb810;
+	Node0x18cb770 [shape=record,label="{%19:\l19:                                               \l  %20 = getelementptr inbounds %struct.tre_stack_rec, %struct.tre_stack_rec*\l... %0, i64 0, i32 2\l  %21 = load i32, i32* %20, align 8, !tbaa !1644\l  %22 = add nsw i32 %21, %6\l  %23 = icmp sgt i32 %22, %17\l  %24 = select i1 %23, i32 %17, i32 %22\l  %25 = getelementptr inbounds %struct.tre_stack_rec, %struct.tre_stack_rec*\l... %0, i64 0, i32 4\l  %26 = bitcast %union.tre_stack_item** %25 to i8**\l  %27 = load i8*, i8** %26, align 8, !tbaa !1639\l  %28 = sext i32 %24 to i64\l  %29 = shl nsw i64 %28, 3\l  %30 = tail call i8* @realloc(i8* %27, i64 %29) #40\l  %31 = icmp eq i8* %30, null\l  br i1 %31, label %34, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x18cb770:s0 -> Node0x18cb810;
+	Node0x18cb770:s1 -> Node0x18cb7c0;
+	Node0x18cb7c0 [shape=record,label="{%32:\l32:                                               \l  store i32 %24, i32* %5, align 8, !tbaa !1638\l  store i8* %30, i8** %26, align 8, !tbaa !1639\l  %33 = tail call fastcc i32 @tre_stack_push(%struct.tre_stack_rec* nonnull\l... %0, i8* %1) #41\l  ret i32 0\l}"];
+	Node0x18cb810 [shape=record,label="{%34:\l34:                                               \l  %35 = phi i32 [ 12, %15 ], [ 12, %19 ], [ 0, %8 ]\l  ret i32 %35\l}"];
+}

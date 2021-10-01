@@ -1,0 +1,5 @@
+digraph "CFG for 'sched_yield' function" {
+	label="CFG for 'sched_yield' function";
+
+	Node0x1b928d0 [shape=record,label="{%0:\l  %1 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"(i64 24) #40,\l... !srcloc !1632\l  %2 = tail call i64 @__syscall_ret(i64 %1) #41\l  %3 = trunc i64 %2 to i32\l  ret i32 %3\l}"];
+}

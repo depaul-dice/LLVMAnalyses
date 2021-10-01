@@ -1,0 +1,5 @@
+digraph "CFG for 'srand' function" {
+	label="CFG for 'srand' function";
+
+	Node0x1fc4310 [shape=record,label="{%1:\l  %2 = add i32 %0, -1\l  %3 = zext i32 %2 to i64\l  store i64 %3, i64* @seed, align 8, !tbaa !1632\l  ret void\l}"];
+}

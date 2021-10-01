@@ -1,0 +1,14 @@
+digraph "CFG for 'wmemchr' function" {
+	label="CFG for 'wmemchr' function";
+
+	Node0x1604f70 [shape=record,label="{%3:\l  %4 = icmp eq i64 %2, 0\l  br i1 %4, label %14, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1604f70:s0 -> Node0x1605060;
+	Node0x1604f70:s1 -> Node0x1604fc0;
+	Node0x1604fc0 [shape=record,label="{%5:\l5:                                                \l  %6 = phi i64 [ %11, %10 ], [ %2, %3 ]\l  %7 = phi i32* [ %12, %10 ], [ %0, %3 ]\l  %8 = load i32, i32* %7, align 4, !tbaa !1632\l  %9 = icmp eq i32 %8, %1\l  br i1 %9, label %14, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1604fc0:s0 -> Node0x1605060;
+	Node0x1604fc0:s1 -> Node0x1605010;
+	Node0x1605010 [shape=record,label="{%10:\l10:                                               \l  %11 = add i64 %6, -1\l  %12 = getelementptr inbounds i32, i32* %7, i64 1\l  %13 = icmp eq i64 %11, 0\l  br i1 %13, label %14, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1605010:s0 -> Node0x1605060;
+	Node0x1605010:s1 -> Node0x1604fc0;
+	Node0x1605060 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32* [ null, %3 ], [ null, %10 ], [ %7, %5 ]\l  ret i32* %15\l}"];
+}

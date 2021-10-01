@@ -1,0 +1,46 @@
+digraph "CFG for '__fgetwc_unlocked' function" {
+	label="CFG for '__fgetwc_unlocked' function";
+
+	Node0x1a5e8f0 [shape=record,label="{%1:\l  %2 = alloca i32, align 4\l  %3 = alloca i64, align 8\l  %4 = alloca i8, align 1\l  %5 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #40, !srcloc !1632\l  %6 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %5, i64 0,\l... i32 24\l  %7 = bitcast %struct.__locale_struct** %6 to i64*\l  %8 = load i64, i64* %7, align 8, !tbaa !1633\l  %9 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 18\l  %10 = load i32, i32* %9, align 8, !tbaa !1637\l  %11 = icmp slt i32 %10, 1\l  br i1 %11, label %12, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1a5e8f0:s0 -> Node0x1a5e9d0;
+	Node0x1a5e8f0:s1 -> Node0x1a5ea20;
+	Node0x1a5e9d0 [shape=record,label="{%12:\l12:                                               \l  %13 = tail call i32 @fwide(%struct._IO_FILE.0* nonnull %0, i32 1) #41\l  br label %14\l}"];
+	Node0x1a5e9d0 -> Node0x1a5ea20;
+	Node0x1a5ea20 [shape=record,label="{%14:\l14:                                               \l  %15 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 30\l  %16 = bitcast %struct.__locale_struct** %15 to i64*\l  %17 = load i64, i64* %16, align 8, !tbaa !1641\l  store i64 %17, i64* %7, align 8, !tbaa !1633\l  %18 = bitcast i64* %3 to %struct.FTW*\l  %19 = bitcast i32* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %19) #42\l  %20 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 1\l  %21 = load i8*, i8** %20, align 8, !tbaa !1642\l  %22 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 2\l  %23 = load i8*, i8** %22, align 8, !tbaa !1643\l  %24 = icmp eq i8* %21, %23\l  br i1 %24, label %39, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1a5ea20:s0 -> Node0x1a5eb10;
+	Node0x1a5ea20:s1 -> Node0x1a5ea70;
+	Node0x1a5ea70 [shape=record,label="{%25:\l25:                                               \l  %26 = ptrtoint i8* %23 to i64\l  %27 = ptrtoint i8* %21 to i64\l  %28 = sub i64 %26, %27\l  %29 = call i32 @mbtowc(i32* nonnull %2, i8* %21, i64 %28) #41\l  %30 = icmp eq i32 %29, -1\l  br i1 %30, label %39, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1a5ea70:s0 -> Node0x1a5eb10;
+	Node0x1a5ea70:s1 -> Node0x1a5eac0;
+	Node0x1a5eac0 [shape=record,label="{%31:\l31:                                               \l  %32 = sext i32 %29 to i64\l  %33 = icmp eq i32 %29, 0\l  %34 = zext i1 %33 to i64\l  %35 = add nsw i64 %34, %32\l  %36 = load i8*, i8** %20, align 8, !tbaa !1642\l  %37 = getelementptr inbounds i8, i8* %36, i64 %35\l  store i8* %37, i8** %20, align 8, !tbaa !1642\l  %38 = load i32, i32* %2, align 4, !tbaa !1644\l  br label %75\l}"];
+	Node0x1a5eac0 -> Node0x1a5ee80;
+	Node0x1a5eb10 [shape=record,label="{%39:\l39:                                               \l  %40 = bitcast i64* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %40) #42\l  store i64 0, i64* %3, align 8\l  call void @llvm.lifetime.start.p0i8(i64 1, i8* nonnull %4) #42\l  br label %41\l}"];
+	Node0x1a5eb10 -> Node0x1a5eb60;
+	Node0x1a5eb60 [shape=record,label="{%41:\l41:                                               \l  %42 = phi i32 [ 1, %39 ], [ 0, %60 ]\l  %43 = load i8*, i8** %20, align 8, !tbaa !1642\l  %44 = load i8*, i8** %22, align 8, !tbaa !1643\l  %45 = icmp eq i8* %43, %44\l  br i1 %45, label %49, label %46\l|{<s0>T|<s1>F}}"];
+	Node0x1a5eb60:s0 -> Node0x1a5ec00;
+	Node0x1a5eb60:s1 -> Node0x1a5ebb0;
+	Node0x1a5ebb0 [shape=record,label="{%46:\l46:                                               \l  %47 = getelementptr inbounds i8, i8* %43, i64 1\l  store i8* %47, i8** %20, align 8, !tbaa !1642\l  %48 = load i8, i8* %43, align 1, !tbaa !1645\l  store i8 %48, i8* %4, align 1, !tbaa !1645\l  br label %60\l}"];
+	Node0x1a5ebb0 -> Node0x1a5ecf0;
+	Node0x1a5ec00 [shape=record,label="{%49:\l49:                                               \l  %50 = call i32 bitcast (i32 (%struct._IO_FILE.828*)* @__uflow to i32\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* nonnull %0) #41\l  %51 = trunc i32 %50 to i8\l  store i8 %51, i8* %4, align 1, !tbaa !1645\l  %52 = icmp slt i32 %50, 0\l  br i1 %52, label %53, label %60\l|{<s0>T|<s1>F}}"];
+	Node0x1a5ec00:s0 -> Node0x1a5ec50;
+	Node0x1a5ec00:s1 -> Node0x1a5ecf0;
+	Node0x1a5ec50 [shape=record,label="{%53:\l53:                                               \l  %54 = icmp eq i32 %42, 0\l  br i1 %54, label %55, label %73\l|{<s0>T|<s1>F}}"];
+	Node0x1a5ec50:s0 -> Node0x1a5eca0;
+	Node0x1a5ec50:s1 -> Node0x1a5ee30;
+	Node0x1a5eca0 [shape=record,label="{%55:\l55:                                               \l  %56 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 0\l  %57 = load i32, i32* %56, align 8, !tbaa !1646\l  %58 = or i32 %57, 32\l  store i32 %58, i32* %56, align 8, !tbaa !1646\l  %59 = call i32* @___errno_location() #41\l  store i32 84, i32* %59, align 4, !tbaa !1644\l  br label %73\l}"];
+	Node0x1a5eca0 -> Node0x1a5ee30;
+	Node0x1a5ecf0 [shape=record,label="{%60:\l60:                                               \l  %61 = call i64 @mbrtowc(i32* nonnull %2, i8* nonnull %4, i64 1, %struct.FTW*\l... nonnull %18) #41\l  switch i64 %61, label %71 [\l    i64 -1, label %62\l    i64 -2, label %41\l  ]\l|{<s0>def|<s1>-1|<s2>-2}}"];
+	Node0x1a5ecf0:s0 -> Node0x1a5ede0;
+	Node0x1a5ecf0:s1 -> Node0x1a5ed40;
+	Node0x1a5ecf0:s2 -> Node0x1a5eb60;
+	Node0x1a5ed40 [shape=record,label="{%62:\l62:                                               \l  %63 = icmp eq i32 %42, 0\l  br i1 %63, label %64, label %73\l|{<s0>T|<s1>F}}"];
+	Node0x1a5ed40:s0 -> Node0x1a5ed90;
+	Node0x1a5ed40:s1 -> Node0x1a5ee30;
+	Node0x1a5ed90 [shape=record,label="{%64:\l64:                                               \l  %65 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 0\l  %66 = load i32, i32* %65, align 8, !tbaa !1646\l  %67 = or i32 %66, 32\l  store i32 %67, i32* %65, align 8, !tbaa !1646\l  %68 = load i8, i8* %4, align 1, !tbaa !1645\l  %69 = zext i8 %68 to i32\l  %70 = call i32 @ungetc(i32 %69, %struct._IO_FILE.0* nonnull %0) #41\l  br label %73\l}"];
+	Node0x1a5ed90 -> Node0x1a5ee30;
+	Node0x1a5ede0 [shape=record,label="{%71:\l71:                                               \l  %72 = load i32, i32* %2, align 4, !tbaa !1644\l  br label %73\l}"];
+	Node0x1a5ede0 -> Node0x1a5ee30;
+	Node0x1a5ee30 [shape=record,label="{%73:\l73:                                               \l  %74 = phi i32 [ %72, %71 ], [ -1, %53 ], [ -1, %55 ], [ -1, %62 ], [ -1, %64\l... ]\l  call void @llvm.lifetime.end.p0i8(i64 1, i8* nonnull %4) #42\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %40) #42\l  br label %75\l}"];
+	Node0x1a5ee30 -> Node0x1a5ee80;
+	Node0x1a5ee80 [shape=record,label="{%75:\l75:                                               \l  %76 = phi i32 [ %38, %31 ], [ %74, %73 ]\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %19) #42\l  store i64 %8, i64* %7, align 8, !tbaa !1633\l  ret i32 %76\l}"];
+}

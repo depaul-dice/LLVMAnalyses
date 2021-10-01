@@ -1,0 +1,10 @@
+digraph "CFG for '_pthread_cleanup_pop' function" {
+	label="CFG for '_pthread_cleanup_pop' function";
+
+	Node0x168c450 [shape=record,label="{%2:\l  tail call void @__do_cleanup_pop(%struct.__ptcb* %0) #40\l  %3 = icmp eq i32 %1, 0\l  br i1 %3, label %9, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x168c450:s0 -> Node0x168ca60;
+	Node0x168c450:s1 -> Node0x168ca10;
+	Node0x168ca10 [shape=record,label="{%4:\l4:                                                \l  %5 = getelementptr inbounds %struct.__ptcb, %struct.__ptcb* %0, i64 0, i32 0\l  %6 = load void (i8*)*, void (i8*)** %5, align 8, !tbaa !1632\l  %7 = getelementptr inbounds %struct.__ptcb, %struct.__ptcb* %0, i64 0, i32 1\l  %8 = load i8*, i8** %7, align 8, !tbaa !1637\l  tail call void %6(i8* %8) #41\l  br label %9\l}"];
+	Node0x168ca10 -> Node0x168ca60;
+	Node0x168ca60 [shape=record,label="{%9:\l9:                                                \l  ret void\l}"];
+}

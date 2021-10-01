@@ -1,0 +1,5 @@
+digraph "CFG for 'hsearch' function" {
+	label="CFG for 'hsearch' function";
+
+	Node0x1c636d0 [shape=record,label="{%3:\l  %4 = alloca %struct.infomap*, align 8\l  %5 = bitcast %struct.infomap** %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %5) #40\l  %6 = call i32 @__hsearch_r(i8* %0, i8* %1, i32 %2, %struct.infomap** nonnull\l... %4, %struct.hsearch_data* nonnull @htab) #41\l  %7 = load %struct.infomap*, %struct.infomap** %4, align 8, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %5) #40\l  ret %struct.infomap* %7\l}"];
+}

@@ -1,0 +1,20 @@
+digraph "CFG for 'fileno' function" {
+	label="CFG for 'fileno' function";
+
+	Node0x24a0240 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.233, %struct._IO_FILE.233* %0,\l... i64 0, i32 19\l  %3 = load volatile i32, i32* %2, align 4, !tbaa !1086\l  %4 = icmp sgt i32 %3, -1\l  br i1 %4, label %8, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x24a0240:s0 -> Node0x24a0f30;
+	Node0x24a0240:s1 -> Node0x24a0ee0;
+	Node0x24a0ee0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%5:\l5:                                                \l  %6 = getelementptr inbounds %struct._IO_FILE.233, %struct._IO_FILE.233* %0,\l... i64 0, i32 15\l  %7 = load i32, i32* %6, align 8, !tbaa !1093\l  br label %14\l}"];
+	Node0x24a0ee0 -> Node0x24a0fd0;
+	Node0x24a0f30 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%8:\l8:                                                \l  %9 = tail call i32 @__lockfile(%struct._IO_FILE.233* nonnull %0) #26\l  %10 = icmp eq i32 %9, 0\l  %11 = getelementptr inbounds %struct._IO_FILE.233, %struct._IO_FILE.233* %0,\l... i64 0, i32 15\l  %12 = load i32, i32* %11, align 8, !tbaa !1093\l  br i1 %10, label %14, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x24a0f30:s0 -> Node0x24a0fd0;
+	Node0x24a0f30:s1 -> Node0x24a0f80;
+	Node0x24a0f80 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%13:\l13:                                               \l  tail call void @__unlockfile(%struct._IO_FILE.233* nonnull %0) #26\l  br label %14\l}"];
+	Node0x24a0f80 -> Node0x24a0fd0;
+	Node0x24a0fd0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%14:\l14:                                               \l  %15 = phi i32 [ %7, %5 ], [ %12, %13 ], [ %12, %8 ]\l  %16 = icmp slt i32 %15, 0\l  br i1 %16, label %17, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x24a0fd0:s0 -> Node0x24a1020;
+	Node0x24a0fd0:s1 -> Node0x24a1070;
+	Node0x24a1020 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%17:\l17:                                               \l  %18 = tail call fastcc i32* @__errno_location() #26\l  store i32 9, i32* %18, align 4, !tbaa !1094\l  br label %19\l}"];
+	Node0x24a1020 -> Node0x24a1070;
+	Node0x24a1070 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%19:\l19:                                               \l  %20 = phi i32 [ -1, %17 ], [ %15, %14 ]\l  ret i32 %20\l}"];
+}

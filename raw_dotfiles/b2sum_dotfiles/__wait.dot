@@ -1,0 +1,42 @@
+digraph "CFG for '__wait' function" {
+	label="CFG for '__wait' function";
+
+	Node0x14e9c50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%4:\l  %5 = icmp eq i32 %3, 0\l  %6 = select i1 %5, i64 0, i64 128\l  %7 = icmp eq i32* %1, null\l  br label %8\l}"];
+	Node0x14e9c50 -> Node0x14ea1c0;
+	Node0x14ea1c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%8:\l8:                                                \l  %9 = phi i32 [ 99, %4 ], [ %17, %16 ]\l  br i1 %7, label %13, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x14ea1c0:s0 -> Node0x14eb890;
+	Node0x14ea1c0:s1 -> Node0x14eb840;
+	Node0x14eb840 [shape=record,color="#b70d28ff", style=filled, fillcolor="#d24b4070",label="{%10:\l10:                                               \l  %11 = load volatile i32, i32* %1, align 4, !tbaa !1632\l  %12 = icmp eq i32 %11, 0\l  br i1 %12, label %13, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x14eb840:s0 -> Node0x14eb890;
+	Node0x14eb840:s1 -> Node0x14eb980;
+	Node0x14eb890 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%13:\l13:                                               \l  %14 = load volatile i32, i32* %0, align 4, !tbaa !1632\l  %15 = icmp eq i32 %14, %2\l  br i1 %15, label %16, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x14eb890:s0 -> Node0x14eb8e0;
+	Node0x14eb890:s1 -> Node0x14ebc00;
+	Node0x14eb8e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%16:\l16:                                               \l  tail call void asm sideeffect \"pause\",\l... \"~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"() #29, !srcloc !1636\l  %17 = add nsw i32 %9, -1\l  %18 = icmp eq i32 %9, 0\l  br i1 %18, label %19, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x14eb8e0:s0 -> Node0x14eb930;
+	Node0x14eb8e0:s1 -> Node0x14ea1c0;
+	Node0x14eb930 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#bbd1f870",label="{%19:\l19:                                               \l  br i1 %7, label %21, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x14eb930:s0 -> Node0x14eb9d0;
+	Node0x14eb930:s1 -> Node0x14eb980;
+	Node0x14eb980 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#cbd8ee70",label="{%20:\l20:                                               \l  tail call void asm sideeffect \"lock \l  br label %21\l}"];
+	Node0x14eb980 -> Node0x14eb9d0;
+	Node0x14eb9d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6dce470",label="{%21:\l21:                                               \l  %22 = phi i1 [ true, %20 ], [ false, %19 ]\l  %23 = load volatile i32, i32* %0, align 4, !tbaa !1632\l  %24 = icmp eq i32 %23, %2\l  br i1 %24, label %25, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x14eb9d0:s0 -> Node0x14eba20;
+	Node0x14eb9d0:s1 -> Node0x14ebb60;
+	Node0x14eba20 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b5cdfa70",label="{%25:\l25:                                               \l  %26 = ptrtoint i32* %0 to i64\l  %27 = sext i32 %2 to i64\l  br label %28\l}"];
+	Node0x14eba20 -> Node0x14eba70;
+	Node0x14eba70 [shape=record,color="#b70d28ff", style=filled, fillcolor="#c5333470",label="{%28:\l28:                                               \l  %29 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}\"(i64 202, i64 %26, i64 %6, i64 %27, i64 0) #29, !srcloc !1638\l  %30 = icmp eq i64 %29, -38\l  br i1 %30, label %31, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x14eba70:s0 -> Node0x14ebac0;
+	Node0x14eba70:s1 -> Node0x14ebb10;
+	Node0x14ebac0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8765c70",label="{%31:\l31:                                               \l  %32 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}\"(i64 202, i64 %26, i64 0, i64 %27, i64 0) #29, !srcloc !1638\l  br label %33\l}"];
+	Node0x14ebac0 -> Node0x14ebb10;
+	Node0x14ebb10 [shape=record,color="#b70d28ff", style=filled, fillcolor="#c5333470",label="{%33:\l33:                                               \l  %34 = load volatile i32, i32* %0, align 4, !tbaa !1632\l  %35 = icmp eq i32 %34, %2\l  br i1 %35, label %28, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x14ebb10:s0 -> Node0x14eba70;
+	Node0x14ebb10:s1 -> Node0x14ebb60;
+	Node0x14ebb60 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6dce470",label="{%36:\l36:                                               \l  br i1 %22, label %37, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x14ebb60:s0 -> Node0x14ebbb0;
+	Node0x14ebb60:s1 -> Node0x14ebc00;
+	Node0x14ebbb0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b5cdfa70",label="{%37:\l37:                                               \l  tail call void asm sideeffect \"lock \l  br label %38\l}"];
+	Node0x14ebbb0 -> Node0x14ebc00;
+	Node0x14ebc00 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%38:\l38:                                               \l  ret void\l}"];
+}

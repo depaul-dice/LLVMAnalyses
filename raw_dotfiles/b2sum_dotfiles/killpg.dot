@@ -1,0 +1,12 @@
+digraph "CFG for 'killpg' function" {
+	label="CFG for 'killpg' function";
+
+	Node0x1daeee0 [shape=record,label="{%2:\l  %3 = icmp slt i32 %0, 0\l  br i1 %3, label %4, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1daeee0:s0 -> Node0x1daef30;
+	Node0x1daeee0:s1 -> Node0x1daef80;
+	Node0x1daef30 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %5, align 4, !tbaa !1632\l  br label %9\l}"];
+	Node0x1daef30 -> Node0x1daefd0;
+	Node0x1daef80 [shape=record,label="{%6:\l6:                                                \l  %7 = sub nsw i32 0, %0\l  %8 = tail call i32 @kill(i32 %7, i32 %1) #40\l  br label %9\l}"];
+	Node0x1daef80 -> Node0x1daefd0;
+	Node0x1daefd0 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i32 [ -1, %4 ], [ %8, %6 ]\l  ret i32 %10\l}"];
+}

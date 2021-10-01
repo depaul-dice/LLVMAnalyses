@@ -1,0 +1,15 @@
+digraph "CFG for 'xreallocarray' function" {
+	label="CFG for 'xreallocarray' function";
+
+	Node0x14aa2b0 [shape=record,label="{%3:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1640\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1637, metadata\l... !DIExpression()), !dbg !1640\l  call void @llvm.dbg.value(metadata i64 %2, metadata !1638, metadata\l... !DIExpression()), !dbg !1640\l  %4 = tail call i8* @reallocarray(i8* %0, i64 %1, i64 %2) #7, !dbg !1641\l  call void @llvm.dbg.value(metadata i8* %4, metadata !1639, metadata\l... !DIExpression()), !dbg !1640\l  %5 = icmp eq i8* %4, null, !dbg !1642\l  br i1 %5, label %6, label %13, !dbg !1644\l|{<s0>T|<s1>F}}"];
+	Node0x14aa2b0:s0 -> Node0x14ab660;
+	Node0x14aa2b0:s1 -> Node0x14ab750;
+	Node0x14ab660 [shape=record,label="{%6:\l6:                                                \l  %7 = icmp eq i8* %0, null, !dbg !1645\l  br i1 %7, label %12, label %8, !dbg !1646\l|{<s0>T|<s1>F}}"];
+	Node0x14ab660:s0 -> Node0x14ab700;
+	Node0x14ab660:s1 -> Node0x14ab6b0;
+	Node0x14ab6b0 [shape=record,label="{%8:\l8:                                                \l  %9 = icmp ne i64 %1, 0, !dbg !1647\l  %10 = icmp ne i64 %2, 0, !dbg !1648\l  %11 = and i1 %9, %10, !dbg !1649\l  br i1 %11, label %12, label %13, !dbg !1649\l|{<s0>T|<s1>F}}"];
+	Node0x14ab6b0:s0 -> Node0x14ab700;
+	Node0x14ab6b0:s1 -> Node0x14ab750;
+	Node0x14ab700 [shape=record,label="{%12:\l12:                                               \l  tail call void @xalloc_die() #40, !dbg !1650\l  unreachable, !dbg !1650\l}"];
+	Node0x14ab750 [shape=record,label="{%13:\l13:                                               \l  ret i8* %4, !dbg !1651\l}"];
+}

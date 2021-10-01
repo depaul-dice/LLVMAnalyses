@@ -1,0 +1,5 @@
+digraph "CFG for 'wcsftime' function" {
+	label="CFG for 'wcsftime' function";
+
+	Node0x183db30 [shape=record,label="{%4:\l  %5 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #40, !srcloc !1632\l  %6 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %5, i64 0,\l... i32 24\l  %7 = load %struct.__locale_struct*, %struct.__locale_struct** %6, align 8,\l... !tbaa !1633\l  %8 = tail call i64 @__wcsftime_l(i32* %0, i64 %1, i32* %2, %struct.tm* %3,\l... %struct.__locale_struct* %7) #41\l  ret i64 %8\l}"];
+}

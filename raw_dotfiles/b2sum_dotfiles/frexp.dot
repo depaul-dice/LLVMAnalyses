@@ -1,0 +1,18 @@
+digraph "CFG for 'frexp' function" {
+	label="CFG for 'frexp' function";
+
+	Node0x1935630 [shape=record,label="{%2:\l  %3 = bitcast double %0 to i64\l  %4 = lshr i64 %3, 52\l  %5 = trunc i64 %4 to i32\l  %6 = and i32 %5, 2047\l  switch i32 %6, label %17 [\l    i32 0, label %7\l    i32 2047, label %22\l  ]\l|{<s0>def|<s1>0|<s2>2047}}"];
+	Node0x1935630:s0 -> Node0x19357d0;
+	Node0x1935630:s1 -> Node0x19356e0;
+	Node0x1935630:s2 -> Node0x1935820;
+	Node0x19356e0 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call i1 @llvm.experimental.constrained.fcmp.f64(double %0, double\l... 0.000000e+00, metadata !\"une\", metadata !\"fpexcept.ignore\") #40\l  br i1 %8, label %9, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x19356e0:s0 -> Node0x1935730;
+	Node0x19356e0:s1 -> Node0x1935780;
+	Node0x1935730 [shape=record,label="{%9:\l9:                                                \l  %10 = tail call double @llvm.experimental.constrained.fmul.f64(double %0,\l... double 0x43F0000000000000, metadata !\"round.dynamic\", metadata\l... !\"fpexcept.ignore\") #40\l  %11 = tail call double @frexp(double %10, i32* %1) #41\l  %12 = load i32, i32* %1, align 4, !tbaa !1632\l  %13 = add nsw i32 %12, -64\l  br label %14\l}"];
+	Node0x1935730 -> Node0x1935780;
+	Node0x1935780 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32 [ %13, %9 ], [ 0, %7 ]\l  %16 = phi double [ %11, %9 ], [ %0, %7 ]\l  store i32 %15, i32* %1, align 4, !tbaa !1632\l  br label %22\l}"];
+	Node0x1935780 -> Node0x1935820;
+	Node0x19357d0 [shape=record,label="{%17:\l17:                                               \l  %18 = add nsw i32 %6, -1022\l  store i32 %18, i32* %1, align 4, !tbaa !1632\l  %19 = and i64 %3, -9218868437227405313\l  %20 = or i64 %19, 4602678819172646912\l  %21 = bitcast i64 %20 to double\l  br label %22\l}"];
+	Node0x19357d0 -> Node0x1935820;
+	Node0x1935820 [shape=record,label="{%22:\l22:                                               \l  %23 = phi double [ %21, %17 ], [ %16, %14 ], [ %0, %2 ]\l  ret double %23\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'fesetexceptflag' function" {
+	label="CFG for 'fesetexceptflag' function";
+
+	Node0x1ce0700 [shape=record,label="{%2:\l  %3 = load i16, i16* %0, align 2, !tbaa !1632\l  %4 = zext i16 %3 to i32\l  %5 = xor i32 %4, -1\l  %6 = and i32 %5, %1\l  %7 = tail call i32 @feclearexcept(i32 %6) #40\l  %8 = load i16, i16* %0, align 2, !tbaa !1632\l  %9 = zext i16 %8 to i32\l  %10 = and i32 %9, %1\l  %11 = tail call i32 @feraiseexcept(i32 %10) #40\l  ret i32 0\l}"];
+}

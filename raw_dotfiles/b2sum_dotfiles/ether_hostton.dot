@@ -1,0 +1,5 @@
+digraph "CFG for 'ether_hostton' function" {
+	label="CFG for 'ether_hostton' function";
+
+	Node0x1c75710 [shape=record,label="{%2:\l  ret i32 -1\l}"];
+}

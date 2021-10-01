@@ -1,0 +1,5 @@
+digraph "CFG for 'thrd_exit' function" {
+	label="CFG for 'thrd_exit' function";
+
+	Node0x1d5c360 [shape=record,label="{%1:\l  %2 = sext i32 %0 to i64\l  %3 = inttoptr i64 %2 to i8*\l  tail call void @__pthread_exit(i8* %3) #40\l  unreachable\l}"];
+}

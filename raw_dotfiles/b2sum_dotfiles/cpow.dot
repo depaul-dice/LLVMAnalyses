@@ -1,0 +1,13 @@
+digraph "CFG for 'cpow' function" {
+	label="CFG for 'cpow' function";
+
+	Node0x1fa6f70 [shape=record,label="{%4:\l  %5 = tail call \{ double, double \} @clog(double %0, double %1) #40\l  %6 = extractvalue \{ double, double \} %5, 0\l  %7 = extractvalue \{ double, double \} %5, 1\l  %8 = tail call double @llvm.experimental.constrained.fmul.f64(double %2,\l... double %6, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %9 = tail call double @llvm.experimental.constrained.fmul.f64(double %3,\l... double %7, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %10 = tail call double @llvm.experimental.constrained.fmul.f64(double %2,\l... double %7, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %11 = tail call double @llvm.experimental.constrained.fmul.f64(double %3,\l... double %6, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %12 = tail call double @llvm.experimental.constrained.fsub.f64(double %8,\l... double %9, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %13 = tail call double @llvm.experimental.constrained.fadd.f64(double %10,\l... double %11, metadata !\"round.dynamic\", metadata !\"fpexcept.ignore\") #41\l  %14 = tail call i1 @llvm.experimental.constrained.fcmp.f64(double %12,\l... double %12, metadata !\"uno\", metadata !\"fpexcept.ignore\") #41\l  br i1 %14, label %15, label %21, !prof !1632\l|{<s0>T|<s1>F}}"];
+	Node0x1fa6f70:s0 -> Node0x1fa6ff0[label="W:1"];
+	Node0x1fa6f70:s1 -> Node0x1fa75d0[label="W:1048575"];
+	Node0x1fa6ff0 [shape=record,label="{%15:\l15:                                               \l  %16 = tail call i1 @llvm.experimental.constrained.fcmp.f64(double %13,\l... double %13, metadata !\"uno\", metadata !\"fpexcept.ignore\") #41\l  br i1 %16, label %17, label %21, !prof !1632\l|{<s0>T|<s1>F}}"];
+	Node0x1fa6ff0:s0 -> Node0x1fa7580[label="W:1"];
+	Node0x1fa6ff0:s1 -> Node0x1fa75d0[label="W:1048575"];
+	Node0x1fa7580 [shape=record,label="{%17:\l17:                                               \l  %18 = tail call \{ double, double \} @__muldc3(double %2, double %3, double\l... %6, double %7) #42\l  %19 = extractvalue \{ double, double \} %18, 0\l  %20 = extractvalue \{ double, double \} %18, 1\l  br label %21\l}"];
+	Node0x1fa7580 -> Node0x1fa75d0;
+	Node0x1fa75d0 [shape=record,label="{%21:\l21:                                               \l  %22 = phi double [ %12, %4 ], [ %12, %15 ], [ %19, %17 ]\l  %23 = phi double [ %13, %4 ], [ %13, %15 ], [ %20, %17 ]\l  %24 = tail call \{ double, double \} @cexp(double %22, double %23) #40\l  ret \{ double, double \} %24\l}"];
+}

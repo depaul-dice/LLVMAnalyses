@@ -1,0 +1,15 @@
+digraph "CFG for 'confstr' function" {
+	label="CFG for 'confstr' function";
+
+	Node0x1bf4280 [shape=record,label="{%3:\l  %4 = icmp eq i32 %0, 0\l  br i1 %4, label %13, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1bf4280:s0 -> Node0x1bf4370;
+	Node0x1bf4280:s1 -> Node0x1bf42d0;
+	Node0x1bf42d0 [shape=record,label="{%5:\l5:                                                \l  %6 = and i32 %0, -5\l  %7 = icmp ne i32 %6, 1\l  %8 = add nsw i32 %0, -1116\l  %9 = icmp ugt i32 %8, 33\l  %10 = and i1 %7, %9\l  br i1 %10, label %11, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1bf42d0:s0 -> Node0x1bf4320;
+	Node0x1bf42d0:s1 -> Node0x1bf4370;
+	Node0x1bf4320 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %12, align 4, !tbaa !1632\l  br label %18\l}"];
+	Node0x1bf4320 -> Node0x1bf43c0;
+	Node0x1bf4370 [shape=record,label="{%13:\l13:                                               \l  %14 = phi i8* [ getelementptr inbounds ([1 x i8], [1 x i8]* @.str.221, i64\l... 0, i64 0), %5 ], [ getelementptr inbounds ([14 x i8], [14 x i8]* @.str.1.222,\l... i64 0, i64 0), %3 ]\l  %15 = tail call i32 (i8*, i64, i8*, ...) @snprintf(i8* %1, i64 %2, i8*\l... getelementptr inbounds ([3 x i8], [3 x i8]* @.str.2.223, i64 0, i64 0), i8*\l... nonnull %14) #40\l  %16 = add nsw i32 %15, 1\l  %17 = sext i32 %16 to i64\l  br label %18\l}"];
+	Node0x1bf4370 -> Node0x1bf43c0;
+	Node0x1bf43c0 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i64 [ 0, %11 ], [ %17, %13 ]\l  ret i64 %19\l}"];
+}

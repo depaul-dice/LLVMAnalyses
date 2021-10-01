@@ -1,0 +1,5 @@
+digraph "CFG for 'if_freenameindex' function" {
+	label="CFG for 'if_freenameindex' function";
+
+	Node0x1c35f00 [shape=record,label="{%1:\l  %2 = bitcast %struct.if_nameindex* %0 to i8*\l  tail call void @free(i8* %2) #40\l  ret void\l}"];
+}

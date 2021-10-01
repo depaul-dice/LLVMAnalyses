@@ -1,0 +1,5 @@
+digraph "CFG for '__gettextdomain' function" {
+	label="CFG for '__gettextdomain' function";
+
+	Node0x16fe240 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  %1 = load i8*, i8** @current_domain, align 8, !tbaa !1086\l  %2 = icmp eq i8* %1, null\l  %3 = getelementptr inbounds [9 x i8], [9 x i8]* @.str.121, i64 0, i64 0\l  %4 = select i1 %2, i8* %3, i8* %1\l  ret i8* %4\l}"];
+}

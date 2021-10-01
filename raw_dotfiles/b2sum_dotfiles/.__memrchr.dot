@@ -1,0 +1,13 @@
+digraph "CFG for '__memrchr' function" {
+	label="CFG for '__memrchr' function";
+
+	Node0x18efad0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%3:\l  %4 = trunc i32 %1 to i8\l  br label %5\l}"];
+	Node0x18efad0 -> Node0x18efb20;
+	Node0x18efb20 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l5:                                                \l  %6 = phi i64 [ %2, %3 ], [ %7, %9 ]\l  %7 = add i64 %6, -1\l  %8 = icmp eq i64 %6, 0\l  br i1 %8, label %13, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x18efb20:s0 -> Node0x18efbc0;
+	Node0x18efb20:s1 -> Node0x18efb70;
+	Node0x18efb70 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%9:\l9:                                                \l  %10 = getelementptr inbounds i8, i8* %0, i64 %7\l  %11 = load i8, i8* %10, align 1, !tbaa !1632\l  %12 = icmp eq i8 %11, %4\l  br i1 %12, label %13, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x18efb70:s0 -> Node0x18efbc0;
+	Node0x18efb70:s1 -> Node0x18efb20;
+	Node0x18efbc0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%13:\l13:                                               \l  %14 = phi i8* [ null, %5 ], [ %10, %9 ]\l  ret i8* %14\l}"];
+}

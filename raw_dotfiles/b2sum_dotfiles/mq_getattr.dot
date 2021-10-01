@@ -1,0 +1,5 @@
+digraph "CFG for 'mq_getattr' function" {
+	label="CFG for 'mq_getattr' function";
+
+	Node0x1e8eac0 [shape=record,label="{%2:\l  %3 = tail call i32 @mq_setattr(i32 %0, %struct.mq_attr* null,\l... %struct.mq_attr* %1) #40\l  ret i32 %3\l}"];
+}
