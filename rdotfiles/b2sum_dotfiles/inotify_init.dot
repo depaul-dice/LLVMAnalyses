@@ -1,0 +1,10 @@
+digraph "CFG for 'inotify_init' function" {
+	label="CFG for 'inotify_init' function";
+
+	Node0x1fef780 [shape=record,label="{%0:\l  %1 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 294, i64 0) #40, !srcloc !1632\l  %2 = trunc i64 %1 to i32\l  %3 = icmp eq i32 %2, -38\l  br i1 %3, label %4, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1fef780:s0 -> Node0x1fef7d0;
+	Node0x1fef780:s1 -> Node0x1fef820;
+	Node0x1fef7d0 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64 253)\l... #40, !srcloc !1633\l  br label %6\l}"];
+	Node0x1fef7d0 -> Node0x1fef820;
+	Node0x1fef820 [shape=record,label="{%6:\l6:                                                \l  %7 = phi i64 [ %1, %0 ], [ %5, %4 ]\l  %8 = shl i64 %7, 32\l  %9 = ashr exact i64 %8, 32\l  %10 = tail call i64 @__syscall_ret(i64 %9) #41\l  %11 = trunc i64 %10 to i32\l  ret i32 %11\l}"];
+}

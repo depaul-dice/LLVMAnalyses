@@ -1,0 +1,5 @@
+digraph "CFG for 'bcmp' function" {
+	label="CFG for 'bcmp' function";
+
+	Node0x16c0d00 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = tail call fastcc i32 @memcmp(i8* %0, i8* %1, i64 %2) #29\l  ret i32 %4\l}"];
+}

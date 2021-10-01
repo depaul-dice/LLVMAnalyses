@@ -1,0 +1,5 @@
+digraph "CFG for 'ntohs' function" {
+	label="CFG for 'ntohs' function";
+
+	Node0x17573d0 [shape=record,label="{%1:\l  %2 = tail call i16 @llvm.bswap.i16(i16 %0) #7\l  ret i16 %2\l}"];
+}

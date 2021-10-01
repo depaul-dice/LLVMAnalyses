@@ -1,0 +1,10 @@
+digraph "CFG for 'gettimeofday' function" {
+	label="CFG for 'gettimeofday' function";
+
+	Node0x1c795b0 [shape=record,label="{%2:\l  %3 = alloca %struct.timeval, align 8\l  %4 = bitcast %struct.timeval* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %4) #40\l  %5 = icmp eq %struct.timeval* %0, null\l  br i1 %5, label %17, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1c795b0:s0 -> Node0x1c797c0;
+	Node0x1c795b0:s1 -> Node0x1c79770;
+	Node0x1c79770 [shape=record,label="{%6:\l6:                                                \l  %7 = call i32 @clock_gettime(i32 0, %struct.timeval* nonnull %3) #41\l  %8 = getelementptr inbounds %struct.timeval, %struct.timeval* %3, i64 0, i32\l... 0\l  %9 = load i64, i64* %8, align 8, !tbaa !1632\l  %10 = getelementptr inbounds %struct.timeval, %struct.timeval* %0, i64 0,\l... i32 0\l  store i64 %9, i64* %10, align 8, !tbaa !1637\l  %11 = getelementptr inbounds %struct.timeval, %struct.timeval* %3, i64 0,\l... i32 1\l  %12 = load i64, i64* %11, align 8, !tbaa !1639\l  %13 = trunc i64 %12 to i32\l  %14 = sdiv i32 %13, 1000\l  %15 = sext i32 %14 to i64\l  %16 = getelementptr inbounds %struct.timeval, %struct.timeval* %0, i64 0,\l... i32 1\l  store i64 %15, i64* %16, align 8, !tbaa !1640\l  br label %17\l}"];
+	Node0x1c79770 -> Node0x1c797c0;
+	Node0x1c797c0 [shape=record,label="{%17:\l17:                                               \l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %4) #40\l  ret i32 0\l}"];
+}

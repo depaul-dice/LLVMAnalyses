@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_attr_setinheritsched' function" {
+	label="CFG for 'pthread_attr_setinheritsched' function";
+
+	Node0x1da8100 [shape=record,label="{%2:\l  %3 = icmp ugt i32 %1, 1\l  br i1 %3, label %7, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1da8100:s0 -> Node0x1da81a0;
+	Node0x1da8100:s1 -> Node0x1da8150;
+	Node0x1da8150 [shape=record,label="{%4:\l4:                                                \l  %5 = bitcast %struct.pthread_attr_t* %0 to [14 x i32]*\l  %6 = getelementptr inbounds [14 x i32], [14 x i32]* %5, i64 0, i64 7\l  store i32 %1, i32* %6, align 4, !tbaa !1632\l  br label %7\l}"];
+	Node0x1da8150 -> Node0x1da81a0;
+	Node0x1da81a0 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32 [ 0, %4 ], [ 22, %2 ]\l  ret i32 %8\l}"];
+}

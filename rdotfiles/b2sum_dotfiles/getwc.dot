@@ -1,0 +1,5 @@
+digraph "CFG for 'getwc' function" {
+	label="CFG for 'getwc' function";
+
+	Node0x1a5b250 [shape=record,label="{%1:\l  %2 = tail call i32 @fgetwc(%struct._IO_FILE.0* %0) #40\l  ret i32 %2\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'isastream' function" {
+	label="CFG for 'isastream' function";
+
+	Node0x1870130 [shape=record,label="{%1:\l  %2 = tail call i32 (i32, i32, ...) @fcntl(i32 %0, i32 1) #40\l  %3 = ashr i32 %2, 31\l  ret i32 %3\l}"];
+}

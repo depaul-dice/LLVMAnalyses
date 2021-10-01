@@ -1,0 +1,15 @@
+digraph "CFG for 'do_getaffinity' function" {
+	label="CFG for 'do_getaffinity' function";
+
+	Node0x1fd9bf0 [shape=record,label="{%3:\l  %4 = sext i32 %0 to i64\l  %5 = ptrtoint %struct.__sigset_t* %2 to i64\l  %6 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 204, i64 %4, i64 %1, i64 %5) #40, !srcloc !1632\l  %7 = icmp slt i64 %6, 0\l  br i1 %7, label %8, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1fd9bf0:s0 -> Node0x1fda350;
+	Node0x1fd9bf0:s1 -> Node0x1fda3a0;
+	Node0x1fda350 [shape=record,label="{%8:\l8:                                                \l  %9 = trunc i64 %6 to i32\l  br label %17\l}"];
+	Node0x1fda350 -> Node0x1fda440;
+	Node0x1fda3a0 [shape=record,label="{%10:\l10:                                               \l  %11 = icmp ult i64 %6, %1\l  br i1 %11, label %12, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1fda3a0:s0 -> Node0x1fda3f0;
+	Node0x1fda3a0:s1 -> Node0x1fda440;
+	Node0x1fda3f0 [shape=record,label="{%12:\l12:                                               \l  %13 = bitcast %struct.__sigset_t* %2 to i8*\l  %14 = getelementptr inbounds i8, i8* %13, i64 %6\l  %15 = sub i64 %1, %6\l  %16 = tail call i8* @memset(i8* %14, i32 0, i64 %15) #41\l  br label %17\l}"];
+	Node0x1fda3f0 -> Node0x1fda440;
+	Node0x1fda440 [shape=record,label="{%17:\l17:                                               \l  %18 = phi i32 [ %9, %8 ], [ 0, %12 ], [ 0, %10 ]\l  ret i32 %18\l}"];
+}

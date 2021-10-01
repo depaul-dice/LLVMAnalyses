@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_mutexattr_settype' function" {
+	label="CFG for 'pthread_mutexattr_settype' function";
+
+	Node0x1f51d30 [shape=record,label="{%2:\l  %3 = icmp ugt i32 %1, 2\l  br i1 %3, label %9, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1f51d30:s0 -> Node0x1f52540;
+	Node0x1f51d30:s1 -> Node0x1f524f0;
+	Node0x1f524f0 [shape=record,label="{%4:\l4:                                                \l  %5 = getelementptr inbounds %union.anon, %union.anon* %0, i64 0, i32 0\l  %6 = load i32, i32* %5, align 4, !tbaa !1632\l  %7 = and i32 %6, -4\l  %8 = or i32 %7, %1\l  store i32 %8, i32* %5, align 4, !tbaa !1632\l  br label %9\l}"];
+	Node0x1f524f0 -> Node0x1f52540;
+	Node0x1f52540 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i32 [ 0, %4 ], [ 22, %2 ]\l  ret i32 %10\l}"];
+}

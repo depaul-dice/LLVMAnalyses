@@ -1,0 +1,5 @@
+digraph "CFG for 'gmtime' function" {
+	label="CFG for 'gmtime' function";
+
+	Node0x1d0cb60 [shape=record,label="{%1:\l  %2 = tail call %struct.tm* @__gmtime_r(i64* %0, %struct.tm* nonnull\l... @gmtime.tm) #40\l  ret %struct.tm* %2\l}"];
+}

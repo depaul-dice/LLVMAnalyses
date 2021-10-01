@@ -1,0 +1,11 @@
+digraph "CFG for 'l64a' function" {
+	label="CFG for 'l64a' function";
+
+	Node0x17fe5f0 [shape=record,label="{%1:\l  %2 = trunc i64 %0 to i32\l  %3 = icmp eq i32 %2, 0\l  br i1 %3, label %14, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x17fe5f0:s0 -> Node0x17fe690;
+	Node0x17fe5f0:s1 -> Node0x17fe640;
+	Node0x17fe640 [shape=record,label="{%4:\l4:                                                \l  %5 = phi i32 [ %12, %4 ], [ %2, %1 ]\l  %6 = phi i8* [ %11, %4 ], [ getelementptr inbounds ([7 x i8], [7 x i8]*\l... @l64a.s, i64 0, i64 0), %1 ]\l  %7 = and i32 %5, 63\l  %8 = zext i32 %7 to i64\l  %9 = getelementptr inbounds [65 x i8], [65 x i8]* @digits, i64 0, i64 %8\l  %10 = load i8, i8* %9, align 1, !tbaa !1632\l  store i8 %10, i8* %6, align 1, !tbaa !1632\l  %11 = getelementptr inbounds i8, i8* %6, i64 1\l  %12 = lshr i32 %5, 6\l  %13 = icmp eq i32 %12, 0\l  br i1 %13, label %14, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x17fe640:s0 -> Node0x17fe690;
+	Node0x17fe640:s1 -> Node0x17fe640;
+	Node0x17fe690 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i8* [ getelementptr inbounds ([7 x i8], [7 x i8]* @l64a.s, i64 0,\l... i64 0), %1 ], [ %11, %4 ]\l  store i8 0, i8* %15, align 1, !tbaa !1632\l  ret i8* getelementptr inbounds ([7 x i8], [7 x i8]* @l64a.s, i64 0, i64 0)\l}"];
+}

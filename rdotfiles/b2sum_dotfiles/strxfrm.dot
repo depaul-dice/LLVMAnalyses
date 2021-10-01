@@ -1,0 +1,10 @@
+digraph "CFG for 'strxfrm' function" {
+	label="CFG for 'strxfrm' function";
+
+	Node0x1ec4400 [shape=record,label="{%3:\l  %4 = tail call i64 @strlen(i8* %1) #40, !noalias !1632\l  %5 = icmp ult i64 %4, %2\l  br i1 %5, label %6, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1ec4400:s0 -> Node0x1ec4450;
+	Node0x1ec4400:s1 -> Node0x1ec44a0;
+	Node0x1ec4450 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i8* @strcpy(i8* %0, i8* %1) #40\l  br label %8\l}"];
+	Node0x1ec4450 -> Node0x1ec44a0;
+	Node0x1ec44a0 [shape=record,label="{%8:\l8:                                                \l  ret i64 %4\l}"];
+}

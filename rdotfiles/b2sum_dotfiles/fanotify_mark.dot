@@ -1,0 +1,5 @@
+digraph "CFG for 'fanotify_mark' function" {
+	label="CFG for 'fanotify_mark' function";
+
+	Node0x11620b0 [shape=record,label="{%5:\l  %6 = sext i32 %0 to i64\l  %7 = zext i32 %1 to i64\l  %8 = sext i32 %3 to i64\l  %9 = ptrtoint i8* %4 to i64\l  %10 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},\{r8\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fps\l...r\},~\{flags\}(i64 301, i64 %6, i64 %7, i64 %2, i64 %8, i64 %9) #40, !srcloc\l... !1632\l  %11 = tail call i64 @__syscall_ret(i64 %10) #41\l  %12 = trunc i64 %11 to i32\l  ret i32 %12\l}"];
+}

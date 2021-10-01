@@ -1,0 +1,5 @@
+digraph "CFG for '__towupper_l' function" {
+	label="CFG for '__towupper_l' function";
+
+	Node0x1f970c0 [shape=record,label="{%2:\l  %3 = tail call i32 @towupper(i32 %0) #40\l  ret i32 %3\l}"];
+}

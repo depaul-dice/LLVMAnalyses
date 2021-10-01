@@ -1,0 +1,5 @@
+digraph "CFG for 'mq_timedreceive' function" {
+	label="CFG for 'mq_timedreceive' function";
+
+	Node0x1a8fad0 [shape=record,label="{%5:\l  %6 = sext i32 %0 to i64\l  %7 = ptrtoint i8* %1 to i64\l  %8 = ptrtoint i32* %3 to i64\l  %9 = ptrtoint %struct.timeval* %4 to i64\l  %10 = tail call i64 @__syscall_cp(i64 243, i64 %6, i64 %7, i64 %2, i64 %8,\l... i64 %9, i64 0) #40\l  %11 = tail call i64 @__syscall_ret(i64 %10) #40\l  ret i64 %11\l}"];
+}

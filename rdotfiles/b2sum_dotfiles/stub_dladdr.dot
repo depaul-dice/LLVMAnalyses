@@ -1,0 +1,5 @@
+digraph "CFG for 'stub_dladdr' function" {
+	label="CFG for 'stub_dladdr' function";
+
+	Node0x201e0c0 [shape=record,label="{%2:\l  ret i32 0\l}"];
+}

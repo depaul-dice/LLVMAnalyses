@@ -1,0 +1,27 @@
+digraph "CFG for 'setenv' function" {
+	label="CFG for 'setenv' function";
+
+	Node0x1bfdf80 [shape=record,label="{%3:\l  %4 = icmp eq i8* %0, null\l  br i1 %4, label %14, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1bfdf80:s0 -> Node0x1bfe070;
+	Node0x1bfdf80:s1 -> Node0x1bfdfd0;
+	Node0x1bfdfd0 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i8* @__strchrnul(i8* nonnull %0, i32 61) #40\l  %7 = ptrtoint i8* %6 to i64\l  %8 = ptrtoint i8* %0 to i64\l  %9 = sub i64 %7, %8\l  %10 = icmp eq i64 %9, 0\l  br i1 %10, label %14, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1bfdfd0:s0 -> Node0x1bfe070;
+	Node0x1bfdfd0:s1 -> Node0x1bfe020;
+	Node0x1bfe020 [shape=record,label="{%11:\l11:                                               \l  %12 = load i8, i8* %6, align 1, !tbaa !1632\l  %13 = icmp eq i8 %12, 0\l  br i1 %13, label %16, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1bfe020:s0 -> Node0x1bfe0c0;
+	Node0x1bfe020:s1 -> Node0x1bfe070;
+	Node0x1bfe070 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %15, align 4, !tbaa !1635\l  br label %34\l}"];
+	Node0x1bfe070 -> Node0x1bfe200;
+	Node0x1bfe0c0 [shape=record,label="{%16:\l16:                                               \l  %17 = icmp eq i32 %2, 0\l  br i1 %17, label %18, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1bfe0c0:s0 -> Node0x1bfe110;
+	Node0x1bfe0c0:s1 -> Node0x1bfe160;
+	Node0x1bfe110 [shape=record,label="{%18:\l18:                                               \l  %19 = tail call i8* @getenv(i8* nonnull %0) #40\l  %20 = icmp eq i8* %19, null\l  br i1 %20, label %21, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1bfe110:s0 -> Node0x1bfe160;
+	Node0x1bfe110:s1 -> Node0x1bfe200;
+	Node0x1bfe160 [shape=record,label="{%21:\l21:                                               \l  %22 = tail call i64 @strlen(i8* %1) #40\l  %23 = add i64 %9, 2\l  %24 = add i64 %23, %22\l  %25 = tail call i8* @malloc(i64 %24) #40\l  %26 = icmp eq i8* %25, null\l  br i1 %26, label %34, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x1bfe160:s0 -> Node0x1bfe200;
+	Node0x1bfe160:s1 -> Node0x1bfe1b0;
+	Node0x1bfe1b0 [shape=record,label="{%27:\l27:                                               \l  %28 = tail call i8* @memcpy(i8* nonnull %25, i8* nonnull %0, i64 %9) #40\l  %29 = getelementptr inbounds i8, i8* %25, i64 %9\l  store i8 61, i8* %29, align 1, !tbaa !1632\l  %30 = getelementptr inbounds i8, i8* %29, i64 1\l  %31 = add i64 %22, 1\l  %32 = tail call i8* @memcpy(i8* nonnull %30, i8* %1, i64 %31) #40\l  %33 = tail call i32 @__putenv(i8* nonnull %25, i64 %9, i8* nonnull %25) #40\l  br label %34\l}"];
+	Node0x1bfe1b0 -> Node0x1bfe200;
+	Node0x1bfe200 [shape=record,label="{%34:\l34:                                               \l  %35 = phi i32 [ -1, %14 ], [ %33, %27 ], [ 0, %18 ], [ -1, %21 ]\l  ret i32 %35\l}"];
+}

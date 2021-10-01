@@ -1,0 +1,5 @@
+digraph "CFG for 'tss_delete' function" {
+	label="CFG for 'tss_delete' function";
+
+	Node0x1c305a0 [shape=record,label="{%1:\l  %2 = tail call i32 @__pthread_key_delete(i32 %0) #40\l  ret void\l}"];
+}

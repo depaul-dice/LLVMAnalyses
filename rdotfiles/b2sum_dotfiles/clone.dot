@@ -1,0 +1,22 @@
+digraph "CFG for 'clone' function" {
+	label="CFG for 'clone' function";
+
+	Node0x1d76780 [shape=record,label="{%4:\l  %5 = alloca [1 x %struct.__va_list_tag], align 16\l  %6 = bitcast [1 x %struct.__va_list_tag]* %5 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %6) #40\l  call void @llvm.va_start(i8* nonnull %6) #41\l  %7 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %5, i64 0, i64 0, i32 0\l  %8 = load i32, i32* %7, align 16\l  %9 = icmp ult i32 %8, 41\l  br i1 %9, label %16, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1d76780:s0 -> Node0x1d76820;
+	Node0x1d76780:s1 -> Node0x1d767d0;
+	Node0x1d767d0 [shape=record,label="{%10:\l10:                                               \l  %11 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %5, i64 0, i64 0, i32 2\l  %12 = load i8*, i8** %11, align 8\l  %13 = getelementptr i8, i8* %12, i64 8\l  store i8* %13, i8** %11, align 8\l  %14 = bitcast i8* %12 to i32**\l  %15 = load i32*, i32** %14, align 8\l  br label %25\l}"];
+	Node0x1d767d0 -> Node0x1d76870;
+	Node0x1d76820 [shape=record,label="{%16:\l16:                                               \l  %17 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %5, i64 0, i64 0, i32 3\l  %18 = load i8*, i8** %17, align 16\l  %19 = zext i32 %8 to i64\l  %20 = getelementptr i8, i8* %18, i64 %19\l  %21 = add nuw nsw i32 %8, 8\l  store i32 %21, i32* %7, align 16\l  %22 = bitcast i8* %20 to i32**\l  %23 = load i32*, i32** %22, align 8\l  %24 = icmp ult i32 %8, 33\l  br i1 %24, label %32, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1d76820:s0 -> Node0x1d768c0;
+	Node0x1d76820:s1 -> Node0x1d76870;
+	Node0x1d76870 [shape=record,label="{%25:\l25:                                               \l  %26 = phi i32* [ %15, %10 ], [ %23, %16 ]\l  %27 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %5, i64 0, i64 0, i32 2\l  %28 = load i8*, i8** %27, align 8\l  %29 = getelementptr i8, i8* %28, i64 8\l  store i8* %29, i8** %27, align 8\l  %30 = bitcast i8* %28 to i8**\l  %31 = load i8*, i8** %30, align 8\l  br label %47\l}"];
+	Node0x1d76870 -> Node0x1d76960;
+	Node0x1d768c0 [shape=record,label="{%32:\l32:                                               \l  %33 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %5, i64 0, i64 0, i32 3\l  %34 = load i8*, i8** %33, align 16\l  %35 = zext i32 %21 to i64\l  %36 = getelementptr i8, i8* %34, i64 %35\l  %37 = add nuw nsw i32 %8, 16\l  store i32 %37, i32* %7, align 16\l  %38 = bitcast i8* %36 to i8**\l  %39 = load i8*, i8** %38, align 8\l  %40 = icmp ult i32 %8, 25\l  br i1 %40, label %41, label %47\l|{<s0>T|<s1>F}}"];
+	Node0x1d768c0:s0 -> Node0x1d76910;
+	Node0x1d768c0:s1 -> Node0x1d76960;
+	Node0x1d76910 [shape=record,label="{%41:\l41:                                               \l  %42 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %5, i64 0, i64 0, i32 3\l  %43 = load i8*, i8** %42, align 16\l  %44 = zext i32 %37 to i64\l  %45 = getelementptr i8, i8* %43, i64 %44\l  %46 = add nuw nsw i32 %8, 24\l  store i32 %46, i32* %7, align 16\l  br label %53\l}"];
+	Node0x1d76910 -> Node0x1d769b0;
+	Node0x1d76960 [shape=record,label="{%47:\l47:                                               \l  %48 = phi i8* [ %31, %25 ], [ %39, %32 ]\l  %49 = phi i32* [ %26, %25 ], [ %23, %32 ]\l  %50 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %5, i64 0, i64 0, i32 2\l  %51 = load i8*, i8** %50, align 8\l  %52 = getelementptr i8, i8* %51, i64 8\l  store i8* %52, i8** %50, align 8\l  br label %53\l}"];
+	Node0x1d76960 -> Node0x1d769b0;
+	Node0x1d769b0 [shape=record,label="{%53:\l53:                                               \l  %54 = phi i8* [ %39, %41 ], [ %48, %47 ]\l  %55 = phi i32* [ %23, %41 ], [ %49, %47 ]\l  %56 = phi i8* [ %45, %41 ], [ %51, %47 ]\l  %57 = bitcast i8* %56 to i32**\l  %58 = load i32*, i32** %57, align 8\l  call void @llvm.va_end(i8* nonnull %6) #41\l  %59 = call i32 (i32 (i8*)*, i8*, i32, i8*, ...) @__clone(i32 (i8*)* %0, i8*\l... %1, i32 %2, i8* %3, i32* %55, i8* %54, i32* %58) #42\l  %60 = sext i32 %59 to i64\l  %61 = call i64 @__syscall_ret(i64 %60) #42\l  %62 = trunc i64 %61 to i32\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %6) #40\l  ret i32 %62\l}"];
+}

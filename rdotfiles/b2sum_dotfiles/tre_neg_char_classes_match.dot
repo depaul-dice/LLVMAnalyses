@@ -1,0 +1,25 @@
+digraph "CFG for 'tre_neg_char_classes_match' function" {
+	label="CFG for 'tre_neg_char_classes_match' function";
+
+	Node0x1e29a50 [shape=record,label="{%3:\l  %4 = load i64, i64* %0, align 8, !tbaa !1632\l  %5 = icmp eq i64 %4, 0\l  br i1 %5, label %28, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1e29a50:s0 -> Node0x1e29c80;
+	Node0x1e29a50:s1 -> Node0x1e29aa0;
+	Node0x1e29aa0 [shape=record,label="{%6:\l6:                                                \l  %7 = icmp eq i32 %2, 0\l  br label %8\l}"];
+	Node0x1e29aa0 -> Node0x1e29af0;
+	Node0x1e29af0 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i64 [ %4, %6 ], [ %26, %24 ]\l  %10 = phi i64* [ %0, %6 ], [ %25, %24 ]\l  br i1 %7, label %11, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1e29af0:s0 -> Node0x1e29b40;
+	Node0x1e29af0:s1 -> Node0x1e29b90;
+	Node0x1e29b40 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call i32 @iswctype(i32 %1, i64 %9) #40\l  %13 = icmp eq i32 %12, 0\l  br i1 %13, label %24, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1e29b40:s0 -> Node0x1e29c30;
+	Node0x1e29b40:s1 -> Node0x1e29c80;
+	Node0x1e29b90 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call i32 @towupper(i32 %1) #40\l  %16 = load i64, i64* %10, align 8, !tbaa !1632\l  %17 = tail call i32 @iswctype(i32 %15, i64 %16) #40\l  %18 = icmp eq i32 %17, 0\l  br i1 %18, label %19, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1e29b90:s0 -> Node0x1e29be0;
+	Node0x1e29b90:s1 -> Node0x1e29c80;
+	Node0x1e29be0 [shape=record,label="{%19:\l19:                                               \l  %20 = tail call i32 @towlower(i32 %1) #40\l  %21 = load i64, i64* %10, align 8, !tbaa !1632\l  %22 = tail call i32 @iswctype(i32 %20, i64 %21) #40\l  %23 = icmp eq i32 %22, 0\l  br i1 %23, label %24, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1e29be0:s0 -> Node0x1e29c30;
+	Node0x1e29be0:s1 -> Node0x1e29c80;
+	Node0x1e29c30 [shape=record,label="{%24:\l24:                                               \l  %25 = getelementptr inbounds i64, i64* %10, i64 1\l  %26 = load i64, i64* %25, align 8, !tbaa !1632\l  %27 = icmp eq i64 %26, 0\l  br i1 %27, label %28, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1e29c30:s0 -> Node0x1e29c80;
+	Node0x1e29c30:s1 -> Node0x1e29af0;
+	Node0x1e29c80 [shape=record,label="{%28:\l28:                                               \l  %29 = phi i32 [ 0, %3 ], [ 0, %24 ], [ 1, %11 ], [ 1, %14 ], [ 1, %19 ]\l  ret i32 %29\l}"];
+}

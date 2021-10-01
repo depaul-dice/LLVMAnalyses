@@ -1,0 +1,5 @@
+digraph "CFG for '__lxstat' function" {
+	label="CFG for '__lxstat' function";
+
+	Node0x1ae6270 [shape=record,label="{%3:\l  %4 = tail call i32 @lstat(i8* %1, %struct.stat* %2) #40\l  ret i32 %4\l}"];
+}

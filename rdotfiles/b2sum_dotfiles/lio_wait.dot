@@ -1,0 +1,37 @@
+digraph "CFG for 'lio_wait' function" {
+	label="CFG for 'lio_wait' function";
+
+	Node0x1a9bfa0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.lio_state, %struct.lio_state* %0, i64 0,\l... i32 1\l  %3 = load i32, i32* %2, align 8, !tbaa !1632\l  %4 = getelementptr inbounds %struct.lio_state, %struct.lio_state* %0, i64 0,\l... i32 2, i64 0\l  %5 = icmp sgt i32 %3, 0\l  %6 = zext i32 %3 to i64\l  br label %7\l}"];
+	Node0x1a9bfa0 -> Node0x1a9bff0;
+	Node0x1a9bff0 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32 [ 0, %1 ], [ %27, %35 ]\l  br i1 %5, label %9, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x1a9bff0:s0 -> Node0x1a9c040;
+	Node0x1a9bff0:s1 -> Node0x1a9c220;
+	Node0x1a9c040 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i64 [ %22, %20 ], [ 0, %7 ]\l  %11 = phi i32 [ %21, %20 ], [ %8, %7 ]\l  %12 = getelementptr inbounds %struct.lio_state, %struct.lio_state* %0, i64\l... 0, i32 2, i64 %10\l  %13 = load %struct.aiocb*, %struct.aiocb** %12, align 8, !tbaa !1636\l  %14 = icmp eq %struct.aiocb* %13, null\l  br i1 %14, label %20, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1a9c040:s0 -> Node0x1a9c180;
+	Node0x1a9c040:s1 -> Node0x1a9c090;
+	Node0x1a9c090 [shape=record,label="{%15:\l15:                                               \l  %16 = tail call i32 @aio_error(%struct.aiocb* nonnull %13) #40\l  switch i32 %16, label %17 [\l    i32 115, label %24\l    i32 0, label %18\l  ]\l|{<s0>def|<s1>115|<s2>0}}"];
+	Node0x1a9c090:s0 -> Node0x1a9c0e0;
+	Node0x1a9c090:s1 -> Node0x1a9c1d0;
+	Node0x1a9c090:s2 -> Node0x1a9c130;
+	Node0x1a9c0e0 [shape=record,label="{%17:\l17:                                               \l  br label %18\l}"];
+	Node0x1a9c0e0 -> Node0x1a9c130;
+	Node0x1a9c130 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i32 [ 1, %17 ], [ %11, %15 ]\l  store %struct.aiocb* null, %struct.aiocb** %12, align 8, !tbaa !1636\l  br label %20\l}"];
+	Node0x1a9c130 -> Node0x1a9c180;
+	Node0x1a9c180 [shape=record,label="{%20:\l20:                                               \l  %21 = phi i32 [ %19, %18 ], [ %11, %9 ]\l  %22 = add nuw nsw i64 %10, 1\l  %23 = icmp eq i64 %22, %6\l  br i1 %23, label %30, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1a9c180:s0 -> Node0x1a9c270;
+	Node0x1a9c180:s1 -> Node0x1a9c040;
+	Node0x1a9c1d0 [shape=record,label="{%24:\l24:                                               \l  %25 = trunc i64 %10 to i32\l  br label %26\l}"];
+	Node0x1a9c1d0 -> Node0x1a9c220;
+	Node0x1a9c220 [shape=record,label="{%26:\l26:                                               \l  %27 = phi i32 [ %8, %7 ], [ %11, %24 ]\l  %28 = phi i32 [ 0, %7 ], [ %25, %24 ]\l  %29 = icmp eq i32 %28, %3\l  br i1 %29, label %30, label %35\l|{<s0>T|<s1>F}}"];
+	Node0x1a9c220:s0 -> Node0x1a9c270;
+	Node0x1a9c220:s1 -> Node0x1a9c310;
+	Node0x1a9c270 [shape=record,label="{%30:\l30:                                               \l  %31 = phi i32 [ %21, %20 ], [ %27, %26 ]\l  %32 = icmp eq i32 %31, 0\l  br i1 %32, label %38, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x1a9c270:s0 -> Node0x1a9c360;
+	Node0x1a9c270:s1 -> Node0x1a9c2c0;
+	Node0x1a9c2c0 [shape=record,label="{%33:\l33:                                               \l  %34 = tail call i32* @___errno_location() #40\l  store i32 5, i32* %34, align 4, !tbaa !1632\l  br label %38\l}"];
+	Node0x1a9c2c0 -> Node0x1a9c360;
+	Node0x1a9c310 [shape=record,label="{%35:\l35:                                               \l  %36 = tail call i32 @aio_suspend(%struct.aiocb** nonnull %4, i32 %3,\l... %struct.timeval* null) #40\l  %37 = icmp eq i32 %36, 0\l  br i1 %37, label %7, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x1a9c310:s0 -> Node0x1a9bff0;
+	Node0x1a9c310:s1 -> Node0x1a9c360;
+	Node0x1a9c360 [shape=record,label="{%38:\l38:                                               \l  %39 = phi i32 [ -1, %33 ], [ 0, %30 ], [ -1, %35 ]\l  ret i32 %39\l}"];
+}

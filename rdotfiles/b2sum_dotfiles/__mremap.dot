@@ -1,0 +1,24 @@
+digraph "CFG for '__mremap' function" {
+	label="CFG for '__mremap' function";
+
+	Node0x15af400 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%4:\l  %5 = alloca [1 x %struct.__va_list_tag], align 16\l  %6 = bitcast [1 x %struct.__va_list_tag]* %5 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %6) #29\l  %7 = icmp ugt i64 %2, 9223372036854775806\l  br i1 %7, label %8, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x15af400:s0 -> Node0x15af450;
+	Node0x15af400:s1 -> Node0x15af4a0;
+	Node0x15af450 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8765c70",label="{%8:\l8:                                                \l  %9 = tail call fastcc i32* @__errno_location() #30\l  store i32 12, i32* %9, align 4, !tbaa !1632\l  %10 = inttoptr i64 -1 to i8*\l  br label %39\l}"];
+	Node0x15af450 -> Node0x15af680;
+	Node0x15af4a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8765c70",label="{%11:\l11:                                               \l  %12 = and i32 %3, 2\l  %13 = icmp eq i32 %12, 0\l  br i1 %13, label %32, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x15af4a0:s0 -> Node0x15af630;
+	Node0x15af4a0:s1 -> Node0x15af4f0;
+	Node0x15af4f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b99e70",label="{%14:\l14:                                               \l  tail call fastcc void @__vm_wait() #30\l  call void @llvm.va_start(i8* nonnull %6) #31\l  %15 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %5, i64 0, i64 0, i32 0\l  %16 = load i32, i32* %15, align 16\l  %17 = icmp ult i32 %16, 41\l  br i1 %17, label %18, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x15af4f0:s0 -> Node0x15af540;
+	Node0x15af4f0:s1 -> Node0x15af590;
+	Node0x15af540 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dedcdb70",label="{%18:\l18:                                               \l  %19 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %5, i64 0, i64 0, i32 3\l  %20 = load i8*, i8** %19, align 16\l  %21 = zext i32 %16 to i64\l  %22 = getelementptr i8, i8* %20, i64 %21\l  %23 = add nuw nsw i32 %16, 8\l  store i32 %23, i32* %15, align 16\l  br label %28\l}"];
+	Node0x15af540 -> Node0x15af5e0;
+	Node0x15af590 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dedcdb70",label="{%24:\l24:                                               \l  %25 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %5, i64 0, i64 0, i32 2\l  %26 = load i8*, i8** %25, align 8\l  %27 = getelementptr i8, i8* %26, i64 8\l  store i8* %27, i8** %25, align 8\l  br label %28\l}"];
+	Node0x15af590 -> Node0x15af5e0;
+	Node0x15af5e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b99e70",label="{%28:\l28:                                               \l  %29 = phi i8* [ %22, %18 ], [ %26, %24 ]\l  %30 = bitcast i8* %29 to i64*\l  %31 = load i64, i64* %30, align 8\l  call void @llvm.va_end(i8* nonnull %6) #31\l  br label %32\l}"];
+	Node0x15af5e0 -> Node0x15af630;
+	Node0x15af630 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8765c70",label="{%32:\l32:                                               \l  %33 = phi i64 [ %31, %28 ], [ 0, %11 ]\l  %34 = ptrtoint i8* %0 to i64\l  %35 = sext i32 %3 to i64\l  %36 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},\{r8\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fps\l...r\},~\{flags\}(i64 25, i64 %34, i64 %1, i64 %2, i64 %35, i64 %33) #29, !srcloc\l... !1636\l  %37 = call fastcc i64 @__syscall_ret(i64 %36) #30\l  %38 = inttoptr i64 %37 to i8*\l  br label %39\l}"];
+	Node0x15af630 -> Node0x15af680;
+	Node0x15af680 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%39:\l39:                                               \l  %40 = phi i8* [ %10, %8 ], [ %38, %32 ]\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %6) #29\l  ret i8* %40\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_rwlockattr_init' function" {
+	label="CFG for 'pthread_rwlockattr_init' function";
+
+	Node0x1f51c80 [shape=record,label="{%1:\l  %2 = alloca i64, align 8\l  %3 = bitcast i64* %2 to %struct.pthread_rwlockattr_t*\l  %4 = bitcast i64* %2 to i32*\l  store i32 0, i32* %4, align 8, !tbaa !1632\l  %5 = getelementptr inbounds %struct.pthread_rwlockattr_t,\l... %struct.pthread_rwlockattr_t* %3, i64 0, i32 0, i64 1\l  store i32 0, i32* %5, align 4, !tbaa !1632\l  %6 = bitcast %struct.pthread_rwlockattr_t* %0 to i64*\l  %7 = load i64, i64* %2, align 8, !tbaa !1636\l  store i64 %7, i64* %6, align 4, !tbaa !1636\l  ret i32 0\l}"];
+}

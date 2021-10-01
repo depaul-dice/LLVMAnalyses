@@ -1,0 +1,5 @@
+digraph "CFG for 'setlinebuf' function" {
+	label="CFG for 'setlinebuf' function";
+
+	Node0x1ff6230 [shape=record,label="{%1:\l  %2 = tail call i32 @setvbuf(%struct._IO_FILE.0* %0, i8* null, i32 1, i64 0)\l... #40\l  ret void\l}"];
+}

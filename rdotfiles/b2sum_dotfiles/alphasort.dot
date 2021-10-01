@@ -1,0 +1,5 @@
+digraph "CFG for 'alphasort' function" {
+	label="CFG for 'alphasort' function";
+
+	Node0x1b4ba50 [shape=record,label="{%2:\l  %3 = load %struct.dirent*, %struct.dirent** %0, align 8, !tbaa !1632\l  %4 = getelementptr inbounds %struct.dirent, %struct.dirent* %3, i64 0, i32\l... 4, i64 0\l  %5 = load %struct.dirent*, %struct.dirent** %1, align 8, !tbaa !1632\l  %6 = getelementptr inbounds %struct.dirent, %struct.dirent* %5, i64 0, i32\l... 4, i64 0\l  %7 = tail call i32 @strcoll(i8* nonnull %4, i8* nonnull %6) #40\l  ret i32 %7\l}"];
+}

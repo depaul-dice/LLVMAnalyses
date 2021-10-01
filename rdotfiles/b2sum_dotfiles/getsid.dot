@@ -1,0 +1,5 @@
+digraph "CFG for 'getsid' function" {
+	label="CFG for 'getsid' function";
+
+	Node0x1dc2ad0 [shape=record,label="{%1:\l  %2 = sext i32 %0 to i64\l  %3 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 124, i64 %2) #40, !srcloc !1632\l  %4 = tail call i64 @__syscall_ret(i64 %3) #41\l  %5 = trunc i64 %4 to i32\l  ret i32 %5\l}"];
+}

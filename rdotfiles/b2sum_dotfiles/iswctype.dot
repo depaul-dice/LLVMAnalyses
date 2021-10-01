@@ -1,0 +1,43 @@
+digraph "CFG for 'iswctype' function" {
+	label="CFG for 'iswctype' function";
+
+	Node0x1b2aa80 [shape=record,label="{%2:\l  switch i64 %1, label %29 [\l    i64 1, label %3\l    i64 2, label %5\l    i64 3, label %7\l    i64 4, label %9\l    i64 5, label %11\l    i64 6, label %15\l    i64 7, label %17\l    i64 8, label %19\l    i64 9, label %21\l    i64 10, label %23\l    i64 11, label %25\l    i64 12, label %27\l  ]\l|{<s0>def|<s1>1|<s2>2|<s3>3|<s4>4|<s5>5|<s6>6|<s7>7|<s8>8|<s9>9|<s10>10|<s11>11|<s12>12}}"];
+	Node0x1b2aa80:s0 -> Node0x1b2af70;
+	Node0x1b2aa80:s1 -> Node0x1b2abb0;
+	Node0x1b2aa80:s2 -> Node0x1b2ac00;
+	Node0x1b2aa80:s3 -> Node0x1b2ac50;
+	Node0x1b2aa80:s4 -> Node0x1b2aca0;
+	Node0x1b2aa80:s5 -> Node0x1b2acf0;
+	Node0x1b2aa80:s6 -> Node0x1b2ad40;
+	Node0x1b2aa80:s7 -> Node0x1b2ad90;
+	Node0x1b2aa80:s8 -> Node0x1b2ade0;
+	Node0x1b2aa80:s9 -> Node0x1b2ae30;
+	Node0x1b2aa80:s10 -> Node0x1b2ae80;
+	Node0x1b2aa80:s11 -> Node0x1b2aed0;
+	Node0x1b2aa80:s12 -> Node0x1b2af20;
+	Node0x1b2abb0 [shape=record,label="{%3:\l3:                                                \l  %4 = tail call i32 @iswalnum(i32 %0) #40\l  br label %29\l}"];
+	Node0x1b2abb0 -> Node0x1b2af70;
+	Node0x1b2ac00 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i32 @iswalpha(i32 %0) #40\l  br label %29\l}"];
+	Node0x1b2ac00 -> Node0x1b2af70;
+	Node0x1b2ac50 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call i32 @iswblank(i32 %0) #40\l  br label %29\l}"];
+	Node0x1b2ac50 -> Node0x1b2af70;
+	Node0x1b2aca0 [shape=record,label="{%9:\l9:                                                \l  %10 = tail call i32 @iswcntrl(i32 %0) #40\l  br label %29\l}"];
+	Node0x1b2aca0 -> Node0x1b2af70;
+	Node0x1b2acf0 [shape=record,label="{%11:\l11:                                               \l  %12 = add i32 %0, -48\l  %13 = icmp ult i32 %12, 10\l  %14 = zext i1 %13 to i32\l  br label %29\l}"];
+	Node0x1b2acf0 -> Node0x1b2af70;
+	Node0x1b2ad40 [shape=record,label="{%15:\l15:                                               \l  %16 = tail call i32 @iswgraph(i32 %0) #40\l  br label %29\l}"];
+	Node0x1b2ad40 -> Node0x1b2af70;
+	Node0x1b2ad90 [shape=record,label="{%17:\l17:                                               \l  %18 = tail call i32 @iswlower(i32 %0) #40\l  br label %29\l}"];
+	Node0x1b2ad90 -> Node0x1b2af70;
+	Node0x1b2ade0 [shape=record,label="{%19:\l19:                                               \l  %20 = tail call i32 @iswprint(i32 %0) #40\l  br label %29\l}"];
+	Node0x1b2ade0 -> Node0x1b2af70;
+	Node0x1b2ae30 [shape=record,label="{%21:\l21:                                               \l  %22 = tail call i32 @iswpunct(i32 %0) #40\l  br label %29\l}"];
+	Node0x1b2ae30 -> Node0x1b2af70;
+	Node0x1b2ae80 [shape=record,label="{%23:\l23:                                               \l  %24 = tail call i32 @iswspace(i32 %0) #40\l  br label %29\l}"];
+	Node0x1b2ae80 -> Node0x1b2af70;
+	Node0x1b2aed0 [shape=record,label="{%25:\l25:                                               \l  %26 = tail call i32 @iswupper(i32 %0) #40\l  br label %29\l}"];
+	Node0x1b2aed0 -> Node0x1b2af70;
+	Node0x1b2af20 [shape=record,label="{%27:\l27:                                               \l  %28 = tail call i32 @iswxdigit(i32 %0) #40\l  br label %29\l}"];
+	Node0x1b2af20 -> Node0x1b2af70;
+	Node0x1b2af70 [shape=record,label="{%29:\l29:                                               \l  %30 = phi i32 [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20,\l... %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %11 ], [ %10, %9 ], [ %8, %7 ], [\l... %6, %5 ], [ %4, %3 ], [ 0, %2 ]\l  ret i32 %30\l}"];
+}

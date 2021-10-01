@@ -1,0 +1,28 @@
+digraph "CFG for 'cookieread' function" {
+	label="CFG for 'cookieread' function";
+
+	Node0x1240d30 [shape=record,label="{%3:\l  %4 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 21\l  %5 = bitcast i8** %4 to %struct.fcookie**\l  %6 = load %struct.fcookie*, %struct.fcookie** %5, align 8, !tbaa !1632\l  %7 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 12\l  %8 = load i64, i64* %7, align 8, !tbaa !1639\l  %9 = icmp ne i64 %8, 0\l  %10 = sext i1 %9 to i64\l  %11 = add i64 %10, %2\l  %12 = getelementptr inbounds %struct.fcookie, %struct.fcookie* %6, i64 0,\l... i32 1, i32 0\l  %13 = load i64 (i8*, i8*, i64)*, i64 (i8*, i8*, i64)** %12, align 8, !tbaa\l... !1640\l  %14 = icmp eq i64 (i8*, i8*, i64)* %13, null\l  br i1 %14, label %54, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1240d30:s0 -> Node0x1241090;
+	Node0x1240d30:s1 -> Node0x1240e60;
+	Node0x1240e60 [shape=record,label="{%15:\l15:                                               \l  %16 = icmp eq i64 %11, 0\l  br i1 %16, label %25, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1240e60:s0 -> Node0x1240f50;
+	Node0x1240e60:s1 -> Node0x1240eb0;
+	Node0x1240eb0 [shape=record,label="{%17:\l17:                                               \l  %18 = getelementptr inbounds %struct.fcookie, %struct.fcookie* %6, i64 0,\l... i32 0\l  %19 = load i8*, i8** %18, align 8, !tbaa !1643\l  %20 = tail call i64 %13(i8* %19, i8* %1, i64 %11) #40\l  %21 = icmp slt i64 %20, 1\l  br i1 %21, label %49, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1240eb0:s0 -> Node0x1241040;
+	Node0x1240eb0:s1 -> Node0x1240f00;
+	Node0x1240f00 [shape=record,label="{%22:\l22:                                               \l  %23 = sub i64 %2, %20\l  %24 = load i64, i64* %7, align 8, !tbaa !1639\l  br label %25\l}"];
+	Node0x1240f00 -> Node0x1240f50;
+	Node0x1240f50 [shape=record,label="{%25:\l25:                                               \l  %26 = phi i64 [ %24, %22 ], [ %8, %15 ]\l  %27 = phi i64 [ %23, %22 ], [ %2, %15 ]\l  %28 = phi i64 [ %20, %22 ], [ 0, %15 ]\l  %29 = icmp eq i64 %26, 0\l  %30 = icmp ugt i64 %27, 1\l  %31 = or i1 %30, %29\l  br i1 %31, label %67, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x1240f50:s0 -> Node0x12410e0;
+	Node0x1240f50:s1 -> Node0x1240fa0;
+	Node0x1240fa0 [shape=record,label="{%32:\l32:                                               \l  %33 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 11\l  %34 = load i8*, i8** %33, align 8, !tbaa !1644\l  %35 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 1\l  store i8* %34, i8** %35, align 8, !tbaa !1645\l  %36 = load i64 (i8*, i8*, i64)*, i64 (i8*, i8*, i64)** %12, align 8, !tbaa\l... !1640\l  %37 = getelementptr inbounds %struct.fcookie, %struct.fcookie* %6, i64 0,\l... i32 0\l  %38 = load i8*, i8** %37, align 8, !tbaa !1643\l  %39 = tail call i64 %36(i8* %38, i8* %34, i64 %26) #40\l  %40 = icmp slt i64 %39, 1\l  br i1 %40, label %49, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x1240fa0:s0 -> Node0x1241040;
+	Node0x1240fa0:s1 -> Node0x1240ff0;
+	Node0x1240ff0 [shape=record,label="{%41:\l41:                                               \l  %42 = load i8*, i8** %35, align 8, !tbaa !1645\l  %43 = getelementptr inbounds i8, i8* %42, i64 %39\l  %44 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 2\l  store i8* %43, i8** %44, align 8, !tbaa !1646\l  %45 = getelementptr inbounds i8, i8* %42, i64 1\l  store i8* %45, i8** %35, align 8, !tbaa !1645\l  %46 = load i8, i8* %42, align 1, !tbaa !1647\l  %47 = add nuw i64 %28, 1\l  %48 = getelementptr inbounds i8, i8* %1, i64 %28\l  store i8 %46, i8* %48, align 1, !tbaa !1647\l  br label %67\l}"];
+	Node0x1240ff0 -> Node0x12410e0;
+	Node0x1241040 [shape=record,label="{%49:\l49:                                               \l  %50 = phi i64 [ %20, %17 ], [ %39, %32 ]\l  %51 = phi i64 [ 0, %17 ], [ %28, %32 ]\l  %52 = icmp eq i64 %50, 0\l  %53 = select i1 %52, i32 16, i32 32\l  br label %54\l}"];
+	Node0x1241040 -> Node0x1241090;
+	Node0x1241090 [shape=record,label="{%54:\l54:                                               \l  %55 = phi i64 [ 0, %3 ], [ %51, %49 ]\l  %56 = phi i32 [ 32, %3 ], [ %53, %49 ]\l  %57 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 0\l  %58 = load i32, i32* %57, align 8, !tbaa !1648\l  %59 = or i32 %58, %56\l  store i32 %59, i32* %57, align 8, !tbaa !1648\l  %60 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 11\l  %61 = bitcast i8** %60 to i64*\l  %62 = load i64, i64* %61, align 8, !tbaa !1644\l  %63 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 2\l  %64 = bitcast i8** %63 to i64*\l  store i64 %62, i64* %64, align 8, !tbaa !1646\l  %65 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 1\l  %66 = bitcast i8** %65 to i64*\l  store i64 %62, i64* %66, align 8, !tbaa !1645\l  br label %67\l}"];
+	Node0x1241090 -> Node0x12410e0;
+	Node0x12410e0 [shape=record,label="{%67:\l67:                                               \l  %68 = phi i64 [ %55, %54 ], [ %47, %41 ], [ %28, %25 ]\l  ret i64 %68\l}"];
+}

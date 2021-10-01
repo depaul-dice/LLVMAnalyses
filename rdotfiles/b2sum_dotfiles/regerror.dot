@@ -1,0 +1,14 @@
+digraph "CFG for 'regerror' function" {
+	label="CFG for 'regerror' function";
+
+	Node0x1c5de90 [shape=record,label="{%4:\l  %5 = icmp eq i32 %0, 0\l  br i1 %5, label %17, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1c5de90:s0 -> Node0x1c5df80;
+	Node0x1c5de90:s1 -> Node0x1c5dee0;
+	Node0x1c5dee0 [shape=record,label="{%6:\l6:                                                \l  %7 = phi i8* [ %15, %11 ], [ getelementptr inbounds ([286 x i8], [286 x i8]*\l... @messages, i64 0, i64 0), %4 ]\l  %8 = phi i32 [ %12, %11 ], [ %0, %4 ]\l  %9 = load i8, i8* %7, align 1, !tbaa !1632\l  %10 = icmp eq i8 %9, 0\l  br i1 %10, label %17, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1c5dee0:s0 -> Node0x1c5df80;
+	Node0x1c5dee0:s1 -> Node0x1c5df30;
+	Node0x1c5df30 [shape=record,label="{%11:\l11:                                               \l  %12 = add nsw i32 %8, -1\l  %13 = tail call i64 @strlen(i8* nonnull %7) #40\l  %14 = add i64 %13, 1\l  %15 = getelementptr inbounds i8, i8* %7, i64 %14\l  %16 = icmp eq i32 %12, 0\l  br i1 %16, label %17, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1c5df30:s0 -> Node0x1c5df80;
+	Node0x1c5df30:s1 -> Node0x1c5dee0;
+	Node0x1c5df80 [shape=record,label="{%17:\l17:                                               \l  %18 = phi i8* [ getelementptr inbounds ([286 x i8], [286 x i8]* @messages,\l... i64 0, i64 0), %4 ], [ %7, %6 ], [ %15, %11 ]\l  %19 = load i8, i8* %18, align 1, !tbaa !1632\l  %20 = icmp eq i8 %19, 0\l  %21 = getelementptr inbounds i8, i8* %18, i64 1\l  %22 = select i1 %20, i8* %21, i8* %18\l  %23 = tail call i8* @__lctrans_cur(i8* nonnull %22) #40\l  %24 = tail call i32 (i8*, i64, i8*, ...) @snprintf(i8* %2, i64 %3, i8*\l... getelementptr inbounds ([3 x i8], [3 x i8]* @.str.865, i64 0, i64 0), i8*\l... %23) #40\l  %25 = add nsw i32 %24, 1\l  %26 = sext i32 %25 to i64\l  ret i64 %26\l}"];
+}

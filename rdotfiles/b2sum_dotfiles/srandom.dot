@@ -1,0 +1,5 @@
+digraph "CFG for 'srandom' function" {
+	label="CFG for 'srandom' function";
+
+	Node0x1849050 [shape=record,label="{%1:\l  tail call void @__lock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.38, i64 0, i64 0)) #40\l  tail call fastcc void @__srandom(i32 %0) #41\l  tail call void @__unlock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.38, i64 0, i64 0)) #40\l  ret void\l}"];
+}

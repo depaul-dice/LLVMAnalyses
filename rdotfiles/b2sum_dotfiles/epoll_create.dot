@@ -1,0 +1,5 @@
+digraph "CFG for 'epoll_create' function" {
+	label="CFG for 'epoll_create' function";
+
+	Node0x1d1aff0 [shape=record,label="{%1:\l  %2 = tail call i32 @epoll_create1(i32 0) #40\l  ret i32 %2\l}"];
+}

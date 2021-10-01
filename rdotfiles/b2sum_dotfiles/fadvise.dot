@@ -1,0 +1,10 @@
+digraph "CFG for 'fadvise' function" {
+	label="CFG for 'fadvise' function";
+
+	Node0x13335b0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  call void @llvm.dbg.value(metadata %struct._IO_FILE* %0, metadata !1639,\l... metadata !DIExpression()), !dbg !1641\l  call void @llvm.dbg.value(metadata i32 %1, metadata !1640, metadata\l... !DIExpression()), !dbg !1641\l  %3 = icmp eq %struct._IO_FILE* %0, null, !dbg !1642\l  br i1 %3, label %8, label %4, !dbg !1644\l|{<s0>T|<s1>F}}"];
+	Node0x13335b0:s0 -> Node0x13336b0;
+	Node0x13335b0:s1 -> Node0x1333660;
+	Node0x1333660 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%4:\l4:                                                \l  %5 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.233*, !dbg !1645\l  %6 = tail call i32 @fileno(%struct._IO_FILE.233* nonnull %5) #8, !dbg !1645\l  call void @llvm.dbg.value(metadata i32 %6, metadata !1646, metadata\l... !DIExpression()) #8, !dbg !1655\l  call void @llvm.dbg.value(metadata i64 0, metadata !1652, metadata\l... !DIExpression()) #8, !dbg !1655\l  call void @llvm.dbg.value(metadata i64 0, metadata !1653, metadata\l... !DIExpression()) #8, !dbg !1655\l  call void @llvm.dbg.value(metadata i32 %1, metadata !1654, metadata\l... !DIExpression()) #8, !dbg !1655\l  %7 = tail call fastcc i32 @posix_fadvise(i32 %6, i64 0, i64 0, i32 %1) #8,\l... !dbg !1657\l  br label %8, !dbg !1658\l}"];
+	Node0x1333660 -> Node0x13336b0;
+	Node0x13336b0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%8:\l8:                                                \l  ret void, !dbg !1659\l}"];
+}

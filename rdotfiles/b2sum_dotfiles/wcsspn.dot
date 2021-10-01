@@ -1,0 +1,14 @@
+digraph "CFG for 'wcsspn' function" {
+	label="CFG for 'wcsspn' function";
+
+	Node0x1ab56c0 [shape=record,label="{%2:\l  %3 = load i32, i32* %0, align 4, !tbaa !1632\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %14, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1ab56c0:s0 -> Node0x1ab6970;
+	Node0x1ab56c0:s1 -> Node0x1ab6870;
+	Node0x1ab6870 [shape=record,label="{%5:\l5:                                                \l  %6 = phi i32 [ %12, %10 ], [ %3, %2 ]\l  %7 = phi i32* [ %11, %10 ], [ %0, %2 ]\l  %8 = tail call i32* @wcschr(i32* %1, i32 %6) #40\l  %9 = icmp eq i32* %8, null\l  br i1 %9, label %14, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1ab6870:s0 -> Node0x1ab6970;
+	Node0x1ab6870:s1 -> Node0x1ab6920;
+	Node0x1ab6920 [shape=record,label="{%10:\l10:                                               \l  %11 = getelementptr inbounds i32, i32* %7, i64 1\l  %12 = load i32, i32* %11, align 4, !tbaa !1632\l  %13 = icmp eq i32 %12, 0\l  br i1 %13, label %14, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1ab6920:s0 -> Node0x1ab6970;
+	Node0x1ab6920:s1 -> Node0x1ab6870;
+	Node0x1ab6970 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32* [ %0, %2 ], [ %7, %5 ], [ %11, %10 ]\l  %16 = ptrtoint i32* %15 to i64\l  %17 = ptrtoint i32* %0 to i64\l  %18 = sub i64 %16, %17\l  %19 = ashr exact i64 %18, 2\l  ret i64 %19\l}"];
+}

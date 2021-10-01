@@ -1,0 +1,17 @@
+digraph "CFG for 'exp10f' function" {
+	label="CFG for 'exp10f' function";
+
+	Node0x154b860 [shape=record,label="{%1:\l  %2 = alloca float, align 4\l  %3 = bitcast float* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %3) #40\l  %4 = call float @modff(float %0, float* nonnull %2) #41\l  %5 = bitcast float* %2 to i32*\l  %6 = load i32, i32* %5, align 4, !tbaa !1632\l  %7 = and i32 %6, 2130706432\l  %8 = icmp ult i32 %7, 1090519040\l  %9 = bitcast i32 %6 to float\l  br i1 %8, label %10, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x154b860:s0 -> Node0x154bb70;
+	Node0x154b860:s1 -> Node0x154bfa0;
+	Node0x154bb70 [shape=record,label="{%10:\l10:                                               \l  %11 = call i1 @llvm.experimental.constrained.fcmp.f32(float %4, float\l... 0.000000e+00, metadata !une, metadata !fpexcept.ignore) #42\l  br i1 %11, label %18, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x154bb70:s0 -> Node0x154bf50;
+	Node0x154bb70:s1 -> Node0x154bf00;
+	Node0x154bf00 [shape=record,label="{%12:\l12:                                               \l  %13 = call i32 @llvm.experimental.constrained.fptosi.i32.f32(float %9,\l... metadata !fpexcept.ignore) #42\l  %14 = add nsw i32 %13, 7\l  %15 = sext i32 %14 to i64\l  %16 = getelementptr inbounds [15 x float], [15 x float]* @exp10f.p10, i64 0,\l... i64 %15\l  %17 = load float, float* %16, align 4, !tbaa !1632\l  br label %33\l}"];
+	Node0x154bf00 -> Node0x154bff0;
+	Node0x154bf50 [shape=record,label="{%18:\l18:                                               \l  %19 = call float @llvm.experimental.constrained.fmul.f32(float\l... 0x400A934F00000000, float %4, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #42\l  %20 = call float @exp2f(float %19) #41\l  %21 = load float, float* %2, align 4, !tbaa !1632\l  %22 = call i32 @llvm.experimental.constrained.fptosi.i32.f32(float %21,\l... metadata !fpexcept.ignore) #42\l  %23 = add nsw i32 %22, 7\l  %24 = sext i32 %23 to i64\l  %25 = getelementptr inbounds [15 x float], [15 x float]* @exp10f.p10, i64 0,\l... i64 %24\l  %26 = load float, float* %25, align 4, !tbaa !1632\l  %27 = call float @llvm.experimental.constrained.fmul.f32(float %20, float\l... %26, metadata !round.dynamic, metadata !fpexcept.ignore) #42\l  br label %33\l}"];
+	Node0x154bf50 -> Node0x154bff0;
+	Node0x154bfa0 [shape=record,label="{%28:\l28:                                               \l  %29 = call double @llvm.experimental.constrained.fpext.f64.f32(float %0,\l... metadata !fpexcept.ignore) #42\l  %30 = call double @llvm.experimental.constrained.fmul.f64(double\l... 0x400A934F0979A371, double %29, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #42\l  %31 = call double @exp2(double %30) #41\l  %32 = call float @llvm.experimental.constrained.fptrunc.f32.f64(double %31,\l... metadata !round.dynamic, metadata !fpexcept.ignore) #42\l  br label %33\l}"];
+	Node0x154bfa0 -> Node0x154bff0;
+	Node0x154bff0 [shape=record,label="{%33:\l33:                                               \l  %34 = phi float [ %27, %18 ], [ %17, %12 ], [ %32, %28 ]\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %3) #40\l  ret float %34\l}"];
+}

@@ -1,0 +1,23 @@
+digraph "CFG for 'strtok_r' function" {
+	label="CFG for 'strtok_r' function";
+
+	Node0x1b62f60 [shape=record,label="{%3:\l  %4 = icmp eq i8* %0, null\l  br i1 %4, label %5, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1b62f60:s0 -> Node0x1b62fb0;
+	Node0x1b62f60:s1 -> Node0x1b63000;
+	Node0x1b62fb0 [shape=record,label="{%5:\l5:                                                \l  %6 = load i8*, i8** %2, align 8, !tbaa !1632\l  %7 = icmp eq i8* %6, null\l  br i1 %7, label %23, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1b62fb0:s0 -> Node0x1b63190;
+	Node0x1b62fb0:s1 -> Node0x1b63000;
+	Node0x1b63000 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i8* [ %0, %3 ], [ %6, %5 ]\l  %10 = tail call i64 @strspn(i8* nonnull %9, i8* %1) #40\l  %11 = getelementptr inbounds i8, i8* %9, i64 %10\l  %12 = load i8, i8* %11, align 1, !tbaa !1636\l  %13 = icmp eq i8 %12, 0\l  br i1 %13, label %14, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1b63000:s0 -> Node0x1b63050;
+	Node0x1b63000:s1 -> Node0x1b630a0;
+	Node0x1b63050 [shape=record,label="{%14:\l14:                                               \l  store i8* null, i8** %2, align 8, !tbaa !1632\l  br label %23\l}"];
+	Node0x1b63050 -> Node0x1b63190;
+	Node0x1b630a0 [shape=record,label="{%15:\l15:                                               \l  %16 = tail call i64 @strcspn(i8* nonnull %11, i8* %1) #40\l  %17 = getelementptr inbounds i8, i8* %11, i64 %16\l  store i8* %17, i8** %2, align 8, !tbaa !1632\l  %18 = load i8, i8* %17, align 1, !tbaa !1636\l  %19 = icmp eq i8 %18, 0\l  br i1 %19, label %22, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1b630a0:s0 -> Node0x1b63140;
+	Node0x1b630a0:s1 -> Node0x1b630f0;
+	Node0x1b630f0 [shape=record,label="{%20:\l20:                                               \l  %21 = getelementptr inbounds i8, i8* %17, i64 1\l  store i8* %21, i8** %2, align 8, !tbaa !1632\l  store i8 0, i8* %17, align 1, !tbaa !1636\l  br label %23\l}"];
+	Node0x1b630f0 -> Node0x1b63190;
+	Node0x1b63140 [shape=record,label="{%22:\l22:                                               \l  store i8* null, i8** %2, align 8, !tbaa !1632\l  br label %23\l}"];
+	Node0x1b63140 -> Node0x1b63190;
+	Node0x1b63190 [shape=record,label="{%23:\l23:                                               \l  %24 = phi i8* [ null, %14 ], [ null, %5 ], [ %11, %22 ], [ %11, %20 ]\l  ret i8* %24\l}"];
+}

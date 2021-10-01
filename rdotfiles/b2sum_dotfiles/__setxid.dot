@@ -1,0 +1,13 @@
+digraph "CFG for '__setxid' function" {
+	label="CFG for '__setxid' function";
+
+	Node0x1b35d40 [shape=record,label="{%4:\l  %5 = alloca %struct.ctx.362, align 4\l  %6 = bitcast %struct.ctx.362* %5 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 20, i8* nonnull %6) #40\l  %7 = getelementptr inbounds %struct.ctx.362, %struct.ctx.362* %5, i64 0, i32\l... 0\l  store i32 %1, i32* %7, align 4, !tbaa !1632\l  %8 = getelementptr inbounds %struct.ctx.362, %struct.ctx.362* %5, i64 0, i32\l... 1\l  store i32 %2, i32* %8, align 4, !tbaa !1637\l  %9 = getelementptr inbounds %struct.ctx.362, %struct.ctx.362* %5, i64 0, i32\l... 2\l  store i32 %3, i32* %9, align 4, !tbaa !1638\l  %10 = getelementptr inbounds %struct.ctx.362, %struct.ctx.362* %5, i64 0,\l... i32 3\l  store i32 %0, i32* %10, align 4, !tbaa !1639\l  %11 = getelementptr inbounds %struct.ctx.362, %struct.ctx.362* %5, i64 0,\l... i32 4\l  store i32 -1, i32* %11, align 4, !tbaa !1640\l  call void @__synccall(void (i8*)* nonnull @do_setxid, i8* nonnull %6) #41\l  %12 = load i32, i32* %11, align 4, !tbaa !1640\l  %13 = icmp eq i32 %12, 0\l  br i1 %13, label %18, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1b35d40:s0 -> Node0x1b35e30;
+	Node0x1b35d40:s1 -> Node0x1b35d90;
+	Node0x1b35d90 [shape=record,label="{%14:\l14:                                               \l  %15 = icmp sgt i32 %12, 0\l  br i1 %15, label %16, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1b35d90:s0 -> Node0x1b35de0;
+	Node0x1b35d90:s1 -> Node0x1b35e30;
+	Node0x1b35de0 [shape=record,label="{%16:\l16:                                               \l  %17 = call i32* @___errno_location() #41\l  store i32 %12, i32* %17, align 4, !tbaa !1641\l  br label %18\l}"];
+	Node0x1b35de0 -> Node0x1b35e30;
+	Node0x1b35e30 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i32 [ -1, %16 ], [ -1, %14 ], [ 0, %4 ]\l  call void @llvm.lifetime.end.p0i8(i64 20, i8* nonnull %6) #40\l  ret i32 %19\l}"];
+}

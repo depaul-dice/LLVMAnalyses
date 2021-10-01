@@ -1,0 +1,15 @@
+digraph "CFG for 'getdomainname' function" {
+	label="CFG for 'getdomainname' function";
+
+	Node0x1fbea80 [shape=record,label="{%2:\l  %3 = alloca %struct.utsname, align 1\l  %4 = getelementptr inbounds %struct.utsname, %struct.utsname* %3, i64 0, i32\l... 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 390, i8* nonnull %4) #40\l  %5 = call i32 @uname(%struct.utsname* nonnull %3) #41\l  %6 = icmp eq i64 %1, 0\l  br i1 %6, label %11, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1fbea80:s0 -> Node0x1fbf040;
+	Node0x1fbea80:s1 -> Node0x1fbeb00;
+	Node0x1fbeb00 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct.utsname, %struct.utsname* %3, i64 0, i32\l... 5, i64 0\l  %9 = call i64 @strlen(i8* nonnull %8) #41\l  %10 = icmp ult i64 %9, %1\l  br i1 %10, label %13, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1fbeb00:s0 -> Node0x1fbf090;
+	Node0x1fbeb00:s1 -> Node0x1fbf040;
+	Node0x1fbf040 [shape=record,label="{%11:\l11:                                               \l  %12 = call i32* @___errno_location() #41\l  store i32 22, i32* %12, align 4, !tbaa !1632\l  br label %15\l}"];
+	Node0x1fbf040 -> Node0x1fbf0e0;
+	Node0x1fbf090 [shape=record,label="{%13:\l13:                                               \l  %14 = call i8* @strcpy(i8* %0, i8* nonnull %8) #41\l  br label %15\l}"];
+	Node0x1fbf090 -> Node0x1fbf0e0;
+	Node0x1fbf0e0 [shape=record,label="{%15:\l15:                                               \l  %16 = phi i32 [ -1, %11 ], [ 0, %13 ]\l  call void @llvm.lifetime.end.p0i8(i64 390, i8* nonnull %4) #40\l  ret i32 %16\l}"];
+}

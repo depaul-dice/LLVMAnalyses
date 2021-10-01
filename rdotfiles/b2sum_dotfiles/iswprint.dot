@@ -1,0 +1,15 @@
+digraph "CFG for 'iswprint' function" {
+	label="CFG for 'iswprint' function";
+
+	Node0x16808a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = icmp ult i32 %0, 255\l  br i1 %2, label %3, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x16808a0:s0 -> Node0x16808f0;
+	Node0x16808a0:s1 -> Node0x1680d20;
+	Node0x16808f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ef886b70",label="{%3:\l3:                                                \l  %4 = add nuw nsw i32 %0, 1\l  %5 = and i32 %4, 127\l  %6 = icmp ugt i32 %5, 32\l  %7 = zext i1 %6 to i32\l  br label %UnifiedReturnBlock\l}"];
+	Node0x16808f0 -> Node0x1680dc0;
+	Node0x1680d20 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ef886b70",label="{%8:\l8:                                                \l  %9 = icmp ult i32 %0, 8232\l  %10 = add i32 %0, -8234\l  %11 = icmp ult i32 %10, 47062\l  %12 = or i1 %9, %11\l  %13 = add i32 %0, -57344\l  %14 = icmp ult i32 %13, 8185\l  %15 = or i1 %14, %12\l  br i1 %15, label %UnifiedReturnBlock, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1680d20:s0 -> Node0x1680dc0;
+	Node0x1680d20:s1 -> Node0x1680d70;
+	Node0x1680d70 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%16:\l16:                                               \l  %17 = add i32 %0, -65532\l  %18 = icmp ult i32 %17, 1048580\l  %19 = and i32 %0, 65534\l  %20 = icmp ne i32 %19, 65534\l  %21 = and i1 %20, %18\l  %22 = zext i1 %21 to i32\l  br label %UnifiedReturnBlock\l}"];
+	Node0x1680d70 -> Node0x1680dc0;
+	Node0x1680dc0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{UnifiedReturnBlock:                               \l  %UnifiedRetVal = phi i32 [ %22, %16 ], [ %7, %3 ], [ 1, %8 ]\l  ret i32 %UnifiedRetVal\l}"];
+}

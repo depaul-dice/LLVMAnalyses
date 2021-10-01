@@ -1,0 +1,10 @@
+digraph "CFG for 'tre_ast_new_node' function" {
+	label="CFG for 'tre_ast_new_node' function";
+
+	Node0x1970970 [shape=record,label="{%3:\l  %4 = tail call i8* @__tre_mem_alloc_impl(%struct.tre_mem_struct* %0, i32 0,\l... i8* null, i32 1, i64 48) #40\l  %5 = icmp ne i8* %4, null\l  %6 = icmp ne i8* %2, null\l  %7 = and i1 %6, %5\l  br i1 %7, label %8, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1970970:s0 -> Node0x1970a60;
+	Node0x1970970:s1 -> Node0x1970ab0;
+	Node0x1970a60 [shape=record,label="{%8:\l8:                                                \l  %9 = bitcast i8* %4 to %struct.tre_ast_node_t*\l  %10 = getelementptr inbounds i8, i8* %4, i64 8\l  %11 = bitcast i8* %10 to i8**\l  store i8* %2, i8** %11, align 8, !tbaa !1632\l  %12 = bitcast i8* %4 to i32*\l  store i32 %1, i32* %12, align 8, !tbaa !1638\l  %13 = getelementptr inbounds i8, i8* %4, i64 16\l  %14 = bitcast i8* %13 to i32*\l  store i32 -1, i32* %14, align 8, !tbaa !1639\l  %15 = getelementptr inbounds i8, i8* %4, i64 20\l  %16 = bitcast i8* %15 to i32*\l  store i32 -1, i32* %16, align 4, !tbaa !1640\l  br label %17\l}"];
+	Node0x1970a60 -> Node0x1970ab0;
+	Node0x1970ab0 [shape=record,label="{%17:\l17:                                               \l  %18 = phi %struct.tre_ast_node_t* [ %9, %8 ], [ null, %3 ]\l  ret %struct.tre_ast_node_t* %18\l}"];
+}

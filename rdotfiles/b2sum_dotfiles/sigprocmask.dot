@@ -1,0 +1,10 @@
+digraph "CFG for 'sigprocmask' function" {
+	label="CFG for 'sigprocmask' function";
+
+	Node0x1b6ecb0 [shape=record,label="{%3:\l  %4 = tail call i32 @pthread_sigmask(i32 %0, %struct.__sigset_t* %1,\l... %struct.__sigset_t* %2) #40\l  %5 = icmp eq i32 %4, 0\l  br i1 %5, label %8, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1b6ecb0:s0 -> Node0x1b6edd0;
+	Node0x1b6ecb0:s1 -> Node0x1b6ed80;
+	Node0x1b6ed80 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32* @___errno_location() #40\l  store i32 %4, i32* %7, align 4, !tbaa !1632\l  br label %8\l}"];
+	Node0x1b6ed80 -> Node0x1b6edd0;
+	Node0x1b6edd0 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i32 [ -1, %6 ], [ 0, %3 ]\l  ret i32 %9\l}"];
+}

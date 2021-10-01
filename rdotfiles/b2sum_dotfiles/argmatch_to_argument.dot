@@ -1,0 +1,17 @@
+digraph "CFG for 'argmatch_to_argument' function" {
+	label="CFG for 'argmatch_to_argument' function";
+
+	Node0x13b64f0 [shape=record,label="{%4:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1641\l  call void @llvm.dbg.value(metadata i8** %1, metadata !1637, metadata\l... !DIExpression()), !dbg !1641\l  call void @llvm.dbg.value(metadata i8* %2, metadata !1638, metadata\l... !DIExpression()), !dbg !1641\l  call void @llvm.dbg.value(metadata i64 %3, metadata !1639, metadata\l... !DIExpression()), !dbg !1641\l  call void @llvm.dbg.value(metadata i64 0, metadata !1640, metadata\l... !DIExpression()), !dbg !1641\l  %5 = load i8*, i8** %1, align 8, !dbg !1642, !tbaa !1645\l  %6 = icmp eq i8* %5, null, !dbg !1649\l  br i1 %6, label %21, label %7, !dbg !1649\l|{<s0>T|<s1>F}}"];
+	Node0x13b64f0:s0 -> Node0x13b6710;
+	Node0x13b64f0:s1 -> Node0x13b6620;
+	Node0x13b6620 [shape=record,label="{%7:\l7:                                                \l  call void @llvm.dbg.value(metadata i64 0, metadata !1640, metadata\l... !DIExpression()), !dbg !1641\l  %8 = tail call i32 @bcmp(i8* %0, i8* %2, i64 %3), !dbg !1650\l  %9 = icmp eq i32 %8, 0, !dbg !1650\l  call void @llvm.dbg.value(metadata i64 1, metadata !1640, metadata\l... !DIExpression()), !dbg !1641\l  br i1 %9, label %21, label %10, !dbg !1652\l|{<s0>T|<s1>F}}"];
+	Node0x13b6620:s0 -> Node0x13b6710;
+	Node0x13b6620:s1 -> Node0x13b6670;
+	Node0x13b6670 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i64 [ %20, %15 ], [ 1, %7 ]\l  call void @llvm.dbg.value(metadata i64 %11, metadata !1640, metadata\l... !DIExpression()), !dbg !1641\l  %12 = getelementptr inbounds i8*, i8** %1, i64 %11, !dbg !1642\l  %13 = load i8*, i8** %12, align 8, !dbg !1642, !tbaa !1645\l  %14 = icmp eq i8* %13, null, !dbg !1649\l  br i1 %14, label %21, label %15, !dbg !1649, !llvm.loop !1653\l|{<s0>T|<s1>F}}"];
+	Node0x13b6670:s0 -> Node0x13b6710;
+	Node0x13b6670:s1 -> Node0x13b66c0;
+	Node0x13b66c0 [shape=record,label="{%15:\l15:                                               \l  call void @llvm.dbg.value(metadata i64 %11, metadata !1640, metadata\l... !DIExpression()), !dbg !1641\l  %16 = mul i64 %11, %3, !dbg !1655\l  %17 = getelementptr inbounds i8, i8* %2, i64 %16, !dbg !1656\l  %18 = tail call i32 @bcmp(i8* %0, i8* %17, i64 %3), !dbg !1650\l  %19 = icmp eq i32 %18, 0, !dbg !1650\l  %20 = add i64 %11, 1, !dbg !1657\l  call void @llvm.dbg.value(metadata i64 %20, metadata !1640, metadata\l... !DIExpression()), !dbg !1641\l  br i1 %19, label %21, label %10, !dbg !1652, !llvm.loop !1653\l|{<s0>T|<s1>F}}"];
+	Node0x13b66c0:s0 -> Node0x13b6710;
+	Node0x13b66c0:s1 -> Node0x13b6670;
+	Node0x13b6710 [shape=record,label="{%21:\l21:                                               \l  %22 = phi i8* [ null, %4 ], [ %5, %7 ], [ %13, %15 ], [ null, %10 ], !dbg\l... !1642\l  ret i8* %22, !dbg !1658\l}"];
+}

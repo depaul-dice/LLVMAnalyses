@@ -1,0 +1,39 @@
+digraph "CFG for 'fgetws' function" {
+	label="CFG for 'fgetws' function";
+
+	Node0x1f98aa0 [shape=record,label="{%3:\l  %4 = icmp eq i32 %1, 0\l  br i1 %4, label %43, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1f98aa0:s0 -> Node0x1f98eb0;
+	Node0x1f98aa0:s1 -> Node0x1f98af0;
+	Node0x1f98af0 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %2, i64\l... 0, i32 19\l  %7 = load volatile i32, i32* %6, align 4, !tbaa !1632\l  %8 = icmp sgt i32 %7, -1\l  br i1 %8, label %9, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1f98af0:s0 -> Node0x1f98b40;
+	Node0x1f98af0:s1 -> Node0x1f98b90;
+	Node0x1f98b40 [shape=record,label="{%9:\l9:                                                \l  %10 = tail call i32 bitcast (i32 (%struct._IO_FILE.233*)* @__lockfile to i32\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* nonnull %2) #40\l  br label %11\l}"];
+	Node0x1f98b40 -> Node0x1f98b90;
+	Node0x1f98b90 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i32 [ %10, %9 ], [ 0, %5 ]\l  %13 = tail call i32* @___errno_location() #40\l  store i32 11, i32* %13, align 4, !tbaa !1639\l  br label %14\l}"];
+	Node0x1f98b90 -> Node0x1f98be0;
+	Node0x1f98be0 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32* [ %0, %11 ], [ %23, %22 ]\l  %16 = phi i32 [ %1, %11 ], [ %17, %22 ]\l  %17 = add nsw i32 %16, -1\l  %18 = icmp eq i32 %17, 0\l  br i1 %18, label %25, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1f98be0:s0 -> Node0x1f98cd0;
+	Node0x1f98be0:s1 -> Node0x1f98c30;
+	Node0x1f98c30 [shape=record,label="{%19:\l19:                                               \l  %20 = tail call i32 @__fgetwc_unlocked(%struct._IO_FILE.0* %2) #40\l  %21 = icmp eq i32 %20, -1\l  br i1 %21, label %25, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1f98c30:s0 -> Node0x1f98cd0;
+	Node0x1f98c30:s1 -> Node0x1f98c80;
+	Node0x1f98c80 [shape=record,label="{%22:\l22:                                               \l  %23 = getelementptr inbounds i32, i32* %15, i64 1\l  store i32 %20, i32* %15, align 4, !tbaa !1639\l  %24 = icmp eq i32 %20, 10\l  br i1 %24, label %25, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1f98c80:s0 -> Node0x1f98cd0;
+	Node0x1f98c80:s1 -> Node0x1f98be0;
+	Node0x1f98cd0 [shape=record,label="{%25:\l25:                                               \l  %26 = phi i32* [ %23, %22 ], [ %15, %14 ], [ %15, %19 ]\l  store i32 0, i32* %26, align 4, !tbaa !1639\l  %27 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %2, i64\l... 0, i32 0\l  %28 = load i32, i32* %27, align 8, !tbaa !1640\l  %29 = and i32 %28, 32\l  %30 = icmp eq i32 %29, 0\l  br i1 %30, label %31, label %35\l|{<s0>T|<s1>F}}"];
+	Node0x1f98cd0:s0 -> Node0x1f98d20;
+	Node0x1f98cd0:s1 -> Node0x1f98d70;
+	Node0x1f98d20 [shape=record,label="{%31:\l31:                                               \l  %32 = tail call i32* @___errno_location() #40\l  %33 = load i32, i32* %32, align 4, !tbaa !1639\l  %34 = icmp eq i32 %33, 84\l  br i1 %34, label %35, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x1f98d20:s0 -> Node0x1f98d70;
+	Node0x1f98d20:s1 -> Node0x1f98dc0;
+	Node0x1f98d70 [shape=record,label="{%35:\l35:                                               \l  br label %36\l}"];
+	Node0x1f98d70 -> Node0x1f98dc0;
+	Node0x1f98dc0 [shape=record,label="{%36:\l36:                                               \l  %37 = phi i32* [ %0, %35 ], [ %26, %31 ]\l  %38 = icmp eq i32 %12, 0\l  br i1 %38, label %40, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x1f98dc0:s0 -> Node0x1f98e60;
+	Node0x1f98dc0:s1 -> Node0x1f98e10;
+	Node0x1f98e10 [shape=record,label="{%39:\l39:                                               \l  tail call void bitcast (void (%struct._IO_FILE.233*)* @__unlockfile to void\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* nonnull %2) #40\l  br label %40\l}"];
+	Node0x1f98e10 -> Node0x1f98e60;
+	Node0x1f98e60 [shape=record,label="{%40:\l40:                                               \l  %41 = icmp eq i32* %37, %0\l  %42 = select i1 %41, i32* null, i32* %0\l  br label %43\l}"];
+	Node0x1f98e60 -> Node0x1f98eb0;
+	Node0x1f98eb0 [shape=record,label="{%43:\l43:                                               \l  %44 = phi i32* [ %42, %40 ], [ %0, %3 ]\l  ret i32* %44\l}"];
+}

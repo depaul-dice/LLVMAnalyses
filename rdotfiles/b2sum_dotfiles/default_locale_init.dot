@@ -1,0 +1,10 @@
+digraph "CFG for 'default_locale_init' function" {
+	label="CFG for 'default_locale_init' function";
+
+	Node0x1ea91c0 [shape=record,label="{%0:\l  br label %3\l}"];
+	Node0x1ea91c0 -> Node0x1ea9260;
+	Node0x1ea9210 [shape=record,label="{%1:\l1:                                                \l  %2 = load i64, i64* bitcast (%struct.__locale_struct* @default_locale to\l... i64*), align 8, !tbaa !1632\l  store i64 %2, i64* bitcast (%struct.__locale_struct* @default_ctype_locale\l... to i64*), align 8, !tbaa !1632\l  ret void\l}"];
+	Node0x1ea9260 [shape=record,label="{%3:\l3:                                                \l  %4 = phi i64 [ 0, %0 ], [ %8, %3 ]\l  %5 = trunc i64 %4 to i32\l  %6 = tail call %struct.__locale_map* @__get_locale(i32 %5, i8* getelementptr\l... inbounds ([1 x i8], [1 x i8]* @.str.669, i64 0, i64 0)) #40\l  %7 = getelementptr inbounds %struct.__locale_struct,\l... %struct.__locale_struct* @default_locale, i64 0, i32 0, i64 %4\l  store %struct.__locale_map* %6, %struct.__locale_map** %7, align 8, !tbaa\l... !1632\l  %8 = add nuw nsw i64 %4, 1\l  %9 = icmp eq i64 %8, 6\l  br i1 %9, label %1, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1ea9260:s0 -> Node0x1ea9210;
+	Node0x1ea9260:s1 -> Node0x1ea9260;
+}

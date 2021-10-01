@@ -1,0 +1,5 @@
+digraph "CFG for 'pututxline' function" {
+	label="CFG for 'pututxline' function";
+
+	Node0x1fede60 [shape=record,label="{%1:\l  ret %struct.utmpx* null\l}"];
+}

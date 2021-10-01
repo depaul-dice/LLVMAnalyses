@@ -1,0 +1,13 @@
+digraph "CFG for '__hcreate_r' function" {
+	label="CFG for '__hcreate_r' function";
+
+	Node0x1c5f530 [shape=record,label="{%2:\l  %3 = tail call i8* @calloc(i64 1, i64 24) #40\l  %4 = getelementptr inbounds %struct.hsearch_data, %struct.hsearch_data* %1,\l... i64 0, i32 0\l  %5 = bitcast %struct.hsearch_data* %1 to i8**\l  store i8* %3, i8** %5, align 8, !tbaa !1632\l  %6 = icmp eq i8* %3, null\l  br i1 %6, label %12, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1c5f530:s0 -> Node0x1c5f620;
+	Node0x1c5f530:s1 -> Node0x1c5f580;
+	Node0x1c5f580 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call fastcc i32 @resize(i64 %0, %struct.hsearch_data* nonnull %1)\l... #41\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1c5f580:s0 -> Node0x1c5f5d0;
+	Node0x1c5f580:s1 -> Node0x1c5f620;
+	Node0x1c5f5d0 [shape=record,label="{%10:\l10:                                               \l  %11 = load i8*, i8** %5, align 8, !tbaa !1632\l  tail call void @free(i8* %11) #40\l  store %struct.__tab* null, %struct.__tab** %4, align 8, !tbaa !1632\l  br label %12\l}"];
+	Node0x1c5f5d0 -> Node0x1c5f620;
+	Node0x1c5f620 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i32 [ 0, %2 ], [ 0, %10 ], [ %8, %7 ]\l  ret i32 %13\l}"];
+}

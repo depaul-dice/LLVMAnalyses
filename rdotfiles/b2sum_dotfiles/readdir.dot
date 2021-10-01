@@ -1,0 +1,21 @@
+digraph "CFG for 'readdir' function" {
+	label="CFG for 'readdir' function";
+
+	Node0x1846de0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 2\l  %3 = load i32, i32* %2, align 4, !tbaa !1632\l  %4 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 3\l  %5 = load i32, i32* %4, align 8, !tbaa !1638\l  %6 = icmp slt i32 %3, %5\l  br i1 %6, label %21, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1846de0:s0 -> Node0x18476f0;
+	Node0x1846de0:s1 -> Node0x1847200;
+	Node0x1847200 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 1\l  %9 = load i32, i32* %8, align 8, !tbaa !1639\l  %10 = sext i32 %9 to i64\l  %11 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 5, i64 0\l  %12 = ptrtoint i8* %11 to i64\l  %13 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 217, i64 %10, i64 %12, i64 2048) #40, !srcloc !1640\l  %14 = trunc i64 %13 to i32\l  %15 = icmp slt i32 %14, 1\l  br i1 %15, label %16, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1847200:s0 -> Node0x1847600;
+	Node0x1847200:s1 -> Node0x18476a0;
+	Node0x1847600 [shape=record,label="{%16:\l16:                                               \l  switch i32 %14, label %17 [\l    i32 -2, label %35\l    i32 0, label %35\l  ]\l|{<s0>def|<s1>-2|<s2>0}}"];
+	Node0x1847600:s0 -> Node0x1847650;
+	Node0x1847600:s1 -> Node0x1847740;
+	Node0x1847600:s2 -> Node0x1847740;
+	Node0x1847650 [shape=record,label="{%17:\l17:                                               \l  %18 = sub nsw i32 0, %14\l  %19 = tail call i32* @___errno_location() #41\l  store i32 %18, i32* %19, align 4, !tbaa !1641\l  br label %35\l}"];
+	Node0x1847650 -> Node0x1847740;
+	Node0x18476a0 [shape=record,label="{%20:\l20:                                               \l  store i32 %14, i32* %4, align 8, !tbaa !1638\l  store i32 0, i32* %2, align 4, !tbaa !1632\l  br label %21\l}"];
+	Node0x18476a0 -> Node0x18476f0;
+	Node0x18476f0 [shape=record,label="{%21:\l21:                                               \l  %22 = phi i32 [ 0, %20 ], [ %3, %1 ]\l  %23 = sext i32 %22 to i64\l  %24 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 5, i64 %23\l  %25 = bitcast i8* %24 to %struct.dirent*\l  %26 = getelementptr inbounds i8, i8* %24, i64 16\l  %27 = bitcast i8* %26 to i16*\l  %28 = load i16, i16* %27, align 8, !tbaa !1642\l  %29 = zext i16 %28 to i32\l  %30 = add nsw i32 %22, %29\l  store i32 %30, i32* %2, align 4, !tbaa !1632\l  %31 = getelementptr inbounds i8, i8* %24, i64 8\l  %32 = bitcast i8* %31 to i64*\l  %33 = load i64, i64* %32, align 8, !tbaa !1645\l  %34 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 0\l  store i64 %33, i64* %34, align 8, !tbaa !1646\l  br label %35\l}"];
+	Node0x18476f0 -> Node0x1847740;
+	Node0x1847740 [shape=record,label="{%35:\l35:                                               \l  %36 = phi %struct.dirent* [ %25, %21 ], [ null, %17 ], [ null, %16 ], [\l... null, %16 ]\l  ret %struct.dirent* %36\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'cimagf' function" {
+	label="CFG for 'cimagf' function";
+
+	Node0x1c1b210 [shape=record,label="{%1:\l  %2 = extractelement \<2 x float\> %0, i32 1\l  ret float %2\l}"];
+}

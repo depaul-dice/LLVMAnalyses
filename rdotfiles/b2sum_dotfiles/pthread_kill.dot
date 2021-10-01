@@ -1,0 +1,12 @@
+digraph "CFG for 'pthread_kill' function" {
+	label="CFG for 'pthread_kill' function";
+
+	Node0x14fd270 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64 0,\l... i32 25, i64 0\l  tail call fastcc void @__lock(i32* nonnull %3) #29\l  %4 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64 0,\l... i32 7\l  %5 = load i32, i32* %4, align 8, !tbaa !1632\l  %6 = icmp eq i32 %5, 0\l  br i1 %6, label %12, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x14fd270:s0 -> Node0x1501c20;
+	Node0x14fd270:s1 -> Node0x14fd350;
+	Node0x14fd350 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%7:\l7:                                                \l  %8 = sext i32 %5 to i64\l  %9 = sext i32 %1 to i64\l  %10 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 200, i64 %8, i64 %9) #30, !srcloc !1640\l  %11 = sub nsw i64 0, %10\l  br label %15\l}"];
+	Node0x14fd350 -> Node0x1501c70;
+	Node0x1501c20 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%12:\l12:                                               \l  %13 = icmp ugt i32 %1, 64\l  %14 = select i1 %13, i64 22, i64 0\l  br label %15\l}"];
+	Node0x1501c20 -> Node0x1501c70;
+	Node0x1501c70 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%15:\l15:                                               \l  %16 = phi i64 [ %11, %7 ], [ %14, %12 ]\l  %17 = trunc i64 %16 to i32\l  tail call fastcc void @__unlock(i32* nonnull %3) #29\l  ret i32 %17\l}"];
+}

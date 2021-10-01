@@ -1,0 +1,10 @@
+digraph "CFG for 'ffs' function" {
+	label="CFG for 'ffs' function";
+
+	Node0x1f7ef10 [shape=record,label="{%1:\l  %2 = icmp eq i32 %0, 0\l  br i1 %2, label %8, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1f7ef10:s0 -> Node0x1f7f650;
+	Node0x1f7ef10:s1 -> Node0x1f7f300;
+	Node0x1f7f300 [shape=record,label="{%3:\l3:                                                \l  %4 = sext i32 %0 to i64\l  %5 = tail call i64 asm bsf $1,$0, =r,r,~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... %4) #40, !srcloc !1632\l  %6 = trunc i64 %5 to i32\l  %7 = add nsw i32 %6, 1\l  br label %8\l}"];
+	Node0x1f7f300 -> Node0x1f7f650;
+	Node0x1f7f650 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i32 [ %7, %3 ], [ 0, %1 ]\l  ret i32 %9\l}"];
+}

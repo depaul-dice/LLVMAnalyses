@@ -1,0 +1,5 @@
+digraph "CFG for '__vm_lock' function" {
+	label="CFG for '__vm_lock' function";
+
+	Node0x14f2810 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  %1 = getelementptr inbounds [2 x i32], [2 x i32]* @vmlock, i64 0, i64 0\l  tail call void asm sideeffect lock \l  ret void\l}"];
+}

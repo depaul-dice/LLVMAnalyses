@@ -1,0 +1,5 @@
+digraph "CFG for 'copysignf' function" {
+	label="CFG for 'copysignf' function";
+
+	Node0x1a1ace0 [shape=record,label="{%2:\l  %3 = bitcast float %0 to i32\l  %4 = bitcast float %1 to i32\l  %5 = and i32 %3, 2147483647\l  %6 = and i32 %4, -2147483648\l  %7 = or i32 %6, %5\l  %8 = bitcast i32 %7 to float\l  ret float %8\l}"];
+}

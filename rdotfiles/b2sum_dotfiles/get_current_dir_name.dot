@@ -1,0 +1,27 @@
+digraph "CFG for 'get_current_dir_name' function" {
+	label="CFG for 'get_current_dir_name' function";
+
+	Node0x1ffd450 [shape=record,label="{%0:\l  %1 = alloca %struct.stat, align 8\l  %2 = alloca %struct.stat, align 8\l  %3 = bitcast %struct.stat* %1 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 144, i8* nonnull %3) #40\l  %4 = bitcast %struct.stat* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 144, i8* nonnull %4) #40\l  %5 = tail call i8* @getenv(i8* getelementptr inbounds ([4 x i8], [4 x i8]*\l... @.str.1277, i64 0, i64 0)) #41\l  %6 = icmp eq i8* %5, null\l  br i1 %6, label %30, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1ffd450:s0 -> Node0x1ffd680;
+	Node0x1ffd450:s1 -> Node0x1ffd4a0;
+	Node0x1ffd4a0 [shape=record,label="{%7:\l7:                                                \l  %8 = load i8, i8* %5, align 1, !tbaa !1632\l  %9 = icmp eq i8 %8, 0\l  br i1 %9, label %30, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1ffd4a0:s0 -> Node0x1ffd680;
+	Node0x1ffd4a0:s1 -> Node0x1ffd4f0;
+	Node0x1ffd4f0 [shape=record,label="{%10:\l10:                                               \l  %11 = call i32 @stat(i8* nonnull %5, %struct.stat* nonnull %1) #41\l  %12 = icmp eq i32 %11, 0\l  br i1 %12, label %13, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1ffd4f0:s0 -> Node0x1ffd540;
+	Node0x1ffd4f0:s1 -> Node0x1ffd680;
+	Node0x1ffd540 [shape=record,label="{%13:\l13:                                               \l  %14 = call i32 @stat(i8* getelementptr inbounds ([2 x i8], [2 x i8]*\l... @.str.1.1278, i64 0, i64 0), %struct.stat* nonnull %2) #41\l  %15 = icmp eq i32 %14, 0\l  br i1 %15, label %16, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1ffd540:s0 -> Node0x1ffd590;
+	Node0x1ffd540:s1 -> Node0x1ffd680;
+	Node0x1ffd590 [shape=record,label="{%16:\l16:                                               \l  %17 = getelementptr inbounds %struct.stat, %struct.stat* %1, i64 0, i32 0\l  %18 = load i64, i64* %17, align 8, !tbaa !1635\l  %19 = getelementptr inbounds %struct.stat, %struct.stat* %2, i64 0, i32 0\l  %20 = load i64, i64* %19, align 8, !tbaa !1635\l  %21 = icmp eq i64 %18, %20\l  br i1 %21, label %22, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1ffd590:s0 -> Node0x1ffd5e0;
+	Node0x1ffd590:s1 -> Node0x1ffd680;
+	Node0x1ffd5e0 [shape=record,label="{%22:\l22:                                               \l  %23 = getelementptr inbounds %struct.stat, %struct.stat* %1, i64 0, i32 1\l  %24 = load i64, i64* %23, align 8, !tbaa !1640\l  %25 = getelementptr inbounds %struct.stat, %struct.stat* %2, i64 0, i32 1\l  %26 = load i64, i64* %25, align 8, !tbaa !1640\l  %27 = icmp eq i64 %24, %26\l  br i1 %27, label %28, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1ffd5e0:s0 -> Node0x1ffd630;
+	Node0x1ffd5e0:s1 -> Node0x1ffd680;
+	Node0x1ffd630 [shape=record,label="{%28:\l28:                                               \l  %29 = call i8* @strdup(i8* nonnull %5) #41\l  br label %32\l}"];
+	Node0x1ffd630 -> Node0x1ffd6d0;
+	Node0x1ffd680 [shape=record,label="{%30:\l30:                                               \l  %31 = call i8* @getcwd(i8* null, i64 0) #41\l  br label %32\l}"];
+	Node0x1ffd680 -> Node0x1ffd6d0;
+	Node0x1ffd6d0 [shape=record,label="{%32:\l32:                                               \l  %33 = phi i8* [ %31, %30 ], [ %29, %28 ]\l  call void @llvm.lifetime.end.p0i8(i64 144, i8* nonnull %4) #40\l  call void @llvm.lifetime.end.p0i8(i64 144, i8* nonnull %3) #40\l  ret i8* %33\l}"];
+}

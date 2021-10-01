@@ -1,0 +1,5 @@
+digraph "CFG for 'aio_error' function" {
+	label="CFG for 'aio_error' function";
+
+	Node0x1a9f870 [shape=record,label="{%1:\l  tail call void asm sideeffect , ~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}()\l... #40, !srcloc !1632\l  %2 = getelementptr inbounds %struct.aiocb, %struct.aiocb* %0, i64 0, i32 8\l  %3 = load volatile i32, i32* %2, align 8, !tbaa !1633\l  %4 = and i32 %3, 2147483647\l  ret i32 %4\l}"];
+}

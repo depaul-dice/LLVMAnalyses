@@ -1,0 +1,39 @@
+digraph "CFG for 'strsignal' function" {
+	label="CFG for 'strsignal' function";
+
+	Node0x17f06e0 [shape=record,label="{%1:\l  %2 = add i32 %0, -1\l  %3 = icmp ugt i32 %2, 63\l  %4 = icmp eq i32 %0, 0\l  %5 = or i1 %3, %4\l  br i1 %5, label %35, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x17f06e0:s0 -> Node0x17f09d0;
+	Node0x17f06e0:s1 -> Node0x17f07a0;
+	Node0x17f07a0 [shape=record,label="{%6:\l6:                                                \l  %7 = and i32 %0, 3\l  %8 = icmp eq i32 %7, 0\l  br i1 %8, label %22, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x17f07a0:s0 -> Node0x17f08e0;
+	Node0x17f07a0:s1 -> Node0x17f07f0;
+	Node0x17f07f0 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i32 [ %19, %18 ], [ %0, %6 ]\l  %11 = phi i8* [ %17, %18 ], [ getelementptr inbounds ([671 x i8], [671 x\l... i8]* @strings, i64 0, i64 0), %6 ]\l  %12 = phi i32 [ %20, %18 ], [ %7, %6 ]\l  br label %13\l}"];
+	Node0x17f07f0 -> Node0x17f0840;
+	Node0x17f0840 [shape=record,label="{%13:\l13:                                               \l  %14 = phi i8* [ %17, %13 ], [ %11, %9 ]\l  %15 = load i8, i8* %14, align 1, !tbaa !1632\l  %16 = icmp eq i8 %15, 0\l  %17 = getelementptr inbounds i8, i8* %14, i64 1\l  br i1 %16, label %18, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x17f0840:s0 -> Node0x17f0890;
+	Node0x17f0840:s1 -> Node0x17f0840;
+	Node0x17f0890 [shape=record,label="{%18:\l18:                                               \l  %19 = add nsw i32 %10, -1\l  %20 = add i32 %12, -1\l  %21 = icmp eq i32 %20, 0\l  br i1 %21, label %22, label %9, !llvm.loop !1635\l|{<s0>T|<s1>F}}"];
+	Node0x17f0890:s0 -> Node0x17f08e0;
+	Node0x17f0890:s1 -> Node0x17f07f0;
+	Node0x17f08e0 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i8* [ undef, %6 ], [ %17, %18 ]\l  %24 = phi i32 [ %0, %6 ], [ %19, %18 ]\l  %25 = phi i8* [ getelementptr inbounds ([671 x i8], [671 x i8]* @strings,\l... i64 0, i64 0), %6 ], [ %17, %18 ]\l  %26 = icmp ult i32 %2, 3\l  br i1 %26, label %35, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x17f08e0:s0 -> Node0x17f09d0;
+	Node0x17f08e0:s1 -> Node0x17f0930;
+	Node0x17f0930 [shape=record,label="{%27:\l27:                                               \l  %28 = phi i32 [ %54, %53 ], [ %24, %22 ]\l  %29 = phi i8* [ %52, %53 ], [ %25, %22 ]\l  br label %30\l}"];
+	Node0x17f0930 -> Node0x17f0980;
+	Node0x17f0980 [shape=record,label="{%30:\l30:                                               \l  %31 = phi i8* [ %34, %30 ], [ %29, %27 ]\l  %32 = load i8, i8* %31, align 1, !tbaa !1632\l  %33 = icmp eq i8 %32, 0\l  %34 = getelementptr inbounds i8, i8* %31, i64 1\l  br i1 %33, label %38, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x17f0980:s0 -> Node0x17f0a20;
+	Node0x17f0980:s1 -> Node0x17f0980;
+	Node0x17f09d0 [shape=record,label="{%35:\l35:                                               \l  %36 = phi i8* [ getelementptr inbounds ([671 x i8], [671 x i8]* @strings,\l... i64 0, i64 0), %1 ], [ %23, %22 ], [ %52, %53 ]\l  %37 = tail call i8* @__lctrans_cur(i8* nonnull %36) #40\l  ret i8* %37\l}"];
+	Node0x17f0a20 [shape=record,label="{%38:\l38:                                               \l  %39 = phi i8* [ %42, %38 ], [ %34, %30 ]\l  %40 = load i8, i8* %39, align 1, !tbaa !1632\l  %41 = icmp eq i8 %40, 0\l  %42 = getelementptr inbounds i8, i8* %39, i64 1\l  br i1 %41, label %43, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x17f0a20:s0 -> Node0x17f0a70;
+	Node0x17f0a20:s1 -> Node0x17f0a20;
+	Node0x17f0a70 [shape=record,label="{%43:\l43:                                               \l  %44 = phi i8* [ %47, %43 ], [ %42, %38 ]\l  %45 = load i8, i8* %44, align 1, !tbaa !1632\l  %46 = icmp eq i8 %45, 0\l  %47 = getelementptr inbounds i8, i8* %44, i64 1\l  br i1 %46, label %48, label %43\l|{<s0>T|<s1>F}}"];
+	Node0x17f0a70:s0 -> Node0x17f0ac0;
+	Node0x17f0a70:s1 -> Node0x17f0a70;
+	Node0x17f0ac0 [shape=record,label="{%48:\l48:                                               \l  %49 = phi i8* [ %52, %48 ], [ %47, %43 ]\l  %50 = load i8, i8* %49, align 1, !tbaa !1632\l  %51 = icmp eq i8 %50, 0\l  %52 = getelementptr inbounds i8, i8* %49, i64 1\l  br i1 %51, label %53, label %48\l|{<s0>T|<s1>F}}"];
+	Node0x17f0ac0:s0 -> Node0x17f0b10;
+	Node0x17f0ac0:s1 -> Node0x17f0ac0;
+	Node0x17f0b10 [shape=record,label="{%53:\l53:                                               \l  %54 = add nsw i32 %28, -4\l  %55 = icmp eq i32 %54, 0\l  br i1 %55, label %35, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x17f0b10:s0 -> Node0x17f09d0;
+	Node0x17f0b10:s1 -> Node0x17f0930;
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'wcstombs' function" {
+	label="CFG for 'wcstombs' function";
+
+	Node0x1e76ba0 [shape=record,label="{%3:\l  %4 = alloca i32*, align 8\l  store i32* %1, i32** %4, align 8, !tbaa !1632\l  %5 = call i64 @wcsrtombs(i8* %0, i32** nonnull %4, i64 %2, %struct.FTW*\l... null) #40\l  ret i64 %5\l}"];
+}

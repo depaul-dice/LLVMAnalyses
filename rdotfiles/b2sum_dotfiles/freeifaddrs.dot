@@ -1,0 +1,11 @@
+digraph "CFG for 'freeifaddrs' function" {
+	label="CFG for 'freeifaddrs' function";
+
+	Node0x1eb2840 [shape=record,label="{%1:\l  %2 = icmp eq %struct.ifaddrs* %0, null\l  br i1 %2, label %9, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1eb2840:s0 -> Node0x1eb2b20;
+	Node0x1eb2840:s1 -> Node0x1eb2ad0;
+	Node0x1eb2ad0 [shape=record,label="{%3:\l3:                                                \l  %4 = phi %struct.ifaddrs* [ %6, %3 ], [ %0, %1 ]\l  %5 = getelementptr inbounds %struct.ifaddrs, %struct.ifaddrs* %4, i64 0, i32\l... 0\l  %6 = load %struct.ifaddrs*, %struct.ifaddrs** %5, align 8, !tbaa !1632\l  %7 = bitcast %struct.ifaddrs* %4 to i8*\l  tail call void @free(i8* nonnull %7) #40\l  %8 = icmp eq %struct.ifaddrs* %6, null\l  br i1 %8, label %9, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1eb2ad0:s0 -> Node0x1eb2b20;
+	Node0x1eb2ad0:s1 -> Node0x1eb2ad0;
+	Node0x1eb2b20 [shape=record,label="{%9:\l9:                                                \l  ret void\l}"];
+}

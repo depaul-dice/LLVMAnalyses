@@ -1,0 +1,5 @@
+digraph "CFG for 'mq_receive' function" {
+	label="CFG for 'mq_receive' function";
+
+	Node0x1b9bc00 [shape=record,label="{%4:\l  %5 = tail call i64 @mq_timedreceive(i32 %0, i8* %1, i64 %2, i32* %3,\l... %struct.timeval* null) #40\l  ret i64 %5\l}"];
+}

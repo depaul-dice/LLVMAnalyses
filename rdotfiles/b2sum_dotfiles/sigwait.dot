@@ -1,0 +1,10 @@
+digraph "CFG for 'sigwait' function" {
+	label="CFG for 'sigwait' function";
+
+	Node0x1f915c0 [shape=record,label="{%2:\l  %3 = alloca %struct.siginfo_t, align 8\l  %4 = bitcast %struct.siginfo_t* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %4) #40\l  %5 = call i32 @sigtimedwait(%struct.__sigset_t* %0, %struct.siginfo_t*\l... nonnull %3, %struct.timeval* null) #41\l  %6 = icmp slt i32 %5, 0\l  br i1 %6, label %10, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1f915c0:s0 -> Node0x1f91f60;
+	Node0x1f915c0:s1 -> Node0x1f91f10;
+	Node0x1f91f10 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct.siginfo_t, %struct.siginfo_t* %3, i64 0,\l... i32 0\l  %9 = load i32, i32* %8, align 8, !tbaa !1632\l  store i32 %9, i32* %1, align 4, !tbaa !1637\l  br label %10\l}"];
+	Node0x1f91f10 -> Node0x1f91f60;
+	Node0x1f91f60 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i32 [ 0, %7 ], [ -1, %2 ]\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %4) #40\l  ret i32 %11\l}"];
+}

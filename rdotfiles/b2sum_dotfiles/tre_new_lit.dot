@@ -1,0 +1,20 @@
+digraph "CFG for 'tre_new_lit' function" {
+	label="CFG for 'tre_new_lit' function";
+
+	Node0x1972070 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.literals, %struct.literals* %0, i64 0,\l... i32 2\l  %3 = load i32, i32* %2, align 8, !tbaa !1632\l  %4 = getelementptr inbounds %struct.literals, %struct.literals* %0, i64 0,\l... i32 3\l  %5 = load i32, i32* %4, align 4, !tbaa !1638\l  %6 = icmp slt i32 %3, %5\l  br i1 %6, label %7, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1972070:s0 -> Node0x19720c0;
+	Node0x1972070:s1 -> Node0x1972110;
+	Node0x19720c0 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct.literals, %struct.literals* %0, i64 0,\l... i32 1\l  %9 = load %struct.tre_literal_t**, %struct.tre_literal_t*** %8, align 8,\l... !tbaa !1639\l  br label %24\l}"];
+	Node0x19720c0 -> Node0x1972200;
+	Node0x1972110 [shape=record,label="{%10:\l10:                                               \l  %11 = icmp sgt i32 %5, 32767\l  br i1 %11, label %35, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1972110:s0 -> Node0x1972250;
+	Node0x1972110:s1 -> Node0x1972160;
+	Node0x1972160 [shape=record,label="{%12:\l12:                                               \l  %13 = shl nsw i32 %5, 1\l  store i32 %13, i32* %4, align 4, !tbaa !1638\l  %14 = getelementptr inbounds %struct.literals, %struct.literals* %0, i64 0,\l... i32 1\l  %15 = bitcast %struct.tre_literal_t*** %14 to i8**\l  %16 = load i8*, i8** %15, align 8, !tbaa !1639\l  %17 = sext i32 %13 to i64\l  %18 = shl nsw i64 %17, 3\l  %19 = tail call i8* @realloc(i8* %16, i64 %18) #40\l  %20 = icmp eq i8* %19, null\l  br i1 %20, label %35, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1972160:s0 -> Node0x1972250;
+	Node0x1972160:s1 -> Node0x19721b0;
+	Node0x19721b0 [shape=record,label="{%21:\l21:                                               \l  store i8* %19, i8** %15, align 8, !tbaa !1639\l  %22 = bitcast i8* %19 to %struct.tre_literal_t**\l  %23 = load i32, i32* %2, align 8, !tbaa !1632\l  br label %24\l}"];
+	Node0x19721b0 -> Node0x1972200;
+	Node0x1972200 [shape=record,label="{%24:\l24:                                               \l  %25 = phi i32 [ %3, %7 ], [ %23, %21 ]\l  %26 = phi %struct.tre_literal_t** [ %9, %7 ], [ %22, %21 ]\l  %27 = add nsw i32 %25, 1\l  store i32 %27, i32* %2, align 8, !tbaa !1632\l  %28 = sext i32 %25 to i64\l  %29 = getelementptr inbounds %struct.tre_literal_t*, %struct.tre_literal_t**\l... %26, i64 %28\l  %30 = getelementptr inbounds %struct.literals, %struct.literals* %0, i64 0,\l... i32 0\l  %31 = load %struct.tre_mem_struct*, %struct.tre_mem_struct** %30, align 8,\l... !tbaa !1640\l  %32 = tail call i8* @__tre_mem_alloc_impl(%struct.tre_mem_struct* %31, i32\l... 0, i8* null, i32 1, i64 40) #40\l  %33 = bitcast i8* %32 to %struct.tre_literal_t*\l  %34 = bitcast %struct.tre_literal_t** %29 to i8**\l  store i8* %32, i8** %34, align 8, !tbaa !1641\l  br label %35\l}"];
+	Node0x1972200 -> Node0x1972250;
+	Node0x1972250 [shape=record,label="{%35:\l35:                                               \l  %36 = phi %struct.tre_literal_t* [ %33, %24 ], [ null, %10 ], [ null, %12 ]\l  ret %struct.tre_literal_t* %36\l}"];
+}

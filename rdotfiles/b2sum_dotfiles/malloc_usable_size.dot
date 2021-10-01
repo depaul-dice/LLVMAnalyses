@@ -1,0 +1,10 @@
+digraph "CFG for 'malloc_usable_size' function" {
+	label="CFG for 'malloc_usable_size' function";
+
+	Node0x1fbd800 [shape=record,label="{%1:\l  %2 = icmp eq i8* %0, null\l  br i1 %2, label %9, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1fbd800:s0 -> Node0x1fbdfb0;
+	Node0x1fbd800:s1 -> Node0x1fbdf60;
+	Node0x1fbdf60 [shape=record,label="{%3:\l3:                                                \l  %4 = getelementptr inbounds i8, i8* %0, i64 -8\l  %5 = bitcast i8* %4 to i64*\l  %6 = load i64, i64* %5, align 8, !tbaa !1632\l  %7 = add i64 %6, -16\l  %8 = and i64 %7, -2\l  br label %9\l}"];
+	Node0x1fbdf60 -> Node0x1fbdfb0;
+	Node0x1fbdfb0 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i64 [ %8, %3 ], [ 0, %1 ]\l  ret i64 %10\l}"];
+}

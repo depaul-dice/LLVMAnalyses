@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_attr_getguardsize' function" {
+	label="CFG for 'pthread_attr_getguardsize' function";
+
+	Node0x1ff2520 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %0, i64 0, i32 0, i32 0, i64 1\l  %4 = load i64, i64* %3, align 8, !tbaa !1632\l  store i64 %4, i64* %1, align 8, !tbaa !1635\l  ret i32 0\l}"];
+}

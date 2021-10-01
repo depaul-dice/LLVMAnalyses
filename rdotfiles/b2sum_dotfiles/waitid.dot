@@ -1,0 +1,5 @@
+digraph "CFG for 'waitid' function" {
+	label="CFG for 'waitid' function";
+
+	Node0x1b4e690 [shape=record,label="{%4:\l  %5 = zext i32 %0 to i64\l  %6 = zext i32 %1 to i64\l  %7 = ptrtoint %struct.siginfo_t* %2 to i64\l  %8 = sext i32 %3 to i64\l  %9 = tail call i64 @__syscall_cp(i64 247, i64 %5, i64 %6, i64 %7, i64 %8,\l... i64 0, i64 0) #40\l  %10 = tail call i64 @__syscall_ret(i64 %9) #40\l  %11 = trunc i64 %10 to i32\l  ret i32 %11\l}"];
+}

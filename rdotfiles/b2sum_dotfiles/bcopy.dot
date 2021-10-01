@@ -1,0 +1,5 @@
+digraph "CFG for 'bcopy' function" {
+	label="CFG for 'bcopy' function";
+
+	Node0x2010c40 [shape=record,label="{%3:\l  %4 = tail call i8* @memmove(i8* %1, i8* %0, i64 %2) #40\l  ret void\l}"];
+}

@@ -1,0 +1,20 @@
+digraph "CFG for 'rint' function" {
+	label="CFG for 'rint' function";
+
+	Node0x11da2e0 [shape=record,label="{%1:\l  %2 = bitcast double %0 to i64\l  %3 = and i64 %2, 9218868437227405312\l  %4 = icmp ugt i64 %3, 4836865999795912704\l  br i1 %4, label %20, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x11da2e0:s0 -> Node0x11da4c0;
+	Node0x11da2e0:s1 -> Node0x11da330;
+	Node0x11da330 [shape=record,label="{%5:\l5:                                                \l  %6 = icmp slt i64 %2, 0\l  br i1 %6, label %7, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x11da330:s0 -> Node0x11da380;
+	Node0x11da330:s1 -> Node0x11da3d0;
+	Node0x11da380 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call double @llvm.experimental.constrained.fsub.f64(double %0,\l... double 0x4330000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #40\l  %9 = tail call double @llvm.experimental.constrained.fadd.f64(double %8,\l... double 0x4330000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #40\l  br label %13\l}"];
+	Node0x11da380 -> Node0x11da420;
+	Node0x11da3d0 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call double @llvm.experimental.constrained.fadd.f64(double %0,\l... double 0x4330000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #40\l  %12 = tail call double @llvm.experimental.constrained.fsub.f64(double %11,\l... double 0x4330000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #40\l  br label %13\l}"];
+	Node0x11da3d0 -> Node0x11da420;
+	Node0x11da420 [shape=record,label="{%13:\l13:                                               \l  %14 = phi double [ %9, %7 ], [ %12, %10 ]\l  %15 = tail call double @llvm.experimental.constrained.sitofp.f64.i32(i32 0,\l... metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %16 = tail call i1 @llvm.experimental.constrained.fcmp.f64(double %14,\l... double %15, metadata !oeq, metadata !fpexcept.ignore) #40\l  br i1 %16, label %17, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x11da420:s0 -> Node0x11da470;
+	Node0x11da420:s1 -> Node0x11da4c0;
+	Node0x11da470 [shape=record,label="{%17:\l17:                                               \l  %18 = tail call double @llvm.experimental.constrained.sitofp.f64.i32(i32 0,\l... metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %19 = select i1 %6, double -0.000000e+00, double %18\l  br label %20\l}"];
+	Node0x11da470 -> Node0x11da4c0;
+	Node0x11da4c0 [shape=record,label="{%20:\l20:                                               \l  %21 = phi double [ %19, %17 ], [ %0, %1 ], [ %14, %13 ]\l  ret double %21\l}"];
+}

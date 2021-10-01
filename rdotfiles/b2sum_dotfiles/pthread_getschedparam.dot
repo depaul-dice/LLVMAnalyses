@@ -1,0 +1,13 @@
+digraph "CFG for 'pthread_getschedparam' function" {
+	label="CFG for 'pthread_getschedparam' function";
+
+	Node0x1caa950 [shape=record,label="{%3:\l  %4 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64 0,\l... i32 25, i64 0\l  tail call void @__lock(i32* nonnull %4) #40\l  %5 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64 0,\l... i32 7\l  %6 = load i32, i32* %5, align 8, !tbaa !1632\l  %7 = icmp eq i32 %6, 0\l  br i1 %7, label %20, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1caa950:s0 -> Node0x1caaa40;
+	Node0x1caa950:s1 -> Node0x1caa9a0;
+	Node0x1caa9a0 [shape=record,label="{%8:\l8:                                                \l  %9 = sext i32 %6 to i64\l  %10 = ptrtoint %struct.sched_param* %2 to i64\l  %11 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 143, i64 %9, i64 %10) #41, !srcloc !1640\l  %12 = trunc i64 %11 to i32\l  %13 = sub i32 0, %12\l  %14 = icmp eq i32 %12, 0\l  br i1 %14, label %15, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1caa9a0:s0 -> Node0x1caa9f0;
+	Node0x1caa9a0:s1 -> Node0x1caaa40;
+	Node0x1caa9f0 [shape=record,label="{%15:\l15:                                               \l  %16 = load i32, i32* %5, align 8, !tbaa !1632\l  %17 = sext i32 %16 to i64\l  %18 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 145, i64 %17) #41, !srcloc !1641\l  %19 = trunc i64 %18 to i32\l  store i32 %19, i32* %1, align 4, !tbaa !1642\l  br label %20\l}"];
+	Node0x1caa9f0 -> Node0x1caaa40;
+	Node0x1caaa40 [shape=record,label="{%20:\l20:                                               \l  %21 = phi i32 [ %13, %8 ], [ 0, %15 ], [ 3, %3 ]\l  tail call void @__unlock(i32* nonnull %4) #40\l  ret i32 %21\l}"];
+}

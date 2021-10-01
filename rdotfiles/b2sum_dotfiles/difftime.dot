@@ -1,0 +1,5 @@
+digraph "CFG for 'difftime' function" {
+	label="CFG for 'difftime' function";
+
+	Node0x1fbade0 [shape=record,label="{%2:\l  %3 = sub nsw i64 %0, %1\l  %4 = tail call double @llvm.experimental.constrained.sitofp.f64.i64(i64 %3,\l... metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  ret double %4\l}"];
+}

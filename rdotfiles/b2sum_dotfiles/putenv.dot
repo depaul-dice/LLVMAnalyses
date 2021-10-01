@@ -1,0 +1,15 @@
+digraph "CFG for 'putenv' function" {
+	label="CFG for 'putenv' function";
+
+	Node0x1fc4500 [shape=record,label="{%1:\l  %2 = tail call i8* @__strchrnul(i8* %0, i32 61) #40\l  %3 = ptrtoint i8* %2 to i64\l  %4 = ptrtoint i8* %0 to i64\l  %5 = sub i64 %3, %4\l  %6 = icmp eq i64 %5, 0\l  br i1 %6, label %10, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1fc4500:s0 -> Node0x1fc48f0;
+	Node0x1fc4500:s1 -> Node0x1fc48a0;
+	Node0x1fc48a0 [shape=record,label="{%7:\l7:                                                \l  %8 = load i8, i8* %2, align 1, !tbaa !1632\l  %9 = icmp eq i8 %8, 0\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1fc48a0:s0 -> Node0x1fc48f0;
+	Node0x1fc48a0:s1 -> Node0x1fc4940;
+	Node0x1fc48f0 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call i32 @unsetenv(i8* %0) #40\l  br label %14\l}"];
+	Node0x1fc48f0 -> Node0x1fc4990;
+	Node0x1fc4940 [shape=record,label="{%12:\l12:                                               \l  %13 = tail call i32 @__putenv(i8* %0, i64 %5, i8* null) #41\l  br label %14\l}"];
+	Node0x1fc4940 -> Node0x1fc4990;
+	Node0x1fc4990 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32 [ %13, %12 ], [ %11, %10 ]\l  ret i32 %15\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'clone_quoting_options' function" {
+	label="CFG for 'clone_quoting_options' function";
+
+	Node0x13b8da0 [shape=record,label="{%1:\l  call void @llvm.dbg.value(metadata %struct.quoting_options* %0, metadata\l... !1637, metadata !DIExpression()), !dbg !1640\l  %2 = tail call i32* @__errno_location() #40, !dbg !1641\l  %3 = load i32, i32* %2, align 4, !dbg !1641, !tbaa !1642\l  call void @llvm.dbg.value(metadata i32 %3, metadata !1638, metadata\l... !DIExpression()), !dbg !1640\l  %4 = icmp eq %struct.quoting_options* %0, null, !dbg !1646\l  %5 = select i1 %4, %struct.quoting_options* @default_quoting_options,\l... %struct.quoting_options* %0, !dbg !1646\l  %6 = bitcast %struct.quoting_options* %5 to i8*, !dbg !1646\l  %7 = tail call noalias nonnull i8* @xmemdup(i8* %6, i64 56) #41, !dbg !1647\l  %8 = bitcast i8* %7 to %struct.quoting_options*, !dbg !1647\l  call void @llvm.dbg.value(metadata %struct.quoting_options* %8, metadata\l... !1639, metadata !DIExpression()), !dbg !1640\l  store i32 %3, i32* %2, align 4, !dbg !1648, !tbaa !1642\l  ret %struct.quoting_options* %8, !dbg !1649\l}"];
+}

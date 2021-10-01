@@ -1,0 +1,41 @@
+digraph "CFG for '__pthread_timedjoin_np' function" {
+	label="CFG for '__pthread_timedjoin_np' function";
+
+	Node0x1cfd720 [shape=record,label="{%3:\l  %4 = alloca i32, align 4\l  %5 = bitcast i32* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %5) #40\l  tail call void @__pthread_testcancel() #41\l  %6 = call i32 @__pthread_setcancelstate(i32 1, i32* nonnull %4) #41\l  %7 = load i32, i32* %4, align 4, !tbaa !1632\l  %8 = icmp eq i32 %7, 0\l  br i1 %8, label %9, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1cfd720:s0 -> Node0x1cfd980;
+	Node0x1cfd720:s1 -> Node0x1cfd9d0;
+	Node0x1cfd980 [shape=record,label="{%9:\l9:                                                \l  %10 = call i32 @__pthread_setcancelstate(i32 0, i32* null) #41\l  br label %11\l}"];
+	Node0x1cfd980 -> Node0x1cfd9d0;
+	Node0x1cfd9d0 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64\l... 0, i32 9\l  %13 = load volatile i32, i32* %12, align 8, !tbaa !1636\l  %14 = icmp eq i32 %13, 0\l  br i1 %14, label %15, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1cfd9d0:s0 -> Node0x1cfda20;
+	Node0x1cfd9d0:s1 -> Node0x1cfda70;
+	Node0x1cfda20 [shape=record,label="{%15:\l15:                                               \l  %16 = load i32, i32* %4, align 4, !tbaa !1632\l  %17 = call i32 @__pthread_setcancelstate(i32 %16, i32* null) #41\l  br label %30\l}"];
+	Node0x1cfda20 -> Node0x1cfdc00;
+	Node0x1cfda70 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i32 [ %24, %26 ], [ %13, %11 ]\l  %20 = icmp sgt i32 %19, 1\l  br i1 %20, label %21, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1cfda70:s0 -> Node0x1cfdac0;
+	Node0x1cfda70:s1 -> Node0x1cfdb10;
+	Node0x1cfdac0 [shape=record,label="{%21:\l21:                                               \l  call void asm sideeffect hlt, ~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}()\l... #40, !srcloc !1641\l  br label %22\l}"];
+	Node0x1cfdac0 -> Node0x1cfdb10;
+	Node0x1cfdb10 [shape=record,label="{%22:\l22:                                               \l  %23 = call i32 @__timedwait_cp(i32* nonnull %12, i32 %19, i32 0,\l... %struct.timeval* %2, i32 1) #41\l  %24 = load volatile i32, i32* %12, align 8, !tbaa !1636\l  %25 = icmp eq i32 %24, 0\l  br i1 %25, label %27, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x1cfdb10:s0 -> Node0x1cfdbb0;
+	Node0x1cfdb10:s1 -> Node0x1cfdb60;
+	Node0x1cfdb60 [shape=record,label="{%26:\l26:                                               \l  switch i32 %23, label %18 [\l    i32 110, label %27\l    i32 22, label %27\l  ]\l|{<s0>def|<s1>110|<s2>22}}"];
+	Node0x1cfdb60:s0 -> Node0x1cfda70;
+	Node0x1cfdb60:s1 -> Node0x1cfdbb0;
+	Node0x1cfdb60:s2 -> Node0x1cfdbb0;
+	Node0x1cfdbb0 [shape=record,label="{%27:\l27:                                               \l  %28 = load i32, i32* %4, align 4, !tbaa !1632\l  %29 = call i32 @__pthread_setcancelstate(i32 %28, i32* null) #41\l  switch i32 %23, label %30 [\l    i32 110, label %45\l    i32 22, label %45\l  ]\l|{<s0>def|<s1>110|<s2>22}}"];
+	Node0x1cfdbb0:s0 -> Node0x1cfdc00;
+	Node0x1cfdbb0:s1 -> Node0x1cfdd40;
+	Node0x1cfdbb0:s2 -> Node0x1cfdd40;
+	Node0x1cfdc00 [shape=record,label="{%30:\l30:                                               \l  call void @__tl_sync(%struct.__pthread* nonnull %0) #41\l  %31 = icmp eq i8** %1, null\l  br i1 %31, label %37, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x1cfdc00:s0 -> Node0x1cfdca0;
+	Node0x1cfdc00:s1 -> Node0x1cfdc50;
+	Node0x1cfdc50 [shape=record,label="{%32:\l32:                                               \l  %33 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64\l... 0, i32 19\l  %34 = bitcast i8** %33 to i64*\l  %35 = load i64, i64* %34, align 8, !tbaa !1642\l  %36 = bitcast i8** %1 to i64*\l  store i64 %35, i64* %36, align 8, !tbaa !1643\l  br label %37\l}"];
+	Node0x1cfdc50 -> Node0x1cfdca0;
+	Node0x1cfdca0 [shape=record,label="{%37:\l37:                                               \l  %38 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64\l... 0, i32 14\l  %39 = load i8*, i8** %38, align 8, !tbaa !1644\l  %40 = icmp eq i8* %39, null\l  br i1 %40, label %45, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x1cfdca0:s0 -> Node0x1cfdd40;
+	Node0x1cfdca0:s1 -> Node0x1cfdcf0;
+	Node0x1cfdcf0 [shape=record,label="{%41:\l41:                                               \l  %42 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64\l... 0, i32 15\l  %43 = load i64, i64* %42, align 8, !tbaa !1645\l  %44 = call i32 @__munmap(i8* nonnull %39, i64 %43) #41\l  br label %45\l}"];
+	Node0x1cfdcf0 -> Node0x1cfdd40;
+	Node0x1cfdd40 [shape=record,label="{%45:\l45:                                               \l  %46 = phi i32 [ %23, %27 ], [ %23, %27 ], [ 0, %37 ], [ 0, %41 ]\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %5) #40\l  ret i32 %46\l}"];
+}

@@ -1,0 +1,18 @@
+digraph "CFG for 'pthread_setcanceltype' function" {
+	label="CFG for 'pthread_setcanceltype' function";
+
+	Node0x1c365a0 [shape=record,label="{%2:\l  %3 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #40, !srcloc !1632\l  %4 = icmp ugt i32 %0, 1\l  br i1 %4, label %16, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1c365a0:s0 -> Node0x1c36b00;
+	Node0x1c365a0:s1 -> Node0x1c36650;
+	Node0x1c36650 [shape=record,label="{%5:\l5:                                                \l  %6 = icmp eq i32* %1, null\l  br i1 %6, label %11, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1c36650:s0 -> Node0x1c36a60;
+	Node0x1c36650:s1 -> Node0x1c36a10;
+	Node0x1c36a10 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %3, i64 0,\l... i32 12\l  %9 = load volatile i8, i8* %8, align 1, !tbaa !1633\l  %10 = zext i8 %9 to i32\l  store i32 %10, i32* %1, align 4, !tbaa !1641\l  br label %11\l}"];
+	Node0x1c36a10 -> Node0x1c36a60;
+	Node0x1c36a60 [shape=record,label="{%11:\l11:                                               \l  %12 = trunc i32 %0 to i8\l  %13 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %3, i64\l... 0, i32 12\l  store volatile i8 %12, i8* %13, align 1, !tbaa !1633\l  %14 = icmp eq i32 %0, 0\l  br i1 %14, label %16, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1c36a60:s0 -> Node0x1c36b00;
+	Node0x1c36a60:s1 -> Node0x1c36ab0;
+	Node0x1c36ab0 [shape=record,label="{%15:\l15:                                               \l  tail call void @pthread_testcancel() #41\l  br label %16\l}"];
+	Node0x1c36ab0 -> Node0x1c36b00;
+	Node0x1c36b00 [shape=record,label="{%16:\l16:                                               \l  %17 = phi i32 [ 22, %2 ], [ 0, %11 ], [ 0, %15 ]\l  ret i32 %17\l}"];
+}

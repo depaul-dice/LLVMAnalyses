@@ -1,0 +1,10 @@
+digraph "CFG for 'ptsname' function" {
+	label="CFG for 'ptsname' function";
+
+	Node0x1f6a2c0 [shape=record,label="{%1:\l  %2 = tail call i32 @__ptsname_r(i32 %0, i8* getelementptr inbounds ([22 x\l... i8], [22 x i8]* @ptsname.buf, i64 0, i64 0), i64 22) #40\l  %3 = icmp eq i32 %2, 0\l  br i1 %3, label %6, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1f6a2c0:s0 -> Node0x1f6a390;
+	Node0x1f6a2c0:s1 -> Node0x1f6a340;
+	Node0x1f6a340 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i32* @___errno_location() #40\l  store i32 %2, i32* %5, align 4, !tbaa !1632\l  br label %6\l}"];
+	Node0x1f6a340 -> Node0x1f6a390;
+	Node0x1f6a390 [shape=record,label="{%6:\l6:                                                \l  %7 = phi i8* [ null, %4 ], [ getelementptr inbounds ([22 x i8], [22 x i8]*\l... @ptsname.buf, i64 0, i64 0), %1 ]\l  ret i8* %7\l}"];
+}

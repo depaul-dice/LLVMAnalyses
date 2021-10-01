@@ -1,0 +1,5 @@
+digraph "CFG for 'ldexp' function" {
+	label="CFG for 'ldexp' function";
+
+	Node0x1feced0 [shape=record,label="{%2:\l  %3 = tail call double @scalbn(double %0, i32 %1) #40\l  ret double %3\l}"];
+}

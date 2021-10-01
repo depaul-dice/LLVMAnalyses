@@ -1,0 +1,5 @@
+digraph "CFG for 'getmntent' function" {
+	label="CFG for 'getmntent' function";
+
+	Node0x1f95f90 [shape=record,label="{%1:\l  %2 = tail call %struct.mntent* @getmntent_r(%struct._IO_FILE.0* %0,\l... %struct.mntent* nonnull @getmntent.mnt, i8* bitcast (i8** @internal_buf to\l... i8*), i32 0) #40\l  ret %struct.mntent* %2\l}"];
+}

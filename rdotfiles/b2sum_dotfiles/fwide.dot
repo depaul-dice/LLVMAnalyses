@@ -1,0 +1,30 @@
+digraph "CFG for 'fwide' function" {
+	label="CFG for 'fwide' function";
+
+	Node0x1595fb0 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 19\l  %4 = load volatile i32, i32* %3, align 4, !tbaa !1632\l  %5 = icmp sgt i32 %4, -1\l  br i1 %5, label %6, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1595fb0:s0 -> Node0x15960c0;
+	Node0x1595fb0:s1 -> Node0x1596110;
+	Node0x15960c0 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32 bitcast (i32 (%struct._IO_FILE.233*)* @__lockfile to i32\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* nonnull %0) #40\l  br label %8\l}"];
+	Node0x15960c0 -> Node0x1596110;
+	Node0x1596110 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i32 [ %7, %6 ], [ 0, %2 ]\l  %10 = icmp eq i32 %1, 0\l  br i1 %10, label %11, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1596110:s0 -> Node0x1596160;
+	Node0x1596110:s1 -> Node0x15961b0;
+	Node0x1596160 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 18\l  %13 = load i32, i32* %12, align 8, !tbaa !1639\l  br label %33\l}"];
+	Node0x1596160 -> Node0x15962f0;
+	Node0x15961b0 [shape=record,label="{%14:\l14:                                               \l  %15 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 30\l  %16 = load %struct.__locale_struct*, %struct.__locale_struct** %15, align 8,\l... !tbaa !1640\l  %17 = icmp eq %struct.__locale_struct* %16, null\l  br i1 %17, label %18, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x15961b0:s0 -> Node0x1596200;
+	Node0x15961b0:s1 -> Node0x1596250;
+	Node0x1596200 [shape=record,label="{%18:\l18:                                               \l  %19 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #41, !srcloc !1641\l  %20 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %19, i64\l... 0, i32 24\l  %21 = load %struct.__locale_struct*, %struct.__locale_struct** %20, align 8,\l... !tbaa !1642\l  %22 = getelementptr inbounds %struct.__locale_struct,\l... %struct.__locale_struct* %21, i64 0, i32 0, i64 0\l  %23 = load %struct.__locale_map*, %struct.__locale_map** %22, align 8, !tbaa\l... !1645\l  %24 = icmp eq %struct.__locale_map* %23, null\l  %25 = select i1 %24, %struct.__locale_struct* @__c_locale,\l... %struct.__locale_struct* @__c_dot_utf8_locale\l  store %struct.__locale_struct* %25, %struct.__locale_struct** %15, align 8,\l... !tbaa !1640\l  br label %26\l}"];
+	Node0x1596200 -> Node0x1596250;
+	Node0x1596250 [shape=record,label="{%26:\l26:                                               \l  %27 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 18\l  %28 = load i32, i32* %27, align 8, !tbaa !1639\l  %29 = icmp eq i32 %28, 0\l  br i1 %29, label %30, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x1596250:s0 -> Node0x15962a0;
+	Node0x1596250:s1 -> Node0x15962f0;
+	Node0x15962a0 [shape=record,label="{%30:\l30:                                               \l  %31 = icmp slt i32 %1, 1\l  %32 = select i1 %31, i32 -1, i32 1\l  store i32 %32, i32* %27, align 8, !tbaa !1639\l  br label %33\l}"];
+	Node0x15962a0 -> Node0x15962f0;
+	Node0x15962f0 [shape=record,label="{%33:\l33:                                               \l  %34 = phi i32 [ %13, %11 ], [ %28, %26 ], [ %32, %30 ]\l  %35 = icmp eq i32 %9, 0\l  br i1 %35, label %37, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x15962f0:s0 -> Node0x1596390;
+	Node0x15962f0:s1 -> Node0x1596340;
+	Node0x1596340 [shape=record,label="{%36:\l36:                                               \l  tail call void bitcast (void (%struct._IO_FILE.233*)* @__unlockfile to void\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* nonnull %0) #40\l  br label %37\l}"];
+	Node0x1596340 -> Node0x1596390;
+	Node0x1596390 [shape=record,label="{%37:\l37:                                               \l  ret i32 %34\l}"];
+}

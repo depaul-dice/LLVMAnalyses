@@ -1,0 +1,12 @@
+digraph "CFG for 'strlcat' function" {
+	label="CFG for 'strlcat' function";
+
+	Node0x1fb5e80 [shape=record,label="{%3:\l  %4 = tail call i64 @strnlen(i8* %0, i64 %2) #40\l  %5 = icmp eq i64 %4, %2\l  br i1 %5, label %6, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1fb5e80:s0 -> Node0x1fb5f80;
+	Node0x1fb5e80:s1 -> Node0x1fb5fd0;
+	Node0x1fb5f80 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i64 @strlen(i8* %1) #40\l  br label %12\l}"];
+	Node0x1fb5f80 -> Node0x1fb6020;
+	Node0x1fb5fd0 [shape=record,label="{%8:\l8:                                                \l  %9 = getelementptr inbounds i8, i8* %0, i64 %4\l  %10 = sub i64 %2, %4\l  %11 = tail call i64 @strlcpy(i8* %9, i8* %1, i64 %10) #40\l  br label %12\l}"];
+	Node0x1fb5fd0 -> Node0x1fb6020;
+	Node0x1fb6020 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i64 [ %7, %6 ], [ %11, %8 ]\l  %14 = add i64 %13, %4\l  ret i64 %14\l}"];
+}

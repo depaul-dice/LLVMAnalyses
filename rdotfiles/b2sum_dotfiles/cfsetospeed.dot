@@ -1,0 +1,12 @@
+digraph "CFG for 'cfsetospeed' function" {
+	label="CFG for 'cfsetospeed' function";
+
+	Node0x1e776d0 [shape=record,label="{%2:\l  %3 = and i32 %1, -4112\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %7, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1e776d0:s0 -> Node0x1e77930;
+	Node0x1e776d0:s1 -> Node0x1e778e0;
+	Node0x1e778e0 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %6, align 4, !tbaa !1632\l  br label %12\l}"];
+	Node0x1e778e0 -> Node0x1e77980;
+	Node0x1e77930 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct.termios, %struct.termios* %0, i64 0, i32\l... 2\l  %9 = load i32, i32* %8, align 4, !tbaa !1636\l  %10 = and i32 %9, -4112\l  %11 = or i32 %10, %1\l  store i32 %11, i32* %8, align 4, !tbaa !1636\l  br label %12\l}"];
+	Node0x1e77930 -> Node0x1e77980;
+	Node0x1e77980 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i32 [ -1, %5 ], [ 0, %7 ]\l  ret i32 %13\l}"];
+}

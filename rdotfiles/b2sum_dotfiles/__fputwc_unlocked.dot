@@ -1,0 +1,42 @@
+digraph "CFG for '__fputwc_unlocked' function" {
+	label="CFG for '__fputwc_unlocked' function";
+
+	Node0x1605760 [shape=record,label="{%2:\l  %3 = alloca [4 x i8], align 1\l  %4 = getelementptr inbounds [4 x i8], [4 x i8]* %3, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %4) #40\l  %5 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #41, !srcloc !1632\l  %6 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %5, i64 0,\l... i32 24\l  %7 = bitcast %struct.__locale_struct** %6 to i64*\l  %8 = load i64, i64* %7, align 8, !tbaa !1633\l  %9 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 18\l  %10 = load i32, i32* %9, align 8, !tbaa !1637\l  %11 = icmp slt i32 %10, 1\l  br i1 %11, label %12, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1605760:s0 -> Node0x1605890;
+	Node0x1605760:s1 -> Node0x16058e0;
+	Node0x1605890 [shape=record,label="{%12:\l12:                                               \l  %13 = tail call i32 @fwide(%struct._IO_FILE.0* nonnull %1, i32 1) #42\l  br label %14\l}"];
+	Node0x1605890 -> Node0x16058e0;
+	Node0x16058e0 [shape=record,label="{%14:\l14:                                               \l  %15 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 30\l  %16 = bitcast %struct.__locale_struct** %15 to i64*\l  %17 = load i64, i64* %16, align 8, !tbaa !1641\l  store i64 %17, i64* %7, align 8, !tbaa !1633\l  %18 = icmp ult i32 %0, 128\l  br i1 %18, label %19, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x16058e0:s0 -> Node0x1605930;
+	Node0x16058e0:s1 -> Node0x1605a70;
+	Node0x1605930 [shape=record,label="{%19:\l19:                                               \l  %20 = trunc i32 %0 to i8\l  %21 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 20\l  %22 = load i32, i32* %21, align 8, !tbaa !1642\l  %23 = icmp eq i32 %22, %0\l  br i1 %23, label %32, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x1605930:s0 -> Node0x1605a20;
+	Node0x1605930:s1 -> Node0x1605980;
+	Node0x1605980 [shape=record,label="{%24:\l24:                                               \l  %25 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 5\l  %26 = load i8*, i8** %25, align 8, !tbaa !1643\l  %27 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 4\l  %28 = load i8*, i8** %27, align 8, !tbaa !1644\l  %29 = icmp eq i8* %26, %28\l  br i1 %29, label %32, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1605980:s0 -> Node0x1605a20;
+	Node0x1605980:s1 -> Node0x16059d0;
+	Node0x16059d0 [shape=record,label="{%30:\l30:                                               \l  %31 = getelementptr inbounds i8, i8* %26, i64 1\l  store i8* %31, i8** %25, align 8, !tbaa !1643\l  store i8 %20, i8* %26, align 1, !tbaa !1645\l  br label %62\l}"];
+	Node0x16059d0 -> Node0x1605ca0;
+	Node0x1605a20 [shape=record,label="{%32:\l32:                                               \l  %33 = tail call i32 @__overflow(%struct._IO_FILE.0* nonnull %1, i32 %0) #42\l  br label %55\l}"];
+	Node0x1605a20 -> Node0x1605c00;
+	Node0x1605a70 [shape=record,label="{%34:\l34:                                               \l  %35 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 5\l  %36 = load i8*, i8** %35, align 8, !tbaa !1643\l  %37 = getelementptr inbounds i8, i8* %36, i64 4\l  %38 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 4\l  %39 = load i8*, i8** %38, align 8, !tbaa !1644\l  %40 = icmp ult i8* %37, %39\l  br i1 %40, label %41, label %48\l|{<s0>T|<s1>F}}"];
+	Node0x1605a70:s0 -> Node0x1605ac0;
+	Node0x1605a70:s1 -> Node0x1605b60;
+	Node0x1605ac0 [shape=record,label="{%41:\l41:                                               \l  %42 = tail call i32 @wctomb(i8* %36, i32 %0) #42\l  %43 = icmp slt i32 %42, 0\l  br i1 %43, label %58, label %44\l|{<s0>T|<s1>F}}"];
+	Node0x1605ac0:s0 -> Node0x1605c50;
+	Node0x1605ac0:s1 -> Node0x1605b10;
+	Node0x1605b10 [shape=record,label="{%44:\l44:                                               \l  %45 = load i8*, i8** %35, align 8, !tbaa !1643\l  %46 = zext i32 %42 to i64\l  %47 = getelementptr inbounds i8, i8* %45, i64 %46\l  store i8* %47, i8** %35, align 8, !tbaa !1643\l  br label %55\l}"];
+	Node0x1605b10 -> Node0x1605c00;
+	Node0x1605b60 [shape=record,label="{%48:\l48:                                               \l  %49 = call i32 @wctomb(i8* nonnull %4, i32 %0) #42\l  %50 = icmp slt i32 %49, 0\l  br i1 %50, label %58, label %51\l|{<s0>T|<s1>F}}"];
+	Node0x1605b60:s0 -> Node0x1605c50;
+	Node0x1605b60:s1 -> Node0x1605bb0;
+	Node0x1605bb0 [shape=record,label="{%51:\l51:                                               \l  %52 = zext i32 %49 to i64\l  %53 = call i64 @__fwritex(i8* nonnull %4, i64 %52, %struct._IO_FILE.0*\l... nonnull %1) #42\l  %54 = icmp ult i64 %53, %52\l  br i1 %54, label %58, label %55\l|{<s0>T|<s1>F}}"];
+	Node0x1605bb0:s0 -> Node0x1605c50;
+	Node0x1605bb0:s1 -> Node0x1605c00;
+	Node0x1605c00 [shape=record,label="{%55:\l55:                                               \l  %56 = phi i32 [ %0, %44 ], [ %0, %51 ], [ %33, %32 ]\l  %57 = icmp eq i32 %56, -1\l  br i1 %57, label %58, label %62\l|{<s0>T|<s1>F}}"];
+	Node0x1605c00:s0 -> Node0x1605c50;
+	Node0x1605c00:s1 -> Node0x1605ca0;
+	Node0x1605c50 [shape=record,label="{%58:\l58:                                               \l  %59 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %1, i64\l... 0, i32 0\l  %60 = load i32, i32* %59, align 8, !tbaa !1646\l  %61 = or i32 %60, 32\l  store i32 %61, i32* %59, align 8, !tbaa !1646\l  br label %62\l}"];
+	Node0x1605c50 -> Node0x1605ca0;
+	Node0x1605ca0 [shape=record,label="{%62:\l62:                                               \l  %63 = phi i32 [ -1, %58 ], [ %56, %55 ], [ %0, %30 ]\l  store i64 %8, i64* %7, align 8, !tbaa !1633\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %4) #40\l  ret i32 %63\l}"];
+}

@@ -1,0 +1,17 @@
+digraph "CFG for 'fexecve' function" {
+	label="CFG for 'fexecve' function";
+
+	Node0x1f6b250 [shape=record,label="{%3:\l  %4 = alloca [27 x i8], align 16\l  %5 = sext i32 %0 to i64\l  %6 = ptrtoint i8** %1 to i64\l  %7 = ptrtoint i8** %2 to i64\l  %8 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},\{r8\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fps\l...r\},~\{flags\}(i64 322, i64 %5, i64 ptrtoint ([1 x i8]* @.str.923 to i64), i64\l... %6, i64 %7, i64 4096) #40, !srcloc !1632\l  %9 = trunc i64 %8 to i32\l  %10 = icmp eq i32 %9, -38\l  br i1 %10, label %16, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1f6b250:s0 -> Node0x1f6b6d0;
+	Node0x1f6b250:s1 -> Node0x1f6b680;
+	Node0x1f6b680 [shape=record,label="{%11:\l11:                                               \l  %12 = shl i64 %8, 32\l  %13 = ashr exact i64 %12, 32\l  %14 = tail call i64 @__syscall_ret(i64 %13) #41\l  %15 = trunc i64 %14 to i32\l  br label %25\l}"];
+	Node0x1f6b680 -> Node0x1f6b7c0;
+	Node0x1f6b6d0 [shape=record,label="{%16:\l16:                                               \l  %17 = getelementptr inbounds [27 x i8], [27 x i8]* %4, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 27, i8* nonnull %17) #40\l  call void @__procfdname(i8* nonnull %17, i32 %0) #41\l  %18 = call i32 @execve(i8* nonnull %17, i8** %1, i8** %2) #41\l  %19 = call i32* @___errno_location() #41\l  %20 = load i32, i32* %19, align 4, !tbaa !1633\l  %21 = icmp eq i32 %20, 2\l  br i1 %21, label %22, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x1f6b6d0:s0 -> Node0x1f6b720;
+	Node0x1f6b6d0:s1 -> Node0x1f6b770;
+	Node0x1f6b720 [shape=record,label="{%22:\l22:                                               \l  %23 = call i32* @___errno_location() #41\l  store i32 9, i32* %23, align 4, !tbaa !1633\l  br label %24\l}"];
+	Node0x1f6b720 -> Node0x1f6b770;
+	Node0x1f6b770 [shape=record,label="{%24:\l24:                                               \l  call void @llvm.lifetime.end.p0i8(i64 27, i8* nonnull %17) #40\l  br label %25\l}"];
+	Node0x1f6b770 -> Node0x1f6b7c0;
+	Node0x1f6b7c0 [shape=record,label="{%25:\l25:                                               \l  %26 = phi i32 [ %15, %11 ], [ -1, %24 ]\l  ret i32 %26\l}"];
+}

@@ -1,0 +1,32 @@
+digraph "CFG for 'accept4' function" {
+	label="CFG for 'accept4' function";
+
+	Node0x1d62470 [shape=record,label="{%4:\l  %5 = icmp eq i32 %3, 0\l  br i1 %5, label %6, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1d62470:s0 -> Node0x1d62690;
+	Node0x1d62470:s1 -> Node0x1d626e0;
+	Node0x1d62690 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32 @accept(i32 %0, %struct.sockaddr* %1, i32* %2) #40\l  br label %40\l}"];
+	Node0x1d62690 -> Node0x1d62960;
+	Node0x1d626e0 [shape=record,label="{%8:\l8:                                                \l  %9 = sext i32 %0 to i64\l  %10 = ptrtoint %struct.sockaddr* %1 to i64\l  %11 = ptrtoint i32* %2 to i64\l  %12 = sext i32 %3 to i64\l  %13 = tail call i64 @__syscall_cp(i64 288, i64 %9, i64 %10, i64 %11, i64\l... %12, i64 0, i64 0) #40\l  %14 = tail call i64 @__syscall_ret(i64 %13) #40\l  %15 = trunc i64 %14 to i32\l  %16 = icmp sgt i32 %15, -1\l  br i1 %16, label %40, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1d626e0:s0 -> Node0x1d62960;
+	Node0x1d626e0:s1 -> Node0x1d62730;
+	Node0x1d62730 [shape=record,label="{%17:\l17:                                               \l  %18 = tail call i32* @___errno_location() #40\l  %19 = load i32, i32* %18, align 4, !tbaa !1632\l  %20 = icmp eq i32 %19, 38\l  br i1 %20, label %25, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1d62730:s0 -> Node0x1d627d0;
+	Node0x1d62730:s1 -> Node0x1d62780;
+	Node0x1d62780 [shape=record,label="{%21:\l21:                                               \l  %22 = tail call i32* @___errno_location() #40\l  %23 = load i32, i32* %22, align 4, !tbaa !1632\l  %24 = icmp eq i32 %23, 22\l  br i1 %24, label %25, label %40\l|{<s0>T|<s1>F}}"];
+	Node0x1d62780:s0 -> Node0x1d627d0;
+	Node0x1d62780:s1 -> Node0x1d62960;
+	Node0x1d627d0 [shape=record,label="{%25:\l25:                                               \l  %26 = tail call i32 @accept(i32 %0, %struct.sockaddr* %1, i32* %2) #40\l  %27 = icmp slt i32 %26, 0\l  br i1 %27, label %40, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1d627d0:s0 -> Node0x1d62960;
+	Node0x1d627d0:s1 -> Node0x1d62820;
+	Node0x1d62820 [shape=record,label="{%28:\l28:                                               \l  %29 = and i32 %3, 524288\l  %30 = icmp eq i32 %29, 0\l  br i1 %30, label %34, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1d62820:s0 -> Node0x1d628c0;
+	Node0x1d62820:s1 -> Node0x1d62870;
+	Node0x1d62870 [shape=record,label="{%31:\l31:                                               \l  %32 = zext i32 %26 to i64\l  %33 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 72, i64 %32, i64 2, i64 1) #41, !srcloc !1636\l  br label %34\l}"];
+	Node0x1d62870 -> Node0x1d628c0;
+	Node0x1d628c0 [shape=record,label="{%34:\l34:                                               \l  %35 = and i32 %3, 2048\l  %36 = icmp eq i32 %35, 0\l  br i1 %36, label %40, label %37\l|{<s0>T|<s1>F}}"];
+	Node0x1d628c0:s0 -> Node0x1d62960;
+	Node0x1d628c0:s1 -> Node0x1d62910;
+	Node0x1d62910 [shape=record,label="{%37:\l37:                                               \l  %38 = zext i32 %26 to i64\l  %39 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 72, i64 %38, i64 4, i64 2048) #41, !srcloc !1636\l  br label %40\l}"];
+	Node0x1d62910 -> Node0x1d62960;
+	Node0x1d62960 [shape=record,label="{%40:\l40:                                               \l  %41 = phi i32 [ %7, %6 ], [ %15, %21 ], [ %15, %8 ], [ %26, %25 ], [ %26,\l... %34 ], [ %26, %37 ]\l  ret i32 %41\l}"];
+}

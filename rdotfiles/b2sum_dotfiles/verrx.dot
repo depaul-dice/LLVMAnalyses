@@ -1,0 +1,5 @@
+digraph "CFG for 'verrx' function" {
+	label="CFG for 'verrx' function";
+
+	Node0x17fb560 [shape=record,label="{%3:\l  tail call void @vwarnx(i8* %1, %struct.__va_list_tag* %2) #40\l  tail call void @exit(i32 %0) #41\l  unreachable\l}"];
+}

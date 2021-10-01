@@ -1,0 +1,13 @@
+digraph "CFG for 'bind_textdomain_codeset' function" {
+	label="CFG for 'bind_textdomain_codeset' function";
+
+	Node0x1e630f0 [shape=record,label="{%2:\l  %3 = icmp eq i8* %1, null\l  br i1 %3, label %9, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1e630f0:s0 -> Node0x1e63510;
+	Node0x1e630f0:s1 -> Node0x1e63170;
+	Node0x1e63170 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i32 @strcasecmp(i8* nonnull %1, i8* getelementptr inbounds\l... ([6 x i8], [6 x i8]* @.str.561, i64 0, i64 0)) #40\l  %6 = icmp eq i32 %5, 0\l  br i1 %6, label %9, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1e63170:s0 -> Node0x1e63510;
+	Node0x1e63170:s1 -> Node0x1e634c0;
+	Node0x1e634c0 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %8, align 4, !tbaa !1632\l  br label %9\l}"];
+	Node0x1e634c0 -> Node0x1e63510;
+	Node0x1e63510 [shape=record,label="{%9:\l9:                                                \l  ret i8* null\l}"];
+}

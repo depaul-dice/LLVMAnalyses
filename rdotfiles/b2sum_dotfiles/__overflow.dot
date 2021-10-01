@@ -1,0 +1,38 @@
+digraph "CFG for '__overflow' function" {
+	label="CFG for '__overflow' function";
+
+	Node0x161a390 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = alloca i8, align 1\l  call void @llvm.lifetime.start.p0i8(i64 1, i8* nonnull %3) #29\l  %4 = trunc i32 %1 to i8\l  store i8 %4, i8* %3, align 1, !tbaa !1632\l  %5 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 4\l  %6 = load i8*, i8** %5, align 8, !tbaa !1635\l  %7 = icmp eq i8* %6, null\l  br i1 %7, label %8, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x161a390:s0 -> Node0x161a440;
+	Node0x161a390:s1 -> Node0x161a4e0;
+	Node0x161a440 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3947570",label="{%8:\l8:                                                \l  %9 = bitcast %struct._IO_FILE.0* %0 to %struct._IO_FILE.970*\l  %10 = tail call i32 @__towrite(%struct._IO_FILE.970* nonnull %9) #30\l  %11 = icmp eq i32 %10, 0\l  br i1 %11, label %12, label %46\l|{<s0>T|<s1>F}}"];
+	Node0x161a440:s0 -> Node0x161a490;
+	Node0x161a440:s1 -> Node0x161a800;
+	Node0x161a490 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e3d9d370",label="{%12:\l12:                                               \l  %13 = load i8*, i8** %5, align 8, !tbaa !1635\l  br label %14\l}"];
+	Node0x161a490 -> Node0x161a4e0;
+	Node0x161a4e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#cc403a70",label="{%14:\l14:                                               \l  %15 = phi i8* [ %13, %12 ], [ %6, %2 ]\l  %16 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 5\l  %17 = load i8*, i8** %16, align 8, !tbaa !1640\l  %18 = icmp eq i8* %17, %15\l  br i1 %18, label %26, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x161a4e0:s0 -> Node0x161a5d0;
+	Node0x161a4e0:s1 -> Node0x161a530;
+	Node0x161a530 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e97a5f70",label="{%19:\l19:                                               \l  %20 = and i32 %1, 255\l  %21 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 20\l  %22 = load i32, i32* %21, align 8, !tbaa !1641\l  %23 = icmp eq i32 %22, %20\l  br i1 %23, label %26, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x161a530:s0 -> Node0x161a5d0;
+	Node0x161a530:s1 -> Node0x161a580;
+	Node0x161a580 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6bfa670",label="{%24:\l24:                                               \l  %25 = getelementptr inbounds i8, i8* %17, i64 1\l  store i8* %25, i8** %16, align 8, !tbaa !1640\l  store i8 %4, i8* %17, align 1, !tbaa !1632\l  br label %46\l}"];
+	Node0x161a580 -> Node0x161a800;
+	Node0x161a5d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e5705870",label="{%26:\l26:                                               \l  %27 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 9\l  %28 = load i64 (%struct._IO_FILE.0*, i8*, i64)*, i64 (%struct._IO_FILE.0*,\l... i8*, i64)** %27, align 8, !tbaa !1642\l  %29 = bitcast i64 (%struct._IO_FILE.466*, i8*, i64)* @__stdout_write to i64\l... (%struct._IO_FILE.0*, i8*, i64)*\l  %30 = icmp eq i64 (%struct._IO_FILE.0*, i8*, i64)* %28, %29\l  br i1 %30, label %if.true.direct_targ, label %if.false.orig_indirect\l|{<s0>T|<s1>F}}"];
+	Node0x161a5d0:s0 -> Node0x161a620;
+	Node0x161a5d0:s1 -> Node0x161a670;
+	Node0x161a620 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{if.true.direct_targ:                              \l  %31 = bitcast %struct._IO_FILE.0* %0 to %struct._IO_FILE.466*\l  %32 = call i64 @__stdout_write(%struct._IO_FILE.466* nonnull %31, i8*\l... nonnull %3, i64 1) #31\l  br label %if.end.icp\l}"];
+	Node0x161a620 -> Node0x161a760;
+	Node0x161a670 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6a38570",label="{if.false.orig_indirect:                           \l  %33 = bitcast i64 (%struct._IO_FILE.466*, i8*, i64)* @__stdio_write to i64\l... (%struct._IO_FILE.0*, i8*, i64)*\l  %34 = icmp eq i64 (%struct._IO_FILE.0*, i8*, i64)* %28, %33\l  br i1 %34, label %if.true.direct_targ1, label %if.false.orig_indirect2\l|{<s0>T|<s1>F}}"];
+	Node0x161a670:s0 -> Node0x161a6c0;
+	Node0x161a670:s1 -> Node0x161a710;
+	Node0x161a6c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{if.true.direct_targ1:                             \l  %35 = bitcast %struct._IO_FILE.0* %0 to %struct._IO_FILE.466*\l  %36 = call i64 @__stdio_write(%struct._IO_FILE.466* nonnull %35, i8* nonnull\l... %3, i64 1) #31\l  br label %if.end.icp\l}"];
+	Node0x161a6c0 -> Node0x161a760;
+	Node0x161a710 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{if.false.orig_indirect2:                          \l  %37 = bitcast i64 (%struct._IO_FILE.280*, i8*, i64)* @__stdio_read to i64\l... (%struct._IO_FILE.0*, i8*, i64)*\l  %38 = icmp eq i64 (%struct._IO_FILE.0*, i8*, i64)* %28, %37\l  call void @llvm.assume(i1 %38)\l  %39 = bitcast %struct._IO_FILE.0* %0 to %struct._IO_FILE.280*\l  %40 = call i64 @__stdio_read(%struct._IO_FILE.280* nonnull %39, i8* nonnull\l... %3, i64 1) #31\l  br label %if.end.icp\l}"];
+	Node0x161a710 -> Node0x161a760;
+	Node0x161a760 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e5705870",label="{if.end.icp:                                       \l  %41 = phi i64 [ %32, %if.true.direct_targ ], [ %40, %if.false.orig_indirect2\l... ], [ %36, %if.true.direct_targ1 ]\l  %42 = icmp eq i64 %41, 1\l  br i1 %42, label %43, label %46\l|{<s0>T|<s1>F}}"];
+	Node0x161a760:s0 -> Node0x161a7b0;
+	Node0x161a760:s1 -> Node0x161a800;
+	Node0x161a7b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b59970",label="{%43:\l43:                                               \l  %44 = load i8, i8* %3, align 1, !tbaa !1632\l  %45 = zext i8 %44 to i32\l  br label %46\l}"];
+	Node0x161a7b0 -> Node0x161a800;
+	Node0x161a800 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%46:\l46:                                               \l  %47 = phi i32 [ %20, %24 ], [ %45, %43 ], [ -1, %8 ], [ -1, %if.end.icp ]\l  call void @llvm.lifetime.end.p0i8(i64 1, i8* nonnull %3) #29\l  ret i32 %47\l}"];
+}

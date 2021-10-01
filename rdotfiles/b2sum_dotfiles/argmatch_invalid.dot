@@ -1,0 +1,5 @@
+digraph "CFG for 'argmatch_invalid' function" {
+	label="CFG for 'argmatch_invalid' function";
+
+	Node0x1467310 [shape=record,label="{%3:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1640\l  call void @llvm.dbg.value(metadata i8* %1, metadata !1637, metadata\l... !DIExpression()), !dbg !1640\l  call void @llvm.dbg.value(metadata i64 %2, metadata !1638, metadata\l... !DIExpression()), !dbg !1640\l  %4 = icmp eq i64 %2, -1, !dbg !1641\l  %5 = select i1 %4, i8* getelementptr inbounds ([27 x i8], [27 x i8]*\l... @.str.94, i64 0, i64 0), i8* getelementptr inbounds ([29 x i8], [29 x i8]*\l... @.str.1.95, i64 0, i64 0), !dbg !1642\l  %6 = tail call i8* @dcgettext(i8* null, i8* %5, i32 5) #7, !dbg !1640\l  call void @llvm.dbg.value(metadata i8* %6, metadata !1639, metadata\l... !DIExpression()), !dbg !1640\l  %7 = tail call i8* @quotearg_n_style(i32 0, i32 8, i8* %1) #7, !dbg !1643\l  %8 = tail call i8* @quote_n(i32 1, i8* %0) #7, !dbg !1644\l  tail call void (i32, i32, i8*, ...) @error(i32 0, i32 0, i8* %6, i8* %7, i8*\l... %8) #7, !dbg !1645\l  ret void, !dbg !1646\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for '__iswxdigit_l' function" {
+	label="CFG for '__iswxdigit_l' function";
+
+	Node0x1f8e160 [shape=record,label="{%2:\l  %3 = add i32 %0, -48\l  %4 = icmp ult i32 %3, 10\l  %5 = or i32 %0, 32\l  %6 = add i32 %5, -97\l  %7 = icmp ult i32 %6, 6\l  %8 = or i1 %4, %7\l  %9 = zext i1 %8 to i32\l  ret i32 %9\l}"];
+}

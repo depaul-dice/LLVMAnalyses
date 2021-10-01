@@ -1,0 +1,18 @@
+digraph "CFG for 'fmaxl' function" {
+	label="CFG for 'fmaxl' function";
+
+	Node0x1ede5f0 [shape=record,label="{%2:\l  %3 = tail call i32 @__fpclassifyl(x86_fp80 %0) #40\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %19, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1ede5f0:s0 -> Node0x1ee1920;
+	Node0x1ede5f0:s1 -> Node0x1ee17e0;
+	Node0x1ee17e0 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i32 @__fpclassifyl(x86_fp80 %1) #40\l  %7 = icmp eq i32 %6, 0\l  br i1 %7, label %19, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1ee17e0:s0 -> Node0x1ee1920;
+	Node0x1ee17e0:s1 -> Node0x1ee1830;
+	Node0x1ee1830 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call i32 @__signbitl(x86_fp80 %0) #40\l  %10 = tail call i32 @__signbitl(x86_fp80 %1) #40\l  %11 = icmp eq i32 %9, %10\l  br i1 %11, label %16, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1ee1830:s0 -> Node0x1ee18d0;
+	Node0x1ee1830:s1 -> Node0x1ee1880;
+	Node0x1ee1880 [shape=record,label="{%12:\l12:                                               \l  %13 = tail call i32 @__signbitl(x86_fp80 %0) #40\l  %14 = icmp eq i32 %13, 0\l  %15 = select i1 %14, x86_fp80 %0, x86_fp80 %1\l  br label %19\l}"];
+	Node0x1ee1880 -> Node0x1ee1920;
+	Node0x1ee18d0 [shape=record,label="{%16:\l16:                                               \l  %17 = tail call i1 @llvm.experimental.constrained.fcmps.f80(x86_fp80 %0,\l... x86_fp80 %1, metadata !olt, metadata !fpexcept.ignore) #41\l  %18 = select i1 %17, x86_fp80 %1, x86_fp80 %0\l  br label %19\l}"];
+	Node0x1ee18d0 -> Node0x1ee1920;
+	Node0x1ee1920 [shape=record,label="{%19:\l19:                                               \l  %20 = phi x86_fp80 [ %15, %12 ], [ %18, %16 ], [ %1, %2 ], [ %0, %5 ]\l  ret x86_fp80 %20\l}"];
+}

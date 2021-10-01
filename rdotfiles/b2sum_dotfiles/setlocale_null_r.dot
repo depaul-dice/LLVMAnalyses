@@ -1,0 +1,23 @@
+digraph "CFG for 'setlocale_null_r' function" {
+	label="CFG for 'setlocale_null_r' function";
+
+	Node0x14a08e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  call void @llvm.dbg.value(metadata i32 %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1639\l  call void @llvm.dbg.value(metadata i8* %1, metadata !1637, metadata\l... !DIExpression()), !dbg !1639\l  call void @llvm.dbg.value(metadata i64 %2, metadata !1638, metadata\l... !DIExpression()), !dbg !1639\l  call void @llvm.dbg.value(metadata i32 %0, metadata !1640, metadata\l... !DIExpression()) #8, !dbg !1649\l  call void @llvm.dbg.value(metadata i8* %1, metadata !1643, metadata\l... !DIExpression()) #8, !dbg !1649\l  call void @llvm.dbg.value(metadata i64 %2, metadata !1644, metadata\l... !DIExpression()) #8, !dbg !1649\l  call void @llvm.dbg.value(metadata i32 %0, metadata !1651, metadata\l... !DIExpression()) #8, !dbg !1657\l  %4 = tail call fastcc i8* @setlocale(i32 %0, i8* null) #8, !dbg !1659\l  call void @llvm.dbg.value(metadata i8* %4, metadata !1656, metadata\l... !DIExpression()) #8, !dbg !1657\l  call void @llvm.dbg.value(metadata i8* %4, metadata !1645, metadata\l... !DIExpression()) #8, !dbg !1649\l  %5 = icmp eq i8* %4, null, !dbg !1660\l  br i1 %5, label %6, label %9, !dbg !1661\l|{<s0>T|<s1>F}}"];
+	Node0x14a08e0:s0 -> Node0x14a0930;
+	Node0x14a08e0:s1 -> Node0x14a09d0;
+	Node0x14a0930 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f5a08170",label="{%6:\l6:                                                \l  %7 = icmp eq i64 %2, 0, !dbg !1662\l  br i1 %7, label %19, label %8, !dbg !1665\l|{<s0>T|<s1>F}}"];
+	Node0x14a0930:s0 -> Node0x14a0b10;
+	Node0x14a0930:s1 -> Node0x14a0980;
+	Node0x14a0980 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%8:\l8:                                                \l  store i8 0, i8* %1, align 1, !dbg !1666, !tbaa !1667\l  br label %19, !dbg !1670\l}"];
+	Node0x14a0980 -> Node0x14a0b10;
+	Node0x14a09d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e1675170",label="{%9:\l9:                                                \l  %10 = tail call fastcc i64 @strlen(i8* nonnull %4) #29, !dbg !1671\l  call void @llvm.dbg.value(metadata i64 %10, metadata !1646, metadata\l... !DIExpression()) #8, !dbg !1672\l  %11 = icmp ult i64 %10, %2, !dbg !1673\l  br i1 %11, label %12, label %14, !dbg !1675\l|{<s0>T|<s1>F}}"];
+	Node0x14a09d0:s0 -> Node0x14a0a20;
+	Node0x14a09d0:s1 -> Node0x14a0a70;
+	Node0x14a0a20 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b59970",label="{%12:\l12:                                               \l  %13 = add nuw i64 %10, 1, !dbg !1676\l  call void @llvm.dbg.value(metadata i8* %1, metadata !1678, metadata\l... !DIExpression()) #8, !dbg !1688\l  call void @llvm.dbg.value(metadata i8* %4, metadata !1686, metadata\l... !DIExpression()) #8, !dbg !1688\l  call void @llvm.dbg.value(metadata i64 %13, metadata !1687, metadata\l... !DIExpression()) #8, !dbg !1688\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 1 %1, i8* nonnull\l... align 1 %4, i64 %13, i1 false) #8, !dbg !1690\l  br label %19, !dbg !1691\l}"];
+	Node0x14a0a20 -> Node0x14a0b10;
+	Node0x14a0a70 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b59970",label="{%14:\l14:                                               \l  %15 = icmp eq i64 %2, 0, !dbg !1692\l  br i1 %15, label %19, label %16, !dbg !1695\l|{<s0>T|<s1>F}}"];
+	Node0x14a0a70:s0 -> Node0x14a0b10;
+	Node0x14a0a70:s1 -> Node0x14a0ac0;
+	Node0x14a0ac0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ecd3c570",label="{%16:\l16:                                               \l  %17 = add i64 %2, -1, !dbg !1696\l  call void @llvm.dbg.value(metadata i8* %1, metadata !1678, metadata\l... !DIExpression()) #8, !dbg !1698\l  call void @llvm.dbg.value(metadata i8* %4, metadata !1686, metadata\l... !DIExpression()) #8, !dbg !1698\l  call void @llvm.dbg.value(metadata i64 %17, metadata !1687, metadata\l... !DIExpression()) #8, !dbg !1698\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 1 %1, i8* nonnull\l... align 1 %4, i64 %17, i1 false) #8, !dbg !1700\l  %18 = getelementptr inbounds i8, i8* %1, i64 %17, !dbg !1701\l  store i8 0, i8* %18, align 1, !dbg !1702, !tbaa !1667\l  br label %19, !dbg !1703\l}"];
+	Node0x14a0ac0 -> Node0x14a0b10;
+	Node0x14a0b10 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%19:\l19:                                               \l  %20 = phi i32 [ 22, %6 ], [ 22, %8 ], [ 0, %12 ], [ 34, %14 ], [ 34, %16 ],\l... !dbg !1704\l  ret i32 %20, !dbg !1705\l}"];
+}

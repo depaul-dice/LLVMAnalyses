@@ -1,0 +1,13 @@
+digraph "CFG for 'ecvt' function" {
+	label="CFG for 'ecvt' function";
+
+	Node0x1be5100 [shape=record,label="{%4:\l  %5 = alloca [32 x i8], align 16\l  %6 = getelementptr inbounds [32 x i8], [32 x i8]* %5, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 32, i8* nonnull %6) #40\l  %7 = add i32 %1, -1\l  %8 = icmp ugt i32 %7, 15\l  %9 = select i1 %8, i32 14, i32 %7\l  %10 = call i32 (i8*, i8*, ...) @sprintf(i8* nonnull %6, i8* getelementptr\l... inbounds ([5 x i8], [5 x i8]* @.str.504, i64 0, i64 0), i32 %9, double %0) #41\l  %11 = load i8, i8* %6, align 16, !tbaa !1632\l  %12 = icmp eq i8 %11, 45\l  %13 = zext i1 %12 to i32\l  store i32 %13, i32* %3, align 4, !tbaa !1635\l  %14 = zext i1 %12 to i64\l  %15 = getelementptr inbounds [32 x i8], [32 x i8]* %5, i64 0, i64 %14\l  %16 = load i8, i8* %15, align 1, !tbaa !1632\l  %17 = icmp eq i8 %16, 101\l  br i1 %17, label %34, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1be5100:s0 -> Node0x1be52d0;
+	Node0x1be5100:s1 -> Node0x1be5230;
+	Node0x1be5230 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i64 [ %23, %18 ], [ %14, %4 ]\l  %20 = phi i8* [ %31, %18 ], [ getelementptr inbounds ([16 x i8], [16 x i8]*\l... @ecvt.buf, i64 0, i64 0), %4 ]\l  %21 = phi i8 [ %28, %18 ], [ %16, %4 ]\l  %22 = phi i32 [ %26, %18 ], [ 0, %4 ]\l  store i8 %21, i8* %20, align 1, !tbaa !1632\l  %23 = add nuw i64 %19, 1\l  %24 = icmp ne i8 %21, 46\l  %25 = zext i1 %24 to i32\l  %26 = add nuw nsw i32 %22, %25\l  %27 = getelementptr inbounds [32 x i8], [32 x i8]* %5, i64 0, i64 %23\l  %28 = load i8, i8* %27, align 1, !tbaa !1632\l  %29 = icmp eq i8 %28, 101\l  %30 = zext i32 %26 to i64\l  %31 = getelementptr inbounds [16 x i8], [16 x i8]* @ecvt.buf, i64 0, i64 %30\l  br i1 %29, label %32, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1be5230:s0 -> Node0x1be5280;
+	Node0x1be5230:s1 -> Node0x1be5230;
+	Node0x1be5280 [shape=record,label="{%32:\l32:                                               \l  %33 = and i64 %23, 4294967295\l  br label %34\l}"];
+	Node0x1be5280 -> Node0x1be52d0;
+	Node0x1be52d0 [shape=record,label="{%34:\l34:                                               \l  %35 = phi i64 [ %33, %32 ], [ %14, %4 ]\l  %36 = phi i8* [ %31, %32 ], [ getelementptr inbounds ([16 x i8], [16 x i8]*\l... @ecvt.buf, i64 0, i64 0), %4 ]\l  %37 = getelementptr inbounds [32 x i8], [32 x i8]* %5, i64 0, i64 %35\l  store i8 0, i8* %36, align 1, !tbaa !1632\l  %38 = getelementptr inbounds i8, i8* %37, i64 1\l  %39 = call i32 @atoi(i8* nonnull %38) #41\l  %40 = add nsw i32 %39, 1\l  store i32 %40, i32* %2, align 4, !tbaa !1635\l  call void @llvm.lifetime.end.p0i8(i64 32, i8* nonnull %6) #40\l  ret i8* getelementptr inbounds ([16 x i8], [16 x i8]* @ecvt.buf, i64 0, i64\l... 0)\l}"];
+}

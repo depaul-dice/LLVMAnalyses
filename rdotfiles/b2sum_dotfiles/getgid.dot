@@ -1,0 +1,5 @@
+digraph "CFG for 'getgid' function" {
+	label="CFG for 'getgid' function";
+
+	Node0x190d970 [shape=record,label="{%0:\l  %1 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64 104)\l... #40, !srcloc !1632\l  %2 = trunc i64 %1 to i32\l  ret i32 %2\l}"];
+}

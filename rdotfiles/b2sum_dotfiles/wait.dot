@@ -1,0 +1,5 @@
+digraph "CFG for 'wait' function" {
+	label="CFG for 'wait' function";
+
+	Node0x1ff0730 [shape=record,label="{%1:\l  %2 = tail call i32 @waitpid(i32 -1, i32* %0, i32 0) #40\l  ret i32 %2\l}"];
+}

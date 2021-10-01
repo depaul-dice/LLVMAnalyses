@@ -1,0 +1,10 @@
+digraph "CFG for '__aio_close' function" {
+	label="CFG for '__aio_close' function";
+
+	Node0x14de1f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  tail call void asm sideeffect , ~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}()\l... #29, !srcloc !1632\l  %2 = load volatile i32, i32* @aio_fd_cnt, align 4, !tbaa !1633\l  %3 = icmp eq i32 %2, 0\l  br i1 %3, label %6, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x14de1f0:s0 -> Node0x14de5d0;
+	Node0x14de1f0:s1 -> Node0x14de580;
+	Node0x14de580 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%4:\l4:                                                \l  %5 = tail call fastcc i32 @aio_cancel(i32 %0, %struct.aiocb* null) #30\l  br label %6\l}"];
+	Node0x14de580 -> Node0x14de5d0;
+	Node0x14de5d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%6:\l6:                                                \l  ret i32 %0\l}"];
+}

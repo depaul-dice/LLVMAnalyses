@@ -1,0 +1,5 @@
+digraph "CFG for 'significandf' function" {
+	label="CFG for 'significandf' function";
+
+	Node0x1ce03d0 [shape=record,label="{%1:\l  %2 = tail call i32 @ilogbf(float %0) #40\l  %3 = sub nsw i32 0, %2\l  %4 = tail call float @scalbnf(float %0, i32 %3) #40\l  ret float %4\l}"];
+}

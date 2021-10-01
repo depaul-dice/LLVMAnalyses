@@ -1,0 +1,5 @@
+digraph "CFG for 'get_phys_pages' function" {
+	label="CFG for 'get_phys_pages' function";
+
+	Node0x1ea6790 [shape=record,label="{%0:\l  %1 = tail call i64 @sysconf(i32 85) #40\l  ret i64 %1\l}"];
+}

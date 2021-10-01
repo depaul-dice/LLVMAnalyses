@@ -1,0 +1,5 @@
+digraph "CFG for 'cacosf' function" {
+	label="CFG for 'cacosf' function";
+
+	Node0x190ed50 [shape=record,label="{%1:\l  %2 = tail call \<2 x float\> @casinf(\<2 x float\> %0) #40\l  %3 = extractelement \<2 x float\> %2, i32 0\l  %4 = extractelement \<2 x float\> %2, i32 1\l  %5 = tail call float @llvm.experimental.constrained.fptrunc.f32.f64(double\l... 0x3FF921FB54442D18, metadata !round.dynamic, metadata !fpexcept.ignore)\l... #41\l  %6 = tail call float @llvm.experimental.constrained.fsub.f32(float %5, float\l... %3, metadata !round.dynamic, metadata !fpexcept.ignore) #41\l  %7 = fneg float %4\l  %8 = insertelement \<2 x float\> undef, float %6, i32 0\l  %9 = insertelement \<2 x float\> %8, float %7, i32 1\l  ret \<2 x float\> %9\l}"];
+}

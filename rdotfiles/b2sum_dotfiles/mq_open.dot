@@ -1,0 +1,22 @@
+digraph "CFG for 'mq_open' function" {
+	label="CFG for 'mq_open' function";
+
+	Node0x167c550 [shape=record,label="{%2:\l  %3 = alloca [1 x %struct.__va_list_tag], align 16\l  %4 = load i8, i8* %0, align 1, !tbaa !1632\l  %5 = icmp eq i8 %4, 47\l  %6 = getelementptr inbounds i8, i8* %0, i64 1\l  %7 = select i1 %5, i8* %6, i8* %0\l  %8 = and i32 %1, 64\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %47, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x167c550:s0 -> Node0x167caf0;
+	Node0x167c550:s1 -> Node0x167c910;
+	Node0x167c910 [shape=record,label="{%10:\l10:                                               \l  %11 = bitcast [1 x %struct.__va_list_tag]* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %11) #40\l  call void @llvm.va_start(i8* nonnull %11) #41\l  %12 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 0\l  %13 = load i32, i32* %12, align 16\l  %14 = icmp ult i32 %13, 41\l  br i1 %14, label %21, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x167c910:s0 -> Node0x167c9b0;
+	Node0x167c910:s1 -> Node0x167c960;
+	Node0x167c960 [shape=record,label="{%15:\l15:                                               \l  %16 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 2\l  %17 = load i8*, i8** %16, align 8\l  %18 = getelementptr i8, i8* %17, i64 8\l  store i8* %18, i8** %16, align 8\l  %19 = bitcast i8* %17 to i32*\l  %20 = load i32, i32* %19, align 4\l  br label %36\l}"];
+	Node0x167c960 -> Node0x167ca50;
+	Node0x167c9b0 [shape=record,label="{%21:\l21:                                               \l  %22 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 3\l  %23 = load i8*, i8** %22, align 16\l  %24 = zext i32 %13 to i64\l  %25 = getelementptr i8, i8* %23, i64 %24\l  %26 = add nuw nsw i32 %13, 8\l  store i32 %26, i32* %12, align 16\l  %27 = bitcast i8* %25 to i32*\l  %28 = load i32, i32* %27, align 4\l  %29 = icmp ult i32 %13, 33\l  br i1 %29, label %30, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x167c9b0:s0 -> Node0x167ca00;
+	Node0x167c9b0:s1 -> Node0x167ca50;
+	Node0x167ca00 [shape=record,label="{%30:\l30:                                               \l  %31 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 3\l  %32 = load i8*, i8** %31, align 16\l  %33 = zext i32 %26 to i64\l  %34 = getelementptr i8, i8* %32, i64 %33\l  %35 = add nuw nsw i32 %13, 16\l  store i32 %35, i32* %12, align 16\l  br label %41\l}"];
+	Node0x167ca00 -> Node0x167caa0;
+	Node0x167ca50 [shape=record,label="{%36:\l36:                                               \l  %37 = phi i32 [ %20, %15 ], [ %28, %21 ]\l  %38 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 2\l  %39 = load i8*, i8** %38, align 8\l  %40 = getelementptr i8, i8* %39, i64 8\l  store i8* %40, i8** %38, align 8\l  br label %41\l}"];
+	Node0x167ca50 -> Node0x167caa0;
+	Node0x167caa0 [shape=record,label="{%41:\l41:                                               \l  %42 = phi i32 [ %28, %30 ], [ %37, %36 ]\l  %43 = phi i8* [ %34, %30 ], [ %39, %36 ]\l  %44 = bitcast i8* %43 to i64*\l  %45 = load i64, i64* %44, align 8\l  call void @llvm.va_end(i8* nonnull %11) #41\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %11) #40\l  %46 = zext i32 %42 to i64\l  br label %47\l}"];
+	Node0x167caa0 -> Node0x167caf0;
+	Node0x167caf0 [shape=record,label="{%47:\l47:                                               \l  %48 = phi i64 [ %46, %41 ], [ 0, %2 ]\l  %49 = phi i64 [ %45, %41 ], [ 0, %2 ]\l  %50 = ptrtoint i8* %7 to i64\l  %51 = sext i32 %1 to i64\l  %52 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}(i64 240, i64 %50, i64 %51, i64 %48, i64 %49) #40, !srcloc !1635\l  %53 = call i64 @__syscall_ret(i64 %52) #42\l  %54 = trunc i64 %53 to i32\l  ret i32 %54\l}"];
+}

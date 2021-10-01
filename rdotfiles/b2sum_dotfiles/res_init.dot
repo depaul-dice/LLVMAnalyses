@@ -1,0 +1,5 @@
+digraph "CFG for 'res_init' function" {
+	label="CFG for 'res_init' function";
+
+	Node0x1d4c860 [shape=record,label="{%0:\l  ret i32 0\l}"];
+}

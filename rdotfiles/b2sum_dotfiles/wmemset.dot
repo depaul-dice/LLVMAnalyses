@@ -1,0 +1,33 @@
+digraph "CFG for 'wmemset' function" {
+	label="CFG for 'wmemset' function";
+
+	Node0x1d39a20 [shape=record,label="{%3:\l  %4 = icmp eq i64 %2, 0\l  br i1 %4, label %91, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1d39a20:s0 -> Node0x1d39e20;
+	Node0x1d39a20:s1 -> Node0x1d39b50;
+	Node0x1d39b50 [shape=record,label="{%5:\l5:                                                \l  %6 = icmp ult i64 %2, 8\l  br i1 %6, label %82, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1d39b50:s0 -> Node0x1d39d80;
+	Node0x1d39b50:s1 -> Node0x1d39ba0;
+	Node0x1d39ba0 [shape=record,label="{%7:\l7:                                                \l  %8 = and i64 %2, -8\l  %9 = getelementptr i32, i32* %0, i64 %8\l  %10 = sub i64 %2, %8\l  %11 = insertelement \<4 x i32\> undef, i32 %1, i32 0\l  %12 = shufflevector \<4 x i32\> %11, \<4 x i32\> undef, \<4 x i32\> zeroinitializer\l  %13 = insertelement \<4 x i32\> undef, i32 %1, i32 0\l  %14 = shufflevector \<4 x i32\> %13, \<4 x i32\> undef, \<4 x i32\> zeroinitializer\l  %15 = add i64 %8, -8\l  %16 = lshr exact i64 %15, 3\l  %17 = add nuw nsw i64 %16, 1\l  %18 = and i64 %17, 7\l  %19 = icmp ult i64 %15, 56\l  br i1 %19, label %67, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1d39ba0:s0 -> Node0x1d39c90;
+	Node0x1d39ba0:s1 -> Node0x1d39bf0;
+	Node0x1d39bf0 [shape=record,label="{%20:\l20:                                               \l  %21 = sub nsw i64 %17, %18\l  br label %22\l}"];
+	Node0x1d39bf0 -> Node0x1d39c40;
+	Node0x1d39c40 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i64 [ 0, %20 ], [ %64, %22 ]\l  %24 = phi i64 [ %21, %20 ], [ %65, %22 ]\l  %25 = getelementptr i32, i32* %0, i64 %23\l  %26 = bitcast i32* %25 to \<4 x i32\>*\l  store \<4 x i32\> %12, \<4 x i32\>* %26, align 4, !tbaa !1632\l  %27 = getelementptr i32, i32* %25, i64 4\l  %28 = bitcast i32* %27 to \<4 x i32\>*\l  store \<4 x i32\> %14, \<4 x i32\>* %28, align 4, !tbaa !1632\l  %29 = or i64 %23, 8\l  %30 = getelementptr i32, i32* %0, i64 %29\l  %31 = bitcast i32* %30 to \<4 x i32\>*\l  store \<4 x i32\> %12, \<4 x i32\>* %31, align 4, !tbaa !1632\l  %32 = getelementptr i32, i32* %30, i64 4\l  %33 = bitcast i32* %32 to \<4 x i32\>*\l  store \<4 x i32\> %14, \<4 x i32\>* %33, align 4, !tbaa !1632\l  %34 = or i64 %23, 16\l  %35 = getelementptr i32, i32* %0, i64 %34\l  %36 = bitcast i32* %35 to \<4 x i32\>*\l  store \<4 x i32\> %12, \<4 x i32\>* %36, align 4, !tbaa !1632\l  %37 = getelementptr i32, i32* %35, i64 4\l  %38 = bitcast i32* %37 to \<4 x i32\>*\l  store \<4 x i32\> %14, \<4 x i32\>* %38, align 4, !tbaa !1632\l  %39 = or i64 %23, 24\l  %40 = getelementptr i32, i32* %0, i64 %39\l  %41 = bitcast i32* %40 to \<4 x i32\>*\l  store \<4 x i32\> %12, \<4 x i32\>* %41, align 4, !tbaa !1632\l  %42 = getelementptr i32, i32* %40, i64 4\l  %43 = bitcast i32* %42 to \<4 x i32\>*\l  store \<4 x i32\> %14, \<4 x i32\>* %43, align 4, !tbaa !1632\l  %44 = or i64 %23, 32\l  %45 = getelementptr i32, i32* %0, i64 %44\l  %46 = bitcast i32* %45 to \<4 x i32\>*\l  store \<4 x i32\> %12, \<4 x i32\>* %46, align 4, !tbaa !1632\l  %47 = getelementptr i32, i32* %45, i64 4\l  %48 = bitcast i32* %47 to \<4 x i32\>*\l  store \<4 x i32\> %14, \<4 x i32\>* %48, align 4, !tbaa !1632\l  %49 = or i64 %23, 40\l  %50 = getelementptr i32, i32* %0, i64 %49\l  %51 = bitcast i32* %50 to \<4 x i32\>*\l  store \<4 x i32\> %12, \<4 x i32\>* %51, align 4, !tbaa !1632\l  %52 = getelementptr i32, i32* %50, i64 4\l  %53 = bitcast i32* %52 to \<4 x i32\>*\l  store \<4 x i32\> %14, \<4 x i32\>* %53, align 4, !tbaa !1632\l  %54 = or i64 %23, 48\l  %55 = getelementptr i32, i32* %0, i64 %54\l  %56 = bitcast i32* %55 to \<4 x i32\>*\l  store \<4 x i32\> %12, \<4 x i32\>* %56, align 4, !tbaa !1632\l  %57 = getelementptr i32, i32* %55, i64 4\l  %58 = bitcast i32* %57 to \<4 x i32\>*\l  store \<4 x i32\> %14, \<4 x i32\>* %58, align 4, !tbaa !1632\l  %59 = or i64 %23, 56\l  %60 = getelementptr i32, i32* %0, i64 %59\l  %61 = bitcast i32* %60 to \<4 x i32\>*\l  store \<4 x i32\> %12, \<4 x i32\>* %61, align 4, !tbaa !1632\l  %62 = getelementptr i32, i32* %60, i64 4\l  %63 = bitcast i32* %62 to \<4 x i32\>*\l  store \<4 x i32\> %14, \<4 x i32\>* %63, align 4, !tbaa !1632\l  %64 = add i64 %23, 64\l  %65 = add i64 %24, -8\l  %66 = icmp eq i64 %65, 0\l  br i1 %66, label %67, label %22, !llvm.loop !1636\l|{<s0>T|<s1>F}}"];
+	Node0x1d39c40:s0 -> Node0x1d39c90;
+	Node0x1d39c40:s1 -> Node0x1d39c40;
+	Node0x1d39c90 [shape=record,label="{%67:\l67:                                               \l  %68 = phi i64 [ 0, %7 ], [ %64, %22 ]\l  %69 = icmp eq i64 %18, 0\l  br i1 %69, label %80, label %70\l|{<s0>T|<s1>F}}"];
+	Node0x1d39c90:s0 -> Node0x1d39d30;
+	Node0x1d39c90:s1 -> Node0x1d39ce0;
+	Node0x1d39ce0 [shape=record,label="{%70:\l70:                                               \l  %71 = phi i64 [ %77, %70 ], [ %68, %67 ]\l  %72 = phi i64 [ %78, %70 ], [ %18, %67 ]\l  %73 = getelementptr i32, i32* %0, i64 %71\l  %74 = bitcast i32* %73 to \<4 x i32\>*\l  store \<4 x i32\> %12, \<4 x i32\>* %74, align 4, !tbaa !1632\l  %75 = getelementptr i32, i32* %73, i64 4\l  %76 = bitcast i32* %75 to \<4 x i32\>*\l  store \<4 x i32\> %14, \<4 x i32\>* %76, align 4, !tbaa !1632\l  %77 = add i64 %71, 8\l  %78 = add i64 %72, -1\l  %79 = icmp eq i64 %78, 0\l  br i1 %79, label %80, label %70, !llvm.loop !1638\l|{<s0>T|<s1>F}}"];
+	Node0x1d39ce0:s0 -> Node0x1d39d30;
+	Node0x1d39ce0:s1 -> Node0x1d39ce0;
+	Node0x1d39d30 [shape=record,label="{%80:\l80:                                               \l  %81 = icmp eq i64 %8, %2\l  br i1 %81, label %91, label %82\l|{<s0>T|<s1>F}}"];
+	Node0x1d39d30:s0 -> Node0x1d39e20;
+	Node0x1d39d30:s1 -> Node0x1d39d80;
+	Node0x1d39d80 [shape=record,label="{%82:\l82:                                               \l  %83 = phi i32* [ %0, %5 ], [ %9, %80 ]\l  %84 = phi i64 [ %2, %5 ], [ %10, %80 ]\l  br label %85\l}"];
+	Node0x1d39d80 -> Node0x1d39dd0;
+	Node0x1d39dd0 [shape=record,label="{%85:\l85:                                               \l  %86 = phi i32* [ %89, %85 ], [ %83, %82 ]\l  %87 = phi i64 [ %88, %85 ], [ %84, %82 ]\l  %88 = add i64 %87, -1\l  %89 = getelementptr inbounds i32, i32* %86, i64 1\l  store i32 %1, i32* %86, align 4, !tbaa !1632\l  %90 = icmp eq i64 %88, 0\l  br i1 %90, label %91, label %85, !llvm.loop !1640\l|{<s0>T|<s1>F}}"];
+	Node0x1d39dd0:s0 -> Node0x1d39e20;
+	Node0x1d39dd0:s1 -> Node0x1d39dd0;
+	Node0x1d39e20 [shape=record,label="{%91:\l91:                                               \l  ret i32* %0\l}"];
+}

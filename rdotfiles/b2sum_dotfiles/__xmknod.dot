@@ -1,0 +1,5 @@
+digraph "CFG for '__xmknod' function" {
+	label="CFG for '__xmknod' function";
+
+	Node0x1ae6b20 [shape=record,label="{%4:\l  %5 = load i64, i64* %3, align 8, !tbaa !1632\l  %6 = tail call i32 @mknod(i8* %1, i32 %2, i64 %5) #40\l  ret i32 %6\l}"];
+}

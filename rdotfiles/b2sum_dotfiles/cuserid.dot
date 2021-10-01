@@ -1,0 +1,10 @@
+digraph "CFG for 'cuserid' function" {
+	label="CFG for 'cuserid' function";
+
+	Node0x1f7e120 [shape=record,label="{%1:\l  %2 = alloca %struct.passwd, align 8\l  %3 = alloca %struct.passwd*, align 8\l  %4 = alloca [256 x i64], align 16\l  %5 = bitcast %struct.passwd* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 48, i8* nonnull %5) #40\l  %6 = bitcast %struct.passwd** %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %6) #40\l  %7 = bitcast [256 x i64]* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 2048, i8* nonnull %7) #40\l  %8 = tail call i32 @geteuid() #41\l  %9 = call i32 @getpwuid_r(i32 %8, %struct.passwd* nonnull %2, i8* nonnull\l... %7, i64 2048, %struct.passwd** nonnull %3) #41\l  %10 = icmp eq i32 %9, 0\l  br i1 %10, label %11, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1f7e120:s0 -> Node0x1f7e1a0;
+	Node0x1f7e120:s1 -> Node0x1f7e1f0;
+	Node0x1f7e1a0 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct.passwd, %struct.passwd* %2, i64 0, i32 0\l  %13 = load i8*, i8** %12, align 8, !tbaa !1632\l  %14 = call i32 (i8*, i64, i8*, ...) @snprintf(i8* %0, i64 20, i8*\l... getelementptr inbounds ([3 x i8], [3 x i8]* @.str.975, i64 0, i64 0), i8*\l... %13) #41\l  br label %15\l}"];
+	Node0x1f7e1a0 -> Node0x1f7e1f0;
+	Node0x1f7e1f0 [shape=record,label="{%15:\l15:                                               \l  %16 = phi i8* [ %0, %11 ], [ null, %1 ]\l  call void @llvm.lifetime.end.p0i8(i64 2048, i8* nonnull %7) #40\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %6) #40\l  call void @llvm.lifetime.end.p0i8(i64 48, i8* nonnull %5) #40\l  ret i8* %16\l}"];
+}

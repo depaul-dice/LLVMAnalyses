@@ -1,0 +1,5 @@
+digraph "CFG for 'nanosleep' function" {
+	label="CFG for 'nanosleep' function";
+
+	Node0x1b76800 [shape=record,label="{%2:\l  %3 = ptrtoint %struct.timeval* %0 to i64\l  %4 = ptrtoint %struct.timeval* %1 to i64\l  %5 = tail call i64 @__syscall_cp(i64 35, i64 %3, i64 %4, i64 0, i64 0, i64\l... 0, i64 0) #40\l  %6 = tail call i64 @__syscall_ret(i64 %5) #40\l  %7 = trunc i64 %6 to i32\l  ret i32 %7\l}"];
+}

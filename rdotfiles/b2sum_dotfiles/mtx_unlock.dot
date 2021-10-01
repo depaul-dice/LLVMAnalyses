@@ -1,0 +1,5 @@
+digraph "CFG for 'mtx_unlock' function" {
+	label="CFG for 'mtx_unlock' function";
+
+	Node0x1d4c7e0 [shape=record,label="{%1:\l  %2 = bitcast %struct.pthread_mutex_t* %0 to %struct.pthread_mutex_t*\l  %3 = tail call i32 @__pthread_mutex_unlock(%struct.pthread_mutex_t* %2) #40\l  ret i32 %3\l}"];
+}

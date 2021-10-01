@@ -1,0 +1,5 @@
+digraph "CFG for 'wcsnlen' function" {
+	label="CFG for 'wcsnlen' function";
+
+	Node0x15a7000 [shape=record,label="{%2:\l  %3 = tail call i32* @wmemchr(i32* %0, i32 0, i64 %1) #40\l  %4 = icmp eq i32* %3, null\l  %5 = ptrtoint i32* %3 to i64\l  %6 = ptrtoint i32* %0 to i64\l  %7 = sub i64 %5, %6\l  %8 = ashr exact i64 %7, 2\l  %9 = select i1 %4, i64 %1, i64 %8\l  ret i64 %9\l}"];
+}

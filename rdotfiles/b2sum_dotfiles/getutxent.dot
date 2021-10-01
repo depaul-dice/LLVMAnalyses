@@ -1,0 +1,5 @@
+digraph "CFG for 'getutxent' function" {
+	label="CFG for 'getutxent' function";
+
+	Node0x1fedc30 [shape=record,label="{%0:\l  ret %struct.utmpx* null\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'sched_setscheduler' function" {
+	label="CFG for 'sched_setscheduler' function";
+
+	Node0x1f80b50 [shape=record,label="{%3:\l  %4 = tail call i64 @__syscall_ret(i64 -38) #40\l  %5 = trunc i64 %4 to i32\l  ret i32 %5\l}"];
+}

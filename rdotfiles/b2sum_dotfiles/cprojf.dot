@@ -1,0 +1,13 @@
+digraph "CFG for 'cprojf' function" {
+	label="CFG for 'cprojf' function";
+
+	Node0x1bf38b0 [shape=record,label="{%1:\l  %2 = extractelement \<2 x float\> %0, i32 0\l  %3 = bitcast float %2 to i32\l  %4 = and i32 %3, 2147483647\l  %5 = icmp eq i32 %4, 2139095040\l  br i1 %5, label %11, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1bf38b0:s0 -> Node0x1bf3950;
+	Node0x1bf38b0:s1 -> Node0x1bf3900;
+	Node0x1bf3900 [shape=record,label="{%6:\l6:                                                \l  %7 = bitcast \<2 x float\> %0 to \<2 x i32\>\l  %8 = extractelement \<2 x i32\> %7, i32 1\l  %9 = and i32 %8, 2147483647\l  %10 = icmp eq i32 %9, 2139095040\l  br i1 %10, label %11, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1bf3900:s0 -> Node0x1bf3950;
+	Node0x1bf3900:s1 -> Node0x1bf39a0;
+	Node0x1bf3950 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call float @llvm.experimental.constrained.fptrunc.f32.f64(double\l... 0.000000e+00, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %13 = tail call float @copysignf(float %12, float %2) #41\l  %14 = insertelement \<2 x float\> \<float 0x7FF0000000000000, float undef\>,\l... float %13, i32 1\l  br label %15\l}"];
+	Node0x1bf3950 -> Node0x1bf39a0;
+	Node0x1bf39a0 [shape=record,label="{%15:\l15:                                               \l  %16 = phi \<2 x float\> [ %14, %11 ], [ %0, %6 ]\l  ret \<2 x float\> %16\l}"];
+}

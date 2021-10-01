@@ -1,0 +1,5 @@
+digraph "CFG for '__iscntrl_l' function" {
+	label="CFG for '__iscntrl_l' function";
+
+	Node0x1ecd040 [shape=record,label="{%2:\l  %3 = icmp ult i32 %0, 32\l  %4 = icmp eq i32 %0, 127\l  %5 = or i1 %3, %4\l  %6 = zext i1 %5 to i32\l  ret i32 %6\l}"];
+}

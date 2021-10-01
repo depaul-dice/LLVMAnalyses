@@ -1,0 +1,5 @@
+digraph "CFG for 'brk' function" {
+	label="CFG for 'brk' function";
+
+	Node0x1f6d750 [shape=record,label="{%1:\l  %2 = tail call i64 @__syscall_ret(i64 -12) #40\l  %3 = trunc i64 %2 to i32\l  ret i32 %3\l}"];
+}

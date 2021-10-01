@@ -1,0 +1,5 @@
+digraph "CFG for 'close_stdout_set_file_name' function" {
+	label="CFG for 'close_stdout_set_file_name' function";
+
+	Node0x13b8300 [shape=record,label="{%1:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1634, metadata\l... !DIExpression()), !dbg !1635\l  store i8* %0, i8** @file_name, align 8, !dbg !1636, !tbaa !1637\l  ret void, !dbg !1641\l}"];
+}

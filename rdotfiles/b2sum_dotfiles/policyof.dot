@@ -1,0 +1,15 @@
+digraph "CFG for 'policyof' function" {
+	label="CFG for 'policyof' function";
+
+	Node0x1a84190 [shape=record,label="{%1:\l  %2 = bitcast %struct.in6_addr* %0 to [16 x i8]*\l  %3 = bitcast %struct.in6_addr* %0 to i8*\l  br label %4\l}"];
+	Node0x1a84190 -> Node0x1681d60;
+	Node0x1681d60 [shape=record,label="{%4:\l4:                                                \l  %5 = phi i64 [ %25, %24 ], [ 0, %1 ]\l  %6 = getelementptr inbounds [6 x %struct.policy], [6 x %struct.policy]*\l... @defpolicy, i64 0, i64 %5, i32 0, i64 0\l  %7 = getelementptr inbounds [6 x %struct.policy], [6 x %struct.policy]*\l... @defpolicy, i64 0, i64 %5, i32 1\l  %8 = load i8, i8* %7, align 4, !tbaa !1632\l  %9 = zext i8 %8 to i64\l  %10 = tail call i32 @memcmp(i8* %3, i8* nonnull %6, i64 %9) #40\l  %11 = icmp eq i32 %10, 0\l  br i1 %11, label %12, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x1681d60:s0 -> Node0x1681db0;
+	Node0x1681d60:s1 -> Node0x1681e50;
+	Node0x1681db0 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds [16 x i8], [16 x i8]* %2, i64 0, i64 %9\l  %14 = load i8, i8* %13, align 1, !tbaa !1636\l  %15 = getelementptr inbounds [6 x %struct.policy], [6 x %struct.policy]*\l... @defpolicy, i64 0, i64 %5, i32 2\l  %16 = load i8, i8* %15, align 1, !tbaa !1637\l  %17 = and i8 %16, %14\l  %18 = getelementptr inbounds [6 x %struct.policy], [6 x %struct.policy]*\l... @defpolicy, i64 0, i64 %5, i32 0, i64 %9\l  %19 = load i8, i8* %18, align 1, !tbaa !1636\l  %20 = icmp eq i8 %17, %19\l  br i1 %20, label %21, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x1681db0:s0 -> Node0x1681e00;
+	Node0x1681db0:s1 -> Node0x1681e50;
+	Node0x1681e00 [shape=record,label="{%21:\l21:                                               \l  %22 = and i64 %5, 4294967295\l  %23 = getelementptr inbounds [6 x %struct.policy], [6 x %struct.policy]*\l... @defpolicy, i64 0, i64 %22\l  ret %struct.policy* %23\l}"];
+	Node0x1681e50 [shape=record,label="{%24:\l24:                                               \l  %25 = add nuw i64 %5, 1\l  br label %4\l}"];
+	Node0x1681e50 -> Node0x1681d60;
+}

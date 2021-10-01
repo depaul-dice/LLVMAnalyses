@@ -1,0 +1,5 @@
+digraph "CFG for '_pthread_cleanup_push' function" {
+	label="CFG for '_pthread_cleanup_push' function";
+
+	Node0x168c3d0 [shape=record,label="{%3:\l  %4 = getelementptr inbounds %struct.__ptcb, %struct.__ptcb* %0, i64 0, i32 0\l  store void (i8*)* %1, void (i8*)** %4, align 8, !tbaa !1632\l  %5 = getelementptr inbounds %struct.__ptcb, %struct.__ptcb* %0, i64 0, i32 1\l  store i8* %2, i8** %5, align 8, !tbaa !1637\l  tail call void @__do_cleanup_push(%struct.__ptcb* %0) #40\l  ret void\l}"];
+}

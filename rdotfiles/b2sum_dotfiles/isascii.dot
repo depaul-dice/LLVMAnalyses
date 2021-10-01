@@ -1,0 +1,5 @@
+digraph "CFG for 'isascii' function" {
+	label="CFG for 'isascii' function";
+
+	Node0x1d7d330 [shape=record,label="{%1:\l  %2 = icmp ult i32 %0, 128\l  %3 = zext i1 %2 to i32\l  ret i32 %3\l}"];
+}

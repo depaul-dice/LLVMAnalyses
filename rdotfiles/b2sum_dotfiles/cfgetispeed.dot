@@ -1,0 +1,5 @@
+digraph "CFG for 'cfgetispeed' function" {
+	label="CFG for 'cfgetispeed' function";
+
+	Node0x1c24f90 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.termios, %struct.termios* %0, i64 0, i32\l... 2\l  %3 = load i32, i32* %2, align 4, !tbaa !1632\l  %4 = and i32 %3, 4111\l  ret i32 %4\l}"];
+}

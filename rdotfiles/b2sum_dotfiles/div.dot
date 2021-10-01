@@ -1,0 +1,5 @@
+digraph "CFG for 'div' function" {
+	label="CFG for 'div' function";
+
+	Node0x1c758e0 [shape=record,label="{%2:\l  %3 = sdiv i32 %0, %1\l  %4 = srem i32 %0, %1\l  %5 = zext i32 %4 to i64\l  %6 = shl nuw i64 %5, 32\l  %7 = zext i32 %3 to i64\l  %8 = or i64 %6, %7\l  ret i64 %8\l}"];
+}

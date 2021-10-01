@@ -1,0 +1,9 @@
+digraph "CFG for 'ximemdup0' function" {
+	label="CFG for 'ximemdup0' function";
+
+	Node0x14b93f0 [shape=record,label="{%2:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1639\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1637, metadata\l... !DIExpression()), !dbg !1639\l  %3 = add nsw i64 %1, 1, !dbg !1640\l  call void @llvm.dbg.value(metadata i64 %3, metadata !1641, metadata\l... !DIExpression()) #7, !dbg !1646\l  call void @llvm.dbg.value(metadata i64 %3, metadata !1648, metadata\l... !DIExpression()) #7, !dbg !1652\l  %4 = tail call noalias i8* @malloc(i64 %3) #7, !dbg !1654\l  call void @llvm.dbg.value(metadata i8* %4, metadata !1655, metadata\l... !DIExpression()) #7, !dbg !1660\l  %5 = icmp eq i8* %4, null, !dbg !1662\l  br i1 %5, label %6, label %7, !dbg !1664\l|{<s0>T|<s1>F}}"];
+	Node0x14b93f0:s0 -> Node0x14ba4e0;
+	Node0x14b93f0:s1 -> Node0x14ba530;
+	Node0x14ba4e0 [shape=record,label="{%6:\l6:                                                \l  tail call void @xalloc_die() #40, !dbg !1665\l  unreachable, !dbg !1665\l}"];
+	Node0x14ba530 [shape=record,label="{%7:\l7:                                                \l  call void @llvm.dbg.value(metadata i8* %4, metadata !1638, metadata\l... !DIExpression()), !dbg !1639\l  %8 = getelementptr inbounds i8, i8* %4, i64 %1, !dbg !1666\l  store i8 0, i8* %8, align 1, !dbg !1667, !tbaa !1668\l  call void @llvm.dbg.value(metadata i8* %4, metadata !1671, metadata\l... !DIExpression()) #7, !dbg !1681\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1679, metadata\l... !DIExpression()) #7, !dbg !1681\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1680, metadata\l... !DIExpression()) #7, !dbg !1681\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 1 %4, i8* nonnull\l... align 1 %0, i64 %1, i1 false) #7, !dbg !1683\l  ret i8* %4, !dbg !1684\l}"];
+}

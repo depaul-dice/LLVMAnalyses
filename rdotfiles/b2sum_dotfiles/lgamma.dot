@@ -1,0 +1,5 @@
+digraph "CFG for 'lgamma' function" {
+	label="CFG for 'lgamma' function";
+
+	Node0x1e76c70 [shape=record,label="{%1:\l  %2 = tail call double @__lgamma_r(double %0, i32* nonnull @__signgam) #40\l  ret double %2\l}"];
+}

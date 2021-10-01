@@ -1,0 +1,5 @@
+digraph "CFG for 'ioperm' function" {
+	label="CFG for 'ioperm' function";
+
+	Node0x1c75840 [shape=record,label="{%3:\l  %4 = sext i32 %2 to i64\l  %5 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 173, i64 %0, i64 %1, i64 %4) #40, !srcloc !1632\l  %6 = tail call i64 @__syscall_ret(i64 %5) #41\l  %7 = trunc i64 %6 to i32\l  ret i32 %7\l}"];
+}

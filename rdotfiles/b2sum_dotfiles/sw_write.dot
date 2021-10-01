@@ -1,0 +1,24 @@
+digraph "CFG for 'sw_write' function" {
+	label="CFG for 'sw_write' function";
+
+	Node0x1c7a7c0 [shape=record,label="{%3:\l  %4 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 21\l  %5 = bitcast i8** %4 to %struct.cookie.1434**\l  %6 = load %struct.cookie.1434*, %struct.cookie.1434** %5, align 8, !tbaa\l... !1632\l  %7 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 7\l  %8 = load i8*, i8** %7, align 8, !tbaa !1639\l  %9 = icmp eq i8* %8, %1\l  br i1 %9, label %18, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1c7a7c0:s0 -> Node0x1c7a860;
+	Node0x1c7a7c0:s1 -> Node0x1c7a810;
+	Node0x1c7a810 [shape=record,label="{%10:\l10:                                               \l  %11 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 5\l  %12 = bitcast i8** %11 to i64*\l  %13 = load i64, i64* %12, align 8, !tbaa !1640\l  %14 = ptrtoint i8* %8 to i64\l  %15 = sub i64 %13, %14\l  %16 = tail call i64 @sw_write(%struct._IO_FILE.0* nonnull %0, i8* %8, i64\l... %15) #40\l  %17 = icmp eq i64 %16, -1\l  br i1 %17, label %63, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1c7a810:s0 -> Node0x1c7a9f0;
+	Node0x1c7a810:s1 -> Node0x1c7a860;
+	Node0x1c7a860 [shape=record,label="{%18:\l18:                                               \l  %19 = getelementptr inbounds %struct.cookie.1434, %struct.cookie.1434* %6,\l... i64 0, i32 1\l  %20 = load i64, i64* %19, align 8, !tbaa !1641\l  %21 = icmp ne i64 %20, 0\l  %22 = icmp ne i64 %2, 0\l  %23 = and i1 %22, %21\l  %24 = getelementptr inbounds %struct.cookie.1434, %struct.cookie.1434* %6,\l... i64 0, i32 0\l  %25 = load i32*, i32** %24, align 8, !tbaa !1643\l  br i1 %23, label %26, label %51\l|{<s0>T|<s1>F}}"];
+	Node0x1c7a860:s0 -> Node0x1c7a8b0;
+	Node0x1c7a860:s1 -> Node0x1c7a9a0;
+	Node0x1c7a8b0 [shape=record,label="{%26:\l26:                                               \l  %27 = phi i32* [ %39, %32 ], [ %25, %18 ]\l  %28 = phi i8* [ %34, %32 ], [ %1, %18 ]\l  %29 = phi i64 [ %35, %32 ], [ %2, %18 ]\l  %30 = tail call i32 @mbtowc(i32* %27, i8* %28, i64 %29) #41\l  %31 = icmp sgt i32 %30, -1\l  br i1 %31, label %32, label %43\l|{<s0>T|<s1>F}}"];
+	Node0x1c7a8b0:s0 -> Node0x1c7a900;
+	Node0x1c7a8b0:s1 -> Node0x1c7a950;
+	Node0x1c7a900 [shape=record,label="{%32:\l32:                                               \l  %33 = zext i32 %30 to i64\l  %34 = getelementptr inbounds i8, i8* %28, i64 %33\l  %35 = sub i64 %29, %33\l  %36 = load i64, i64* %19, align 8, !tbaa !1641\l  %37 = add i64 %36, -1\l  store i64 %37, i64* %19, align 8, !tbaa !1641\l  %38 = load i32*, i32** %24, align 8, !tbaa !1643\l  %39 = getelementptr inbounds i32, i32* %38, i64 1\l  store i32* %39, i32** %24, align 8, !tbaa !1643\l  %40 = icmp ne i64 %37, 0\l  %41 = icmp ne i64 %35, 0\l  %42 = and i1 %41, %40\l  br i1 %42, label %26, label %51\l|{<s0>T|<s1>F}}"];
+	Node0x1c7a900:s0 -> Node0x1c7a8b0;
+	Node0x1c7a900:s1 -> Node0x1c7a9a0;
+	Node0x1c7a950 [shape=record,label="{%43:\l43:                                               \l  %44 = load i32*, i32** %24, align 8, !tbaa !1643\l  store i32 0, i32* %44, align 4, !tbaa !1644\l  %45 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 4\l  store i8* null, i8** %7, align 8, !tbaa !1639\l  %46 = bitcast i8** %45 to \<2 x i8*\>*\l  store \<2 x i8*\> zeroinitializer, \<2 x i8*\>* %46, align 8, !tbaa !1645\l  %47 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 0\l  %48 = load i32, i32* %47, align 8, !tbaa !1646\l  %49 = or i32 %48, 32\l  store i32 %49, i32* %47, align 8, !tbaa !1646\l  %50 = sext i32 %30 to i64\l  br label %63\l}"];
+	Node0x1c7a950 -> Node0x1c7a9f0;
+	Node0x1c7a9a0 [shape=record,label="{%51:\l51:                                               \l  %52 = phi i32* [ %25, %18 ], [ %39, %32 ]\l  store i32 0, i32* %52, align 4, !tbaa !1644\l  %53 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 11\l  %54 = load i8*, i8** %53, align 8, !tbaa !1647\l  %55 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 12\l  %56 = load i64, i64* %55, align 8, !tbaa !1648\l  %57 = getelementptr inbounds i8, i8* %54, i64 %56\l  %58 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 4\l  store i8* %57, i8** %58, align 8, !tbaa !1649\l  %59 = ptrtoint i8* %54 to i64\l  %60 = bitcast i8** %7 to i64*\l  store i64 %59, i64* %60, align 8, !tbaa !1639\l  %61 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 5\l  %62 = bitcast i8** %61 to i64*\l  store i64 %59, i64* %62, align 8, !tbaa !1640\l  br label %63\l}"];
+	Node0x1c7a9a0 -> Node0x1c7a9f0;
+	Node0x1c7a9f0 [shape=record,label="{%63:\l63:                                               \l  %64 = phi i64 [ %50, %43 ], [ %2, %51 ], [ -1, %10 ]\l  ret i64 %64\l}"];
+}

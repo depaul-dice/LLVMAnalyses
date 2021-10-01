@@ -1,0 +1,5 @@
+digraph "CFG for 'sigandset' function" {
+	label="CFG for 'sigandset' function";
+
+	Node0x1dcd630 [shape=record,label="{%3:\l  %4 = getelementptr inbounds %struct.__sigset_t, %struct.__sigset_t* %1, i64\l... 0, i32 0, i64 0\l  %5 = load i64, i64* %4, align 8, !tbaa !1632\l  %6 = getelementptr inbounds %struct.__sigset_t, %struct.__sigset_t* %2, i64\l... 0, i32 0, i64 0\l  %7 = load i64, i64* %6, align 8, !tbaa !1632\l  %8 = and i64 %7, %5\l  %9 = getelementptr inbounds %struct.__sigset_t, %struct.__sigset_t* %0, i64\l... 0, i32 0, i64 0\l  store i64 %8, i64* %9, align 8, !tbaa !1632\l  ret i32 0\l}"];
+}

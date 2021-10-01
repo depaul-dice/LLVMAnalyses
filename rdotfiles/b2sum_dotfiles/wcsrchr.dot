@@ -1,0 +1,16 @@
+digraph "CFG for 'wcsrchr' function" {
+	label="CFG for 'wcsrchr' function";
+
+	Node0x1b7aa30 [shape=record,label="{%2:\l  %3 = tail call i64 @wcslen(i32* %0) #40\l  %4 = icmp sgt i64 %3, -1\l  br i1 %4, label %5, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1b7aa30:s0 -> Node0x1b7b2e0;
+	Node0x1b7aa30:s1 -> Node0x1b7b3d0;
+	Node0x1b7b2e0 [shape=record,label="{%5:\l5:                                                \l  %6 = getelementptr inbounds i32, i32* %0, i64 %3\l  br label %7\l}"];
+	Node0x1b7b2e0 -> Node0x1b7b330;
+	Node0x1b7b330 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32* [ %12, %11 ], [ %6, %5 ]\l  %9 = load i32, i32* %8, align 4, !tbaa !1632\l  %10 = icmp eq i32 %9, %1\l  br i1 %10, label %14, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1b7b330:s0 -> Node0x1b7b3d0;
+	Node0x1b7b330:s1 -> Node0x1b7b380;
+	Node0x1b7b380 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds i32, i32* %8, i64 -1\l  %13 = icmp ult i32* %12, %0\l  br i1 %13, label %14, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1b7b380:s0 -> Node0x1b7b3d0;
+	Node0x1b7b380:s1 -> Node0x1b7b330;
+	Node0x1b7b3d0 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32* [ null, %2 ], [ null, %11 ], [ %8, %7 ]\l  ret i32* %15\l}"];
+}

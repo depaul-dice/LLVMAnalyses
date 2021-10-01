@@ -1,0 +1,5 @@
+digraph "CFG for 'ns_get32' function" {
+	label="CFG for 'ns_get32' function";
+
+	Node0x1c01e80 [shape=record,label="{%1:\l  %2 = load i8, i8* %0, align 1, !tbaa !1632\l  %3 = zext i8 %2 to i64\l  %4 = shl nuw nsw i64 %3, 24\l  %5 = getelementptr inbounds i8, i8* %0, i64 1\l  %6 = load i8, i8* %5, align 1, !tbaa !1632\l  %7 = zext i8 %6 to i64\l  %8 = shl nuw nsw i64 %7, 16\l  %9 = or i64 %8, %4\l  %10 = getelementptr inbounds i8, i8* %0, i64 2\l  %11 = load i8, i8* %10, align 1, !tbaa !1632\l  %12 = zext i8 %11 to i64\l  %13 = shl nuw nsw i64 %12, 8\l  %14 = or i64 %9, %13\l  %15 = getelementptr inbounds i8, i8* %0, i64 3\l  %16 = load i8, i8* %15, align 1, !tbaa !1632\l  %17 = zext i8 %16 to i64\l  %18 = or i64 %14, %17\l  ret i64 %18\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'index' function" {
+	label="CFG for 'index' function";
+
+	Node0x1e8daf0 [shape=record,label="{%2:\l  %3 = tail call i8* @strchr(i8* %0, i32 %1) #40\l  ret i8* %3\l}"];
+}

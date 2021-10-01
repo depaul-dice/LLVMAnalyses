@@ -1,0 +1,5 @@
+digraph "CFG for 'sched_setaffinity' function" {
+	label="CFG for 'sched_setaffinity' function";
+
+	Node0x1fd9640 [shape=record,label="{%3:\l  %4 = sext i32 %0 to i64\l  %5 = ptrtoint %struct.__sigset_t* %2 to i64\l  %6 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 203, i64 %4, i64 %1, i64 %5) #40, !srcloc !1632\l  %7 = tail call i64 @__syscall_ret(i64 %6) #41\l  %8 = trunc i64 %7 to i32\l  ret i32 %8\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'close_stdout_set_ignore_EPIPE' function" {
+	label="CFG for 'close_stdout_set_ignore_EPIPE' function";
+
+	Node0x13b8350 [shape=record,label="{%1:\l  %2 = zext i1 %0 to i8\l  call void @llvm.dbg.value(metadata i8 %2, metadata !1636, metadata\l... !DIExpression()), !dbg !1637\l  store i8 %2, i8* @ignore_EPIPE, align 1, !dbg !1638, !tbaa !1639\l  ret void, !dbg !1643\l}"];
+}

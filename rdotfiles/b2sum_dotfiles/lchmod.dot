@@ -1,0 +1,5 @@
+digraph "CFG for 'lchmod' function" {
+	label="CFG for 'lchmod' function";
+
+	Node0x1fe06b0 [shape=record,label="{%2:\l  %3 = tail call i32 @fchmodat(i32 -100, i8* %0, i32 %1, i32 256) #40\l  ret i32 %3\l}"];
+}

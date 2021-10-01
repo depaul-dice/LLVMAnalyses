@@ -1,0 +1,5 @@
+digraph "CFG for 'rewinddir' function" {
+	label="CFG for 'rewinddir' function";
+
+	Node0x1eeb270 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 4, i64 0\l  tail call void @__lock(i32* nonnull %2) #40\l  %3 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 1\l  %4 = load i32, i32* %3, align 8, !tbaa !1632\l  %5 = tail call i64 @lseek(i32 %4, i64 0, i32 0) #40\l  %6 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 3\l  store i32 0, i32* %6, align 8, !tbaa !1638\l  %7 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 2\l  store i32 0, i32* %7, align 4, !tbaa !1639\l  %8 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 0\l  store i64 0, i64* %8, align 8, !tbaa !1640\l  tail call void @__unlock(i32* nonnull %2) #40\l  ret void\l}"];
+}

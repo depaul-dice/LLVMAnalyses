@@ -1,0 +1,5 @@
+digraph "CFG for 'cabsf' function" {
+	label="CFG for 'cabsf' function";
+
+	Node0x19144d0 [shape=record,label="{%1:\l  %2 = extractelement \<2 x float\> %0, i32 0\l  %3 = extractelement \<2 x float\> %0, i32 1\l  %4 = tail call float @hypotf(float %2, float %3) #40\l  ret float %4\l}"];
+}

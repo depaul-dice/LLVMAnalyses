@@ -1,0 +1,12 @@
+digraph "CFG for '__pthread_once' function" {
+	label="CFG for '__pthread_once' function";
+
+	Node0x1a09990 [shape=record,label="{%2:\l  %3 = load volatile i32, i32* %0, align 4, !tbaa !1632\l  %4 = icmp eq i32 %3, 2\l  br i1 %4, label %5, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1a09990:s0 -> Node0x1a09a40;
+	Node0x1a09990:s1 -> Node0x1a09a90;
+	Node0x1a09a40 [shape=record,label="{%5:\l5:                                                \l  tail call void asm sideeffect , ~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}()\l... #40, !srcloc !1636\l  br label %8\l}"];
+	Node0x1a09a40 -> Node0x1a09ae0;
+	Node0x1a09a90 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32 @__pthread_once_full(i32* nonnull %0, void ()* %1) #41\l  br label %8\l}"];
+	Node0x1a09a90 -> Node0x1a09ae0;
+	Node0x1a09ae0 [shape=record,label="{%8:\l8:                                                \l  ret i32 0\l}"];
+}

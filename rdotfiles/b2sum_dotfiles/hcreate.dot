@@ -1,0 +1,5 @@
+digraph "CFG for 'hcreate' function" {
+	label="CFG for 'hcreate' function";
+
+	Node0x1c5edf0 [shape=record,label="{%1:\l  %2 = tail call i32 @__hcreate_r(i64 %0, %struct.hsearch_data* nonnull @htab)\l... #40\l  ret i32 %2\l}"];
+}

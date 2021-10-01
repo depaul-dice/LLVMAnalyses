@@ -1,0 +1,5 @@
+digraph "CFG for 'getopt_long_only' function" {
+	label="CFG for 'getopt_long_only' function";
+
+	Node0x201c270 [shape=record,label="{%5:\l  %6 = tail call fastcc i32 @__getopt_long(i32 %0, i8** %1, i8* %2,\l... %struct.option* %3, i32* %4, i32 1) #40\l  ret i32 %6\l}"];
+}

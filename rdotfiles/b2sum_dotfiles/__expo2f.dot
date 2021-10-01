@@ -1,0 +1,5 @@
+digraph "CFG for '__expo2f' function" {
+	label="CFG for '__expo2f' function";
+
+	Node0x1a22100 [shape=record,label="{%1:\l  %2 = tail call float @llvm.experimental.constrained.fsub.f32(float %0, float\l... 0x40645C7780000000, metadata !round.dynamic, metadata !fpexcept.ignore)\l... #40\l  %3 = tail call float @expf(float %2) #41\l  %4 = tail call float @llvm.experimental.constrained.fmul.f32(float %3, float\l... 0x4740000000000000, metadata !round.dynamic, metadata !fpexcept.ignore)\l... #40\l  %5 = tail call float @llvm.experimental.constrained.fmul.f32(float %4, float\l... 0x4740000000000000, metadata !round.dynamic, metadata !fpexcept.ignore)\l... #40\l  ret float %5\l}"];
+}

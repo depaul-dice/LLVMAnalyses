@@ -1,0 +1,30 @@
+digraph "CFG for 'strspn' function" {
+	label="CFG for 'strspn' function";
+
+	Node0x175c380 [shape=record,label="{%2:\l  %3 = alloca [4 x i64], align 16\l  %4 = bitcast [4 x i64]* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 32, i8* nonnull %4) #40\l  call void @llvm.memset.p0i8.i64(i8* nonnull align 16 dereferenceable(32) %4,\l... i8 0, i64 32, i1 false)\l  %5 = load i8, i8* %1, align 1, !tbaa !1632\l  %6 = icmp eq i8 %5, 0\l  br i1 %6, label %56, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x175c380:s0 -> Node0x175c710;
+	Node0x175c380:s1 -> Node0x175c490;
+	Node0x175c490 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds i8, i8* %1, i64 1\l  %9 = load i8, i8* %8, align 1, !tbaa !1632\l  %10 = icmp eq i8 %9, 0\l  br i1 %10, label %11, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x175c490:s0 -> Node0x175c4e0;
+	Node0x175c490:s1 -> Node0x175c5d0;
+	Node0x175c4e0 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i8* [ %15, %11 ], [ %0, %7 ]\l  %13 = load i8, i8* %12, align 1, !tbaa !1632\l  %14 = icmp eq i8 %13, %5\l  %15 = getelementptr inbounds i8, i8* %12, i64 1\l  br i1 %14, label %11, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x175c4e0:s0 -> Node0x175c4e0;
+	Node0x175c4e0:s1 -> Node0x175c530;
+	Node0x175c530 [shape=record,label="{%16:\l16:                                               \l  %17 = ptrtoint i8* %12 to i64\l  %18 = ptrtoint i8* %0 to i64\l  %19 = sub i64 %17, %18\l  br label %56\l}"];
+	Node0x175c530 -> Node0x175c710;
+	Node0x175c580 [shape=record,label="{%20:\l20:                                               \l  %21 = load i8, i8* %0, align 1, !tbaa !1632\l  %22 = icmp eq i8 %21, 0\l  br i1 %22, label %51, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x175c580:s0 -> Node0x175c6c0;
+	Node0x175c580:s1 -> Node0x175c620;
+	Node0x175c5d0 [shape=record,label="{%23:\l23:                                               \l  %24 = phi i8 [ %34, %23 ], [ %5, %7 ]\l  %25 = phi i8* [ %33, %23 ], [ %1, %7 ]\l  %26 = zext i8 %24 to i64\l  %27 = and i64 %26, 63\l  %28 = shl nuw i64 1, %27\l  %29 = lshr i64 %26, 6\l  %30 = getelementptr inbounds [4 x i64], [4 x i64]* %3, i64 0, i64 %29\l  %31 = load i64, i64* %30, align 8, !tbaa !1635\l  %32 = or i64 %31, %28\l  store i64 %32, i64* %30, align 8, !tbaa !1635\l  %33 = getelementptr inbounds i8, i8* %25, i64 1\l  %34 = load i8, i8* %33, align 1, !tbaa !1632\l  %35 = icmp eq i8 %34, 0\l  br i1 %35, label %20, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x175c5d0:s0 -> Node0x175c580;
+	Node0x175c5d0:s1 -> Node0x175c5d0;
+	Node0x175c620 [shape=record,label="{%36:\l36:                                               \l  %37 = phi i8 [ %49, %47 ], [ %21, %20 ]\l  %38 = phi i8* [ %48, %47 ], [ %0, %20 ]\l  %39 = zext i8 %37 to i64\l  %40 = lshr i64 %39, 6\l  %41 = getelementptr inbounds [4 x i64], [4 x i64]* %3, i64 0, i64 %40\l  %42 = load i64, i64* %41, align 8, !tbaa !1635\l  %43 = and i64 %39, 63\l  %44 = shl nuw i64 1, %43\l  %45 = and i64 %42, %44\l  %46 = icmp eq i64 %45, 0\l  br i1 %46, label %51, label %47\l|{<s0>T|<s1>F}}"];
+	Node0x175c620:s0 -> Node0x175c6c0;
+	Node0x175c620:s1 -> Node0x175c670;
+	Node0x175c670 [shape=record,label="{%47:\l47:                                               \l  %48 = getelementptr inbounds i8, i8* %38, i64 1\l  %49 = load i8, i8* %48, align 1, !tbaa !1632\l  %50 = icmp eq i8 %49, 0\l  br i1 %50, label %51, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x175c670:s0 -> Node0x175c6c0;
+	Node0x175c670:s1 -> Node0x175c620;
+	Node0x175c6c0 [shape=record,label="{%51:\l51:                                               \l  %52 = phi i8* [ %0, %20 ], [ %38, %36 ], [ %48, %47 ]\l  %53 = ptrtoint i8* %52 to i64\l  %54 = ptrtoint i8* %0 to i64\l  %55 = sub i64 %53, %54\l  br label %56\l}"];
+	Node0x175c6c0 -> Node0x175c710;
+	Node0x175c710 [shape=record,label="{%56:\l56:                                               \l  %57 = phi i64 [ %55, %51 ], [ %19, %16 ], [ 0, %2 ]\l  call void @llvm.lifetime.end.p0i8(i64 32, i8* nonnull %4) #40\l  ret i64 %57\l}"];
+}

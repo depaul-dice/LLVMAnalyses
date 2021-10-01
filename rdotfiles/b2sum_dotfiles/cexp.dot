@@ -1,0 +1,35 @@
+digraph "CFG for 'cexp' function" {
+	label="CFG for 'cexp' function";
+
+	Node0x1a8a740 [shape=record,label="{%2:\l  %3 = bitcast double %1 to i64\l  %4 = lshr i64 %3, 32\l  %5 = trunc i64 %4 to i32\l  %6 = trunc i64 %3 to i32\l  %7 = and i32 %5, 2147483647\l  %8 = or i32 %7, %6\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1a8a740:s0 -> Node0x1a8ab60;
+	Node0x1a8a740:s1 -> Node0x1a8abb0;
+	Node0x1a8ab60 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call double @exp(double %0) #40\l  br label %49\l}"];
+	Node0x1a8ab60 -> Node0x1a8aed0;
+	Node0x1a8abb0 [shape=record,label="{%12:\l12:                                               \l  %13 = bitcast double %0 to i64\l  %14 = lshr i64 %13, 32\l  %15 = trunc i64 %14 to i32\l  %16 = trunc i64 %13 to i32\l  %17 = and i32 %15, 2147483647\l  %18 = or i32 %17, %16\l  %19 = icmp eq i32 %18, 0\l  br i1 %19, label %20, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x1a8abb0:s0 -> Node0x1a8ac00;
+	Node0x1a8abb0:s1 -> Node0x1a8ac50;
+	Node0x1a8ac00 [shape=record,label="{%20:\l20:                                               \l  %21 = tail call double @cos(double %1) #40\l  %22 = tail call double @sin(double %1) #40\l  br label %49\l}"];
+	Node0x1a8ac00 -> Node0x1a8aed0;
+	Node0x1a8ac50 [shape=record,label="{%23:\l23:                                               \l  %24 = icmp ugt i32 %7, 2146435071\l  br i1 %24, label %25, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x1a8ac50:s0 -> Node0x1a8aca0;
+	Node0x1a8ac50:s1 -> Node0x1a8ade0;
+	Node0x1a8aca0 [shape=record,label="{%25:\l25:                                               \l  %26 = icmp eq i32 %16, 0\l  %27 = icmp eq i32 %17, 2146435072\l  %28 = and i1 %26, %27\l  br i1 %28, label %32, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x1a8aca0:s0 -> Node0x1a8ad40;
+	Node0x1a8aca0:s1 -> Node0x1a8acf0;
+	Node0x1a8acf0 [shape=record,label="{%29:\l29:                                               \l  %30 = tail call double @llvm.experimental.constrained.fsub.f64(double %1,\l... double %1, metadata !round.dynamic, metadata !fpexcept.ignore) #41\l  %31 = tail call double @llvm.experimental.constrained.fsub.f64(double %1,\l... double %1, metadata !round.dynamic, metadata !fpexcept.ignore) #41\l  br label %49\l}"];
+	Node0x1a8acf0 -> Node0x1a8aed0;
+	Node0x1a8ad40 [shape=record,label="{%32:\l32:                                               \l  %33 = icmp slt i32 %15, 0\l  br i1 %33, label %49, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1a8ad40:s0 -> Node0x1a8aed0;
+	Node0x1a8ad40:s1 -> Node0x1a8ad90;
+	Node0x1a8ad90 [shape=record,label="{%34:\l34:                                               \l  %35 = tail call double @llvm.experimental.constrained.fsub.f64(double %1,\l... double %1, metadata !round.dynamic, metadata !fpexcept.ignore) #41\l  br label %49\l}"];
+	Node0x1a8ad90 -> Node0x1a8aed0;
+	Node0x1a8ade0 [shape=record,label="{%36:\l36:                                               \l  %37 = add i32 %15, -1082535490\l  %38 = icmp ult i32 %37, 1084067\l  br i1 %38, label %39, label %43\l|{<s0>T|<s1>F}}"];
+	Node0x1a8ade0:s0 -> Node0x1a8ae30;
+	Node0x1a8ade0:s1 -> Node0x1a8ae80;
+	Node0x1a8ae30 [shape=record,label="{%39:\l39:                                               \l  %40 = tail call \{ double, double \} @__ldexp_cexp(double %0, double %1, i32\l... 0) #40\l  %41 = extractvalue \{ double, double \} %40, 0\l  %42 = extractvalue \{ double, double \} %40, 1\l  br label %49\l}"];
+	Node0x1a8ae30 -> Node0x1a8aed0;
+	Node0x1a8ae80 [shape=record,label="{%43:\l43:                                               \l  %44 = tail call double @exp(double %0) #40\l  %45 = tail call double @cos(double %1) #40\l  %46 = tail call double @llvm.experimental.constrained.fmul.f64(double %44,\l... double %45, metadata !round.dynamic, metadata !fpexcept.ignore) #41\l  %47 = tail call double @sin(double %1) #40\l  %48 = tail call double @llvm.experimental.constrained.fmul.f64(double %44,\l... double %47, metadata !round.dynamic, metadata !fpexcept.ignore) #41\l  br label %49\l}"];
+	Node0x1a8ae80 -> Node0x1a8aed0;
+	Node0x1a8aed0 [shape=record,label="{%49:\l49:                                               \l  %50 = phi double [ %11, %10 ], [ %21, %20 ], [ %30, %29 ], [ %0, %34 ], [\l... %41, %39 ], [ %46, %43 ], [ 0.000000e+00, %32 ]\l  %51 = phi double [ %1, %10 ], [ %22, %20 ], [ %31, %29 ], [ %35, %34 ], [\l... %42, %39 ], [ %48, %43 ], [ 0.000000e+00, %32 ]\l  %52 = insertvalue \{ double, double \} undef, double %50, 0\l  %53 = insertvalue \{ double, double \} %52, double %51, 1\l  ret \{ double, double \} %53\l}"];
+}

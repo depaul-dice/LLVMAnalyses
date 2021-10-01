@@ -1,0 +1,5 @@
+digraph "CFG for 'ntohl' function" {
+	label="CFG for 'ntohl' function";
+
+	Node0x1ed7800 [shape=record,label="{%1:\l  %2 = tail call i32 @llvm.bswap.i32(i32 %0) #7\l  ret i32 %2\l}"];
+}

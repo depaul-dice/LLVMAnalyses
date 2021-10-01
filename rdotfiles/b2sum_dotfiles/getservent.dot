@@ -1,0 +1,5 @@
+digraph "CFG for 'getservent' function" {
+	label="CFG for 'getservent' function";
+
+	Node0x1f51b50 [shape=record,label="{%0:\l  ret %struct.servent* null\l}"];
+}

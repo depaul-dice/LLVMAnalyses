@@ -1,0 +1,5 @@
+digraph "CFG for 'telldir' function" {
+	label="CFG for 'telldir' function";
+
+	Node0x157ec40 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.__dirstream, %struct.__dirstream* %0,\l... i64 0, i32 0\l  %3 = load i64, i64* %2, align 8, !tbaa !1632\l  ret i64 %3\l}"];
+}

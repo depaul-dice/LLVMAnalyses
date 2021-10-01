@@ -1,0 +1,18 @@
+digraph "CFG for 'pthread_mutexattr_setrobust' function" {
+	label="CFG for 'pthread_mutexattr_setrobust' function";
+
+	Node0x190deb0 [shape=record,label="{%2:\l  %3 = icmp ugt i32 %1, 1\l  br i1 %3, label %18, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x190deb0:s0 -> Node0x190e2e0;
+	Node0x190deb0:s1 -> Node0x190df30;
+	Node0x190df30 [shape=record,label="{%4:\l4:                                                \l  %5 = icmp eq i32 %1, 0\l  br i1 %5, label %14, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x190df30:s0 -> Node0x190e290;
+	Node0x190df30:s1 -> Node0x190e1f0;
+	Node0x190e1f0 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32 @pthread_once(i32* nonnull @check_robust_once, void ()*\l... nonnull @check_robust) #40\l  %8 = load i32, i32* @check_robust_result, align 4, !tbaa !1632\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %10, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x190e1f0:s0 -> Node0x190e240;
+	Node0x190e1f0:s1 -> Node0x190e2e0;
+	Node0x190e240 [shape=record,label="{%10:\l10:                                               \l  %11 = getelementptr inbounds %union.anon, %union.anon* %0, i64 0, i32 0\l  %12 = load i32, i32* %11, align 4, !tbaa !1636\l  %13 = or i32 %12, 4\l  store i32 %13, i32* %11, align 4, !tbaa !1636\l  br label %18\l}"];
+	Node0x190e240 -> Node0x190e2e0;
+	Node0x190e290 [shape=record,label="{%14:\l14:                                               \l  %15 = getelementptr inbounds %union.anon, %union.anon* %0, i64 0, i32 0\l  %16 = load i32, i32* %15, align 4, !tbaa !1636\l  %17 = and i32 %16, -5\l  store i32 %17, i32* %15, align 4, !tbaa !1636\l  br label %18\l}"];
+	Node0x190e290 -> Node0x190e2e0;
+	Node0x190e2e0 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i32 [ 0, %10 ], [ 0, %14 ], [ 22, %2 ], [ %8, %6 ]\l  ret i32 %19\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'accept' function" {
+	label="CFG for 'accept' function";
+
+	Node0x1d62a30 [shape=record,label="{%3:\l  %4 = sext i32 %0 to i64\l  %5 = ptrtoint %struct.sockaddr* %1 to i64\l  %6 = ptrtoint i32* %2 to i64\l  %7 = tail call i64 @__syscall_cp(i64 43, i64 %4, i64 %5, i64 %6, i64 0, i64\l... 0, i64 0) #40\l  %8 = tail call i64 @__syscall_ret(i64 %7) #40\l  %9 = trunc i64 %8 to i32\l  ret i32 %9\l}"];
+}

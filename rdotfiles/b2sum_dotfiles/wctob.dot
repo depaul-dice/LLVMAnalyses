@@ -1,0 +1,9 @@
+digraph "CFG for 'wctob' function" {
+	label="CFG for 'wctob' function";
+
+	Node0x1c5d300 [shape=record,label="{%1:\l  %2 = icmp ult i32 %0, 128\l  br i1 %2, label %15, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1c5d300:s0 -> Node0x1c5d3a0;
+	Node0x1c5d300:s1 -> Node0x1c5d350;
+	Node0x1c5d350 [shape=record,label="{%3:\l3:                                                \l  %4 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #40, !srcloc !1632\l  %5 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %4, i64 0,\l... i32 24\l  %6 = load %struct.__locale_struct*, %struct.__locale_struct** %5, align 8,\l... !tbaa !1633\l  %7 = getelementptr inbounds %struct.__locale_struct,\l... %struct.__locale_struct* %6, i64 0, i32 0, i64 0\l  %8 = load %struct.__locale_map*, %struct.__locale_map** %7, align 8, !tbaa\l... !1641\l  %9 = icmp eq %struct.__locale_map* %8, null\l  %10 = and i32 %0, -128\l  %11 = icmp eq i32 %10, 57216\l  %12 = and i1 %11, %9\l  %13 = and i32 %0, 255\l  %14 = select i1 %12, i32 %13, i32 -1\l  ret i32 %14\l}"];
+	Node0x1c5d3a0 [shape=record,label="{%15:\l15:                                               \l  ret i32 %0\l}"];
+}

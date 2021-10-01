@@ -1,0 +1,11 @@
+digraph "CFG for '__do_orphaned_stdio_locks' function" {
+	label="CFG for '__do_orphaned_stdio_locks' function";
+
+	Node0x150ef80 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%0:\l  %1 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #29, !srcloc !1632\l  %2 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64 0,\l... i32 27\l  %3 = bitcast i8** %2 to %struct._IO_FILE.0**\l  %4 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** %3, align 8, !tbaa !1633\l  %5 = icmp eq %struct._IO_FILE.0* %4, null\l  br i1 %5, label %12, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x150ef80:s0 -> Node0x150f020;
+	Node0x150ef80:s1 -> Node0x150efd0;
+	Node0x150efd0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%6:\l6:                                                \l  %7 = phi %struct._IO_FILE.0* [ %10, %6 ], [ %4, %0 ]\l  %8 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %7, i64\l... 0, i32 19\l  tail call void asm sideeffect mov $1, $0 \l  %9 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %7, i64\l... 0, i32 29\l  %10 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** %9, align 8, !tbaa !1633\l  %11 = icmp eq %struct._IO_FILE.0* %10, null\l  br i1 %11, label %12, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x150efd0:s0 -> Node0x150f020;
+	Node0x150efd0:s1 -> Node0x150efd0;
+	Node0x150f020 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%12:\l12:                                               \l  ret void\l}"];
+}

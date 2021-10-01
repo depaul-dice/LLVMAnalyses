@@ -1,0 +1,12 @@
+digraph "CFG for 'mktime' function" {
+	label="CFG for 'mktime' function";
+
+	Node0x1bdea10 [shape=record,label="{%1:\l  %2 = alloca %struct.tm, align 8\l  %3 = alloca i64, align 8\l  %4 = bitcast %struct.tm* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 56, i8* nonnull %4) #40\l  %5 = bitcast i64* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %5) #40\l  %6 = tail call i64 @__tm_to_secs(%struct.tm* %0) #41\l  %7 = getelementptr inbounds %struct.tm, %struct.tm* %2, i64 0, i32 8\l  %8 = getelementptr inbounds %struct.tm, %struct.tm* %2, i64 0, i32 9\l  %9 = getelementptr inbounds %struct.tm, %struct.tm* %2, i64 0, i32 10\l  call void @__secs_to_zone(i64 %6, i32 1, i32* nonnull %7, i64* nonnull %8,\l... i64* nonnull %3, i8** nonnull %9) #41\l  %10 = getelementptr inbounds %struct.tm, %struct.tm* %0, i64 0, i32 8\l  %11 = load i32, i32* %10, align 8, !tbaa !1632\l  %12 = icmp slt i32 %11, 0\l  %13 = load i32, i32* %7, align 8\l  %14 = icmp eq i32 %13, %11\l  %15 = or i1 %12, %14\l  %16 = load i64, i64* %3, align 8\l  %17 = load i64, i64* %8, align 8\l  %18 = sub i64 %17, %16\l  %19 = select i1 %15, i64 0, i64 %18\l  %20 = sub i64 %6, %17\l  %21 = add i64 %20, %19\l  call void @__secs_to_zone(i64 %21, i32 0, i32* nonnull %7, i64* nonnull %8,\l... i64* nonnull %3, i8** nonnull %9) #41\l  %22 = load i64, i64* %8, align 8, !tbaa !1639\l  %23 = add nsw i64 %21, %22\l  %24 = call i32 @__secs_to_tm(i64 %23, %struct.tm* nonnull %2) #41\l  %25 = icmp slt i32 %24, 0\l  br i1 %25, label %28, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x1bdea10:s0 -> Node0x1bdeab0;
+	Node0x1bdea10:s1 -> Node0x1bdea60;
+	Node0x1bdea60 [shape=record,label="{%26:\l26:                                               \l  %27 = bitcast %struct.tm* %0 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8 dereferenceable(56)\l... %27, i8* nonnull align 8 dereferenceable(56) %4, i64 56, i1 false),\l... !tbaa.struct !1640\l  br label %30\l}"];
+	Node0x1bdea60 -> Node0x1bdeb00;
+	Node0x1bdeab0 [shape=record,label="{%28:\l28:                                               \l  %29 = call i32* @___errno_location() #41\l  store i32 75, i32* %29, align 4, !tbaa !1641\l  br label %30\l}"];
+	Node0x1bdeab0 -> Node0x1bdeb00;
+	Node0x1bdeb00 [shape=record,label="{%30:\l30:                                               \l  %31 = phi i64 [ -1, %28 ], [ %21, %26 ]\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %5) #40\l  call void @llvm.lifetime.end.p0i8(i64 56, i8* nonnull %4) #40\l  ret i64 %31\l}"];
+}

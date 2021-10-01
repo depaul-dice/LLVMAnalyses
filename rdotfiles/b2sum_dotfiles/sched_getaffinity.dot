@@ -1,0 +1,5 @@
+digraph "CFG for 'sched_getaffinity' function" {
+	label="CFG for 'sched_getaffinity' function";
+
+	Node0x1fd97c0 [shape=record,label="{%3:\l  %4 = tail call fastcc i32 @do_getaffinity(i32 %0, i64 %1,\l... %struct.__sigset_t* %2) #40\l  %5 = sext i32 %4 to i64\l  %6 = tail call i64 @__syscall_ret(i64 %5) #41\l  %7 = trunc i64 %6 to i32\l  ret i32 %7\l}"];
+}

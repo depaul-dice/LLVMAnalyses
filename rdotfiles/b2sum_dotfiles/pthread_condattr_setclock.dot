@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_condattr_setclock' function" {
+	label="CFG for 'pthread_condattr_setclock' function";
+
+	Node0x1d19c90 [shape=record,label="{%2:\l  %3 = icmp slt i32 %1, 0\l  %4 = and i32 %1, -2\l  %5 = icmp eq i32 %4, 2\l  %6 = or i1 %3, %5\l  br i1 %6, label %12, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1d19c90:s0 -> Node0x1d19d90;
+	Node0x1d19c90:s1 -> Node0x1d19d40;
+	Node0x1d19d40 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %union.anon, %union.anon* %0, i64 0, i32 0\l  %9 = load i32, i32* %8, align 4, !tbaa !1632\l  %10 = and i32 %9, -2147483648\l  %11 = or i32 %10, %1\l  store i32 %11, i32* %8, align 4, !tbaa !1632\l  br label %12\l}"];
+	Node0x1d19d40 -> Node0x1d19d90;
+	Node0x1d19d90 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i32 [ 0, %7 ], [ 22, %2 ]\l  ret i32 %13\l}"];
+}

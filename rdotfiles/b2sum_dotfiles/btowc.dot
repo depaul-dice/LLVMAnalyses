@@ -1,0 +1,10 @@
+digraph "CFG for 'btowc' function" {
+	label="CFG for 'btowc' function";
+
+	Node0x15a65d0 [shape=record,label="{%1:\l  %2 = and i32 %0, 255\l  %3 = icmp ult i32 %2, 128\l  br i1 %3, label %17, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x15a65d0:s0 -> Node0x15a6670;
+	Node0x15a65d0:s1 -> Node0x15a6620;
+	Node0x15a6620 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #40, !srcloc !1632\l  %6 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %5, i64 0,\l... i32 24\l  %7 = load %struct.__locale_struct*, %struct.__locale_struct** %6, align 8,\l... !tbaa !1633\l  %8 = getelementptr inbounds %struct.__locale_struct,\l... %struct.__locale_struct* %7, i64 0, i32 0, i64 0\l  %9 = load %struct.__locale_map*, %struct.__locale_map** %8, align 8, !tbaa\l... !1641\l  %10 = icmp eq %struct.__locale_map* %9, null\l  %11 = icmp ne i32 %0, -1\l  %12 = and i1 %11, %10\l  %13 = shl i32 %0, 24\l  %14 = ashr exact i32 %13, 24\l  %15 = and i32 %14, 57343\l  %16 = select i1 %12, i32 %15, i32 -1\l  br label %17\l}"];
+	Node0x15a6620 -> Node0x15a6670;
+	Node0x15a6670 [shape=record,label="{%17:\l17:                                               \l  %18 = phi i32 [ %16, %4 ], [ %2, %1 ]\l  ret i32 %18\l}"];
+}

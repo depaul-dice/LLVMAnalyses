@@ -1,0 +1,5 @@
+digraph "CFG for 'ulckpwdf' function" {
+	label="CFG for 'ulckpwdf' function";
+
+	Node0x1a32ec0 [shape=record,label="{%0:\l  ret i32 0\l}"];
+}

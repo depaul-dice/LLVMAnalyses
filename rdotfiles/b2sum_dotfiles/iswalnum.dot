@@ -1,0 +1,10 @@
+digraph "CFG for 'iswalnum' function" {
+	label="CFG for 'iswalnum' function";
+
+	Node0x1b2c030 [shape=record,label="{%1:\l  %2 = add i32 %0, -48\l  %3 = icmp ult i32 %2, 10\l  br i1 %3, label %8, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1b2c030:s0 -> Node0x1b2c0d0;
+	Node0x1b2c030:s1 -> Node0x1b2c080;
+	Node0x1b2c080 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i32 @iswalpha(i32 %0) #40\l  %6 = icmp ne i32 %5, 0\l  %7 = zext i1 %6 to i32\l  br label %8\l}"];
+	Node0x1b2c080 -> Node0x1b2c0d0;
+	Node0x1b2c0d0 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i32 [ 1, %1 ], [ %7, %4 ]\l  ret i32 %9\l}"];
+}

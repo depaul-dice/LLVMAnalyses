@@ -1,0 +1,5 @@
+digraph "CFG for 'twalk' function" {
+	label="CFG for 'twalk' function";
+
+	Node0x1b92ad0 [shape=record,label="{%2:\l  %3 = bitcast i8* %0 to %struct.node*\l  tail call fastcc void @walk(%struct.node* %3, void (i8*, i32, i32)* %1, i32\l... 0) #40\l  ret void\l}"];
+}

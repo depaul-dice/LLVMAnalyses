@@ -1,0 +1,12 @@
+digraph "CFG for 'tcsetattr' function" {
+	label="CFG for 'tcsetattr' function";
+
+	Node0x1d37f00 [shape=record,label="{%3:\l  %4 = icmp ugt i32 %1, 2\l  br i1 %4, label %5, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1d37f00:s0 -> Node0x1d37f50;
+	Node0x1d37f00:s1 -> Node0x1d37fa0;
+	Node0x1d37f50 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %6, align 4, !tbaa !1632\l  br label %10\l}"];
+	Node0x1d37f50 -> Node0x1d37ff0;
+	Node0x1d37fa0 [shape=record,label="{%7:\l7:                                                \l  %8 = add nuw nsw i32 %1, 21506\l  %9 = tail call i32 (i32, i32, ...) @ioctl(i32 %0, i32 %8, %struct.termios*\l... %2) #40\l  br label %10\l}"];
+	Node0x1d37fa0 -> Node0x1d37ff0;
+	Node0x1d37ff0 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i32 [ -1, %5 ], [ %9, %7 ]\l  ret i32 %11\l}"];
+}

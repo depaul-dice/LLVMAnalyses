@@ -1,0 +1,16 @@
+digraph "CFG for 'lrintl' function" {
+	label="CFG for 'lrintl' function";
+
+	Node0x1d4ad60 [shape=record,label="{%1:\l  %2 = tail call i32 @fetestexcept(i32 32) #40\l  %3 = tail call x86_fp80 @rintl(x86_fp80 %0) #40\l  %4 = icmp eq i32 %2, 0\l  br i1 %4, label %5, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1d4ad60:s0 -> Node0x1d4adb0;
+	Node0x1d4ad60:s1 -> Node0x1d4aea0;
+	Node0x1d4adb0 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call x86_fp80 @llvm.experimental.constrained.sitofp.f80.i64(i64\l... 9223372036854775807, metadata !round.dynamic, metadata !fpexcept.ignore)\l... #41\l  %7 = tail call i1 @llvm.experimental.constrained.fcmps.f80(x86_fp80 %3,\l... x86_fp80 %6, metadata !ogt, metadata !fpexcept.ignore) #41\l  br i1 %7, label %11, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1d4adb0:s0 -> Node0x1d4ae50;
+	Node0x1d4adb0:s1 -> Node0x1d4ae00;
+	Node0x1d4ae00 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call x86_fp80 @llvm.experimental.constrained.sitofp.f80.i64(i64\l... -9223372036854775808, metadata !round.dynamic, metadata !fpexcept.ignore)\l... #41\l  %10 = tail call i1 @llvm.experimental.constrained.fcmps.f80(x86_fp80 %3,\l... x86_fp80 %9, metadata !olt, metadata !fpexcept.ignore) #41\l  br i1 %10, label %11, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1d4ae00:s0 -> Node0x1d4ae50;
+	Node0x1d4ae00:s1 -> Node0x1d4aea0;
+	Node0x1d4ae50 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call i32 @feclearexcept(i32 32) #40\l  br label %13\l}"];
+	Node0x1d4ae50 -> Node0x1d4aea0;
+	Node0x1d4aea0 [shape=record,label="{%13:\l13:                                               \l  %14 = tail call i64 @llvm.experimental.constrained.fptosi.i64.f80(x86_fp80\l... %3, metadata !fpexcept.ignore) #41\l  ret i64 %14\l}"];
+}

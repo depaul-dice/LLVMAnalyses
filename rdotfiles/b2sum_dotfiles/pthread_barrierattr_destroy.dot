@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_barrierattr_destroy' function" {
+	label="CFG for 'pthread_barrierattr_destroy' function";
+
+	Node0x1c4f100 [shape=record,label="{%1:\l  ret i32 0\l}"];
+}

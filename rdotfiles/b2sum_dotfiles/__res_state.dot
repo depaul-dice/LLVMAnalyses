@@ -1,0 +1,5 @@
+digraph "CFG for '__res_state' function" {
+	label="CFG for '__res_state' function";
+
+	Node0x1f87680 [shape=record,label="{%0:\l  ret %struct.__res_state* @__res_state.res\l}"];
+}

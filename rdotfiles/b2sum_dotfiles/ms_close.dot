@@ -1,0 +1,5 @@
+digraph "CFG for 'ms_close' function" {
+	label="CFG for 'ms_close' function";
+
+	Node0x1c6dbc0 [shape=record,label="{%1:\l  ret i32 0\l}"];
+}

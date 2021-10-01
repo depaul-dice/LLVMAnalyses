@@ -1,0 +1,5 @@
+digraph "CFG for 'clog' function" {
+	label="CFG for 'clog' function";
+
+	Node0x1cd9ff0 [shape=record,label="{%2:\l  %3 = tail call double @cabs(double %0, double %1) #40\l  %4 = tail call double @carg(double %0, double %1) #40\l  %5 = tail call double @log(double %3) #40\l  %6 = insertvalue \{ double, double \} undef, double %5, 0\l  %7 = insertvalue \{ double, double \} %6, double %4, 1\l  ret \{ double, double \} %7\l}"];
+}

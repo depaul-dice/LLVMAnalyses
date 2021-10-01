@@ -1,0 +1,11 @@
+digraph "CFG for 'wcscmp' function" {
+	label="CFG for 'wcscmp' function";
+
+	Node0x190c470 [shape=record,label="{%2:\l  %3 = load i32, i32* %0, align 4, !tbaa !1632\l  %4 = load i32, i32* %1, align 4, !tbaa !1632\l  %5 = icmp ne i32 %3, %4\l  %6 = icmp eq i32 %3, 0\l  %7 = or i1 %6, %5\l  %8 = icmp eq i32 %4, 0\l  %9 = or i1 %8, %7\l  br i1 %9, label %22, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x190c470:s0 -> Node0x190c510;
+	Node0x190c470:s1 -> Node0x190c4c0;
+	Node0x190c4c0 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i32* [ %14, %10 ], [ %1, %2 ]\l  %12 = phi i32* [ %13, %10 ], [ %0, %2 ]\l  %13 = getelementptr inbounds i32, i32* %12, i64 1\l  %14 = getelementptr inbounds i32, i32* %11, i64 1\l  %15 = load i32, i32* %13, align 4, !tbaa !1632\l  %16 = load i32, i32* %14, align 4, !tbaa !1632\l  %17 = icmp ne i32 %15, %16\l  %18 = icmp eq i32 %15, 0\l  %19 = or i1 %18, %17\l  %20 = icmp eq i32 %16, 0\l  %21 = or i1 %20, %19\l  br i1 %21, label %22, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x190c4c0:s0 -> Node0x190c510;
+	Node0x190c4c0:s1 -> Node0x190c4c0;
+	Node0x190c510 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i32 [ %3, %2 ], [ %15, %10 ]\l  %24 = phi i32 [ %4, %2 ], [ %16, %10 ]\l  %25 = sub nsw i32 %23, %24\l  ret i32 %25\l}"];
+}

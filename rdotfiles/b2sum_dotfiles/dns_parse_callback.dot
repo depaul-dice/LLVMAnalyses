@@ -1,0 +1,13 @@
+digraph "CFG for 'dns_parse_callback' function" {
+	label="CFG for 'dns_parse_callback' function";
+
+	Node0x174b830 [shape=record,label="{%5:\l  %6 = icmp eq i32 %1, 12\l  br i1 %6, label %7, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x174b830:s0 -> Node0x174b880;
+	Node0x174b830:s1 -> Node0x174b920;
+	Node0x174b880 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds i8, i8* %4, i64 512\l  %9 = tail call i32 @__dn_expand(i8* %4, i8* nonnull %8, i8* %2, i8* %0, i32\l... 256) #40\l  %10 = icmp slt i32 %9, 1\l  br i1 %10, label %11, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x174b880:s0 -> Node0x174b8d0;
+	Node0x174b880:s1 -> Node0x174b920;
+	Node0x174b8d0 [shape=record,label="{%11:\l11:                                               \l  store i8 0, i8* %0, align 1, !tbaa !1632\l  br label %12\l}"];
+	Node0x174b8d0 -> Node0x174b920;
+	Node0x174b920 [shape=record,label="{%12:\l12:                                               \l  ret i32 0\l}"];
+}

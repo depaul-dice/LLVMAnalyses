@@ -1,0 +1,5 @@
+digraph "CFG for 'getnetent' function" {
+	label="CFG for 'getnetent' function";
+
+	Node0x1d974d0 [shape=record,label="{%0:\l  ret %struct.netent* null\l}"];
+}

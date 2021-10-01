@@ -1,0 +1,17 @@
+digraph "CFG for 'freeaddrinfo' function" {
+	label="CFG for 'freeaddrinfo' function";
+
+	Node0x1ffc260 [shape=record,label="{%1:\l  br label %2\l}"];
+	Node0x1ffc260 -> Node0x1ffc2e0;
+	Node0x1ffc2e0 [shape=record,label="{%2:\l2:                                                \l  %3 = phi i64 [ 1, %1 ], [ %8, %2 ]\l  %4 = phi %struct.addrinfo* [ %0, %1 ], [ %6, %2 ]\l  %5 = getelementptr inbounds %struct.addrinfo, %struct.addrinfo* %4, i64 0,\l... i32 7\l  %6 = load %struct.addrinfo*, %struct.addrinfo** %5, align 8, !tbaa !1632\l  %7 = icmp eq %struct.addrinfo* %6, null\l  %8 = add i64 %3, 1\l  br i1 %7, label %9, label %2\l|{<s0>T|<s1>F}}"];
+	Node0x1ffc2e0:s0 -> Node0x1ffc330;
+	Node0x1ffc2e0:s1 -> Node0x1ffc2e0;
+	Node0x1ffc330 [shape=record,label="{%9:\l9:                                                \l  %10 = bitcast %struct.addrinfo* %4 to %struct.aibuf*\l  %11 = getelementptr inbounds %struct.addrinfo, %struct.addrinfo* %4, i64 1,\l... i32 6\l  %12 = bitcast i8** %11 to i16*\l  %13 = load i16, i16* %12, align 8, !tbaa !1638\l  %14 = sext i16 %13 to i64\l  %15 = sub nsw i64 0, %14\l  %16 = getelementptr inbounds %struct.aibuf, %struct.aibuf* %10, i64 %15, i32\l... 2, i64 0\l  tail call void @__lock(i32* nonnull %16) #40\l  %17 = getelementptr inbounds %struct.aibuf, %struct.aibuf* %10, i64 %15, i32\l... 4\l  %18 = load i16, i16* %17, align 2, !tbaa !1641\l  %19 = trunc i64 %3 to i16\l  %20 = sub i16 %18, %19\l  store i16 %20, i16* %17, align 2, !tbaa !1641\l  %21 = icmp eq i16 %20, 0\l  br i1 %21, label %22, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x1ffc330:s0 -> Node0x1ffc380;
+	Node0x1ffc330:s1 -> Node0x1ffc3d0;
+	Node0x1ffc380 [shape=record,label="{%22:\l22:                                               \l  %23 = getelementptr inbounds %struct.aibuf, %struct.aibuf* %10, i64 %15\l  %24 = bitcast %struct.aibuf* %23 to i8*\l  tail call void @free(i8* %24) #40\l  br label %26\l}"];
+	Node0x1ffc380 -> Node0x1ffc420;
+	Node0x1ffc3d0 [shape=record,label="{%25:\l25:                                               \l  tail call void @__unlock(i32* nonnull %16) #40\l  br label %26\l}"];
+	Node0x1ffc3d0 -> Node0x1ffc420;
+	Node0x1ffc420 [shape=record,label="{%26:\l26:                                               \l  ret void\l}"];
+}

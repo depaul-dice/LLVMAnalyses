@@ -1,0 +1,5 @@
+digraph "CFG for 'fdadvise' function" {
+	label="CFG for 'fdadvise' function";
+
+	Node0x13b87c0 [shape=record,label="{%4:\l  call void @llvm.dbg.value(metadata i32 %0, metadata !1638, metadata\l... !DIExpression()), !dbg !1642\l  call void @llvm.dbg.value(metadata i64 %1, metadata !1639, metadata\l... !DIExpression()), !dbg !1642\l  call void @llvm.dbg.value(metadata i64 %2, metadata !1640, metadata\l... !DIExpression()), !dbg !1642\l  call void @llvm.dbg.value(metadata i32 %3, metadata !1641, metadata\l... !DIExpression()), !dbg !1642\l  %5 = tail call i32 @posix_fadvise(i32 %0, i64 %1, i64 %2, i32 %3) #7, !dbg\l... !1643\l  ret void, !dbg !1644\l}"];
+}

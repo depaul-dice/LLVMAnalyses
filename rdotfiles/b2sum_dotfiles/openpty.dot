@@ -1,0 +1,33 @@
+digraph "CFG for 'openpty' function" {
+	label="CFG for 'openpty' function";
+
+	Node0x1d35780 [shape=record,label="{%5:\l  %6 = alloca i32, align 4\l  %7 = alloca i32, align 4\l  %8 = alloca [20 x i8], align 16\l  %9 = bitcast i32* %6 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %9) #40\l  store i32 0, i32* %6, align 4, !tbaa !1632\l  %10 = bitcast i32* %7 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %10) #40\l  %11 = getelementptr inbounds [20 x i8], [20 x i8]* %8, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 20, i8* nonnull %11) #40\l  %12 = tail call i32 (i8*, i32, ...) @open(i8* getelementptr inbounds ([10 x\l... i8], [10 x i8]* @.str.1122, i64 0, i64 0), i32 258) #41\l  %13 = icmp slt i32 %12, 0\l  br i1 %13, label %43, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1d35780:s0 -> Node0x1d35c30;
+	Node0x1d35780:s1 -> Node0x1d35910;
+	Node0x1d35910 [shape=record,label="{%14:\l14:                                               \l  %15 = call i32 @pthread_setcancelstate(i32 1, i32* nonnull %7) #41\l  %16 = call i32 (i32, i32, ...) @ioctl(i32 %12, i32 1074025521, i32* nonnull\l... %6) #41\l  %17 = icmp eq i32 %16, 0\l  br i1 %17, label %18, label %37\l|{<s0>T|<s1>F}}"];
+	Node0x1d35910:s0 -> Node0x1d35960;
+	Node0x1d35910:s1 -> Node0x1d35b90;
+	Node0x1d35960 [shape=record,label="{%18:\l18:                                               \l  %19 = call i32 (i32, i32, ...) @ioctl(i32 %12, i32 -2147199952, i32* nonnull\l... %6) #41\l  %20 = icmp eq i32 %19, 0\l  br i1 %20, label %21, label %37\l|{<s0>T|<s1>F}}"];
+	Node0x1d35960:s0 -> Node0x1d359b0;
+	Node0x1d35960:s1 -> Node0x1d35b90;
+	Node0x1d359b0 [shape=record,label="{%21:\l21:                                               \l  %22 = icmp eq i8* %2, null\l  %23 = select i1 %22, i8* %11, i8* %2\l  %24 = load i32, i32* %6, align 4, !tbaa !1632\l  %25 = call i32 (i8*, i64, i8*, ...) @snprintf(i8* %23, i64 20, i8*\l... getelementptr inbounds ([12 x i8], [12 x i8]* @.str.1.1123, i64 0, i64 0),\l... i32 %24) #41\l  %26 = call i32 (i8*, i32, ...) @open(i8* %23, i32 258) #41\l  %27 = icmp slt i32 %26, 0\l  br i1 %27, label %37, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1d359b0:s0 -> Node0x1d35b90;
+	Node0x1d359b0:s1 -> Node0x1d35a00;
+	Node0x1d35a00 [shape=record,label="{%28:\l28:                                               \l  %29 = icmp eq %struct.termios* %3, null\l  br i1 %29, label %32, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1d35a00:s0 -> Node0x1d35aa0;
+	Node0x1d35a00:s1 -> Node0x1d35a50;
+	Node0x1d35a50 [shape=record,label="{%30:\l30:                                               \l  %31 = call i32 @tcsetattr(i32 %26, i32 0, %struct.termios* nonnull %3) #41\l  br label %32\l}"];
+	Node0x1d35a50 -> Node0x1d35aa0;
+	Node0x1d35aa0 [shape=record,label="{%32:\l32:                                               \l  %33 = icmp eq %struct.winsize* %4, null\l  br i1 %33, label %36, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1d35aa0:s0 -> Node0x1d35b40;
+	Node0x1d35aa0:s1 -> Node0x1d35af0;
+	Node0x1d35af0 [shape=record,label="{%34:\l34:                                               \l  %35 = call i32 (i32, i32, ...) @ioctl(i32 %26, i32 21524, %struct.winsize*\l... nonnull %4) #41\l  br label %36\l}"];
+	Node0x1d35af0 -> Node0x1d35b40;
+	Node0x1d35b40 [shape=record,label="{%36:\l36:                                               \l  store i32 %12, i32* %0, align 4, !tbaa !1632\l  store i32 %26, i32* %1, align 4, !tbaa !1632\l  br label %39\l}"];
+	Node0x1d35b40 -> Node0x1d35be0;
+	Node0x1d35b90 [shape=record,label="{%37:\l37:                                               \l  %38 = call i32 @close(i32 %12) #41\l  br label %39\l}"];
+	Node0x1d35b90 -> Node0x1d35be0;
+	Node0x1d35be0 [shape=record,label="{%39:\l39:                                               \l  %40 = phi i32 [ 0, %36 ], [ -1, %37 ]\l  %41 = load i32, i32* %7, align 4, !tbaa !1632\l  %42 = call i32 @pthread_setcancelstate(i32 %41, i32* null) #41\l  br label %43\l}"];
+	Node0x1d35be0 -> Node0x1d35c30;
+	Node0x1d35c30 [shape=record,label="{%43:\l43:                                               \l  %44 = phi i32 [ -1, %5 ], [ %40, %39 ]\l  call void @llvm.lifetime.end.p0i8(i64 20, i8* nonnull %11) #40\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %10) #40\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %9) #40\l  ret i32 %44\l}"];
+}

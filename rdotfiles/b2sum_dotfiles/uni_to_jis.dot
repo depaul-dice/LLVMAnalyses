@@ -1,0 +1,16 @@
+digraph "CFG for 'uni_to_jis' function" {
+	label="CFG for 'uni_to_jis' function";
+
+	Node0x1c470a0 [shape=record,label="{%1:\l  %2 = icmp eq i32 %0, 28711\l  br i1 %2, label %32, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1c470a0:s0 -> Node0x1c471e0;
+	Node0x1c470a0:s1 -> Node0x1c47140;
+	Node0x1c470f0 [shape=record,label="{%3:\l3:                                                \l  %4 = zext i16 %22 to i32\l  %5 = add nuw nsw i32 %4, 8481\l  br label %32\l}"];
+	Node0x1c470f0 -> Node0x1c471e0;
+	Node0x1c47140 [shape=record,label="{%6:\l6:                                                \l  %7 = phi i32 [ %30, %13 ], [ 28711, %1 ]\l  %8 = phi i32 [ %19, %13 ], [ 3439, %1 ]\l  %9 = phi i32 [ %18, %13 ], [ 3439, %1 ]\l  %10 = phi i32 [ %17, %13 ], [ 0, %1 ]\l  %11 = phi i32 [ %16, %13 ], [ 6879, %1 ]\l  %12 = icmp eq i32 %11, 1\l  br i1 %12, label %32, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1c47140:s0 -> Node0x1c471e0;
+	Node0x1c47140:s1 -> Node0x1c47190;
+	Node0x1c47190 [shape=record,label="{%13:\l13:                                               \l  %14 = icmp ugt i32 %7, %0\l  %15 = sub i32 %11, %9\l  %16 = select i1 %14, i32 %9, i32 %15\l  %17 = select i1 %14, i32 %10, i32 %8\l  %18 = lshr i32 %16, 1\l  %19 = add i32 %17, %18\l  %20 = zext i32 %19 to i64\l  %21 = getelementptr inbounds [6879 x i16], [6879 x i16]* @rev_jis, i64 0,\l... i64 %20\l  %22 = load i16, i16* %21, align 2, !tbaa !1632\l  %23 = zext i16 %22 to i32\l  %24 = lshr i32 %23, 8\l  %25 = zext i32 %24 to i64\l  %26 = and i32 %23, 255\l  %27 = zext i32 %26 to i64\l  %28 = getelementptr inbounds [84 x [94 x i16]], [84 x [94 x i16]]* bitcast\l... (\<\{ [94 x i16], [94 x i16], [94 x i16], \<\{ [83 x i16], [11 x i16] \}\>, \<\{ [86\l... x i16], [8 x i16] \}\>, \<\{ [56 x i16], [38 x i16] \}\>, \<\{ [81 x i16], [13 x i16]\l... \}\>, \<\{ [32 x i16], [62 x i16] \}\>, [94 x i16], [94 x i16], [94 x i16], [94 x\l... i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16],\l... [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x\l... i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16],\l... [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x\l... i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16],\l... [94 x i16], [94 x i16], \<\{ [51 x i16], [43 x i16] \}\>, [94 x i16], [94 x i16],\l... [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x\l... i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16],\l... [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x\l... i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16],\l... [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x i16], [94 x\l... i16], [94 x i16], \<\{ i16, i16, i16, i16, i16, i16, [88 x i16] \}\> \}\>* @jis0208\l... to [84 x [94 x i16]]*), i64 0, i64 %25, i64 %27\l  %29 = load i16, i16* %28, align 2, !tbaa !1632\l  %30 = zext i16 %29 to i32\l  %31 = icmp eq i32 %30, %0\l  br i1 %31, label %3, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1c47190:s0 -> Node0x1c470f0;
+	Node0x1c47190:s1 -> Node0x1c47140;
+	Node0x1c471e0 [shape=record,label="{%32:\l32:                                               \l  %33 = phi i32 [ %5, %3 ], [ 17005, %1 ], [ 0, %6 ]\l  ret i32 %33\l}"];
+}

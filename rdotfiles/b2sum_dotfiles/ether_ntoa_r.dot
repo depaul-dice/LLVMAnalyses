@@ -1,0 +1,10 @@
+digraph "CFG for 'ether_ntoa_r' function" {
+	label="CFG for 'ether_ntoa_r' function";
+
+	Node0x1c74080 [shape=record,label="{%2:\l  br label %4\l}"];
+	Node0x1c74080 -> Node0x1c74280;
+	Node0x1c74230 [shape=record,label="{%3:\l3:                                                \l  ret i8* %1\l}"];
+	Node0x1c74280 [shape=record,label="{%4:\l4:                                                \l  %5 = phi i64 [ 0, %2 ], [ %15, %4 ]\l  %6 = phi i8* [ %1, %2 ], [ %14, %4 ]\l  %7 = icmp eq i64 %5, 0\l  %8 = select i1 %7, i8* getelementptr inbounds ([5 x i8], [5 x i8]*\l... @.str.886, i64 0, i64 0), i8* getelementptr inbounds ([6 x i8], [6 x i8]*\l... @.str.1.887, i64 0, i64 0)\l  %9 = getelementptr inbounds %struct.ether_addr, %struct.ether_addr* %0, i64\l... 0, i32 0, i64 %5\l  %10 = load i8, i8* %9, align 1, !tbaa !1632\l  %11 = zext i8 %10 to i32\l  %12 = tail call i32 (i8*, i8*, ...) @sprintf(i8* %6, i8* %8, i32 %11) #40\l  %13 = sext i32 %12 to i64\l  %14 = getelementptr inbounds i8, i8* %6, i64 %13\l  %15 = add nuw nsw i64 %5, 1\l  %16 = icmp eq i64 %15, 6\l  br i1 %16, label %3, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1c74280:s0 -> Node0x1c74230;
+	Node0x1c74280:s1 -> Node0x1c74280;
+}

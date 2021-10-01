@@ -1,0 +1,5 @@
+digraph "CFG for 'posix_spawnattr_getschedpolicy' function" {
+	label="CFG for 'posix_spawnattr_getschedpolicy' function";
+
+	Node0x1af3db0 [shape=record,label="{%2:\l  ret i32 38\l}"];
+}

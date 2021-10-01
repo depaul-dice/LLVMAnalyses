@@ -1,0 +1,21 @@
+digraph "CFG for 'cycle' function" {
+	label="CFG for 'cycle' function";
+
+	Node0x19810e0 [shape=record,label="{%3:\l  %4 = alloca [256 x i8], align 16\l  %5 = getelementptr inbounds [256 x i8], [256 x i8]* %4, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 256, i8* nonnull %5) #40\l  %6 = icmp slt i32 %2, 2\l  br i1 %6, label %34, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x19810e0:s0 -> Node0x1981380;
+	Node0x19810e0:s1 -> Node0x19811f0;
+	Node0x19811f0 [shape=record,label="{%7:\l7:                                                \l  %8 = zext i32 %2 to i64\l  %9 = getelementptr inbounds i8*, i8** %1, i64 %8\l  store i8* %5, i8** %9, align 8, !tbaa !1632\l  %10 = icmp eq i64 %0, 0\l  br i1 %10, label %34, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x19811f0:s0 -> Node0x1981380;
+	Node0x19811f0:s1 -> Node0x1981240;
+	Node0x1981240 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i8* [ %33, %32 ], [ %5, %7 ]\l  %13 = phi i64 [ %30, %32 ], [ %0, %7 ]\l  %14 = icmp ult i64 %13, 256\l  %15 = select i1 %14, i64 %13, i64 256\l  %16 = load i8*, i8** %1, align 8, !tbaa !1632\l  %17 = call i8* @memcpy(i8* %12, i8* %16, i64 %15) #41\l  br label %18\l}"];
+	Node0x1981240 -> Node0x1981290;
+	Node0x1981290 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i64 [ 0, %11 ], [ %22, %18 ]\l  %20 = getelementptr inbounds i8*, i8** %1, i64 %19\l  %21 = load i8*, i8** %20, align 8, !tbaa !1632\l  %22 = add nuw nsw i64 %19, 1\l  %23 = getelementptr inbounds i8*, i8** %1, i64 %22\l  %24 = load i8*, i8** %23, align 8, !tbaa !1632\l  %25 = call i8* @memcpy(i8* %21, i8* %24, i64 %15) #41\l  %26 = load i8*, i8** %20, align 8, !tbaa !1632\l  %27 = getelementptr inbounds i8, i8* %26, i64 %15\l  store i8* %27, i8** %20, align 8, !tbaa !1632\l  %28 = icmp eq i64 %22, %8\l  br i1 %28, label %29, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1981290:s0 -> Node0x19812e0;
+	Node0x1981290:s1 -> Node0x1981290;
+	Node0x19812e0 [shape=record,label="{%29:\l29:                                               \l  %30 = sub i64 %13, %15\l  %31 = icmp eq i64 %30, 0\l  br i1 %31, label %34, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x19812e0:s0 -> Node0x1981380;
+	Node0x19812e0:s1 -> Node0x1981330;
+	Node0x1981330 [shape=record,label="{%32:\l32:                                               \l  %33 = load i8*, i8** %9, align 8, !tbaa !1632\l  br label %11\l}"];
+	Node0x1981330 -> Node0x1981240;
+	Node0x1981380 [shape=record,label="{%34:\l34:                                               \l  call void @llvm.lifetime.end.p0i8(i64 256, i8* nonnull %5) #40\l  ret void\l}"];
+}

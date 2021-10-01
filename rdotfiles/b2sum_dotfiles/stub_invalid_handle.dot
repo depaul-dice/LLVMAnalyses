@@ -1,0 +1,5 @@
+digraph "CFG for 'stub_invalid_handle' function" {
+	label="CFG for 'stub_invalid_handle' function";
+
+	Node0x1cfc0c0 [shape=record,label="{%1:\l  tail call void (i8*, ...) @__dl_seterr(i8* getelementptr inbounds ([26 x\l... i8], [26 x i8]* @.str.1.220, i64 0, i64 0), i8* %0) #40\l  ret i32 1\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'ldexpl' function" {
+	label="CFG for 'ldexpl' function";
+
+	Node0x2002510 [shape=record,label="{%2:\l  %3 = tail call x86_fp80 @scalbnl(x86_fp80 %0, i32 %1) #40\l  ret x86_fp80 %3\l}"];
+}

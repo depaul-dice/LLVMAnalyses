@@ -1,0 +1,31 @@
+digraph "CFG for 'ttyname_r' function" {
+	label="CFG for 'ttyname_r' function";
+
+	Node0x1d05880 [shape=record,label="{%3:\l  %4 = alloca %struct.stat, align 8\l  %5 = alloca %struct.stat, align 8\l  %6 = alloca [29 x i8], align 16\l  %7 = bitcast %struct.stat* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 144, i8* nonnull %7) #40\l  %8 = bitcast %struct.stat* %5 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 144, i8* nonnull %8) #40\l  %9 = getelementptr inbounds [29 x i8], [29 x i8]* %6, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 29, i8* nonnull %9) #40\l  %10 = tail call i32 @isatty(i32 %0) #41\l  %11 = icmp eq i32 %10, 0\l  br i1 %11, label %12, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1d05880:s0 -> Node0x1d059b0;
+	Node0x1d05880:s1 -> Node0x1d05a00;
+	Node0x1d059b0 [shape=record,label="{%12:\l12:                                               \l  %13 = tail call i32* @___errno_location() #41\l  %14 = load i32, i32* %13, align 4, !tbaa !1632\l  br label %46\l}"];
+	Node0x1d059b0 -> Node0x1d05c80;
+	Node0x1d05a00 [shape=record,label="{%15:\l15:                                               \l  call void @__procfdname(i8* nonnull %9, i32 %0) #41\l  %16 = call i64 @readlink(i8* nonnull %9, i8* %1, i64 %2) #41\l  %17 = icmp slt i64 %16, 0\l  br i1 %17, label %18, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1d05a00:s0 -> Node0x1d05a50;
+	Node0x1d05a00:s1 -> Node0x1d05aa0;
+	Node0x1d05a50 [shape=record,label="{%18:\l18:                                               \l  %19 = call i32* @___errno_location() #41\l  %20 = load i32, i32* %19, align 4, !tbaa !1632\l  br label %46\l}"];
+	Node0x1d05a50 -> Node0x1d05c80;
+	Node0x1d05aa0 [shape=record,label="{%21:\l21:                                               \l  %22 = icmp eq i64 %16, %2\l  br i1 %22, label %46, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x1d05aa0:s0 -> Node0x1d05c80;
+	Node0x1d05aa0:s1 -> Node0x1d05af0;
+	Node0x1d05af0 [shape=record,label="{%23:\l23:                                               \l  %24 = getelementptr inbounds i8, i8* %1, i64 %16\l  store i8 0, i8* %24, align 1, !tbaa !1636\l  %25 = call i32 @stat(i8* %1, %struct.stat* nonnull %4) #41\l  %26 = icmp eq i32 %25, 0\l  br i1 %26, label %27, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1d05af0:s0 -> Node0x1d05b40;
+	Node0x1d05af0:s1 -> Node0x1d05b90;
+	Node0x1d05b40 [shape=record,label="{%27:\l27:                                               \l  %28 = call i32 @fstat(i32 %0, %struct.stat* nonnull %5) #41\l  %29 = icmp eq i32 %28, 0\l  br i1 %29, label %33, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1d05b40:s0 -> Node0x1d05be0;
+	Node0x1d05b40:s1 -> Node0x1d05b90;
+	Node0x1d05b90 [shape=record,label="{%30:\l30:                                               \l  %31 = call i32* @___errno_location() #41\l  %32 = load i32, i32* %31, align 4, !tbaa !1632\l  br label %46\l}"];
+	Node0x1d05b90 -> Node0x1d05c80;
+	Node0x1d05be0 [shape=record,label="{%33:\l33:                                               \l  %34 = getelementptr inbounds %struct.stat, %struct.stat* %4, i64 0, i32 0\l  %35 = load i64, i64* %34, align 8, !tbaa !1637\l  %36 = getelementptr inbounds %struct.stat, %struct.stat* %5, i64 0, i32 0\l  %37 = load i64, i64* %36, align 8, !tbaa !1637\l  %38 = icmp eq i64 %35, %37\l  br i1 %38, label %39, label %46\l|{<s0>T|<s1>F}}"];
+	Node0x1d05be0:s0 -> Node0x1d05c30;
+	Node0x1d05be0:s1 -> Node0x1d05c80;
+	Node0x1d05c30 [shape=record,label="{%39:\l39:                                               \l  %40 = getelementptr inbounds %struct.stat, %struct.stat* %4, i64 0, i32 1\l  %41 = load i64, i64* %40, align 8, !tbaa !1641\l  %42 = getelementptr inbounds %struct.stat, %struct.stat* %5, i64 0, i32 1\l  %43 = load i64, i64* %42, align 8, !tbaa !1641\l  %44 = icmp eq i64 %41, %43\l  %45 = select i1 %44, i32 0, i32 19\l  br label %46\l}"];
+	Node0x1d05c30 -> Node0x1d05c80;
+	Node0x1d05c80 [shape=record,label="{%46:\l46:                                               \l  %47 = phi i32 [ %20, %18 ], [ %32, %30 ], [ %14, %12 ], [ 34, %21 ], [ 19,\l... %33 ], [ %45, %39 ]\l  call void @llvm.lifetime.end.p0i8(i64 29, i8* nonnull %9) #40\l  call void @llvm.lifetime.end.p0i8(i64 144, i8* nonnull %8) #40\l  call void @llvm.lifetime.end.p0i8(i64 144, i8* nonnull %7) #40\l  ret i32 %47\l}"];
+}

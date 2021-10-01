@@ -1,0 +1,5 @@
+digraph "CFG for 'splice' function" {
+	label="CFG for 'splice' function";
+
+	Node0x1fbe500 [shape=record,label="{%6:\l  %7 = sext i32 %0 to i64\l  %8 = ptrtoint i64* %1 to i64\l  %9 = sext i32 %2 to i64\l  %10 = ptrtoint i64* %3 to i64\l  %11 = zext i32 %5 to i64\l  %12 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},\{r8\},\{r9\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},\l...~\{fpsr\},~\{flags\}(i64 275, i64 %7, i64 %8, i64 %9, i64 %10, i64 %4, i64 %11)\l... #40, !srcloc !1632\l  %13 = tail call i64 @__syscall_ret(i64 %12) #41\l  ret i64 %13\l}"];
+}

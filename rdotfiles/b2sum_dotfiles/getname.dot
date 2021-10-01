@@ -1,0 +1,22 @@
+digraph "CFG for 'getname' function" {
+	label="CFG for 'getname' function";
+
+	Node0x16b0f90 [shape=record,label="{%2:\l  %3 = load i8*, i8** %1, align 8, !tbaa !1632\l  %4 = load i8, i8* %3, align 1, !tbaa !1636\l  %5 = icmp eq i8 %4, 60\l  br i1 %5, label %11, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x16b0f90:s0 -> Node0x16b10d0;
+	Node0x16b0f90:s1 -> Node0x16b1080;
+	Node0x16b1080 [shape=record,label="{%6:\l6:                                                \l  %7 = or i8 %4, 32\l  %8 = sext i8 %7 to i32\l  %9 = add nsw i32 %8, -97\l  %10 = icmp ult i32 %9, 26\l  br i1 %10, label %30, label %44\l|{<s0>T|<s1>F}}"];
+	Node0x16b1080:s0 -> Node0x16b11c0;
+	Node0x16b1080:s1 -> Node0x16b1210;
+	Node0x16b10d0 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds i8, i8* %3, i64 1\l  store i8* %12, i8** %1, align 8, !tbaa !1632\l  %13 = load i8, i8* %12, align 1, !tbaa !1636\l  %14 = icmp eq i8 %13, 62\l  br i1 %14, label %26, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x16b10d0:s0 -> Node0x16b1170;
+	Node0x16b10d0:s1 -> Node0x16b1120;
+	Node0x16b1120 [shape=record,label="{%15:\l15:                                               \l  %16 = phi i64 [ %19, %15 ], [ 0, %11 ]\l  %17 = phi i8 [ %22, %15 ], [ %13, %11 ]\l  %18 = getelementptr inbounds i8, i8* %0, i64 %16\l  store i8 %17, i8* %18, align 1, !tbaa !1636\l  %19 = add nuw nsw i64 %16, 1\l  %20 = load i8*, i8** %1, align 8, !tbaa !1632\l  %21 = getelementptr inbounds i8, i8* %20, i64 %19\l  %22 = load i8, i8* %21, align 1, !tbaa !1636\l  %23 = icmp ne i8 %22, 62\l  %24 = icmp ult i64 %16, 5\l  %25 = and i1 %24, %23\l  br i1 %25, label %15, label %26\l|{<s0>T|<s1>F}}"];
+	Node0x16b1120:s0 -> Node0x16b1120;
+	Node0x16b1120:s1 -> Node0x16b1170;
+	Node0x16b1170 [shape=record,label="{%26:\l26:                                               \l  %27 = phi i64 [ 0, %11 ], [ %19, %15 ]\l  %28 = phi i8* [ %12, %11 ], [ %20, %15 ]\l  %29 = getelementptr inbounds i8, i8* %28, i64 1\l  store i8* %29, i8** %1, align 8, !tbaa !1632\l  br label %44\l}"];
+	Node0x16b1170 -> Node0x16b1210;
+	Node0x16b11c0 [shape=record,label="{%30:\l30:                                               \l  %31 = phi i64 [ %34, %30 ], [ 0, %6 ]\l  %32 = phi i8 [ %37, %30 ], [ %4, %6 ]\l  %33 = getelementptr inbounds i8, i8* %0, i64 %31\l  store i8 %32, i8* %33, align 1, !tbaa !1636\l  %34 = add nuw nsw i64 %31, 1\l  %35 = load i8*, i8** %1, align 8, !tbaa !1632\l  %36 = getelementptr inbounds i8, i8* %35, i64 %34\l  %37 = load i8, i8* %36, align 1, !tbaa !1636\l  %38 = or i8 %37, 32\l  %39 = sext i8 %38 to i32\l  %40 = add nsw i32 %39, -97\l  %41 = icmp ult i32 %40, 26\l  %42 = icmp ult i64 %31, 5\l  %43 = and i1 %42, %41\l  br i1 %43, label %30, label %44\l|{<s0>T|<s1>F}}"];
+	Node0x16b11c0:s0 -> Node0x16b11c0;
+	Node0x16b11c0:s1 -> Node0x16b1210;
+	Node0x16b1210 [shape=record,label="{%44:\l44:                                               \l  %45 = phi i8* [ %29, %26 ], [ %3, %6 ], [ %35, %30 ]\l  %46 = phi i64 [ %27, %26 ], [ 0, %6 ], [ %34, %30 ]\l  %47 = and i64 %46, 4294967295\l  %48 = getelementptr inbounds i8, i8* %45, i64 %47\l  store i8* %48, i8** %1, align 8, !tbaa !1632\l  %49 = getelementptr inbounds i8, i8* %0, i64 %47\l  store i8 0, i8* %49, align 1, !tbaa !1636\l  ret void\l}"];
+}

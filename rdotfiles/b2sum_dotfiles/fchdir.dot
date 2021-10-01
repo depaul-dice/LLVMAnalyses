@@ -1,0 +1,15 @@
+digraph "CFG for 'fchdir' function" {
+	label="CFG for 'fchdir' function";
+
+	Node0x1ae43a0 [shape=record,label="{%1:\l  %2 = alloca [27 x i8], align 16\l  %3 = sext i32 %0 to i64\l  %4 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64 81,\l... i64 %3) #40, !srcloc !1632\l  %5 = trunc i64 %4 to i32\l  %6 = icmp eq i32 %5, -9\l  br i1 %6, label %7, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1ae43a0:s0 -> Node0x1ae4450;
+	Node0x1ae43a0:s1 -> Node0x1ae44a0;
+	Node0x1ae4450 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 72, i64 %3, i64 1) #40, !srcloc !1633\l  %9 = icmp slt i64 %8, 0\l  br i1 %9, label %10, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1ae4450:s0 -> Node0x1ae44a0;
+	Node0x1ae4450:s1 -> Node0x1ae44f0;
+	Node0x1ae44a0 [shape=record,label="{%10:\l10:                                               \l  %11 = shl i64 %4, 32\l  %12 = ashr exact i64 %11, 32\l  %13 = tail call i64 @__syscall_ret(i64 %12) #41\l  br label %19\l}"];
+	Node0x1ae44a0 -> Node0x1ae4540;
+	Node0x1ae44f0 [shape=record,label="{%14:\l14:                                               \l  %15 = getelementptr inbounds [27 x i8], [27 x i8]* %2, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 27, i8* nonnull %15) #40\l  call void @__procfdname(i8* nonnull %15, i32 %0) #41\l  %16 = ptrtoint [27 x i8]* %2 to i64\l  %17 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64 80,\l... i64 %16) #40, !srcloc !1632\l  %18 = call i64 @__syscall_ret(i64 %17) #41\l  call void @llvm.lifetime.end.p0i8(i64 27, i8* nonnull %15) #40\l  br label %19\l}"];
+	Node0x1ae44f0 -> Node0x1ae4540;
+	Node0x1ae4540 [shape=record,label="{%19:\l19:                                               \l  %20 = phi i64 [ %13, %10 ], [ %18, %14 ]\l  %21 = trunc i64 %20 to i32\l  ret i32 %21\l}"];
+}

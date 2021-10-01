@@ -1,0 +1,5 @@
+digraph "CFG for '__libc_current_sigrtmin' function" {
+	label="CFG for '__libc_current_sigrtmin' function";
+
+	Node0x1ed2d10 [shape=record,label="{%0:\l  ret i32 35\l}"];
+}

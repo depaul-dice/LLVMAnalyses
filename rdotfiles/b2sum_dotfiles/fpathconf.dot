@@ -1,0 +1,12 @@
+digraph "CFG for 'fpathconf' function" {
+	label="CFG for 'fpathconf' function";
+
+	Node0x1d02d50 [shape=record,label="{%2:\l  %3 = icmp ugt i32 %1, 20\l  br i1 %3, label %4, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1d02d50:s0 -> Node0x1d02da0;
+	Node0x1d02d50:s1 -> Node0x1d02df0;
+	Node0x1d02da0 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %5, align 4, !tbaa !1632\l  br label %11\l}"];
+	Node0x1d02da0 -> Node0x1d02e40;
+	Node0x1d02df0 [shape=record,label="{%6:\l6:                                                \l  %7 = zext i32 %1 to i64\l  %8 = getelementptr inbounds [21 x i16], [21 x i16]* @fpathconf.values, i64\l... 0, i64 %7\l  %9 = load i16, i16* %8, align 2, !tbaa !1636\l  %10 = sext i16 %9 to i64\l  br label %11\l}"];
+	Node0x1d02df0 -> Node0x1d02e40;
+	Node0x1d02e40 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i64 [ -1, %4 ], [ %10, %6 ]\l  ret i64 %12\l}"];
+}

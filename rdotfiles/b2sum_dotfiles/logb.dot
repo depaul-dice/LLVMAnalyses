@@ -1,0 +1,17 @@
+digraph "CFG for 'logb' function" {
+	label="CFG for 'logb' function";
+
+	Node0x1f72630 [shape=record,label="{%1:\l  %2 = bitcast double %0 to i64\l  %3 = and i64 %2, 9218868437227405312\l  %4 = icmp eq i64 %3, 9218868437227405312\l  br i1 %4, label %5, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1f72630:s0 -> Node0x1f728b0;
+	Node0x1f72630:s1 -> Node0x1f72900;
+	Node0x1f728b0 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call double @llvm.experimental.constrained.fmul.f64(double %0,\l... double %0, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  br label %17\l}"];
+	Node0x1f728b0 -> Node0x1f729f0;
+	Node0x1f72900 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call double @llvm.experimental.constrained.sitofp.f64.i32(i32 0,\l... metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %9 = tail call i1 @llvm.experimental.constrained.fcmp.f64(double %0, double\l... %8, metadata !oeq, metadata !fpexcept.ignore) #40\l  br i1 %9, label %10, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1f72900:s0 -> Node0x1f72950;
+	Node0x1f72900:s1 -> Node0x1f729a0;
+	Node0x1f72950 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call double @llvm.experimental.constrained.sitofp.f64.i32(i32 -1,\l... metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %12 = tail call double @llvm.experimental.constrained.fmul.f64(double %0,\l... double %0, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %13 = tail call double @llvm.experimental.constrained.fdiv.f64(double %11,\l... double %12, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  br label %17\l}"];
+	Node0x1f72950 -> Node0x1f729f0;
+	Node0x1f729a0 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call i32 @ilogb(double %0) #41\l  %16 = tail call double @llvm.experimental.constrained.sitofp.f64.i32(i32\l... %15, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  br label %17\l}"];
+	Node0x1f729a0 -> Node0x1f729f0;
+	Node0x1f729f0 [shape=record,label="{%17:\l17:                                               \l  %18 = phi double [ %13, %10 ], [ %16, %14 ], [ %6, %5 ]\l  ret double %18\l}"];
+}

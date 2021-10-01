@@ -1,0 +1,5 @@
+digraph "CFG for 'labs' function" {
+	label="CFG for 'labs' function";
+
+	Node0x160a0a0 [shape=record,label="{%1:\l  %2 = icmp slt i64 %0, 0\l  %3 = sub nsw i64 0, %0\l  %4 = select i1 %2, i64 %3, i64 %0\l  ret i64 %4\l}"];
+}

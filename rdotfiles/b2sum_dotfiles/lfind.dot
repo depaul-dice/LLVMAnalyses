@@ -1,0 +1,14 @@
+digraph "CFG for 'lfind' function" {
+	label="CFG for 'lfind' function";
+
+	Node0x1c50120 [shape=record,label="{%5:\l  %6 = load i64, i64* %2, align 8, !tbaa !1632\l  %7 = icmp eq i64 %6, 0\l  br i1 %7, label %17, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1c50120:s0 -> Node0x1c502e0;
+	Node0x1c50120:s1 -> Node0x1c50290;
+	Node0x1c50240 [shape=record,label="{%8:\l8:                                                \l  %9 = icmp eq i64 %16, %6\l  br i1 %9, label %17, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1c50240:s0 -> Node0x1c502e0;
+	Node0x1c50240:s1 -> Node0x1c50290;
+	Node0x1c50290 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i64 [ %16, %8 ], [ 0, %5 ]\l  %12 = mul nsw i64 %11, %3\l  %13 = getelementptr inbounds i8, i8* %1, i64 %12\l  %14 = tail call i32 %4(i8* %0, i8* %13) #40\l  %15 = icmp eq i32 %14, 0\l  %16 = add nuw i64 %11, 1\l  br i1 %15, label %17, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1c50290:s0 -> Node0x1c502e0;
+	Node0x1c50290:s1 -> Node0x1c50240;
+	Node0x1c502e0 [shape=record,label="{%17:\l17:                                               \l  %18 = phi i8* [ null, %5 ], [ null, %8 ], [ %13, %10 ]\l  ret i8* %18\l}"];
+}

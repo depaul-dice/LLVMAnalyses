@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_attr_setstack' function" {
+	label="CFG for 'pthread_attr_setstack' function";
+
+	Node0x1ae5290 [shape=record,label="{%3:\l  %4 = add i64 %2, -2048\l  %5 = icmp ugt i64 %4, 4611686018427387903\l  br i1 %5, label %11, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1ae5290:s0 -> Node0x1ae53b0;
+	Node0x1ae5290:s1 -> Node0x1ae5360;
+	Node0x1ae5360 [shape=record,label="{%6:\l6:                                                \l  %7 = ptrtoint i8* %1 to i64\l  %8 = add i64 %7, %2\l  %9 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %0, i64 0, i32 0, i32 0, i64 2\l  store i64 %8, i64* %9, align 8, !tbaa !1632\l  %10 = getelementptr inbounds %struct.pthread_attr_t, %struct.pthread_attr_t*\l... %0, i64 0, i32 0, i32 0, i64 0\l  store i64 %2, i64* %10, align 8, !tbaa !1632\l  br label %11\l}"];
+	Node0x1ae5360 -> Node0x1ae53b0;
+	Node0x1ae53b0 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i32 [ 0, %6 ], [ 22, %3 ]\l  ret i32 %12\l}"];
+}

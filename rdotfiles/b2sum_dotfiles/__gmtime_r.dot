@@ -1,0 +1,12 @@
+digraph "CFG for '__gmtime_r' function" {
+	label="CFG for '__gmtime_r' function";
+
+	Node0x1727ab0 [shape=record,label="{%2:\l  %3 = load i64, i64* %0, align 8, !tbaa !1632\l  %4 = tail call i32 @__secs_to_tm(i64 %3, %struct.tm* %1) #40\l  %5 = icmp slt i32 %4, 0\l  br i1 %5, label %6, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1727ab0:s0 -> Node0x1727f60;
+	Node0x1727ab0:s1 -> Node0x1727fb0;
+	Node0x1727f60 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32* @___errno_location() #40\l  store i32 75, i32* %7, align 4, !tbaa !1636\l  br label %12\l}"];
+	Node0x1727f60 -> Node0x1728000;
+	Node0x1727fb0 [shape=record,label="{%8:\l8:                                                \l  %9 = getelementptr inbounds %struct.tm, %struct.tm* %1, i64 0, i32 8\l  store i32 0, i32* %9, align 8, !tbaa !1638\l  %10 = getelementptr inbounds %struct.tm, %struct.tm* %1, i64 0, i32 9\l  store i64 0, i64* %10, align 8, !tbaa !1641\l  %11 = getelementptr inbounds %struct.tm, %struct.tm* %1, i64 0, i32 10\l  store i8* getelementptr inbounds ([4 x i8], [4 x i8]* @__utc, i64 0, i64 0),\l... i8** %11, align 8, !tbaa !1642\l  br label %12\l}"];
+	Node0x1727fb0 -> Node0x1728000;
+	Node0x1728000 [shape=record,label="{%12:\l12:                                               \l  %13 = phi %struct.tm* [ null, %6 ], [ %1, %8 ]\l  ret %struct.tm* %13\l}"];
+}

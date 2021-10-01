@@ -1,0 +1,16 @@
+digraph "CFG for 'rintf' function" {
+	label="CFG for 'rintf' function";
+
+	Node0x155d360 [shape=record,label="{%1:\l  %2 = bitcast float %0 to i32\l  %3 = and i32 %2, 2130706432\l  %4 = icmp ugt i32 %3, 1249902592\l  br i1 %4, label %19, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x155d360:s0 -> Node0x155d4f0;
+	Node0x155d360:s1 -> Node0x155d3b0;
+	Node0x155d3b0 [shape=record,label="{%5:\l5:                                                \l  %6 = icmp slt i32 %2, 0\l  br i1 %6, label %7, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x155d3b0:s0 -> Node0x155d400;
+	Node0x155d3b0:s1 -> Node0x155d450;
+	Node0x155d400 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call float @llvm.experimental.constrained.fsub.f32(float %0, float\l... 0x4160000000000000, metadata !round.dynamic, metadata !fpexcept.ignore)\l... #40\l  %9 = tail call float @llvm.experimental.constrained.fadd.f32(float %8, float\l... 0x4160000000000000, metadata !round.dynamic, metadata !fpexcept.ignore)\l... #40\l  br label %13\l}"];
+	Node0x155d400 -> Node0x155d4a0;
+	Node0x155d450 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call float @llvm.experimental.constrained.fadd.f32(float %0,\l... float 0x4160000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #40\l  %12 = tail call float @llvm.experimental.constrained.fsub.f32(float %11,\l... float 0x4160000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #40\l  br label %13\l}"];
+	Node0x155d450 -> Node0x155d4a0;
+	Node0x155d4a0 [shape=record,label="{%13:\l13:                                               \l  %14 = phi float [ %9, %7 ], [ %12, %10 ]\l  %15 = tail call float @llvm.experimental.constrained.sitofp.f32.i32(i32 0,\l... metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %16 = tail call i1 @llvm.experimental.constrained.fcmp.f32(float %14, float\l... %15, metadata !oeq, metadata !fpexcept.ignore) #40\l  %17 = select i1 %6, float -0.000000e+00, float 0.000000e+00\l  %18 = select i1 %16, float %17, float %14\l  ret float %18\l}"];
+	Node0x155d4f0 [shape=record,label="{%19:\l19:                                               \l  ret float %0\l}"];
+}

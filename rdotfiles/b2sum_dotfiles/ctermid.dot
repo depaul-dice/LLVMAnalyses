@@ -1,0 +1,10 @@
+digraph "CFG for 'ctermid' function" {
+	label="CFG for 'ctermid' function";
+
+	Node0x1d79200 [shape=record,label="{%1:\l  %2 = icmp eq i8* %0, null\l  br i1 %2, label %5, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1d79200:s0 -> Node0x1d796a0;
+	Node0x1d79200:s1 -> Node0x1d79650;
+	Node0x1d79650 [shape=record,label="{%3:\l3:                                                \l  %4 = tail call i8* @strcpy(i8* nonnull %0, i8* getelementptr inbounds ([9 x\l... i8], [9 x i8]* @.str.462, i64 0, i64 0)) #40\l  br label %5\l}"];
+	Node0x1d79650 -> Node0x1d796a0;
+	Node0x1d796a0 [shape=record,label="{%5:\l5:                                                \l  %6 = phi i8* [ %4, %3 ], [ getelementptr inbounds ([9 x i8], [9 x i8]*\l... @.str.462, i64 0, i64 0), %1 ]\l  ret i8* %6\l}"];
+}

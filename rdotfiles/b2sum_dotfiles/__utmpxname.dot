@@ -1,0 +1,5 @@
+digraph "CFG for '__utmpxname' function" {
+	label="CFG for '__utmpxname' function";
+
+	Node0x2024340 [shape=record,label="{%1:\l  %2 = tail call i32* @___errno_location() #40\l  store i32 95, i32* %2, align 4, !tbaa !1632\l  ret i32 -1\l}"];
+}

@@ -1,0 +1,13 @@
+digraph "CFG for 'mtx_lock' function" {
+	label="CFG for 'mtx_lock' function";
+
+	Node0x1ed0670 [shape=record,label="{%1:\l  %2 = bitcast %struct.pthread_mutex_t* %0 to i32*\l  %3 = load i32, i32* %2, align 8, !tbaa !1632\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %5, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1ed0670:s0 -> Node0x1ed06c0;
+	Node0x1ed0670:s1 -> Node0x1ed0710;
+	Node0x1ed06c0 [shape=record,label="{%5:\l5:                                                \l  %6 = bitcast %struct.pthread_mutex_t* %0 to [10 x i32]*\l  %7 = getelementptr inbounds [10 x i32], [10 x i32]* %6, i64 0, i64 1\l  %8 = tail call i32 asm sideeffect lock \l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %12, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1ed06c0:s0 -> Node0x1ed0760;
+	Node0x1ed06c0:s1 -> Node0x1ed0710;
+	Node0x1ed0710 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call i32 @mtx_timedlock(%struct.pthread_mutex_t* nonnull %0,\l... %struct.timeval* null) #41\l  br label %12\l}"];
+	Node0x1ed0710 -> Node0x1ed0760;
+	Node0x1ed0760 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i32 [ %11, %10 ], [ 0, %5 ]\l  ret i32 %13\l}"];
+}

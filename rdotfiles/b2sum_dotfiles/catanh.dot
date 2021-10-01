@@ -1,0 +1,5 @@
+digraph "CFG for 'catanh' function" {
+	label="CFG for 'catanh' function";
+
+	Node0x1164180 [shape=record,label="{%2:\l  %3 = fneg double %1\l  %4 = tail call \{ double, double \} @catan(double %3, double %0) #40\l  %5 = extractvalue \{ double, double \} %4, 0\l  %6 = extractvalue \{ double, double \} %4, 1\l  %7 = fneg double %5\l  %8 = insertvalue \{ double, double \} undef, double %6, 0\l  %9 = insertvalue \{ double, double \} %8, double %7, 1\l  ret \{ double, double \} %9\l}"];
+}

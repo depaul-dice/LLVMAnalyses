@@ -1,0 +1,24 @@
+digraph "CFG for 'mkdtemp' function" {
+	label="CFG for 'mkdtemp' function";
+
+	Node0x1c1b520 [shape=record,label="{%1:\l  %2 = tail call i64 @strlen(i8* %0) #40\l  %3 = icmp ult i64 %2, 6\l  br i1 %3, label %9, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1c1b520:s0 -> Node0x1c1b5c0;
+	Node0x1c1b520:s1 -> Node0x1c1b570;
+	Node0x1c1b570 [shape=record,label="{%4:\l4:                                                \l  %5 = getelementptr inbounds i8, i8* %0, i64 %2\l  %6 = getelementptr inbounds i8, i8* %5, i64 -6\l  %7 = tail call i32 @memcmp(i8* nonnull %6, i8* getelementptr inbounds ([7 x\l... i8], [7 x i8]* @.str.240, i64 0, i64 0), i64 6) #40\l  %8 = icmp eq i32 %7, 0\l  br i1 %8, label %11, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1c1b570:s0 -> Node0x1c1b610;
+	Node0x1c1b570:s1 -> Node0x1c1b5c0;
+	Node0x1c1b5c0 [shape=record,label="{%9:\l9:                                                \l  %10 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %10, align 4, !tbaa !1632\l  br label %25\l}"];
+	Node0x1c1b5c0 -> Node0x1c1b750;
+	Node0x1c1b610 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i32 [ %17, %19 ], [ 100, %4 ]\l  %13 = tail call i8* @__randname(i8* nonnull %6) #40\l  %14 = tail call i32 @mkdir(i8* %0, i32 448) #40\l  %15 = icmp eq i32 %14, 0\l  br i1 %15, label %25, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1c1b610:s0 -> Node0x1c1b750;
+	Node0x1c1b610:s1 -> Node0x1c1b660;
+	Node0x1c1b660 [shape=record,label="{%16:\l16:                                               \l  %17 = add nsw i32 %12, -1\l  %18 = icmp eq i32 %17, 0\l  br i1 %18, label %23, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1c1b660:s0 -> Node0x1c1b700;
+	Node0x1c1b660:s1 -> Node0x1c1b6b0;
+	Node0x1c1b6b0 [shape=record,label="{%19:\l19:                                               \l  %20 = tail call i32* @___errno_location() #40\l  %21 = load i32, i32* %20, align 4, !tbaa !1632\l  %22 = icmp eq i32 %21, 17\l  br i1 %22, label %11, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x1c1b6b0:s0 -> Node0x1c1b610;
+	Node0x1c1b6b0:s1 -> Node0x1c1b700;
+	Node0x1c1b700 [shape=record,label="{%23:\l23:                                               \l  %24 = tail call i8* @memcpy(i8* nonnull %6, i8* getelementptr inbounds ([7 x\l... i8], [7 x i8]* @.str.240, i64 0, i64 0), i64 6) #40\l  br label %25\l}"];
+	Node0x1c1b700 -> Node0x1c1b750;
+	Node0x1c1b750 [shape=record,label="{%25:\l25:                                               \l  %26 = phi i8* [ null, %9 ], [ null, %23 ], [ %0, %11 ]\l  ret i8* %26\l}"];
+}

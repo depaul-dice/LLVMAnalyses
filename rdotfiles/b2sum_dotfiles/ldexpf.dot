@@ -1,0 +1,5 @@
+digraph "CFG for 'ldexpf' function" {
+	label="CFG for 'ldexpf' function";
+
+	Node0x1ffa120 [shape=record,label="{%2:\l  %3 = tail call float @scalbnf(float %0, i32 %1) #40\l  ret float %3\l}"];
+}

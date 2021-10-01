@@ -1,0 +1,15 @@
+digraph "CFG for 'opendir' function" {
+	label="CFG for 'opendir' function";
+
+	Node0x166b240 [shape=record,label="{%1:\l  %2 = tail call i32 (i8*, i32, ...) @open(i8* %0, i32 589824) #40\l  %3 = icmp slt i32 %2, 0\l  br i1 %3, label %14, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x166b240:s0 -> Node0x166b380;
+	Node0x166b240:s1 -> Node0x166b290;
+	Node0x166b290 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i8* @calloc(i64 1, i64 2072) #40\l  %6 = icmp eq i8* %5, null\l  br i1 %6, label %7, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x166b290:s0 -> Node0x166b2e0;
+	Node0x166b290:s1 -> Node0x166b330;
+	Node0x166b2e0 [shape=record,label="{%7:\l7:                                                \l  %8 = zext i32 %2 to i64\l  %9 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64 3,\l... i64 %8) #41, !srcloc !1632\l  br label %14\l}"];
+	Node0x166b2e0 -> Node0x166b380;
+	Node0x166b330 [shape=record,label="{%10:\l10:                                               \l  %11 = bitcast i8* %5 to %struct.__dirstream*\l  %12 = getelementptr inbounds i8, i8* %5, i64 8\l  %13 = bitcast i8* %12 to i32*\l  store i32 %2, i32* %13, align 8, !tbaa !1633\l  br label %14\l}"];
+	Node0x166b330 -> Node0x166b380;
+	Node0x166b380 [shape=record,label="{%14:\l14:                                               \l  %15 = phi %struct.__dirstream* [ %11, %10 ], [ null, %7 ], [ null, %1 ]\l  ret %struct.__dirstream* %15\l}"];
+}

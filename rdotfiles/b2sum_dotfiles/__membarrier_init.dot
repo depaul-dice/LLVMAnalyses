@@ -1,0 +1,5 @@
+digraph "CFG for '__membarrier_init' function" {
+	label="CFG for '__membarrier_init' function";
+
+	Node0x1a03420 [shape=record,label="{%0:\l  %1 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 324, i64 16, i64 0) #40, !srcloc !1632\l  ret void\l}"];
+}

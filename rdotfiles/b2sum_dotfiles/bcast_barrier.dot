@@ -1,0 +1,5 @@
+digraph "CFG for 'bcast_barrier' function" {
+	label="CFG for 'bcast_barrier' function";
+
+	Node0x1d5f9a0 [shape=record,label="{%1:\l  %2 = tail call i32 @sem_post(%struct.sem_t* nonnull @barrier_sem) #40\l  ret void\l}"];
+}

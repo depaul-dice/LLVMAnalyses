@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_setconcurrency' function" {
+	label="CFG for 'pthread_setconcurrency' function";
+
+	Node0x1cd74e0 [shape=record,label="{%1:\l  %2 = icmp slt i32 %0, 0\l  %3 = icmp eq i32 %0, 0\l  %4 = select i1 %3, i32 0, i32 11\l  %5 = select i1 %2, i32 22, i32 %4\l  ret i32 %5\l}"];
+}

@@ -1,0 +1,19 @@
+digraph "CFG for 'pthread_barrier_destroy' function" {
+	label="CFG for 'pthread_barrier_destroy' function";
+
+	Node0x1e97f10 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct.pthread_barrier_t,\l... %struct.pthread_barrier_t* %0, i64 0, i32 0, i32 0, i64 1\l  %3 = bitcast i8** %2 to i32*\l  %4 = load i32, i32* %3, align 8, !tbaa !1632\l  %5 = icmp slt i32 %4, 0\l  br i1 %5, label %6, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1e97f10:s0 -> Node0x1e97fa0;
+	Node0x1e97f10:s1 -> Node0x1e980e0;
+	Node0x1e97fa0 [shape=record,label="{%6:\l6:                                                \l  %7 = bitcast %struct.pthread_barrier_t* %0 to i32*\l  %8 = load volatile i32, i32* %7, align 8, !tbaa !1632\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %19, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1e97fa0:s0 -> Node0x1e98090;
+	Node0x1e97fa0:s1 -> Node0x1e97ff0;
+	Node0x1e97ff0 [shape=record,label="{%10:\l10:                                               \l  tail call void asm sideeffect lock \l  %11 = load volatile i32, i32* %7, align 8, !tbaa !1632\l  %12 = and i32 %11, 2147483647\l  %13 = icmp eq i32 %12, 0\l  br i1 %13, label %19, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1e97ff0:s0 -> Node0x1e98090;
+	Node0x1e97ff0:s1 -> Node0x1e98040;
+	Node0x1e98040 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32 [ %16, %14 ], [ %11, %10 ]\l  tail call void @__wait(i32* nonnull %7, i32* null, i32 %15, i32 0) #41\l  %16 = load volatile i32, i32* %7, align 8, !tbaa !1632\l  %17 = and i32 %16, 2147483647\l  %18 = icmp eq i32 %17, 0\l  br i1 %18, label %19, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1e98040:s0 -> Node0x1e98090;
+	Node0x1e98040:s1 -> Node0x1e98040;
+	Node0x1e98090 [shape=record,label="{%19:\l19:                                               \l  tail call void @__vm_wait() #41\l  br label %20\l}"];
+	Node0x1e98090 -> Node0x1e980e0;
+	Node0x1e980e0 [shape=record,label="{%20:\l20:                                               \l  ret i32 0\l}"];
+}

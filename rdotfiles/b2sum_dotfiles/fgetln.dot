@@ -1,0 +1,35 @@
+digraph "CFG for 'fgetln' function" {
+	label="CFG for 'fgetln' function";
+
+	Node0x1c83810 [shape=record,label="{%2:\l  %3 = alloca [1 x i64], align 8\l  %4 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 19\l  %5 = load volatile i32, i32* %4, align 4, !tbaa !1632\l  %6 = icmp sgt i32 %5, -1\l  br i1 %6, label %7, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1c83810:s0 -> Node0x1c83930;
+	Node0x1c83810:s1 -> Node0x1c83980;
+	Node0x1c83930 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call i32 bitcast (i32 (%struct._IO_FILE.233*)* @__lockfile to i32\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* nonnull %0) #40\l  br label %9\l}"];
+	Node0x1c83930 -> Node0x1c83980;
+	Node0x1c83980 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i32 [ %8, %7 ], [ 0, %2 ]\l  %11 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 1\l  %12 = load i8*, i8** %11, align 8, !tbaa !1639\l  %13 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 2\l  %14 = load i8*, i8** %13, align 8, !tbaa !1640\l  %15 = icmp eq i8* %12, %14\l  br i1 %15, label %20, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1c83980:s0 -> Node0x1c83a20;
+	Node0x1c83980:s1 -> Node0x1c839d0;
+	Node0x1c839d0 [shape=record,label="{%16:\l16:                                               \l  %17 = getelementptr inbounds i8, i8* %12, i64 1\l  store i8* %17, i8** %11, align 8, !tbaa !1639\l  %18 = load i8, i8* %12, align 1, !tbaa !1641\l  %19 = zext i8 %18 to i32\l  br label %22\l}"];
+	Node0x1c839d0 -> Node0x1c83a70;
+	Node0x1c83a20 [shape=record,label="{%20:\l20:                                               \l  %21 = tail call i32 bitcast (i32 (%struct._IO_FILE.828*)* @__uflow to i32\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* nonnull %0) #40\l  br label %22\l}"];
+	Node0x1c83a20 -> Node0x1c83a70;
+	Node0x1c83a70 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i32 [ %19, %16 ], [ %21, %20 ]\l  %24 = tail call i32 @ungetc(i32 %23, %struct._IO_FILE.0* nonnull %0) #40\l  %25 = load i8*, i8** %13, align 8, !tbaa !1640\l  %26 = icmp eq i8* %25, null\l  br i1 %26, label %40, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x1c83a70:s0 -> Node0x1c83b60;
+	Node0x1c83a70:s1 -> Node0x1c83ac0;
+	Node0x1c83ac0 [shape=record,label="{%27:\l27:                                               \l  %28 = load i8*, i8** %11, align 8, !tbaa !1639\l  %29 = ptrtoint i8* %25 to i64\l  %30 = ptrtoint i8* %28 to i64\l  %31 = sub i64 %29, %30\l  %32 = tail call i8* @memchr(i8* %28, i32 10, i64 %31) #40\l  %33 = icmp eq i8* %32, null\l  br i1 %33, label %40, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1c83ac0:s0 -> Node0x1c83b60;
+	Node0x1c83ac0:s1 -> Node0x1c83b10;
+	Node0x1c83b10 [shape=record,label="{%34:\l34:                                               \l  %35 = load i8*, i8** %11, align 8, !tbaa !1639\l  %36 = getelementptr inbounds i8, i8* %32, i64 1\l  %37 = ptrtoint i8* %36 to i64\l  %38 = ptrtoint i8* %35 to i64\l  %39 = sub i64 %37, %38\l  store i64 %39, i64* %1, align 8, !tbaa !1642\l  store i8* %36, i8** %11, align 8, !tbaa !1639\l  br label %47\l}"];
+	Node0x1c83b10 -> Node0x1c83c00;
+	Node0x1c83b60 [shape=record,label="{%40:\l40:                                               \l  %41 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 23\l  %42 = getelementptr inbounds [1 x i64], [1 x i64]* %3, i64 0, i64 0\l  store i64 0, i64* %42, align 8, !tbaa !1642\l  %43 = call i64 @getline(i8** nonnull %41, i64* nonnull %42,\l... %struct._IO_FILE.0* nonnull %0) #40\l  %44 = icmp sgt i64 %43, 0\l  br i1 %44, label %45, label %47\l|{<s0>T|<s1>F}}"];
+	Node0x1c83b60:s0 -> Node0x1c83bb0;
+	Node0x1c83b60:s1 -> Node0x1c83c00;
+	Node0x1c83bb0 [shape=record,label="{%45:\l45:                                               \l  store i64 %43, i64* %1, align 8, !tbaa !1642\l  %46 = load i8*, i8** %41, align 8, !tbaa !1643\l  br label %47\l}"];
+	Node0x1c83bb0 -> Node0x1c83c00;
+	Node0x1c83c00 [shape=record,label="{%47:\l47:                                               \l  %48 = phi i8* [ %35, %34 ], [ %46, %45 ], [ null, %40 ]\l  %49 = icmp eq i32 %10, 0\l  br i1 %49, label %51, label %50\l|{<s0>T|<s1>F}}"];
+	Node0x1c83c00:s0 -> Node0x1c83ca0;
+	Node0x1c83c00:s1 -> Node0x1c83c50;
+	Node0x1c83c50 [shape=record,label="{%50:\l50:                                               \l  call void bitcast (void (%struct._IO_FILE.233*)* @__unlockfile to void\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* nonnull %0) #40\l  br label %51\l}"];
+	Node0x1c83c50 -> Node0x1c83ca0;
+	Node0x1c83ca0 [shape=record,label="{%51:\l51:                                               \l  ret i8* %48\l}"];
+}

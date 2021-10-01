@@ -1,0 +1,41 @@
+digraph "CFG for 'nextafterf' function" {
+	label="CFG for 'nextafterf' function";
+
+	Node0x1d4da80 [shape=record,label="{%2:\l  %3 = alloca float, align 4\l  %4 = alloca float, align 4\l  %5 = bitcast float %0 to i32\l  %6 = bitcast float %1 to i32\l  %7 = and i32 %5, 2147483647\l  %8 = icmp ugt i32 %7, 2139095040\l  br i1 %8, label %12, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1d4da80:s0 -> Node0x1d520a0;
+	Node0x1d4da80:s1 -> Node0x1d51f70;
+	Node0x1d51f70 [shape=record,label="{%9:\l9:                                                \l  %10 = and i32 %6, 2147483647\l  %11 = icmp ugt i32 %10, 2139095040\l  br i1 %11, label %12, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1d51f70:s0 -> Node0x1d520a0;
+	Node0x1d51f70:s1 -> Node0x1d520f0;
+	Node0x1d520a0 [shape=record,label="{%12:\l12:                                               \l  %13 = tail call float @llvm.experimental.constrained.fadd.f32(float %0,\l... float %1, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  br label %46\l}"];
+	Node0x1d520a0 -> Node0x1d52460;
+	Node0x1d520f0 [shape=record,label="{%14:\l14:                                               \l  %15 = icmp eq i32 %5, %6\l  br i1 %15, label %46, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1d520f0:s0 -> Node0x1d52460;
+	Node0x1d520f0:s1 -> Node0x1d52140;
+	Node0x1d52140 [shape=record,label="{%16:\l16:                                               \l  %17 = icmp eq i32 %7, 0\l  br i1 %17, label %18, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x1d52140:s0 -> Node0x1d52190;
+	Node0x1d52140:s1 -> Node0x1d52230;
+	Node0x1d52190 [shape=record,label="{%18:\l18:                                               \l  %19 = icmp eq i32 %10, 0\l  br i1 %19, label %46, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1d52190:s0 -> Node0x1d52460;
+	Node0x1d52190:s1 -> Node0x1d521e0;
+	Node0x1d521e0 [shape=record,label="{%20:\l20:                                               \l  %21 = and i32 %6, -2147483648\l  %22 = or i32 %21, 1\l  br label %32\l}"];
+	Node0x1d521e0 -> Node0x1d52320;
+	Node0x1d52230 [shape=record,label="{%23:\l23:                                               \l  %24 = icmp ugt i32 %7, %10\l  %25 = xor i32 %6, %5\l  %26 = icmp slt i32 %25, 0\l  %27 = or i1 %24, %26\l  br i1 %27, label %28, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1d52230:s0 -> Node0x1d52280;
+	Node0x1d52230:s1 -> Node0x1d522d0;
+	Node0x1d52280 [shape=record,label="{%28:\l28:                                               \l  %29 = add i32 %5, -1\l  br label %32\l}"];
+	Node0x1d52280 -> Node0x1d52320;
+	Node0x1d522d0 [shape=record,label="{%30:\l30:                                               \l  %31 = add i32 %5, 1\l  br label %32\l}"];
+	Node0x1d522d0 -> Node0x1d52320;
+	Node0x1d52320 [shape=record,label="{%32:\l32:                                               \l  %33 = phi i32 [ %22, %20 ], [ %29, %28 ], [ %31, %30 ]\l  %34 = and i32 %33, 2139095040\l  switch i32 %34, label %44 [\l    i32 2139095040, label %35\l    i32 0, label %38\l  ]\l|{<s0>def|<s1>2139095040|<s2>0}}"];
+	Node0x1d52320:s0 -> Node0x1d52410;
+	Node0x1d52320:s1 -> Node0x1d52370;
+	Node0x1d52320:s2 -> Node0x1d523c0;
+	Node0x1d52370 [shape=record,label="{%35:\l35:                                               \l  %36 = tail call float @llvm.experimental.constrained.fadd.f32(float %0,\l... float %0, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %37 = bitcast float* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %37)\l  store volatile float %36, float* %3, align 4, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %37)\l  br label %44\l}"];
+	Node0x1d52370 -> Node0x1d52410;
+	Node0x1d523c0 [shape=record,label="{%38:\l38:                                               \l  %39 = tail call float @llvm.experimental.constrained.fmul.f32(float %0,\l... float %0, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %40 = bitcast i32 %33 to float\l  %41 = tail call float @llvm.experimental.constrained.fmul.f32(float %40,\l... float %40, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %42 = tail call float @llvm.experimental.constrained.fadd.f32(float %39,\l... float %41, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %43 = bitcast float* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %43)\l  store volatile float %42, float* %4, align 4, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %43)\l  br label %44\l}"];
+	Node0x1d523c0 -> Node0x1d52410;
+	Node0x1d52410 [shape=record,label="{%44:\l44:                                               \l  %45 = bitcast i32 %33 to float\l  br label %46\l}"];
+	Node0x1d52410 -> Node0x1d52460;
+	Node0x1d52460 [shape=record,label="{%46:\l46:                                               \l  %47 = phi float [ %13, %12 ], [ %45, %44 ], [ %1, %14 ], [ %1, %18 ]\l  ret float %47\l}"];
+}

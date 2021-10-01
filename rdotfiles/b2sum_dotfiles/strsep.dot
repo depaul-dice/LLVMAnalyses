@@ -1,0 +1,15 @@
+digraph "CFG for 'strsep' function" {
+	label="CFG for 'strsep' function";
+
+	Node0x1b59ea0 [shape=record,label="{%2:\l  %3 = load i8*, i8** %0, align 8, !tbaa !1632\l  %4 = icmp eq i8* %3, null\l  br i1 %4, label %14, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1b59ea0:s0 -> Node0x1b5a270;
+	Node0x1b59ea0:s1 -> Node0x1b59ef0;
+	Node0x1b59ef0 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i64 @strcspn(i8* nonnull %3, i8* %1) #40\l  %7 = getelementptr inbounds i8, i8* %3, i64 %6\l  %8 = load i8, i8* %7, align 1, !tbaa !1636\l  %9 = icmp eq i8 %8, 0\l  br i1 %9, label %12, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1b59ef0:s0 -> Node0x1b5a220;
+	Node0x1b59ef0:s1 -> Node0x1b5a1d0;
+	Node0x1b5a1d0 [shape=record,label="{%10:\l10:                                               \l  %11 = getelementptr inbounds i8, i8* %7, i64 1\l  store i8 0, i8* %7, align 1, !tbaa !1636\l  br label %12\l}"];
+	Node0x1b5a1d0 -> Node0x1b5a220;
+	Node0x1b5a220 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i8* [ %11, %10 ], [ null, %5 ]\l  store i8* %13, i8** %0, align 8, !tbaa !1632\l  br label %14\l}"];
+	Node0x1b5a220 -> Node0x1b5a270;
+	Node0x1b5a270 [shape=record,label="{%14:\l14:                                               \l  ret i8* %3\l}"];
+}

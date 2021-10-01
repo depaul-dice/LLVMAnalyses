@@ -1,0 +1,10 @@
+digraph "CFG for 'ns_name_uncompress' function" {
+	label="CFG for 'ns_name_uncompress' function";
+
+	Node0x1c11360 [shape=record,label="{%5:\l  %6 = trunc i64 %4 to i32\l  %7 = tail call i32 @dn_expand(i8* %0, i8* %1, i8* %2, i8* %3, i32 %6) #40\l  %8 = icmp slt i32 %7, 0\l  br i1 %8, label %9, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1c11360:s0 -> Node0x1c11480;
+	Node0x1c11360:s1 -> Node0x1c114d0;
+	Node0x1c11480 [shape=record,label="{%9:\l9:                                                \l  %10 = tail call i32* @___errno_location() #40\l  store i32 90, i32* %10, align 4, !tbaa !1632\l  br label %11\l}"];
+	Node0x1c11480 -> Node0x1c114d0;
+	Node0x1c114d0 [shape=record,label="{%11:\l11:                                               \l  ret i32 %7\l}"];
+}

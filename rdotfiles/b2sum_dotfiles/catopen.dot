@@ -1,0 +1,5 @@
+digraph "CFG for 'catopen' function" {
+	label="CFG for 'catopen' function";
+
+	Node0x1b4e0b0 [shape=record,label="{%2:\l  %3 = tail call i32* @___errno_location() #40\l  store i32 95, i32* %3, align 4, !tbaa !1632\l  ret i8* inttoptr (i64 -1 to i8*)\l}"];
+}

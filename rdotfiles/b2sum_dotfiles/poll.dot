@@ -1,0 +1,5 @@
+digraph "CFG for 'poll' function" {
+	label="CFG for 'poll' function";
+
+	Node0x1787b30 [shape=record,label="{%3:\l  %4 = ptrtoint %struct.pollfd* %0 to i64\l  %5 = sext i32 %2 to i64\l  %6 = tail call i64 @__syscall_cp(i64 7, i64 %4, i64 %1, i64 %5, i64 0, i64\l... 0, i64 0) #40\l  %7 = tail call i64 @__syscall_ret(i64 %6) #40\l  %8 = trunc i64 %7 to i32\l  ret i32 %8\l}"];
+}

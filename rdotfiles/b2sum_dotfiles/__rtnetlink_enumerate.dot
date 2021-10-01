@@ -1,0 +1,15 @@
+digraph "CFG for '__rtnetlink_enumerate' function" {
+	label="CFG for '__rtnetlink_enumerate' function";
+
+	Node0x1d8ce00 [shape=record,label="{%4:\l  %5 = tail call i32 @socket(i32 16, i32 524291, i32 0) #40\l  %6 = icmp slt i32 %5, 0\l  br i1 %6, label %16, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1d8ce00:s0 -> Node0x1d8cff0;
+	Node0x1d8ce00:s1 -> Node0x1d8cf00;
+	Node0x1d8cf00 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call fastcc i32 @__netlink_enumerate(i32 %5, i32 1, i32 18, i32\l... %0, i32 (i8*, %struct.nlmsghdr*)* %2, i8* %3) #41\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1d8cf00:s0 -> Node0x1d8cf50;
+	Node0x1d8cf00:s1 -> Node0x1d8cfa0;
+	Node0x1d8cf50 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call fastcc i32 @__netlink_enumerate(i32 %5, i32 2, i32 22, i32\l... %1, i32 (i8*, %struct.nlmsghdr*)* %2, i8* %3) #41\l  br label %12\l}"];
+	Node0x1d8cf50 -> Node0x1d8cfa0;
+	Node0x1d8cfa0 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i32 [ %8, %7 ], [ %11, %10 ]\l  %14 = zext i32 %5 to i64\l  %15 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64 3,\l... i64 %14) #42, !srcloc !1632\l  br label %16\l}"];
+	Node0x1d8cfa0 -> Node0x1d8cff0;
+	Node0x1d8cff0 [shape=record,label="{%16:\l16:                                               \l  %17 = phi i32 [ %13, %12 ], [ -1, %4 ]\l  ret i32 %17\l}"];
+}

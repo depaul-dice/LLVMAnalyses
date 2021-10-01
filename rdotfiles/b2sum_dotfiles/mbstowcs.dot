@@ -1,0 +1,5 @@
+digraph "CFG for 'mbstowcs' function" {
+	label="CFG for 'mbstowcs' function";
+
+	Node0x1824ab0 [shape=record,label="{%3:\l  %4 = alloca i8*, align 8\l  store i8* %1, i8** %4, align 8, !tbaa !1632\l  %5 = call i64 @mbsrtowcs(i32* %0, i8** nonnull %4, i64 %2, %struct.FTW*\l... null) #40\l  ret i64 %5\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for '__res_send' function" {
+	label="CFG for '__res_send' function";
+
+	Node0x174b150 [shape=record,label="{%4:\l  %5 = alloca i8*, align 8\l  %6 = alloca i32, align 4\l  %7 = alloca i8*, align 8\l  %8 = alloca i32, align 4\l  store i8* %0, i8** %5, align 8, !tbaa !1632\l  store i32 %1, i32* %6, align 4, !tbaa !1636\l  store i8* %2, i8** %7, align 8, !tbaa !1632\l  store i32 %3, i32* %8, align 4, !tbaa !1636\l  %9 = call i32 @__res_msend(i32 1, i8** nonnull %5, i32* nonnull %6, i8**\l... nonnull %7, i32* nonnull %8, i32 %3) #40\l  %10 = icmp slt i32 %9, 0\l  %11 = load i32, i32* %8, align 4\l  %12 = select i1 %10, i32 %9, i32 %11\l  ret i32 %12\l}"];
+}

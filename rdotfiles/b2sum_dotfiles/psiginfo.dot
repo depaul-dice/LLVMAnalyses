@@ -1,0 +1,5 @@
+digraph "CFG for 'psiginfo' function" {
+	label="CFG for 'psiginfo' function";
+
+	Node0x1fc7060 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct.siginfo_t, %struct.siginfo_t* %0, i64 0,\l... i32 0\l  %4 = load i32, i32* %3, align 8, !tbaa !1632\l  tail call void @psignal(i32 %4, i8* %1) #40\l  ret void\l}"];
+}

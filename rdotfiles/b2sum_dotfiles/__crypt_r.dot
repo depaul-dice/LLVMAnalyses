@@ -1,0 +1,41 @@
+digraph "CFG for '__crypt_r' function" {
+	label="CFG for '__crypt_r' function";
+
+	Node0x1e2ad30 [shape=record,label="{%3:\l  %4 = bitcast %struct.crypt_data* %2 to i8*\l  %5 = load i8, i8* %1, align 1, !tbaa !1632\l  %6 = icmp eq i8 %5, 36\l  br i1 %6, label %7, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1e2ad30:s0 -> Node0x1e2b320;
+	Node0x1e2ad30:s1 -> Node0x1e2b690;
+	Node0x1e2b320 [shape=record,label="{%7:\l7:                                                \l  %8 = getelementptr inbounds i8, i8* %1, i64 1\l  %9 = load i8, i8* %8, align 1, !tbaa !1632\l  %10 = icmp eq i8 %9, 0\l  br i1 %10, label %34, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1e2b320:s0 -> Node0x1e2b690;
+	Node0x1e2b320:s1 -> Node0x1e2b370;
+	Node0x1e2b370 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds i8, i8* %1, i64 2\l  %13 = load i8, i8* %12, align 1, !tbaa !1632\l  %14 = icmp eq i8 %13, 0\l  br i1 %14, label %34, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1e2b370:s0 -> Node0x1e2b690;
+	Node0x1e2b370:s1 -> Node0x1e2b3c0;
+	Node0x1e2b3c0 [shape=record,label="{%15:\l15:                                               \l  %16 = icmp eq i8 %9, 49\l  %17 = icmp eq i8 %13, 36\l  %18 = and i1 %16, %17\l  br i1 %18, label %19, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1e2b3c0:s0 -> Node0x1e2b410;
+	Node0x1e2b3c0:s1 -> Node0x1e2b460;
+	Node0x1e2b410 [shape=record,label="{%19:\l19:                                               \l  %20 = tail call i8* @__crypt_md5(i8* %0, i8* nonnull %1, i8* %4) #40\l  br label %36\l}"];
+	Node0x1e2b410 -> Node0x1e2b6e0;
+	Node0x1e2b460 [shape=record,label="{%21:\l21:                                               \l  switch i8 %9, label %34 [\l    i8 50, label %22\l    i8 53, label %28\l    i8 54, label %31\l  ]\l|{<s0>def|<s1>50|<s2>53|<s3>54}}"];
+	Node0x1e2b460:s0 -> Node0x1e2b690;
+	Node0x1e2b460:s1 -> Node0x1e2b4b0;
+	Node0x1e2b460:s2 -> Node0x1e2b550;
+	Node0x1e2b460:s3 -> Node0x1e2b5f0;
+	Node0x1e2b4b0 [shape=record,label="{%22:\l22:                                               \l  %23 = getelementptr inbounds i8, i8* %1, i64 3\l  %24 = load i8, i8* %23, align 1, !tbaa !1632\l  %25 = icmp eq i8 %24, 36\l  br i1 %25, label %26, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1e2b4b0:s0 -> Node0x1e2b500;
+	Node0x1e2b4b0:s1 -> Node0x1e2b690;
+	Node0x1e2b500 [shape=record,label="{%26:\l26:                                               \l  %27 = tail call i8* @__crypt_blowfish(i8* %0, i8* nonnull %1, i8* %4) #40\l  br label %36\l}"];
+	Node0x1e2b500 -> Node0x1e2b6e0;
+	Node0x1e2b550 [shape=record,label="{%28:\l28:                                               \l  br i1 %17, label %29, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1e2b550:s0 -> Node0x1e2b5a0;
+	Node0x1e2b550:s1 -> Node0x1e2b690;
+	Node0x1e2b5a0 [shape=record,label="{%29:\l29:                                               \l  %30 = tail call i8* @__crypt_sha256(i8* %0, i8* nonnull %1, i8* %4) #40\l  br label %36\l}"];
+	Node0x1e2b5a0 -> Node0x1e2b6e0;
+	Node0x1e2b5f0 [shape=record,label="{%31:\l31:                                               \l  br i1 %17, label %32, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1e2b5f0:s0 -> Node0x1e2b640;
+	Node0x1e2b5f0:s1 -> Node0x1e2b690;
+	Node0x1e2b640 [shape=record,label="{%32:\l32:                                               \l  %33 = tail call i8* @__crypt_sha512(i8* %0, i8* nonnull %1, i8* %4) #40\l  br label %36\l}"];
+	Node0x1e2b640 -> Node0x1e2b6e0;
+	Node0x1e2b690 [shape=record,label="{%34:\l34:                                               \l  %35 = tail call i8* @__crypt_des(i8* %0, i8* nonnull %1, i8* %4) #40\l  br label %36\l}"];
+	Node0x1e2b690 -> Node0x1e2b6e0;
+	Node0x1e2b6e0 [shape=record,label="{%36:\l36:                                               \l  %37 = phi i8* [ %20, %19 ], [ %27, %26 ], [ %30, %29 ], [ %33, %32 ], [ %35,\l... %34 ]\l  ret i8* %37\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for '__fseterr' function" {
+	label="CFG for '__fseterr' function";
+
+	Node0x1f8da20 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 0\l  %3 = load i32, i32* %2, align 8, !tbaa !1632\l  %4 = or i32 %3, 32\l  store i32 %4, i32* %2, align 8, !tbaa !1632\l  ret void\l}"];
+}

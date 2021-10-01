@@ -1,0 +1,5 @@
+digraph "CFG for '__isspace_l' function" {
+	label="CFG for '__isspace_l' function";
+
+	Node0x1b7bba0 [shape=record,label="{%2:\l  %3 = icmp eq i32 %0, 32\l  %4 = add i32 %0, -9\l  %5 = icmp ult i32 %4, 5\l  %6 = or i1 %3, %5\l  %7 = zext i1 %6 to i32\l  ret i32 %7\l}"];
+}

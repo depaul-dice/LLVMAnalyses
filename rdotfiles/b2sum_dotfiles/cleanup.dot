@@ -1,0 +1,5 @@
+digraph "CFG for 'cleanup' function" {
+	label="CFG for 'cleanup' function";
+
+	Node0x168c380 [shape=record,label="{%1:\l  %2 = bitcast i8* %0 to i32*\l  tail call void asm sideeffect lock \l  ret void\l}"];
+}

@@ -1,0 +1,13 @@
+digraph "CFG for 'cprojl' function" {
+	label="CFG for 'cprojl' function";
+
+	Node0x1cc7dd0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds \{ x86_fp80, x86_fp80 \}, \{ x86_fp80, x86_fp80 \}*\l... %0, i64 0, i32 0\l  %3 = load x86_fp80, x86_fp80* %2, align 16\l  %4 = tail call i32 @__fpclassifyl(x86_fp80 %3) #40\l  %5 = icmp eq i32 %4, 1\l  br i1 %5, label %11, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1cc7dd0:s0 -> Node0x1cc7e70;
+	Node0x1cc7dd0:s1 -> Node0x1cc7e20;
+	Node0x1cc7e20 [shape=record,label="{%6:\l6:                                                \l  %7 = getelementptr inbounds \{ x86_fp80, x86_fp80 \}, \{ x86_fp80, x86_fp80 \}*\l... %0, i64 0, i32 1\l  %8 = load x86_fp80, x86_fp80* %7, align 16\l  %9 = tail call i32 @__fpclassifyl(x86_fp80 %8) #40\l  %10 = icmp eq i32 %9, 1\l  br i1 %10, label %11, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1cc7e20:s0 -> Node0x1cc7e70;
+	Node0x1cc7e20:s1 -> Node0x1cc7ec0;
+	Node0x1cc7e70 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call x86_fp80 @llvm.experimental.constrained.fpext.f80.f32(float\l... 0x7FF0000000000000, metadata !fpexcept.ignore) #41\l  %13 = tail call x86_fp80 @llvm.experimental.constrained.fpext.f80.f64(double\l... 0.000000e+00, metadata !fpexcept.ignore) #41\l  %14 = tail call x86_fp80 @copysignl(x86_fp80 %13, x86_fp80 %3) #40\l  br label %15\l}"];
+	Node0x1cc7e70 -> Node0x1cc7ec0;
+	Node0x1cc7ec0 [shape=record,label="{%15:\l15:                                               \l  %16 = phi x86_fp80 [ %12, %11 ], [ %3, %6 ]\l  %17 = phi x86_fp80 [ %14, %11 ], [ %8, %6 ]\l  %18 = insertvalue \{ x86_fp80, x86_fp80 \} undef, x86_fp80 %16, 0\l  %19 = insertvalue \{ x86_fp80, x86_fp80 \} %18, x86_fp80 %17, 1\l  ret \{ x86_fp80, x86_fp80 \} %19\l}"];
+}

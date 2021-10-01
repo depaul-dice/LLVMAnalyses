@@ -1,0 +1,22 @@
+digraph "CFG for 'putgrent' function" {
+	label="CFG for 'putgrent' function";
+
+	Node0x1daf4e0 [shape=record,label="{%2:\l  tail call void @flockfile(%struct._IO_FILE.0* %1) #40\l  %3 = getelementptr inbounds %struct.group, %struct.group* %0, i64 0, i32 0\l  %4 = load i8*, i8** %3, align 8, !tbaa !1632\l  %5 = getelementptr inbounds %struct.group, %struct.group* %0, i64 0, i32 1\l  %6 = load i8*, i8** %5, align 8, !tbaa !1638\l  %7 = getelementptr inbounds %struct.group, %struct.group* %0, i64 0, i32 2\l  %8 = load i32, i32* %7, align 8, !tbaa !1639\l  %9 = tail call i32 (%struct._IO_FILE.0*, i8*, ...)\l... @fprintf(%struct._IO_FILE.0* %1, i8* getelementptr inbounds ([10 x i8], [10 x\l... i8]* @.str.493, i64 0, i64 0), i8* %4, i8* %6, i32 %8) #40\l  %10 = icmp slt i32 %9, 0\l  br i1 %10, label %33, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1daf4e0:s0 -> Node0x1daf760;
+	Node0x1daf4e0:s1 -> Node0x1daf5d0;
+	Node0x1daf5d0 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct.group, %struct.group* %0, i64 0, i32 3\l  %13 = load i8**, i8*** %12, align 8, !tbaa !1640\l  %14 = icmp eq i8** %13, null\l  br i1 %14, label %31, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1daf5d0:s0 -> Node0x1daf710;
+	Node0x1daf5d0:s1 -> Node0x1daf620;
+	Node0x1daf620 [shape=record,label="{%15:\l15:                                               \l  %16 = load i8*, i8** %13, align 8, !tbaa !1641\l  %17 = icmp eq i8* %16, null\l  br i1 %17, label %31, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x1daf620:s0 -> Node0x1daf710;
+	Node0x1daf620:s1 -> Node0x1daf6c0;
+	Node0x1daf670 [shape=record,label="{%18:\l18:                                               \l  %19 = load i8**, i8*** %12, align 8, !tbaa !1640\l  %20 = getelementptr inbounds i8*, i8** %19, i64 %30\l  %21 = load i8*, i8** %20, align 8, !tbaa !1641\l  %22 = icmp eq i8* %21, null\l  br i1 %22, label %31, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x1daf670:s0 -> Node0x1daf710;
+	Node0x1daf670:s1 -> Node0x1daf6c0;
+	Node0x1daf6c0 [shape=record,label="{%23:\l23:                                               \l  %24 = phi i8* [ %21, %18 ], [ %16, %15 ]\l  %25 = phi i64 [ %30, %18 ], [ 0, %15 ]\l  %26 = icmp eq i64 %25, 0\l  %27 = select i1 %26, i8* getelementptr inbounds ([1 x i8], [1 x i8]*\l... @.str.3.494, i64 0, i64 0), i8* getelementptr inbounds ([2 x i8], [2 x i8]*\l... @.str.2.495, i64 0, i64 0)\l  %28 = tail call i32 (%struct._IO_FILE.0*, i8*, ...)\l... @fprintf(%struct._IO_FILE.0* %1, i8* getelementptr inbounds ([5 x i8], [5 x\l... i8]* @.str.1.496, i64 0, i64 0), i8* %27, i8* nonnull %24) #40\l  %29 = icmp slt i32 %28, 0\l  %30 = add i64 %25, 1\l  br i1 %29, label %33, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1daf6c0:s0 -> Node0x1daf760;
+	Node0x1daf6c0:s1 -> Node0x1daf670;
+	Node0x1daf710 [shape=record,label="{%31:\l31:                                               \l  %32 = tail call i32 @fputc(i32 10, %struct._IO_FILE.0* %1) #40\l  br label %33\l}"];
+	Node0x1daf710 -> Node0x1daf760;
+	Node0x1daf760 [shape=record,label="{%33:\l33:                                               \l  %34 = phi i32 [ %9, %2 ], [ %32, %31 ], [ %28, %23 ]\l  tail call void @funlockfile(%struct._IO_FILE.0* %1) #40\l  %35 = ashr i32 %34, 31\l  ret i32 %35\l}"];
+}

@@ -1,0 +1,22 @@
+digraph "CFG for 'open' function" {
+	label="CFG for 'open' function";
+
+	Node0x165a5e0 [shape=record,label="{%2:\l  %3 = alloca [1 x %struct.__va_list_tag], align 16\l  %4 = and i32 %1, 64\l  %5 = icmp ne i32 %4, 0\l  %6 = and i32 %1, 4259840\l  %7 = icmp eq i32 %6, 4259840\l  %8 = or i1 %5, %7\l  br i1 %8, label %9, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x165a5e0:s0 -> Node0x165a690;
+	Node0x165a5e0:s1 -> Node0x165a7d0;
+	Node0x165a690 [shape=record,label="{%9:\l9:                                                \l  %10 = bitcast [1 x %struct.__va_list_tag]* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %10) #40\l  call void @llvm.va_start(i8* nonnull %10) #41\l  %11 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 0\l  %12 = load i32, i32* %11, align 16\l  %13 = icmp ult i32 %12, 41\l  br i1 %13, label %14, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x165a690:s0 -> Node0x165a6e0;
+	Node0x165a690:s1 -> Node0x165a730;
+	Node0x165a6e0 [shape=record,label="{%14:\l14:                                               \l  %15 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 3\l  %16 = load i8*, i8** %15, align 16\l  %17 = zext i32 %12 to i64\l  %18 = getelementptr i8, i8* %16, i64 %17\l  %19 = add nuw nsw i32 %12, 8\l  store i32 %19, i32* %11, align 16\l  br label %24\l}"];
+	Node0x165a6e0 -> Node0x165a780;
+	Node0x165a730 [shape=record,label="{%20:\l20:                                               \l  %21 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 2\l  %22 = load i8*, i8** %21, align 8\l  %23 = getelementptr i8, i8* %22, i64 8\l  store i8* %23, i8** %21, align 8\l  br label %24\l}"];
+	Node0x165a730 -> Node0x165a780;
+	Node0x165a780 [shape=record,label="{%24:\l24:                                               \l  %25 = phi i8* [ %18, %14 ], [ %22, %20 ]\l  %26 = bitcast i8* %25 to i32*\l  %27 = load i32, i32* %26, align 4\l  call void @llvm.va_end(i8* nonnull %10) #41\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %10) #40\l  %28 = zext i32 %27 to i64\l  br label %29\l}"];
+	Node0x165a780 -> Node0x165a7d0;
+	Node0x165a7d0 [shape=record,label="{%29:\l29:                                               \l  %30 = phi i64 [ %28, %24 ], [ 0, %2 ]\l  %31 = ptrtoint i8* %0 to i64\l  %32 = sext i32 %1 to i64\l  %33 = call i64 @__syscall_cp(i64 2, i64 %31, i64 %32, i64 %30, i64 0, i64 0,\l... i64 0) #42\l  %34 = trunc i64 %33 to i32\l  %35 = icmp slt i32 %34, 0\l  %36 = and i32 %1, 524288\l  %37 = icmp eq i32 %36, 0\l  %38 = or i1 %37, %35\l  %39 = shl i64 %33, 32\l  %40 = ashr exact i64 %39, 32\l  br i1 %38, label %43, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x165a7d0:s0 -> Node0x165a870;
+	Node0x165a7d0:s1 -> Node0x165a820;
+	Node0x165a820 [shape=record,label="{%41:\l41:                                               \l  %42 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 72, i64 %40, i64 2, i64 1) #40, !srcloc !1632\l  br label %43\l}"];
+	Node0x165a820 -> Node0x165a870;
+	Node0x165a870 [shape=record,label="{%43:\l43:                                               \l  %44 = call i64 @__syscall_ret(i64 %40) #42\l  %45 = trunc i64 %44 to i32\l  ret i32 %45\l}"];
+}

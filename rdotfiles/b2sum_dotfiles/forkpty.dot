@@ -1,0 +1,36 @@
+digraph "CFG for 'forkpty' function" {
+	label="CFG for 'forkpty' function";
+
+	Node0x1d32030 [shape=record,label="{%4:\l  %5 = alloca i32, align 4\l  %6 = alloca i32, align 4\l  %7 = alloca i32, align 4\l  %8 = alloca [2 x i32], align 4\l  %9 = alloca i32, align 4\l  %10 = alloca %struct.__sigset_t, align 8\l  %11 = alloca %struct.__sigset_t, align 8\l  %12 = alloca i32, align 4\l  %13 = bitcast i32* %5 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %13) #40\l  %14 = bitcast i32* %6 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %14) #40\l  %15 = bitcast i32* %7 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %15) #40\l  store i32 0, i32* %7, align 4, !tbaa !1632\l  %16 = bitcast [2 x i32]* %8 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %16) #40\l  %17 = bitcast i32* %9 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %17) #40\l  %18 = bitcast %struct.__sigset_t* %10 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %18) #40\l  %19 = bitcast %struct.__sigset_t* %11 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %19) #40\l  %20 = call i32 @openpty(i32* nonnull %5, i32* nonnull %6, i8* %1,\l... %struct.termios* %2, %struct.winsize* %3) #41\l  %21 = icmp slt i32 %20, 0\l  br i1 %21, label %82, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1d32030:s0 -> Node0x1d32570;
+	Node0x1d32030:s1 -> Node0x1d321b0;
+	Node0x1d321b0 [shape=record,label="{%22:\l22:                                               \l  %23 = call i32 @sigfillset(%struct.__sigset_t* nonnull %10) #41\l  %24 = call i32 @pthread_sigmask(i32 0, %struct.__sigset_t* nonnull %10,\l... %struct.__sigset_t* nonnull %11) #41\l  %25 = call i32 @pthread_setcancelstate(i32 1, i32* nonnull %9) #41\l  %26 = getelementptr inbounds [2 x i32], [2 x i32]* %8, i64 0, i64 0\l  %27 = call i32 @pipe2(i32* nonnull %26, i32 524288) #41\l  %28 = icmp eq i32 %27, 0\l  br i1 %28, label %33, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x1d321b0:s0 -> Node0x1d32250;
+	Node0x1d321b0:s1 -> Node0x1d32200;
+	Node0x1d32200 [shape=record,label="{%29:\l29:                                               \l  %30 = load i32, i32* %6, align 4, !tbaa !1632\l  %31 = call i32 @close(i32 %30) #41\l  %32 = load i32, i32* %5, align 4, !tbaa !1632\l  br label %73\l}"];
+	Node0x1d32200 -> Node0x1d324d0;
+	Node0x1d32250 [shape=record,label="{%33:\l33:                                               \l  %34 = call i32 @fork() #41\l  %35 = icmp eq i32 %34, 0\l  br i1 %35, label %36, label %52\l|{<s0>T|<s1>F}}"];
+	Node0x1d32250:s0 -> Node0x1d322a0;
+	Node0x1d32250:s1 -> Node0x1d32390;
+	Node0x1d322a0 [shape=record,label="{%36:\l36:                                               \l  %37 = load i32, i32* %5, align 4, !tbaa !1632\l  %38 = call i32 @close(i32 %37) #41\l  %39 = load i32, i32* %26, align 4, !tbaa !1632\l  %40 = call i32 @close(i32 %39) #41\l  %41 = load i32, i32* %6, align 4, !tbaa !1632\l  %42 = call i32 @login_tty(i32 %41) #41\l  %43 = icmp eq i32 %42, 0\l  %44 = getelementptr inbounds [2 x i32], [2 x i32]* %8, i64 0, i64 1\l  %45 = load i32, i32* %44, align 4, !tbaa !1632\l  br i1 %43, label %50, label %46\l|{<s0>T|<s1>F}}"];
+	Node0x1d322a0:s0 -> Node0x1d32340;
+	Node0x1d322a0:s1 -> Node0x1d322f0;
+	Node0x1d322f0 [shape=record,label="{%46:\l46:                                               \l  %47 = call i32* @___errno_location() #41\l  %48 = bitcast i32* %47 to i8*\l  %49 = call i64 @write(i32 %45, i8* %48, i64 4) #41\l  call void @_exit(i32 127) #42\l  unreachable\l}"];
+	Node0x1d32340 [shape=record,label="{%50:\l50:                                               \l  %51 = call i32 @close(i32 %45) #41\l  br label %77\l}"];
+	Node0x1d32340 -> Node0x1d32520;
+	Node0x1d32390 [shape=record,label="{%52:\l52:                                               \l  %53 = load i32, i32* %6, align 4, !tbaa !1632\l  %54 = call i32 @close(i32 %53) #41\l  %55 = getelementptr inbounds [2 x i32], [2 x i32]* %8, i64 0, i64 1\l  %56 = load i32, i32* %55, align 4, !tbaa !1632\l  %57 = call i32 @close(i32 %56) #41\l  %58 = load i32, i32* %26, align 4, !tbaa !1632\l  %59 = call i64 @read(i32 %58, i8* nonnull %15, i64 4) #41\l  %60 = icmp sgt i64 %59, 0\l  br i1 %60, label %61, label %66\l|{<s0>T|<s1>F}}"];
+	Node0x1d32390:s0 -> Node0x1d323e0;
+	Node0x1d32390:s1 -> Node0x1d32430;
+	Node0x1d323e0 [shape=record,label="{%61:\l61:                                               \l  %62 = bitcast i32* %12 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %62) #40\l  %63 = call i32 @waitpid(i32 %34, i32* nonnull %12, i32 0) #41\l  %64 = load i32, i32* %7, align 4, !tbaa !1632\l  %65 = call i32* @___errno_location() #41\l  store i32 %64, i32* %65, align 4, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %62) #40\l  br label %66\l}"];
+	Node0x1d323e0 -> Node0x1d32430;
+	Node0x1d32430 [shape=record,label="{%66:\l66:                                               \l  %67 = phi i32 [ -1, %61 ], [ %34, %52 ]\l  %68 = load i32, i32* %26, align 4, !tbaa !1632\l  %69 = call i32 @close(i32 %68) #41\l  %70 = icmp sgt i32 %67, 0\l  %71 = load i32, i32* %5, align 4, !tbaa !1632\l  br i1 %70, label %72, label %73\l|{<s0>T|<s1>F}}"];
+	Node0x1d32430:s0 -> Node0x1d32480;
+	Node0x1d32430:s1 -> Node0x1d324d0;
+	Node0x1d32480 [shape=record,label="{%72:\l72:                                               \l  store i32 %71, i32* %0, align 4, !tbaa !1632\l  br label %77\l}"];
+	Node0x1d32480 -> Node0x1d32520;
+	Node0x1d324d0 [shape=record,label="{%73:\l73:                                               \l  %74 = phi i32 [ %32, %29 ], [ %71, %66 ]\l  %75 = phi i32 [ -1, %29 ], [ %67, %66 ]\l  %76 = call i32 @close(i32 %74) #41\l  br label %77\l}"];
+	Node0x1d324d0 -> Node0x1d32520;
+	Node0x1d32520 [shape=record,label="{%77:\l77:                                               \l  %78 = phi i32 [ 0, %50 ], [ %75, %73 ], [ %67, %72 ]\l  %79 = load i32, i32* %9, align 4, !tbaa !1632\l  %80 = call i32 @pthread_setcancelstate(i32 %79, i32* null) #41\l  %81 = call i32 @pthread_sigmask(i32 2, %struct.__sigset_t* nonnull %11,\l... %struct.__sigset_t* null) #41\l  br label %82\l}"];
+	Node0x1d32520 -> Node0x1d32570;
+	Node0x1d32570 [shape=record,label="{%82:\l82:                                               \l  %83 = phi i32 [ -1, %4 ], [ %78, %77 ]\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %19) #40\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %18) #40\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %17) #40\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %16) #40\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %15) #40\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %14) #40\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %13) #40\l  ret i32 %83\l}"];
+}

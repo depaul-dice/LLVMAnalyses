@@ -1,0 +1,10 @@
+digraph "CFG for 'ffsll' function" {
+	label="CFG for 'ffsll' function";
+
+	Node0x1c144d0 [shape=record,label="{%1:\l  %2 = icmp eq i64 %0, 0\l  br i1 %2, label %7, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1c144d0:s0 -> Node0x1c14570;
+	Node0x1c144d0:s1 -> Node0x1c14520;
+	Node0x1c14520 [shape=record,label="{%3:\l3:                                                \l  %4 = tail call i64 asm bsf $1,$0, =r,r,~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... %0) #40, !srcloc !1632\l  %5 = trunc i64 %4 to i32\l  %6 = add nsw i32 %5, 1\l  br label %7\l}"];
+	Node0x1c14520 -> Node0x1c14570;
+	Node0x1c14570 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32 [ %6, %3 ], [ 0, %1 ]\l  ret i32 %8\l}"];
+}

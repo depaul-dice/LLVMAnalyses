@@ -1,0 +1,5 @@
+digraph "CFG for 'ns_put32' function" {
+	label="CFG for 'ns_put32' function";
+
+	Node0x1c029f0 [shape=record,label="{%2:\l  %3 = lshr i64 %0, 24\l  %4 = trunc i64 %3 to i8\l  %5 = getelementptr inbounds i8, i8* %1, i64 1\l  store i8 %4, i8* %1, align 1, !tbaa !1632\l  %6 = lshr i64 %0, 16\l  %7 = trunc i64 %6 to i8\l  %8 = getelementptr inbounds i8, i8* %1, i64 2\l  store i8 %7, i8* %5, align 1, !tbaa !1632\l  %9 = lshr i64 %0, 8\l  %10 = trunc i64 %9 to i8\l  %11 = getelementptr inbounds i8, i8* %1, i64 3\l  store i8 %10, i8* %8, align 1, !tbaa !1632\l  %12 = trunc i64 %0 to i8\l  store i8 %12, i8* %11, align 1, !tbaa !1632\l  ret void\l}"];
+}

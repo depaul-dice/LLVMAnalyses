@@ -1,0 +1,18 @@
+digraph "CFG for 'sem_close' function" {
+	label="CFG for 'sem_close' function";
+
+	Node0x19498b0 [shape=record,label="{%1:\l  tail call void @__lock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.299, i64 0, i64 0)) #40\l  %2 = load %struct.anon.455*, %struct.anon.455** @semtab, align 8, !tbaa !1632\l  br label %3\l}"];
+	Node0x19498b0 -> Node0x1949940;
+	Node0x1949940 [shape=record,label="{%3:\l3:                                                \l  %4 = phi i64 [ 0, %1 ], [ %9, %8 ]\l  %5 = getelementptr inbounds %struct.anon.455, %struct.anon.455* %2, i64 %4,\l... i32 1\l  %6 = load %struct.sem_t*, %struct.sem_t** %5, align 8, !tbaa !1636\l  %7 = icmp eq %struct.sem_t* %6, %0\l  br i1 %7, label %11, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1949940:s0 -> Node0x19499e0;
+	Node0x1949940:s1 -> Node0x1949990;
+	Node0x1949990 [shape=record,label="{%8:\l8:                                                \l  %9 = add nuw nsw i64 %4, 1\l  %10 = icmp eq i64 %9, 256\l  br i1 %10, label %11, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1949990:s0 -> Node0x19499e0;
+	Node0x1949990:s1 -> Node0x1949940;
+	Node0x19499e0 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i64 [ %4, %3 ], [ 256, %8 ]\l  %13 = and i64 %12, 4294967295\l  %14 = getelementptr inbounds %struct.anon.455, %struct.anon.455* %2, i64\l... %13, i32 2\l  %15 = load i32, i32* %14, align 8, !tbaa !1640\l  %16 = add nsw i32 %15, -1\l  store i32 %16, i32* %14, align 8, !tbaa !1640\l  %17 = icmp eq i32 %16, 0\l  br i1 %17, label %18, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x19499e0:s0 -> Node0x1949a30;
+	Node0x19499e0:s1 -> Node0x1949a80;
+	Node0x1949a30 [shape=record,label="{%18:\l18:                                               \l  %19 = getelementptr inbounds %struct.anon.455, %struct.anon.455* %2, i64\l... %13, i32 1\l  store %struct.sem_t* null, %struct.sem_t** %19, align 8, !tbaa !1636\l  %20 = getelementptr inbounds %struct.anon.455, %struct.anon.455* %2, i64\l... %13, i32 0\l  store i64 0, i64* %20, align 8, !tbaa !1641\l  br label %21\l}"];
+	Node0x1949a30 -> Node0x1949a80;
+	Node0x1949a80 [shape=record,label="{%21:\l21:                                               \l  tail call void @__unlock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.299, i64 0, i64 0)) #40\l  %22 = bitcast %struct.sem_t* %0 to i8*\l  %23 = tail call i32 @munmap(i8* %22, i64 32) #40\l  ret i32 0\l}"];
+}

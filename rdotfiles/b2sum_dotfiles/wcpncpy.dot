@@ -1,0 +1,5 @@
+digraph "CFG for 'wcpncpy' function" {
+	label="CFG for 'wcpncpy' function";
+
+	Node0x1f80850 [shape=record,label="{%3:\l  %4 = tail call i32* @wcsncpy(i32* %0, i32* %1, i64 %2) #40\l  %5 = tail call i64 @wcsnlen(i32* %1, i64 %2) #40\l  %6 = getelementptr inbounds i32, i32* %4, i64 %5\l  ret i32* %6\l}"];
+}

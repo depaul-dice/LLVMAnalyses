@@ -1,0 +1,15 @@
+digraph "CFG for 'posix_memalign' function" {
+	label="CFG for 'posix_memalign' function";
+
+	Node0x1c11520 [shape=record,label="{%3:\l  %4 = icmp ult i64 %1, 8\l  br i1 %4, label %12, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1c11520:s0 -> Node0x1c119f0;
+	Node0x1c11520:s1 -> Node0x1c11900;
+	Node0x1c11900 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i8* @__memalign(i64 %1, i64 %2) #40\l  %7 = icmp eq i8* %6, null\l  br i1 %7, label %8, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1c11900:s0 -> Node0x1c11950;
+	Node0x1c11900:s1 -> Node0x1c119a0;
+	Node0x1c11950 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call i32* @___errno_location() #40\l  %10 = load i32, i32* %9, align 4, !tbaa !1632\l  br label %12\l}"];
+	Node0x1c11950 -> Node0x1c119f0;
+	Node0x1c119a0 [shape=record,label="{%11:\l11:                                               \l  store i8* %6, i8** %0, align 8, !tbaa !1636\l  br label %12\l}"];
+	Node0x1c119a0 -> Node0x1c119f0;
+	Node0x1c119f0 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i32 [ 22, %3 ], [ 0, %11 ], [ %10, %8 ]\l  ret i32 %13\l}"];
+}

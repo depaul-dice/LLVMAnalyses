@@ -1,0 +1,10 @@
+digraph "CFG for 'dlerror' function" {
+	label="CFG for 'dlerror' function";
+
+	Node0x1bf0850 [shape=record,label="{%0:\l  %1 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #40, !srcloc !1632\l  %2 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64 0,\l... i32 13\l  %3 = load i8, i8* %2, align 2\l  %4 = and i8 %3, 2\l  %5 = icmp eq i8 %4, 0\l  br i1 %5, label %12, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1bf0850:s0 -> Node0x1bf0bb0;
+	Node0x1bf0850:s1 -> Node0x1bf0b60;
+	Node0x1bf0b60 [shape=record,label="{%6:\l6:                                                \l  %7 = and i8 %3, -3\l  store i8 %7, i8* %2, align 2\l  %8 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64 0,\l... i32 26\l  %9 = load i8*, i8** %8, align 8, !tbaa !1633\l  %10 = icmp eq i8* %9, inttoptr (i64 -1 to i8*)\l  %11 = select i1 %10, i8* getelementptr inbounds ([59 x i8], [59 x i8]*\l... @.str.219, i64 0, i64 0), i8* %9\l  br label %12\l}"];
+	Node0x1bf0b60 -> Node0x1bf0bb0;
+	Node0x1bf0bb0 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i8* [ %11, %6 ], [ null, %0 ]\l  ret i8* %13\l}"];
+}

@@ -1,0 +1,23 @@
+digraph "CFG for 'start' function" {
+	label="CFG for 'start' function";
+
+	Node0x19ed3d0 [shape=record,label="{%1:\l  %2 = alloca [1 x %struct.__jmp_buf_tag], align 16\l  %3 = alloca %struct.siginfo_t, align 8\l  %4 = alloca [1 x i64], align 8\l  %5 = alloca %struct.__ptcb, align 8\l  %6 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #40, !srcloc !1632\l  %7 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %6, i64 0,\l... i32 23\l  %8 = load volatile i32, i32* %7, align 8, !tbaa !1633\l  %9 = bitcast [1 x %struct.__jmp_buf_tag]* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 200, i8* nonnull %9) #41\l  %10 = getelementptr inbounds i8, i8* %0, i64 32\l  %11 = bitcast i8* %10 to %struct.sigevent**\l  %12 = load %struct.sigevent*, %struct.sigevent** %11, align 8, !tbaa !1641\l  %13 = getelementptr inbounds %struct.sigevent, %struct.sigevent* %12, i64 0,\l... i32 3\l  %14 = load void (i8*)*, void (i8*)** %13, align 8, !tbaa !1644\l  %15 = getelementptr inbounds %struct.sigevent, %struct.sigevent* %12, i64 0,\l... i32 0, i32 0\l  %16 = load i8*, i8** %15, align 8, !tbaa.struct !1646\l  %17 = bitcast i8* %0 to %struct.pthread_barrier_t*\l  %18 = tail call i32 @pthread_barrier_wait(%struct.pthread_barrier_t* %17) #42\l  %19 = bitcast %struct.siginfo_t* %3 to i8*\l  %20 = getelementptr inbounds [1 x i64], [1 x i64]* %4, i64 0, i64 0\l  %21 = bitcast [1 x i64]* %4 to %struct.__sigset_t*\l  %22 = getelementptr inbounds %struct.siginfo_t, %struct.siginfo_t* %3, i64\l... 0, i32 2\l  %23 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], [1 x\l... %struct.__jmp_buf_tag]* %2, i64 0, i64 0\l  %24 = bitcast %struct.__ptcb* %5 to i8*\l  br label %25\l}"];
+	Node0x19ed3d0 -> Node0x19ed420;
+	Node0x19ed420 [shape=record,label="{%25:\l25:                                               \l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %19) #41\l  br label %26\l}"];
+	Node0x19ed420 -> Node0x19ed470;
+	Node0x19ed470 [shape=record,label="{%26:\l26:                                               \l  store i64 2147483648, i64* %20, align 8, !tbaa !1649\l  %27 = call i32 @sigwaitinfo(%struct.__sigset_t* nonnull %21,\l... %struct.siginfo_t* nonnull %3) #42\l  %28 = icmp slt i32 %27, 0\l  br i1 %28, label %26, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x19ed470:s0 -> Node0x19ed470;
+	Node0x19ed470:s1 -> Node0x19ed4c0;
+	Node0x19ed4c0 [shape=record,label="{%29:\l29:                                               \l  %30 = load i32, i32* %22, align 8, !tbaa !1650\l  %31 = icmp eq i32 %30, -2\l  br i1 %31, label %32, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x19ed4c0:s0 -> Node0x19ed510;
+	Node0x19ed4c0:s1 -> Node0x19ed5b0;
+	Node0x19ed510 [shape=record,label="{%32:\l32:                                               \l  %33 = call i32 @setjmp(%struct.__jmp_buf_tag* nonnull %23) #42\l  %34 = icmp eq i32 %33, 0\l  br i1 %34, label %35, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x19ed510:s0 -> Node0x19ed560;
+	Node0x19ed510:s1 -> Node0x19ed5b0;
+	Node0x19ed560 [shape=record,label="{%35:\l35:                                               \l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %24) #41\l  call void @_pthread_cleanup_push(%struct.__ptcb* nonnull %5, void (i8*)*\l... nonnull @cleanup_fromsig, i8* nonnull %9) #42\l  call void %14(i8* %16) #43\l  call void @_pthread_cleanup_pop(%struct.__ptcb* nonnull %5, i32 1) #42\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %24) #41\l  br label %36\l}"];
+	Node0x19ed560 -> Node0x19ed5b0;
+	Node0x19ed5b0 [shape=record,label="{%36:\l36:                                               \l  %37 = load volatile i32, i32* %7, align 8, !tbaa !1633\l  %38 = icmp sgt i32 %37, -1\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %19) #41\l  br i1 %38, label %25, label %39\l|{<s0>T|<s1>F}}"];
+	Node0x19ed5b0:s0 -> Node0x19ed420;
+	Node0x19ed5b0:s1 -> Node0x19ed600;
+	Node0x19ed600 [shape=record,label="{%39:\l39:                                               \l  %40 = sext i32 %8 to i64\l  %41 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 226, i64 %40) #41, !srcloc !1652\l  call void @llvm.lifetime.end.p0i8(i64 200, i8* nonnull %9) #41\l  ret i8* null\l}"];
+}

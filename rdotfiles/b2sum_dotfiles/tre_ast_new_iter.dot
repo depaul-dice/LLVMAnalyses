@@ -1,0 +1,10 @@
+digraph "CFG for 'tre_ast_new_iter' function" {
+	label="CFG for 'tre_ast_new_iter' function";
+
+	Node0x18e2d00 [shape=record,label="{%5:\l  %6 = tail call i8* @__tre_mem_alloc_impl(%struct.tre_mem_struct* %0, i32 0,\l... i8* null, i32 1, i64 24) #40\l  %7 = tail call fastcc %struct.tre_ast_node_t*\l... @tre_ast_new_node(%struct.tre_mem_struct* %0, i32 2, i8* %6) #41\l  %8 = icmp eq %struct.tre_ast_node_t* %7, null\l  br i1 %8, label %24, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x18e2d00:s0 -> Node0x18e2e70;
+	Node0x18e2d00:s1 -> Node0x18e2e20;
+	Node0x18e2e20 [shape=record,label="{%9:\l9:                                                \l  %10 = bitcast i8* %6 to %struct.tre_ast_node_t**\l  store %struct.tre_ast_node_t* %1, %struct.tre_ast_node_t** %10, align 8,\l... !tbaa !1632\l  %11 = getelementptr inbounds i8, i8* %6, i64 8\l  %12 = bitcast i8* %11 to i32*\l  store i32 %2, i32* %12, align 8, !tbaa !1638\l  %13 = getelementptr inbounds i8, i8* %6, i64 12\l  %14 = bitcast i8* %13 to i32*\l  store i32 %3, i32* %14, align 4, !tbaa !1639\l  %15 = getelementptr inbounds i8, i8* %6, i64 16\l  %16 = trunc i32 %4 to i8\l  %17 = load i8, i8* %15, align 8\l  %18 = and i8 %16, 1\l  %19 = and i8 %17, -2\l  %20 = or i8 %19, %18\l  store i8 %20, i8* %15, align 8\l  %21 = getelementptr inbounds %struct.tre_ast_node_t, %struct.tre_ast_node_t*\l... %1, i64 0, i32 4\l  %22 = load i32, i32* %21, align 8, !tbaa !1640\l  %23 = getelementptr inbounds %struct.tre_ast_node_t, %struct.tre_ast_node_t*\l... %7, i64 0, i32 4\l  store i32 %22, i32* %23, align 8, !tbaa !1640\l  br label %24\l}"];
+	Node0x18e2e20 -> Node0x18e2e70;
+	Node0x18e2e70 [shape=record,label="{%24:\l24:                                               \l  ret %struct.tre_ast_node_t* %7\l}"];
+}

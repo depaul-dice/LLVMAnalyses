@@ -1,0 +1,5 @@
+digraph "CFG for 'endhostent' function" {
+	label="CFG for 'endhostent' function";
+
+	Node0x1d97520 [shape=record,label="{%0:\l  ret void\l}"];
+}

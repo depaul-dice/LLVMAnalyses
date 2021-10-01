@@ -1,0 +1,5 @@
+digraph "CFG for 'dlclose' function" {
+	label="CFG for 'dlclose' function";
+
+	Node0x1feae90 [shape=record,label="{%1:\l  %2 = tail call i32 @__dl_invalid_handle(i8* %0) #40\l  ret i32 %2\l}"];
+}

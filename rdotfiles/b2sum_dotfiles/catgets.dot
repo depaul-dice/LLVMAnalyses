@@ -1,0 +1,5 @@
+digraph "CFG for 'catgets' function" {
+	label="CFG for 'catgets' function";
+
+	Node0x1ee84a0 [shape=record,label="{%4:\l  ret i8* %3\l}"];
+}

@@ -1,0 +1,12 @@
+digraph "CFG for 'funlockfile' function" {
+	label="CFG for 'funlockfile' function";
+
+	Node0x160a2c0 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 17\l  %3 = load i64, i64* %2, align 8, !tbaa !1632\l  %4 = icmp eq i64 %3, 1\l  br i1 %4, label %5, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x160a2c0:s0 -> Node0x160a310;
+	Node0x160a2c0:s1 -> Node0x160a360;
+	Node0x160a310 [shape=record,label="{%5:\l5:                                                \l  tail call void @__unlist_locked_file(%struct._IO_FILE.0* nonnull %0) #40\l  store i64 0, i64* %2, align 8, !tbaa !1632\l  tail call void bitcast (void (%struct._IO_FILE.233*)* @__unlockfile to void\l... (%struct._IO_FILE.0*)*)(%struct._IO_FILE.0* nonnull %0) #40\l  br label %8\l}"];
+	Node0x160a310 -> Node0x160a3b0;
+	Node0x160a360 [shape=record,label="{%6:\l6:                                                \l  %7 = add nsw i64 %3, -1\l  store i64 %7, i64* %2, align 8, !tbaa !1632\l  br label %8\l}"];
+	Node0x160a360 -> Node0x160a3b0;
+	Node0x160a3b0 [shape=record,label="{%8:\l8:                                                \l  ret void\l}"];
+}

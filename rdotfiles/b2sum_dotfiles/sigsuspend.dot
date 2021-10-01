@@ -1,0 +1,5 @@
+digraph "CFG for 'sigsuspend' function" {
+	label="CFG for 'sigsuspend' function";
+
+	Node0x1ea4b30 [shape=record,label="{%1:\l  %2 = ptrtoint %struct.__sigset_t* %0 to i64\l  %3 = tail call i64 @__syscall_cp(i64 130, i64 %2, i64 8, i64 0, i64 0, i64\l... 0, i64 0) #40\l  %4 = tail call i64 @__syscall_ret(i64 %3) #40\l  %5 = trunc i64 %4 to i32\l  ret i32 %5\l}"];
+}

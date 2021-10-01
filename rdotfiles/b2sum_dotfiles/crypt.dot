@@ -1,0 +1,5 @@
+digraph "CFG for 'crypt' function" {
+	label="CFG for 'crypt' function";
+
+	Node0x1e7b5e0 [shape=record,label="{%2:\l  %3 = tail call i8* @__crypt_r(i8* %0, i8* %1, %struct.crypt_data* bitcast\l... ([128 x i8]* @crypt.buf to %struct.crypt_data*)) #40\l  ret i8* %3\l}"];
+}

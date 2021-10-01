@@ -1,0 +1,5 @@
+digraph "CFG for '__signbitf' function" {
+	label="CFG for '__signbitf' function";
+
+	Node0x1bf9350 [shape=record,label="{%1:\l  %2 = bitcast float %0 to i32\l  %3 = lshr i32 %2, 31\l  ret i32 %3\l}"];
+}

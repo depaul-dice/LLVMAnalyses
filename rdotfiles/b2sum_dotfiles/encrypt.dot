@@ -1,0 +1,31 @@
+digraph "CFG for 'encrypt' function" {
+	label="CFG for 'encrypt' function";
+
+	Node0x1662f00 [shape=record,label="{%2:\l  %3 = alloca %struct.expanded_key, align 4\l  %4 = alloca [2 x i32], align 4\l  %5 = bitcast %struct.expanded_key* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %5) #40\l  %6 = bitcast [2 x i32]* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %6) #40\l  br label %7\l}"];
+	Node0x1662f00 -> Node0x1663010;
+	Node0x1663010 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i64 [ 0, %2 ], [ 1, %23 ]\l  %9 = phi i8* [ %0, %2 ], [ %21, %23 ]\l  %10 = getelementptr inbounds [2 x i32], [2 x i32]* %4, i64 0, i64 %8\l  store i32 0, i32* %10, align 4, !tbaa !1632\l  br label %11\l}"];
+	Node0x1663010 -> Node0x1663060;
+	Node0x1663060 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i32 [ 0, %7 ], [ %19, %11 ]\l  %13 = phi i8* [ %9, %7 ], [ %21, %11 ]\l  %14 = phi i32 [ 31, %7 ], [ %20, %11 ]\l  %15 = load i8, i8* %13, align 1, !tbaa !1636\l  %16 = and i8 %15, 1\l  %17 = zext i8 %16 to i32\l  %18 = shl nuw i32 %17, %14\l  %19 = or i32 %18, %12\l  store i32 %19, i32* %10, align 4, !tbaa !1632\l  %20 = add nsw i32 %14, -1\l  %21 = getelementptr inbounds i8, i8* %13, i64 1\l  %22 = icmp eq i32 %14, 0\l  br i1 %22, label %23, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1663060:s0 -> Node0x16630b0;
+	Node0x1663060:s1 -> Node0x1663060;
+	Node0x16630b0 [shape=record,label="{%23:\l23:                                               \l  %24 = icmp eq i64 %8, 0\l  br i1 %24, label %7, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x16630b0:s0 -> Node0x1663010;
+	Node0x16630b0:s1 -> Node0x1663100;
+	Node0x1663100 [shape=record,label="{%25:\l25:                                               \l  %26 = icmp eq i32 %1, 0\l  br i1 %26, label %46, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x1663100:s0 -> Node0x16631a0;
+	Node0x1663100:s1 -> Node0x1663150;
+	Node0x1663150 [shape=record,label="{%27:\l27:                                               \l  %28 = phi i64 [ %44, %27 ], [ 0, %25 ]\l  %29 = sub nuw nsw i64 15, %28\l  %30 = getelementptr inbounds %struct.expanded_key, %struct.expanded_key*\l... @__encrypt_key, i64 0, i32 0, i64 %29\l  %31 = getelementptr inbounds i32, i32* %30, i64 -3\l  %32 = bitcast i32* %31 to \<4 x i32\>*\l  %33 = load \<4 x i32\>, \<4 x i32\>* %32, align 4, !tbaa !1632\l  %34 = shufflevector \<4 x i32\> %33, \<4 x i32\> undef, \<4 x i32\> \<i32 3, i32 2,\l... i32 1, i32 0\>\l  %35 = getelementptr inbounds %struct.expanded_key, %struct.expanded_key* %3,\l... i64 0, i32 0, i64 %28\l  %36 = bitcast i32* %35 to \<4 x i32\>*\l  store \<4 x i32\> %34, \<4 x i32\>* %36, align 4, !tbaa !1632\l  %37 = getelementptr inbounds %struct.expanded_key, %struct.expanded_key*\l... @__encrypt_key, i64 0, i32 1, i64 %29\l  %38 = getelementptr inbounds i32, i32* %37, i64 -3\l  %39 = bitcast i32* %38 to \<4 x i32\>*\l  %40 = load \<4 x i32\>, \<4 x i32\>* %39, align 4, !tbaa !1632\l  %41 = shufflevector \<4 x i32\> %40, \<4 x i32\> undef, \<4 x i32\> \<i32 3, i32 2,\l... i32 1, i32 0\>\l  %42 = getelementptr inbounds %struct.expanded_key, %struct.expanded_key* %3,\l... i64 0, i32 1, i64 %28\l  %43 = bitcast i32* %42 to \<4 x i32\>*\l  store \<4 x i32\> %41, \<4 x i32\>* %43, align 4, !tbaa !1632\l  %44 = add i64 %28, 4\l  %45 = icmp eq i64 %44, 16\l  br i1 %45, label %46, label %27, !llvm.loop !1637\l|{<s0>T|<s1>F}}"];
+	Node0x1663150:s0 -> Node0x16631a0;
+	Node0x1663150:s1 -> Node0x1663150;
+	Node0x16631a0 [shape=record,label="{%46:\l46:                                               \l  %47 = phi %struct.expanded_key* [ @__encrypt_key, %25 ], [ %3, %27 ]\l  %48 = getelementptr inbounds [2 x i32], [2 x i32]* %4, i64 0, i64 0\l  %49 = load i32, i32* %48, align 4, !tbaa !1632\l  %50 = getelementptr inbounds [2 x i32], [2 x i32]* %4, i64 0, i64 1\l  %51 = load i32, i32* %50, align 4, !tbaa !1632\l  call void @__do_des(i32 %49, i32 %51, i32* nonnull %48, i32* nonnull %50,\l... i32 1, i32 0, %struct.expanded_key* nonnull %47) #41\l  br label %52\l}"];
+	Node0x16631a0 -> Node0x16631f0;
+	Node0x16631f0 [shape=record,label="{%52:\l52:                                               \l  %53 = phi i64 [ 0, %46 ], [ 1, %66 ]\l  %54 = phi i8* [ %0, %46 ], [ %63, %66 ]\l  %55 = getelementptr inbounds [2 x i32], [2 x i32]* %4, i64 0, i64 %53\l  br label %56\l}"];
+	Node0x16631f0 -> Node0x1663240;
+	Node0x1663240 [shape=record,label="{%56:\l56:                                               \l  %57 = phi i8* [ %54, %52 ], [ %63, %56 ]\l  %58 = phi i32 [ 31, %52 ], [ %64, %56 ]\l  %59 = load i32, i32* %55, align 4, !tbaa !1632\l  %60 = lshr i32 %59, %58\l  %61 = trunc i32 %60 to i8\l  %62 = and i8 %61, 1\l  %63 = getelementptr inbounds i8, i8* %57, i64 1\l  store i8 %62, i8* %57, align 1, !tbaa !1636\l  %64 = add nsw i32 %58, -1\l  %65 = icmp eq i32 %58, 0\l  br i1 %65, label %66, label %56\l|{<s0>T|<s1>F}}"];
+	Node0x1663240:s0 -> Node0x1663290;
+	Node0x1663240:s1 -> Node0x1663240;
+	Node0x1663290 [shape=record,label="{%66:\l66:                                               \l  %67 = icmp eq i64 %53, 0\l  br i1 %67, label %52, label %68\l|{<s0>T|<s1>F}}"];
+	Node0x1663290:s0 -> Node0x16631f0;
+	Node0x1663290:s1 -> Node0x16632e0;
+	Node0x16632e0 [shape=record,label="{%68:\l68:                                               \l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %6) #40\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %5) #40\l  ret void\l}"];
+}

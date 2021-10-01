@@ -1,0 +1,10 @@
+digraph "CFG for '__res_msend' function" {
+	label="CFG for '__res_msend' function";
+
+	Node0x1770fd0 [shape=record,label="{%6:\l  %7 = alloca %struct.resolvconf, align 4\l  %8 = bitcast %struct.resolvconf* %7 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 100, i8* nonnull %8) #40\l  %9 = call i32 @__get_resolv_conf(%struct.resolvconf* nonnull %7, i8* null,\l... i64 0) #41\l  %10 = icmp slt i32 %9, 0\l  br i1 %10, label %13, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1770fd0:s0 -> Node0x17720a0;
+	Node0x1770fd0:s1 -> Node0x1772050;
+	Node0x1772050 [shape=record,label="{%11:\l11:                                               \l  %12 = call i32 @__res_msend_rc(i32 %0, i8** %1, i32* %2, i8** %3, i32* %4,\l... i32 %5, %struct.resolvconf* nonnull %7) #42\l  br label %13\l}"];
+	Node0x1772050 -> Node0x17720a0;
+	Node0x17720a0 [shape=record,label="{%13:\l13:                                               \l  %14 = phi i32 [ %12, %11 ], [ -1, %6 ]\l  call void @llvm.lifetime.end.p0i8(i64 100, i8* nonnull %8) #40\l  ret i32 %14\l}"];
+}

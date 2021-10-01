@@ -1,0 +1,5 @@
+digraph "CFG for 'ether_ntohost' function" {
+	label="CFG for 'ether_ntohost' function";
+
+	Node0x1c75600 [shape=record,label="{%2:\l  ret i32 -1\l}"];
+}

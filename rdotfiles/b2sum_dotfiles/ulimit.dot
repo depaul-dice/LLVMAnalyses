@@ -1,0 +1,20 @@
+digraph "CFG for 'ulimit' function" {
+	label="CFG for 'ulimit' function";
+
+	Node0x1ab9590 [shape=record,label="{%1:\l  %2 = alloca %struct.timeval, align 8\l  %3 = alloca [1 x %struct.__va_list_tag], align 16\l  %4 = bitcast %struct.timeval* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %4) #40\l  %5 = call i32 @getrlimit(i32 1, %struct.timeval* nonnull %2) #41\l  %6 = icmp eq i32 %0, 2\l  br i1 %6, label %7, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1ab9590:s0 -> Node0x1ab9de0;
+	Node0x1ab9590:s1 -> Node0x1ab9f20;
+	Node0x1ab9de0 [shape=record,label="{%7:\l7:                                                \l  %8 = bitcast [1 x %struct.__va_list_tag]* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %8) #40\l  call void @llvm.va_start(i8* nonnull %8) #42\l  %9 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 0\l  %10 = load i32, i32* %9, align 16\l  %11 = icmp ult i32 %10, 41\l  br i1 %11, label %12, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x1ab9de0:s0 -> Node0x1ab9e30;
+	Node0x1ab9de0:s1 -> Node0x1ab9e80;
+	Node0x1ab9e30 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 3\l  %14 = load i8*, i8** %13, align 16\l  %15 = zext i32 %10 to i64\l  %16 = getelementptr i8, i8* %14, i64 %15\l  %17 = add nuw nsw i32 %10, 8\l  store i32 %17, i32* %9, align 16\l  br label %22\l}"];
+	Node0x1ab9e30 -> Node0x1ab9ed0;
+	Node0x1ab9e80 [shape=record,label="{%18:\l18:                                               \l  %19 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0, i32 2\l  %20 = load i8*, i8** %19, align 8\l  %21 = getelementptr i8, i8* %20, i64 8\l  store i8* %21, i8** %19, align 8\l  br label %22\l}"];
+	Node0x1ab9e80 -> Node0x1ab9ed0;
+	Node0x1ab9ed0 [shape=record,label="{%22:\l22:                                               \l  %23 = phi i8* [ %16, %12 ], [ %20, %18 ]\l  %24 = bitcast i8* %23 to i64*\l  %25 = load i64, i64* %24, align 8\l  call void @llvm.va_end(i8* nonnull %8) #42\l  %26 = shl i64 %25, 9\l  %27 = getelementptr inbounds %struct.timeval, %struct.timeval* %2, i64 0,\l... i32 0\l  store i64 %26, i64* %27, align 8, !tbaa !1632\l  %28 = call i32 @setrlimit(i32 1, %struct.timeval* nonnull %2) #41\l  %29 = icmp eq i32 %28, 0\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %8) #40\l  br i1 %29, label %30, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1ab9ed0:s0 -> Node0x1ab9f20;
+	Node0x1ab9ed0:s1 -> Node0x1ab9f70;
+	Node0x1ab9f20 [shape=record,label="{%30:\l30:                                               \l  %31 = getelementptr inbounds %struct.timeval, %struct.timeval* %2, i64 0,\l... i32 0\l  %32 = load i64, i64* %31, align 8, !tbaa !1632\l  %33 = lshr i64 %32, 9\l  br label %34\l}"];
+	Node0x1ab9f20 -> Node0x1ab9f70;
+	Node0x1ab9f70 [shape=record,label="{%34:\l34:                                               \l  %35 = phi i64 [ %33, %30 ], [ -1, %22 ]\l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %4) #40\l  ret i64 %35\l}"];
+}

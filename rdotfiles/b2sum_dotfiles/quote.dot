@@ -1,0 +1,5 @@
+digraph "CFG for 'quote' function" {
+	label="CFG for 'quote' function";
+
+	Node0x12e6d00 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1634, metadata\l... !DIExpression()), !dbg !1635\l  call void @llvm.dbg.value(metadata i32 0, metadata !1636, metadata\l... !DIExpression()) #8, !dbg !1640\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1639, metadata\l... !DIExpression()) #8, !dbg !1640\l  call void @llvm.dbg.value(metadata i32 0, metadata !1642, metadata\l... !DIExpression()) #8, !dbg !1649\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1647, metadata\l... !DIExpression()) #8, !dbg !1649\l  call void @llvm.dbg.value(metadata i64 -1, metadata !1648, metadata\l... !DIExpression()) #8, !dbg !1649\l  %2 = tail call fastcc i8* @quotearg_n_options(i32 0, i8* %0, i64 -1,\l... %struct.quoting_options* nonnull @quote_quoting_options) #8, !dbg !1651\l  ret i8* %2, !dbg !1652\l}"];
+}

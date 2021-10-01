@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_mutexattr_setpshared' function" {
+	label="CFG for 'pthread_mutexattr_setpshared' function";
+
+	Node0x1bf97a0 [shape=record,label="{%2:\l  %3 = icmp ugt i32 %1, 1\l  br i1 %3, label %10, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1bf97a0:s0 -> Node0x1bf9cd0;
+	Node0x1bf97a0:s1 -> Node0x1bf9820;
+	Node0x1bf9820 [shape=record,label="{%4:\l4:                                                \l  %5 = getelementptr inbounds %union.anon, %union.anon* %0, i64 0, i32 0\l  %6 = load i32, i32* %5, align 4, !tbaa !1632\l  %7 = and i32 %6, -129\l  %8 = shl nuw nsw i32 %1, 7\l  %9 = or i32 %7, %8\l  store i32 %9, i32* %5, align 4, !tbaa !1632\l  br label %10\l}"];
+	Node0x1bf9820 -> Node0x1bf9cd0;
+	Node0x1bf9cd0 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i32 [ 0, %4 ], [ 22, %2 ]\l  ret i32 %11\l}"];
+}

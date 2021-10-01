@@ -1,0 +1,23 @@
+digraph "CFG for 'fdopendir' function" {
+	label="CFG for 'fdopendir' function";
+
+	Node0x1b65860 [shape=record,label="{%1:\l  %2 = alloca %struct.stat, align 8\l  %3 = bitcast %struct.stat* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 144, i8* nonnull %3) #40\l  %4 = call i32 @fstat(i32 %0, %struct.stat* nonnull %2) #41\l  %5 = icmp slt i32 %4, 0\l  br i1 %5, label %27, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1b65860:s0 -> Node0x1b65a90;
+	Node0x1b65860:s1 -> Node0x1b658b0;
+	Node0x1b658b0 [shape=record,label="{%6:\l6:                                                \l  %7 = call i32 (i32, i32, ...) @fcntl(i32 %0, i32 3) #41\l  %8 = and i32 %7, 2097152\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %12, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1b658b0:s0 -> Node0x1b65950;
+	Node0x1b658b0:s1 -> Node0x1b65900;
+	Node0x1b65900 [shape=record,label="{%10:\l10:                                               \l  %11 = call i32* @___errno_location() #41\l  store i32 9, i32* %11, align 4, !tbaa !1632\l  br label %27\l}"];
+	Node0x1b65900 -> Node0x1b65a90;
+	Node0x1b65950 [shape=record,label="{%12:\l12:                                               \l  %13 = getelementptr inbounds %struct.stat, %struct.stat* %2, i64 0, i32 3\l  %14 = load i32, i32* %13, align 8, !tbaa !1636\l  %15 = and i32 %14, 61440\l  %16 = icmp eq i32 %15, 16384\l  br i1 %16, label %19, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1b65950:s0 -> Node0x1b659f0;
+	Node0x1b65950:s1 -> Node0x1b659a0;
+	Node0x1b659a0 [shape=record,label="{%17:\l17:                                               \l  %18 = call i32* @___errno_location() #41\l  store i32 20, i32* %18, align 4, !tbaa !1632\l  br label %27\l}"];
+	Node0x1b659a0 -> Node0x1b65a90;
+	Node0x1b659f0 [shape=record,label="{%19:\l19:                                               \l  %20 = call i8* @calloc(i64 1, i64 2072) #41\l  %21 = icmp eq i8* %20, null\l  br i1 %21, label %27, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1b659f0:s0 -> Node0x1b65a90;
+	Node0x1b659f0:s1 -> Node0x1b65a40;
+	Node0x1b65a40 [shape=record,label="{%22:\l22:                                               \l  %23 = bitcast i8* %20 to %struct.__dirstream*\l  %24 = call i32 (i32, i32, ...) @fcntl(i32 %0, i32 2, i32 1) #41\l  %25 = getelementptr inbounds i8, i8* %20, i64 8\l  %26 = bitcast i8* %25 to i32*\l  store i32 %0, i32* %26, align 8, !tbaa !1640\l  br label %27\l}"];
+	Node0x1b65a40 -> Node0x1b65a90;
+	Node0x1b65a90 [shape=record,label="{%27:\l27:                                               \l  %28 = phi %struct.__dirstream* [ null, %10 ], [ %23, %22 ], [ null, %17 ], [\l... null, %1 ], [ null, %19 ]\l  call void @llvm.lifetime.end.p0i8(i64 144, i8* nonnull %3) #40\l  ret %struct.__dirstream* %28\l}"];
+}

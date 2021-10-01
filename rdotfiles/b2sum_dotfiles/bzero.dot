@@ -1,0 +1,5 @@
+digraph "CFG for 'bzero' function" {
+	label="CFG for 'bzero' function";
+
+	Node0x1a8dec0 [shape=record,label="{%2:\l  %3 = tail call i8* @memset(i8* %0, i32 0, i64 %1) #40\l  ret void\l}"];
+}

@@ -1,0 +1,26 @@
+digraph "CFG for 'rpl_fclose' function" {
+	label="CFG for 'rpl_fclose' function";
+
+	Node0x12e32f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  call void @llvm.dbg.value(metadata %struct._IO_FILE* %0, metadata !1638,\l... metadata !DIExpression()), !dbg !1642\l  call void @llvm.dbg.value(metadata i32 0, metadata !1639, metadata\l... !DIExpression()), !dbg !1642\l  call void @llvm.dbg.value(metadata i32 0, metadata !1641, metadata\l... !DIExpression()), !dbg !1642\l  %2 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.233*, !dbg !1643\l  %3 = tail call i32 @fileno(%struct._IO_FILE.233* nonnull %2) #8, !dbg !1643\l  call void @llvm.dbg.value(metadata i32 %3, metadata !1640, metadata\l... !DIExpression()), !dbg !1642\l  %4 = icmp slt i32 %3, 0, !dbg !1644\l  br i1 %4, label %5, label %8, !dbg !1646\l|{<s0>T|<s1>F}}"];
+	Node0x12e32f0:s0 -> Node0x12e3340;
+	Node0x12e32f0:s1 -> Node0x12e3390;
+	Node0x12e3340 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f5a08170",label="{%5:\l5:                                                \l  %6 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.0*, !dbg !1647\l  %7 = tail call i32 @fclose(%struct._IO_FILE.0* nonnull %6) #8, !dbg !1647\l  br label %29, !dbg !1648\l}"];
+	Node0x12e3340 -> Node0x12e3570;
+	Node0x12e3390 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e1675170",label="{%8:\l8:                                                \l  %9 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.1002*, !dbg !1649\l  %10 = tail call i32 @__freading(%struct._IO_FILE.1002* nonnull %9) #8, !dbg\l... !1649\l  %11 = icmp eq i32 %10, 0, !dbg !1649\l  br i1 %11, label %16, label %12, !dbg !1651\l|{<s0>T|<s1>F}}"];
+	Node0x12e3390:s0 -> Node0x12e3430;
+	Node0x12e3390:s1 -> Node0x12e33e0;
+	Node0x12e33e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f5a08170",label="{%12:\l12:                                               \l  %13 = tail call i32 @fileno(%struct._IO_FILE.233* nonnull %2) #8, !dbg !1652\l  %14 = tail call fastcc i64 @lseek(i32 %13, i64 0, i32 1) #8, !dbg !1653\l  %15 = icmp eq i64 %14, -1, !dbg !1654\l  br i1 %15, label %19, label %16, !dbg !1655\l|{<s0>T|<s1>F}}"];
+	Node0x12e33e0:s0 -> Node0x12e3480;
+	Node0x12e33e0:s1 -> Node0x12e3430;
+	Node0x12e3430 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ef886b70",label="{%16:\l16:                                               \l  %17 = tail call fastcc i32 @rpl_fflush(%struct._IO_FILE* nonnull %0) #8,\l... !dbg !1656\l  %18 = icmp eq i32 %17, 0, !dbg !1656\l  br i1 %18, label %19, label %22, !dbg !1657\l|{<s0>T|<s1>F}}"];
+	Node0x12e3430:s0 -> Node0x12e3480;
+	Node0x12e3430:s1 -> Node0x12e34d0;
+	Node0x12e3480 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%19:\l19:                                               \l  call void @llvm.dbg.value(metadata i32 %24, metadata !1639, metadata\l... !DIExpression()), !dbg !1642\l  %20 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.0*, !dbg !1658\l  %21 = tail call i32 @fclose(%struct._IO_FILE.0* nonnull %20) #8, !dbg !1658\l  call void @llvm.dbg.value(metadata i32 %26, metadata !1641, metadata\l... !DIExpression()), !dbg !1642\l  br label %29, !dbg !1659\l}"];
+	Node0x12e3480 -> Node0x12e3570;
+	Node0x12e34d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b99e70",label="{%22:\l22:                                               \l  %23 = tail call fastcc i32* @__errno_location() #29, !dbg !1660\l  %24 = load i32, i32* %23, align 4, !dbg !1660, !tbaa !1661\l  call void @llvm.dbg.value(metadata i32 %24, metadata !1639, metadata\l... !DIExpression()), !dbg !1642\l  call void @llvm.dbg.value(metadata i32 %24, metadata !1639, metadata\l... !DIExpression()), !dbg !1642\l  %25 = bitcast %struct._IO_FILE* %0 to %struct._IO_FILE.0*, !dbg !1658\l  %26 = tail call i32 @fclose(%struct._IO_FILE.0* nonnull %25) #8, !dbg !1658\l  call void @llvm.dbg.value(metadata i32 %26, metadata !1641, metadata\l... !DIExpression()), !dbg !1642\l  %27 = icmp eq i32 %24, 0, !dbg !1665\l  br i1 %27, label %29, label %28, !dbg !1659\l|{<s0>T|<s1>F}}"];
+	Node0x12e34d0:s0 -> Node0x12e3570;
+	Node0x12e34d0:s1 -> Node0x12e3520;
+	Node0x12e3520 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%28:\l28:                                               \l  store i32 %24, i32* %23, align 4, !dbg !1667, !tbaa !1661\l  call void @llvm.dbg.value(metadata i32 -1, metadata !1641, metadata\l... !DIExpression()), !dbg !1642\l  br label %29, !dbg !1669\l}"];
+	Node0x12e3520 -> Node0x12e3570;
+	Node0x12e3570 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%29:\l29:                                               \l  %30 = phi i32 [ %7, %5 ], [ -1, %28 ], [ %26, %22 ], [ %21, %19 ], !dbg !1642\l  ret i32 %30, !dbg !1670\l}"];
+}

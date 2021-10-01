@@ -1,0 +1,9 @@
+digraph "CFG for 'xstrdup' function" {
+	label="CFG for 'xstrdup' function";
+
+	Node0x14ba580 [shape=record,label="{%1:\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1634, metadata\l... !DIExpression()), !dbg !1635\l  %2 = tail call i64 @strlen(i8* nonnull dereferenceable(1) %0) #40, !dbg !1636\l  %3 = add i64 %2, 1, !dbg !1637\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1638, metadata\l... !DIExpression()) #7, !dbg !1644\l  call void @llvm.dbg.value(metadata i64 %3, metadata !1643, metadata\l... !DIExpression()) #7, !dbg !1644\l  call void @llvm.dbg.value(metadata i64 %3, metadata !1646, metadata\l... !DIExpression()) #7, !dbg !1651\l  %4 = tail call noalias i8* @malloc(i64 %3) #7, !dbg !1653\l  call void @llvm.dbg.value(metadata i8* %4, metadata !1654, metadata\l... !DIExpression()) #7, !dbg !1659\l  %5 = icmp eq i8* %4, null, !dbg !1661\l  br i1 %5, label %6, label %7, !dbg !1663\l|{<s0>T|<s1>F}}"];
+	Node0x14ba580:s0 -> Node0x14bca50;
+	Node0x14ba580:s1 -> Node0x14bcaa0;
+	Node0x14bca50 [shape=record,label="{%6:\l6:                                                \l  tail call void @xalloc_die() #41, !dbg !1664\l  unreachable, !dbg !1664\l}"];
+	Node0x14bcaa0 [shape=record,label="{%7:\l7:                                                \l  call void @llvm.dbg.value(metadata i8* %4, metadata !1665, metadata\l... !DIExpression()) #7, !dbg !1675\l  call void @llvm.dbg.value(metadata i8* %0, metadata !1673, metadata\l... !DIExpression()) #7, !dbg !1675\l  call void @llvm.dbg.value(metadata i64 %3, metadata !1674, metadata\l... !DIExpression()) #7, !dbg !1675\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 1 %4, i8* nonnull\l... align 1 %0, i64 %3, i1 false) #7, !dbg !1677\l  ret i8* %4, !dbg !1678\l}"];
+}

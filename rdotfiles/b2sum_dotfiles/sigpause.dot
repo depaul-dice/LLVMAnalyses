@@ -1,0 +1,5 @@
+digraph "CFG for 'sigpause' function" {
+	label="CFG for 'sigpause' function";
+
+	Node0x1fbe480 [shape=record,label="{%1:\l  %2 = alloca %struct.__sigset_t, align 8\l  %3 = bitcast %struct.__sigset_t* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %3) #40\l  %4 = call i32 @sigprocmask(i32 0, %struct.__sigset_t* null,\l... %struct.__sigset_t* nonnull %2) #41\l  %5 = call i32 @sigdelset(%struct.__sigset_t* nonnull %2, i32 %0) #41\l  %6 = call i32 @sigsuspend(%struct.__sigset_t* nonnull %2) #41\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %3) #40\l  ret i32 %6\l}"];
+}

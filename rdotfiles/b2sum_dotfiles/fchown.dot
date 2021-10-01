@@ -1,0 +1,15 @@
+digraph "CFG for 'fchown' function" {
+	label="CFG for 'fchown' function";
+
+	Node0x19db740 [shape=record,label="{%3:\l  %4 = alloca [27 x i8], align 16\l  %5 = sext i32 %0 to i64\l  %6 = zext i32 %1 to i64\l  %7 = zext i32 %2 to i64\l  %8 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 93, i64 %5, i64 %6, i64 %7) #40, !srcloc !1632\l  %9 = trunc i64 %8 to i32\l  %10 = icmp eq i32 %9, -9\l  br i1 %10, label %11, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x19db740:s0 -> Node0x19db810;
+	Node0x19db740:s1 -> Node0x19db860;
+	Node0x19db810 [shape=record,label="{%11:\l11:                                               \l  %12 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 72, i64 %5, i64 1) #40, !srcloc !1633\l  %13 = icmp slt i64 %12, 0\l  br i1 %13, label %14, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x19db810:s0 -> Node0x19db860;
+	Node0x19db810:s1 -> Node0x19db8b0;
+	Node0x19db860 [shape=record,label="{%14:\l14:                                               \l  %15 = shl i64 %8, 32\l  %16 = ashr exact i64 %15, 32\l  %17 = tail call i64 @__syscall_ret(i64 %16) #41\l  br label %23\l}"];
+	Node0x19db860 -> Node0x19db900;
+	Node0x19db8b0 [shape=record,label="{%18:\l18:                                               \l  %19 = getelementptr inbounds [27 x i8], [27 x i8]* %4, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 27, i8* nonnull %19) #40\l  call void @__procfdname(i8* nonnull %19, i32 %0) #41\l  %20 = ptrtoint [27 x i8]* %4 to i64\l  %21 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 92, i64 %20, i64 %6, i64 %7) #40, !srcloc !1632\l  %22 = call i64 @__syscall_ret(i64 %21) #41\l  call void @llvm.lifetime.end.p0i8(i64 27, i8* nonnull %19) #40\l  br label %23\l}"];
+	Node0x19db8b0 -> Node0x19db900;
+	Node0x19db900 [shape=record,label="{%23:\l23:                                               \l  %24 = phi i64 [ %17, %14 ], [ %22, %18 ]\l  %25 = trunc i64 %24 to i32\l  ret i32 %25\l}"];
+}

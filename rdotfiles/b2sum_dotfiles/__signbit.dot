@@ -1,0 +1,5 @@
+digraph "CFG for '__signbit' function" {
+	label="CFG for '__signbit' function";
+
+	Node0x1e5e750 [shape=record,label="{%1:\l  %2 = bitcast double %0 to i64\l  %3 = lshr i64 %2, 63\l  %4 = trunc i64 %3 to i32\l  ret i32 %4\l}"];
+}

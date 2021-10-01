@@ -1,0 +1,5 @@
+digraph "CFG for 'remainderf' function" {
+	label="CFG for 'remainderf' function";
+
+	Node0x19397a0 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = bitcast i32* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %4) #40\l  %5 = call float @remquof(float %0, float %1, i32* nonnull %3) #41\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %4) #40\l  ret float %5\l}"];
+}

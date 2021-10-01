@@ -1,0 +1,13 @@
+digraph "CFG for '__reset_tls' function" {
+	label="CFG for '__reset_tls' function";
+
+	Node0x1a077b0 [shape=record,label="{%0:\l  %1 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #40, !srcloc !1632\l  %2 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64 0,\l... i32 1\l  %3 = load i64*, i64** %2, align 8, !tbaa !1633\l  %4 = load i64, i64* %3, align 8, !tbaa !1641\l  %5 = icmp eq i64 %4, 0\l  br i1 %5, label %30, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1a077b0:s0 -> Node0x1a08020;
+	Node0x1a077b0:s1 -> Node0x1a07f80;
+	Node0x1a07f80 [shape=record,label="{%6:\l6:                                                \l  %7 = phi i64* [ %29, %27 ], [ %3, %0 ]\l  %8 = phi %struct.tls_module** [ %28, %27 ], [ getelementptr inbounds\l... (%struct.__libc, %struct.__libc* @__libc, i64 0, i32 5), %0 ]\l  %9 = phi i64 [ %25, %27 ], [ 1, %0 ]\l  %10 = load %struct.tls_module*, %struct.tls_module** %8, align 8, !tbaa !1642\l  %11 = getelementptr inbounds i64, i64* %7, i64 %9\l  %12 = bitcast i64* %11 to i8**\l  %13 = load i8*, i8** %12, align 8, !tbaa !1641\l  %14 = getelementptr inbounds %struct.tls_module, %struct.tls_module* %10,\l... i64 0, i32 1\l  %15 = load i8*, i8** %14, align 8, !tbaa !1643\l  %16 = getelementptr inbounds %struct.tls_module, %struct.tls_module* %10,\l... i64 0, i32 2\l  %17 = load i64, i64* %16, align 8, !tbaa !1645\l  %18 = tail call i8* @memcpy(i8* %13, i8* %15, i64 %17) #41\l  %19 = load i64, i64* %16, align 8, !tbaa !1645\l  %20 = getelementptr inbounds i8, i8* %13, i64 %19\l  %21 = getelementptr inbounds %struct.tls_module, %struct.tls_module* %10,\l... i64 0, i32 3\l  %22 = load i64, i64* %21, align 8, !tbaa !1646\l  %23 = sub i64 %22, %19\l  %24 = tail call i8* @memset(i8* %20, i32 0, i64 %23) #41\l  %25 = add i64 %9, 1\l  %26 = icmp ugt i64 %25, %4\l  br i1 %26, label %30, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x1a07f80:s0 -> Node0x1a08020;
+	Node0x1a07f80:s1 -> Node0x1a07fd0;
+	Node0x1a07fd0 [shape=record,label="{%27:\l27:                                               \l  %28 = getelementptr inbounds %struct.tls_module, %struct.tls_module* %10,\l... i64 0, i32 0\l  %29 = load i64*, i64** %2, align 8, !tbaa !1633\l  br label %6\l}"];
+	Node0x1a07fd0 -> Node0x1a07f80;
+	Node0x1a08020 [shape=record,label="{%30:\l30:                                               \l  ret void\l}"];
+}

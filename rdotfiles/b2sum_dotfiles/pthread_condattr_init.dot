@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_condattr_init' function" {
+	label="CFG for 'pthread_condattr_init' function";
+
+	Node0x167c060 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %union.anon, %union.anon* %0, i64 0, i32 0\l  store i32 0, i32* %2, align 4, !tbaa.struct !1632\l  ret i32 0\l}"];
+}

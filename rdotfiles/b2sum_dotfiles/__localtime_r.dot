@@ -1,0 +1,13 @@
+digraph "CFG for '__localtime_r' function" {
+	label="CFG for '__localtime_r' function";
+
+	Node0x19e41f0 [shape=record,label="{%2:\l  %3 = load i64, i64* %0, align 8, !tbaa !1632\l  %4 = add i64 %3, 67908586910515200\l  %5 = icmp ugt i64 %4, 135817173789408000\l  br i1 %5, label %14, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x19e41f0:s0 -> Node0x19e51b0;
+	Node0x19e41f0:s1 -> Node0x19e4320;
+	Node0x19e4320 [shape=record,label="{%6:\l6:                                                \l  %7 = getelementptr inbounds %struct.tm, %struct.tm* %1, i64 0, i32 8\l  %8 = getelementptr inbounds %struct.tm, %struct.tm* %1, i64 0, i32 9\l  %9 = getelementptr inbounds %struct.tm, %struct.tm* %1, i64 0, i32 10\l  tail call void @__secs_to_zone(i64 %3, i32 0, i32* nonnull %7, i64* nonnull\l... %8, i64* null, i8** nonnull %9) #40\l  %10 = load i64, i64* %8, align 8, !tbaa !1636\l  %11 = add nsw i64 %10, %3\l  %12 = tail call i32 @__secs_to_tm(i64 %11, %struct.tm* %1) #40\l  %13 = icmp slt i32 %12, 0\l  br i1 %13, label %14, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x19e4320:s0 -> Node0x19e51b0;
+	Node0x19e4320:s1 -> Node0x19e5200;
+	Node0x19e51b0 [shape=record,label="{%14:\l14:                                               \l  %15 = tail call i32* @___errno_location() #40\l  store i32 75, i32* %15, align 4, !tbaa !1640\l  br label %16\l}"];
+	Node0x19e51b0 -> Node0x19e5200;
+	Node0x19e5200 [shape=record,label="{%16:\l16:                                               \l  %17 = phi %struct.tm* [ %1, %6 ], [ null, %14 ]\l  ret %struct.tm* %17\l}"];
+}

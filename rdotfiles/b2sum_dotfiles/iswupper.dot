@@ -1,0 +1,5 @@
+digraph "CFG for 'iswupper' function" {
+	label="CFG for 'iswupper' function";
+
+	Node0x1973d30 [shape=record,label="{%1:\l  %2 = tail call i32 @towlower(i32 %0) #40\l  %3 = icmp ne i32 %2, %0\l  %4 = zext i1 %3 to i32\l  ret i32 %4\l}"];
+}

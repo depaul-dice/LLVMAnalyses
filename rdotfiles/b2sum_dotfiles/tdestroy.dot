@@ -1,0 +1,15 @@
+digraph "CFG for 'tdestroy' function" {
+	label="CFG for 'tdestroy' function";
+
+	Node0x1d81680 [shape=record,label="{%2:\l  %3 = icmp eq i8* %0, null\l  br i1 %3, label %16, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1d81680:s0 -> Node0x1d82030;
+	Node0x1d81680:s1 -> Node0x1d81f40;
+	Node0x1d81f40 [shape=record,label="{%4:\l4:                                                \l  %5 = getelementptr inbounds i8, i8* %0, i64 8\l  %6 = bitcast i8* %5 to i8**\l  %7 = load i8*, i8** %6, align 8, !tbaa !1632\l  tail call void @tdestroy(i8* %7, void (i8*)* %1) #40\l  %8 = getelementptr inbounds i8, i8* %0, i64 16\l  %9 = bitcast i8* %8 to i8**\l  %10 = load i8*, i8** %9, align 8, !tbaa !1632\l  tail call void @tdestroy(i8* %10, void (i8*)* %1) #40\l  %11 = icmp eq void (i8*)* %1, null\l  br i1 %11, label %15, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1d81f40:s0 -> Node0x1d81fe0;
+	Node0x1d81f40:s1 -> Node0x1d81f90;
+	Node0x1d81f90 [shape=record,label="{%12:\l12:                                               \l  %13 = bitcast i8* %0 to i8**\l  %14 = load i8*, i8** %13, align 8, !tbaa !1636\l  tail call void %1(i8* %14) #41\l  br label %15\l}"];
+	Node0x1d81f90 -> Node0x1d81fe0;
+	Node0x1d81fe0 [shape=record,label="{%15:\l15:                                               \l  tail call void @free(i8* nonnull %0) #42\l  br label %16\l}"];
+	Node0x1d81fe0 -> Node0x1d82030;
+	Node0x1d82030 [shape=record,label="{%16:\l16:                                               \l  ret void\l}"];
+}

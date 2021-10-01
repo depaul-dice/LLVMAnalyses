@@ -1,0 +1,13 @@
+digraph "CFG for 'towctrans' function" {
+	label="CFG for 'towctrans' function";
+
+	Node0x1c675f0 [shape=record,label="{%2:\l  %3 = ptrtoint i32* %1 to i64\l  switch i64 %3, label %8 [\l    i64 1, label %4\l    i64 2, label %6\l  ]\l|{<s0>def|<s1>1|<s2>2}}"];
+	Node0x1c675f0:s0 -> Node0x1c676e0;
+	Node0x1c675f0:s1 -> Node0x1c67640;
+	Node0x1c675f0:s2 -> Node0x1c67690;
+	Node0x1c67640 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i32 @towupper(i32 %0) #40\l  br label %8\l}"];
+	Node0x1c67640 -> Node0x1c676e0;
+	Node0x1c67690 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i32 @towlower(i32 %0) #40\l  br label %8\l}"];
+	Node0x1c67690 -> Node0x1c676e0;
+	Node0x1c676e0 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i32 [ %5, %4 ], [ %7, %6 ], [ %0, %2 ]\l  ret i32 %9\l}"];
+}

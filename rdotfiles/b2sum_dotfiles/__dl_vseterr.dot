@@ -1,0 +1,21 @@
+digraph "CFG for '__dl_vseterr' function" {
+	label="CFG for '__dl_vseterr' function";
+
+	Node0x1bf13d0 [shape=record,label="{%2:\l  %3 = alloca [1 x %struct.__va_list_tag], align 16\l  tail call void @__lock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @freebuf_queue_lock, i64 0, i64 0)) #40\l  %4 = load i8**, i8*** @freebuf_queue, align 8, !tbaa !1632\l  %5 = icmp eq i8** %4, null\l  br i1 %5, label %13, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1bf13d0:s0 -> Node0x1bf14d0;
+	Node0x1bf13d0:s1 -> Node0x1bf1480;
+	Node0x1bf1480 [shape=record,label="{%6:\l6:                                                \l  %7 = phi i8** [ %11, %6 ], [ %4, %2 ]\l  %8 = bitcast i8** %7 to i64*\l  %9 = load i64, i64* %8, align 8, !tbaa !1632\l  store i64 %9, i64* bitcast (i8*** @freebuf_queue to i64*), align 8, !tbaa\l... !1632\l  %10 = bitcast i8** %7 to i8*\l  tail call void @free(i8* nonnull %10) #40\l  %11 = load i8**, i8*** @freebuf_queue, align 8, !tbaa !1632\l  %12 = icmp eq i8** %11, null\l  br i1 %12, label %13, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1bf1480:s0 -> Node0x1bf14d0;
+	Node0x1bf1480:s1 -> Node0x1bf1480;
+	Node0x1bf14d0 [shape=record,label="{%13:\l13:                                               \l  tail call void @__unlock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @freebuf_queue_lock, i64 0, i64 0)) #40\l  %14 = bitcast [1 x %struct.__va_list_tag]* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 24, i8* nonnull %14) #41\l  %15 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x\l... %struct.__va_list_tag]* %3, i64 0, i64 0\l  %16 = bitcast %struct.__va_list_tag* %1 to i8*\l  call void @llvm.va_copy(i8* nonnull %14, i8* %16) #42\l  %17 = tail call %struct.__pthread* asm mov %fs:0,$0,\l... =r,~\{dirflag\},~\{fpsr\},~\{flags\}() #43, !srcloc !1636\l  %18 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %17, i64\l... 0, i32 26\l  %19 = load i8*, i8** %18, align 8, !tbaa !1637\l  %20 = icmp eq i8* %19, inttoptr (i64 -1 to i8*)\l  br i1 %20, label %22, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1bf14d0:s0 -> Node0x1bf1570;
+	Node0x1bf14d0:s1 -> Node0x1bf1520;
+	Node0x1bf1520 [shape=record,label="{%21:\l21:                                               \l  call void @free(i8* %19) #40\l  br label %22\l}"];
+	Node0x1bf1520 -> Node0x1bf1570;
+	Node0x1bf1570 [shape=record,label="{%22:\l22:                                               \l  %23 = call i32 @vsnprintf(i8* null, i64 0, i8* %0, %struct.__va_list_tag*\l... nonnull %15) #40\l  %24 = sext i32 %23 to i64\l  %25 = icmp ugt i64 %24, 8\l  %26 = select i1 %25, i64 %24, i64 8\l  call void @llvm.va_end(i8* nonnull %14) #42\l  %27 = add nsw i64 %26, 1\l  %28 = call i8* @malloc(i64 %27) #40\l  %29 = icmp eq i8* %28, null\l  br i1 %29, label %32, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1bf1570:s0 -> Node0x1bf1610;
+	Node0x1bf1570:s1 -> Node0x1bf15c0;
+	Node0x1bf15c0 [shape=record,label="{%30:\l30:                                               \l  %31 = call i32 @vsnprintf(i8* nonnull %28, i64 %27, i8* %0,\l... %struct.__va_list_tag* %1) #40\l  br label %32\l}"];
+	Node0x1bf15c0 -> Node0x1bf1610;
+	Node0x1bf1610 [shape=record,label="{%32:\l32:                                               \l  %33 = phi i8* [ %28, %30 ], [ inttoptr (i64 -1 to i8*), %22 ]\l  store i8* %33, i8** %18, align 8, !tbaa !1637\l  %34 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %17, i64\l... 0, i32 13\l  %35 = load i8, i8* %34, align 2\l  %36 = or i8 %35, 2\l  store i8 %36, i8* %34, align 2\l  call void @llvm.lifetime.end.p0i8(i64 24, i8* nonnull %14) #41\l  ret void\l}"];
+}

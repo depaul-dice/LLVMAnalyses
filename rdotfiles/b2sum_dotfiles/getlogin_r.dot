@@ -1,0 +1,13 @@
+digraph "CFG for 'getlogin_r' function" {
+	label="CFG for 'getlogin_r' function";
+
+	Node0x1e77030 [shape=record,label="{%2:\l  %3 = tail call i8* @getlogin() #40\l  %4 = icmp eq i8* %3, null\l  br i1 %4, label %10, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1e77030:s0 -> Node0x1e77120;
+	Node0x1e77030:s1 -> Node0x1e77080;
+	Node0x1e77080 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i64 @strlen(i8* nonnull %3) #40\l  %7 = icmp ult i64 %6, %1\l  br i1 %7, label %8, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1e77080:s0 -> Node0x1e770d0;
+	Node0x1e77080:s1 -> Node0x1e77120;
+	Node0x1e770d0 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call i8* @strcpy(i8* %0, i8* nonnull %3) #40\l  br label %10\l}"];
+	Node0x1e770d0 -> Node0x1e77120;
+	Node0x1e77120 [shape=record,label="{%10:\l10:                                               \l  %11 = phi i32 [ 0, %8 ], [ 6, %2 ], [ 34, %5 ]\l  ret i32 %11\l}"];
+}

@@ -1,0 +1,24 @@
+digraph "CFG for 'atol' function" {
+	label="CFG for 'atol' function";
+
+	Node0x1b773c0 [shape=record,label="{%1:\l  br label %2\l}"];
+	Node0x1b773c0 -> Node0x1b77410;
+	Node0x1b77410 [shape=record,label="{%2:\l2:                                                \l  %3 = phi i8* [ %0, %1 ], [ %10, %2 ]\l  %4 = load i8, i8* %3, align 1, !tbaa !1632\l  %5 = sext i8 %4 to i32\l  %6 = icmp ne i8 %4, 32\l  %7 = add nsw i32 %5, -9\l  %8 = icmp ugt i32 %7, 4\l  %9 = and i1 %6, %8\l  %10 = getelementptr inbounds i8, i8* %3, i64 1\l  br i1 %9, label %11, label %2\l|{<s0>T|<s1>F}}"];
+	Node0x1b77410:s0 -> Node0x1b77460;
+	Node0x1b77410:s1 -> Node0x1b77410;
+	Node0x1b77460 [shape=record,label="{%11:\l11:                                               \l  %12 = sext i8 %4 to i32\l  switch i32 %12, label %18 [\l    i32 45, label %13\l    i32 43, label %14\l  ]\l|{<s0>def|<s1>45|<s2>43}}"];
+	Node0x1b77460:s0 -> Node0x1b77550;
+	Node0x1b77460:s1 -> Node0x1b774b0;
+	Node0x1b77460:s2 -> Node0x1b77500;
+	Node0x1b774b0 [shape=record,label="{%13:\l13:                                               \l  br label %14\l}"];
+	Node0x1b774b0 -> Node0x1b77500;
+	Node0x1b77500 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32 [ 0, %11 ], [ 1, %13 ]\l  %16 = load i8, i8* %10, align 1, !tbaa !1632\l  %17 = sext i8 %16 to i32\l  br label %18\l}"];
+	Node0x1b77500 -> Node0x1b77550;
+	Node0x1b77550 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i32 [ %17, %14 ], [ %12, %11 ]\l  %20 = phi i8* [ %10, %14 ], [ %3, %11 ]\l  %21 = phi i32 [ %15, %14 ], [ 0, %11 ]\l  %22 = add nsw i32 %19, -48\l  %23 = icmp ult i32 %22, 10\l  br i1 %23, label %24, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x1b77550:s0 -> Node0x1b775a0;
+	Node0x1b77550:s1 -> Node0x1b775f0;
+	Node0x1b775a0 [shape=record,label="{%24:\l24:                                               \l  %25 = phi i32 [ %34, %24 ], [ %22, %18 ]\l  %26 = phi i64 [ %31, %24 ], [ 0, %18 ]\l  %27 = phi i8* [ %29, %24 ], [ %20, %18 ]\l  %28 = mul nsw i64 %26, 10\l  %29 = getelementptr inbounds i8, i8* %27, i64 1\l  %30 = zext i32 %25 to i64\l  %31 = sub nsw i64 %28, %30\l  %32 = load i8, i8* %29, align 1, !tbaa !1632\l  %33 = sext i8 %32 to i32\l  %34 = add nsw i32 %33, -48\l  %35 = icmp ult i32 %34, 10\l  br i1 %35, label %24, label %36\l|{<s0>T|<s1>F}}"];
+	Node0x1b775a0:s0 -> Node0x1b775a0;
+	Node0x1b775a0:s1 -> Node0x1b775f0;
+	Node0x1b775f0 [shape=record,label="{%36:\l36:                                               \l  %37 = phi i64 [ 0, %18 ], [ %31, %24 ]\l  %38 = icmp eq i32 %21, 0\l  %39 = sub nsw i64 0, %37\l  %40 = select i1 %38, i64 %39, i64 %37\l  ret i64 %40\l}"];
+}

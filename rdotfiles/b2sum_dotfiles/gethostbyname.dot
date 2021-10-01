@@ -1,0 +1,5 @@
+digraph "CFG for 'gethostbyname' function" {
+	label="CFG for 'gethostbyname' function";
+
+	Node0x1caa5b0 [shape=record,label="{%1:\l  %2 = tail call %struct.hostent* @gethostbyname2(i8* %0, i32 2) #40\l  ret %struct.hostent* %2\l}"];
+}

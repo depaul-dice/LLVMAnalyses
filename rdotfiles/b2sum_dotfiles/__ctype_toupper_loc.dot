@@ -1,0 +1,5 @@
+digraph "CFG for '__ctype_toupper_loc' function" {
+	label="CFG for '__ctype_toupper_loc' function";
+
+	Node0x1fb6730 [shape=record,label="{%0:\l  ret i32** @ptable.1126\l}"];
+}

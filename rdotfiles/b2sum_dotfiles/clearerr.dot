@@ -1,0 +1,15 @@
+digraph "CFG for 'clearerr' function" {
+	label="CFG for 'clearerr' function";
+
+	Node0x16bb080 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 19\l  %3 = load volatile i32, i32* %2, align 4, !tbaa !1632\l  %4 = icmp sgt i32 %3, -1\l  br i1 %4, label %5, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x16bb080:s0 -> Node0x16bb130;
+	Node0x16bb080:s1 -> Node0x16bb1d0;
+	Node0x16bb130 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%5:\l5:                                                \l  %6 = bitcast %struct._IO_FILE.0* %0 to %struct._IO_FILE.233*\l  %7 = tail call i32 @__lockfile(%struct._IO_FILE.233* nonnull %6) #29\l  %8 = icmp eq i32 %7, 0\l  %9 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 0\l  %10 = load i32, i32* %9, align 8, !tbaa !1639\l  %11 = and i32 %10, -49\l  store i32 %11, i32* %9, align 8, !tbaa !1639\l  br i1 %8, label %17, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x16bb130:s0 -> Node0x16bb220;
+	Node0x16bb130:s1 -> Node0x16bb180;
+	Node0x16bb180 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%12:\l12:                                               \l  tail call void @__unlockfile(%struct._IO_FILE.233* nonnull %6) #29\l  br label %17\l}"];
+	Node0x16bb180 -> Node0x16bb220;
+	Node0x16bb1d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%13:\l13:                                               \l  %14 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 0\l  %15 = load i32, i32* %14, align 8, !tbaa !1639\l  %16 = and i32 %15, -49\l  store i32 %16, i32* %14, align 8, !tbaa !1639\l  br label %17\l}"];
+	Node0x16bb1d0 -> Node0x16bb220;
+	Node0x16bb220 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%17:\l17:                                               \l  ret void\l}"];
+}

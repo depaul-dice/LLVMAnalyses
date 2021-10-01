@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_spin_init' function" {
+	label="CFG for 'pthread_spin_init' function";
+
+	Node0x1faa610 [shape=record,label="{%2:\l  store i32 0, i32* %0, align 4, !tbaa !1632\l  ret i32 0\l}"];
+}

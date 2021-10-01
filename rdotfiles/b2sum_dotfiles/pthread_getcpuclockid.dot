@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_getcpuclockid' function" {
+	label="CFG for 'pthread_getcpuclockid' function";
+
+	Node0x1bf07a0 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64 0,\l... i32 7\l  %4 = load i32, i32* %3, align 8, !tbaa !1632\l  %5 = shl i32 %4, 3\l  %6 = xor i32 %5, -2\l  store i32 %6, i32* %1, align 4, !tbaa !1640\l  ret i32 0\l}"];
+}

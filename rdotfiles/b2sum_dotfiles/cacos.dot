@@ -1,0 +1,5 @@
+digraph "CFG for 'cacos' function" {
+	label="CFG for 'cacos' function";
+
+	Node0x1cd9aa0 [shape=record,label="{%2:\l  %3 = tail call \{ double, double \} @casin(double %0, double %1) #40\l  %4 = extractvalue \{ double, double \} %3, 0\l  %5 = extractvalue \{ double, double \} %3, 1\l  %6 = tail call double @llvm.experimental.constrained.fsub.f64(double\l... 0x3FF921FB54442D18, double %4, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #41\l  %7 = fneg double %5\l  %8 = insertvalue \{ double, double \} undef, double %6, 0\l  %9 = insertvalue \{ double, double \} %8, double %7, 1\l  ret \{ double, double \} %9\l}"];
+}

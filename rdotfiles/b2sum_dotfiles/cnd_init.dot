@@ -1,0 +1,5 @@
+digraph "CFG for 'cnd_init' function" {
+	label="CFG for 'cnd_init' function";
+
+	Node0x1f6b1d0 [shape=record,label="{%1:\l  %2 = alloca [6 x i8*], align 8\l  %3 = bitcast [6 x i8*]* %2 to i8*\l  call void @llvm.memset.p0i8.i64(i8* nonnull align 8 dereferenceable(48) %3,\l... i8 0, i64 48, i1 false)\l  %4 = bitcast %struct.pthread_cond_t* %0 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %4, i8* nonnull align 8 %3,\l... i64 48, i1 true), !tbaa.struct !1632\l  ret i32 0\l}"];
+}

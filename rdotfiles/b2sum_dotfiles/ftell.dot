@@ -1,0 +1,5 @@
+digraph "CFG for 'ftell' function" {
+	label="CFG for 'ftell' function";
+
+	Node0x16bc610 [shape=record,label="{%1:\l  %2 = tail call i64 @__ftello(%struct._IO_FILE.0* %0) #40\l  ret i64 %2\l}"];
+}

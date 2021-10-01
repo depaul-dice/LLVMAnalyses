@@ -1,0 +1,22 @@
+digraph "CFG for 'gethostname' function" {
+	label="CFG for 'gethostname' function";
+
+	Node0x1fe7720 [shape=record,label="{%2:\l  %3 = alloca %struct.utsname, align 1\l  %4 = getelementptr inbounds %struct.utsname, %struct.utsname* %3, i64 0, i32\l... 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 390, i8* nonnull %4) #40\l  %5 = call i32 @uname(%struct.utsname* nonnull %3) #41\l  %6 = icmp eq i32 %5, 0\l  br i1 %6, label %7, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1fe7720:s0 -> Node0x1fe7770;
+	Node0x1fe7720:s1 -> Node0x1fe7cd0;
+	Node0x1fe7770 [shape=record,label="{%7:\l7:                                                \l  %8 = icmp ult i64 %1, 65\l  %9 = select i1 %8, i64 %1, i64 65\l  %10 = icmp eq i64 %9, 0\l  br i1 %10, label %28, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1fe7770:s0 -> Node0x1fe7cd0;
+	Node0x1fe7770:s1 -> Node0x1fe7b90;
+	Node0x1fe7b90 [shape=record,label="{%11:\l11:                                               \l  %12 = phi i64 [ %18, %17 ], [ 0, %7 ]\l  %13 = getelementptr inbounds %struct.utsname, %struct.utsname* %3, i64 0,\l... i32 1, i64 %12\l  %14 = load i8, i8* %13, align 1, !tbaa !1632\l  %15 = getelementptr inbounds i8, i8* %0, i64 %12\l  store i8 %14, i8* %15, align 1, !tbaa !1632\l  %16 = icmp eq i8 %14, 0\l  br i1 %16, label %20, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x1fe7b90:s0 -> Node0x1fe7c30;
+	Node0x1fe7b90:s1 -> Node0x1fe7be0;
+	Node0x1fe7be0 [shape=record,label="{%17:\l17:                                               \l  %18 = add nuw nsw i64 %12, 1\l  %19 = icmp ult i64 %18, %9\l  br i1 %19, label %11, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1fe7be0:s0 -> Node0x1fe7b90;
+	Node0x1fe7be0:s1 -> Node0x1fe7c30;
+	Node0x1fe7c30 [shape=record,label="{%20:\l20:                                               \l  %21 = phi i64 [ %18, %17 ], [ %12, %11 ]\l  %22 = icmp ne i64 %21, 0\l  %23 = icmp eq i64 %21, %9\l  %24 = and i1 %22, %23\l  br i1 %24, label %25, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1fe7c30:s0 -> Node0x1fe7c80;
+	Node0x1fe7c30:s1 -> Node0x1fe7cd0;
+	Node0x1fe7c80 [shape=record,label="{%25:\l25:                                               \l  %26 = add nsw i64 %9, -1\l  %27 = getelementptr inbounds i8, i8* %0, i64 %26\l  store i8 0, i8* %27, align 1, !tbaa !1632\l  br label %28\l}"];
+	Node0x1fe7c80 -> Node0x1fe7cd0;
+	Node0x1fe7cd0 [shape=record,label="{%28:\l28:                                               \l  %29 = phi i32 [ -1, %2 ], [ 0, %20 ], [ 0, %25 ], [ 0, %7 ]\l  call void @llvm.lifetime.end.p0i8(i64 390, i8* nonnull %4) #40\l  ret i32 %29\l}"];
+}

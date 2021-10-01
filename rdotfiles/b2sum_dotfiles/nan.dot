@@ -1,0 +1,5 @@
+digraph "CFG for 'nan' function" {
+	label="CFG for 'nan' function";
+
+	Node0x1ab44d0 [shape=record,label="{%1:\l  %2 = tail call double @llvm.experimental.constrained.fpext.f64.f32(float\l... 0x7FF8000000000000, metadata !fpexcept.ignore) #40\l  ret double %2\l}"];
+}

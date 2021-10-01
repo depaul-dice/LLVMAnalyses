@@ -1,0 +1,10 @@
+digraph "CFG for 'ctime_r' function" {
+	label="CFG for 'ctime_r' function";
+
+	Node0x1ff1b10 [shape=record,label="{%2:\l  %3 = alloca %struct.tm, align 8\l  %4 = bitcast %struct.tm* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 56, i8* nonnull %4) #40\l  %5 = call %struct.tm* @localtime_r(i64* %0, %struct.tm* nonnull %3) #41\l  %6 = icmp eq %struct.tm* %5, null\l  br i1 %6, label %9, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1ff1b10:s0 -> Node0x1ff1c10;
+	Node0x1ff1b10:s1 -> Node0x1ff1bc0;
+	Node0x1ff1bc0 [shape=record,label="{%7:\l7:                                                \l  %8 = call i8* @asctime_r(%struct.tm* nonnull %5, i8* %1) #41\l  br label %9\l}"];
+	Node0x1ff1bc0 -> Node0x1ff1c10;
+	Node0x1ff1c10 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i8* [ %8, %7 ], [ null, %2 ]\l  call void @llvm.lifetime.end.p0i8(i64 56, i8* nonnull %4) #40\l  ret i8* %10\l}"];
+}

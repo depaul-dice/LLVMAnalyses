@@ -1,0 +1,5 @@
+digraph "CFG for '__month_to_secs' function" {
+	label="CFG for '__month_to_secs' function";
+
+	Node0x16aeb60 [shape=record,label="{%2:\l  %3 = sext i32 %0 to i64\l  %4 = getelementptr inbounds [12 x i32], [12 x i32]*\l... @__month_to_secs.secs_through_month, i64 0, i64 %3\l  %5 = load i32, i32* %4, align 4, !tbaa !1632\l  %6 = icmp ne i32 %1, 0\l  %7 = icmp sgt i32 %0, 1\l  %8 = and i1 %7, %6\l  %9 = add nsw i32 %5, 86400\l  %10 = select i1 %8, i32 %9, i32 %5\l  ret i32 %10\l}"];
+}

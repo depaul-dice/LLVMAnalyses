@@ -1,0 +1,5 @@
+digraph "CFG for 'localtime' function" {
+	label="CFG for 'localtime' function";
+
+	Node0x19e3d50 [shape=record,label="{%1:\l  %2 = tail call %struct.tm* @__localtime_r(i64* %0, %struct.tm* nonnull\l... @localtime.tm) #40\l  ret %struct.tm* %2\l}"];
+}

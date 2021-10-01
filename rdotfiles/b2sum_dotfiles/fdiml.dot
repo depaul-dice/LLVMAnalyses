@@ -1,0 +1,18 @@
+digraph "CFG for 'fdiml' function" {
+	label="CFG for 'fdiml' function";
+
+	Node0x1bfa1c0 [shape=record,label="{%2:\l  %3 = tail call i32 @__fpclassifyl(x86_fp80 %0) #40\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %14, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x1bfa1c0:s0 -> Node0x1bfa3f0;
+	Node0x1bfa1c0:s1 -> Node0x1bfa2b0;
+	Node0x1bfa2b0 [shape=record,label="{%5:\l5:                                                \l  %6 = tail call i32 @__fpclassifyl(x86_fp80 %1) #40\l  %7 = icmp eq i32 %6, 0\l  br i1 %7, label %14, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1bfa2b0:s0 -> Node0x1bfa3f0;
+	Node0x1bfa2b0:s1 -> Node0x1bfa300;
+	Node0x1bfa300 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call i1 @llvm.experimental.constrained.fcmps.f80(x86_fp80 %0,\l... x86_fp80 %1, metadata !ogt, metadata !fpexcept.ignore) #41\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1bfa300:s0 -> Node0x1bfa350;
+	Node0x1bfa300:s1 -> Node0x1bfa3a0;
+	Node0x1bfa350 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call x86_fp80 @llvm.experimental.constrained.fsub.f80(x86_fp80\l... %0, x86_fp80 %1, metadata !round.dynamic, metadata !fpexcept.ignore) #41\l  br label %14\l}"];
+	Node0x1bfa350 -> Node0x1bfa3f0;
+	Node0x1bfa3a0 [shape=record,label="{%12:\l12:                                               \l  %13 = tail call x86_fp80 @llvm.experimental.constrained.sitofp.f80.i32(i32\l... 0, metadata !round.dynamic, metadata !fpexcept.ignore) #41\l  br label %14\l}"];
+	Node0x1bfa3a0 -> Node0x1bfa3f0;
+	Node0x1bfa3f0 [shape=record,label="{%14:\l14:                                               \l  %15 = phi x86_fp80 [ %0, %2 ], [ %1, %5 ], [ %11, %10 ], [ %13, %12 ]\l  ret x86_fp80 %15\l}"];
+}

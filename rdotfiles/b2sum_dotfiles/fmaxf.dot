@@ -1,0 +1,18 @@
+digraph "CFG for 'fmaxf' function" {
+	label="CFG for 'fmaxf' function";
+
+	Node0x1e7a9d0 [shape=record,label="{%2:\l  %3 = bitcast float %0 to i32\l  %4 = and i32 %3, 2147483647\l  %5 = icmp ugt i32 %4, 2139095040\l  br i1 %5, label %19, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1e7a9d0:s0 -> Node0x1e7abc0;
+	Node0x1e7a9d0:s1 -> Node0x1e7aa80;
+	Node0x1e7aa80 [shape=record,label="{%6:\l6:                                                \l  %7 = bitcast float %1 to i32\l  %8 = and i32 %7, 2147483647\l  %9 = icmp ugt i32 %8, 2139095040\l  br i1 %9, label %19, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1e7aa80:s0 -> Node0x1e7abc0;
+	Node0x1e7aa80:s1 -> Node0x1e7aad0;
+	Node0x1e7aad0 [shape=record,label="{%10:\l10:                                               \l  %11 = xor i32 %7, %3\l  %12 = icmp slt i32 %11, 0\l  br i1 %12, label %13, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1e7aad0:s0 -> Node0x1e7ab20;
+	Node0x1e7aad0:s1 -> Node0x1e7ab70;
+	Node0x1e7ab20 [shape=record,label="{%13:\l13:                                               \l  %14 = icmp slt i32 %3, 0\l  %15 = select i1 %14, float %1, float %0\l  br label %19\l}"];
+	Node0x1e7ab20 -> Node0x1e7abc0;
+	Node0x1e7ab70 [shape=record,label="{%16:\l16:                                               \l  %17 = tail call i1 @llvm.experimental.constrained.fcmps.f32(float %0, float\l... %1, metadata !olt, metadata !fpexcept.ignore) #40\l  %18 = select i1 %17, float %1, float %0\l  br label %19\l}"];
+	Node0x1e7ab70 -> Node0x1e7abc0;
+	Node0x1e7abc0 [shape=record,label="{%19:\l19:                                               \l  %20 = phi float [ %15, %13 ], [ %18, %16 ], [ %1, %2 ], [ %0, %6 ]\l  ret float %20\l}"];
+}

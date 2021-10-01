@@ -1,0 +1,5 @@
+digraph "CFG for 'putwc' function" {
+	label="CFG for 'putwc' function";
+
+	Node0x1e98cf0 [shape=record,label="{%2:\l  %3 = tail call i32 @fputwc(i32 %0, %struct._IO_FILE.0* %1) #40\l  ret i32 %3\l}"];
+}

@@ -1,0 +1,10 @@
+digraph "CFG for '__register_locked_file' function" {
+	label="CFG for '__register_locked_file' function";
+
+	Node0x1b793c0 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 17\l  store i64 1, i64* %3, align 8, !tbaa !1632\l  %4 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 28\l  store %struct._IO_FILE.0* null, %struct._IO_FILE.0** %4, align 8, !tbaa !1639\l  %5 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64 0,\l... i32 27\l  %6 = bitcast i8** %5 to %struct._IO_FILE.0**\l  %7 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** %6, align 8, !tbaa !1640\l  %8 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 29\l  store %struct._IO_FILE.0* %7, %struct._IO_FILE.0** %8, align 8, !tbaa !1643\l  %9 = icmp eq %struct._IO_FILE.0* %7, null\l  br i1 %9, label %12, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1b793c0:s0 -> Node0x1b7a9e0;
+	Node0x1b793c0:s1 -> Node0x1b7a990;
+	Node0x1b7a990 [shape=record,label="{%10:\l10:                                               \l  %11 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %7, i64\l... 0, i32 28\l  store %struct._IO_FILE.0* %0, %struct._IO_FILE.0** %11, align 8, !tbaa !1639\l  br label %12\l}"];
+	Node0x1b7a990 -> Node0x1b7a9e0;
+	Node0x1b7a9e0 [shape=record,label="{%12:\l12:                                               \l  store %struct._IO_FILE.0* %0, %struct._IO_FILE.0** %6, align 8, !tbaa !1640\l  ret void\l}"];
+}

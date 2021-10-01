@@ -1,0 +1,5 @@
+digraph "CFG for '__freadptrinc' function" {
+	label="CFG for '__freadptrinc' function";
+
+	Node0x1f8d730 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 1\l  %4 = load i8*, i8** %3, align 8, !tbaa !1632\l  %5 = getelementptr inbounds i8, i8* %4, i64 %1\l  store i8* %5, i8** %3, align 8, !tbaa !1632\l  ret void\l}"];
+}

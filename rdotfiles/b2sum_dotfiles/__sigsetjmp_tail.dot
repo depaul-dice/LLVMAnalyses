@@ -1,0 +1,5 @@
+digraph "CFG for '__sigsetjmp_tail' function" {
+	label="CFG for '__sigsetjmp_tail' function";
+
+	Node0x1f81ff0 [shape=record,label="{%2:\l  %3 = getelementptr inbounds %struct.__jmp_buf_tag, %struct.__jmp_buf_tag*\l... %0, i64 0, i32 2, i64 0\l  %4 = icmp ne i32 %1, 0\l  %5 = ptrtoint i64* %3 to i64\l  %6 = select i1 %4, i64 %5, i64 0\l  %7 = select i1 %4, i64 0, i64 %5\l  %8 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}(i64 14, i64 2, i64 %6, i64 %7, i64 8) #40, !srcloc !1632\l  ret i32 %1\l}"];
+}

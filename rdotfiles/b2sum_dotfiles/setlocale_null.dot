@@ -1,0 +1,5 @@
+digraph "CFG for 'setlocale_null' function" {
+	label="CFG for 'setlocale_null' function";
+
+	Node0x14bcaf0 [shape=record,label="{%1:\l  call void @llvm.dbg.value(metadata i32 %0, metadata !1636, metadata\l... !DIExpression()), !dbg !1637\l  call void @llvm.dbg.value(metadata i32 %0, metadata !1638, metadata\l... !DIExpression()) #7, !dbg !1642\l  %2 = tail call i8* @setlocale(i32 %0, i8* null) #7, !dbg !1644\l  call void @llvm.dbg.value(metadata i8* %2, metadata !1641, metadata\l... !DIExpression()) #7, !dbg !1642\l  ret i8* %2, !dbg !1645\l}"];
+}

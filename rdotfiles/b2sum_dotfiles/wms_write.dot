@@ -1,0 +1,26 @@
+digraph "CFG for 'wms_write' function" {
+	label="CFG for 'wms_write' function";
+
+	Node0x1d92e00 [shape=record,label="{%3:\l  %4 = alloca i8*, align 8\l  store i8* %1, i8** %4, align 8, !tbaa !1632\l  %5 = getelementptr inbounds %struct._IO_FILE.0, %struct._IO_FILE.0* %0, i64\l... 0, i32 21\l  %6 = bitcast i8** %5 to %struct.cookie**\l  %7 = load %struct.cookie*, %struct.cookie** %6, align 8, !tbaa !1636\l  %8 = getelementptr inbounds %struct.cookie, %struct.cookie* %7, i64 0, i32 2\l  %9 = load i64, i64* %8, align 8, !tbaa !1640\l  %10 = add i64 %9, %2\l  %11 = getelementptr inbounds %struct.cookie, %struct.cookie* %7, i64 0, i32 5\l  %12 = load i64, i64* %11, align 8, !tbaa !1643\l  %13 = icmp ult i64 %10, %12\l  br i1 %13, label %38, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x1d92e00:s0 -> Node0x1d92f40;
+	Node0x1d92e00:s1 -> Node0x1d92e50;
+	Node0x1d92e50 [shape=record,label="{%14:\l14:                                               \l  %15 = shl i64 %12, 1\l  %16 = add i64 %10, 1\l  %17 = or i64 %16, %15\l  %18 = or i64 %17, 1\l  %19 = icmp ugt i64 %18, 2305843009213693951\l  br i1 %19, label %58, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1d92e50:s0 -> Node0x1d93080;
+	Node0x1d92e50:s1 -> Node0x1d92ea0;
+	Node0x1d92ea0 [shape=record,label="{%20:\l20:                                               \l  %21 = getelementptr inbounds %struct.cookie, %struct.cookie* %7, i64 0, i32 3\l  %22 = bitcast i32** %21 to i8**\l  %23 = load i8*, i8** %22, align 8, !tbaa !1644\l  %24 = shl nuw nsw i64 %18, 2\l  %25 = tail call i8* @realloc(i8* %23, i64 %24) #40\l  %26 = icmp eq i8* %25, null\l  br i1 %26, label %58, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x1d92ea0:s0 -> Node0x1d93080;
+	Node0x1d92ea0:s1 -> Node0x1d92ef0;
+	Node0x1d92ef0 [shape=record,label="{%27:\l27:                                               \l  store i8* %25, i8** %22, align 8, !tbaa !1644\l  %28 = bitcast %struct.cookie* %7 to i8***\l  %29 = load i8**, i8*** %28, align 8, !tbaa !1645\l  store i8* %25, i8** %29, align 8, !tbaa !1632\l  %30 = load i32*, i32** %21, align 8, !tbaa !1644\l  %31 = load i64, i64* %11, align 8, !tbaa !1643\l  %32 = getelementptr inbounds i32, i32* %30, i64 %31\l  %33 = bitcast i32* %32 to i8*\l  %34 = sub i64 %18, %31\l  %35 = shl i64 %34, 2\l  %36 = tail call i8* @memset(i8* %33, i32 0, i64 %35) #40\l  store i64 %18, i64* %11, align 8, !tbaa !1643\l  %37 = load i64, i64* %8, align 8, !tbaa !1640\l  br label %38\l}"];
+	Node0x1d92ef0 -> Node0x1d92f40;
+	Node0x1d92f40 [shape=record,label="{%38:\l38:                                               \l  %39 = phi i64 [ %12, %3 ], [ %18, %27 ]\l  %40 = phi i64 [ %9, %3 ], [ %37, %27 ]\l  %41 = getelementptr inbounds %struct.cookie, %struct.cookie* %7, i64 0, i32 3\l  %42 = load i32*, i32** %41, align 8, !tbaa !1644\l  %43 = getelementptr inbounds i32, i32* %42, i64 %40\l  %44 = sub i64 %39, %40\l  %45 = getelementptr inbounds %struct.cookie, %struct.cookie* %7, i64 0, i32 6\l  %46 = call i64 @mbsnrtowcs(i32* %43, i8** nonnull %4, i64 %2, i64 %44,\l... %struct.FTW* nonnull %45) #40\l  %47 = icmp eq i64 %46, -1\l  br i1 %47, label %58, label %48\l|{<s0>T|<s1>F}}"];
+	Node0x1d92f40:s0 -> Node0x1d93080;
+	Node0x1d92f40:s1 -> Node0x1d92f90;
+	Node0x1d92f90 [shape=record,label="{%48:\l48:                                               \l  %49 = load i64, i64* %8, align 8, !tbaa !1640\l  %50 = add i64 %49, %46\l  store i64 %50, i64* %8, align 8, !tbaa !1640\l  %51 = getelementptr inbounds %struct.cookie, %struct.cookie* %7, i64 0, i32 4\l  %52 = load i64, i64* %51, align 8, !tbaa !1646\l  %53 = icmp ult i64 %50, %52\l  br i1 %53, label %55, label %54\l|{<s0>T|<s1>F}}"];
+	Node0x1d92f90:s0 -> Node0x1d93030;
+	Node0x1d92f90:s1 -> Node0x1d92fe0;
+	Node0x1d92fe0 [shape=record,label="{%54:\l54:                                               \l  store i64 %50, i64* %51, align 8, !tbaa !1646\l  br label %55\l}"];
+	Node0x1d92fe0 -> Node0x1d93030;
+	Node0x1d93030 [shape=record,label="{%55:\l55:                                               \l  %56 = getelementptr inbounds %struct.cookie, %struct.cookie* %7, i64 0, i32 1\l  %57 = load i64*, i64** %56, align 8, !tbaa !1647\l  store i64 %50, i64* %57, align 8, !tbaa !1648\l  br label %58\l}"];
+	Node0x1d93030 -> Node0x1d93080;
+	Node0x1d93080 [shape=record,label="{%58:\l58:                                               \l  %59 = phi i64 [ %2, %55 ], [ 0, %14 ], [ 0, %20 ], [ 0, %38 ]\l  ret i64 %59\l}"];
+}

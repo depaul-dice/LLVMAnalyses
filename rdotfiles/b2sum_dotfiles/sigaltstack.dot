@@ -1,0 +1,20 @@
+digraph "CFG for 'sigaltstack' function" {
+	label="CFG for 'sigaltstack' function";
+
+	Node0x1be1280 [shape=record,label="{%2:\l  %3 = icmp eq %struct.sigaltstack* %0, null\l  br i1 %3, label %17, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1be1280:s0 -> Node0x1be1450;
+	Node0x1be1280:s1 -> Node0x1be1310;
+	Node0x1be1310 [shape=record,label="{%4:\l4:                                                \l  %5 = getelementptr inbounds %struct.sigaltstack, %struct.sigaltstack* %0,\l... i64 0, i32 2\l  %6 = load i64, i64* %5, align 8, !tbaa !1632\l  %7 = icmp ult i64 %6, 2048\l  br i1 %7, label %8, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1be1310:s0 -> Node0x1be1360;
+	Node0x1be1310:s1 -> Node0x1be13b0;
+	Node0x1be1360 [shape=record,label="{%8:\l8:                                                \l  %9 = tail call i32* @___errno_location() #40\l  store i32 12, i32* %9, align 4, !tbaa !1639\l  br label %23\l}"];
+	Node0x1be1360 -> Node0x1be14a0;
+	Node0x1be13b0 [shape=record,label="{%10:\l10:                                               \l  %11 = getelementptr inbounds %struct.sigaltstack, %struct.sigaltstack* %0,\l... i64 0, i32 1\l  %12 = load i32, i32* %11, align 8, !tbaa !1640\l  %13 = and i32 %12, 1\l  %14 = icmp eq i32 %13, 0\l  br i1 %14, label %17, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1be13b0:s0 -> Node0x1be1450;
+	Node0x1be13b0:s1 -> Node0x1be1400;
+	Node0x1be1400 [shape=record,label="{%15:\l15:                                               \l  %16 = tail call i32* @___errno_location() #40\l  store i32 22, i32* %16, align 4, !tbaa !1639\l  br label %23\l}"];
+	Node0x1be1400 -> Node0x1be14a0;
+	Node0x1be1450 [shape=record,label="{%17:\l17:                                               \l  %18 = ptrtoint %struct.sigaltstack* %0 to i64\l  %19 = ptrtoint %struct.sigaltstack* %1 to i64\l  %20 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 131, i64 %18, i64 %19) #41, !srcloc !1641\l  %21 = tail call i64 @__syscall_ret(i64 %20) #40\l  %22 = trunc i64 %21 to i32\l  br label %23\l}"];
+	Node0x1be1450 -> Node0x1be14a0;
+	Node0x1be14a0 [shape=record,label="{%23:\l23:                                               \l  %24 = phi i32 [ -1, %8 ], [ -1, %15 ], [ %22, %17 ]\l  ret i32 %24\l}"];
+}

@@ -1,0 +1,25 @@
+digraph "CFG for 'hypotf' function" {
+	label="CFG for 'hypotf' function";
+
+	Node0x1914a60 [shape=record,label="{%2:\l  %3 = bitcast float %0 to i32\l  %4 = bitcast float %1 to i32\l  %5 = and i32 %3, 2147483647\l  %6 = and i32 %4, 2147483647\l  %7 = icmp ult i32 %5, %6\l  %8 = select i1 %7, i32 %6, i32 %5\l  %9 = select i1 %7, i32 %5, i32 %6\l  %10 = bitcast i32 %8 to float\l  %11 = bitcast i32 %9 to float\l  %12 = icmp eq i32 %9, 2139095040\l  br i1 %12, label %47, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1914a60:s0 -> Node0x1914ce0;
+	Node0x1914a60:s1 -> Node0x1914ab0;
+	Node0x1914ab0 [shape=record,label="{%13:\l13:                                               \l  %14 = icmp ugt i32 %8, 2139095039\l  %15 = icmp eq i32 %9, 0\l  %16 = or i1 %14, %15\l  %17 = sub nsw i32 %8, %9\l  %18 = icmp ugt i32 %17, 209715199\l  %19 = or i1 %16, %18\l  br i1 %19, label %20, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1914ab0:s0 -> Node0x1914b00;
+	Node0x1914ab0:s1 -> Node0x1914b50;
+	Node0x1914b00 [shape=record,label="{%20:\l20:                                               \l  %21 = tail call float @llvm.experimental.constrained.fadd.f32(float %10,\l... float %11, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  br label %47\l}"];
+	Node0x1914b00 -> Node0x1914ce0;
+	Node0x1914b50 [shape=record,label="{%22:\l22:                                               \l  %23 = tail call float @llvm.experimental.constrained.sitofp.f32.i32(i32 1,\l... metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %24 = icmp ugt i32 %8, 1568669695\l  br i1 %24, label %25, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1914b50:s0 -> Node0x1914ba0;
+	Node0x1914b50:s1 -> Node0x1914bf0;
+	Node0x1914ba0 [shape=record,label="{%25:\l25:                                               \l  %26 = tail call float @llvm.experimental.constrained.fmul.f32(float %10,\l... float 0x3A50000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #40\l  %27 = tail call float @llvm.experimental.constrained.fmul.f32(float %11,\l... float 0x3A50000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #40\l  br label %33\l}"];
+	Node0x1914ba0 -> Node0x1914c90;
+	Node0x1914bf0 [shape=record,label="{%28:\l28:                                               \l  %29 = icmp ult i32 %9, 562036736\l  br i1 %29, label %30, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x1914bf0:s0 -> Node0x1914c40;
+	Node0x1914bf0:s1 -> Node0x1914c90;
+	Node0x1914c40 [shape=record,label="{%30:\l30:                                               \l  %31 = tail call float @llvm.experimental.constrained.fmul.f32(float %10,\l... float 0x4590000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #40\l  %32 = tail call float @llvm.experimental.constrained.fmul.f32(float %11,\l... float 0x4590000000000000, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #40\l  br label %33\l}"];
+	Node0x1914c40 -> Node0x1914c90;
+	Node0x1914c90 [shape=record,label="{%33:\l33:                                               \l  %34 = phi float [ %26, %25 ], [ %31, %30 ], [ %10, %28 ]\l  %35 = phi float [ %27, %25 ], [ %32, %30 ], [ %11, %28 ]\l  %36 = phi float [ 0x4590000000000000, %25 ], [ 0x3A50000000000000, %30 ], [\l... %23, %28 ]\l  %37 = tail call double @llvm.experimental.constrained.fpext.f64.f32(float\l... %34, metadata !fpexcept.ignore) #40\l  %38 = tail call double @llvm.experimental.constrained.fpext.f64.f32(float\l... %34, metadata !fpexcept.ignore) #40\l  %39 = tail call double @llvm.experimental.constrained.fmul.f64(double %37,\l... double %38, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %40 = tail call double @llvm.experimental.constrained.fpext.f64.f32(float\l... %35, metadata !fpexcept.ignore) #40\l  %41 = tail call double @llvm.experimental.constrained.fpext.f64.f32(float\l... %35, metadata !fpexcept.ignore) #40\l  %42 = tail call double @llvm.experimental.constrained.fmul.f64(double %40,\l... double %41, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %43 = tail call double @llvm.experimental.constrained.fadd.f64(double %39,\l... double %42, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %44 = tail call float @llvm.experimental.constrained.fptrunc.f32.f64(double\l... %43, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %45 = tail call float @sqrtf(float %44) #41\l  %46 = tail call float @llvm.experimental.constrained.fmul.f32(float %36,\l... float %45, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  br label %47\l}"];
+	Node0x1914c90 -> Node0x1914ce0;
+	Node0x1914ce0 [shape=record,label="{%47:\l47:                                               \l  %48 = phi float [ %21, %20 ], [ %46, %33 ], [ %11, %2 ]\l  ret float %48\l}"];
+}

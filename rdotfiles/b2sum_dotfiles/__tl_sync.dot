@@ -1,0 +1,16 @@
+digraph "CFG for '__tl_sync' function" {
+	label="CFG for '__tl_sync' function";
+
+	Node0x1cff6a0 [shape=record,label="{%1:\l  tail call void asm sideeffect , ~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}()\l... #40, !srcloc !1632\l  %2 = load volatile i32, i32* @__thread_list_lock, align 4, !tbaa !1633\l  %3 = icmp eq i32 %2, 0\l  br i1 %3, label %12, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1cff6a0:s0 -> Node0x1cff810;
+	Node0x1cff6a0:s1 -> Node0x1cff720;
+	Node0x1cff720 [shape=record,label="{%4:\l4:                                                \l  tail call void @__wait(i32* nonnull @__thread_list_lock, i32* nonnull\l... @tl_lock_waiters, i32 %2, i32 0) #41\l  %5 = load i32, i32* @tl_lock_waiters, align 4, !tbaa !1633\l  %6 = icmp eq i32 %5, 0\l  br i1 %6, label %12, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1cff720:s0 -> Node0x1cff810;
+	Node0x1cff720:s1 -> Node0x1cff770;
+	Node0x1cff770 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 202, i64 ptrtoint (i32* @__thread_list_lock to i64), i64 1, i64 1) #40,\l... !srcloc !1637\l  %9 = icmp eq i64 %8, -38\l  br i1 %9, label %10, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1cff770:s0 -> Node0x1cff7c0;
+	Node0x1cff770:s1 -> Node0x1cff810;
+	Node0x1cff7c0 [shape=record,label="{%10:\l10:                                               \l  %11 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 202, i64 ptrtoint (i32* @__thread_list_lock to i64), i64 1, i64 1) #40,\l... !srcloc !1637\l  br label %12\l}"];
+	Node0x1cff7c0 -> Node0x1cff810;
+	Node0x1cff810 [shape=record,label="{%12:\l12:                                               \l  ret void\l}"];
+}

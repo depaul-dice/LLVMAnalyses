@@ -1,0 +1,5 @@
+digraph "CFG for '__iswblank_l' function" {
+	label="CFG for '__iswblank_l' function";
+
+	Node0x1c766a0 [shape=record,label="{%2:\l  %3 = tail call i32 @isblank(i32 %0) #40\l  ret i32 %3\l}"];
+}

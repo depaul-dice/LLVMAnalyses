@@ -1,0 +1,10 @@
+digraph "CFG for 'wcslen' function" {
+	label="CFG for 'wcslen' function";
+
+	Node0x167eaa0 [shape=record,label="{%1:\l  br label %2\l}"];
+	Node0x167eaa0 -> Node0x167eb50;
+	Node0x167eb50 [shape=record,label="{%2:\l2:                                                \l  %3 = phi i32* [ %0, %1 ], [ %6, %2 ]\l  %4 = load i32, i32* %3, align 4, !tbaa !1632\l  %5 = icmp eq i32 %4, 0\l  %6 = getelementptr inbounds i32, i32* %3, i64 1\l  br i1 %5, label %7, label %2\l|{<s0>T|<s1>F}}"];
+	Node0x167eb50:s0 -> Node0x167ee30;
+	Node0x167eb50:s1 -> Node0x167eb50;
+	Node0x167ee30 [shape=record,label="{%7:\l7:                                                \l  %8 = ptrtoint i32* %3 to i64\l  %9 = ptrtoint i32* %0 to i64\l  %10 = sub i64 %8, %9\l  %11 = ashr exact i64 %10, 2\l  ret i64 %11\l}"];
+}

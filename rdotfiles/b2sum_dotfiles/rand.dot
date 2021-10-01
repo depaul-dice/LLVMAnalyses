@@ -1,0 +1,5 @@
+digraph "CFG for 'rand' function" {
+	label="CFG for 'rand' function";
+
+	Node0x1fc44b0 [shape=record,label="{%0:\l  %1 = load i64, i64* @seed, align 8, !tbaa !1632\l  %2 = mul i64 %1, 6364136223846793005\l  %3 = add i64 %2, 1\l  store i64 %3, i64* @seed, align 8, !tbaa !1632\l  %4 = lshr i64 %3, 33\l  %5 = trunc i64 %4 to i32\l  ret i32 %5\l}"];
+}

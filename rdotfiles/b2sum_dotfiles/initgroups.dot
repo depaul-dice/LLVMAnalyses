@@ -1,0 +1,10 @@
+digraph "CFG for 'initgroups' function" {
+	label="CFG for 'initgroups' function";
+
+	Node0x1d1a3f0 [shape=record,label="{%2:\l  %3 = alloca [32 x i32], align 16\l  %4 = alloca i32, align 4\l  %5 = bitcast [32 x i32]* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %5) #40\l  %6 = bitcast i32* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %6) #40\l  store i32 32, i32* %4, align 4, !tbaa !1632\l  %7 = getelementptr inbounds [32 x i32], [32 x i32]* %3, i64 0, i64 0\l  %8 = call i32 @getgrouplist(i8* %0, i32 %1, i32* nonnull %7, i32* nonnull\l... %4) #41\l  %9 = icmp slt i32 %8, 0\l  br i1 %9, label %14, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x1d1a3f0:s0 -> Node0x1d1a4f0;
+	Node0x1d1a3f0:s1 -> Node0x1d1a4a0;
+	Node0x1d1a4a0 [shape=record,label="{%10:\l10:                                               \l  %11 = load i32, i32* %4, align 4, !tbaa !1632\l  %12 = sext i32 %11 to i64\l  %13 = call i32 @setgroups(i64 %12, i32* nonnull %7) #41\l  br label %14\l}"];
+	Node0x1d1a4a0 -> Node0x1d1a4f0;
+	Node0x1d1a4f0 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32 [ %13, %10 ], [ -1, %2 ]\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %6) #40\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %5) #40\l  ret i32 %15\l}"];
+}

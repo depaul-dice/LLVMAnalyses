@@ -1,0 +1,5 @@
+digraph "CFG for 'tre_compare_lit' function" {
+	label="CFG for 'tre_compare_lit' function";
+
+	Node0x19744b0 [shape=record,label="{%2:\l  %3 = bitcast i8* %0 to %struct.tre_literal_t**\l  %4 = bitcast i8* %1 to %struct.tre_literal_t**\l  %5 = load %struct.tre_literal_t*, %struct.tre_literal_t** %3, align 8, !tbaa\l... !1632\l  %6 = getelementptr inbounds %struct.tre_literal_t, %struct.tre_literal_t*\l... %5, i64 0, i32 0\l  %7 = load i64, i64* %6, align 8, !tbaa !1636\l  %8 = load %struct.tre_literal_t*, %struct.tre_literal_t** %4, align 8, !tbaa\l... !1632\l  %9 = getelementptr inbounds %struct.tre_literal_t, %struct.tre_literal_t*\l... %8, i64 0, i32 0\l  %10 = load i64, i64* %9, align 8, !tbaa !1636\l  %11 = sub nsw i64 %7, %10\l  %12 = trunc i64 %11 to i32\l  ret i32 %12\l}"];
+}

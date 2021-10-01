@@ -1,0 +1,5 @@
+digraph "CFG for 'ether_aton' function" {
+	label="CFG for 'ether_aton' function";
+
+	Node0x1c72a00 [shape=record,label="{%1:\l  %2 = tail call %struct.ether_addr* @ether_aton_r(i8* %0, %struct.ether_addr*\l... nonnull @ether_aton.a) #40\l  ret %struct.ether_addr* %2\l}"];
+}

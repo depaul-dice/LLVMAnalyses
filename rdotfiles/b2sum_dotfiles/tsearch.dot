@@ -1,0 +1,34 @@
+digraph "CFG for 'tsearch' function" {
+	label="CFG for 'tsearch' function";
+
+	Node0x1b6a130 [shape=record,label="{%3:\l  %4 = alloca [96 x i8**], align 16\l  %5 = icmp eq i8** %1, null\l  br i1 %5, label %57, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1b6a130:s0 -> Node0x1b6a510;
+	Node0x1b6a130:s1 -> Node0x1b6a1f0;
+	Node0x1b6a1f0 [shape=record,label="{%6:\l6:                                                \l  %7 = bitcast [96 x i8**]* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 768, i8* nonnull %7) #40\l  %8 = bitcast i8** %1 to %struct.node**\l  %9 = load %struct.node*, %struct.node** %8, align 8, !tbaa !1632\l  %10 = getelementptr inbounds [96 x i8**], [96 x i8**]* %4, i64 0, i64 0\l  store i8** %1, i8*** %10, align 16, !tbaa !1632\l  %11 = icmp eq %struct.node* %9, null\l  br i1 %11, label %34, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1b6a1f0:s0 -> Node0x1b6a380;
+	Node0x1b6a1f0:s1 -> Node0x1b6a240;
+	Node0x1b6a240 [shape=record,label="{%12:\l12:                                               \l  %13 = phi i64 [ %25, %21 ], [ 1, %6 ]\l  %14 = phi %struct.node* [ %28, %21 ], [ %9, %6 ]\l  %15 = getelementptr inbounds %struct.node, %struct.node* %14, i64 0, i32 0\l  %16 = load i8*, i8** %15, align 8, !tbaa !1636\l  %17 = tail call i32 %2(i8* %0, i8* %16) #41\l  %18 = icmp eq i32 %17, 0\l  br i1 %18, label %19, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1b6a240:s0 -> Node0x1b6a290;
+	Node0x1b6a240:s1 -> Node0x1b6a2e0;
+	Node0x1b6a290 [shape=record,label="{%19:\l19:                                               \l  %20 = bitcast %struct.node* %14 to i8*\l  br label %55\l}"];
+	Node0x1b6a290 -> Node0x1b6a4c0;
+	Node0x1b6a2e0 [shape=record,label="{%21:\l21:                                               \l  %22 = icmp sgt i32 %17, 0\l  %23 = zext i1 %22 to i64\l  %24 = getelementptr inbounds %struct.node, %struct.node* %14, i64 0, i32 1,\l... i64 %23\l  %25 = add nuw i64 %13, 1\l  %26 = getelementptr inbounds [96 x i8**], [96 x i8**]* %4, i64 0, i64 %13\l  store i8** %24, i8*** %26, align 8, !tbaa !1632\l  %27 = bitcast i8** %24 to %struct.node**\l  %28 = load %struct.node*, %struct.node** %27, align 8, !tbaa !1632\l  %29 = icmp eq %struct.node* %28, null\l  br i1 %29, label %30, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x1b6a2e0:s0 -> Node0x1b6a330;
+	Node0x1b6a2e0:s1 -> Node0x1b6a240;
+	Node0x1b6a330 [shape=record,label="{%30:\l30:                                               \l  %31 = shl i64 %25, 32\l  %32 = add i64 %31, -4294967296\l  %33 = ashr exact i64 %32, 32\l  br label %34\l}"];
+	Node0x1b6a330 -> Node0x1b6a380;
+	Node0x1b6a380 [shape=record,label="{%34:\l34:                                               \l  %35 = phi i64 [ 0, %6 ], [ %33, %30 ]\l  %36 = tail call i8* @malloc(i64 32) #42\l  %37 = icmp eq i8* %36, null\l  br i1 %37, label %55, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x1b6a380:s0 -> Node0x1b6a4c0;
+	Node0x1b6a380:s1 -> Node0x1b6a3d0;
+	Node0x1b6a3d0 [shape=record,label="{%38:\l38:                                               \l  %39 = bitcast i8* %36 to i8**\l  store i8* %0, i8** %39, align 8, !tbaa !1636\l  %40 = getelementptr inbounds i8, i8* %36, i64 8\l  %41 = bitcast i8* %40 to \<2 x i8*\>*\l  store \<2 x i8*\> zeroinitializer, \<2 x i8*\>* %41, align 8, !tbaa !1632\l  %42 = getelementptr inbounds i8, i8* %36, i64 24\l  %43 = bitcast i8* %42 to i32*\l  store i32 1, i32* %43, align 8, !tbaa !1639\l  %44 = getelementptr inbounds [96 x i8**], [96 x i8**]* %4, i64 0, i64 %35\l  %45 = load i8**, i8*** %44, align 8, !tbaa !1632\l  store i8* %36, i8** %45, align 8, !tbaa !1632\l  br label %46\l}"];
+	Node0x1b6a3d0 -> Node0x1b6a420;
+	Node0x1b6a420 [shape=record,label="{%46:\l46:                                               \l  %47 = phi i64 [ %50, %49 ], [ %35, %38 ]\l  %48 = icmp eq i64 %47, 0\l  br i1 %48, label %55, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x1b6a420:s0 -> Node0x1b6a4c0;
+	Node0x1b6a420:s1 -> Node0x1b6a470;
+	Node0x1b6a470 [shape=record,label="{%49:\l49:                                               \l  %50 = add nsw i64 %47, -1\l  %51 = getelementptr inbounds [96 x i8**], [96 x i8**]* %4, i64 0, i64 %50\l  %52 = load i8**, i8*** %51, align 8, !tbaa !1632\l  %53 = tail call i32 @__tsearch_balance(i8** %52) #43\l  %54 = icmp eq i32 %53, 0\l  br i1 %54, label %55, label %46\l|{<s0>T|<s1>F}}"];
+	Node0x1b6a470:s0 -> Node0x1b6a4c0;
+	Node0x1b6a470:s1 -> Node0x1b6a420;
+	Node0x1b6a4c0 [shape=record,label="{%55:\l55:                                               \l  %56 = phi i8* [ null, %34 ], [ %20, %19 ], [ %36, %49 ], [ %36, %46 ]\l  call void @llvm.lifetime.end.p0i8(i64 768, i8* nonnull %7) #40\l  br label %57\l}"];
+	Node0x1b6a4c0 -> Node0x1b6a510;
+	Node0x1b6a510 [shape=record,label="{%57:\l57:                                               \l  %58 = phi i8* [ %56, %55 ], [ null, %3 ]\l  ret i8* %58\l}"];
+}

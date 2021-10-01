@@ -1,0 +1,5 @@
+digraph "CFG for 'check_robust' function" {
+	label="CFG for 'check_robust' function";
+
+	Node0x190ec80 [shape=record,label="{%0:\l  %1 = alloca i8*, align 8\l  %2 = alloca i64, align 8\l  %3 = bitcast i8** %1 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %3) #40\l  %4 = bitcast i64* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %4) #40\l  %5 = ptrtoint i8** %1 to i64\l  %6 = ptrtoint i64* %2 to i64\l  %7 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 274, i64 0, i64 %5, i64 %6) #40, !srcloc !1632\l  %8 = trunc i64 %7 to i32\l  %9 = sub i32 0, %8\l  store i32 %9, i32* @check_robust_result, align 4, !tbaa !1633\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %4) #40\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %3) #40\l  ret void\l}"];
+}

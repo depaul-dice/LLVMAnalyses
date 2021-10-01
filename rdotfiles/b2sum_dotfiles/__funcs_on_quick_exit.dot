@@ -1,0 +1,11 @@
+digraph "CFG for '__funcs_on_quick_exit' function" {
+	label="CFG for '__funcs_on_quick_exit' function";
+
+	Node0x1a426e0 [shape=record,label="{%0:\l  tail call void @__lock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.81, i64 0, i64 0)) #40\l  %1 = load i32, i32* @count, align 4, !tbaa !1632\l  %2 = icmp sgt i32 %1, 0\l  br i1 %2, label %3, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1a426e0:s0 -> Node0x1a427f0;
+	Node0x1a426e0:s1 -> Node0x1a42840;
+	Node0x1a427f0 [shape=record,label="{%3:\l3:                                                \l  %4 = phi i32 [ %9, %3 ], [ %1, %0 ]\l  %5 = add nsw i32 %4, -1\l  store i32 %5, i32* @count, align 4, !tbaa !1632\l  %6 = sext i32 %5 to i64\l  %7 = getelementptr inbounds [32 x void ()*], [32 x void ()*]* @funcs, i64 0,\l... i64 %6\l  %8 = load void ()*, void ()** %7, align 8, !tbaa !1636\l  tail call void @__unlock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.81, i64 0, i64 0)) #40\l  tail call void %8() #41\l  tail call void @__lock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.81, i64 0, i64 0)) #40\l  %9 = load i32, i32* @count, align 4, !tbaa !1632\l  %10 = icmp sgt i32 %9, 0\l  br i1 %10, label %3, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1a427f0:s0 -> Node0x1a427f0;
+	Node0x1a427f0:s1 -> Node0x1a42840;
+	Node0x1a42840 [shape=record,label="{%11:\l11:                                               \l  ret void\l}"];
+}

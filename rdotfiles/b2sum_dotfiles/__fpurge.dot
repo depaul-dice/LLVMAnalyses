@@ -1,0 +1,5 @@
+digraph "CFG for '__fpurge' function" {
+	label="CFG for '__fpurge' function";
+
+	Node0x1c5be10 [shape=record,label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.1002, %struct._IO_FILE.1002*\l... %0, i64 0, i32 4\l  %3 = getelementptr inbounds %struct._IO_FILE.1002, %struct._IO_FILE.1002*\l... %0, i64 0, i32 7\l  store i8* null, i8** %3, align 8, !tbaa !1632\l  %4 = bitcast i8** %2 to \<2 x i8*\>*\l  store \<2 x i8*\> zeroinitializer, \<2 x i8*\>* %4, align 8, !tbaa !1639\l  %5 = getelementptr inbounds %struct._IO_FILE.1002, %struct._IO_FILE.1002*\l... %0, i64 0, i32 1\l  %6 = bitcast i8** %5 to \<2 x i8*\>*\l  store \<2 x i8*\> zeroinitializer, \<2 x i8*\>* %6, align 8, !tbaa !1639\l  ret i32 0\l}"];
+}

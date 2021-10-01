@@ -1,0 +1,5 @@
+digraph "CFG for 'setitimer' function" {
+	label="CFG for 'setitimer' function";
+
+	Node0x1936bd0 [shape=record,label="{%3:\l  %4 = sext i32 %0 to i64\l  %5 = ptrtoint %struct.itimerval* %1 to i64\l  %6 = ptrtoint %struct.itimerval* %2 to i64\l  %7 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...(i64 38, i64 %4, i64 %5, i64 %6) #40, !srcloc !1632\l  %8 = tail call i64 @__syscall_ret(i64 %7) #41\l  %9 = trunc i64 %8 to i32\l  ret i32 %9\l}"];
+}

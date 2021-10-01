@@ -1,0 +1,5 @@
+digraph "CFG for 'mtx_init' function" {
+	label="CFG for 'mtx_init' function";
+
+	Node0x1c75890 [shape=record,label="{%2:\l  %3 = alloca i32, align 8\l  %4 = alloca [36 x i8], align 4\l  %5 = getelementptr inbounds [36 x i8], [36 x i8]* %4, i64 0, i64 0\l  call void @llvm.memset.p0i8.i64(i8* nonnull align 4 dereferenceable(36) %5,\l... i8 0, i64 36, i1 false)\l  %6 = and i32 %1, 1\l  store i32 %6, i32* %3, align 8, !tbaa !1632\l  %7 = bitcast %struct.pthread_mutex_t* %0 to i32*\l  %8 = load volatile i32, i32* %3, align 8, !tbaa.struct !1636\l  store volatile i32 %8, i32* %7, align 8, !tbaa.struct !1636\l  %9 = bitcast %struct.pthread_mutex_t* %0 to i8*\l  %10 = getelementptr inbounds i8, i8* %9, i64 4\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 4 %10, i8* nonnull\l... align 4 %5, i64 36, i1 true), !tbaa.struct !1636\l  ret i32 0\l}"];
+}

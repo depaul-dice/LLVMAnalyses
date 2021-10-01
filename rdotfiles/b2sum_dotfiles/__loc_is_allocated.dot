@@ -1,0 +1,5 @@
+digraph "CFG for '__loc_is_allocated' function" {
+	label="CFG for '__loc_is_allocated' function";
+
+	Node0x191d1b0 [shape=record,label="{%1:\l  %2 = icmp ne %struct.__locale_struct* %0, null\l  %3 = icmp ne %struct.__locale_struct* %0, @__c_locale\l  %4 = and i1 %2, %3\l  %5 = icmp ne %struct.__locale_struct* %0, @__c_dot_utf8_locale\l  %6 = and i1 %5, %4\l  %7 = icmp ne %struct.__locale_struct* %0, @default_locale\l  %8 = and i1 %7, %6\l  %9 = icmp ne %struct.__locale_struct* %0, @default_ctype_locale\l  %10 = and i1 %9, %8\l  %11 = zext i1 %10 to i32\l  ret i32 %11\l}"];
+}

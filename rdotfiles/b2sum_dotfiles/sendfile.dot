@@ -1,0 +1,5 @@
+digraph "CFG for 'sendfile' function" {
+	label="CFG for 'sendfile' function";
+
+	Node0x1c4d740 [shape=record,label="{%4:\l  %5 = sext i32 %0 to i64\l  %6 = sext i32 %1 to i64\l  %7 = ptrtoint i64* %2 to i64\l  %8 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}(i64 40, i64 %5, i64 %6, i64 %7, i64 %3) #40, !srcloc !1632\l  %9 = tail call i64 @__syscall_ret(i64 %8) #41\l  ret i64 %9\l}"];
+}

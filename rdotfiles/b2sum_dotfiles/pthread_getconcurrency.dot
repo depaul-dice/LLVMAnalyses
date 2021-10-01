@@ -1,0 +1,5 @@
+digraph "CFG for 'pthread_getconcurrency' function" {
+	label="CFG for 'pthread_getconcurrency' function";
+
+	Node0x11638b0 [shape=record,label="{%0:\l  ret i32 0\l}"];
+}

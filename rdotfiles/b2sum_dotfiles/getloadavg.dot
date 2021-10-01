@@ -1,0 +1,15 @@
+digraph "CFG for 'getloadavg' function" {
+	label="CFG for 'getloadavg' function";
+
+	Node0x193f7f0 [shape=record,label="{%2:\l  %3 = alloca %struct.sysinfo, align 8\l  %4 = bitcast %struct.sysinfo* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 368, i8* nonnull %4) #40\l  %5 = icmp slt i32 %1, 1\l  br i1 %5, label %6, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x193f7f0:s0 -> Node0x193fb00;
+	Node0x193f7f0:s1 -> Node0x193fb50;
+	Node0x193fb00 [shape=record,label="{%6:\l6:                                                \l  %7 = icmp ne i32 %1, 0\l  %8 = sext i1 %7 to i32\l  br label %25\l}"];
+	Node0x193fb00 -> Node0x193fbf0;
+	Node0x193fb50 [shape=record,label="{%9:\l9:                                                \l  %10 = call i32 @sysinfo(%struct.sysinfo* nonnull %3) #41\l  %11 = icmp slt i32 %1, 3\l  %12 = select i1 %11, i32 %1, i32 3\l  %13 = sext i32 %12 to i64\l  br label %14\l}"];
+	Node0x193fb50 -> Node0x193fba0;
+	Node0x193fba0 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i64 [ 0, %9 ], [ %23, %14 ]\l  %16 = call double @llvm.experimental.constrained.sitofp.f64.i32(i32 65536,\l... metadata !round.dynamic, metadata !fpexcept.ignore) #42\l  %17 = call double @llvm.experimental.constrained.fdiv.f64(double\l... 1.000000e+00, double %16, metadata !round.dynamic, metadata\l... !fpexcept.ignore) #42\l  %18 = getelementptr inbounds %struct.sysinfo, %struct.sysinfo* %3, i64 0,\l... i32 1, i64 %15\l  %19 = load i64, i64* %18, align 8, !tbaa !1632\l  %20 = call double @llvm.experimental.constrained.uitofp.f64.i64(i64 %19,\l... metadata !round.dynamic, metadata !fpexcept.ignore) #42\l  %21 = call double @llvm.experimental.constrained.fmul.f64(double %17, double\l... %20, metadata !round.dynamic, metadata !fpexcept.ignore) #42\l  %22 = getelementptr inbounds double, double* %0, i64 %15\l  store double %21, double* %22, align 8, !tbaa !1636\l  %23 = add nuw nsw i64 %15, 1\l  %24 = icmp slt i64 %23, %13\l  br i1 %24, label %14, label %25\l|{<s0>T|<s1>F}}"];
+	Node0x193fba0:s0 -> Node0x193fba0;
+	Node0x193fba0:s1 -> Node0x193fbf0;
+	Node0x193fbf0 [shape=record,label="{%25:\l25:                                               \l  %26 = phi i32 [ %8, %6 ], [ %12, %14 ]\l  call void @llvm.lifetime.end.p0i8(i64 368, i8* nonnull %4) #40\l  ret i32 %26\l}"];
+}

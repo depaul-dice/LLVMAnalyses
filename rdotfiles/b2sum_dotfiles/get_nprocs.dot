@@ -1,0 +1,5 @@
+digraph "CFG for 'get_nprocs' function" {
+	label="CFG for 'get_nprocs' function";
+
+	Node0x1ea6240 [shape=record,label="{%0:\l  %1 = tail call i64 @sysconf(i32 84) #40\l  %2 = trunc i64 %1 to i32\l  ret i32 %2\l}"];
+}

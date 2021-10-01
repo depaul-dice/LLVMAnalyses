@@ -1,0 +1,19 @@
+digraph "CFG for 'pthread_mutexattr_setprotocol' function" {
+	label="CFG for 'pthread_mutexattr_setprotocol' function";
+
+	Node0x1e8ebd0 [shape=record,label="{%2:\l  switch i32 %1, label %15 [\l    i32 0, label %3\l    i32 1, label %7\l    i32 2, label %16\l  ]\l|{<s0>def|<s1>0|<s2>1|<s3>2}}"];
+	Node0x1e8ebd0:s0 -> Node0x1e8eec0;
+	Node0x1e8ebd0:s1 -> Node0x1e8edd0;
+	Node0x1e8ebd0:s2 -> Node0x1e8ee20;
+	Node0x1e8ebd0:s3 -> Node0x1e8ef10;
+	Node0x1e8edd0 [shape=record,label="{%3:\l3:                                                \l  %4 = getelementptr inbounds %union.anon, %union.anon* %0, i64 0, i32 0\l  %5 = load i32, i32* %4, align 4, !tbaa !1632\l  %6 = and i32 %5, -9\l  store i32 %6, i32* %4, align 4, !tbaa !1632\l  br label %16\l}"];
+	Node0x1e8edd0 -> Node0x1e8ef10;
+	Node0x1e8ee20 [shape=record,label="{%7:\l7:                                                \l  %8 = tail call i32 @pthread_once(i32* nonnull @check_pi_once, void ()*\l... nonnull @check_pi) #40\l  %9 = load i32, i32* @check_pi_result, align 4, !tbaa !1637\l  %10 = icmp eq i32 %9, 0\l  br i1 %10, label %11, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1e8ee20:s0 -> Node0x1e8ee70;
+	Node0x1e8ee20:s1 -> Node0x1e8ef10;
+	Node0x1e8ee70 [shape=record,label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %union.anon, %union.anon* %0, i64 0, i32 0\l  %13 = load i32, i32* %12, align 4, !tbaa !1632\l  %14 = or i32 %13, 8\l  store i32 %14, i32* %12, align 4, !tbaa !1632\l  br label %16\l}"];
+	Node0x1e8ee70 -> Node0x1e8ef10;
+	Node0x1e8eec0 [shape=record,label="{%15:\l15:                                               \l  br label %16\l}"];
+	Node0x1e8eec0 -> Node0x1e8ef10;
+	Node0x1e8ef10 [shape=record,label="{%16:\l16:                                               \l  %17 = phi i32 [ 22, %15 ], [ 0, %11 ], [ 0, %3 ], [ %9, %7 ], [ 95, %2 ]\l  ret i32 %17\l}"];
+}

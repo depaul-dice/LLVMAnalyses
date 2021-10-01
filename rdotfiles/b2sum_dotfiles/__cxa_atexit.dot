@@ -1,0 +1,20 @@
+digraph "CFG for '__cxa_atexit' function" {
+	label="CFG for '__cxa_atexit' function";
+
+	Node0x16b81a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = getelementptr inbounds [1 x i32], [1 x i32]* @lock.840, i64 0, i64 0\l  tail call fastcc void @__lock(i32* %4) #29\l  %5 = load %struct.fl*, %struct.fl** @head, align 8, !tbaa !1632\l  %6 = icmp eq %struct.fl* %5, null\l  br i1 %6, label %7, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x16b81a0:s0 -> Node0x16b81f0;
+	Node0x16b81a0:s1 -> Node0x16b8240;
+	Node0x16b81f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%7:\l7:                                                \l  store %struct.fl* @builtin, %struct.fl** @head, align 8, !tbaa !1632\l  br label %8\l}"];
+	Node0x16b81f0 -> Node0x16b8240;
+	Node0x16b8240 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%8:\l8:                                                \l  %9 = phi %struct.fl* [ %5, %3 ], [ @builtin, %7 ]\l  %10 = load i32, i32* @slot, align 4, !tbaa !1636\l  %11 = icmp eq i32 %10, 32\l  br i1 %11, label %12, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x16b8240:s0 -> Node0x16b8290;
+	Node0x16b8240:s1 -> Node0x16b8330;
+	Node0x16b8290 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3947570",label="{%12:\l12:                                               \l  %13 = tail call fastcc i8* @calloc(i64 520, i64 1) #29\l  %14 = icmp eq i8* %13, null\l  br i1 %14, label %28, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x16b8290:s0 -> Node0x16b8380;
+	Node0x16b8290:s1 -> Node0x16b82e0;
+	Node0x16b82e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6bfa670",label="{%15:\l15:                                               \l  %16 = bitcast %struct.fl** @head to i64*\l  %17 = load i64, i64* %16, align 8, !tbaa !1632\l  %18 = bitcast i8* %13 to i64*\l  store i64 %17, i64* %18, align 8, !tbaa !1638\l  %19 = bitcast %struct.fl** @head to i8**\l  store i8* %13, i8** %19, align 8, !tbaa !1632\l  store i32 0, i32* @slot, align 4, !tbaa !1636\l  %20 = bitcast i8* %13 to %struct.fl*\l  br label %21\l}"];
+	Node0x16b82e0 -> Node0x16b8330;
+	Node0x16b8330 [shape=record,color="#b70d28ff", style=filled, fillcolor="#d0473d70",label="{%21:\l21:                                               \l  %22 = phi i32 [ 0, %15 ], [ %10, %8 ]\l  %23 = phi %struct.fl* [ %20, %15 ], [ %9, %8 ]\l  %24 = sext i32 %22 to i64\l  %25 = getelementptr inbounds %struct.fl, %struct.fl* %23, i64 0, i32 1, i64\l... %24\l  store void (i8*)* %0, void (i8*)** %25, align 8, !tbaa !1632\l  %26 = getelementptr inbounds %struct.fl, %struct.fl* %23, i64 0, i32 2, i64\l... %24\l  store i8* %1, i8** %26, align 8, !tbaa !1632\l  %27 = add nsw i32 %22, 1\l  store i32 %27, i32* @slot, align 4, !tbaa !1636\l  br label %28\l}"];
+	Node0x16b8330 -> Node0x16b8380;
+	Node0x16b8380 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%28:\l28:                                               \l  %29 = phi i32 [ 0, %21 ], [ -1, %12 ]\l  %30 = getelementptr inbounds [1 x i32], [1 x i32]* @lock.840, i64 0, i64 0\l  tail call fastcc void @__unlock(i32* %30) #29\l  ret i32 %29\l}"];
+}

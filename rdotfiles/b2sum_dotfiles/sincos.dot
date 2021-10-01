@@ -1,0 +1,42 @@
+digraph "CFG for 'sincos' function" {
+	label="CFG for 'sincos' function";
+
+	Node0x1be6aa0 [shape=record,label="{%3:\l  %4 = alloca double, align 8\l  %5 = alloca [2 x double], align 16\l  %6 = bitcast [2 x double]* %5 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 16, i8* nonnull %6) #40\l  %7 = bitcast double %0 to i64\l  %8 = lshr i64 %7, 32\l  %9 = trunc i64 %8 to i32\l  %10 = and i32 %9, 2147483647\l  %11 = icmp ult i32 %10, 1072243196\l  br i1 %11, label %12, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x1be6aa0:s0 -> Node0x1be80a0;
+	Node0x1be6aa0:s1 -> Node0x1be8390;
+	Node0x1be80a0 [shape=record,label="{%12:\l12:                                               \l  %13 = icmp ult i32 %10, 1044816030\l  br i1 %13, label %14, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x1be80a0:s0 -> Node0x1be8200;
+	Node0x1be80a0:s1 -> Node0x1be8340;
+	Node0x1be8200 [shape=record,label="{%14:\l14:                                               \l  %15 = icmp ult i32 %10, 1048576\l  %16 = tail call double @llvm.experimental.constrained.fpext.f64.f32(float\l... 0x4770000000000000, metadata !fpexcept.ignore) #41\l  br i1 %15, label %17, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1be8200:s0 -> Node0x1be8250;
+	Node0x1be8200:s1 -> Node0x1be82a0;
+	Node0x1be8250 [shape=record,label="{%17:\l17:                                               \l  %18 = tail call double @llvm.experimental.constrained.fdiv.f64(double %0,\l... double %16, metadata !round.dynamic, metadata !fpexcept.ignore) #41\l  br label %21\l}"];
+	Node0x1be8250 -> Node0x1be82f0;
+	Node0x1be82a0 [shape=record,label="{%19:\l19:                                               \l  %20 = tail call double @llvm.experimental.constrained.fadd.f64(double %0,\l... double %16, metadata !round.dynamic, metadata !fpexcept.ignore) #41\l  br label %21\l}"];
+	Node0x1be82a0 -> Node0x1be82f0;
+	Node0x1be82f0 [shape=record,label="{%21:\l21:                                               \l  %22 = phi double [ %18, %17 ], [ %20, %19 ]\l  %23 = bitcast double* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %23)\l  store volatile double %22, double* %4, align 8, !tbaa !1632\l  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %23)\l  store double %0, double* %1, align 8, !tbaa !1632\l  store double 1.000000e+00, double* %2, align 8, !tbaa !1632\l  br label %51\l}"];
+	Node0x1be82f0 -> Node0x1be8610;
+	Node0x1be8340 [shape=record,label="{%24:\l24:                                               \l  %25 = tail call double @__sin(double %0, double 0.000000e+00, i32 0) #42\l  store double %25, double* %1, align 8, !tbaa !1632\l  %26 = tail call double @__cos(double %0, double 0.000000e+00) #42\l  store double %26, double* %2, align 8, !tbaa !1632\l  br label %51\l}"];
+	Node0x1be8340 -> Node0x1be8610;
+	Node0x1be8390 [shape=record,label="{%27:\l27:                                               \l  %28 = icmp ugt i32 %10, 2146435071\l  br i1 %28, label %29, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1be8390:s0 -> Node0x1be83e0;
+	Node0x1be8390:s1 -> Node0x1be8430;
+	Node0x1be83e0 [shape=record,label="{%29:\l29:                                               \l  %30 = tail call double @llvm.experimental.constrained.fsub.f64(double %0,\l... double %0, metadata !round.dynamic, metadata !fpexcept.ignore) #41\l  store double %30, double* %2, align 8, !tbaa !1632\l  store double %30, double* %1, align 8, !tbaa !1632\l  br label %51\l}"];
+	Node0x1be83e0 -> Node0x1be8610;
+	Node0x1be8430 [shape=record,label="{%31:\l31:                                               \l  %32 = getelementptr inbounds [2 x double], [2 x double]* %5, i64 0, i64 0\l  %33 = call i32 @__rem_pio2(double %0, double* nonnull %32) #42\l  %34 = load double, double* %32, align 16, !tbaa !1632\l  %35 = getelementptr inbounds [2 x double], [2 x double]* %5, i64 0, i64 1\l  %36 = load double, double* %35, align 8, !tbaa !1632\l  %37 = call double @__sin(double %34, double %36, i32 1) #42\l  %38 = load double, double* %32, align 16, !tbaa !1632\l  %39 = load double, double* %35, align 8, !tbaa !1632\l  %40 = call double @__cos(double %38, double %39) #42\l  %41 = and i32 %33, 3\l  switch i32 %41, label %48 [\l    i32 0, label %42\l    i32 1, label %43\l    i32 2, label %45\l    i32 3, label %49\l  ]\l|{<s0>def|<s1>0|<s2>1|<s3>2|<s4>3}}"];
+	Node0x1be8430:s0 -> Node0x1be8570;
+	Node0x1be8430:s1 -> Node0x1be8480;
+	Node0x1be8430:s2 -> Node0x1be84d0;
+	Node0x1be8430:s3 -> Node0x1be8520;
+	Node0x1be8430:s4 -> Node0x1be85c0;
+	Node0x1be8480 [shape=record,label="{%42:\l42:                                               \l  store double %37, double* %1, align 8, !tbaa !1632\l  store double %40, double* %2, align 8, !tbaa !1632\l  br label %51\l}"];
+	Node0x1be8480 -> Node0x1be8610;
+	Node0x1be84d0 [shape=record,label="{%43:\l43:                                               \l  store double %40, double* %1, align 8, !tbaa !1632\l  %44 = fneg double %37\l  store double %44, double* %2, align 8, !tbaa !1632\l  br label %51\l}"];
+	Node0x1be84d0 -> Node0x1be8610;
+	Node0x1be8520 [shape=record,label="{%45:\l45:                                               \l  %46 = fneg double %37\l  store double %46, double* %1, align 8, !tbaa !1632\l  %47 = fneg double %40\l  store double %47, double* %2, align 8, !tbaa !1632\l  br label %51\l}"];
+	Node0x1be8520 -> Node0x1be8610;
+	Node0x1be8570 [shape=record,label="{%48:\l48:                                               \l  unreachable\l}"];
+	Node0x1be85c0 [shape=record,label="{%49:\l49:                                               \l  %50 = fneg double %40\l  store double %50, double* %1, align 8, !tbaa !1632\l  store double %37, double* %2, align 8, !tbaa !1632\l  br label %51\l}"];
+	Node0x1be85c0 -> Node0x1be8610;
+	Node0x1be8610 [shape=record,label="{%51:\l51:                                               \l  call void @llvm.lifetime.end.p0i8(i64 16, i8* nonnull %6) #40\l  ret void\l}"];
+}

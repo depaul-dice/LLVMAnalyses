@@ -1,0 +1,42 @@
+digraph "CFG for '__fork_handler' function" {
+	label="CFG for '__fork_handler' function";
+
+	Node0x1a3f7c0 [shape=record,label="{%1:\l  %2 = load %struct.atfork_funcs*, %struct.atfork_funcs** @funcs.1178, align\l... 8, !tbaa !1632\l  %3 = icmp eq %struct.atfork_funcs* %2, null\l  br i1 %3, label %38, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1a3f7c0:s0 -> Node0x1a41020;
+	Node0x1a3f7c0:s1 -> Node0x1a40c10;
+	Node0x1a40c10 [shape=record,label="{%4:\l4:                                                \l  %5 = icmp slt i32 %0, 0\l  br i1 %5, label %8, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1a40c10:s0 -> Node0x1a40cb0;
+	Node0x1a40c10:s1 -> Node0x1a40c60;
+	Node0x1a40c60 [shape=record,label="{%6:\l6:                                                \l  %7 = icmp eq i32 %0, 0\l  br label %21\l}"];
+	Node0x1a40c60 -> Node0x1a40df0;
+	Node0x1a40cb0 [shape=record,label="{%8:\l8:                                                \l  tail call void @__lock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.1179, i64 0, i64 0)) #40\l  %9 = load %struct.atfork_funcs*, %struct.atfork_funcs** @funcs.1178, align\l... 8, !tbaa !1632\l  %10 = icmp eq %struct.atfork_funcs* %9, null\l  br i1 %10, label %38, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1a40cb0:s0 -> Node0x1a41020;
+	Node0x1a40cb0:s1 -> Node0x1a40d00;
+	Node0x1a40d00 [shape=record,label="{%11:\l11:                                               \l  %12 = phi %struct.atfork_funcs* [ %19, %17 ], [ %9, %8 ]\l  %13 = getelementptr inbounds %struct.atfork_funcs, %struct.atfork_funcs*\l... %12, i64 0, i32 0\l  %14 = load void ()*, void ()** %13, align 8, !tbaa !1636\l  %15 = icmp eq void ()* %14, null\l  br i1 %15, label %17, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1a40d00:s0 -> Node0x1a40da0;
+	Node0x1a40d00:s1 -> Node0x1a40d50;
+	Node0x1a40d50 [shape=record,label="{%16:\l16:                                               \l  tail call void %14() #41\l  br label %17\l}"];
+	Node0x1a40d50 -> Node0x1a40da0;
+	Node0x1a40da0 [shape=record,label="{%17:\l17:                                               \l  store %struct.atfork_funcs* %12, %struct.atfork_funcs** @funcs.1178, align\l... 8, !tbaa !1632\l  %18 = getelementptr inbounds %struct.atfork_funcs, %struct.atfork_funcs*\l... %12, i64 0, i32 4\l  %19 = load %struct.atfork_funcs*, %struct.atfork_funcs** %18, align 8, !tbaa\l... !1632\l  %20 = icmp eq %struct.atfork_funcs* %19, null\l  br i1 %20, label %38, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1a40da0:s0 -> Node0x1a41020;
+	Node0x1a40da0:s1 -> Node0x1a40d00;
+	Node0x1a40df0 [shape=record,label="{%21:\l21:                                               \l  %22 = phi %struct.atfork_funcs* [ %2, %6 ], [ %35, %33 ]\l  br i1 %7, label %23, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x1a40df0:s0 -> Node0x1a40e40;
+	Node0x1a40df0:s1 -> Node0x1a40ee0;
+	Node0x1a40e40 [shape=record,label="{%23:\l23:                                               \l  %24 = getelementptr inbounds %struct.atfork_funcs, %struct.atfork_funcs*\l... %22, i64 0, i32 1\l  %25 = load void ()*, void ()** %24, align 8, !tbaa !1638\l  %26 = icmp eq void ()* %25, null\l  br i1 %26, label %33, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x1a40e40:s0 -> Node0x1a40f80;
+	Node0x1a40e40:s1 -> Node0x1a40e90;
+	Node0x1a40e90 [shape=record,label="{%27:\l27:                                               \l  tail call void %25() #41\l  br label %33\l}"];
+	Node0x1a40e90 -> Node0x1a40f80;
+	Node0x1a40ee0 [shape=record,label="{%28:\l28:                                               \l  %29 = getelementptr inbounds %struct.atfork_funcs, %struct.atfork_funcs*\l... %22, i64 0, i32 2\l  %30 = load void ()*, void ()** %29, align 8, !tbaa !1639\l  %31 = icmp eq void ()* %30, null\l  br i1 %31, label %33, label %32\l|{<s0>T|<s1>F}}"];
+	Node0x1a40ee0:s0 -> Node0x1a40f80;
+	Node0x1a40ee0:s1 -> Node0x1a40f30;
+	Node0x1a40f30 [shape=record,label="{%32:\l32:                                               \l  tail call void %30() #41\l  br label %33\l}"];
+	Node0x1a40f30 -> Node0x1a40f80;
+	Node0x1a40f80 [shape=record,label="{%33:\l33:                                               \l  store %struct.atfork_funcs* %22, %struct.atfork_funcs** @funcs.1178, align\l... 8, !tbaa !1632\l  %34 = getelementptr inbounds %struct.atfork_funcs, %struct.atfork_funcs*\l... %22, i64 0, i32 3\l  %35 = load %struct.atfork_funcs*, %struct.atfork_funcs** %34, align 8, !tbaa\l... !1640\l  %36 = icmp eq %struct.atfork_funcs* %35, null\l  br i1 %36, label %37, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x1a40f80:s0 -> Node0x1a40fd0;
+	Node0x1a40f80:s1 -> Node0x1a40df0;
+	Node0x1a40fd0 [shape=record,label="{%37:\l37:                                               \l  tail call void @__unlock(i32* getelementptr inbounds ([1 x i32], [1 x i32]*\l... @lock.1179, i64 0, i64 0)) #40\l  br label %38\l}"];
+	Node0x1a40fd0 -> Node0x1a41020;
+	Node0x1a41020 [shape=record,label="{%38:\l38:                                               \l  ret void\l}"];
+}

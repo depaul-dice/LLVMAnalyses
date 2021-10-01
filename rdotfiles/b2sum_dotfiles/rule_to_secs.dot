@@ -1,0 +1,18 @@
+digraph "CFG for 'rule_to_secs' function" {
+	label="CFG for 'rule_to_secs' function";
+
+	Node0x16acc10 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  %4 = bitcast i32* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %4) #40\l  %5 = sext i32 %1 to i64\l  %6 = call i64 @__year_to_secs(i64 %5, i32* nonnull %3) #41\l  %7 = load i32, i32* %0, align 4, !tbaa !1632\l  %8 = getelementptr inbounds i32, i32* %0, i64 1\l  %9 = load i32, i32* %8, align 4, !tbaa !1632\l  switch i32 %7, label %52 [\l    i32 77, label %17\l    i32 74, label %10\l  ]\l|{<s0>def|<s1>77|<s2>74}}"];
+	Node0x16acc10:s0 -> Node0x16ace40;
+	Node0x16acc10:s1 -> Node0x16acd50;
+	Node0x16acc10:s2 -> Node0x16acd00;
+	Node0x16acd00 [shape=record,label="{%10:\l10:                                               \l  %11 = icmp slt i32 %9, 60\l  %12 = load i32, i32* %3, align 4\l  %13 = icmp eq i32 %12, 0\l  %14 = or i1 %11, %13\l  %15 = sext i1 %14 to i32\l  %16 = add nsw i32 %9, %15\l  br label %52\l}"];
+	Node0x16acd00 -> Node0x16ace40;
+	Node0x16acd50 [shape=record,label="{%17:\l17:                                               \l  %18 = getelementptr inbounds i32, i32* %0, i64 2\l  %19 = load i32, i32* %18, align 4, !tbaa !1632\l  %20 = getelementptr inbounds i32, i32* %0, i64 3\l  %21 = load i32, i32* %20, align 4, !tbaa !1632\l  %22 = add nsw i32 %9, -1\l  %23 = load i32, i32* %3, align 4, !tbaa !1632\l  %24 = call i32 @__month_to_secs(i32 %22, i32 %23) #41\l  %25 = sext i32 %24 to i64\l  %26 = add nsw i64 %6, %25\l  %27 = add nsw i64 %26, 345600\l  %28 = srem i64 %27, 604800\l  %29 = trunc i64 %28 to i32\l  %30 = sdiv i32 %29, 86400\l  %31 = sub nsw i32 %21, %30\l  %32 = icmp slt i32 %31, 0\l  %33 = add nsw i32 %31, 7\l  %34 = select i1 %32, i32 %33, i32 %31\l  %35 = icmp eq i32 %19, 5\l  br i1 %35, label %36, label %47\l|{<s0>T|<s1>F}}"];
+	Node0x16acd50:s0 -> Node0x16acda0;
+	Node0x16acd50:s1 -> Node0x16acdf0;
+	Node0x16acda0 [shape=record,label="{%36:\l36:                                               \l  %37 = add nsw i32 %34, 28\l  %38 = load i32, i32* %3, align 4, !tbaa !1632\l  %39 = icmp eq i32 %9, 2\l  %40 = add nsw i32 %38, 28\l  %41 = lshr i32 2773, %22\l  %42 = and i32 %41, 1\l  %43 = or i32 %42, 30\l  %44 = select i1 %39, i32 %40, i32 %43\l  %45 = icmp slt i32 %37, %44\l  %46 = select i1 %45, i32 5, i32 4\l  br label %47\l}"];
+	Node0x16acda0 -> Node0x16acdf0;
+	Node0x16acdf0 [shape=record,label="{%47:\l47:                                               \l  %48 = phi i32 [ %19, %17 ], [ %46, %36 ]\l  %49 = mul i32 %48, 7\l  %50 = add nsw i32 %34, -7\l  %51 = add i32 %50, %49\l  br label %52\l}"];
+	Node0x16acdf0 -> Node0x16ace40;
+	Node0x16ace40 [shape=record,label="{%52:\l52:                                               \l  %53 = phi i32 [ %51, %47 ], [ %9, %2 ], [ %16, %10 ]\l  %54 = phi i64 [ %26, %47 ], [ %6, %2 ], [ %6, %10 ]\l  %55 = mul nsw i32 %53, 86400\l  %56 = sext i32 %55 to i64\l  %57 = add nsw i64 %54, %56\l  %58 = getelementptr inbounds i32, i32* %0, i64 4\l  %59 = load i32, i32* %58, align 4, !tbaa !1632\l  %60 = sext i32 %59 to i64\l  %61 = add nsw i64 %57, %60\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %4) #40\l  ret i64 %61\l}"];
+}

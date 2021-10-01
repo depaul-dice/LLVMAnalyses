@@ -1,0 +1,10 @@
+digraph "CFG for 'pthread_setschedprio' function" {
+	label="CFG for 'pthread_setschedprio' function";
+
+	Node0x1baa390 [shape=record,label="{%2:\l  %3 = alloca i32, align 4\l  store i32 %1, i32* %3, align 4, !tbaa !1632\l  %4 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64 0,\l... i32 25, i64 0\l  tail call void @__lock(i32* nonnull %4) #40\l  %5 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %0, i64 0,\l... i32 7\l  %6 = load i32, i32* %5, align 8, !tbaa !1636\l  %7 = icmp eq i32 %6, 0\l  br i1 %7, label %14, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x1baa390:s0 -> Node0x1baa4b0;
+	Node0x1baa390:s1 -> Node0x1baa460;
+	Node0x1baa460 [shape=record,label="{%8:\l8:                                                \l  %9 = sext i32 %6 to i64\l  %10 = ptrtoint i32* %3 to i64\l  %11 = call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}(i64\l... 142, i64 %9, i64 %10) #41, !srcloc !1641\l  %12 = trunc i64 %11 to i32\l  %13 = sub i32 0, %12\l  br label %14\l}"];
+	Node0x1baa460 -> Node0x1baa4b0;
+	Node0x1baa4b0 [shape=record,label="{%14:\l14:                                               \l  %15 = phi i32 [ %13, %8 ], [ 3, %2 ]\l  call void @__unlock(i32* nonnull %4) #40\l  ret i32 %15\l}"];
+}

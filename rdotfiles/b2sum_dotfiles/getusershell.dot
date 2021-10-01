@@ -1,0 +1,19 @@
+digraph "CFG for 'getusershell' function" {
+	label="CFG for 'getusershell' function";
+
+	Node0x164a690 [shape=record,label="{%0:\l  %1 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** @f, align 8, !tbaa !1632\l  %2 = icmp eq %struct._IO_FILE.0* %1, null\l  br i1 %2, label %3, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x164a690:s0 -> Node0x164a720;
+	Node0x164a690:s1 -> Node0x164a770;
+	Node0x164a720 [shape=record,label="{%3:\l3:                                                \l  tail call void @setusershell() #40\l  %4 = load %struct._IO_FILE.0*, %struct._IO_FILE.0** @f, align 8, !tbaa !1632\l  %5 = icmp eq %struct._IO_FILE.0* %4, null\l  br i1 %5, label %18, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x164a720:s0 -> Node0x164a860;
+	Node0x164a720:s1 -> Node0x164a770;
+	Node0x164a770 [shape=record,label="{%6:\l6:                                                \l  %7 = phi %struct._IO_FILE.0* [ %4, %3 ], [ %1, %0 ]\l  %8 = tail call i64 @getline(i8** nonnull @line, i64* nonnull @linesize,\l... %struct._IO_FILE.0* nonnull %7) #41\l  %9 = icmp slt i64 %8, 1\l  br i1 %9, label %18, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x164a770:s0 -> Node0x164a860;
+	Node0x164a770:s1 -> Node0x164a7c0;
+	Node0x164a7c0 [shape=record,label="{%10:\l10:                                               \l  %11 = load i8*, i8** @line, align 8, !tbaa !1632\l  %12 = add nsw i64 %8, -1\l  %13 = getelementptr inbounds i8, i8* %11, i64 %12\l  %14 = load i8, i8* %13, align 1, !tbaa !1636\l  %15 = icmp eq i8 %14, 10\l  br i1 %15, label %16, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x164a7c0:s0 -> Node0x164a810;
+	Node0x164a7c0:s1 -> Node0x164a860;
+	Node0x164a810 [shape=record,label="{%16:\l16:                                               \l  store i8 0, i8* %13, align 1, !tbaa !1636\l  %17 = load i8*, i8** @line, align 8, !tbaa !1632\l  br label %18\l}"];
+	Node0x164a810 -> Node0x164a860;
+	Node0x164a860 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i8* [ null, %3 ], [ null, %6 ], [ %17, %16 ], [ %11, %10 ]\l  ret i8* %19\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for '__math_invalid' function" {
+	label="CFG for '__math_invalid' function";
+
+	Node0x1895380 [shape=record,label="{%1:\l  %2 = tail call double @llvm.experimental.constrained.fsub.f64(double %0,\l... double %0, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %3 = tail call double @llvm.experimental.constrained.fsub.f64(double %0,\l... double %0, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  %4 = tail call double @llvm.experimental.constrained.fdiv.f64(double %2,\l... double %3, metadata !round.dynamic, metadata !fpexcept.ignore) #40\l  ret double %4\l}"];
+}

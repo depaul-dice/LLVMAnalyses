@@ -1,0 +1,11 @@
+digraph "CFG for 'recvmmsg' function" {
+	label="CFG for 'recvmmsg' function";
+
+	Node0x19daac0 [shape=record,label="{%5:\l  %6 = icmp eq i32 %2, 0\l  br i1 %6, label %15, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x19daac0:s0 -> Node0x19dab60;
+	Node0x19daac0:s1 -> Node0x19dab10;
+	Node0x19dab10 [shape=record,label="{%7:\l7:                                                \l  %8 = phi i32 [ %12, %7 ], [ %2, %5 ]\l  %9 = phi %struct.mmsghdr* [ %13, %7 ], [ %1, %5 ]\l  %10 = getelementptr inbounds %struct.mmsghdr, %struct.mmsghdr* %9, i64 0,\l... i32 0, i32 7\l  store i32 0, i32* %10, align 4, !tbaa !1632\l  %11 = getelementptr inbounds %struct.mmsghdr, %struct.mmsghdr* %9, i64 0,\l... i32 0, i32 4\l  store i32 0, i32* %11, align 4, !tbaa !1639\l  %12 = add i32 %8, -1\l  %13 = getelementptr inbounds %struct.mmsghdr, %struct.mmsghdr* %9, i64 1\l  %14 = icmp eq i32 %12, 0\l  br i1 %14, label %15, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x19dab10:s0 -> Node0x19dab60;
+	Node0x19dab10:s1 -> Node0x19dab10;
+	Node0x19dab60 [shape=record,label="{%15:\l15:                                               \l  %16 = sext i32 %0 to i64\l  %17 = ptrtoint %struct.mmsghdr* %1 to i64\l  %18 = zext i32 %2 to i64\l  %19 = zext i32 %3 to i64\l  %20 = ptrtoint %struct.timeval* %4 to i64\l  %21 = tail call i64 @__syscall_cp(i64 299, i64 %16, i64 %17, i64 %18, i64\l... %19, i64 %20, i64 0) #40\l  %22 = tail call i64 @__syscall_ret(i64 %21) #40\l  %23 = trunc i64 %22 to i32\l  ret i32 %23\l}"];
+}

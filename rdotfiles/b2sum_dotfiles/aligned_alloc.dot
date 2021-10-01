@@ -1,0 +1,5 @@
+digraph "CFG for 'aligned_alloc' function" {
+	label="CFG for 'aligned_alloc' function";
+
+	Node0x1d828c0 [shape=record,label="{%2:\l  %3 = tail call i8* @__memalign(i64 %0, i64 %1) #40\l  ret i8* %3\l}"];
+}

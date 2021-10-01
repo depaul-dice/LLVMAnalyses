@@ -1,0 +1,5 @@
+digraph "CFG for 'siginterrupt' function" {
+	label="CFG for 'siginterrupt' function";
+
+	Node0x1d855b0 [shape=record,label="{%2:\l  %3 = alloca %struct.sigaction, align 8\l  %4 = bitcast %struct.sigaction* %3 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 152, i8* nonnull %4) #40\l  %5 = call i32 @sigaction(i32 %0, %struct.sigaction* null, %struct.sigaction*\l... nonnull %3) #41\l  %6 = icmp eq i32 %1, 0\l  %7 = getelementptr inbounds %struct.sigaction, %struct.sigaction* %3, i64 0,\l... i32 2\l  %8 = load i32, i32* %7, align 8, !tbaa !1632\l  %9 = or i32 %8, 268435456\l  %10 = and i32 %8, -268435457\l  %11 = select i1 %6, i32 %9, i32 %10\l  store i32 %11, i32* %7, align 8, !tbaa !1632\l  %12 = call i32 @sigaction(i32 %0, %struct.sigaction* nonnull %3,\l... %struct.sigaction* null) #41\l  call void @llvm.lifetime.end.p0i8(i64 152, i8* nonnull %4) #40\l  ret i32 %12\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'crealf' function" {
+	label="CFG for 'crealf' function";
+
+	Node0x1fc1690 [shape=record,label="{%1:\l  %2 = extractelement \<2 x float\> %0, i32 0\l  ret float %2\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'updwtmpx' function" {
+	label="CFG for 'updwtmpx' function";
+
+	Node0x1fedf40 [shape=record,label="{%2:\l  ret void\l}"];
+}

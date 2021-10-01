@@ -1,0 +1,5 @@
+digraph "CFG for 'sem_wait' function" {
+	label="CFG for 'sem_wait' function";
+
+	Node0x16882b0 [shape=record,label="{%1:\l  %2 = tail call i32 @sem_timedwait(%struct.sem_t* %0, %struct.timeval* null)\l... #40\l  ret i32 %2\l}"];
+}

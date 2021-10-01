@@ -1,0 +1,5 @@
+digraph "CFG for '__pthread_join' function" {
+	label="CFG for '__pthread_join' function";
+
+	Node0x1cfd670 [shape=record,label="{%2:\l  %3 = tail call i32 @__pthread_timedjoin_np(%struct.__pthread* %0, i8** %1,\l... %struct.timeval* null) #40\l  ret i32 %3\l}"];
+}

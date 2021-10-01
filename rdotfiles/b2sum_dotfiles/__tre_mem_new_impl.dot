@@ -1,0 +1,12 @@
+digraph "CFG for '__tre_mem_new_impl' function" {
+	label="CFG for '__tre_mem_new_impl' function";
+
+	Node0x18cb720 [shape=record,label="{%2:\l  %3 = icmp eq i32 %0, 0\l  br i1 %3, label %6, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x18cb720:s0 -> Node0x1896d80;
+	Node0x18cb720:s1 -> Node0x1896d30;
+	Node0x1896d30 [shape=record,label="{%4:\l4:                                                \l  %5 = tail call i8* @memset(i8* %1, i32 0, i64 48) #40\l  br label %8\l}"];
+	Node0x1896d30 -> Node0x1896dd0;
+	Node0x1896d80 [shape=record,label="{%6:\l6:                                                \l  %7 = tail call i8* @calloc(i64 1, i64 48) #40\l  br label %8\l}"];
+	Node0x1896d80 -> Node0x1896dd0;
+	Node0x1896dd0 [shape=record,label="{%8:\l8:                                                \l  %9 = phi i8* [ %1, %4 ], [ %7, %6 ]\l  %10 = bitcast i8* %9 to %struct.tre_mem_struct*\l  ret %struct.tre_mem_struct* %10\l}"];
+}

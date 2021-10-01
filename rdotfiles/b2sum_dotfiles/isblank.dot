@@ -1,0 +1,5 @@
+digraph "CFG for 'isblank' function" {
+	label="CFG for 'isblank' function";
+
+	Node0x1b2e330 [shape=record,label="{%1:\l  %2 = icmp eq i32 %0, 32\l  %3 = icmp eq i32 %0, 9\l  %4 = or i1 %2, %3\l  %5 = zext i1 %4 to i32\l  ret i32 %5\l}"];
+}

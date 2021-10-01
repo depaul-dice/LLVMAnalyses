@@ -1,0 +1,24 @@
+digraph "CFG for 'str_next' function" {
+	label="CFG for 'str_next' function";
+
+	Node0x1b24a80 [shape=record,label="{%3:\l  %4 = alloca i32, align 4\l  %5 = icmp eq i64 %1, 0\l  br i1 %5, label %6, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1b24a80:s0 -> Node0x1b24ad0;
+	Node0x1b24a80:s1 -> Node0x1b24b20;
+	Node0x1b24ad0 [shape=record,label="{%6:\l6:                                                \l  store i64 0, i64* %2, align 8, !tbaa !1632\l  br label %23\l}"];
+	Node0x1b24ad0 -> Node0x1b24d00;
+	Node0x1b24b20 [shape=record,label="{%7:\l7:                                                \l  %8 = load i8, i8* %0, align 1, !tbaa !1636\l  %9 = icmp slt i8 %8, 0\l  br i1 %9, label %10, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1b24b20:s0 -> Node0x1b24b70;
+	Node0x1b24b20:s1 -> Node0x1b24cb0;
+	Node0x1b24b70 [shape=record,label="{%10:\l10:                                               \l  %11 = bitcast i32* %4 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %11) #40\l  %12 = call i32 @mbtowc(i32* nonnull %4, i8* nonnull %0, i64 %1) #41\l  %13 = icmp slt i32 %12, 0\l  br i1 %13, label %14, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1b24b70:s0 -> Node0x1b24bc0;
+	Node0x1b24b70:s1 -> Node0x1b24c10;
+	Node0x1b24bc0 [shape=record,label="{%14:\l14:                                               \l  store i64 1, i64* %2, align 8, !tbaa !1632\l  br label %18\l}"];
+	Node0x1b24bc0 -> Node0x1b24c60;
+	Node0x1b24c10 [shape=record,label="{%15:\l15:                                               \l  %16 = zext i32 %12 to i64\l  store i64 %16, i64* %2, align 8, !tbaa !1632\l  %17 = load i32, i32* %4, align 4, !tbaa !1637\l  br label %18\l}"];
+	Node0x1b24c10 -> Node0x1b24c60;
+	Node0x1b24c60 [shape=record,label="{%18:\l18:                                               \l  %19 = phi i32 [ -1, %14 ], [ %17, %15 ]\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %11) #40\l  br label %23\l}"];
+	Node0x1b24c60 -> Node0x1b24d00;
+	Node0x1b24cb0 [shape=record,label="{%20:\l20:                                               \l  store i64 1, i64* %2, align 8, !tbaa !1632\l  %21 = load i8, i8* %0, align 1, !tbaa !1636\l  %22 = sext i8 %21 to i32\l  br label %23\l}"];
+	Node0x1b24cb0 -> Node0x1b24d00;
+	Node0x1b24d00 [shape=record,label="{%23:\l23:                                               \l  %24 = phi i32 [ %19, %18 ], [ %22, %20 ], [ 0, %6 ]\l  ret i32 %24\l}"];
+}

@@ -1,0 +1,10 @@
+digraph "CFG for 'sigrelse' function" {
+	label="CFG for 'sigrelse' function";
+
+	Node0x1fb01b0 [shape=record,label="{%1:\l  %2 = alloca %struct.__sigset_t, align 8\l  %3 = bitcast %struct.__sigset_t* %2 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 128, i8* nonnull %3) #40\l  %4 = call i32 @sigemptyset(%struct.__sigset_t* nonnull %2) #41\l  %5 = call i32 @sigaddset(%struct.__sigset_t* nonnull %2, i32 %0) #41\l  %6 = icmp slt i32 %5, 0\l  br i1 %6, label %9, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1fb01b0:s0 -> Node0x1fb0250;
+	Node0x1fb01b0:s1 -> Node0x1fb0200;
+	Node0x1fb0200 [shape=record,label="{%7:\l7:                                                \l  %8 = call i32 @sigprocmask(i32 1, %struct.__sigset_t* nonnull %2,\l... %struct.__sigset_t* null) #41\l  br label %9\l}"];
+	Node0x1fb0200 -> Node0x1fb0250;
+	Node0x1fb0250 [shape=record,label="{%9:\l9:                                                \l  %10 = phi i32 [ %8, %7 ], [ -1, %1 ]\l  call void @llvm.lifetime.end.p0i8(i64 128, i8* nonnull %3) #40\l  ret i32 %10\l}"];
+}

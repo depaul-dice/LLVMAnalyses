@@ -1,0 +1,5 @@
+digraph "CFG for 'posix_spawnattr_init' function" {
+	label="CFG for 'posix_spawnattr_init' function";
+
+	Node0x1b7ff30 [shape=record,label="{%1:\l  %2 = alloca %struct.posix_spawnattr_t, align 8\l  %3 = bitcast %struct.posix_spawnattr_t* %2 to i8*\l  call void @llvm.memset.p0i8.i64(i8* nonnull align 8 dereferenceable(336) %3,\l... i8 0, i64 336, i1 false)\l  %4 = bitcast %struct.posix_spawnattr_t* %0 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* nonnull align 8\l... dereferenceable(336) %4, i8* nonnull align 8 dereferenceable(336) %3, i64\l... 336, i1 false), !tbaa.struct !1632\l  ret i32 0\l}"];
+}
