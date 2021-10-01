@@ -1,0 +1,5 @@
+digraph "CFG for 'atof' function" {
+	label="CFG for 'atof' function";
+
+	Node0x13a93a0 [shape=record,label="{%1:\l  %2 = tail call fastcc double @strtod(i8* %0, i8** null) #17\l  ret double %2\l}"];
+}

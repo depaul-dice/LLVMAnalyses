@@ -1,0 +1,20 @@
+digraph "CFG for 'free' function" {
+	label="CFG for 'free' function";
+
+	Node0x1459a30 [shape=record,label="{%1:\l  %2 = icmp eq i8* %0, null\l  br i1 %2, label %24, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1459a30:s0 -> Node0x145a570;
+	Node0x1459a30:s1 -> Node0x1459a80;
+	Node0x1459a80 [shape=record,label="{%3:\l3:                                                \l  %4 = getelementptr inbounds i8, i8* %0, i64 -16\l  %5 = getelementptr inbounds i8, i8* %0, i64 -8\l  %6 = bitcast i8* %5 to i64*\l  %7 = load i64, i64* %6, align 8, !tbaa !2\l  %8 = and i64 %7, 1\l  %9 = icmp eq i64 %8, 0\l  br i1 %9, label %10, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1459a80:s0 -> Node0x1459b60;
+	Node0x1459a80:s1 -> Node0x145a520;
+	Node0x1459b60 [shape=record,label="{%10:\l10:                                               \l  %11 = bitcast i8* %4 to i64*\l  %12 = load i64, i64* %11, align 8, !tbaa !8\l  %13 = sub i64 0, %12\l  %14 = getelementptr inbounds i8, i8* %4, i64 %13\l  %15 = and i64 %7, -2\l  %16 = add i64 %15, %12\l  %17 = and i64 %12, 1\l  %18 = icmp eq i64 %17, 0\l  br i1 %18, label %20, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1459b60:s0 -> Node0x145a4d0;
+	Node0x1459b60:s1 -> Node0x145a480;
+	Node0x145a480 [shape=record,label="{%19:\l19:                                               \l  tail call void asm sideeffect \"hlt\",\l... \"~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\"() #17, !srcloc !9\l  br label %20\l}"];
+	Node0x145a480 -> Node0x145a4d0;
+	Node0x145a4d0 [shape=record,label="{%20:\l20:                                               \l  %21 = tail call fastcc i32 @__munmap(i8* nonnull %14, i64 %16) #18\l  br label %24\l}"];
+	Node0x145a4d0 -> Node0x145a570;
+	Node0x145a520 [shape=record,label="{%22:\l22:                                               \l  %23 = bitcast i8* %4 to %struct.chunk*\l  tail call fastcc void @__bin_chunk(%struct.chunk* nonnull %23) #19\l  br label %24\l}"];
+	Node0x145a520 -> Node0x145a570;
+	Node0x145a570 [shape=record,label="{%24:\l24:                                               \l  ret void\l}"];
+}
