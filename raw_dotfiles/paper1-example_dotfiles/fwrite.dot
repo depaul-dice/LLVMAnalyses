@@ -1,0 +1,20 @@
+digraph "CFG for 'fwrite' function" {
+	label="CFG for 'fwrite' function";
+
+	Node0x1248420 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%4:\l  %5 = mul i64 %2, %1\l  %6 = icmp eq i64 %1, 0\l  %7 = select i1 %6, i64 0, i64 %2\l  %8 = getelementptr inbounds %struct._IO_FILE.5, %struct._IO_FILE.5* %3, i64\l... 0, i32 19\l  %9 = load volatile i32, i32* %8, align 4, !tbaa !2\l  %10 = icmp sgt i32 %9, -1\l  br i1 %10, label %13, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1248420:s0 -> Node0x12485b0;
+	Node0x1248420:s1 -> Node0x1248560;
+	Node0x1248560 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%11:\l11:                                               \l  %12 = tail call fastcc i64 @__fwritex(i8* %0, i64 %5, %struct._IO_FILE.5*\l... nonnull %3) #17\l  br label %19\l}"];
+	Node0x1248560 -> Node0x1248650;
+	Node0x12485b0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%13:\l13:                                               \l  %14 = bitcast %struct._IO_FILE.5* %3 to %struct._IO_FILE.51*\l  %15 = tail call i32 @__lockfile(%struct._IO_FILE.51* nonnull %14) #18\l  %16 = icmp eq i32 %15, 0\l  %17 = tail call fastcc i64 @__fwritex(i8* %0, i64 %5, %struct._IO_FILE.5*\l... nonnull %3) #17\l  br i1 %16, label %19, label %18\l|{<s0>T|<s1>F}}"];
+	Node0x12485b0:s0 -> Node0x1248650;
+	Node0x12485b0:s1 -> Node0x1248600;
+	Node0x1248600 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%18:\l18:                                               \l  tail call void @__unlockfile(%struct._IO_FILE.51* nonnull %14) #18\l  br label %19\l}"];
+	Node0x1248600 -> Node0x1248650;
+	Node0x1248650 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%19:\l19:                                               \l  %20 = phi i64 [ %12, %11 ], [ %17, %18 ], [ %17, %13 ]\l  %21 = icmp eq i64 %20, %5\l  br i1 %21, label %24, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x1248650:s0 -> Node0x12486f0;
+	Node0x1248650:s1 -> Node0x12486a0;
+	Node0x12486a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4987a70",label="{%22:\l22:                                               \l  %23 = udiv i64 %20, %1\l  br label %24\l}"];
+	Node0x12486a0 -> Node0x12486f0;
+	Node0x12486f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%24:\l24:                                               \l  %25 = phi i64 [ %23, %22 ], [ %7, %19 ]\l  ret i64 %25\l}"];
+}

@@ -1,0 +1,3 @@
+0x1249940,epoint,1,0,0,0x1249940_0,na,na
+0x1249940_0,funccall,__floatscan,1,1,0,0x124baa0,0x1249940,na
+0x124baa0,ret,0,1,0,na,0x1249940_0,na

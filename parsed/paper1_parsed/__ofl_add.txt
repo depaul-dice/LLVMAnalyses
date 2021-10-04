@@ -1,0 +1,4 @@
+0x12e5c70,epoint,1,0,0,0x12e5c70_0,na,na
+0x12e5c70_0,funccall,__ofl_lock,1,1,0,0x12e5eb0,0x12e5c70,na
+0x12e5eb0,funccall,__ofl_unlock,1,1,0,0x12e5eb0_1,0x12e5c70_0,na
+0x12e5eb0_1,ret,0,1,0,na,0x12e5eb0,na

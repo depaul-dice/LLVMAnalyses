@@ -1,0 +1,5 @@
+0x1229c90,epoint,1,0,0,0x1229c90_0,na,na
+0x1229c90_0,funccall,fopen,1,1,0,0x1229c90_1,0x1229c90,na
+0x1229c90_1,funccall,fread,1,1,0,0x1229c90_2,0x1229c90_0,na
+0x1229c90_2,funccall,atof,1,1,0,0x1229c90_3,0x1229c90_1,na
+0x1229c90_3,ret,0,1,0,na,0x1229c90_2,na

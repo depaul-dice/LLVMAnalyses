@@ -1,0 +1,32 @@
+digraph "CFG for '__lock' function" {
+	label="CFG for '__lock' function";
+
+	Node0x127b800 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b99e70",label="{%1:\l  %2 = getelementptr inbounds %struct.__libc, %struct.__libc* @__libc, i64 0,\l... i32 3\l  %3 = load volatile i32, i32* %2, align 4, !tbaa !2\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %40, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x127b800:s0 -> Node0x127bb80;
+	Node0x127b800:s1 -> Node0x127b8b0;
+	Node0x127b8b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#efcebd70",label="{%5:\l5:                                                \l  %6 = tail call i32 asm sideeffect lock \l  %7 = icmp eq i32 %6, 0\l  br i1 %7, label %40, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x127b8b0:s0 -> Node0x127bb80;
+	Node0x127b8b0:s1 -> Node0x127b950;
+	Node0x127b900 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%8:\l8:                                                \l  %9 = add nuw nsw i32 %13, 1\l  %10 = icmp eq i32 %9, 10\l  br i1 %10, label %20, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x127b900:s0 -> Node0x127b9a0;
+	Node0x127b900:s1 -> Node0x127b950;
+	Node0x127b950 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%11:\l11:                                               \l  %12 = phi i32 [ %18, %8 ], [ %6, %5 ]\l  %13 = phi i32 [ %9, %8 ], [ 0, %5 ]\l  %14 = icmp slt i32 %12, 0\l  %15 = add nsw i32 %12, 2147483647\l  %16 = select i1 %14, i32 %15, i32 %12\l  %17 = add nsw i32 %16, -2147483647\l  %18 = tail call i32 asm sideeffect lock \l  %19 = icmp eq i32 %18, %16\l  br i1 %19, label %40, label %8\l|{<s0>T|<s1>F}}"];
+	Node0x127b950:s0 -> Node0x127bb80;
+	Node0x127b950:s1 -> Node0x127b900;
+	Node0x127b9a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%20:\l20:                                               \l  %21 = tail call i32 asm sideeffect lock \l  %22 = add nsw i32 %21, 1\l  %23 = ptrtoint i32* %0 to i64\l  br label %24\l}"];
+	Node0x127b9a0 -> Node0x127b9f0;
+	Node0x127b9f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%24:\l24:                                               \l  %25 = phi i32 [ %22, %20 ], [ %38, %35 ]\l  %26 = icmp slt i32 %25, 0\l  br i1 %26, label %27, label %35\l|{<s0>T|<s1>F}}"];
+	Node0x127b9f0:s0 -> Node0x127ba40;
+	Node0x127b9f0:s1 -> Node0x127bb30;
+	Node0x127ba40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ec7f6370",label="{%27:\l27:                                               \l  %28 = sext i32 %25 to i64\l  %29 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}(i64 202, i64 %23, i64 128, i64 %28, i64 0) #17, !srcloc !12\l  %30 = icmp eq i64 %29, -38\l  br i1 %30, label %31, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x127ba40:s0 -> Node0x127ba90;
+	Node0x127ba40:s1 -> Node0x127bae0;
+	Node0x127ba90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%31:\l31:                                               \l  %32 = tail call i64 asm sideeffect syscall,\l... =\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}(i64 202, i64 %23, i64 0, i64 %28, i64 0) #17, !srcloc !12\l  br label %33\l}"];
+	Node0x127ba90 -> Node0x127bae0;
+	Node0x127bae0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ec7f6370",label="{%33:\l33:                                               \l  %34 = add nsw i32 %25, 2147483647\l  br label %35\l}"];
+	Node0x127bae0 -> Node0x127bb30;
+	Node0x127bb30 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%35:\l35:                                               \l  %36 = phi i32 [ %34, %33 ], [ %25, %24 ]\l  %37 = or i32 %36, -2147483648\l  %38 = tail call i32 asm sideeffect lock \l  %39 = icmp eq i32 %38, %36\l  br i1 %39, label %40, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x127bb30:s0 -> Node0x127bb80;
+	Node0x127bb30:s1 -> Node0x127b9f0;
+	Node0x127bb80 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b99e70",label="{%40:\l40:                                               \l  ret void\l}"];
+}

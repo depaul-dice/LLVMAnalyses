@@ -1,0 +1,5 @@
+digraph "CFG for 'strtod' function" {
+	label="CFG for 'strtod' function";
+
+	Node0x124baf0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = tail call fastcc x86_fp80 @strtox(i8* %0, i8** %1, i32 1) #17\l  %4 = tail call double\l... @llvm.experimental.constrained.fptrunc.f64.f80(x86_fp80 %3, metadata\l... !round.dynamic, metadata !fpexcept.ignore) #18\l  ret double %4\l}"];
+}
