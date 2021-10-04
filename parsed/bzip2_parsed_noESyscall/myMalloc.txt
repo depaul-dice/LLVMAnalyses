@@ -1,0 +1,4 @@
+0x1c8e950,epoint,1,0,0,0x1c8e950_0,na,na
+0x1c8e950_0,funccall,malloc,2,1,0,0x1c8fbe0:0x1c8fc30,0x1c8e950,na
+0x1c8fbe0,funccall,outOfMemory,0,1,0,na,0x1c8e950_0,na
+0x1c8fc30,ret,0,1,0,na,0x1c8e950_0,na

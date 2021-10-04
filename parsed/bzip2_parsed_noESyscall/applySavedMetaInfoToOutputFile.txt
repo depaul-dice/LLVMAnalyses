@@ -1,0 +1,7 @@
+0x1c73f20,epoint,1,0,0,0x1c73f20_0,na,na
+0x1c73f20_0,funccall,chmod,2,1,0,0x1c7ce70:0x1c7cec0,0x1c73f20,na
+0x1c7ce70,funccall,ioError,0,1,0,na,0x1c73f20_0,na
+0x1c7cec0,funccall,utime,2,1,0,0x1c7cf10:0x1c7cf60,0x1c73f20_0,na
+0x1c7cf10,funccall,ioError,0,1,0,na,0x1c7cec0,na
+0x1c7cf60,funccall,chown,1,1,0,0x1c7cf60_1,0x1c7cec0,na
+0x1c7cf60_1,ret,0,1,0,na,0x1c7cf60,na

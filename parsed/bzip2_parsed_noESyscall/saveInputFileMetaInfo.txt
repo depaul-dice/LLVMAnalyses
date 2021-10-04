@@ -1,0 +1,4 @@
+0x1c0c710,epoint,1,0,0,0x1c0c710_0,na,na
+0x1c0c710_0,funccall,stat,2,1,0,0x1c0d090:0x1c0d0e0,0x1c0c710,na
+0x1c0d090,funccall,ioError,0,1,0,na,0x1c0c710_0,na
+0x1c0d0e0,ret,0,1,0,na,0x1c0c710_0,na

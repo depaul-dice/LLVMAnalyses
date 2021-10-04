@@ -1,0 +1,2 @@
+0x1f28270,epoint,1,0,0,0x1f2a950,na,na
+0x1f2a950,ret,0,1,0,na,0x1f28270,na

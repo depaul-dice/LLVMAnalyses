@@ -1,0 +1,5 @@
+0x1c05f30,epoint,1,0,0,0x1c05f30_0,na,na
+0x1c05f30_0,funccall,fprintf,1,1,0,0x1c05f30_1,0x1c05f30,na
+0x1c05f30_1,funccall,perror,1,1,0,0x1c05f30_2,0x1c05f30_0,na
+0x1c05f30_2,funccall,showFileNames,1,1,0,0x1c05f30_3,0x1c05f30_1,na
+0x1c05f30_3,funccall,cleanUpAndFail,0,1,0,na,0x1c05f30_2,na
