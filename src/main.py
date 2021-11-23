@@ -22,7 +22,7 @@ func_dict = {
         '___errno_location': '__errno_location',
         'ofl_lock': '__ofl_lock',
         '__isoc99_sscanf': 'sscanf',
-        '__lctrans_impl': '__lctrans',
+        # '__lctrans_impl': '__lctrans', this was so wrong, they were two different funcs
         '_IO_getc': 'getc',
         '_IO_putc': 'putc',
         'lstat64': 'lstat',
@@ -95,7 +95,7 @@ def find_syscalls(inst: str) -> (list, int):
 def inst2keep(inst: str, bitcasts: dict) -> (list, int):
     bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)'
     ret_pattern = r'^ret\s'
-    func_pattern = r'\s*call\s'
+    func_pattern = r'\s+call\s' # changed this to + from *
     fname_pattern = r'@([A-Za-z0-9_][\w_]*([.?]\w*|))\('
     bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s(%struct._IO_FILE|)(i\d+|)\*?\s(%\d+)\('
 
@@ -223,12 +223,14 @@ def parse_func_topdown(cfg_, directory: str, infos: dict) -> None:
         # raise Exception(cfg_.name)
         pass
 
+# this function has which function has what
 def find_specSyscall(cfg, specSyscallDict, tmpCFG_dict) -> dict:
     name = cfg.name
     if name in func_dict:
         name = func_dict[name] 
         cfg.set_name(name)
     specSyscallDict[name] = None
+    #print("specSys, adding " + name)
 
     cfg.clear_visit()
     stack = list()
@@ -245,6 +247,7 @@ def find_specSyscall(cfg, specSyscallDict, tmpCFG_dict) -> dict:
             if inst[0] == 'syscall':
                 rv[inst[1]] = 1 
             elif inst[0] != 'ret':
+                #print("specSys, found " + inst[0])
                 if inst[0] in func_dict:
                     inst = (func_dict[inst[0]], inst[1])
                 funcList.append(inst[0])
@@ -269,6 +272,7 @@ def find_syscall(cfg, syscall_dict, tmpCFG_dict) -> dict:
         cfg.set_name(name)
     syscall_dict[name] = None 
     
+    # traversing in a bfs way
     cfg.clear_visit()
     stack = list()
     stack.append(cfg.get_root())
@@ -388,7 +392,6 @@ def deleteUnnecessaryFuncs(cfg, syscall_dict: dict) -> int:
         index = 0
         tmpList = list()
         for inst in insts:
-            # print(inst)
             if inst[0] != 'ret' and inst[0] != 'syscall':
                 if inst[0] in func_dict: 
                     func = func_dict[inst[0]]
@@ -530,13 +533,16 @@ if __name__ == "__main__":
 
     # don't worry about these for now
     syscall_dict = dict()
+    # this function just finds whether the function includes the syscall or not
     find_syscall(tmpCFG_dict['main'], syscall_dict, tmpCFG_dict)
+    # below is the sys file
     writeSyscallDict(syscall_dict, "syscall.txt")
 
     for funcName, necessary in syscall_dict.items():
         if necessary:
             data["necessaryFuncs"] += 1
 
+    # this function finds which function has what
     specSyscallDict = dict()
     find_specSyscall(tmpCFG_dict['main'], specSyscallDict, tmpCFG_dict)
     
