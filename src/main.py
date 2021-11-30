@@ -51,7 +51,6 @@ unnec = {
         'net': 1, 
         '__abort_lock': 1,
         '_fini': 1,
-        '__aio_close': 1,
         'all_mask': 1,
         'main.bonus': 1,
         'progNameReally': 1,
@@ -82,11 +81,6 @@ def find_syscalls(inst: str) -> (list, int):
         if len(m) > 0:
             if len(m) >= 2:
                 raise Exception("syscall found twice in the instruction")
-            '''
-            if int(m[0]) == 202:
-                print("202 caught %s"%inst, file = sys.stderr)
-                return None
-            '''
             return ['syscall'], int(m[0])
     if inst.find('__syscall_ret') == -1:
         raise Exception(inst + ': this could not be parsed')
@@ -95,7 +89,7 @@ def find_syscalls(inst: str) -> (list, int):
 def inst2keep(inst: str, bitcasts: dict) -> (list, int):
     bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)'
     ret_pattern = r'^ret\s'
-    func_pattern = r'\s+call\s' # changed this to + from *
+    func_pattern = r'\s*call\s+' # changed this to + from *
     fname_pattern = r'@([A-Za-z0-9_][\w_]*([.?]\w*|))\('
     bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s(%struct._IO_FILE|)(i\d+|)\*?\s(%\d+)\('
 
@@ -123,7 +117,7 @@ def inst2keep(inst: str, bitcasts: dict) -> (list, int):
         matches = p.finditer(inst)
         for match in matches:
             funcname = inst[match.start() + 1:match.end() - 1]
-            if funcname.find('llvm.') != -1 or funcname.find('__syscall_ret') != -1 or funcname.find('__unlist_locked_file') != -1 or funcname.find('__vm_wait') != -1 or funcname.find('expand_heap.') != -1 or funcname.find('__PRETTY_FUNCTION__.') != -1 or funcname in unnec:
+            if funcname.find('llvm.') != -1 or funcname.find('__syscall_ret') != -1 or funcname.find('__vm_wait') != -1 or funcname.find('expand_heap.') != -1 or funcname.find('__PRETTY_FUNCTION__.') != -1 or funcname in unnec:
                 flag = True
                 continue
             if funcname.find('__syscall_cp') != -1:
