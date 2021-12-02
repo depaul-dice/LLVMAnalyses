@@ -607,7 +607,6 @@ def graphReduction():
 
     for name, currOIG in oneInstGDict.items():
         currOIG.outResult("outs/" + name + ".txt")
-
     
 if __name__ == "__main__":
     graphReduction()

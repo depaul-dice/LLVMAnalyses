@@ -12,7 +12,9 @@ class args:
         parser.add_argument("-e", "--takeallev", action="store_true")
         parser.add_argument("-d", "--debug", action="store_true")
         parser.add_argument("-p", "--printArgs", action="store_true")
-        parser.add_argument("-r", "--recursiveParse", nargs='?', default=True, type=bool, action="store", help="either to recursively parse all the functions")
+        parser.add_argument("-r", "--recursiveParse", dest='recursiveParse', action="store_true", help="either to recursively parse all the functions")
+        parser.add_argument("--no-recursiveParse", dest='recursiveParse', action="store_false", help="turn off recursive parse")
+        parser.set_defaults(recursiveParse = True)
 
         _args = parser.parse_args()
 
@@ -30,17 +32,15 @@ class args:
             self.__printArgs()
 
     def __printArgs(self):
-        print(self.directory + '/' + self.filename)
-        if self.test:
-            print('testing the functions')
-        if self.recursiveParse:
-            print('recursiveParse')
-        if self.removeSysfuncs:
-            print('removeSysfuncs')
-        if self.takeallev:
-            print('takeallev')
-        if self.debug:
-            print('debug')
+        print("////////////////// printing arguments /////////////////////")
+        print("directory: " + self.directory)
+        print("filename: " + self.filename)
+        print("test: " + str(self.test))
+        print("recursiveParse: " + str(self.recursiveParse))
+        print("removeSysfuncs: " + str(self.removeSysfuncs))
+        print("takeallev: " + str(self.takeallev))
+        print("debug: " + str(self.debug))
+        print("///////////////////////////////////////////////////////////", end='\n\n')
 
 if __name__ == "__main__":
     args()
