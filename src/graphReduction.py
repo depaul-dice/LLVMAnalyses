@@ -533,30 +533,31 @@ def graphReduction():
         data["mergingBlocks"] += tmpMerge
         data["backEdges"] += countBackEdge(_cfg)
 
-    # don't worry about these for now
-    syscall_dict = dict()
-    # this function just finds whether the function includes the syscall or not
-    find_syscall(tmpCFG_dict[_file], syscall_dict, tmpCFG_dict)
-    # below is the sys file
-    writeSyscallDict(syscall_dict, "syscall.txt")
+    if Args.removeSysfuncs:
+        # don't worry about these for now
+        syscall_dict = dict()
+        # this function just finds whether the function includes the syscall or not
+        find_syscall(tmpCFG_dict[_file], syscall_dict, tmpCFG_dict)
+        # below is the sys file
+        writeSyscallDict(syscall_dict, "syscall.txt")
 
-    for funcName, necessary in syscall_dict.items():
-        if necessary:
-            data["necessaryFuncs"] += 1
+        for funcName, necessary in syscall_dict.items():
+            if necessary:
+                data["necessaryFuncs"] += 1
 
-    # this function finds which function has what
-    specSyscallDict = dict()
-    find_specSyscall(tmpCFG_dict[_file], specSyscallDict, tmpCFG_dict)
-    
-    for funcName, necessary in syscall_dict.items():
-        if not necessary:
-           del tmpCFG_dict[funcName] 
+        # this function finds which function has what
+        specSyscallDict = dict()
+        find_specSyscall(tmpCFG_dict[_file], specSyscallDict, tmpCFG_dict)
+        
+        for funcName, necessary in syscall_dict.items():
+            if not necessary:
+               del tmpCFG_dict[funcName] 
 
-    unnec_insts = 0
-    for name, _cfg in tmpCFG_dict.items():
-        unnec_insts += deleteUnnecessaryFuncs(_cfg, syscall_dict)
-    data["relevant"] = data["semiRelevant"] - unnec_insts
-    
+        unnec_insts = 0
+        for name, _cfg in tmpCFG_dict.items():
+            unnec_insts += deleteUnnecessaryFuncs(_cfg, syscall_dict)
+        data["relevant"] = data["semiRelevant"] - unnec_insts
+        
     blockNum = 0
     edgeNum = 0
  
