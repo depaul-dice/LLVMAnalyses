@@ -7,11 +7,18 @@ import sys
 import re
 import os
 import shutil
+from args import args
 
-TEST = True 
+Args = args() 
+'''
+Args.test = True 
 
-DEBUG = False 
-TAKEALLEV = True 
+Args.debug = False 
+Args.takeallev = True 
+
+Args.recursiveParse = True
+Args.removeSysfuncs = True
+'''
 
 cfg_dict = dict()
 notFound_dict = dict()
@@ -201,7 +208,8 @@ def parse_block(block, directory: str, bitcasts: dict, infos: dict) -> None:
                             continue
                             # raise Exception('file not found: %s'%filename)
 
-                    parse_cfg(directory, filename, infos)
+                    if Args.recursiveParse:
+                        parse_cfg(directory, filename, infos)
                 new_insts.append((func, num)) 
     block.set_insts(new_insts)
     infos["semiRelevant"] += len(new_insts)
@@ -464,7 +472,7 @@ def writeSyscallDict(syscall_dict, filename):
         for key, value in syscall_dict.items():
             f.write(key + ':' + str(value) + '\n')
 
-if __name__ == "__main__": 
+def graphReduction():
     # keep track of data reduction progress
     data = {
             "blocks": 0,
@@ -485,14 +493,13 @@ if __name__ == "__main__":
             "finalNodes": 0,
             }
     
-    assert len(sys.argv) == 2 or len(sys.argv) == 3
-    directory = sys.argv[1]
-    if len(sys.argv) == 3:
-        filename = sys.argv[2] + ".dot" 
-    else:
-        filename = "main.dot"
+    # assert len(sys.argv) == 2 or len(sys.argv) == 3
+    directory = Args.directory 
+    filename = Args.filename + ".dot"
+    _file = Args.filename
 
-    if DEBUG:
+    # deleting tmp
+    if Args.debug:
         try:
             os.mkdir("tmp")
         except (FileExistsError):
@@ -500,6 +507,7 @@ if __name__ == "__main__":
             os.mkdir("tmp")
             print("tmp already exists, so I deleted and remade it")
 
+    # deleting directory outs
     try:
         os.mkdir('outs')
     except FileExistsError:
@@ -528,7 +536,7 @@ if __name__ == "__main__":
     # don't worry about these for now
     syscall_dict = dict()
     # this function just finds whether the function includes the syscall or not
-    find_syscall(tmpCFG_dict['main'], syscall_dict, tmpCFG_dict)
+    find_syscall(tmpCFG_dict[_file], syscall_dict, tmpCFG_dict)
     # below is the sys file
     writeSyscallDict(syscall_dict, "syscall.txt")
 
@@ -538,7 +546,7 @@ if __name__ == "__main__":
 
     # this function finds which function has what
     specSyscallDict = dict()
-    find_specSyscall(tmpCFG_dict['main'], specSyscallDict, tmpCFG_dict)
+    find_specSyscall(tmpCFG_dict[_file], specSyscallDict, tmpCFG_dict)
     
     for funcName, necessary in syscall_dict.items():
         if not necessary:
@@ -553,13 +561,13 @@ if __name__ == "__main__":
     edgeNum = 0
  
     for name, _cfg in tmpCFG_dict.items():
-        if TEST:
+        if Args.test:
             _tests = tests.cfgTests(_cfg)
             _tests.nodeCorrespondenceTest()
 
         # this function omits all the unnecessary vertices
-        tmpBlockNum, tmpEdgeNum = further_simplify(_cfg, TAKEALLEV)
-        if DEBUG:
+        tmpBlockNum, tmpEdgeNum = further_simplify(_cfg, Args.takeallev)
+        if Args.debug:
             outfile = 'tmp/' + _cfg.name + '.out'
             _cfg.out_result(outfile)
  
@@ -567,7 +575,7 @@ if __name__ == "__main__":
         edgeNum += tmpEdgeNum
 
         # this is just checking if the procedure is done correctly 
-        if TEST:
+        if Args.test:
             _tests = tests.cfgTests(_cfg)
             _tests.nodeCorrespondenceTest()
             _tests.edgeCorrespondenceTest()
@@ -588,7 +596,7 @@ if __name__ == "__main__":
         # this is the function that does the conversion (it's a constructor... but you know what i mean)
         currOIG = oneInstG_t(_cfg)
         oneInstGDict[name] = currOIG
-        if TEST:
+        if Args.test:
             _tests = tests.oneInstGTests(_cfg, currOIG)
             _tests.instsCountTest()
 
@@ -601,5 +609,7 @@ if __name__ == "__main__":
         currOIG.outResult("outs/" + name + ".txt")
 
     
+if __name__ == "__main__":
+    graphReduction()
 
 
