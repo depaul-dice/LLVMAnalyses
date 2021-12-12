@@ -8,7 +8,7 @@ import re
 import os
 import shutil
 from args import args
-from sysFunc import * 
+from sysFunc import RemoveSysFuncs
 
 Args = args() 
 cfg_dict = dict()
@@ -214,8 +214,7 @@ def parse_func_topdown(cfg_, directory: str, infos: dict) -> None:
     if len(bitcasts) != 0:
         # print(bitcasts, file = sys.stderr)
         # raise Exception(cfg_.name)
-        pass
-
+        pass # this is just a filler, the function is actually complete
            
 def parse_func(cfg_, directory: str) -> None:
     cfg_.clear_visit()
@@ -335,6 +334,31 @@ def countBackEdge(cfg) -> int:
     cfg.clear_visit()
     return backedge
  
+def removeSysfuncs(data: dict, _file: str, tmpCFG_dict: dict, func_dict: dict):
+    # don't worry about these for now
+    syscall_dict = dict()
+    # this function just finds whether the function includes the syscall or not
+    find_syscall(tmpCFG_dict[_file], syscall_dict, tmpCFG_dict, func_dict)
+    # below is the sys file
+    writeSyscallDict(syscall_dict, "syscall.txt")
+
+    for funcName, necessary in syscall_dict.items():
+        if necessary:
+            data["necessaryFuncs"] += 1
+
+    # this function finds which function has what
+    specSyscallDict = dict()
+    find_specSyscall(tmpCFG_dict[_file], specSyscallDict, tmpCFG_dict, func_dict)
+    
+    for funcName, necessary in syscall_dict.items():
+        if not necessary:
+           del tmpCFG_dict[funcName] 
+
+    unnec_insts = 0
+    for name, _cfg in tmpCFG_dict.items():
+        unnec_insts += deleteUnnecessaryFuncs(_cfg, syscall_dict, func_dict)
+    data["relevant"] = data["semiRelevant"] - unnec_insts
+
 def graphReduction():
     # keep track of data reduction progress
     data = {
@@ -397,30 +421,9 @@ def graphReduction():
         data["backEdges"] += countBackEdge(_cfg)
 
     if Args.removeSysfuncs:
-        # don't worry about these for now
-        syscall_dict = dict()
-        # this function just finds whether the function includes the syscall or not
-        find_syscall(tmpCFG_dict[_file], syscall_dict, tmpCFG_dict, func_dict)
-        # below is the sys file
-        writeSyscallDict(syscall_dict, "syscall.txt")
-
-        for funcName, necessary in syscall_dict.items():
-            if necessary:
-                data["necessaryFuncs"] += 1
-
-        # this function finds which function has what
-        specSyscallDict = dict()
-        find_specSyscall(tmpCFG_dict[_file], specSyscallDict, tmpCFG_dict, func_dict)
-        
-        for funcName, necessary in syscall_dict.items():
-            if not necessary:
-               del tmpCFG_dict[funcName] 
-
-        unnec_insts = 0
-        for name, _cfg in tmpCFG_dict.items():
-            unnec_insts += deleteUnnecessaryFuncs(_cfg, syscall_dict, func_dict)
-        data["relevant"] = data["semiRelevant"] - unnec_insts
-        
+        rsf = RemoveSysFuncs() # I can probably the argument later
+        rsf.removeSysFuncs(data, _file, tmpCFG_dict, func_dict)
+       
     blockNum = 0
     edgeNum = 0
  
