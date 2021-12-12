@@ -8,7 +8,7 @@ import re
 import os
 import shutil
 from args import args
-from sysFunc import RemoveSysFuncs
+from removeSysFuncs import RemoveSysFuncs
 
 Args = args() 
 cfg_dict = dict()
