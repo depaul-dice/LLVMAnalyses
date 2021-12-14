@@ -3,4 +3,4 @@ main:
 
 .PHONY: clean
 clean:
-	rm -rf outs/ syscall.txt __pycache__
+	rm -rf outs/ syscall.txt __pycache__ .tmp

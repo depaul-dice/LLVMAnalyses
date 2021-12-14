@@ -191,6 +191,8 @@ def parse_block(block, directory: str, bitcasts: dict, infos: dict) -> None:
                             tmpfunc = func_dict[func]
                             filename = tmpfunc + '.dot'
                             # print('translating: ' + filename)
+                        elif False:
+                            pass # you need to add the case where \w+\d+ here
                         else:
                             if func not in notFound_dict:
                                 print("%s not found"%func)
@@ -359,6 +361,18 @@ def removeSysfuncs(data: dict, _file: str, tmpCFG_dict: dict, func_dict: dict):
         unnec_insts += deleteUnnecessaryFuncs(_cfg, syscall_dict, func_dict)
     data["relevant"] = data["semiRelevant"] - unnec_insts
 
+def writeTmp(src: str):
+    dst = ".tmp"
+    try: os.mkdir(dst)
+    except FileExistsError:
+        print(dst + ' already exists')
+    for filename in os.listdir(src):
+        with open(os.path.join(src, filename), 'r') as file:
+            lines = file.read()
+            lines = lines.replace('\\\"', '')
+            with open(os.path.join(dst, filename), 'w') as g:
+                g.write(lines)
+
 def graphReduction():
     # keep track of data reduction progress
     data = {
@@ -381,7 +395,9 @@ def graphReduction():
             }
     
     # assert len(sys.argv) == 2 or len(sys.argv) == 3
-    directory = Args.directory 
+    writeTmp(Args.directory)
+    directory = '.tmp'
+    # directory = Args.directory 
     filename = Args.filename + ".dot"
     _file = Args.filename
 
