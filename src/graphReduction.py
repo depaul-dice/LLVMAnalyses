@@ -7,7 +7,7 @@ import sys
 import re
 import os
 import shutil
-from args import args
+from config import args
 from removeSysFuncs import RemoveSysFuncs
 import parseCFG
 
