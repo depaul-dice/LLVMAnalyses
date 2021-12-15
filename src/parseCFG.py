@@ -3,20 +3,26 @@ import os
 import sys
 
 import parseDot
+import CONSTANTS as C
 
 class CFGParser:
-    def __init__(self, cfg_dict: dict, notFound_dict: dict, unnec: dict, func_dict: dict, Args, syscall_patterns: list):
+    funcNamePattern2Rename = r"[\w\_]+\.(\d+)"
+    cfgNamePattern = r'\"CFG\ for\ \'([\w\.]+)\'\ function\"'
+    bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)'
+    ret_pattern = r'^ret\s'
+    func_pattern = r'\s*call\s+' # changed this to + from *
+    fname_pattern = r'@([A-Za-z0-9_][\w_]*([.?]\w*|))\('
+    bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s(%struct._IO_FILE|)(i\d+|)\*?\s(%\d+)\('
+
+    def __init__(self, cfg_dict: dict, notFound_dict: dict, Args):
         self.cfg_dict = cfg_dict 
         self.notFound_dict = notFound_dict
-        self.unnec = unnec
-        self.func_dict = func_dict
         self.Args = Args
-        self.syscall_patterns = syscall_patterns
 
     def find_syscalls(self, inst: str) -> (list, int):
         if inst.find('syscall') == -1:
             return None
-        for pattern in self.syscall_patterns:
+        for pattern in C.syscall_patterns:
             p = re.compile(pattern)
             m = re.findall(p, inst)
             if len(m) > 0:
@@ -27,18 +33,12 @@ class CFGParser:
             raise Exception(inst + ': this could not be parsed')
         return None
 
+    # this is the messiest function of all time
     def inst2keep(self, inst: str, bitcasts: dict) -> (list, int):
-        bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)'
-        ret_pattern = r'^ret\s'
-        func_pattern = r'\s*call\s+' # changed this to + from *
-        fname_pattern = r'@([A-Za-z0-9_][\w_]*([.?]\w*|))\('
-        bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s(%struct._IO_FILE|)(i\d+|)\*?\s(%\d+)\('
-
-        #p = re.compile(ret_pattern) 
-        m = re.findall(ret_pattern, inst)
+        m = re.findall(self.ret_pattern, inst)
         if len(m) > 0:
             return ['ret'], -1
-        m = re.search(bitcast_pattern, inst)
+        m = re.search(self.bitcast_pattern, inst)
         if m:
             # print(m.group(1) + ':' + m.group(2) + ':' + m.group(3))
             if m.group(1) in bitcasts:
@@ -47,18 +47,18 @@ class CFGParser:
 
             return None
 
-        m = re.findall(func_pattern, inst)
+        m = re.findall(self.func_pattern, inst)
         rv = list() 
         flag = False
         if len(m) > 0:
             syscalls = self.find_syscalls(inst)
             if syscalls != None:
                 return syscalls 
-            p = re.compile(fname_pattern)
+            p = re.compile(self.fname_pattern)
             matches = p.finditer(inst)
             for match in matches:
                 funcname = inst[match.start() + 1:match.end() - 1]
-                if funcname.find('llvm.') != -1 or funcname.find('__syscall_ret') != -1 or funcname.find('__vm_wait') != -1 or funcname.find('expand_heap.') != -1 or funcname.find('__PRETTY_FUNCTION__.') != -1 or funcname in self.unnec:
+                if funcname.find('llvm.') != -1 or funcname.find('__syscall_ret') != -1 or funcname.find('__vm_wait') != -1 or funcname.find('expand_heap.') != -1 or funcname.find('__PRETTY_FUNCTION__.') != -1 or funcname in C.unnec:
                     flag = True
                     continue
                 if funcname.find('__syscall_cp') != -1:
@@ -68,7 +68,7 @@ class CFGParser:
             if len(rv) == 0 and flag == False:
                 # see if it's resolvable
 
-                n = re.search(bitcastResolve_pattern, inst)
+                n = re.search(self.bitcastResolve_pattern, inst)
                 if n:
                     # print("found: %s, %s"%(inst, n.group(4)))
                     if n.group(4) in bitcasts: 
@@ -130,8 +130,8 @@ class CFGParser:
                         if func == '__syscall_ret' or parsed == '__syscall_cp':
                             raise Exception('didn\'t catch __syscall_cp or __syscall_ret')
                         if not os.path.exists(os.path.join(directory, filename)):
-                            if func in self.func_dict:
-                                tmpfunc = self.func_dict[func]
+                            if func in C.func_dict:
+                                tmpfunc = C.func_dict[func]
                                 filename = tmpfunc + '.dot'
                                 # print('translating: ' + filename)
                             elif False:
@@ -144,12 +144,23 @@ class CFGParser:
                                 continue
                                 # raise Exception('file not found: %s'%filename)
 
-                        if self.Args.recursiveParse:
+                        if self.Args.recursiveParse: # I think this needs to be changed
                             self.parse_cfg(directory, filename, infos)
                     new_insts.append((func, num)) 
         block.set_insts(new_insts)
         infos["semiRelevant"] += len(new_insts)
         return
+
+    def checkIfFileExists(funcName: str) -> str:
+        if funcName in C.func_dict:
+            tmpfunc = C.func_dict[funcName]
+            filename = tmpfunc + '.dot'
+            return filename
+
+        if funcName not in self.notFound_dict:
+            print("%s not found"%func)
+            self.notFound_dict[func] = 1
+        return None
 
     def parse_func_topdown(self, cfg_, directory: str, infos: dict) -> None:
         vertices = cfg_.get_vertices()
@@ -184,9 +195,8 @@ class CFGParser:
         return _cfg
 
     def parseCFGName(self, name: str) -> str:
-        pattern = r'\"CFG\ for\ \'([\w\.]+)\'\ function\"'
-        
-        p = re.compile(pattern)
+        # pattern = r'\"CFG\ for\ \'([\w\.]+)\'\ function\"'
+        p = re.compile(self.cfgNamePattern)
         m = re.match(p, name)
         if m == None:
             print(name)
