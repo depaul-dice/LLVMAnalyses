@@ -43,7 +43,7 @@ after all the dotfiles are parsed into nodes, edges, and cfgs, irrelevant instru
 graphReduction.py cannot detect the difference of the function calls and arguments in the function calls, when it uses @ in the front. This is because the regular expression matching is not sophisticated enough to distinguish the two. The workaround is manually finding the pattern of the variable for each set of files as of now. 
 
 ## Definitions of Terminology ##
-Redundant Node: the node that has at most one incoming edges and at most one outgoing edges (including back edges), which also has no instruction that are relevant to syscalls
-Empty Node: the node which does not have any instructions inside after the omission of irrelevant instructions. This could be removed or preserved for structural reasons.
+- Redundant Node: the node that has at most one incoming edges and at most one outgoing edges (including back edges), which also has no instruction that are relevant to syscalls
+- Empty Node: the node which does not have any instructions inside after the omission of irrelevant instructions. This could be removed or preserved for structural reasons.
 
 
