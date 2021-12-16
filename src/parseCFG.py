@@ -6,14 +6,6 @@ import parseDot
 import CONSTANTS as C
 
 class CFGParser:
-    funcNamePattern2Rename = r"[\w\_]+\.(\d+)"
-    cfgNamePattern = r'\"CFG\ for\ \'([\w\.]+)\'\ function\"'
-    bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)'
-    ret_pattern = r'^ret\s'
-    func_pattern = r'\s*call\s+' # changed this to + from *
-    fname_pattern = r'@([A-Za-z0-9_][\w_]*([.?]\w*|))\('
-    bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s(%struct._IO_FILE|)(i\d+|)\*?\s(%\d+)\('
-     
 
     def __init__(self, cfg_dict: dict, notFound_dict: dict, Args):
         self.cfg_dict = cfg_dict 
@@ -36,11 +28,11 @@ class CFGParser:
 
     def __isRet(self, inst: str) -> bool: # if the instruction is ret, return true, else return false
         # I have tried the find method, but didn't work
-        m = re.findall(self.ret_pattern, inst)
+        m = re.findall(C.ret_pattern, inst)
         return True if len(m) > 0 else False
 
     def __isBitCast(self, inst: str, bitcasts: dict) -> bool:
-        m = re.search(self.bitcast_pattern, inst)
+        m = re.search(C.bitcast_pattern, inst)
         if m:
             if m.group(1) in bitcasts:
                 raise Exception(m.group(1) + " already in bitcasts, " + m.group(2) + " vs. " + bitcasts[m.group(1)])
@@ -49,54 +41,63 @@ class CFGParser:
             return True
         return False
         
-    # this is the messiest function of all time
-    def inst2keep(self, inst: str, bitcasts: dict) -> (list, int):
-        # just looking for return here
-        if self.__isRet(inst): return ['ret'], -1
+    def resolveBitcasts(self, bitcasts: dict, inst: str, rv: list) -> bool:
+        m = re.search(C.bitcastResolve_pattern, inst)
+        if m:
+            if m.group(2) in bitcasts:
+                rv.append(bitcasts[m.group(2)])
+                del bitcasts[m.group(2)]
+            else:
+                print("key error found: " + inst, file = sys.stderr)
+        else:
+            # print("WARNING: %s"%inst, file=sys.stderr)
+            pass
+        
 
-        # checking if this fits the bitcast pattern
-        if self.__isBitCast(inst, bitcasts): return None
-
-        m = re.findall(self.func_pattern, inst)
+    def find_funccall(self, inst, bitcasts):
+        m = re.findall(C.func_pattern, inst)
         rv = list() 
         flag = False
         if len(m) > 0:
-            syscalls = self.find_syscalls(inst)
-            if syscalls != None:
-                return syscalls 
-            p = re.compile(self.fname_pattern)
+            p = re.compile(C.fname_pattern)
             matches = p.finditer(inst)
             for match in matches:
                 funcname = inst[match.start() + 1:match.end() - 1]
-                if funcname.find('llvm.') != -1 or funcname.find('__syscall_ret') != -1 or funcname.find('__vm_wait') != -1 or funcname.find('expand_heap.') != -1 or funcname.find('__PRETTY_FUNCTION__.') != -1 or funcname in C.unnec:
+                if any(substring in inst for substring in C.unnec_substring_list) or funcname in C.unnec:
                     flag = True
+                    # print("came here: " + inst)
                     continue
                 if funcname.find('__syscall_cp') != -1:
                     print(inst)
                     raise Exception('__syscall_cp not caught')
                 rv.append(funcname)
-            if len(rv) == 0 and flag == False:
-                # see if it's resolvable
 
-                n = re.search(self.bitcastResolve_pattern, inst)
-                if n:
-                    # print("found: %s, %s"%(inst, n.group(4)))
-                    if n.group(4) in bitcasts: 
-                        rv.append(bitcasts[n.group(4)])
-                        del bitcasts[n.group(4)]
-                    else: 
-                        print("key error found: " + inst, file = sys.stderr)
-                else:
-                    # print("WARNING: %s"%inst, file=sys.stderr)
-                    pass
-                    
-                #raise Exception("Call found but could not get the function name: %s"%(inst))
+            # this part needs to be thought out
+            if len(rv) == 0 and flag == False:
+                self.resolveBitcasts(bitcasts, inst, rv)
+
             if len(rv) > 0:
                 return rv, -1
             else:
                 return None 
          
         return None
+
+    # this is the messiest function of all time
+    def inst2keep(self, inst: str, bitcasts: dict) -> (list, int):
+        # just looking for return here
+        if self.__isRet(inst): return ['ret'], -1
+
+        # checking if this fits the bitcast pattern
+        if self.__isBitCast(inst, bitcasts): 
+            return None
+
+        # finding syscalls
+        syscalls = self.find_syscalls(inst)
+        if syscalls != None: return syscalls
+
+        # finally trying to find function call
+        return self.find_funccall(inst, bitcasts)
 
     def not_line(self, inst: str) -> bool:
         pattern = re.compile(r'^\.\.\.')
@@ -162,7 +163,7 @@ class CFGParser:
             assert os.path.exists(os.path.join(directory, filename))
             return filename
 
-        pattern = re.compile(self.funcNamePattern2Rename)
+        pattern = re.compile(C.funcNamePattern2Rename)
         m = re.match(pattern, funcName)
         if m != None:
             tmpfunc = funcName.replace('.', '')
@@ -210,7 +211,7 @@ class CFGParser:
 
     def parseCFGName(self, name: str) -> str:
         # pattern = r'\"CFG\ for\ \'([\w\.]+)\'\ function\"'
-        p = re.compile(self.cfgNamePattern)
+        p = re.compile(C.cfgNamePattern)
         m = re.match(p, name)
         if m == None:
             print(name)

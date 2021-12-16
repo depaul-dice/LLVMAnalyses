@@ -61,4 +61,31 @@ syscall_patterns = [ # this is a set of syscall patterns
         r'syscall,\s=\\\{ax\\\},\\\{ax\\\},\\\{di\\\},\\\{si\\\},~\\\{rcx\\\},~\\\{r11\\\},~\\\{memory\\\},~\\\{dirflag\\\},~\\\{fpsr\\\},~\\\{flags\\\}\(i64\s(\d+)'
         ]
 
+unnec_substring_list = [
+        'llvm.',
+        '__syscall_ret',
+        '__vm_wait',
+        'expand_heap.',
+        # '__PRETTY_FUNCTION__.',
+        ]
+
+'''
+bitcast_patterns = [
+        r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)',
+        r'(%\d+)\s=\sbitcast\s.+\s\(.+\)\s.+@(\w*)\sto\s(.+)',
+        ]
+'''
+
+funcNamePattern2Rename = r"[\w\_]+\.(\d+)"
+cfgNamePattern = r'\"CFG\ for\ \'([\w\.]+)\'\ function\"'
+bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)'
+# bitcast_pattern2 = r'(%\d+)\s=\sbitcast\s.+\s\(.+\)\s.*@(\w*)\sto\s(.+)'
+
+ret_pattern = r'^ret\s'
+func_pattern = r'\s*call\s+' # changed this to + from *
+# fname_pattern = r'@([A-Za-z0-9_][\w_]*([.?]\w*|))\('
+fname_pattern = r'@([\w0-9_\.]*)\('
+
+# bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s(%struct._IO_FILE|)(i\d+|)\*?\s(%\d+)\('
+bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s.*\s(%\d+)\('
 
