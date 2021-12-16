@@ -69,13 +69,6 @@ unnec_substring_list = [
         # '__PRETTY_FUNCTION__.',
         ]
 
-'''
-bitcast_patterns = [
-        r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)',
-        r'(%\d+)\s=\sbitcast\s.+\s\(.+\)\s.+@(\w*)\sto\s(.+)',
-        ]
-'''
-
 funcNamePattern2Rename = r"[\w\_]+\.(\d+)"
 cfgNamePattern = r'\"CFG\ for\ \'([\w\.]+)\'\ function\"'
 bitcast_pattern = r'(%\d+)\s=\sbitcast\s.*%struct\._IO_FILE\.\d+.*\s@(\w*)\sto\s(.+)'
