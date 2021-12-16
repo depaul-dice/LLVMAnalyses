@@ -1,4 +1,10 @@
 
+DEBUG = False
+NOSY = False
+CHECK = True
+RECORD = False
+TAKEOUTSYSCALLS = True # I think this one should be replaced
+
 func_dict = { # this is a set of function that needs to be transferred
        '__libc_exit_fini' :'libc_exit_fini',
         'fdopen': '__fdopen',

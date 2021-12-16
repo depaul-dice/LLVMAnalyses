@@ -1,3 +1,5 @@
+# todo: let's make this into a class so that you can shove some simplifying classes here too
+
 import pdb
 
 debug = False 
