@@ -13,6 +13,7 @@ class CFGParser:
     func_pattern = r'\s*call\s+' # changed this to + from *
     fname_pattern = r'@([A-Za-z0-9_][\w_]*([.?]\w*|))\('
     bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s(%struct._IO_FILE|)(i\d+|)\*?\s(%\d+)\('
+     
 
     def __init__(self, cfg_dict: dict, notFound_dict: dict, Args):
         self.cfg_dict = cfg_dict 
@@ -33,19 +34,28 @@ class CFGParser:
             raise Exception(inst + ': this could not be parsed')
         return None
 
-    # this is the messiest function of all time
-    def inst2keep(self, inst: str, bitcasts: dict) -> (list, int):
+    def __isRet(self, inst: str) -> bool: # if the instruction is ret, return true, else return false
+        # I have tried the find method, but didn't work
         m = re.findall(self.ret_pattern, inst)
-        if len(m) > 0:
-            return ['ret'], -1
+        return True if len(m) > 0 else False
+
+    def __isBitCast(self, inst: str, bitcasts: dict) -> bool:
         m = re.search(self.bitcast_pattern, inst)
         if m:
-            # print(m.group(1) + ':' + m.group(2) + ':' + m.group(3))
             if m.group(1) in bitcasts:
                 raise Exception(m.group(1) + " already in bitcasts, " + m.group(2) + " vs. " + bitcasts[m.group(1)])
-            bitcasts[m.group(1)] = m.group(2)
 
-            return None
+            bitcasts[m.group(1)] = m.group(2)
+            return True
+        return False
+        
+    # this is the messiest function of all time
+    def inst2keep(self, inst: str, bitcasts: dict) -> (list, int):
+        # just looking for return here
+        if self.__isRet(inst): return ['ret'], -1
+
+        # checking if this fits the bitcast pattern
+        if self.__isBitCast(inst, bitcasts): return None
 
         m = re.findall(self.func_pattern, inst)
         rv = list() 
@@ -130,19 +140,9 @@ class CFGParser:
                         if func == '__syscall_ret' or parsed == '__syscall_cp':
                             raise Exception('didn\'t catch __syscall_cp or __syscall_ret')
                         if not os.path.exists(os.path.join(directory, filename)):
-                            if func in C.func_dict:
-                                tmpfunc = C.func_dict[func]
-                                filename = tmpfunc + '.dot'
-                                # print('translating: ' + filename)
-                            elif False:
-                                pass # you need to add the case where \w+\d+ here
-                            else:
-                                if func not in self.notFound_dict:
-                                    print("%s not found"%func)
-                                    self.notFound_dict[func] = 1
-                                    func_flag = True
+                            filename = self.checkIfFileExists(directory, filename, func)
+                            if filename == None:
                                 continue
-                                # raise Exception('file not found: %s'%filename)
 
                         if self.Args.recursiveParse: # I think this needs to be changed
                             self.parse_cfg(directory, filename, infos)
@@ -151,15 +151,29 @@ class CFGParser:
         infos["semiRelevant"] += len(new_insts)
         return
 
-    def checkIfFileExists(funcName: str) -> str:
+    # this function tries to find the right function in case if you don't find the right function
+    def checkIfFileExists(self, directory: str, filename: str, funcName: str) -> str:
+
+        if not os.path.exists(os.path.join(directory, filename)):
+            pass
         if funcName in C.func_dict:
             tmpfunc = C.func_dict[funcName]
             filename = tmpfunc + '.dot'
+            assert os.path.exists(os.path.join(directory, filename))
             return filename
 
+        pattern = re.compile(self.funcNamePattern2Rename)
+        m = re.match(pattern, funcName)
+        if m != None:
+            tmpfunc = funcName.replace('.', '')
+            # filename = tmpfunc + '.dot'
+            if os.path.exists(os.path.join(directory, tmpfunc + '.dot')):
+                filename = tmpfunc + '.dot'
+                return filename
+
         if funcName not in self.notFound_dict:
-            print("%s not found"%func)
-            self.notFound_dict[func] = 1
+            print("%s not found"%funcName)
+            self.notFound_dict[funcName] = 1
         return None
 
     def parse_func_topdown(self, cfg_, directory: str, infos: dict) -> None:
