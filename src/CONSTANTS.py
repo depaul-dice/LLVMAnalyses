@@ -1,8 +1,4 @@
 
-DEBUG = False
-NOSY = False
-CHECK = True
-RECORD = False
 TAKEOUTSYSCALLS = True # I think this one should be replaced
 
 func_dict = { # this is a set of function that needs to be transferred
@@ -81,4 +77,10 @@ fname_pattern = r'@([\w0-9_\.]*)\('
 
 # bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s(%struct._IO_FILE|)(i\d+|)\*?\s(%\d+)\('
 bitcastResolve_pattern = r'%\d+\s=\s(tail\s|)call\s.*\s(%\d+)\('
+
+# below is used in simplify.py
+badFuncs = {
+        "lstat": 0
+        }
+
 

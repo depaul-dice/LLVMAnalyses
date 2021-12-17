@@ -1,6 +1,6 @@
 import parseDot 
 import tools 
-from simplify import further_simplify
+from simplify import nodeRemoval, RemoveSysFuncs
 from oneInstG import oneInstG_t
 import tests
 import sys
@@ -8,7 +8,7 @@ import re
 import os
 import shutil
 from config import args
-from removeSysFuncs import RemoveSysFuncs
+# from removeSysFuncs import RemoveSysFuncs
 import parseCFG
 from CONSTANTS import func_dict 
 
@@ -102,33 +102,6 @@ def countBackEdge(cfg) -> int:
     cfg.clear_visit()
     return backedge
  
-'''
-def removeSysfuncs(data: dict, _file: str, tmpCFG_dict: dict, func_dict: dict):
-    # don't worry about these for now
-    syscall_dict = dict()
-    # this function just finds whether the function includes the syscall or not
-    find_syscall(tmpCFG_dict[_file], syscall_dict, tmpCFG_dict, func_dict)
-    # below is the sys file
-    writeSyscallDict(syscall_dict, "syscall.txt")
-
-    for funcName, necessary in syscall_dict.items():
-        if necessary:
-            data["necessaryFuncs"] += 1
-
-    # this function finds which function has what
-    specSyscallDict = dict()
-    find_specSyscall(tmpCFG_dict[_file], specSyscallDict, tmpCFG_dict, func_dict)
-    
-    for funcName, necessary in syscall_dict.items():
-        if not necessary:
-           del tmpCFG_dict[funcName] 
-
-    unnec_insts = 0
-    for name, _cfg in tmpCFG_dict.items():
-        unnec_insts += deleteUnnecessaryFuncs(_cfg, syscall_dict, func_dict)
-    data["relevant"] = data["semiRelevant"] - unnec_insts
-'''
-
 def writeTmp(src: str):
     dst = ".tmp"
     try: os.mkdir(dst)
@@ -218,7 +191,8 @@ def graphReduction():
             _tests.nodeCorrespondenceTest()
 
         # this function omits all the unnecessary vertices
-        tmpBlockNum, tmpEdgeNum = further_simplify(_cfg, Args.takeallev)
+        nr = nodeRemoval()
+        tmpBlockNum, tmpEdgeNum = nr.run(_cfg, Args.takeallev)
         if Args.debug:
             outfile = 'tmp/' + _cfg.name + '.out'
             _cfg.out_result(outfile)
