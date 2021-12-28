@@ -1,3 +1,6 @@
+'''
+Copyright (c) 2021 Yuta Nakamura. All rights reserved.
+'''
 # todo: let's make this into a class so that you can shove some simplifying classes here too
 
 import pdb

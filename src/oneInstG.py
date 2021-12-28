@@ -1,3 +1,6 @@
+'''
+Copyright (c) 2018 Yuta Nakamura. All rights reserved.
+'''
 from enum import Enum
 import parseDot
 import sys

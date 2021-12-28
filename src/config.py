@@ -1,3 +1,6 @@
+'''
+Copyright (c) 2021 Yuta Nakamura. All rights reserved.
+'''
 # to do: I want to make recursiveParse default to true
 
 import argparse

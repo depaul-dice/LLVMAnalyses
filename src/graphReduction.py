@@ -1,3 +1,7 @@
+'''
+Copyright (c) 2021 Yuta Nakamura. All rights reserved.
+'''
+
 import parseDot 
 import tools 
 from simplify import nodeRemoval, RemoveSysFuncs
@@ -106,7 +110,8 @@ def writeTmp(src: str):
     dst = ".tmp"
     try: os.mkdir(dst)
     except FileExistsError:
-        print(dst + ' already exists')
+        shutil.rmtree(dst)
+        print(dst + ' already exists, so I deleted and remade it')
     for filename in os.listdir(src):
         with open(os.path.join(src, filename), 'r') as file:
             lines = file.read()
@@ -229,6 +234,7 @@ def graphReduction():
     for name, currOIG in oneInstGDict.items():
         data["finalNodes"] += currOIG.countNodes()
 
+    # this looks very ugly, you should change it
     print("blocks: %d, branching %d, merging %d, necessary blocks: %d, necessary branching blocks: %d, necessary merging blocks: %d, edges: %d, back edges: %d, necessary edges: %d, necessary back edges: %d, insts: %d, semi relevant insts: %d, relevant insts: %d, funcs: %d, necessary funcs %d, final nodes %d"%(data["blocks"], data["branchingBlocks"], data["mergingBlocks"], data["necessaryBlocks"], data["necessaryBranchingBlocks"], data["necessaryMergingBlocks"], data["edges"], data["backEdges"], data["necessaryEdges"], data["necessaryBackEdges"], data["allInsts"], data["semiRelevant"], data["relevant"], data["funcs"], data["necessaryFuncs"], data["finalNodes"]))
 
     for name, currOIG in oneInstGDict.items():

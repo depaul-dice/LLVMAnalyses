@@ -1,4 +1,6 @@
-
+'''
+Copyright (c) 2021 Yuta Nakamura. All rights reserved.
+'''
 TAKEOUTSYSCALLS = True # I think this one should be replaced
 
 func_dict = { # this is a set of function that needs to be transferred
