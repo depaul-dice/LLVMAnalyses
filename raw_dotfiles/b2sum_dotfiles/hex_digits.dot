@@ -1,0 +1,21 @@
+digraph "CFG for 'hex_digits' function" {
+	label="CFG for 'hex_digits' function";
+
+	Node0x2361340 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%1:\l  %2 = alloca i1, align 1\l  %3 = alloca i8*, align 8\l  %4 = alloca i32, align 4\l  store i8* %0, i8** %3, align 8\l  call void @llvm.dbg.declare(metadata i8** %3, metadata !795, metadata\l... !DIExpression()), !dbg !796\l  call void @llvm.dbg.declare(metadata i32* %4, metadata !797, metadata\l... !DIExpression()), !dbg !799\l  store i32 0, i32* %4, align 4, !dbg !799\l  br label %5, !dbg !800\l}"];
+	Node0x2361340 -> Node0x2361390;
+	Node0x2361390 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l5:                                                \l  %6 = load i32, i32* %4, align 4, !dbg !801\l  %7 = zext i32 %6 to i64, !dbg !801\l  %8 = load i64, i64* @digest_hex_bytes, align 8, !dbg !803\l  %9 = icmp ult i64 %7, %8, !dbg !804\l  br i1 %9, label %10, label %29, !dbg !805\l|{<s0>T|<s1>F}}"];
+	Node0x2361390:s0 -> Node0x23613e0;
+	Node0x2361390:s1 -> Node0x2361520;
+	Node0x23613e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%10:\l10:                                               \l  %11 = call fastcc i16** @__ctype_b_loc() #27, !dbg !806\l  %12 = load i16*, i16** %11, align 8, !dbg !806\l  %13 = load i8*, i8** %3, align 8, !dbg !806\l  %14 = load i8, i8* %13, align 1, !dbg !806\l  %15 = zext i8 %14 to i32, !dbg !806\l  %16 = sext i32 %15 to i64, !dbg !806\l  %17 = getelementptr inbounds i16, i16* %12, i64 %16, !dbg !806\l  %18 = load i16, i16* %17, align 2, !dbg !806\l  %19 = zext i16 %18 to i32, !dbg !806\l  %20 = and i32 %19, 4096, !dbg !806\l  %21 = icmp ne i32 %20, 0, !dbg !806\l  br i1 %21, label %23, label %22, !dbg !809\l|{<s0>T|<s1>F}}"];
+	Node0x23613e0:s0 -> Node0x2361480;
+	Node0x23613e0:s1 -> Node0x2361430;
+	Node0x2361430 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%22:\l22:                                               \l  store i1 false, i1* %2, align 1, !dbg !810\l  br label %34, !dbg !810\l}"];
+	Node0x2361430 -> Node0x2361570;
+	Node0x2361480 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%23:\l23:                                               \l  %24 = load i8*, i8** %3, align 8, !dbg !811\l  %25 = getelementptr inbounds i8, i8* %24, i32 1, !dbg !811\l  store i8* %25, i8** %3, align 8, !dbg !811\l  br label %26, !dbg !812\l}"];
+	Node0x2361480 -> Node0x23614d0;
+	Node0x23614d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%26:\l26:                                               \l  %27 = load i32, i32* %4, align 4, !dbg !813\l  %28 = add i32 %27, 1, !dbg !813\l  store i32 %28, i32* %4, align 4, !dbg !813\l  br label %5, !dbg !814, !llvm.loop !815\l}"];
+	Node0x23614d0 -> Node0x2361390;
+	Node0x2361520 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%29:\l29:                                               \l  %30 = load i8*, i8** %3, align 8, !dbg !817\l  %31 = load i8, i8* %30, align 1, !dbg !818\l  %32 = zext i8 %31 to i32, !dbg !818\l  %33 = icmp eq i32 %32, 0, !dbg !819\l  store i1 %33, i1* %2, align 1, !dbg !820\l  br label %34, !dbg !820\l}"];
+	Node0x2361520 -> Node0x2361570;
+	Node0x2361570 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%34:\l34:                                               \l  %35 = load i1, i1* %2, align 1, !dbg !821\l  ret i1 %35, !dbg !821\l}"];
+}

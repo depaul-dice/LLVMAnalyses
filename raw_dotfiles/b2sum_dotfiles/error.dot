@@ -1,0 +1,5 @@
+digraph "CFG for 'error' function" {
+	label="CFG for 'error' function";
+
+	Node0x250df80 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  ret void\l}"];
+}

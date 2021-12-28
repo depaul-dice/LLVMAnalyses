@@ -1,0 +1,28 @@
+digraph "CFG for 'rpl_fclose' function" {
+	label="CFG for 'rpl_fclose' function";
+
+	Node0x21308d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = alloca i32, align 4\l  %3 = alloca %struct._IO_FILE*, align 8\l  %4 = alloca i32, align 4\l  %5 = alloca i32, align 4\l  %6 = alloca i32, align 4\l  store %struct._IO_FILE* %0, %struct._IO_FILE** %3, align 8\l  call void @llvm.dbg.declare(metadata %struct._IO_FILE** %3, metadata !829,\l... metadata !DIExpression()), !dbg !830\l  call void @llvm.dbg.declare(metadata i32* %4, metadata !831, metadata\l... !DIExpression()), !dbg !832\l  store i32 0, i32* %4, align 4, !dbg !832\l  call void @llvm.dbg.declare(metadata i32* %5, metadata !833, metadata\l... !DIExpression()), !dbg !834\l  call void @llvm.dbg.declare(metadata i32* %6, metadata !835, metadata\l... !DIExpression()), !dbg !836\l  store i32 0, i32* %6, align 4, !dbg !836\l  %7 = load %struct._IO_FILE*, %struct._IO_FILE** %3, align 8, !dbg !837\l  %8 = bitcast i32 (%struct._IO_FILE.699*)* @fileno to i32 (%struct._IO_FILE*)*\l  %9 = call i32 %8(%struct._IO_FILE* %7) #8, !dbg !838\l  store i32 %9, i32* %5, align 4, !dbg !839\l  %10 = load i32, i32* %5, align 4, !dbg !840\l  %11 = icmp slt i32 %10, 0, !dbg !842\l  br i1 %11, label %12, label %16, !dbg !843\l|{<s0>T|<s1>F}}"];
+	Node0x21308d0:s0 -> Node0x21309b0;
+	Node0x21308d0:s1 -> Node0x2130a00;
+	Node0x21309b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%12:\l12:                                               \l  %13 = load %struct._IO_FILE*, %struct._IO_FILE** %3, align 8, !dbg !844\l  %14 = bitcast i32 (%struct._IO_FILE.3*)* @fclose to i32 (%struct._IO_FILE*)*\l  %15 = call i32 %14(%struct._IO_FILE* %13), !dbg !845\l  store i32 %15, i32* %2, align 4, !dbg !846\l  br label %45, !dbg !846\l}"];
+	Node0x21309b0 -> Node0x2130c30;
+	Node0x2130a00 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e5705870",label="{%16:\l16:                                               \l  %17 = load %struct._IO_FILE*, %struct._IO_FILE** %3, align 8, !dbg !847\l  %18 = bitcast i32 (%struct._IO_FILE.733*)* @__freading to i32\l... (%struct._IO_FILE*)*\l  %19 = call i32 %18(%struct._IO_FILE* %17) #8, !dbg !847\l  %20 = icmp ne i32 %19, 0, !dbg !847\l  br i1 %20, label %21, label %27, !dbg !849\l|{<s0>T|<s1>F}}"];
+	Node0x2130a00:s0 -> Node0x2130a50;
+	Node0x2130a00:s1 -> Node0x2130aa0;
+	Node0x2130a50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%21:\l21:                                               \l  %22 = load %struct._IO_FILE*, %struct._IO_FILE** %3, align 8, !dbg !850\l  %23 = bitcast i32 (%struct._IO_FILE.699*)* @fileno to i32\l... (%struct._IO_FILE*)*\l  %24 = call i32 %23(%struct._IO_FILE* %22) #8, !dbg !851\l  %25 = call fastcc i64 @lseek(i32 %24, i64 0, i32 1) #8, !dbg !852\l  %26 = icmp ne i64 %25, -1, !dbg !853\l  br i1 %26, label %27, label %34, !dbg !854\l|{<s0>T|<s1>F}}"];
+	Node0x2130a50:s0 -> Node0x2130aa0;
+	Node0x2130a50:s1 -> Node0x2130b40;
+	Node0x2130aa0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3947570",label="{%27:\l27:                                               \l  %28 = load %struct._IO_FILE*, %struct._IO_FILE** %3, align 8, !dbg !855\l  %29 = call fastcc i32 @rpl_fflush(%struct._IO_FILE* %28), !dbg !856\l  %30 = icmp ne i32 %29, 0, !dbg !856\l  br i1 %30, label %31, label %34, !dbg !857\l|{<s0>T|<s1>F}}"];
+	Node0x2130aa0:s0 -> Node0x2130af0;
+	Node0x2130aa0:s1 -> Node0x2130b40;
+	Node0x2130af0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f5c1a970",label="{%31:\l31:                                               \l  %32 = call fastcc i32* @__errno_location() #27, !dbg !858\l  %33 = load i32, i32* %32, align 4, !dbg !858\l  store i32 %33, i32* %4, align 4, !dbg !859\l  br label %34, !dbg !860\l}"];
+	Node0x2130af0 -> Node0x2130b40;
+	Node0x2130b40 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e5705870",label="{%34:\l34:                                               \l  %35 = load %struct._IO_FILE*, %struct._IO_FILE** %3, align 8, !dbg !861\l  %36 = bitcast i32 (%struct._IO_FILE.3*)* @fclose to i32 (%struct._IO_FILE*)*\l  %37 = call i32 %36(%struct._IO_FILE* %35), !dbg !862\l  store i32 %37, i32* %6, align 4, !dbg !863\l  %38 = load i32, i32* %4, align 4, !dbg !864\l  %39 = icmp ne i32 %38, 0, !dbg !866\l  br i1 %39, label %40, label %43, !dbg !867\l|{<s0>T|<s1>F}}"];
+	Node0x2130b40:s0 -> Node0x2130b90;
+	Node0x2130b40:s1 -> Node0x2130be0;
+	Node0x2130b90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%40:\l40:                                               \l  %41 = load i32, i32* %4, align 4, !dbg !868\l  %42 = call fastcc i32* @__errno_location() #27, !dbg !870\l  store i32 %41, i32* %42, align 4, !dbg !871\l  store i32 -1, i32* %6, align 4, !dbg !872\l  br label %43, !dbg !873\l}"];
+	Node0x2130b90 -> Node0x2130be0;
+	Node0x2130be0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e5705870",label="{%43:\l43:                                               \l  %44 = load i32, i32* %6, align 4, !dbg !874\l  store i32 %44, i32* %2, align 4, !dbg !875\l  br label %45, !dbg !875\l}"];
+	Node0x2130be0 -> Node0x2130c30;
+	Node0x2130c30 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%45:\l45:                                               \l  %46 = load i32, i32* %2, align 4, !dbg !876\l  ret i32 %46, !dbg !876\l}"];
+}

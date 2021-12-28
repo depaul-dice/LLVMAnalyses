@@ -1,0 +1,16 @@
+digraph "CFG for 'unlock_bin' function" {
+	label="CFG for 'unlock_bin' function";
+
+	Node0x23c3280 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = sext i32 %0 to i64\l  %3 = getelementptr inbounds %struct.anon.250, %struct.anon.250* @mal, i64 0,\l... i32 1, i64 %2, i32 0, i64 0\l  %4 = load volatile i32, i32* %3, align 8, !tbaa !792\l  %5 = icmp eq i32 %4, 0\l  br i1 %5, label %16, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x23c3280:s0 -> Node0x23c33c0;
+	Node0x23c3280:s1 -> Node0x23c32d0;
+	Node0x23c32d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e1675170",label="{%6:\l6:                                                \l  tail call void asm sideeffect \"mov $1, $0 \l  %7 = getelementptr inbounds %struct.anon.250, %struct.anon.250* @mal, i64 0,\l... i32 1, i64 %2, i32 0, i64 1\l  %8 = load volatile i32, i32* %7, align 4, !tbaa !792\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %16, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x23c32d0:s0 -> Node0x23c33c0;
+	Node0x23c32d0:s1 -> Node0x23c3320;
+	Node0x23c3320 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%10:\l10:                                               \l  %11 = ptrtoint i32* %3 to i64\l  %12 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %11, i64 129, i64 1) #27, !srcloc !797\l  %13 = icmp eq i64 %12, -38\l  br i1 %13, label %14, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x23c3320:s0 -> Node0x23c3370;
+	Node0x23c3320:s1 -> Node0x23c33c0;
+	Node0x23c3370 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ecd3c570",label="{%14:\l14:                                               \l  %15 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{flags\}\l...\"(i64 202, i64 %11, i64 1, i64 1) #27, !srcloc !797\l  br label %16\l}"];
+	Node0x23c3370 -> Node0x23c33c0;
+	Node0x23c33c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%16:\l16:                                               \l  ret void\l}"];
+}

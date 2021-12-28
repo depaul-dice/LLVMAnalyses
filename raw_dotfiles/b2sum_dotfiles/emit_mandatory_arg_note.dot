@@ -1,0 +1,5 @@
+digraph "CFG for 'emit_mandatory_arg_note' function" {
+	label="CFG for 'emit_mandatory_arg_note' function";
+
+	Node0x20d1db0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  %1 = bitcast %struct._IO_FILE.706** @stdout to %struct._IO_FILE**\l  %2 = load %struct._IO_FILE*, %struct._IO_FILE** %1, align 8, !dbg !795\l  %3 = getelementptr inbounds [75 x i8], [75 x i8]* @.str.38, i64 0, i64 0\l  %4 = bitcast i32 (i8*, %struct._IO_FILE.3*)* @fputs to i32 (i8*,\l... %struct._IO_FILE*)*\l  %5 = call i32 %4(i8* %3, %struct._IO_FILE* %2), !dbg !795\l  ret void, !dbg !796\l}"];
+}

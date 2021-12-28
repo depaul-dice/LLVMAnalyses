@@ -1,0 +1,14 @@
+digraph "CFG for 'blake2b_init0' function" {
+	label="CFG for 'blake2b_init0' function";
+
+	Node0x212bf40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%1:\l  %2 = alloca %struct.blake2b_state__*, align 8\l  %3 = alloca i64, align 8\l  store %struct.blake2b_state__* %0, %struct.blake2b_state__** %2, align 8\l  call void @llvm.dbg.declare(metadata %struct.blake2b_state__** %2, metadata\l... !813, metadata !DIExpression()), !dbg !814\l  call void @llvm.dbg.declare(metadata i64* %3, metadata !815, metadata\l... !DIExpression()), !dbg !816\l  %4 = load %struct.blake2b_state__*, %struct.blake2b_state__** %2, align 8,\l... !dbg !817\l  %5 = bitcast %struct.blake2b_state__* %4 to i8*, !dbg !818\l  call void @llvm.memset.p0i8.i64(i8* align 8 %5, i8 0, i64 248, i1 false),\l... !dbg !818\l  store i64 0, i64* %3, align 8, !dbg !819\l  br label %6, !dbg !821\l}"];
+	Node0x212bf40 -> Node0x212e630;
+	Node0x212e630 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%6:\l6:                                                \l  %7 = load i64, i64* %3, align 8, !dbg !822\l  %8 = icmp ult i64 %7, 8, !dbg !824\l  br i1 %8, label %9, label %20, !dbg !825\l|{<s0>T|<s1>F}}"];
+	Node0x212e630:s0 -> Node0x212e680;
+	Node0x212e630:s1 -> Node0x212e720;
+	Node0x212e680 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%9:\l9:                                                \l  %10 = load i64, i64* %3, align 8, !dbg !826\l  %11 = getelementptr inbounds [8 x i64], [8 x i64]* @blake2b_IV, i64 0, i64\l... %10, !dbg !827\l  %12 = load i64, i64* %11, align 8, !dbg !827\l  %13 = load %struct.blake2b_state__*, %struct.blake2b_state__** %2, align 8,\l... !dbg !828\l  %14 = getelementptr inbounds %struct.blake2b_state__,\l... %struct.blake2b_state__* %13, i32 0, i32 0, !dbg !829\l  %15 = load i64, i64* %3, align 8, !dbg !830\l  %16 = getelementptr inbounds [8 x i64], [8 x i64]* %14, i64 0, i64 %15, !dbg\l... !828\l  store i64 %12, i64* %16, align 8, !dbg !831\l  br label %17, !dbg !828\l}"];
+	Node0x212e680 -> Node0x212e6d0;
+	Node0x212e6d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%17:\l17:                                               \l  %18 = load i64, i64* %3, align 8, !dbg !832\l  %19 = add i64 %18, 1, !dbg !832\l  store i64 %19, i64* %3, align 8, !dbg !832\l  br label %6, !dbg !833, !llvm.loop !834\l}"];
+	Node0x212e6d0 -> Node0x212e630;
+	Node0x212e720 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%20:\l20:                                               \l  ret void, !dbg !836\l}"];
+}

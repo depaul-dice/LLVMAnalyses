@@ -1,0 +1,5 @@
+digraph "CFG for '__assert_fail' function" {
+	label="CFG for '__assert_fail' function";
+
+	Node0x2514000 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%4:\l  %5 = bitcast \{ i32, i8*, i8*, i32 (%struct._IO_FILE.706*)*, i8*, i8*, i8*,\l... i8*, i64 (%struct._IO_FILE.706*, i8*, i64)*, i64 (%struct._IO_FILE.706*, i8*,\l... i64)*, i64 (%struct._IO_FILE.706*, i64, i32)*, i8*, i64,\l... %struct._IO_FILE.706*, %struct._IO_FILE.706*, i32, i32, i64, i32, i32, i32,\l... i8*, i64, i8*, i8*, i8*, i64, i64, %struct._IO_FILE.706*,\l... %struct._IO_FILE.706*, %struct.__locale_struct* \}* @__stderr_FILE to\l... %struct._IO_FILE.3*\l  %6 = getelementptr inbounds [35 x i8], [35 x i8]* @.str.110, i64 0, i64 0\l  %7 = tail call i32 (%struct._IO_FILE.3*, i8*, ...)\l... @fprintf(%struct._IO_FILE.3* nonnull %5, i8* %6, i8* %0, i8* %1, i8* %3, i32\l... %2) #27\l  %8 = tail call i32 @fflush(%struct._IO_FILE.3* null) #27\l  tail call fastcc void @abort() #28\l  unreachable\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'xalloc_die' function" {
+	label="CFG for 'xalloc_die' function";
+
+	Node0x22fd360 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  %1 = load volatile i32, i32* @exit_failure, align 4, !dbg !795\l  %2 = getelementptr inbounds [3 x i8], [3 x i8]* @.str.173, i64 0, i64 0\l  %3 = getelementptr inbounds [17 x i8], [17 x i8]* @.str.1.174, i64 0, i64 0\l  call void (i32, i32, i8*, ...) @error(i32 %1, i32 0, i8* %2, i8* %3), !dbg\l... !796\l  call fastcc void @abort() #27, !dbg !797\l  unreachable, !dbg !797\l}"];
+}

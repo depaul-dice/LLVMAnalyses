@@ -1,0 +1,15 @@
+digraph "CFG for 'locale_charset' function" {
+	label="CFG for 'locale_charset' function";
+
+	Node0x230cc30 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  %1 = alloca i8*, align 8\l  call void @llvm.dbg.declare(metadata i8** %1, metadata !794, metadata\l... !DIExpression()), !dbg !795\l  %2 = call fastcc i8* @__nl_langinfo(i32 14) #8, !dbg !796\l  store i8* %2, i8** %1, align 8, !dbg !797\l  %3 = load i8*, i8** %1, align 8, !dbg !798\l  %4 = icmp eq i8* %3, null, !dbg !800\l  br i1 %4, label %5, label %7, !dbg !801\l|{<s0>T|<s1>F}}"];
+	Node0x230cc30:s0 -> Node0x230d6d0;
+	Node0x230cc30:s1 -> Node0x230d720;
+	Node0x230d6d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%5:\l5:                                                \l  %6 = getelementptr inbounds [1 x i8], [1 x i8]* @.str.212, i64 0, i64 0\l  store i8* %6, i8** %1, align 8, !dbg !802\l  br label %7, !dbg !803\l}"];
+	Node0x230d6d0 -> Node0x230d720;
+	Node0x230d720 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%7:\l7:                                                \l  %8 = load i8*, i8** %1, align 8, !dbg !804\l  %9 = getelementptr inbounds i8, i8* %8, i64 0, !dbg !804\l  %10 = load i8, i8* %9, align 1, !dbg !804\l  %11 = sext i8 %10 to i32, !dbg !804\l  %12 = icmp eq i32 %11, 0, !dbg !808\l  br i1 %12, label %13, label %15, !dbg !809\l|{<s0>T|<s1>F}}"];
+	Node0x230d720:s0 -> Node0x230d770;
+	Node0x230d720:s1 -> Node0x230d7c0;
+	Node0x230d770 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%13:\l13:                                               \l  %14 = getelementptr inbounds [6 x i8], [6 x i8]* @.str.1.213, i64 0, i64 0\l  store i8* %14, i8** %1, align 8, !dbg !810\l  br label %15, !dbg !811\l}"];
+	Node0x230d770 -> Node0x230d7c0;
+	Node0x230d7c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%15:\l15:                                               \l  %16 = load i8*, i8** %1, align 8, !dbg !812\l  ret i8* %16, !dbg !813\l}"];
+}

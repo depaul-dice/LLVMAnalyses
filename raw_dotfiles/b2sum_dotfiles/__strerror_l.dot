@@ -1,0 +1,26 @@
+digraph "CFG for '__strerror_l' function" {
+	label="CFG for '__strerror_l' function";
+
+	Node0x24e7af0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#9abbff70",label="{%2:\l  br label %3\l}"];
+	Node0x24e7af0 -> Node0x24e7b40;
+	Node0x24e7b40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#efcebd70",label="{%3:\l3:                                                \l  %4 = phi i64 [ 0, %2 ], [ %10, %9 ]\l  %5 = getelementptr inbounds [89 x i8], [89 x i8]* @errid, i64 0, i64 %4\l  %6 = load i8, i8* %5, align 1, !tbaa !792\l  %7 = zext i8 %6 to i32\l  %8 = icmp eq i32 %7, %0\l  br i1 %8, label %12, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x24e7b40:s0 -> Node0x24e7be0;
+	Node0x24e7b40:s1 -> Node0x24e7b90;
+	Node0x24e7b90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#efcebd70",label="{%9:\l9:                                                \l  %10 = add nuw nsw i64 %4, 1\l  %11 = icmp eq i64 %10, 88\l  br i1 %11, label %16, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x24e7b90:s0 -> Node0x24e7c30;
+	Node0x24e7b90:s1 -> Node0x24e7b40;
+	Node0x24e7be0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#85a8fc70",label="{%12:\l12:                                               \l  %13 = trunc i64 %4 to i32\l  %14 = icmp eq i32 %13, 0\l  %15 = getelementptr inbounds [1823 x i8], [1823 x i8]* @errmsg, i64 0, i64 0\l  br i1 %14, label %30, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x24e7be0:s0 -> Node0x24e7d70;
+	Node0x24e7be0:s1 -> Node0x24e7c30;
+	Node0x24e7c30 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#93b5fe70",label="{%16:\l16:                                               \l  %17 = phi i32 [ %13, %12 ], [ 88, %9 ]\l  %18 = getelementptr inbounds [1823 x i8], [1823 x i8]* @errmsg, i64 0, i64 0\l  br label %19\l}"];
+	Node0x24e7c30 -> Node0x24e7c80;
+	Node0x24e7c80 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f5c1a970",label="{%19:\l19:                                               \l  %20 = phi i32 [ %28, %27 ], [ %17, %16 ]\l  %21 = phi i8* [ %26, %27 ], [ %18, %16 ]\l  br label %22\l}"];
+	Node0x24e7c80 -> Node0x24e7cd0;
+	Node0x24e7cd0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%22:\l22:                                               \l  %23 = phi i8* [ %26, %22 ], [ %21, %19 ]\l  %24 = load i8, i8* %23, align 1, !tbaa !792\l  %25 = icmp eq i8 %24, 0\l  %26 = getelementptr inbounds i8, i8* %23, i64 1\l  br i1 %25, label %27, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x24e7cd0:s0 -> Node0x24e7d20;
+	Node0x24e7cd0:s1 -> Node0x24e7cd0;
+	Node0x24e7d20 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f5c1a970",label="{%27:\l27:                                               \l  %28 = add nsw i32 %20, -1\l  %29 = icmp eq i32 %28, 0\l  br i1 %29, label %30, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x24e7d20:s0 -> Node0x24e7d70;
+	Node0x24e7d20:s1 -> Node0x24e7c80;
+	Node0x24e7d70 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#9abbff70",label="{%30:\l30:                                               \l  %31 = phi i8* [ %15, %12 ], [ %26, %27 ]\l  %32 = getelementptr inbounds %struct.__locale_struct,\l... %struct.__locale_struct* %1, i64 0, i32 0, i64 5\l  %33 = load %struct.__locale_map*, %struct.__locale_map** %32, align 8, !tbaa\l... !795\l  %34 = tail call fastcc i8* @__lctrans(i8* nonnull %31, %struct.__locale_map*\l... %33) #27\l  ret i8* %34\l}"];
+}

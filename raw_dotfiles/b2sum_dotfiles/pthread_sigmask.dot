@@ -1,0 +1,13 @@
+digraph "CFG for 'pthread_sigmask' function" {
+	label="CFG for 'pthread_sigmask' function";
+
+	Node0x23ee8d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = icmp ne %struct.__sigset_t* %1, null\l  %5 = icmp ugt i32 %0, 2\l  %6 = and i1 %5, %4\l  br i1 %6, label %21, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x23ee8d0:s0 -> Node0x23eebd0;
+	Node0x23ee8d0:s1 -> Node0x23eeb30;
+	Node0x23eeb30 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ef886b70",label="{%7:\l7:                                                \l  %8 = sext i32 %0 to i64\l  %9 = ptrtoint %struct.__sigset_t* %1 to i64\l  %10 = ptrtoint %struct.__sigset_t* %2 to i64\l  %11 = tail call i64 asm sideeffect \"syscall\",\l... \"=\{ax\},\{ax\},\{di\},\{si\},\{dx\},\{r10\},~\{rcx\},~\{r11\},~\{memory\},~\{dirflag\},~\{fpsr\},~\{\l...flags\}\"(i64 14, i64 %8, i64 %9, i64 %10, i64 8) #27, !srcloc !792\l  %12 = trunc i64 %11 to i32\l  %13 = sub i32 0, %12\l  %14 = icmp eq i32 %12, 0\l  %15 = icmp ne %struct.__sigset_t* %2, null\l  %16 = and i1 %15, %14\l  br i1 %16, label %17, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x23eeb30:s0 -> Node0x23eeb80;
+	Node0x23eeb30:s1 -> Node0x23eebd0;
+	Node0x23eeb80 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%17:\l17:                                               \l  %18 = getelementptr inbounds %struct.__sigset_t, %struct.__sigset_t* %2, i64\l... 0, i32 0, i64 0\l  %19 = load i64, i64* %18, align 8, !tbaa !793\l  %20 = and i64 %19, -15032385537\l  store i64 %20, i64* %18, align 8, !tbaa !793\l  br label %21\l}"];
+	Node0x23eeb80 -> Node0x23eebd0;
+	Node0x23eebd0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%21:\l21:                                               \l  %22 = phi i32 [ 22, %3 ], [ %13, %7 ], [ 0, %17 ]\l  ret i32 %22\l}"];
+}

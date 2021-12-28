@@ -1,0 +1,11 @@
+digraph "CFG for '__stdio_exit' function" {
+	label="CFG for '__stdio_exit' function";
+
+	Node0x2418c30 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%0:\l  %1 = tail call fastcc %struct._IO_FILE.3** @__ofl_lock() #27\l  %2 = load %struct._IO_FILE.3*, %struct._IO_FILE.3** %1, align 8, !tbaa !792\l  %3 = icmp eq %struct._IO_FILE.3* %2, null\l  br i1 %3, label %9, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x2418c30:s0 -> Node0x2418db0;
+	Node0x2418c30:s1 -> Node0x2418d60;
+	Node0x2418d60 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%4:\l4:                                                \l  %5 = phi %struct._IO_FILE.3* [ %7, %4 ], [ %2, %0 ]\l  tail call fastcc void @close_file(%struct._IO_FILE.3* nonnull %5) #28\l  %6 = getelementptr inbounds %struct._IO_FILE.3, %struct._IO_FILE.3* %5, i64\l... 0, i32 14\l  %7 = load %struct._IO_FILE.3*, %struct._IO_FILE.3** %6, align 8, !tbaa !792\l  %8 = icmp eq %struct._IO_FILE.3* %7, null\l  br i1 %8, label %9, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x2418d60:s0 -> Node0x2418db0;
+	Node0x2418d60:s1 -> Node0x2418d60;
+	Node0x2418db0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%9:\l9:                                                \l  %10 = bitcast %struct._IO_FILE.706** @__stdin_used to %struct._IO_FILE.3**\l  %11 = load volatile %struct._IO_FILE.3*, %struct._IO_FILE.3** %10, align 8,\l... !tbaa !792\l  tail call fastcc void @close_file(%struct._IO_FILE.3* %11) #28\l  %12 = bitcast %struct._IO_FILE.706** @__stdout_used to %struct._IO_FILE.3**\l  %13 = load volatile %struct._IO_FILE.3*, %struct._IO_FILE.3** %12, align 8,\l... !tbaa !792\l  tail call fastcc void @close_file(%struct._IO_FILE.3* %13) #28\l  %14 = bitcast %struct._IO_FILE.706** @__stderr_used to %struct._IO_FILE.3**\l  %15 = load volatile %struct._IO_FILE.3*, %struct._IO_FILE.3** %14, align 8,\l... !tbaa !792\l  tail call fastcc void @close_file(%struct._IO_FILE.3* %15) #28\l  ret void\l}"];
+}

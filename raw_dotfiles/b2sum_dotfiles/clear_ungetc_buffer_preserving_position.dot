@@ -1,0 +1,10 @@
+digraph "CFG for 'clear_ungetc_buffer_preserving_position' function" {
+	label="CFG for 'clear_ungetc_buffer_preserving_position' function";
+
+	Node0x2134cd0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = alloca %struct._IO_FILE*, align 8\l  store %struct._IO_FILE* %0, %struct._IO_FILE** %2, align 8\l  call void @llvm.dbg.declare(metadata %struct._IO_FILE** %2, metadata !829,\l... metadata !DIExpression()), !dbg !830\l  %3 = load %struct._IO_FILE*, %struct._IO_FILE** %2, align 8, !dbg !831\l  %4 = getelementptr inbounds %struct._IO_FILE, %struct._IO_FILE* %3, i32 0,\l... i32 0, !dbg !833\l  %5 = load i32, i32* %4, align 8, !dbg !833\l  %6 = and i32 %5, 256, !dbg !834\l  %7 = icmp ne i32 %6, 0, !dbg !834\l  br i1 %7, label %8, label %11, !dbg !835\l|{<s0>T|<s1>F}}"];
+	Node0x2134cd0:s0 -> Node0x2135fd0;
+	Node0x2134cd0:s1 -> Node0x2136020;
+	Node0x2135fd0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%8:\l8:                                                \l  %9 = load %struct._IO_FILE*, %struct._IO_FILE** %2, align 8, !dbg !836\l  %10 = call fastcc i32 @rpl_fseeko(%struct._IO_FILE* %9, i64 0, i32 1), !dbg\l... !837\l  br label %11, !dbg !837\l}"];
+	Node0x2135fd0 -> Node0x2136020;
+	Node0x2136020 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%11:\l11:                                               \l  ret void, !dbg !838\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for '__pthread_rwlock_wrlock' function" {
+	label="CFG for '__pthread_rwlock_wrlock' function";
+
+	Node0x246ce30 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = tail call fastcc i32\l... @__pthread_rwlock_timedwrlock(%struct.pthread_rwlock_t* %0, %struct.timespec*\l... null) #27\l  ret i32 %2\l}"];
+}

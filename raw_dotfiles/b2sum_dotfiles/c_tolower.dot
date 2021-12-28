@@ -1,0 +1,16 @@
+digraph "CFG for 'c_tolower' function" {
+	label="CFG for 'c_tolower' function";
+
+	Node0x230d810 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = alloca i32, align 4\l  %3 = alloca i32, align 4\l  store i32 %0, i32* %3, align 4\l  call void @llvm.dbg.declare(metadata i32* %3, metadata !796, metadata\l... !DIExpression()), !dbg !797\l  %4 = load i32, i32* %3, align 4, !dbg !798\l  br label %LeafBlock\l}"];
+	Node0x230d810 -> Node0x230ed70;
+	Node0x230ed70 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{LeafBlock:                                        \l  %.off = add i32 %4, -65\l  %SwitchLeaf = icmp ule i32 %.off, 25\l  br i1 %SwitchLeaf, label %5, label %NewDefault\l|{<s0>T|<s1>F}}"];
+	Node0x230ed70:s0 -> Node0x2312150;
+	Node0x230ed70:s1 -> Node0x23121a0;
+	Node0x2312150 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%5:\l5:                                                \l  %6 = load i32, i32* %3, align 4, !dbg !799\l  %7 = sub nsw i32 %6, 65, !dbg !801\l  %8 = add nsw i32 %7, 97, !dbg !802\l  store i32 %8, i32* %2, align 4, !dbg !803\l  br label %11, !dbg !803\l}"];
+	Node0x2312150 -> Node0x2312240;
+	Node0x23121a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{NewDefault:                                       \l  br label %9\l}"];
+	Node0x23121a0 -> Node0x23121f0;
+	Node0x23121f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%9:\l9:                                                \l  %10 = load i32, i32* %3, align 4, !dbg !804\l  store i32 %10, i32* %2, align 4, !dbg !805\l  br label %11, !dbg !805\l}"];
+	Node0x23121f0 -> Node0x2312240;
+	Node0x2312240 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%11:\l11:                                               \l  %12 = load i32, i32* %2, align 4, !dbg !806\l  ret i32 %12, !dbg !806\l}"];
+}

@@ -1,0 +1,27 @@
+digraph "CFG for 'setlocale_null_unlocked' function" {
+	label="CFG for 'setlocale_null_unlocked' function";
+
+	Node0x23086a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = alloca i32, align 4\l  %5 = alloca i32, align 4\l  %6 = alloca i8*, align 8\l  %7 = alloca i64, align 8\l  %8 = alloca i8*, align 8\l  %9 = alloca i64, align 8\l  store i32 %0, i32* %5, align 4\l  call void @llvm.dbg.declare(metadata i32* %5, metadata !795, metadata\l... !DIExpression()), !dbg !796\l  store i8* %1, i8** %6, align 8\l  call void @llvm.dbg.declare(metadata i8** %6, metadata !797, metadata\l... !DIExpression()), !dbg !798\l  store i64 %2, i64* %7, align 8\l  call void @llvm.dbg.declare(metadata i64* %7, metadata !799, metadata\l... !DIExpression()), !dbg !800\l  call void @llvm.dbg.declare(metadata i8** %8, metadata !801, metadata\l... !DIExpression()), !dbg !802\l  %10 = load i32, i32* %5, align 4, !dbg !803\l  %11 = call fastcc i8* @setlocale_null_androidfix(i32 %10), !dbg !804\l  store i8* %11, i8** %8, align 8, !dbg !802\l  %12 = load i8*, i8** %8, align 8, !dbg !805\l  %13 = icmp eq i8* %12, null, !dbg !807\l  br i1 %13, label %14, label %21, !dbg !808\l|{<s0>T|<s1>F}}"];
+	Node0x23086a0:s0 -> Node0x23095d0;
+	Node0x23086a0:s1 -> Node0x23096c0;
+	Node0x23095d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%14:\l14:                                               \l  %15 = load i64, i64* %7, align 8, !dbg !809\l  %16 = icmp ugt i64 %15, 0, !dbg !812\l  br i1 %16, label %17, label %20, !dbg !813\l|{<s0>T|<s1>F}}"];
+	Node0x23095d0:s0 -> Node0x2309620;
+	Node0x23095d0:s1 -> Node0x2309670;
+	Node0x2309620 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%17:\l17:                                               \l  %18 = load i8*, i8** %6, align 8, !dbg !814\l  %19 = getelementptr inbounds i8, i8* %18, i64 0, !dbg !814\l  store i8 0, i8* %19, align 1, !dbg !815\l  br label %20, !dbg !814\l}"];
+	Node0x2309620 -> Node0x2309670;
+	Node0x2309670 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%20:\l20:                                               \l  store i32 22, i32* %4, align 4, !dbg !816\l  br label %45, !dbg !816\l}"];
+	Node0x2309670 -> Node0x2309850;
+	Node0x23096c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#de614d70",label="{%21:\l21:                                               \l  call void @llvm.dbg.declare(metadata i64* %9, metadata !817, metadata\l... !DIExpression()), !dbg !819\l  %22 = load i8*, i8** %8, align 8, !dbg !820\l  %23 = call fastcc i64 @strlen(i8* %22) #27, !dbg !821\l  store i64 %23, i64* %9, align 8, !dbg !819\l  %24 = load i64, i64* %9, align 8, !dbg !822\l  %25 = load i64, i64* %7, align 8, !dbg !824\l  %26 = icmp ult i64 %24, %25, !dbg !825\l  br i1 %26, label %27, label %32, !dbg !826\l|{<s0>T|<s1>F}}"];
+	Node0x23096c0:s0 -> Node0x2309710;
+	Node0x23096c0:s1 -> Node0x2309760;
+	Node0x2309710 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%27:\l27:                                               \l  %28 = load i8*, i8** %6, align 8, !dbg !827\l  %29 = load i8*, i8** %8, align 8, !dbg !829\l  %30 = load i64, i64* %9, align 8, !dbg !830\l  %31 = add i64 %30, 1, !dbg !831\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 1 %28, i8* align 1 %29, i64\l... %31, i1 false), !dbg !832\l  store i32 0, i32* %4, align 4, !dbg !833\l  br label %45, !dbg !833\l}"];
+	Node0x2309710 -> Node0x2309850;
+	Node0x2309760 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%32:\l32:                                               \l  %33 = load i64, i64* %7, align 8, !dbg !834\l  %34 = icmp ugt i64 %33, 0, !dbg !837\l  br i1 %34, label %35, label %44, !dbg !838\l|{<s0>T|<s1>F}}"];
+	Node0x2309760:s0 -> Node0x23097b0;
+	Node0x2309760:s1 -> Node0x2309800;
+	Node0x23097b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e3d9d370",label="{%35:\l35:                                               \l  %36 = load i8*, i8** %6, align 8, !dbg !839\l  %37 = load i8*, i8** %8, align 8, !dbg !841\l  %38 = load i64, i64* %7, align 8, !dbg !842\l  %39 = sub i64 %38, 1, !dbg !843\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 1 %36, i8* align 1 %37, i64\l... %39, i1 false), !dbg !844\l  %40 = load i8*, i8** %6, align 8, !dbg !845\l  %41 = load i64, i64* %7, align 8, !dbg !846\l  %42 = sub i64 %41, 1, !dbg !847\l  %43 = getelementptr inbounds i8, i8* %40, i64 %42, !dbg !845\l  store i8 0, i8* %43, align 1, !dbg !848\l  br label %44, !dbg !849\l}"];
+	Node0x23097b0 -> Node0x2309800;
+	Node0x2309800 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%44:\l44:                                               \l  store i32 34, i32* %4, align 4, !dbg !850\l  br label %45, !dbg !850\l}"];
+	Node0x2309800 -> Node0x2309850;
+	Node0x2309850 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%45:\l45:                                               \l  %46 = load i32, i32* %4, align 4, !dbg !851\l  ret i32 %46, !dbg !851\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'do_read' function" {
+	label="CFG for 'do_read' function";
+
+	Node0x2551640 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = bitcast %struct._IO_FILE.3* %0 to %struct._IO_FILE.721*\l  %5 = tail call i64 @__string_read(%struct._IO_FILE.721* %4, i8* %1, i64 %2)\l... #27\l  ret i64 %5\l}"];
+}

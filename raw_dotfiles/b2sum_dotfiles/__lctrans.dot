@@ -1,0 +1,5 @@
+digraph "CFG for '__lctrans' function" {
+	label="CFG for '__lctrans' function";
+
+	Node0x24e7940 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = tail call fastcc i8* @__lctrans_impl(i8* %0, %struct.__locale_map* %1)\l... #27\l  ret i8* %3\l}"];
+}

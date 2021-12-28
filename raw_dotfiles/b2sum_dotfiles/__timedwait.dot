@@ -1,0 +1,5 @@
+digraph "CFG for '__timedwait' function" {
+	label="CFG for '__timedwait' function";
+
+	Node0x24263a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l  %6 = alloca i32, align 4\l  %7 = bitcast i32* %6 to i8*\l  call void @llvm.lifetime.start.p0i8(i64 4, i8* nonnull %7) #27\l  %8 = call fastcc i32 @__pthread_setcancelstate(i32 1, i32* nonnull %6) #28\l  %9 = call fastcc i32 @__timedwait_cp(i32* %0, i32 %1, i32 %2,\l... %struct.timespec* %3, i32 %4) #29\l  %10 = load i32, i32* %6, align 4, !tbaa !792\l  %11 = call fastcc i32 @__pthread_setcancelstate(i32 %10, i32* null) #28\l  call void @llvm.lifetime.end.p0i8(i64 4, i8* nonnull %7) #27\l  ret i32 %9\l}"];
+}

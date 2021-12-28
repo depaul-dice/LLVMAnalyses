@@ -1,0 +1,29 @@
+digraph "CFG for 'set_program_name' function" {
+	label="CFG for 'set_program_name' function";
+
+	Node0x20f6ef0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = alloca i8*, align 8\l  %3 = alloca i8*, align 8\l  %4 = alloca i8*, align 8\l  store i8* %0, i8** %2, align 8\l  call void @llvm.dbg.declare(metadata i8** %2, metadata !795, metadata\l... !DIExpression()), !dbg !796\l  call void @llvm.dbg.declare(metadata i8** %3, metadata !797, metadata\l... !DIExpression()), !dbg !798\l  call void @llvm.dbg.declare(metadata i8** %4, metadata !799, metadata\l... !DIExpression()), !dbg !800\l  %5 = load i8*, i8** %2, align 8, !dbg !801\l  %6 = icmp eq i8* %5, null, !dbg !803\l  br i1 %6, label %7, label %13, !dbg !804\l|{<s0>T|<s1>F}}"];
+	Node0x20f6ef0:s0 -> Node0x20f8e40;
+	Node0x20f6ef0:s1 -> Node0x20f8e90;
+	Node0x20f8e40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#5977e370",label="{%7:\l7:                                                \l  %8 = bitcast %struct._IO_FILE.706** @stderr to %struct._IO_FILE**\l  %9 = load %struct._IO_FILE*, %struct._IO_FILE** %8, align 8, !dbg !805\l  %10 = getelementptr inbounds [56 x i8], [56 x i8]* @.str.108, i64 0, i64 0\l  %11 = bitcast i32 (i8*, %struct._IO_FILE.3*)* @fputs to i32 (i8*,\l... %struct._IO_FILE*)*\l  %12 = call i32 %11(i8* %10, %struct._IO_FILE* %9), !dbg !807\l  call fastcc void @abort() #27, !dbg !808\l  unreachable, !dbg !808\l}"];
+	Node0x20f8e90 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%13:\l13:                                               \l  %14 = load i8*, i8** %2, align 8, !dbg !809\l  %15 = call fastcc i8* @strrchr(i8* %14, i32 47) #28, !dbg !810\l  store i8* %15, i8** %3, align 8, !dbg !811\l  %16 = load i8*, i8** %3, align 8, !dbg !812\l  %17 = icmp ne i8* %16, null, !dbg !813\l  br i1 %17, label %18, label %21, !dbg !812\l|{<s0>T|<s1>F}}"];
+	Node0x20f8e90:s0 -> Node0x20f8ee0;
+	Node0x20f8e90:s1 -> Node0x20f8f30;
+	Node0x20f8ee0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#be242e70",label="{%18:\l18:                                               \l  %19 = load i8*, i8** %3, align 8, !dbg !814\l  %20 = getelementptr inbounds i8, i8* %19, i64 1, !dbg !815\l  br label %23, !dbg !812\l}"];
+	Node0x20f8ee0 -> Node0x20f8f80;
+	Node0x20f8f30 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5333470",label="{%21:\l21:                                               \l  %22 = load i8*, i8** %2, align 8, !dbg !816\l  br label %23, !dbg !812\l}"];
+	Node0x20f8f30 -> Node0x20f8f80;
+	Node0x20f8f80 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%23:\l23:                                               \l  %24 = phi i8* [ %20, %18 ], [ %22, %21 ], !dbg !812\l  store i8* %24, i8** %4, align 8, !dbg !817\l  %25 = load i8*, i8** %4, align 8, !dbg !818\l  %26 = load i8*, i8** %2, align 8, !dbg !820\l  %27 = ptrtoint i8* %25 to i64, !dbg !821\l  %28 = ptrtoint i8* %26 to i64, !dbg !821\l  %29 = sub i64 %27, %28, !dbg !821\l  %30 = icmp sge i64 %29, 7, !dbg !822\l  br i1 %30, label %31, label %48, !dbg !823\l|{<s0>T|<s1>F}}"];
+	Node0x20f8f80:s0 -> Node0x20f8fd0;
+	Node0x20f8f80:s1 -> Node0x20f9110;
+	Node0x20f8fd0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c32e3170",label="{%31:\l31:                                               \l  %32 = load i8*, i8** %4, align 8, !dbg !824\l  %33 = getelementptr inbounds i8, i8* %32, i64 -7, !dbg !825\l  %34 = getelementptr inbounds [8 x i8], [8 x i8]* @.str.1.109, i64 0, i64 0\l  %35 = call fastcc i32 @strncmp(i8* %33, i8* %34, i64 7) #28, !dbg !826\l  %36 = icmp eq i32 %35, 0, !dbg !827\l  br i1 %36, label %37, label %48, !dbg !828\l|{<s0>T|<s1>F}}"];
+	Node0x20f8fd0:s0 -> Node0x20f9020;
+	Node0x20f8fd0:s1 -> Node0x20f9110;
+	Node0x20f9020 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d0473d70",label="{%37:\l37:                                               \l  %38 = load i8*, i8** %4, align 8, !dbg !829\l  store i8* %38, i8** %2, align 8, !dbg !831\l  %39 = load i8*, i8** %4, align 8, !dbg !832\l  %40 = getelementptr inbounds [4 x i8], [4 x i8]* @.str.2.110, i64 0, i64 0\l  %41 = call fastcc i32 @strncmp(i8* %39, i8* %40, i64 3) #28, !dbg !834\l  %42 = icmp eq i32 %41, 0, !dbg !835\l  br i1 %42, label %43, label %47, !dbg !836\l|{<s0>T|<s1>F}}"];
+	Node0x20f9020:s0 -> Node0x20f9070;
+	Node0x20f9020:s1 -> Node0x20f90c0;
+	Node0x20f9070 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dc5d4a70",label="{%43:\l43:                                               \l  %44 = load i8*, i8** %4, align 8, !dbg !837\l  %45 = getelementptr inbounds i8, i8* %44, i64 3, !dbg !839\l  store i8* %45, i8** %2, align 8, !dbg !840\l  %46 = load i8*, i8** %2, align 8, !dbg !841\l  store i8* %46, i8** @__progname, align 8, !dbg !842\l  br label %47, !dbg !843\l}"];
+	Node0x20f9070 -> Node0x20f90c0;
+	Node0x20f90c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d0473d70",label="{%47:\l47:                                               \l  br label %48, !dbg !844\l}"];
+	Node0x20f90c0 -> Node0x20f9110;
+	Node0x20f9110 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%48:\l48:                                               \l  %49 = load i8*, i8** %2, align 8, !dbg !845\l  store i8* %49, i8** @program_name, align 8, !dbg !846\l  %50 = load i8*, i8** %2, align 8, !dbg !847\l  store i8* %50, i8** @__progname_full, align 8, !dbg !848\l  ret void, !dbg !849\l}"];
+}

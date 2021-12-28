@@ -1,0 +1,10 @@
+digraph "CFG for 'wctomb' function" {
+	label="CFG for 'wctomb' function";
+
+	Node0x24de600 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = icmp eq i8* %0, null\l  br i1 %3, label %7, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x24de600:s0 -> Node0x24de6a0;
+	Node0x24de600:s1 -> Node0x24de650;
+	Node0x24de650 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%4:\l4:                                                \l  %5 = tail call fastcc i64 @wcrtomb(i8* nonnull %0, i32 %1, %struct.anon.5*\l... null) #27\l  %6 = trunc i64 %5 to i32\l  br label %7\l}"];
+	Node0x24de650 -> Node0x24de6a0;
+	Node0x24de6a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%7:\l7:                                                \l  %8 = phi i32 [ %6, %4 ], [ 0, %2 ]\l  ret i32 %8\l}"];
+}

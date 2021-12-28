@@ -1,0 +1,21 @@
+digraph "CFG for 'do_read.970' function" {
+	label="CFG for 'do_read.970' function";
+
+	Node0x25624b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8d6cc70",label="{%3:\l  %4 = getelementptr inbounds %struct._IO_FILE.3, %struct._IO_FILE.3* %0, i64\l... 0, i32 21\l  %5 = bitcast i8** %4 to i32**\l  %6 = load i32*, i32** %5, align 8, !tbaa !792\l  %7 = load i32, i32* %6, align 4, !tbaa !799\l  %8 = icmp eq i32 %7, 0\l  %9 = getelementptr inbounds [2 x i32], [2 x i32]* @.str.971, i64 0, i64 0\l  %10 = select i1 %8, i32* %9, i32* %6\l  %11 = getelementptr inbounds %struct._IO_FILE.3, %struct._IO_FILE.3* %0, i64\l... 0, i32 12\l  %12 = load i64, i64* %11, align 8, !tbaa !800\l  %13 = icmp eq i64 %12, 0\l  br i1 %13, label %30, label %14\l|{<s0>T|<s1>F}}"];
+	Node0x25624b0:s0 -> Node0x25627e0;
+	Node0x25624b0:s1 -> Node0x25626f0;
+	Node0x25626f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d1dae970",label="{%14:\l14:                                               \l  %15 = getelementptr inbounds %struct._IO_FILE.3, %struct._IO_FILE.3* %0, i64\l... 0, i32 11\l  br label %16\l}"];
+	Node0x25626f0 -> Node0x2562740;
+	Node0x2562740 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%16:\l16:                                               \l  %17 = phi i64 [ 0, %14 ], [ %27, %21 ]\l  %18 = getelementptr inbounds i32, i32* %10, i64 %17\l  %19 = load i32, i32* %18, align 4, !tbaa !799\l  %20 = icmp eq i32 %19, 0\l  br i1 %20, label %30, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x2562740:s0 -> Node0x25627e0;
+	Node0x2562740:s1 -> Node0x2562790;
+	Node0x2562790 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%21:\l21:                                               \l  %22 = icmp slt i32 %19, 128\l  %23 = trunc i32 %19 to i8\l  %24 = select i1 %22, i8 %23, i8 64\l  %25 = load i8*, i8** %15, align 8, !tbaa !801\l  %26 = getelementptr inbounds i8, i8* %25, i64 %17\l  store i8 %24, i8* %26, align 1, !tbaa !802\l  %27 = add nuw i64 %17, 1\l  %28 = load i64, i64* %11, align 8, !tbaa !800\l  %29 = icmp ult i64 %27, %28\l  br i1 %29, label %16, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x2562790:s0 -> Node0x2562740;
+	Node0x2562790:s1 -> Node0x25627e0;
+	Node0x25627e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8d6cc70",label="{%30:\l30:                                               \l  %31 = phi i64 [ 0, %3 ], [ %17, %16 ], [ %27, %21 ]\l  %32 = getelementptr inbounds %struct._IO_FILE.3, %struct._IO_FILE.3* %0, i64\l... 0, i32 11\l  %33 = bitcast i8** %32 to i64*\l  %34 = load i64, i64* %33, align 8, !tbaa !801\l  %35 = getelementptr inbounds %struct._IO_FILE.3, %struct._IO_FILE.3* %0, i64\l... 0, i32 1\l  %36 = bitcast i8** %35 to i64*\l  store i64 %34, i64* %36, align 8, !tbaa !803\l  %37 = inttoptr i64 %34 to i8*\l  %38 = getelementptr inbounds i8, i8* %37, i64 %31\l  %39 = getelementptr inbounds %struct._IO_FILE.3, %struct._IO_FILE.3* %0, i64\l... 0, i32 2\l  store i8* %38, i8** %39, align 8, !tbaa !804\l  %40 = getelementptr inbounds i32, i32* %10, i64 %31\l  store i32* %40, i32** %5, align 8, !tbaa !792\l  %41 = icmp ne i64 %31, 0\l  %42 = icmp ne i64 %2, 0\l  %43 = and i1 %42, %41\l  br i1 %43, label %44, label %47\l|{<s0>T|<s1>F}}"];
+	Node0x25627e0:s0 -> Node0x2562830;
+	Node0x25627e0:s1 -> Node0x2562880;
+	Node0x2562830 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c1d4f470",label="{%44:\l44:                                               \l  %45 = getelementptr inbounds i8, i8* %37, i64 1\l  store i8* %45, i8** %35, align 8, !tbaa !803\l  %46 = load i8, i8* %37, align 1, !tbaa !802\l  store i8 %46, i8* %1, align 1, !tbaa !802\l  br label %47\l}"];
+	Node0x2562830 -> Node0x2562880;
+	Node0x2562880 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8d6cc70",label="{%47:\l47:                                               \l  %48 = phi i64 [ 1, %44 ], [ 0, %30 ]\l  ret i64 %48\l}"];
+}

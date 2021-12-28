@@ -1,0 +1,10 @@
+digraph "CFG for '__freading' function" {
+	label="CFG for '__freading' function";
+
+	Node0x255ba10 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = getelementptr inbounds %struct._IO_FILE.733, %struct._IO_FILE.733* %0,\l... i64 0, i32 0\l  %3 = load i32, i32* %2, align 8, !tbaa !792\l  %4 = and i32 %3, 8\l  %5 = icmp eq i32 %4, 0\l  br i1 %5, label %6, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x255ba10:s0 -> Node0x255ba60;
+	Node0x255ba10:s1 -> Node0x255bab0;
+	Node0x255ba60 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%6:\l6:                                                \l  %7 = getelementptr inbounds %struct._IO_FILE.733, %struct._IO_FILE.733* %0,\l... i64 0, i32 2\l  %8 = load i8*, i8** %7, align 8, !tbaa !799\l  %9 = icmp ne i8* %8, null\l  %10 = zext i1 %9 to i32\l  br label %11\l}"];
+	Node0x255ba60 -> Node0x255bab0;
+	Node0x255bab0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%11:\l11:                                               \l  %12 = phi i32 [ 1, %1 ], [ %10, %6 ]\l  ret i32 %12\l}"];
+}

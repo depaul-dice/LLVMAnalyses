@@ -1,0 +1,16 @@
+digraph "CFG for '__tl_lock' function" {
+	label="CFG for '__tl_lock' function";
+
+	Node0x2413370 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8d6cc70",label="{%0:\l  %1 = tail call %struct.__pthread* asm \"mov %fs:0,$0\",\l... \"=r,~\{dirflag\},~\{fpsr\},~\{flags\}\"() #27, !srcloc !792\l  %2 = getelementptr inbounds %struct.__pthread, %struct.__pthread* %1, i64 0,\l... i32 7\l  %3 = load i32, i32* %2, align 8, !tbaa !793\l  %4 = load volatile i32, i32* @__thread_list_lock, align 4, !tbaa !801\l  %5 = icmp eq i32 %4, %3\l  br i1 %5, label %9, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x2413370:s0 -> Node0x24136a0;
+	Node0x2413370:s1 -> Node0x2413650;
+	Node0x2413650 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%6:\l6:                                                \l  %7 = tail call i32 asm sideeffect \"lock \l  %8 = icmp eq i32 %7, 0\l  br i1 %8, label %16, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x2413650:s0 -> Node0x2413740;
+	Node0x2413650:s1 -> Node0x24136f0;
+	Node0x24136a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%9:\l9:                                                \l  %10 = load i32, i32* @tl_lock_count, align 4, !tbaa !801\l  %11 = add nsw i32 %10, 1\l  store i32 %11, i32* @tl_lock_count, align 4, !tbaa !801\l  br label %16\l}"];
+	Node0x24136a0 -> Node0x2413740;
+	Node0x24136f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%12:\l12:                                               \l  %13 = phi i32 [ %14, %12 ], [ %7, %6 ]\l  tail call fastcc void @__wait(i32* nonnull @__thread_list_lock, i32* nonnull\l... @tl_lock_waiters, i32 %13, i32 0) #29\l  %14 = tail call i32 asm sideeffect \"lock \l  %15 = icmp eq i32 %14, 0\l  br i1 %15, label %16, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x24136f0:s0 -> Node0x2413740;
+	Node0x24136f0:s1 -> Node0x24136f0;
+	Node0x2413740 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8d6cc70",label="{%16:\l16:                                               \l  ret void\l}"];
+}

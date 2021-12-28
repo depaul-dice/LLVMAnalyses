@@ -1,0 +1,10 @@
+digraph "CFG for 'cgt_init' function" {
+	label="CFG for 'cgt_init' function";
+
+	Node0x23dd3c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = getelementptr inbounds [10 x i8], [10 x i8]* @.str.1223, i64 0, i64 0\l  %4 = getelementptr inbounds [21 x i8], [21 x i8]* @.str.1.1224, i64 0, i64 0\l  %5 = tail call fastcc i8* @__vdsosym(i8* %3, i8* %4) #27\l  %6 = bitcast i32 (i32, %struct.timespec*)* @cgt_init to i8*\l  %7 = tail call i8* asm \"lock \l  %8 = icmp eq i8* %5, null\l  br i1 %8, label %12, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x23dd3c0:s0 -> Node0x23dd460;
+	Node0x23dd3c0:s1 -> Node0x23dd410;
+	Node0x23dd410 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%9:\l9:                                                \l  %10 = bitcast i8* %5 to i32 (i32, %struct.timespec*)*\l  %11 = tail call i32 %10(i32 %0, %struct.timespec* %1) #29\l  br label %12\l}"];
+	Node0x23dd410 -> Node0x23dd460;
+	Node0x23dd460 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%12:\l12:                                               \l  %13 = phi i32 [ %11, %9 ], [ -38, %2 ]\l  ret i32 %13\l}"];
+}
