@@ -1,4 +1,6 @@
-
+'''
+Copyright (c) 2021 Yuta Nakamura. All rights reserved.
+'''
 import unittest
 
 class cfgTests(unittest.TestCase): 

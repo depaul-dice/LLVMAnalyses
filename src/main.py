@@ -1,3 +1,6 @@
+'''
+Copyright (c) 2021 Yuta Nakamura. All rights reserved.
+'''
 import parseDot 
 import tools 
 from simplify import further_simplify
